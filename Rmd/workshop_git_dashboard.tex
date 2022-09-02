@@ -1,0 +1,247 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  12pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{longtable}
+\usepackage{graphics}
+\usepackage{xparse}
+\usepackage{moresize}
+\usepackage{setspace}
+\usepackage{tcolorbox}
+\usepackage{wrapfig}
+\usepackage{helvet}
+\usepackage{sectsty}
+\usepackage{fancyhdr}
+\usepackage{xpatch}
+\usepackage{booktabs}
+\onehalfspacing
+\pagestyle{fancy}
+\definecolor{gssmidblue}{RGB}{32, 115, 188}
+\definecolor{dfeheadingblue}{RGB}{16, 79, 117}
+\renewcommand{\familydefault}{\sfdefault}
+\allsectionsfont{\color{dfeheadingblue}}
+\sectionfont{\color{dfeheadingblue}\fontsize{16}{18}\selectfont}
+\fancyhead[C]{}
+\fancyhead[RL]{}
+\fancyfoot[LR]{}
+\fancyfoot[C]{\sffamily \thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\futurelet\TMPfootrule\def\footrule{{\color{gssmidblue}\TMPfootrule}}
+\usepackage{floatrow}
+\floatsetup[figure]{capposition=top}
+\usepackage[tableposition=top]{caption}
+\usepackage[titles]{tocloft}
+\renewcommand{\cftdot}{}
+\AtBeginDocument{\let\maketitle\relax}
+\usepackage{cellspace}
+\usepackage{etoolbox}
+\colorlet{headercolour}{DarkSeaGreen}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={DfE Statistics Development Team Workshops},
+  pdfauthor={Department for Education},
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{DfE Statistics Development Team Workshops}
+\author{Department for Education}
+\date{}
+
+\begin{document}
+\maketitle
+
+\resizebox{48mm}{!}{\includegraphics{images/Department_for_Education.png}}
+
+\vspace*{0.24\textheight}
+
+\raggedright\HUGE{\color{dfeheadingblue}\textbf{DfE Statistics Development Team Workshops}} 
+
+\huge{\color{dfeheadingblue}\textbf{Using git and GitHub (building a R-Shiny dashboard)}}
+\vspace*{2\baselineskip} 
+
+\normalsize 
+ \newpage 
+
+
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+This document provides a workthrough guide for statistics publication
+teams on how to work collaboratively using git, using the creation of a
+data dashboard as a relevant context.
+
+\hypertarget{background-information}{%
+\section{Background Information}\label{background-information}}
+
+\hypertarget{github-versus-dev-ops}{%
+\subsection{GitHub versus Dev Ops}\label{github-versus-dev-ops}}
+
+GitHub and Dev Ops effectively provide the same service in terms of
+creating software via a git repository: they both act as the host for
+the remote repository, whilst offering important tools to manage bugs
+and issues, tasks, merging branches, deploying applications and so on.
+
+\hypertarget{pre-workshop-requirements}{%
+\section{Pre-workshop requirements}\label{pre-workshop-requirements}}
+
+Here's a list of things you'll need to make sure are set up before
+starting on this task sheet:
+
+\begin{itemize}
+\tightlist
+\item
+  GitHub account:
+\item
+  Install git on your laptop:
+\item
+  Install R-Studio on your machine
+\end{itemize}
+
+\hypertarget{setting-up-the-repository}{%
+\section{Setting up the repository}\label{setting-up-the-repository}}
+
+\hypertarget{creating-a-new-repository-on-github}{%
+\subsection{Creating a new repository on
+GitHub}\label{creating-a-new-repository-on-github}}
+
+At this point, we're ready to create a new repository. The conext of
+this exercise is to create a dashboard, so let's get a head start on
+that by using the DfE R-Shiny template.
+
+You can access the template here:
+
+\url{https://github.com/dfe-analytical-services/shiny-template}
+
+(images/gitdemo/gitdemo-shinydash-template.png){[}{]}
+
+On that page, you'll see a button saying use this repo as a template. At
+this one of your group (whilst logged in to GitHub) should click that
+button, which will take you to the create repository page. Here you'll
+have the option to create a copy of the template in your own GitHub
+area.
+
+\hypertarget{cloning-the-repository-to-your-local-machine}{%
+\subsection{Cloning the repository to your local
+machine}\label{cloning-the-repository-to-your-local-machine}}
+
+\hypertarget{controlling-packages-with-renv}{%
+\subsection{Controlling packages with
+renv}\label{controlling-packages-with-renv}}
+
+\hypertarget{basics-of-git}{%
+\section{Basics of git}\label{basics-of-git}}
+
+\hypertarget{adding-commiting-and-pushing}{%
+\subsection{Adding, commiting and
+pushing}\label{adding-commiting-and-pushing}}
+
+\hypertarget{pulling-from-the-remote-repository}{%
+\subsection{Pulling from the remote
+repository}\label{pulling-from-the-remote-repository}}
+
+\hypertarget{summary-of-git-basics}{%
+\subsection{Summary of git basics}\label{summary-of-git-basics}}
+
+\newpage
+
+\resizebox{48mm}{!}{\includegraphics{images/Department_for_Education.png}}
+\vspace*{\fill}
+\color{black}
+
+© Crown copyright 2022
+
+This publication (not including logos) is licensed under the terms of
+the Open Government Licence v3.0 except where otherwise stated. Where we
+have identified any third party copyright information you will need to
+obtain permission from the copyright holders concerned.
+
+To view this licence:
+
+\begin{tabular}{p{0.02\linewidth} p{0.1\linewidth} p{0.88\linewidth}}
+& visit & www.nationalarchives.gov.uk/doc/open-government-licence/version/3 \\
+& email & psi@nationalarchives.gsi.gov.uk \\
+& write to & Information Policy Team, The National Archives, Kew, London, TW9 4DU \\
+\end{tabular}
+
+About this publication:
+
+\begin{tabular}{p{0.02\linewidth} p{0.1\linewidth} p{0.88\linewidth}}
+& enquiries & www.education.gov.uk/contactus \\
+& download & www.gov.uk/government/publications \\
+\end{tabular}
+
+\begin{tabular}[t]{p{0.06\linewidth} p{0.24\linewidth} p{0.04\linewidth} p{0.06\linewidth} p{0.36\linewidth}}
+\raisebox{-.5\height}{\includegraphics{images/logoTwitter.png}} &
+Follow us on Twitter: @educationgovuk &
+&
+\raisebox{-.5\height}{\includegraphics{images/logoFacebook.png}} &
+Like us on Facebook: \qquad facebook.com/educationgovuk\\
+\end{tabular}
+
+\end{document}
