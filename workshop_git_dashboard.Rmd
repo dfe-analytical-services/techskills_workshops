@@ -64,9 +64,9 @@ close(connTitle)
 
 # Introduction
 
-This document provides a workthrough guide for statistics publication teams on how to work collaboratively using git, using the creation of a data dashboard as a relevant context.
+We've prepared this walkthrough guide for statistics publication teams as an introduction on how to work collaboratively with git, using the creation of a data dashboard as a relevant context. The guide is intended to be step-by-step, building up from the very basics. The plan is to work through this in groups of 3 or so and with access to experienced git users to call on for support. If it starts too basic for your level, then just go through at your own/your group's pace as you see fit. By no means can we cover everything in this walkthrough, so please see it as a prompt to ask follow-up questions as you're working through on anything related to git, GitHub and Dev Ops. 
 
-# Background Information
+For simplicity of access and accounts, we're focussing on GitHub rather than Dev Ops here, but much of the material is transferable.
 
 ## GitHub versus Dev Ops
 
@@ -88,13 +88,20 @@ Preferably before coming along, you'll need to go through the following list of 
 
 You'll also need to make sure that git is set up in the git/SVN pane of global options in R-Studio (found in the Tools drop down menu). Make sure the path to your git executable is entered in the git path box and git should automatically be integrated with R-Studio. 
 
-![Enter the path to your git executable in the git path option box](images/gitdemo/gitdemo-gitRstudio-settings.png)
+```{r echo=FALSE, out.width='64%', fig.cap='Enter the path to your git executable in the git path option box'}
+knitr::include_graphics('images/gitdemo/gitdemo-gitRstudio-settings.png')
+```
 
-Once you open a repository, you'll get an extra panel, named 'git', in the top right pane of R-Studio and you'll also be able to use git in the 'Terminal' tab at the bottom left (in the same place as the R console). A useful thing here if you want to use git commands in the terminal is to switch the terminal from the default Windows Command Prompt to `git BASH`. You can do this in the Terminal tab of R-Studio's global options - just select `git BASH` from the 'New terminal opens with' pull down menu. Click apply and then select the Terminal tab (next to the Console tab), click 'Terminal 1' and then select 'New terminal' from the drop down menu. You should see something similar to the figure below.
+Once you open a repository, you'll get an extra panel, named 'git', in the top right pane of R-Studio and you'll also be able to use git in the 'Terminal' tab at the bottom left (in the same place as the R console). 
 
-![The `git BASH` terminal in R-Studio](images/gitdemo/gitdemo-gitRstudio-NewTerminal.png)
+```{r echo=FALSE, out.width='56%', fig.cap='The `git BASH` terminal in R-Studio'}
+knitr::include_graphics('images/gitdemo/gitdemo-gitRstudio-NewTerminal.png')
+```
+
+A useful thing here if you want to use git commands in the terminal is to switch the terminal from the default Windows Command Prompt to `git BASH`. You can do this in the Terminal tab of R-Studio's global options - just select `git BASH` from the 'New terminal opens with' pull down menu. Click apply and then select the Terminal tab (next to the Console tab), click 'Terminal 1' and then select 'New terminal' from the drop down menu. You should see something similar to the terminal screenshot.
 
 \newpage
+
 # Setting up the repository
 
 ## Creating a new repository on GitHub
@@ -112,7 +119,9 @@ On that page, you'll see the main repository page. This contains a menu bar to n
 
 In the case of our template, you'll also see a button saying use this repo as a template. At this point, one (and only one!) of your group should click that button, which will take you to the create repository page. Here you have the option to create a copy of the template in your own GitHub area as shown below. Give the new repository a name and a description and then click "Create repository from template".
 
-![Put in a name for the new repo and a quick description and then click on Create repository from template](images/gitdemo/gitdemo-shinydash-newrepofromtemplate.png)
+```{r echo=FALSE, out.width='72%', fig.cap='Put in a name for the new repo and a quick description and then click on Create repository from template'}
+knitr::include_graphics('images/gitdemo/gitdemo-shinydash-newrepofromtemplate.png')
+```
 
 One of you at least should now have their own repository produced from this starting template project. We need everyone in your team to be able to work on this project however, so now you'll need to give access to your other team members. To do so, navigate to settings (at the far right of the menu bar on your repository page) and = 
 
@@ -178,15 +187,56 @@ knitr::include_graphics('images/gitdemo/gitdemo-RStudio_OpenProj_wizard.png')
 
 ## Controlling packages with renv
 
+Now that you've each got a clone of the repository, it's useful to understand a little bit about environment control. Using R as the specific example, any app or pipeline that you develop will have packages that it depends on. If someone wants to use your code, they need to know what pacakges are involved, whilst it can also be helpful for them to be able to use the same versions of those packages in order to recreate exactly what you intended the code to be able to do.
+
+To manage this, we can use an R package called `renv`. This manages the R environment for you, helping you keep track of your repositories required R packages and their versions. In a brand new empty project, you'd initiate `renv` with the command `renv::init()`. In this case, the template already has `renv` initiated. So instead we can tell renv to check the necessary packages and install them for us. You can do this by entering the following command in the R console:
+
+    renv::restore()
+    
+This should go through `renv`'s list of the required packages and install them all in one go (note that you'll need to be connected to the internet for it to retrieve any packages that aren't already installed). Once you've done this, the contents of the repository should run as intended. If at some point you install an extra package for the repository, you can add this to `renv`'s package list by entering the command `renv::snapshot()` into the R console.  
+
 ## Running the dashboard template locally
+
+Once you've cloned the package and run `renv::restore`, you should then be able to run the Shiny dashboard template. To do this, either a) enter `shiny::runApp()` in the R console or b) open up the file **ui.R** and then click **run App** to the top right of the editor pane. The dashboard should then load either in an RStudio window or in your default web browser (depending on your chosen settings in RStudio).
+
+![The DfE R-Shiny template loaded locally from RStudio](images/gitdemo/gitdemo-ShinyAppTemplate.PNG)
+
+Although this workshop is primariy a chance to practice using git, you'll need a little understanding of the components of an R-Shiny app as well. A single app generally consists of 3 key scripts: *global.R*, *ui.R* and *server.R*. Each of these fulfills a specific purpose as follows:
+
+* *global.R*: contains variables and functions required by the rest of the app (e.g. reading in data, connecting to a database);
+* *ui.R*: contains code to create the app's user interface (e.g. arranging the layout, placement of charts, tables and text);
+* *server.R*: contains the functions that make the app responsive (e.g. rendering tables and charts and updating dynamic text and input fields).
+
+We'll explain more as needed, but for now that should give you the basic overview.
 
 ## Summary
 
-### Resources and further reading
+In this section, we've covered creating a repository via a template on GitHub, cloning it to your local drive (using both the BASH terminal and the RStudio wizard) and getting the necessary packages installed in one go with `renv::restore()` via the R console.
+
+In the next section, we'll cover some of the basics of using git to log changes to your code and sync them between the remote repo and local copies.
+
+\newpage
 
 # Basics of git
 
+We'll now take a look at updating repositories with your working. To do so, we'll follow some example first steps you might take with developing the template dashboard app to use your own data. The steps we'll follow will be to create a new branch, add the data in, commit it to the github log and then push it to the remote (GitHub) repository.
+
+## The git log
+
+In order to move quickly between around different versions of files and code, git is built around a log file that tracks changes in a repository. To view the log of any repository, we can simply go into that repository and run the command `git log` from the BASH terminal. For example, if you run it in the repository you've created from the template, you'll get something along the lines of the following:
+
+
+## Creating a new branch
+
+
+
 ## Adding, commiting and pushing
+
+First of all in this new branch, one of your group should make a folder called **data** in your local repository. To do this, you can either go to the BASH terminal and type the command `mkdir data` (making sure you're in your local repositories root directory) or click the add folder button in the Files tab in the bottom right panel of RStudio.
+
+For some example data, we'll use a file from a publication on Explore Education Statistics. Go to [the progression to higher education or training data catalogue](https://explore-education-statistics.service.gov.uk/data-catalogue/progression-to-higher-education-or-training/2019-20) and download the **Progression to higher education and training - Local authority level (csv, 4 Mb)** file and extract the data csv file (*l4_tidy_2020_all_la.csv*) into the data folder you just created.
+
+Now to add this to the git log
 
 
 ## Pulling from the remote repository
@@ -195,6 +245,7 @@ knitr::include_graphics('images/gitdemo/gitdemo-RStudio_OpenProj_wizard.png')
 
 ### Resources and further reading
 
+\newpage
 
 # Working collaboratively with git
 
