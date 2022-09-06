@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2021.12.7)  2 SEP 2022 15:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2021.12.7)  6 SEP 2022 19:31
 entering extended mode
 **./workshop_git_dashboard.tex
 (workshop_git_dashboard.tex
@@ -376,7 +376,71 @@ Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 \Gm@layoutvoffset=\dimen120
 \Gm@dimlist=\toks23
 ("C:\Program Files\MiKTeX 2.9\tex/latex/geometry\geometry.cfg")) ("C:\Program F
-iles\MiKTeX 2.9\tex/latex/graphics\graphicx.sty"
+iles\MiKTeX 2.9\tex/latex/tools\longtable.sty"
+Package: longtable 2019/02/06 v4.12 Multi-page Table package (DPC)
+\LTleft=\skip47
+\LTright=\skip48
+\LTpre=\skip49
+\LTpost=\skip50
+\LTchunksize=\count106
+\LTcapwidth=\dimen121
+\LT@head=\box30
+\LT@firsthead=\box31
+\LT@foot=\box32
+\LT@lastfoot=\box33
+\LT@cols=\count107
+\LT@rows=\count108
+\c@LT@tables=\count109
+\c@LT@chunks=\count110
+\LT@p@ftn=\toks24
+) (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen122
+\lightrulewidth=\dimen123
+\cmidrulewidth=\dimen124
+\belowrulesep=\dimen125
+\belowbottomsep=\dimen126
+\aboverulesep=\dimen127
+\abovetopsep=\dimen128
+\cmidrulesep=\dimen129
+\cmidrulekern=\dimen130
+\defaultaddspace=\dimen131
+\@cmidla=\count111
+\@cmidlb=\count112
+\@aboverulesep=\dimen132
+\@belowrulesep=\dimen133
+\@thisruleclass=\count113
+\@lastruleclass=\count114
+\@thisrulewidth=\dimen134
+) ("C:\Program Files\MiKTeX 2.9\tex/latex/tools\array.sty"
+Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
+\col@sep=\dimen135
+\ar@mcellbox=\box34
+\extrarowheight=\dimen136
+\NC@list=\toks25
+\extratabsurround=\skip51
+\backup@length=\skip52
+\ar@cellbox=\box35
+) ("C:\Program Files\MiKTeX 2.9\tex/latex/tools\calc.sty"
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count115
+\calc@Bcount=\count116
+\calc@Adimen=\dimen137
+\calc@Bdimen=\dimen138
+\calc@Askip=\skip53
+\calc@Bskip=\skip54
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count117
+\calc@Cskip=\skip55
+)
+(C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/footnotehyper\footnotehy
+per.sty
+Package: footnotehyper 2021/08/13 v1.1e hyperref aware footnote.sty (JFB)
+\FNH@notes=\box36
+\FNH@width=\dimen139
+\FNH@toks=\toks26
+) ("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\graphicx.sty"
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 ("C:\Program Files\MiKTeX 2.9\tex/latex/graphics\graphics.sty"
 Package: graphics 2019/07/20 v1.3b Standard LaTeX Graphics (DPC,SPQR)
@@ -387,203 +451,186 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
 )
-\Gin@req@height=\dimen121
-\Gin@req@width=\dimen122
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/tools\longtable.sty"
-Package: longtable 2019/02/06 v4.12 Multi-page Table package (DPC)
-\LTleft=\skip47
-\LTright=\skip48
-\LTpre=\skip49
-\LTpost=\skip50
-\LTchunksize=\count106
-\LTcapwidth=\dimen123
-\LT@head=\box30
-\LT@firsthead=\box31
-\LT@foot=\box32
-\LT@lastfoot=\box33
-\LT@cols=\count107
-\LT@rows=\count108
-\c@LT@tables=\count109
-\c@LT@chunks=\count110
-\LT@p@ftn=\toks24
+\Gin@req@height=\dimen140
+\Gin@req@width=\dimen141
 )
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/l3packages/xparse\xparse
 .sty (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/l3kernel\expl3.sty
 Package: expl3 2022-05-04 L3 programming layer (loader) 
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/l3kernel\expl3-code.tex
 Package: expl3 2022-05-04 L3 programming layer (code)
-\c_max_int=\count111
-\l_tmpa_int=\count112
-\l_tmpb_int=\count113
-\g_tmpa_int=\count114
-\g_tmpb_int=\count115
-\l__seq_internal_a_int=\count116
-\l__seq_internal_b_int=\count117
-\g__kernel_prg_map_int=\count118
-\c__ior_term_noprompt_ior=\count119
-\c_log_iow=\count120
-\l_iow_line_count_int=\count121
-\l__iow_line_target_int=\count122
-\l__iow_one_indent_int=\count123
-\l__iow_indent_int=\count124
-\c_zero_dim=\dimen124
-\c_max_dim=\dimen125
-\l_tmpa_dim=\dimen126
-\l_tmpb_dim=\dimen127
-\g_tmpa_dim=\dimen128
-\g_tmpb_dim=\dimen129
-\c_zero_skip=\skip51
-\c_max_skip=\skip52
-\l_tmpa_skip=\skip53
-\l_tmpb_skip=\skip54
-\g_tmpa_skip=\skip55
-\g_tmpb_skip=\skip56
+\c_max_int=\count118
+\l_tmpa_int=\count119
+\l_tmpb_int=\count120
+\g_tmpa_int=\count121
+\g_tmpb_int=\count122
+\l__seq_internal_a_int=\count123
+\l__seq_internal_b_int=\count124
+\g__kernel_prg_map_int=\count125
+\c__ior_term_noprompt_ior=\count126
+\c_log_iow=\count127
+\l_iow_line_count_int=\count128
+\l__iow_line_target_int=\count129
+\l__iow_one_indent_int=\count130
+\l__iow_indent_int=\count131
+\c_zero_dim=\dimen142
+\c_max_dim=\dimen143
+\l_tmpa_dim=\dimen144
+\l_tmpb_dim=\dimen145
+\g_tmpa_dim=\dimen146
+\g_tmpb_dim=\dimen147
+\c_zero_skip=\skip56
+\c_max_skip=\skip57
+\l_tmpa_skip=\skip58
+\l_tmpb_skip=\skip59
+\g_tmpa_skip=\skip60
+\g_tmpb_skip=\skip61
 \c_zero_muskip=\muskip11
 \c_max_muskip=\muskip12
 \l_tmpa_muskip=\muskip13
 \l_tmpb_muskip=\muskip14
 \g_tmpa_muskip=\muskip15
 \g_tmpb_muskip=\muskip16
-\l_keys_choice_int=\count125
-\l__intarray_loop_int=\count126
-\c__intarray_sp_dim=\dimen130
-\g__intarray_font_int=\count127
-\c__fp_leading_shift_int=\count128
-\c__fp_middle_shift_int=\count129
-\c__fp_trailing_shift_int=\count130
-\c__fp_big_leading_shift_int=\count131
-\c__fp_big_middle_shift_int=\count132
-\c__fp_big_trailing_shift_int=\count133
-\c__fp_Bigg_leading_shift_int=\count134
-\c__fp_Bigg_middle_shift_int=\count135
-\c__fp_Bigg_trailing_shift_int=\count136
-\c__kernel_randint_max_int=\count137
-\g__fp_array_int=\count138
-\l__fp_array_loop_int=\count139
-\g__cctab_allocate_int=\count140
-\l__sort_length_int=\count141
-\l__sort_min_int=\count142
-\l__sort_top_int=\count143
-\l__sort_max_int=\count144
-\l__sort_true_max_int=\count145
-\l__sort_block_int=\count146
-\l__sort_begin_int=\count147
-\l__sort_end_int=\count148
-\l__sort_A_int=\count149
-\l__sort_B_int=\count150
-\l__sort_C_int=\count151
-\c__str_replacement_char_int=\count152
-\l__str_modulo_int=\count153
-\l__tl_analysis_normal_int=\count154
-\l__tl_analysis_index_int=\count155
-\l__tl_analysis_nesting_int=\count156
-\l__tl_analysis_type_int=\count157
-\l__tl_peek_charcode_int=\count158
-\l__regex_internal_a_int=\count159
-\l__regex_internal_b_int=\count160
-\l__regex_internal_c_int=\count161
-\l__regex_balance_int=\count162
-\l__regex_group_level_int=\count163
-\l__regex_mode_int=\count164
-\c__regex_cs_in_class_mode_int=\count165
-\c__regex_cs_mode_int=\count166
-\l__regex_catcodes_int=\count167
-\l__regex_default_catcodes_int=\count168
-\c__regex_catcode_D_int=\count169
-\c__regex_catcode_S_int=\count170
-\c__regex_catcode_L_int=\count171
-\c__regex_catcode_O_int=\count172
-\c__regex_catcode_A_int=\count173
-\c__regex_all_catcodes_int=\count174
-\l__regex_show_lines_int=\count175
-\l__regex_min_state_int=\count176
-\l__regex_max_state_int=\count177
-\l__regex_left_state_int=\count178
-\l__regex_right_state_int=\count179
-\l__regex_capturing_group_int=\count180
-\g__regex_case_int=\count181
-\l__regex_case_max_group_int=\count182
-\l__regex_min_pos_int=\count183
-\l__regex_max_pos_int=\count184
-\l__regex_curr_pos_int=\count185
-\l__regex_start_pos_int=\count186
-\l__regex_success_pos_int=\count187
-\l__regex_curr_char_int=\count188
-\l__regex_curr_catcode_int=\count189
-\l__regex_last_char_int=\count190
-\l__regex_last_char_success_int=\count191
-\l__regex_case_changed_char_int=\count192
-\l__regex_curr_state_int=\count193
-\l__regex_step_int=\count194
-\l__regex_min_thread_int=\count195
-\l__regex_max_thread_int=\count196
-\l__regex_replacement_csnames_int=\count197
-\l__regex_match_count_int=\count198
-\l__regex_min_submatch_int=\count199
-\l__regex_submatch_int=\count266
-\l__regex_zeroth_submatch_int=\count267
-\l__regex_added_begin_int=\count268
-\l__regex_added_end_int=\count269
-\g__regex_trace_regex_int=\count270
-\c_empty_box=\box34
-\l_tmpa_box=\box35
-\l_tmpb_box=\box36
-\g_tmpa_box=\box37
-\g_tmpb_box=\box38
-\l__box_top_dim=\dimen131
-\l__box_bottom_dim=\dimen132
-\l__box_left_dim=\dimen133
-\l__box_right_dim=\dimen134
-\l__box_top_new_dim=\dimen135
-\l__box_bottom_new_dim=\dimen136
-\l__box_left_new_dim=\dimen137
-\l__box_right_new_dim=\dimen138
-\l__box_internal_box=\box39
-\l__color_internal_int=\count271
-\g__color_model_int=\count272
-\l__coffin_internal_box=\box40
-\l__coffin_internal_dim=\dimen139
-\l__coffin_offset_x_dim=\dimen140
-\l__coffin_offset_y_dim=\dimen141
-\l__coffin_x_dim=\dimen142
-\l__coffin_y_dim=\dimen143
-\l__coffin_x_prime_dim=\dimen144
-\l__coffin_y_prime_dim=\dimen145
-\c_empty_coffin=\box41
-\l__coffin_aligned_coffin=\box42
-\l__coffin_aligned_internal_coffin=\box43
-\l_tmpa_coffin=\box44
-\l_tmpb_coffin=\box45
-\g_tmpa_coffin=\box46
-\g_tmpb_coffin=\box47
-\l__coffin_bounding_shift_dim=\dimen146
-\l__coffin_left_corner_dim=\dimen147
-\l__coffin_right_corner_dim=\dimen148
-\l__coffin_bottom_corner_dim=\dimen149
-\l__coffin_top_corner_dim=\dimen150
-\l__coffin_scaled_total_height_dim=\dimen151
-\l__coffin_scaled_width_dim=\dimen152
-\c__coffin_empty_coffin=\box48
-\l__coffin_display_coffin=\box49
-\l__coffin_display_coord_coffin=\box50
-\l__coffin_display_pole_coffin=\box51
-\l__coffin_display_offset_dim=\dimen153
-\l__coffin_display_x_dim=\dimen154
-\l__coffin_display_y_dim=\dimen155
+\l_keys_choice_int=\count132
+\l__intarray_loop_int=\count133
+\c__intarray_sp_dim=\dimen148
+\g__intarray_font_int=\count134
+\c__fp_leading_shift_int=\count135
+\c__fp_middle_shift_int=\count136
+\c__fp_trailing_shift_int=\count137
+\c__fp_big_leading_shift_int=\count138
+\c__fp_big_middle_shift_int=\count139
+\c__fp_big_trailing_shift_int=\count140
+\c__fp_Bigg_leading_shift_int=\count141
+\c__fp_Bigg_middle_shift_int=\count142
+\c__fp_Bigg_trailing_shift_int=\count143
+\c__kernel_randint_max_int=\count144
+\g__fp_array_int=\count145
+\l__fp_array_loop_int=\count146
+\g__cctab_allocate_int=\count147
+\l__sort_length_int=\count148
+\l__sort_min_int=\count149
+\l__sort_top_int=\count150
+\l__sort_max_int=\count151
+\l__sort_true_max_int=\count152
+\l__sort_block_int=\count153
+\l__sort_begin_int=\count154
+\l__sort_end_int=\count155
+\l__sort_A_int=\count156
+\l__sort_B_int=\count157
+\l__sort_C_int=\count158
+\c__str_replacement_char_int=\count159
+\l__str_modulo_int=\count160
+\l__tl_analysis_normal_int=\count161
+\l__tl_analysis_index_int=\count162
+\l__tl_analysis_nesting_int=\count163
+\l__tl_analysis_type_int=\count164
+\l__tl_peek_charcode_int=\count165
+\l__regex_internal_a_int=\count166
+\l__regex_internal_b_int=\count167
+\l__regex_internal_c_int=\count168
+\l__regex_balance_int=\count169
+\l__regex_group_level_int=\count170
+\l__regex_mode_int=\count171
+\c__regex_cs_in_class_mode_int=\count172
+\c__regex_cs_mode_int=\count173
+\l__regex_catcodes_int=\count174
+\l__regex_default_catcodes_int=\count175
+\c__regex_catcode_D_int=\count176
+\c__regex_catcode_S_int=\count177
+\c__regex_catcode_L_int=\count178
+\c__regex_catcode_O_int=\count179
+\c__regex_catcode_A_int=\count180
+\c__regex_all_catcodes_int=\count181
+\l__regex_show_lines_int=\count182
+\l__regex_min_state_int=\count183
+\l__regex_max_state_int=\count184
+\l__regex_left_state_int=\count185
+\l__regex_right_state_int=\count186
+\l__regex_capturing_group_int=\count187
+\g__regex_case_int=\count188
+\l__regex_case_max_group_int=\count189
+\l__regex_min_pos_int=\count190
+\l__regex_max_pos_int=\count191
+\l__regex_curr_pos_int=\count192
+\l__regex_start_pos_int=\count193
+\l__regex_success_pos_int=\count194
+\l__regex_curr_char_int=\count195
+\l__regex_curr_catcode_int=\count196
+\l__regex_last_char_int=\count197
+\l__regex_last_char_success_int=\count198
+\l__regex_case_changed_char_int=\count199
+\l__regex_curr_state_int=\count266
+\l__regex_step_int=\count267
+\l__regex_min_thread_int=\count268
+\l__regex_max_thread_int=\count269
+\l__regex_replacement_csnames_int=\count270
+\l__regex_match_count_int=\count271
+\l__regex_min_submatch_int=\count272
+\l__regex_submatch_int=\count273
+\l__regex_zeroth_submatch_int=\count274
+\l__regex_added_begin_int=\count275
+\l__regex_added_end_int=\count276
+\g__regex_trace_regex_int=\count277
+\c_empty_box=\box37
+\l_tmpa_box=\box38
+\l_tmpb_box=\box39
+\g_tmpa_box=\box40
+\g_tmpb_box=\box41
+\l__box_top_dim=\dimen149
+\l__box_bottom_dim=\dimen150
+\l__box_left_dim=\dimen151
+\l__box_right_dim=\dimen152
+\l__box_top_new_dim=\dimen153
+\l__box_bottom_new_dim=\dimen154
+\l__box_left_new_dim=\dimen155
+\l__box_right_new_dim=\dimen156
+\l__box_internal_box=\box42
+\l__color_internal_int=\count278
+\g__color_model_int=\count279
+\l__coffin_internal_box=\box43
+\l__coffin_internal_dim=\dimen157
+\l__coffin_offset_x_dim=\dimen158
+\l__coffin_offset_y_dim=\dimen159
+\l__coffin_x_dim=\dimen160
+\l__coffin_y_dim=\dimen161
+\l__coffin_x_prime_dim=\dimen162
+\l__coffin_y_prime_dim=\dimen163
+\c_empty_coffin=\box44
+\l__coffin_aligned_coffin=\box45
+\l__coffin_aligned_internal_coffin=\box46
+\l_tmpa_coffin=\box47
+\l_tmpb_coffin=\box48
+\g_tmpa_coffin=\box49
+\g_tmpb_coffin=\box50
+\l__coffin_bounding_shift_dim=\dimen164
+\l__coffin_left_corner_dim=\dimen165
+\l__coffin_right_corner_dim=\dimen166
+\l__coffin_bottom_corner_dim=\dimen167
+\l__coffin_top_corner_dim=\dimen168
+\l__coffin_scaled_total_height_dim=\dimen169
+\l__coffin_scaled_width_dim=\dimen170
+\c__coffin_empty_coffin=\box51
+\l__coffin_display_coffin=\box52
+\l__coffin_display_coord_coffin=\box53
+\l__coffin_display_pole_coffin=\box54
+\l__coffin_display_offset_dim=\dimen171
+\l__coffin_display_x_dim=\dimen172
+\l__coffin_display_y_dim=\dimen173
 \g__char_data_ior=\read1
 )
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/l3backend\l3backend-pdft
 ex.def
 File: l3backend-pdftex.def 2022-04-20 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count273
-\l__pdf_internal_box=\box52
+\l__color_backend_stack_int=\count280
+\l__pdf_internal_box=\box55
 ))
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/l3packages/xparse\xparse
 -2018-04-12.sty
-\l__xparse_current_arg_int=\count274
-\g__xparse_grabber_int=\count275
-\l__xparse_m_args_int=\count276
-\l__xparse_v_nesting_int=\count277
+\l__xparse_current_arg_int=\count281
+\g__xparse_grabber_int=\count282
+\l__xparse_m_args_int=\count283
+\l__xparse_v_nesting_int=\count284
 )) (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/moresize\moresize.sty
 Package: moresize 1999/07/26 v1.9 (more font sizes)
 ) (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/setspace\setspace.sty
@@ -596,15 +643,15 @@ Package: tcolorbox 2022/01/07 version 5.0.2 text color boxes
 
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/utilities\pgfutil-
 common.tex
-\pgfutil@everybye=\toks25
-\pgfutil@tempdima=\dimen156
-\pgfutil@tempdimb=\dimen157
+\pgfutil@everybye=\toks27
+\pgfutil@tempdima=\dimen174
+\pgfutil@tempdimb=\dimen175
 
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/utilities\pgfutil-
 common-lists.tex))
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/utilities\pgfutil-
 latex.def
-\pgfutil@abb=\box53
+\pgfutil@abb=\box56
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/everyshi\everyshi.sty
 Package: everyshi 2020/11/18 v4.00 EveryShipout Package
 
@@ -634,33 +681,33 @@ Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
 
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/utilities\pgfkeys.
 code.tex
-\pgfkeys@pathtoks=\toks26
-\pgfkeys@temptoks=\toks27
+\pgfkeys@pathtoks=\toks28
+\pgfkeys@temptoks=\toks29
 
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/utilities\pgfkeysf
 iltered.code.tex
-\pgfkeys@tmptoks=\toks28
+\pgfkeys@tmptoks=\toks30
 ))
-\pgf@x=\dimen158
-\pgf@y=\dimen159
-\pgf@xa=\dimen160
-\pgf@ya=\dimen161
-\pgf@xb=\dimen162
-\pgf@yb=\dimen163
-\pgf@xc=\dimen164
-\pgf@yc=\dimen165
-\pgf@xd=\dimen166
-\pgf@yd=\dimen167
+\pgf@x=\dimen176
+\pgf@y=\dimen177
+\pgf@xa=\dimen178
+\pgf@ya=\dimen179
+\pgf@xb=\dimen180
+\pgf@yb=\dimen181
+\pgf@xc=\dimen182
+\pgf@yc=\dimen183
+\pgf@xd=\dimen184
+\pgf@yd=\dimen185
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count278
-\c@pgf@countb=\count279
-\c@pgf@countc=\count280
-\c@pgf@countd=\count281
-\t@pgf@toka=\toks29
-\t@pgf@tokb=\toks30
-\t@pgf@tokc=\toks31
-\pgf@sys@id@count=\count282
+\c@pgf@counta=\count285
+\c@pgf@countb=\count286
+\c@pgf@countc=\count287
+\c@pgf@countd=\count288
+\t@pgf@toka=\toks31
+\t@pgf@tokb=\toks32
+\t@pgf@tokc=\toks33
+\pgf@sys@id@count=\count289
 
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/systemlayer\pgf.cf
 g
@@ -679,8 +726,8 @@ File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/systemlayer\pgfsys
 softpath.code.tex
 File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfsyssoftpath@smallbuffer@items=\count283
-\pgfsyssoftpath@bigbuffer@items=\count284
+\pgfsyssoftpath@smallbuffer@items=\count290
+\pgfsyssoftpath@bigbuffer@items=\count291
 )
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/systemlayer\pgfsys
 protocol.code.tex
@@ -698,12 +745,12 @@ ode.tex
 ode.tex)
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/math\pgfmathparser
 .code.tex
-\pgfmath@dimen=\dimen168
-\pgfmath@count=\count285
-\pgfmath@box=\box54
-\pgfmath@toks=\toks32
-\pgfmath@stack@operand=\toks33
-\pgfmath@stack@operation=\toks34
+\pgfmath@dimen=\dimen186
+\pgfmath@count=\count292
+\pgfmath@box=\box57
+\pgfmath@toks=\toks34
+\pgfmath@stack@operand=\toks35
+\pgfmath@stack@operation=\toks36
 )
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/math\pgfmathfuncti
 ons.code.tex
@@ -725,59 +772,59 @@ ons.misc.code.tex)
 ons.integerarithmetics.code.tex)))
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/math\pgfmathfloat.
 code.tex
-\c@pgfmathroundto@lastzeros=\count286
+\c@pgfmathroundto@lastzeros=\count293
 ))
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/math\pgfint.code.t
 ex)
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcore
 points.code.tex
 File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@picminx=\dimen169
-\pgf@picmaxx=\dimen170
-\pgf@picminy=\dimen171
-\pgf@picmaxy=\dimen172
-\pgf@pathminx=\dimen173
-\pgf@pathmaxx=\dimen174
-\pgf@pathminy=\dimen175
-\pgf@pathmaxy=\dimen176
-\pgf@xx=\dimen177
-\pgf@xy=\dimen178
-\pgf@yx=\dimen179
-\pgf@yy=\dimen180
-\pgf@zx=\dimen181
-\pgf@zy=\dimen182
+\pgf@picminx=\dimen187
+\pgf@picmaxx=\dimen188
+\pgf@picminy=\dimen189
+\pgf@picmaxy=\dimen190
+\pgf@pathminx=\dimen191
+\pgf@pathmaxx=\dimen192
+\pgf@pathminy=\dimen193
+\pgf@pathmaxy=\dimen194
+\pgf@xx=\dimen195
+\pgf@xy=\dimen196
+\pgf@yx=\dimen197
+\pgf@yy=\dimen198
+\pgf@zx=\dimen199
+\pgf@zy=\dimen256
 )
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcore
 pathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@path@lastx=\dimen183
-\pgf@path@lasty=\dimen184
+\pgf@path@lastx=\dimen257
+\pgf@path@lasty=\dimen258
 )
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcore
 pathusage.code.tex
 File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@shorten@end@additional=\dimen185
-\pgf@shorten@start@additional=\dimen186
+\pgf@shorten@end@additional=\dimen259
+\pgf@shorten@start@additional=\dimen260
 )
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcore
 scopes.code.tex
 File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfpic=\box55
-\pgf@hbox=\box56
-\pgf@layerbox@main=\box57
-\pgf@picture@serial@count=\count287
+\pgfpic=\box58
+\pgf@hbox=\box59
+\pgf@layerbox@main=\box60
+\pgf@picture@serial@count=\count294
 )
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcore
 graphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgflinewidth=\dimen187
+\pgflinewidth=\dimen261
 )
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcore
 transformations.code.tex
 File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@pt@x=\dimen188
-\pgf@pt@y=\dimen189
-\pgf@pt@temp=\dimen190
+\pgf@pt@x=\dimen262
+\pgf@pt@y=\dimen263
+\pgf@pt@temp=\dimen264
 )
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcore
 quick.code.tex
@@ -794,14 +841,14 @@ File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcore
 arrows.code.tex
 File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfarrowsep=\dimen191
+\pgfarrowsep=\dimen265
 )
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcore
 shade.code.tex
 File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@max=\dimen192
-\pgf@sys@shading@range@num=\count288
-\pgf@shadingcount=\count289
+\pgf@max=\dimen266
+\pgf@sys@shading@range@num=\count295
+\pgf@shadingcount=\count296
 )
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcore
 image.code.tex
@@ -810,7 +857,7 @@ File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcore
 external.code.tex
 File: pgfcoreexternal.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfexternal@startupbox=\box58
+\pgfexternal@startupbox=\box61
 ))
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/basiclayer\pgfcore
 layers.code.tex
@@ -831,7 +878,7 @@ File: pgfcorerdf.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/modules\pgfmodules
 hapes.code.tex
 File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfnodeparttextbox=\box59
+\pgfnodeparttextbox=\box62
 )
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/generic/pgf/modules\pgfmodulep
 lot.code.tex
@@ -840,16 +887,16 @@ File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/pgf/compatibility\pgfcom
 p-version-0-65.sty
 Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@nodesepstart=\dimen193
-\pgf@nodesepend=\dimen194
+\pgf@nodesepstart=\dimen267
+\pgf@nodesepend=\dimen268
 )
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/pgf/compatibility\pgfcom
 p-version-1-18.sty
 Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
 )) ("C:\Program Files\MiKTeX 2.9\tex/latex/tools\verbatim.sty"
 Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks35
-\verbatim@line=\toks36
+\every@verbatim=\toks37
+\verbatim@line=\toks38
 \verbatim@in@stream=\read3
 ) (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/environ\environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
@@ -858,23 +905,23 @@ Package: environ 2014/05/04 v0.3 A new way to define environments
 y
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\tcb@titlebox=\box60
-\tcb@upperbox=\box61
-\tcb@lowerbox=\box62
-\tcb@phantombox=\box63
-\c@tcbbreakpart=\count290
-\c@tcblayer=\count291
-\c@tcolorbox@number=\count292
-\tcb@temp=\box64
-\tcb@temp=\box65
-\tcb@temp=\box66
+\tcb@titlebox=\box63
+\tcb@upperbox=\box64
+\tcb@lowerbox=\box65
+\tcb@phantombox=\box66
+\c@tcbbreakpart=\count297
+\c@tcblayer=\count298
+\c@tcolorbox@number=\count299
 \tcb@temp=\box67
+\tcb@temp=\box68
+\tcb@temp=\box69
+\tcb@temp=\box70
 ) (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/wrapfig\wrapfig.sty
-\wrapoverhang=\dimen195
-\WF@size=\dimen196
-\c@WF@wrappedlines=\count293
-\WF@box=\box68
-\WF@everypar=\toks37
+\wrapoverhang=\dimen269
+\WF@size=\dimen270
+\c@WF@wrappedlines=\count300
+\WF@box=\box71
+\WF@everypar=\toks39
 Package: wrapfig 2003/01/31  v 3.6
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\helvet.sty"
 Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
@@ -892,89 +939,70 @@ LaTeX Warning: Command \underline  has changed.
 ) (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/fancyhdr\fancyhdr.sty
 Package: fancyhdr 2022/05/18 v4.0.3 Extensive control of page headers and foote
 rs
-\f@nch@headwidth=\skip57
-\f@nch@O@elh=\skip58
-\f@nch@O@erh=\skip59
-\f@nch@O@olh=\skip60
-\f@nch@O@orh=\skip61
-\f@nch@O@elf=\skip62
-\f@nch@O@erf=\skip63
-\f@nch@O@olf=\skip64
-\f@nch@O@orf=\skip65
+\f@nch@headwidth=\skip62
+\f@nch@O@elh=\skip63
+\f@nch@O@erh=\skip64
+\f@nch@O@olh=\skip65
+\f@nch@O@orh=\skip66
+\f@nch@O@elf=\skip67
+\f@nch@O@erf=\skip68
+\f@nch@O@olf=\skip69
+\f@nch@O@orf=\skip70
 ) (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/xpatch\xpatch.sty
 Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
-) (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/booktabs\booktabs.sty
-Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen197
-\lightrulewidth=\dimen198
-\cmidrulewidth=\dimen199
-\belowrulesep=\dimen256
-\belowbottomsep=\dimen257
-\aboverulesep=\dimen258
-\abovetopsep=\dimen259
-\cmidrulesep=\dimen260
-\cmidrulekern=\dimen261
-\defaultaddspace=\dimen262
-\@cmidla=\count294
-\@cmidlb=\count295
-\@aboverulesep=\dimen263
-\@belowrulesep=\dimen264
-\@thisruleclass=\count296
-\@lastruleclass=\count297
-\@thisrulewidth=\dimen265
 ) (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/floatrow\floatrow.sty
 Package: floatrow 2008/08/02 v0.3b floatrow: float package extension
 (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/caption\caption3.sty
 Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
-\caption@tempdima=\dimen266
-\captionmargin=\dimen267
-\caption@leftmargin=\dimen268
-\caption@rightmargin=\dimen269
-\caption@width=\dimen270
-\caption@indent=\dimen271
-\caption@parindent=\dimen272
-\caption@hangindent=\dimen273
+\caption@tempdima=\dimen271
+\captionmargin=\dimen272
+\caption@leftmargin=\dimen273
+\caption@rightmargin=\dimen274
+\caption@width=\dimen275
+\caption@indent=\dimen276
+\caption@parindent=\dimen277
+\caption@hangindent=\dimen278
 Package caption Info: Standard document class detected.
 )
-\c@float@type=\count298
-\float@exts=\toks38
-\float@box=\box69
-\@floatcapt=\box70
+\c@float@type=\count301
+\float@exts=\toks40
+\float@box=\box72
+\@floatcapt=\box73
 Package floatrow Info: Modified float package code loaded on input line 455.
 Package floatrow Info: Modified rotfloat package code loaded on input line 473.
 
-\FR@everyfloat=\toks39
+\FR@everyfloat=\toks41
 \flrow@foot=\insert252
-\FB@wd=\dimen274
-\FBo@wd=\dimen275
-\FBc@wd=\dimen276
-\FBo@ht=\skip66
-\FBc@ht=\skip67
-\FBf@ht=\skip68
-\FBo@max=\skip69
-\FBc@max=\skip70
-\FBf@max=\skip71
-\c@FBl@b=\count299
-\floatbox@depth=\count300
-\c@FRobj=\count301
-\c@FRsobj=\count302
-\Xhsize=\skip72
-\sXhsize=\skip73
-\Zhsize=\skip74
-\sZhsize=\skip75
-\flrow@rowbox=\box71
-\FR@Zunitlength=\dimen277
-\c@FBcnt=\count303
-\FPOScnt=\count304
-\LTleft=\skip76
-\LTright=\skip77
-\LTleft=\skip78
-\LTright=\skip79
-\flrow@types=\toks40
+\FB@wd=\dimen279
+\FBo@wd=\dimen280
+\FBc@wd=\dimen281
+\FBo@ht=\skip71
+\FBc@ht=\skip72
+\FBf@ht=\skip73
+\FBo@max=\skip74
+\FBc@max=\skip75
+\FBf@max=\skip76
+\c@FBl@b=\count302
+\floatbox@depth=\count303
+\c@FRobj=\count304
+\c@FRsobj=\count305
+\Xhsize=\skip77
+\sXhsize=\skip78
+\Zhsize=\skip79
+\sZhsize=\skip80
+\flrow@rowbox=\box74
+\FR@Zunitlength=\dimen282
+\c@FBcnt=\count306
+\FPOScnt=\count307
+\LTleft=\skip81
+\LTright=\skip82
+\LTleft=\skip83
+\LTright=\skip84
+\flrow@types=\toks42
 ) (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/caption\caption.sty
 Package: caption 2022/03/01 v3.6b Customizing captions (AR)
-\c@caption@flags=\count305
-\c@continuedfloat=\count306
+\c@caption@flags=\count308
+\c@continuedfloat=\count309
 Package caption Info: float package is loaded.
 Package caption Info: floatrow package is loaded.
 Package caption Info: longtable package is loaded.
@@ -985,39 +1013,39 @@ Package caption Info: wrapfig package is loaded.
 ) (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/tocloft\tocloft.sty
 Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
 Package tocloft Info: The document has section divisions on input line 51.
-\cftparskip=\skip80
-\cftbeforetoctitleskip=\skip81
-\cftaftertoctitleskip=\skip82
-\cftbeforepartskip=\skip83
-\cftpartnumwidth=\skip84
-\cftpartindent=\skip85
-\cftbeforesecskip=\skip86
-\cftsecindent=\skip87
-\cftsecnumwidth=\skip88
-\cftbeforesubsecskip=\skip89
-\cftsubsecindent=\skip90
-\cftsubsecnumwidth=\skip91
-\cftbeforesubsubsecskip=\skip92
-\cftsubsubsecindent=\skip93
-\cftsubsubsecnumwidth=\skip94
-\cftbeforeparaskip=\skip95
-\cftparaindent=\skip96
-\cftparanumwidth=\skip97
-\cftbeforesubparaskip=\skip98
-\cftsubparaindent=\skip99
-\cftsubparanumwidth=\skip100
-\cftbeforeloftitleskip=\skip101
-\cftafterloftitleskip=\skip102
-\cftbeforefigskip=\skip103
-\cftfigindent=\skip104
-\cftfignumwidth=\skip105
-\c@lofdepth=\count307
-\c@lotdepth=\count308
-\cftbeforelottitleskip=\skip106
-\cftafterlottitleskip=\skip107
-\cftbeforetabskip=\skip108
-\cfttabindent=\skip109
-\cfttabnumwidth=\skip110
+\cftparskip=\skip85
+\cftbeforetoctitleskip=\skip86
+\cftaftertoctitleskip=\skip87
+\cftbeforepartskip=\skip88
+\cftpartnumwidth=\skip89
+\cftpartindent=\skip90
+\cftbeforesecskip=\skip91
+\cftsecindent=\skip92
+\cftsecnumwidth=\skip93
+\cftbeforesubsecskip=\skip94
+\cftsubsecindent=\skip95
+\cftsubsecnumwidth=\skip96
+\cftbeforesubsubsecskip=\skip97
+\cftsubsubsecindent=\skip98
+\cftsubsubsecnumwidth=\skip99
+\cftbeforeparaskip=\skip100
+\cftparaindent=\skip101
+\cftparanumwidth=\skip102
+\cftbeforesubparaskip=\skip103
+\cftsubparaindent=\skip104
+\cftsubparanumwidth=\skip105
+\cftbeforeloftitleskip=\skip106
+\cftafterloftitleskip=\skip107
+\cftbeforefigskip=\skip108
+\cftfigindent=\skip109
+\cftfignumwidth=\skip110
+\c@lofdepth=\count310
+\c@lotdepth=\count311
+\cftbeforelottitleskip=\skip111
+\cftafterlottitleskip=\skip112
+\cftbeforetabskip=\skip113
+\cfttabindent=\skip114
+\cfttabnumwidth=\skip115
 
 Package tocloft Warning: \@starttoc has already been redefined; tocloft bailing
  out. on input line 1156.
@@ -1027,41 +1055,20 @@ y
 Package: cellspace 2022/01/04 v1.9.0 Spacing table cells (JN)
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\ifthen.sty"
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/tools\array.sty"
-Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
-\col@sep=\dimen278
-\ar@mcellbox=\box72
-\extrarowheight=\dimen279
-\NC@list=\toks41
-\extratabsurround=\skip111
-\backup@length=\skip112
-\ar@cellbox=\box73
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/tools\calc.sty"
-Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count309
-\calc@Bcount=\count310
-\calc@Adimen=\dimen280
-\calc@Bdimen=\dimen281
-\calc@Askip=\skip113
-\calc@Bskip=\skip114
-LaTeX Info: Redefining \setlength on input line 80.
-LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count311
-\calc@Cskip=\skip115
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/xkeyval\xkeyval.sty"
 Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 ("C:\Program Files\MiKTeX 2.9\tex/generic/xkeyval\xkeyval.tex" ("C:\Program Fil
 es\MiKTeX 2.9\tex/generic/xkeyval\xkvutils.tex"
-\XKV@toks=\toks42
-\XKV@tempa@toks=\toks43
+\XKV@toks=\toks43
+\XKV@tempa@toks=\toks44
 )
 \XKV@depth=\count312
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
-\cellspacetoplimit=\dimen282
-\cellspacebottomlimit=\dimen283
-\cellspace@firstht=\dimen284
-\cellspace@lastdp=\dimen285
+\cellspacetoplimit=\dimen283
+\cellspacebottomlimit=\dimen284
+\cellspace@firstht=\dimen285
+\cellspace@lastdp=\dimen286
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\bookmark.sty"
 Package: bookmark 2019/06/04 v1.27 PDF bookmarks (HO)
 ("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\pdfescape.sty"
@@ -1093,7 +1100,7 @@ Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
 )) ("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\auxhook.sty"
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 )
-\@linkdim=\dimen286
+\@linkdim=\dimen287
 \Hy@linkcounter=\count313
 \Hy@pagecounter=\count314
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\pd1enc.def"
@@ -1126,7 +1133,7 @@ Package hyperref Info: Bookmarks ON on input line 4793.
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5152.
-\XeTeXLinkMargin=\dimen287
+\XeTeXLinkMargin=\dimen288
 ("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\bitset.sty"
 Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
 ("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\bigintcalc.sty"
@@ -1134,8 +1141,8 @@ Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
 )
 ))
 \Fld@menulength=\count317
-\Field@Width=\dimen288
-\Fld@charsize=\dimen289
+\Field@Width=\dimen289
+\Fld@charsize=\dimen290
 Package hyperref Info: Hyper figures OFF on input line 6423.
 Package hyperref Info: Link nesting OFF on input line 6428.
 Package hyperref Info: Hyper index ON on input line 6431.
@@ -1175,50 +1182,50 @@ File: bkm-pdftex.def 2019/06/04 v1.27 bookmark driver for pdfTeX (HO)
 )) (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/xurl\xurl.sty
 Package: xurl 2020/12/30 v 0.09a modify URL breaks
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 105.
+Package hyperref Info: Option `colorlinks' set `true' on input line 115.
 (workshop_git_dashboard.aux)
 \openout1 = `workshop_git_dashboard.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 111.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 121.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
-11.
+21.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 11
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 12
 1.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\t1phv.fd"
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
-LaTeX Info: Redefining \microtypecontext on input line 111.
-Package microtype Info: Applying patch `item' on input line 111.
-Package microtype Info: Applying patch `toc' on input line 111.
-Package microtype Info: Applying patch `eqnum' on input line 111.
-Package microtype Info: Applying patch `footnote' on input line 111.
+LaTeX Info: Redefining \microtypecontext on input line 121.
+Package microtype Info: Applying patch `item' on input line 121.
+Package microtype Info: Applying patch `toc' on input line 121.
+Package microtype Info: Applying patch `eqnum' on input line 121.
+Package microtype Info: Applying patch `footnote' on input line 121.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 111.
+LaTeX Info: Redefining \showhyphens on input line 121.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1231,16 +1238,16 @@ Package microtype Info: Loading generic protrusion settings for font family
 i
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count324
-\scratchdimen=\dimen290
-\scratchbox=\box74
+\scratchdimen=\dimen291
+\scratchbox=\box75
 \nofMPsegments=\count325
 \nofMParguments=\count326
-\everyMPshowfont=\toks44
+\everyMPshowfont=\toks45
 \MPscratchCnt=\count327
-\MPscratchDim=\dimen291
+\MPscratchDim=\dimen292
 \MPnumerator=\count328
 \makeMPintoPDFobject=\count329
-\everyMPtoPDFconversion=\toks45
+\everyMPtoPDFconversion=\toks46
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 ("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\grfext.sty"
@@ -1297,12 +1304,12 @@ Package caption Info: End \AtBeginDocument code.
 y
 Package: fr-longtable 2007/11/28 v0.1b (beta) floatrow: additions for longtable
 
-\flrow@LT@lasthead=\box75
-\flrow@LT@prelastfoot=\box76
+\flrow@LT@lasthead=\box76
+\flrow@LT@prelastfoot=\box77
 \c@FBLTpage=\count330
 )
-\AtBeginShipoutBox=\box77
-Package hyperref Info: Link coloring ON on input line 111.
+\AtBeginShipoutBox=\box78
+Package hyperref Info: Link coloring ON on input line 121.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\refcount.sty"
@@ -1312,27 +1319,27 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count331
 )
-LaTeX Info: Redefining \ref on input line 111.
-LaTeX Info: Redefining \pageref on input line 111.
-LaTeX Info: Redefining \nameref on input line 111.
+LaTeX Info: Redefining \ref on input line 121.
+LaTeX Info: Redefining \pageref on input line 121.
+LaTeX Info: Redefining \nameref on input line 121.
 <images/Department_for_Education.png, id=6, 1204.5pt x 712.6625pt>
 File: images/Department_for_Education.png Graphic file (type png)
 <use images/Department_for_Education.png>
 Package pdftex.def Info: images/Department_for_Education.png  used on input lin
-e 114.
+e 124.
 (pdftex.def)             Requested size: 469.75311pt x 277.93726pt.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <35.83> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 118.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 128.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 120.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 130.
 [1
 
 {C:/Users/RBIELBY/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./images/
 Department_for_Education.png>]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 130.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 140.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <16> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 130.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 140.
 (workshop_git_dashboard.toc
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 1.
@@ -1382,143 +1389,187 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 [2]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 145.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 162.
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 1
-77.
+94.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\ts1phv.fd"
 File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
 ) [3]
-<images/gitdemo/gitdemo-gitRstudio-settings.png, id=63, 450.68375pt x 469.755pt
+<images/gitdemo/gitdemo-gitRstudio-settings.png, id=64, 450.68375pt x 469.755pt
 >
 File: images/gitdemo/gitdemo-gitRstudio-settings.png Graphic file (type png)
 <use images/gitdemo/gitdemo-gitRstudio-settings.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-gitRstudio-settings.png  used o
-n input line 193.
-(pdftex.def)             Requested size: 450.68263pt x 469.75386pt.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-03.
-("C:\Program Files\MiKTeX 2.9\tex/latex/lm\t1lmtt.fd"
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [4 <./images/gitdemo/gitdemo-gitRstudio-settings.png>]
-<images/gitdemo/gitdemo-gitRstudio-NewTerminal.png, id=71, 685.05937pt x 274.02
+n input line 209.
+(pdftex.def)             Requested size: 300.6568pt x 313.37949pt.
+<images/gitdemo/gitdemo-gitRstudio-NewTerminal.png, id=65, 685.05937pt x 274.02
 374pt>
 File: images/gitdemo/gitdemo-gitRstudio-NewTerminal.png Graphic file (type png)
 
 <use images/gitdemo/gitdemo-gitRstudio-NewTerminal.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-gitRstudio-NewTerminal.png  use
-d on input line 212.
-(pdftex.def)             Requested size: 469.76459pt x 187.90582pt.
-[5 <./images/gitdemo/gitdemo-gitRstudio-NewTerminal.png>]
-<images/gitdemo/gitdemo-shinydash-template.png, id=78, 914.41624pt x 572.63937p
+d on input line 217.
+(pdftex.def)             Requested size: 263.06398pt x 105.22559pt.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
+22.
+("C:\Program Files\MiKTeX 2.9\tex/latex/lm\t1lmtt.fd"
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [4 <./images/gitdemo/gitdemo-gitRstudio-settings.png>] [5 <./images/gitdemo/g
+itdemo-gitRstudio-NewTerminal.png>]
+<images/gitdemo/gitdemo-shinydash-template.png, id=79, 914.41624pt x 572.63937p
 t>
 File: images/gitdemo/gitdemo-shinydash-template.png Graphic file (type png)
 <use images/gitdemo/gitdemo-shinydash-template.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-shinydash-template.png  used on
- input line 231.
+ input line 244.
 (pdftex.def)             Requested size: 469.75061pt x 294.17422pt.
 [6 <./images/gitdemo/gitdemo-shinydash-template.png>]
-<images/gitdemo/gitdemo-shinydash-newrepofromtemplate.png, id=88, 581.17125pt x
+<images/gitdemo/gitdemo-shinydash-newrepofromtemplate.png, id=89, 581.17125pt x
  540.51938pt>
 File: images/gitdemo/gitdemo-shinydash-newrepofromtemplate.png Graphic file (ty
 pe png)
 <use images/gitdemo/gitdemo-shinydash-newrepofromtemplate.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-shinydash-newrepofromtemplate.p
-ng  used on input line 257.
-(pdftex.def)             Requested size: 469.7618pt x 436.9028pt.
+ng  used on input line 269.
+(pdftex.def)             Requested size: 338.22353pt x 314.5654pt.
 [7 <./images/gitdemo/gitdemo-shinydash-newrepofromtemplate.png>]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 292.
-<images/gitdemo/gitdemo-terminal_clone.png, id=97, 456.70625pt x 264.99pt>
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 302.
+<images/gitdemo/gitdemo-terminal_clone.png, id=98, 456.70625pt x 264.99pt>
 File: images/gitdemo/gitdemo-terminal_clone.png Graphic file (type png)
 <use images/gitdemo/gitdemo-terminal_clone.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-terminal_clone.png  used on inp
-ut line 323.
+ut line 333.
 (pdftex.def)             Requested size: 281.86572pt x 163.54407pt.
-[8 <./images/gitdemo/gitdemo-terminal_clone.png>]
-<images/gitdemo/gitdemo-RStudio_OpenProj.png, id=107, 732.23563pt x 328.22626pt
->
+<images/gitdemo/gitdemo-RStudio_OpenProj.png, id=99, 732.23563pt x 328.22626pt>
+
 File: images/gitdemo/gitdemo-RStudio_OpenProj.png Graphic file (type png)
 <use images/gitdemo/gitdemo-RStudio_OpenProj.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-RStudio_OpenProj.png  used on i
-nput line 333.
+nput line 343.
 (pdftex.def)             Requested size: 281.86131pt x 126.34496pt.
-<images/gitdemo/gitdemo-RStudio_OpenProj_fullpath.png, id=108, 732.23563pt x 32
+[8 <./images/gitdemo/gitdemo-terminal_clone.png>]
+<images/gitdemo/gitdemo-RStudio_OpenProj_fullpath.png, id=109, 732.23563pt x 32
 8.72812pt>
 File: images/gitdemo/gitdemo-RStudio_OpenProj_fullpath.png Graphic file (type p
 ng)
 <use images/gitdemo/gitdemo-RStudio_OpenProj_fullpath.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-RStudio_OpenProj_fullpath.png  
-used on input line 346.
+used on input line 356.
 (pdftex.def)             Requested size: 281.86131pt x 126.53813pt.
-<images/gitdemo/gitdemo-RStudio_OpenProj_wizard.png, id=109, 404.00937pt x 286.
+<images/gitdemo/gitdemo-RStudio_OpenProj_wizard.png, id=110, 404.00937pt x 286.
 57062pt>
 File: images/gitdemo/gitdemo-RStudio_OpenProj_wizard.png Graphic file (type png
 )
 <use images/gitdemo/gitdemo-RStudio_OpenProj_wizard.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-RStudio_OpenProj_wizard.png  us
-ed on input line 362.
+ed on input line 372.
 (pdftex.def)             Requested size: 281.86143pt x 199.92903pt.
 [9 <./images/gitdemo/gitdemo-RStudio_OpenProj.png> <./images/gitdemo/gitdemo-RS
 tudio_OpenProj_fullpath.png>] [10 <./images/gitdemo/gitdemo-RStudio_OpenProj_wi
-zard.png>] [11]
+zard.png>]
+<images/gitdemo/gitdemo-ShinyAppTemplate.PNG, id=130, 1132.23pt x 754.82pt>
+File: images/gitdemo/gitdemo-ShinyAppTemplate.PNG Graphic file (type png)
+<use images/gitdemo/gitdemo-ShinyAppTemplate.PNG>
+Package pdftex.def Info: images/gitdemo/gitdemo-ShinyAppTemplate.PNG  used on i
+nput line 443.
+(pdftex.def)             Requested size: 469.74576pt x 313.16385pt.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 450.
+[11 <./images/gitdemo/gitdemo-ShinyAppTemplate.PNG>] [12]
+<images/gitdemo/gitdemo-gitlog-1.png, id=144, 498.86375pt x 78.79437pt>
+File: images/gitdemo/gitdemo-gitlog-1.png Graphic file (type png)
+<use images/gitdemo/gitdemo-gitlog-1.png>
+Package pdftex.def Info: images/gitdemo/gitdemo-gitlog-1.png  used on input lin
+e 504.
+(pdftex.def)             Requested size: 375.81393pt x 59.35893pt.
+[13 <./images/gitdemo/gitdemo-gitlog-1.png>]
+<images/gitdemo/gitdemo-gitlog-2.png, id=155, 423.5825pt x 197.23688pt>
+File: images/gitdemo/gitdemo-gitlog-2.png Graphic file (type png)
+<use images/gitdemo/gitdemo-gitlog-2.png>
+Package pdftex.def Info: images/gitdemo/gitdemo-gitlog-2.png  used on input lin
+e 550.
+(pdftex.def)             Requested size: 375.81737pt x 174.99551pt.
+[14 <./images/gitdemo/gitdemo-gitlog-2.png>]
+Underfull \hbox (badness 10000) in alignment at lines 587--597
+[] [] []
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 597--606
+[] [] []
+ []
+
+[15]
+Underfull \hbox (badness 10000) in alignment at lines 657--667
+[] [] []
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 667--673
+[] [] []
+ []
+
+[16]
 File: images/Department_for_Education.png Graphic file (type png)
 <use images/Department_for_Education.png>
 Package pdftex.def Info: images/Department_for_Education.png  used on input lin
-e 455.
+e 677.
 (pdftex.def)             Requested size: 469.75311pt x 277.93726pt.
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 468--473
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 690--695
 [][]  
  []
 
 
-Overfull \hbox (0.9113pt too wide) in paragraph at lines 477--477
+Overfull \hbox (0.9113pt too wide) in paragraph at lines 699--699
 []|\T1/phv/m/n/12 (-20) enquiries| 
  []
 
 
-Overfull \hbox (3.174pt too wide) in paragraph at lines 478--478
+Overfull \hbox (3.174pt too wide) in paragraph at lines 700--700
 []|\T1/phv/m/n/12 (-20) download| 
  []
 
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 476--480
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 698--702
 [][]  
  []
 
-<images/logoTwitter.png, id=153, 27.2655pt x 21.681pt>
+<images/logoTwitter.png, id=186, 27.2655pt x 21.681pt>
 File: images/logoTwitter.png Graphic file (type png)
 <use images/logoTwitter.png>
-Package pdftex.def Info: images/logoTwitter.png  used on input line 482.
+Package pdftex.def Info: images/logoTwitter.png  used on input line 704.
 (pdftex.def)             Requested size: 27.26665pt x 21.68193pt.
-<images/logoFacebook.png, id=154, 21.681pt x 21.681pt>
+<images/logoFacebook.png, id=187, 21.681pt x 21.681pt>
 File: images/logoFacebook.png Graphic file (type png)
 <use images/logoFacebook.png>
-Package pdftex.def Info: images/logoFacebook.png  used on input line 485.
+Package pdftex.def Info: images/logoFacebook.png  used on input line 707.
 (pdftex.def)             Requested size: 21.68193pt x 21.68193pt.
-[12 <./images/logoTwitter.png> <./images/logoFacebook.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 489.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 489.
+[17 <./images/logoTwitter.png> <./images/logoFacebook.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 711.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 711.
 (workshop_git_dashboard.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 489.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 489.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 711.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 711.
  ) 
 Here is how much of TeX's memory you used:
- 38262 strings out of 492452
- 707495 string characters out of 3129802
- 774897 words of memory out of 3000000
- 41886 multiletter control sequences out of 15000+200000
- 513018 words of font info for 141 fonts, out of 3000000 for 9000
+ 38420 strings out of 492452
+ 710576 string characters out of 3129802
+ 777411 words of memory out of 3000000
+ 42003 multiletter control sequences out of 15000+200000
+ 517385 words of font info for 157 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,14n,66p,1021b,920s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/M
-iKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}{C:/Program Files/Mi
+KTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/lm/lmtk10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on workshop_git_dashboard.pdf (12 pages, 630216 bytes).
+m Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on workshop_git_dashboard.pdf (17 pages, 899257 bytes).
 PDF statistics:
- 242 PDF objects out of 1000 (max. 8388607)
- 72 named destinations out of 1000 (max. 500000)
- 43204 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 284 PDF objects out of 1000 (max. 8388607)
+ 80 named destinations out of 1000 (max. 500000)
+ 47323 words of extra memory for PDF output out of 51595 (max. 10000000)
 

@@ -223,27 +223,53 @@ We'll now take a look at updating repositories with your working. To do so, we'l
 
 ## The git log
 
-In order to move quickly between around different versions of files and code, git is built around a log file that tracks changes in a repository. To view the log of any repository, we can simply go into that repository and run the command `git log` from the BASH terminal. For example, if you run it in the repository you've created from the template, you'll get something along the lines of the following:
+In order to move quickly between different versions of files and code, git is built around indexing and a log file that track the changes in a repository. To view the log of any repository, we can simply go into that repository and run the command `git log` from the BASH terminal. For example, if you run it in the repository you've created from the template, you'll get something along the lines of the following:
 
+```{r echo=FALSE, out.width='80%', fig.align='center'}
+knitr::include_graphics("images/gitdemo/gitdemo-gitlog-1.png")
+```
 
-## Creating a new branch
-
-
+The log shows all "commits" that have been made to the repository. We'll go into making commits in the next section.
 
 ## Adding, commiting and pushing
 
-First of all in this new branch, one of your group should make a folder called **data** in your local repository. To do this, you can either go to the BASH terminal and type the command `mkdir data` (making sure you're in your local repositories root directory) or click the add folder button in the Files tab in the bottom right panel of RStudio.
+First of all, one of your group should make a folder called **data** in your local repository. To do this, you can either go to the BASH terminal and type the command `mkdir data` (making sure you're in your local repositories root directory) or click the add folder button in the Files tab in the bottom right panel of RStudio.
 
 For some example data, we'll use a file from a publication on Explore Education Statistics. Go to [the progression to higher education or training data catalogue](https://explore-education-statistics.service.gov.uk/data-catalogue/progression-to-higher-education-or-training/2019-20) and download the **Progression to higher education and training - Local authority level (csv, 4 Mb)** file and extract the data csv file (*l4_tidy_2020_all_la.csv*) into the data folder you just created.
 
-Now to add this to the git log
+Now to add this to the git log. Run the following commands:
 
+`git add .`
+
+This searches the repo for any files that have been modified since the last commit and creates a log of the changes.
+
+`git commit -m "Added data file into repository."`
+
+This adds an entry on to the log, updating it with the file changes that you've just made. Note that the text after the `-m` is a comment used to describe the changes to make it easier for someone looking back from the log to see what changes have happened. Those are the two key steps for tracking changes to the files and folders in your repository. Say we decide we're not happy with the data filename, maybe we think the filename should be more informative for users. We'd now change the filename as normal, and then re-run the commands `git add .` and `git commit -m "Made data filename more informative."` (updating the commit comment to describe the changes that we've made). If we now run `git log` again, we get something along the lines of:
+
+```{r echo=FALSE, out.width='80%', fig.align='center'}
+knitr::include_graphics("images/gitdemo/gitdemo-gitlog-2.png")
+```
+
+Here we can see, in reverse order, the commits that have been made, who made them, when they made them, and the messages that have been recorded with them.
+
+Finally, it's important to note that what we've done so far is only being applied to the local copy of the repository (i.e. the copy on your laptop). To apply your changes to the remote repository (i.e. on GitHub or Dev Ops), you need to "push" the changes. This can be done a couple of different ways: a) in the terminal type `git push` or b) on the toolbar in the git tab in RStudio press the green up button! Once you've done this, open up a browser and go to your remote repository on GitHub and you should now see the data file stored there.
 
 ## Pulling from the remote repository
 
+Now that you've made changes, the rest of your team can update their own local copies of the repository with your updates bu pulling from the remote. Similarly to pushing, they can do this by either a) typing `git push` in the BASH terminal or b) pressing the down arrow in the toolbar of the git tab in RStudio.
+
 ## Summary of git basics
 
-### Resources and further reading
+We've quickly tried out a quick cycle of adding and committing, which is used to log changes into the local repository and then we've pushed and pulled to and from the remote repository and local copies on different laptops. The table below gives a summary of the relevant commands in the BASH terminal and the corresponding buttons in the RStudio git panel. 
+
+| Process | git BASH                          | RStudio git panel                               |
+|---------|-----------------------------------|-------------------------------------------------|
+| Add     | `git add .`                       | Stage using tickbox next to each modified file. |
+| Commit  | `git commit -m "Commit message."` | "Commit" button in toolbar.                     |
+| Push    | `git push`                        | Green up arrown in toolbar.                     |
+| Pull    | `git pull`                        | Blue down arrow in toolbar.                     |
+| View the log | `git log`                    | Clock icon in toolbar.                          |
 
 \newpage
 
@@ -257,12 +283,23 @@ Git only really makes proper sense once multiple people start working on a proje
 
 One useful management tool that we can use from GutHub is the Issues tab. Here we can create individual tasks, assign them to team member and then create new "branches" from those tasks. You can think of branches as self contained copies of the repository that complementary or conflicting differences with all other branches in the repository.
 
-### Task 1a
+### Task 1a - Reading in the data
 
-### Task 1b
+### Task 1b - Creating a chart
 
-### Task 1c
+### Task 1c - Creating a table
 
+### Pull requests (PRs) and merging branches
+
+
+
+## Summary
+
+| Process | git BASH                          | RStudio git panel                               |
+|---------|-----------------------------------|-------------------------------------------------|
+| Create new branch | `git checkout -b branch_name` |  |
+| Switch to existing branch  | `git checkout branch_name` |                      |
+| Merge    | `git merge branch_name`  | Not available in RStudio - merge by creating a pull request in GitHub/Dev Ops |
 
 
 \newpage
