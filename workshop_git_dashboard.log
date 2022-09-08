@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2021.12.7)  6 SEP 2022 19:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2021.12.7)  8 SEP 2022 14:53
 entering extended mode
 **./workshop_git_dashboard.tex
 (workshop_git_dashboard.tex
@@ -1500,65 +1500,73 @@ Underfull \hbox (badness 10000) in alignment at lines 597--606
 [] [] []
  []
 
-[15]
-Underfull \hbox (badness 10000) in alignment at lines 657--667
+[15] [16]
+<images/gitdemo/gitdemo-RStudio_NewBranch.png, id=178, 312.16624pt x 212.795pt>
+
+File: images/gitdemo/gitdemo-RStudio_NewBranch.png Graphic file (type png)
+<use images/gitdemo/gitdemo-RStudio_NewBranch.png>
+Package pdftex.def Info: images/gitdemo/gitdemo-RStudio_NewBranch.png  used on 
+input line 728.
+(pdftex.def)             Requested size: 300.64789pt x 204.94324pt.
+[17]
+Underfull \hbox (badness 10000) in alignment at lines 763--773
 [] [] []
  []
 
 
-Underfull \hbox (badness 10000) in alignment at lines 667--673
+Underfull \hbox (badness 10000) in alignment at lines 773--780
 [] [] []
  []
 
-[16]
+[18 <./images/gitdemo/gitdemo-RStudio_NewBranch.png>] [19]
 File: images/Department_for_Education.png Graphic file (type png)
 <use images/Department_for_Education.png>
 Package pdftex.def Info: images/Department_for_Education.png  used on input lin
-e 677.
+e 784.
 (pdftex.def)             Requested size: 469.75311pt x 277.93726pt.
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 690--695
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 797--802
 [][]  
  []
 
 
-Overfull \hbox (0.9113pt too wide) in paragraph at lines 699--699
+Overfull \hbox (0.9113pt too wide) in paragraph at lines 806--806
 []|\T1/phv/m/n/12 (-20) enquiries| 
  []
 
 
-Overfull \hbox (3.174pt too wide) in paragraph at lines 700--700
+Overfull \hbox (3.174pt too wide) in paragraph at lines 807--807
 []|\T1/phv/m/n/12 (-20) download| 
  []
 
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 698--702
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 805--809
 [][]  
  []
 
-<images/logoTwitter.png, id=186, 27.2655pt x 21.681pt>
+<images/logoTwitter.png, id=202, 27.2655pt x 21.681pt>
 File: images/logoTwitter.png Graphic file (type png)
 <use images/logoTwitter.png>
-Package pdftex.def Info: images/logoTwitter.png  used on input line 704.
+Package pdftex.def Info: images/logoTwitter.png  used on input line 811.
 (pdftex.def)             Requested size: 27.26665pt x 21.68193pt.
-<images/logoFacebook.png, id=187, 21.681pt x 21.681pt>
+<images/logoFacebook.png, id=203, 21.681pt x 21.681pt>
 File: images/logoFacebook.png Graphic file (type png)
 <use images/logoFacebook.png>
-Package pdftex.def Info: images/logoFacebook.png  used on input line 707.
+Package pdftex.def Info: images/logoFacebook.png  used on input line 814.
 (pdftex.def)             Requested size: 21.68193pt x 21.68193pt.
-[17 <./images/logoTwitter.png> <./images/logoFacebook.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 711.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 711.
+[20 <./images/logoTwitter.png> <./images/logoFacebook.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 818.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 818.
 (workshop_git_dashboard.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 711.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 711.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 818.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 818.
  ) 
 Here is how much of TeX's memory you used:
- 38420 strings out of 492452
- 710576 string characters out of 3129802
- 777411 words of memory out of 3000000
- 42003 multiletter control sequences out of 15000+200000
- 517385 words of font info for 157 fonts, out of 3000000 for 9000
+ 38442 strings out of 492452
+ 711074 string characters out of 3129802
+ 777546 words of memory out of 3000000
+ 42011 multiletter control sequences out of 15000+200000
+ 517676 words of font info for 163 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,14n,66p,1021b,920s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}{C:/Program Files/Mi
@@ -1567,9 +1575,9 @@ public/lm/lmtk10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on workshop_git_dashboard.pdf (17 pages, 899257 bytes).
+Output written on workshop_git_dashboard.pdf (20 pages, 932245 bytes).
 PDF statistics:
- 284 PDF objects out of 1000 (max. 8388607)
- 80 named destinations out of 1000 (max. 500000)
- 47323 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 300 PDF objects out of 1000 (max. 8388607)
+ 84 named destinations out of 1000 (max. 500000)
+ 47328 words of extra memory for PDF output out of 51595 (max. 10000000)
 

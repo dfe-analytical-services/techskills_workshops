@@ -281,11 +281,68 @@ Git only really makes proper sense once multiple people start working on a proje
 
 ### Task management
 
-One useful management tool that we can use from GutHub is the Issues tab. Here we can create individual tasks, assign them to team member and then create new "branches" from those tasks. You can think of branches as self contained copies of the repository that complementary or conflicting differences with all other branches in the repository.
+One useful management tool that we can use from GutHub is the Issues tab. Here we can create individual tasks, assign them to team member and then create new **branches** from those tasks. You can think of **branches** as self contained copies of the repository that complementary or conflicting differences with all other **branches** in the repository. These allow you to work on different multiple tasks on your code independently of any other changes you might be making. Bringing these different **branches** or tasks together is then managed using **merges** or **pull requests** (PRs).
+
+We'll demonstrate this by performing 3 related tasks on 3 different branches. Split the following 3 tasks between your group and each follow the relevant instructions:
+
+* Reading in the data
+* Creating a chart
+* Creating a table
+
+Once you've decided who's doing what, each of you should jump to the relevant section below. And remember that you're not working in independent silos here, what you do can impact what other people are doing so communication needs to happen along the way.
 
 ### Task 1a - Reading in the data
 
+This task underpins the other two. You need to read in the data file that we've already downloaded. Start by creating a new branch: go to the BASH terminal, and type:
+
+`git checkout -b featReadData`
+
+This creates and moves you into a new branch called featReadData. Anything you do here has no affect on the contents of the main branch until you explicitly tell git to merge your changes. Note that this only creates the branch in your local copy of the repository, for it to be added to the remote, you'll need to push:
+
+`git push`
+
+Now to write the code in thsi bracnh that's going to read in the data. We'll read it in to a data frame and the first task is to choose a name for the data frame and let the rest of the team know, as they'll need that info (in the example below, we're calling it `dfProgressHE`). If you've got the R expertise to do this already, then feel free to go for it, otherwise just follow the following steps below.
+
+Open up the script `R/read_data.R` and add the following code:
+
+```
+funcReadData <- function(){
+    read.csv("data/progress_he_la_2020.csv",stringsasfactors=FALSE)
+}
+```
+
+You've made a substantitive change, so let's run a quick add, commit and push in the BASH terminal:
+
+```
+git add .
+git commit "Added function to read data in data."
+git push
+```
+
+We've made a function to read in the data, but we're not running that function anywhere. So now open up *global.R* and add the following line at the end of the script:
+
+`dfProgressHE <- featReadData()`
+
+Give it a test, by sourcing *global.R* and checking the contents of `dfProgressHE` (e.g. by typing `dfProgressHE` in the R console). Once you're happy, then run another add/commit/push cycle and flag to your team that you've finished your task and the data read in is ready to use.
+
 ### Task 1b - Creating a chart
+
+There's already an example chart in the template, so let's re-wire that as the basis for our demo chart here. Let's start by creating a ew branch in RStudio. With your repo open (and pulled with the latest changes) in RStudio, click the new branch button in the git panel toolbar. This will open a dialogue box as shown here in which you can enter a new branch name. Enter a name, make sure syncing to the remote is selected and press *Create*.
+
+```{r echo=FALSE, out.width='64%', fig.align='center', fig.cap="The new branch dialogue box in RStudio is opened using the purple new branch icon in the git toolbar."}
+knitr::include_graphics("images/gitdemo/gitdemo-RStudio_NewBranch.PNG")
+```
+
+***
+**NOTE**
+
+When your team mate from task 1 has completed their task, you'll want to merge their changes into your own branch, so that you have access to the data that's being read in:
+
+```
+git merge featReadData
+```
+
+***
 
 ### Task 1c - Creating a table
 
@@ -297,7 +354,7 @@ One useful management tool that we can use from GutHub is the Issues tab. Here w
 
 | Process | git BASH                          | RStudio git panel                               |
 |---------|-----------------------------------|-------------------------------------------------|
-| Create new branch | `git checkout -b branch_name` |  |
+| Create new branch | `git checkout -b branch_name` | Click the new branch symbol |
 | Switch to existing branch  | `git checkout branch_name` |                      |
 | Merge    | `git merge branch_name`  | Not available in RStudio - merge by creating a pull request in GitHub/Dev Ops |
 
