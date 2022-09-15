@@ -998,9 +998,65 @@ request}. Note that this won't merge the branch into main, this just
 creates a review area where you can access useful info on the merge and
 get feedback from collaborators.
 
-\hypertarget{dealing-with-merge-conflicts}{%
-\subsection{Dealing with merge
-conflicts}\label{dealing-with-merge-conflicts}}
+\hypertarget{reviewing-a-pull-request}{%
+\subsubsection{Reviewing a pull
+request}\label{reviewing-a-pull-request}}
+
+There are some basic steps to go through if you're asked to review a
+pull request. The key elements are:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Review any automated checks or QA scripts;
+\item
+  Clone the repository, switch to the relevant branch and run the code;
+\item
+  Look through and comment on the changes to the repository using the
+  \textbf{Files changes} panel in the PR.
+\end{enumerate}
+
+In this case, we don't have any automated checks set up properly, so
+we'll focus on points 2 and 3.
+
+First of all try switching to the \emph{featTimeSeriesChart} branch if
+you're not already in it and run the Shiny app - this can be done by
+opening the global.R script in RStudio and clicking Run App in the top
+right hand corner of the viewer pane. Assuming the dashboard runs, then
+try cycling through the different panels of the dashboard looking for
+any problems, errors or just things that could be improved.
+
+There should be plenty of issues to find as we've kept the actual
+dashboard coding brief to focus on using git. As you find them, enter
+them in to the GitHub pull request, either under \textbf{Review changes}
+on the Files changed panel or as comments in the \textbf{Conversation}
+panel.
+
+In reality, once you've got those reviews collated, you'd go through and
+make changes to the code accordingly. This provides the checks and
+balances and a structure for code QA necessary when developing
+reproducible analyticle pipelines or data dashboards.
+
+Assuming we've dealt with the outcomes of those reviews appropriately,
+the next step is to complete the Pull request by clicking the
+\textbf{Merge pull request} button. This then completes the merge in to
+\emph{main} in this case. Whilst the basic mechanics of what's happening
+with the branches is the same here as with just running
+\texttt{git\ merge}, the Pull request provides that extra layer of
+administrative structure to perform proper QA of the code and the
+resulting product.
+
+\hypertarget{merge-conflicts}{%
+\subsection{Merge conflicts}\label{merge-conflicts}}
+
+When \texttt{git} performs a merge, it uses the histories of different
+changes that were made to files to help understand what changes in any
+given file supersede other across a pair of branches. In some cases, for
+example of two branches contain contradictory changes to the same part
+of a file, then \texttt{git} won't automatically merge the two versions
+of that file and will instead call for the user to give it some steer on
+how it should procede. This is called a \textbf{merge conflict}.
 
 \hypertarget{summary-1}{%
 \subsection{Summary}\label{summary-1}}
