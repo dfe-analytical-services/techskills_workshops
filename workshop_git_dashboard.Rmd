@@ -239,11 +239,15 @@ For some example data, we'll use a file from a publication on Explore Education 
 
 Now to add this to the git log. Run the following commands:
 
-`git add .`
+```
+  git add .
+```
 
 This searches the repo for any files that have been modified since the last commit and creates a log of the changes.
 
-`git commit -m "Added data file into repository."`
+```
+  git commit -m "Added data file into repository."
+```
 
 This adds an entry on to the log, updating it with the file changes that you've just made. Note that the text after the `-m` is a comment used to describe the changes to make it easier for someone looking back from the log to see what changes have happened. Those are the two key steps for tracking changes to the files and folders in your repository. Say we decide we're not happy with the data filename, maybe we think the filename should be more informative for users. We'd now change the filename as normal, and then re-run the commands `git add .` and `git commit -m "Made data filename more informative."` (updating the commit comment to describe the changes that we've made). If we now run `git log` again, we get something along the lines of:
 
@@ -293,70 +297,218 @@ Once you've decided who's doing what, each of you should jump to the relevant se
 
 ### Task 1a - Reading in the data
 
-This task underpins the other two. You need to read in the data file that we've already downloaded. Start by creating a new branch: go to the BASH terminal, and type:
+This task underpins the next two. You need to read in the data file that we've already downloaded. Start by creating a new branch: go to the BASH terminal, and type:
 
-`git checkout -b featReadData`
+```
+  git checkout -b featReadData
+```
 
 This creates and moves you into a new branch called featReadData. Anything you do here has no affect on the contents of the main branch until you explicitly tell git to merge your changes. Note that this only creates the branch in your local copy of the repository, for it to be added to the remote, you'll need to push:
 
-`git push`
-
-Now to write the code in thsi bracnh that's going to read in the data. We'll read it in to a data frame and the first task is to choose a name for the data frame and let the rest of the team know, as they'll need that info (in the example below, we're calling it `dfProgressHE`). If you've got the R expertise to do this already, then feel free to go for it, otherwise just follow the following steps below.
-
-Open up the script `R/read_data.R` and add the following code:
-
 ```
-funcReadData <- function(){
-    read.csv("data/progress_he_la_2020.csv",stringsasfactors=FALSE)
-}
+  git push --set-upstream origin featReadData
 ```
 
-You've made a substantitive change, so let's run a quick add, commit and push in the BASH terminal:
+Note that if you only enter `git push` without the `set-upstream` flag, git will suggest the full command for you. 
+
+Now to write the code in this branch that's going to read in the data. We'll read it in to a data frame and the first task is to choose a name for the data frame and let the rest of the team know, as they'll need that info (in the example below, we're calling it `dfProgressHE`). If you've got the R expertise to do this already, then feel free to go for it, otherwise just follow the following steps below.
+
+Open up the script `R/read_data.R` and change the code from:
 
 ```
-git add .
-git commit "Added function to read data in data."
-git push
+  read_revenue_data <- function(file){
+    dfRevenue <- read.csv(file)
+    colnames(dfRevenue)[1] <- "time_period"
+    dfRevenue <- dfRevenue %>% 
+      mutate(year = as.numeric(paste0("20",substr(format(time_period),5,6))),
+      area_name=case_when(geographic_level=='National' ~ country_name,
+                       geographic_level=='Regional' ~ region_name,
+                       TRUE ~ la_name))
+    return(dfRevenue)
+  }
 ```
 
-We've made a function to read in the data, but we're not running that function anywhere. So now open up *global.R* and add the following line at the end of the script:
+to: 
 
-`dfProgressHE <- featReadData()`
+```
+  funcReadData <- function(file){
+    dfData <- read.csv(file)
+    dfData <- dfData %>% 
+      mutate(year = as.numeric(paste0("20",substr(format(time_period),5,6)))) %>%
+      filter(geographic_level != "Parliamentary constituency",
+             characteristic_group=='Total',
+             institution_type=='Total') %>%
+      mutate(area_name=case_when(geographic_level=='National' ~ country_name,
+                          geographic_level=='Regional' ~ region_name,
+                          TRUE ~ la_name))
+    return(dfData)
+  }
+```
 
-Give it a test, by sourcing *global.R* and checking the contents of `dfProgressHE` (e.g. by typing `dfProgressHE` in the R console). Once you're happy, then run another add/commit/push cycle and flag to your team that you've finished your task and the data read in is ready to use.
+You've made a substantive change, so let's run a quick add, commit and push in the BASH terminal:
 
-### Task 1b - Creating a chart
+```
+  git add .
+  git commit "Added function to read data in data."
+  git push
+```
 
-There's already an example chart in the template, so let's re-wire that as the basis for our demo chart here. Let's start by creating a ew branch in RStudio. With your repo open (and pulled with the latest changes) in RStudio, click the new branch button in the git panel toolbar. This will open a dialogue box as shown here in which you can enter a new branch name. Enter a name, make sure syncing to the remote is selected and press *Create*.
+We've made a function to read in the data, but we're not running that function anywhere. So now open up *global.R* and change the line:
+
+```
+  dfRevBal <- read_revenue_data()
+```
+
+to the following:
+
+```
+  dfProgressHE <- funcReadData('data/progress_he_la_2020.csv')
+```
+
+Then change the following lines from:
+
+```
+  choicesAreas <- dfAreas %>%
+    filter(geographic_level == "National") %>%
+    select(geographic_level, area_name = country_name) %>%
+    rbind(dfAreas %>% filter(geographic_level == "Regional") %>% 
+    select(geographic_level, area_name = region_name)) %>%
+    rbind(choicesLAs)
+  choicesYears <- unique(dfRevBal$time_period)
+  choicesPhase <- unique(dfRevBal$school_phase)
+```
+
+to:
+
+```
+  choicesAreas <- dfAreas %>%
+    filter(geographic_level == "Regional") %>% 
+    select(geographic_level, area_name = region_name) %>%
+    rbind(choicesLAs)
+  choicesYears <- unique(dfProgressHE$time_period)
+  choicesPhase <- unique(dfProgressHE$data_type)
+```
+
+Give it a test, by sourcing *global.R* and checking the contents of `dfProgressHE` (e.g. by typing `dfProgressHE` in the R console). Once you're happy, then run another add/commit/push cycle and flag to your team that you've finished the code to read in the data.
+
+
+### Task 1b - Updating the user-interface inputs
+
+As task 1a is updating the data that's been read in, we'll need to update some of the code to work with this new data that's been read in, so that the dashboard still works. As we're no longer working with the same data, we've changed the name of the data frame holding the data and some of the column names will be different.
+
+In this task, we'll create a new branch using GitHub. Open up the repository on GitHub and select the Issues tab. You should see something similar to shown below.
+
+```{r echo=FALSE, out.width='92%', fig.align='center', fig.cap="The Issues panel in GitHub. This can be used to keep track of jobs that need doing on a repository and create new branches linked to individual jobs."}
+knitr::include_graphics("images/gitdemo/gitdemo-GitHub-Issues.PNG")
+```
+
+On the issues tab, select *New issue* and then **Feature request**. This will open a new issue panel, with boxes to put in some details about the feature being requested. Let's put in a title of *"Update inputs for new data"* and put in a description along the lines of "The data file being read in has been updated and the inputs needed updating to match the column headers etc.". You've got options to add assign this task and add labels, link to projects and milestones. We don't need much of that, but maybe add yourself as the assignee. When you're ready, click **Submit new issue**. 
+
+After you've done so, you'll see you now have the option in the right hand side panel to create a new branch linked to this issue. Select that and choose to check out the branch locally as the next option. Once you've confirmed you'll get some code to use to checkout the branch locally, which you can copy and use in the terminal in RStudio. It should look something like this:
+
+```
+  git fetch origin
+  git checkout 1-update-inputs-for-new-data
+```
+
+Run that in RStudio and you'll have your new branch ready to go.
+
+```{r echo=FALSE, out.width='64%', fig.align='center', fig.cap="Once you've created an Issue on GitHub, you can create a new branch from the GitHub webpage and then fetch it to work on locally on your laptop."}
+knitr::include_graphics("images/gitdemo/gitdemo-GitHub-Issues-NewBranch.PNG")
+```
+
+So we've got a few small changes just to update here given the changes to the input data. Whoever's performing Task 1a, should be updating the data frame containing the new input data to be called `dfProgressHE` to reflect the different data that's being read in. The main changes that are needed are in the *server.R* and *R/dashboard_panels.R*.
+
+Open up *server.R* and replace any instances of `dfRevBal` with `dfProgressHE`. Then in *R/dashboard_panels.R*, update the titles of the input boxes from:
+
+```
+  selectizeInput("selectPhase",
+        "Select a school phase",
+        choices = choicesPhase
+```
+
+to:
+
+```
+  selectizeInput("selectPhase",
+        "Select an indicator",
+        choices = choicesPhase
+```
+
+And that should be it for this task.
+
+
+### Task 1c - Creating a chart
+
+There's already an example chart in the template, so let's re-wire that as the basis for our demo chart here. Let's start by creating a new branch in RStudio. With your repo open (and pulled with the latest changes) in RStudio, click the new branch button in the git panel toolbar. This will open a dialogue box as shown here in which you can enter a new branch name. Enter a name (e.g. *featTimeSeriesChart*), make sure syncing to the remote is selected and press *Create*.
 
 ```{r echo=FALSE, out.width='64%', fig.align='center', fig.cap="The new branch dialogue box in RStudio is opened using the purple new branch icon in the git toolbar."}
 knitr::include_graphics("images/gitdemo/gitdemo-RStudio_NewBranch.PNG")
 ```
 
-***
-**NOTE**
+Now in this new branch, you can make updates that won't effect any other branches until you choose to merge this branch with another one. 
 
-When your team mate from task 1 has completed their task, you'll want to merge their changes into your own branch, so that you have access to the data that's being read in:
+To keep the code for the dashboard organised, we've split it into separate scripts and functions in different files. The main code for defining the line chart in the template is contained in `R/plotting.R`. Open that script now and change the lines:
 
 ```
-git merge featReadData
+  createAvgRevTimeSeries <- function(dfRevenueBalance,inputArea){
+    ggplot(dfRevenueBalance, aes(x=year,y=average_revenue_balance,color=area_name)) + 
+
 ```
 
-***
+to:
 
-### Task 1c - Creating a table
+```
+  createTimeSeries <- function(df,inputArea){
+  ggplot(df, aes(x=year,y=cohort,color=institution_group)) + 
+
+```
+
+This tells the plot to now take the variable `cohort` as the value to plot on the y-axis and `institution_group` as a filter on which to colour the output.
+
+
 
 ### Pull requests (PRs) and merging branches
+
+## Some basic merging
+
+Once a task is completed on a branch, it will likely need merging into another branch, for example the *main* branch. Once task 1a and 1b are complete, we should merge them into the branch for 1c so that all the changes are collated together. To do so, make sure you're in the *featTimeSeriesChart* branch (or equivalent depending on what you called it in task 1c) and run the following command in the `BASH` terminal (either in RStudio or in the standalone terminal):
+
+```
+  git merge featReadData
+```
+
+That merges in the branch from task 1a. If you get any messages about merge conflicts, then you'll need to take some extra steps that we can help you through. If it merges in without any problems, then run the following to merge in the changes from task 1b:
+
+```
+  git merge 1-update-inputs-for-new-data
+```
+
+Provided you don't get any issues with the above merges, then you should now have all the updates from the three branches collected together in the final branch. 
+
+## Merging with pull requests
+
+Whilst the basic merges above work fine for pulling in some simple changes, using `git merge` via the terminal lacks any collaborative functionality like discussing and reviewing changes. This is where pull requests come in to play. Pull requests are a part of both GitHub and Dev Ops and provide similar functionality between those two platforms. Here we're using GitHub, but a lot of this will be transferrable to using Azure Dev Ops.
+
+What we'd like to do now is to merge all the changes made so far into the *main* branch in the repository. To do so, whoever did task 1c should open up the repository on GitHub in their web browser and go to the branches panel under the code tab.
+
+```{r echo=FALSE, out.width='64%', fig.align='center', fig.cap="The branches overview pane in GitHub."}
+knitr::include_graphics("images/gitdemo/gitdemo-GitHub-Branches.PNG")
+```
+
+
+
+## Dealing with merge conflicts
 
 
 
 ## Summary
 
-| Process | git BASH                          | RStudio git panel                               |
-|---------|-----------------------------------|-------------------------------------------------|
-| Create new branch | `git checkout -b branch_name` | Click the new branch symbol |
-| Switch to existing branch  | `git checkout branch_name` |                      |
-| Merge    | `git merge branch_name`  | Not available in RStudio - merge by creating a pull request in GitHub/Dev Ops |
+| Process       | git BASH                          | RStudio git panel                               |
+|---------------|------------------------------|:------------------------:|
+| Create branch | `git checkout -b branch_name` |  \includegraphics{"images/gitdemo/gitdemo-RStudio-gitToolbarCreateBranch.png"} |
+| Switch branch  | `git checkout branch_name` | \includegraphics{"images/gitdemo/gitdemo-RStudio-gitToolbarSwitchBranch.png"} |
+| Merge branch   | `git merge branch_name`  | N/A - use GitHub/Dev Ops |
 
 
 \newpage
