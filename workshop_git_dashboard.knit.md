@@ -49,16 +49,7 @@ urlcolor: blue
 fontsize: 12pt
 ---
 
-```{r write title page, include=FALSE}
-connTitle <- file("title.sty")
-writeLines(c("\\resizebox{48mm}{!}{\\includegraphics{images/Department_for_Education.png}}\n",
-             "\\vspace*{0.24\\textheight}\n",
-             "\\raggedright\\HUGE{\\color{dfeheadingblue}\\textbf{DfE Statistics Development Team Workshops}} \n",
-             paste0("\\huge{\\color{dfeheadingblue}\\textbf{Using git and GitHub (building a R-Shiny dashboard)}}"),
-             "\\vspace*{2\\baselineskip} \n",
-             "\\normalsize \n \\newpage \n"), connTitle)
-close(connTitle)
-```
+
 
 \newpage
 
@@ -88,15 +79,15 @@ Preferably before coming along, you'll need to go through the following list of 
 
 You'll also need to make sure that git is set up in the git/SVN pane of global options in R-Studio (found in the Tools drop down menu). Make sure the path to your git executable is entered in the git path box and git should automatically be integrated with R-Studio. 
 
-```{r echo=FALSE, out.width='64%', fig.cap='Enter the path to your git executable in the git path option box'}
-knitr::include_graphics('images/gitdemo/gitdemo-gitRstudio-settings.png')
-```
+\begin{figure}
+\includegraphics[width=0.64\linewidth]{images/gitdemo/gitdemo-gitRstudio-settings} \caption{Enter the path to your git executable in the git path option box}\label{fig:unnamed-chunk-1}
+\end{figure}
 
 Once you open a repository, you'll get an extra panel, named 'git', in the top right pane of R-Studio and you'll also be able to use git in the 'Terminal' tab at the bottom left (in the same place as the R console). 
 
-```{r echo=FALSE, out.width='56%', fig.cap='The `git BASH` terminal in R-Studio'}
-knitr::include_graphics('images/gitdemo/gitdemo-gitRstudio-NewTerminal.png')
-```
+\begin{figure}
+\includegraphics[width=0.56\linewidth]{images/gitdemo/gitdemo-gitRstudio-NewTerminal} \caption{The `git BASH` terminal in R-Studio}\label{fig:unnamed-chunk-2}
+\end{figure}
 
 A useful thing here if you want to use git commands in the terminal is to switch the terminal from the default Windows Command Prompt to `git BASH`. You can do this in the Terminal tab of R-Studio's global options - just select `git BASH` from the 'New terminal opens with' pull down menu. Click apply and then select the Terminal tab (next to the Console tab), click 'Terminal 1' and then select 'New terminal' from the drop down menu. You should see something similar to the terminal screenshot.
 
@@ -119,9 +110,9 @@ On that page, you'll see the main repository page. This contains a menu bar to n
 
 In the case of our template, you'll also see a button saying use this repo as a template. At this point, one (and only one!) of your group should click that button, which will take you to the create repository page. Here you have the option to create a copy of the template in your own GitHub area as shown below. Give the new repository a name and a description and then click "Create repository from template".
 
-```{r echo=FALSE, out.width='72%', fig.cap='Put in a name for the new repo and a quick description and then click on Create repository from template'}
-knitr::include_graphics('images/gitdemo/gitdemo-shinydash-newrepofromtemplate.png')
-```
+\begin{figure}
+\includegraphics[width=0.72\linewidth]{images/gitdemo/gitdemo-shinydash-newrepofromtemplate} \caption{Put in a name for the new repo and a quick description and then click on Create repository from template}\label{fig:unnamed-chunk-3}
+\end{figure}
 
 One of you at least should now have their own repository produced from this starting template project. We need everyone in your team to be able to work on this project however, so now you'll need to give access to your other team members. To do so, navigate to settings (at the far right of the menu bar on your repository page) and = 
 
@@ -152,15 +143,15 @@ Now grab the repo url and replace `<repo_url>` in the next command with the actu
 
 You should get some messages letting you know git is connecting to the server and cloning the repository and it should look something like the figure below.
 
-```{r echo=FALSE, out.width='60%', fig.cap='Cloning a repository in git BASH'}
-knitr::include_graphics('images/gitdemo/gitdemo-terminal_clone.png')
-```
+\begin{figure}
+\includegraphics[width=0.6\linewidth]{images/gitdemo/gitdemo-terminal_clone} \caption{Cloning a repository in git BASH}\label{fig:unnamed-chunk-4}
+\end{figure}
 
 If all went well, you'll now have a complete copy of the repository on your laptop. To open the repository in RStudio, start up RStudio and select Open project. In the file explorer window that opens up, type `C:\Users\` and hit enter (see the screenshot below) and then open up your home folder. 
 
-```{r echo=FALSE, out.width='60%', fig.cap='Open a cloned project in RStudio'}
-knitr::include_graphics('images/gitdemo/gitdemo-RStudio_OpenProj.png')
-```
+\begin{figure}
+\includegraphics[width=0.6\linewidth]{images/gitdemo/gitdemo-RStudio_OpenProj} \caption{Open a cloned project in RStudio}\label{fig:unnamed-chunk-5}
+\end{figure}
 
 Then navigate into `repos` and the repository folder. The full path should be something along the lines of:
 
@@ -168,17 +159,17 @@ Then navigate into `repos` and the repository folder. The full path should be so
 
 Select the R project file and select open.
 
-```{r echo=FALSE, out.width='60%', fig.cap='Open a cloned project in RStudio'}
-knitr::include_graphics('images/gitdemo/gitdemo-RStudio_OpenProj_fullpath.png')
-```
+\begin{figure}
+\includegraphics[width=0.6\linewidth]{images/gitdemo/gitdemo-RStudio_OpenProj_fullpath} \caption{Open a cloned project in RStudio}\label{fig:unnamed-chunk-6}
+\end{figure}
 
 ### Cloning using the RStudio wizard
 
 If that looks like a bit too much text based effort, RStudio offers a way to clone a repository with it's New project wizard. To do this navigate the menu bar to **File > New Project...**, select **Version Control** and then Git. This opens up a dialogue box to enter the repository url and select where to save it. As with the git BASH version, copy and paste your remote repo URL here and set a directory where you want it saved on your laptop.
 
-```{r echo=FALSE, out.width='60%', fig.cap='Clone a project using the RStudio git wizard'}
-knitr::include_graphics('images/gitdemo/gitdemo-RStudio_OpenProj_wizard.png')
-```
+\begin{figure}
+\includegraphics[width=0.6\linewidth]{images/gitdemo/gitdemo-RStudio_OpenProj_wizard} \caption{Clone a project using the RStudio git wizard}\label{fig:unnamed-chunk-7}
+\end{figure}
 
 #### A note on local repository clones and OneDrive
 
@@ -225,9 +216,8 @@ We'll now take a look at updating repositories with your working. To do so, we'l
 
 In order to move quickly between different versions of files and code, git is built around indexing and a log file that track the changes in a repository. To view the log of any repository, we can simply go into that repository and run the command `git log` from the BASH terminal. For example, if you run it in the repository you've created from the template, you'll get something along the lines of the following:
 
-```{r echo=FALSE, out.width='80%', fig.align='center'}
-knitr::include_graphics("images/gitdemo/gitdemo-gitlog-1.png")
-```
+
+\begin{center}\includegraphics[width=0.8\linewidth]{images/gitdemo/gitdemo-gitlog-1} \end{center}
 
 The log shows all "commits" that have been made to the repository. We'll go into making commits in the next section.
 
@@ -251,9 +241,8 @@ This searches the repo for any files that have been modified since the last comm
 
 This adds an entry on to the log, updating it with the file changes that you've just made. Note that the text after the `-m` is a comment used to describe the changes to make it easier for someone looking back from the log to see what changes have happened. Those are the two key steps for tracking changes to the files and folders in your repository. Say we decide we're not happy with the data filename, maybe we think the filename should be more informative for users. We'd now change the filename as normal, and then re-run the commands `git add .` and `git commit -m "Made data filename more informative."` (updating the commit comment to describe the changes that we've made). If we now run `git log` again, we get something along the lines of:
 
-```{r echo=FALSE, out.width='80%', fig.align='center'}
-knitr::include_graphics("images/gitdemo/gitdemo-gitlog-2.png")
-```
+
+\begin{center}\includegraphics[width=0.8\linewidth]{images/gitdemo/gitdemo-gitlog-2} \end{center}
 
 Here we can see, in reverse order, the commits that have been made, who made them, when they made them, and the messages that have been recorded with them.
 
@@ -398,9 +387,14 @@ As task 1a is updating the data that's been read in, we'll need to update some o
 
 In this task, we'll create a new branch using GitHub. Open up the repository on GitHub and select the Issues tab. You should see something similar to shown below.
 
-```{r echo=FALSE, out.width='92%', fig.align='center', fig.cap="The Issues panel in GitHub. This can be used to keep track of jobs that need doing on a repository and create new branches linked to individual jobs."}
-knitr::include_graphics("images/gitdemo/gitdemo-GitHub-Issues.PNG")
-```
+\begin{figure}
+
+{\centering \includegraphics[width=0.92\linewidth]{images/gitdemo/gitdemo-GitHub-Issues} 
+
+}
+
+\caption{The Issues panel in GitHub. This can be used to keep track of jobs that need doing on a repository and create new branches linked to individual jobs.}\label{fig:unnamed-chunk-10}
+\end{figure}
 
 On the issues tab, select *New issue* and then **Feature request**. This will open a new issue panel, with boxes to put in some details about the feature being requested. Let's put in a title of *"Update inputs for new data"* and put in a description along the lines of "The data file being read in has been updated and the inputs needed updating to match the column headers etc.". You've got options to add assign this task and add labels, link to projects and milestones. We don't need much of that, but maybe add yourself as the assignee. When you're ready, click **Submit new issue**. 
 
@@ -413,9 +407,14 @@ After you've done so, you'll see you now have the option in the right hand side 
 
 Run that in RStudio and you'll have your new branch ready to go.
 
-```{r echo=FALSE, out.width='64%', fig.align='center', fig.cap="Once you've created an Issue on GitHub, you can create a new branch from the GitHub webpage and then fetch it to work on locally on your laptop."}
-knitr::include_graphics("images/gitdemo/gitdemo-GitHub-Issues-NewBranch.PNG")
-```
+\begin{figure}
+
+{\centering \includegraphics[width=0.64\linewidth]{images/gitdemo/gitdemo-GitHub-Issues-NewBranch} 
+
+}
+
+\caption{Once you've created an Issue on GitHub, you can create a new branch from the GitHub webpage and then fetch it to work on locally on your laptop.}\label{fig:unnamed-chunk-11}
+\end{figure}
 
 So we've got a few small changes just to update here given the changes to the input data. Whoever's performing Task 1a, should be updating the data frame containing the new input data to be called `dfProgressHE` to reflect the different data that's being read in. The main changes that are needed are in the *server.R* and *R/dashboard_panels.R*.
 
@@ -442,9 +441,14 @@ And that should be it for this task.
 
 There's already an example chart in the template, so let's re-wire that as the basis for our demo chart here. Let's start by creating a new branch in RStudio. With your repo open (and pulled with the latest changes) in RStudio, click the new branch button in the git panel toolbar. This will open a dialogue box as shown here in which you can enter a new branch name. Enter a name (e.g. *featTimeSeriesChart*), make sure syncing to the remote is selected and press *Create*.
 
-```{r echo=FALSE, out.width='64%', fig.align='center', fig.cap="The new branch dialogue box in RStudio is opened using the purple new branch icon in the git toolbar."}
-knitr::include_graphics("images/gitdemo/gitdemo-RStudio_NewBranch.PNG")
-```
+\begin{figure}
+
+{\centering \includegraphics[width=0.64\linewidth]{images/gitdemo/gitdemo-RStudio_NewBranch} 
+
+}
+
+\caption{The new branch dialogue box in RStudio is opened using the purple new branch icon in the git toolbar.}\label{fig:unnamed-chunk-12}
+\end{figure}
 
 Now in this new branch, you can make updates that won't effect any other branches until you choose to merge this branch with another one. 
 
@@ -492,15 +496,25 @@ Whilst the basic merges above work fine for pulling in some simple changes, usin
 
 What we'd like to do now is to merge all the changes made so far into the *main* branch in the repository. To do so, whoever did task 1c should open up the repository on GitHub in their web browser and go to the branches panel under the code tab.
 
-```{r echo=FALSE, out.width='64%', fig.align='center', fig.cap="The branches overview pane in GitHub."}
-knitr::include_graphics("images/gitdemo/gitdemo-GitHub-Branches.PNG")
-```
+\begin{figure}
+
+{\centering \includegraphics[width=0.64\linewidth]{images/gitdemo/gitdemo-GitHub-Branches} 
+
+}
+
+\caption{The branches overview pane in GitHub.}\label{fig:unnamed-chunk-13}
+\end{figure}
 
 Click **New pull request** on the branch for task 1c, which now contains all the updates. That will open up the pull request page, where you can give some details for collaborators to understand what's in this update to the code. The pull request will default to performing a merge from the branch you've created it on into the *main* branch.
 
-```{r echo=FALSE, out.width='64%', fig.align='center', fig.cap="Opening a Pull Request on GitHub."}
-knitr::include_graphics("images/gitdemo/gitdemo-GitHub-OpenPullRequest.PNG")
-```
+\begin{figure}
+
+{\centering \includegraphics[width=0.64\linewidth]{images/gitdemo/gitdemo-GitHub-OpenPullRequest} 
+
+}
+
+\caption{Opening a Pull Request on GitHub.}\label{fig:unnamed-chunk-14}
+\end{figure}
 
 
 There are a few useful things to do here:
