@@ -106,7 +106,7 @@ A useful thing here if you want to use git commands in the terminal is to switch
 
 ## Creating a new repository on GitHub
 
-At this point, we're ready to create a new repository. The conext of this exercise is to create a dashboard, so let's get a head start on that by using the DfE R-Shiny template.
+At this point, we're ready to create a new repository. The context of this exercise is to create a dashboard, so let's get a head start on that by using the DfE R-Shiny template.
 
 ![Click the use this template button to create the new repository](images/gitdemo/gitdemo-shinydash-template.png)
 
@@ -123,13 +123,11 @@ In the case of our template, you'll also see a button saying use this repo as a 
 knitr::include_graphics('images/gitdemo/gitdemo-shinydash-newrepofromtemplate.png')
 ```
 
-One of you at least should now have their own repository produced from this starting template project. We need everyone in your team to be able to work on this project however, so now you'll need to give access to your other team members. To do so, navigate to settings (at the far right of the menu bar on your repository page) and = 
-
-Now you'll need to add your other team members as collaborators in order to allow them to contribute to the code development in this repository.
+One of you at least should now have their own repository produced from this starting template project. We need everyone in your team to be able to work on this project however, so now you'll need to give access to your other team members. To do so, navigate to **Settings** (at the far right of the menu bar on your repository page) and select **Collaborators** on the left hand side. Under **Manage access**, add your teammates via either their email addresses or their GitHub user names.
 
 ## Cloning the repository to your local machine
 
-Cloning the repostory refers to creating a copy of the remote repository (i.e. the copy on GitHub or Dev Ops) on the disk on your local machine (i.e. your DfE laptop). For an R project, there are two basic options to choose from for doing this: 
+Cloning the repository refers to creating a copy of the remote repository (i.e. the copy on GitHub or Dev Ops) on the disk on your local machine (i.e. your DfE laptop). For an R project, there are two basic options to choose from for doing this: 
 
 * using the R-Studio new project wizard, or 
 * using `git BASH`.
@@ -140,15 +138,21 @@ We'd recommend trying the different options across your working group.
 
 You can open up a `git BASH` terminal, by typing `git BASH` in the Windows search bar and select `git BASH` when it comes up. With a terminal, you can interact with it just by typing, similar to working in the R console in RStudio. First let's make a directory in which to store our repositories:
 
+```
     mkdir repos
-    
+```
+
 We can then move into the directory we just created using:
 
+```
     cd repos
+```
     
 Now grab the repo url and replace `<repo_url>` in the next command with the actual url:
 
+```
     git clone <repo_url>
+```
 
 You should get some messages letting you know git is connecting to the server and cloning the repository and it should look something like the figure below.
 
@@ -182,17 +186,19 @@ knitr::include_graphics('images/gitdemo/gitdemo-RStudio_OpenProj_wizard.png')
 
 #### A note on local repository clones and OneDrive
 
-> Note that saving a repository within your OneDrive folder structure can cause some awkward issues. If you use git to perform version control on a repositorry saved within a OneDrive folder, you may start receiving warning messages that large numbers of files have been removed from OneDrive. In addtion, it can put a heavy burden on your internet connection as OneDrive tries to keep up with changes to the files managed by git. Best practice therefore is to store your repositories somewhere outside your OneDrive file structure. We recommend creating a `repos` directory within your base User directory (i.e. `C:\Users\<USERNAME>\repos\`. Windows sometimes tries to make it awkward for you to navigate to places on your laptop outside of the OneDrive folders, so a useful tip is to add your `repos` folder to your Quick access list in File Explorer.
+> Note that saving a repository within your OneDrive folder structure can cause some awkward issues. If you use git to perform version control on a repository saved within a OneDrive folder, you may start receiving warning messages that large numbers of files have been removed from OneDrive. In addtion, it can put a heavy burden on your internet connection as OneDrive tries to keep up with changes to the files managed by git. Best practice therefore is to store your repositories somewhere outside your OneDrive file structure. We recommend creating a `repos` directory within your base User directory (i.e. `C:\Users\<USERNAME>\repos\`. Windows sometimes tries to make it awkward for you to navigate to places on your laptop outside of the OneDrive folders, so a useful tip is to add your `repos` folder to your Quick access list in File Explorer.
 
 
 ## Controlling packages with renv
 
-Now that you've each got a clone of the repository, it's useful to understand a little bit about environment control. Using R as the specific example, any app or pipeline that you develop will have packages that it depends on. If someone wants to use your code, they need to know what pacakges are involved, whilst it can also be helpful for them to be able to use the same versions of those packages in order to recreate exactly what you intended the code to be able to do.
+Now that you've each got a clone of the repository, it's useful to understand a little bit about environment control. Using R as the specific example, any app or pipeline that you develop will have packages that it depends on. If someone wants to use your code, they need to know what packages are involved, whilst it can also be helpful for them to be able to use the same versions of those packages in order to recreate exactly what you intended the code to be able to do.
 
 To manage this, we can use an R package called `renv`. This manages the R environment for you, helping you keep track of your repositories required R packages and their versions. In a brand new empty project, you'd initiate `renv` with the command `renv::init()`. In this case, the template already has `renv` initiated. So instead we can tell renv to check the necessary packages and install them for us. You can do this by entering the following command in the R console:
 
+```
     renv::restore()
-    
+```
+
 This should go through `renv`'s list of the required packages and install them all in one go (note that you'll need to be connected to the internet for it to retrieve any packages that aren't already installed). Once you've done this, the contents of the repository should run as intended. If at some point you install an extra package for the repository, you can add this to `renv`'s package list by entering the command `renv::snapshot()` into the R console.  
 
 ## Running the dashboard template locally
@@ -233,11 +239,9 @@ The log shows all "commits" that have been made to the repository. We'll go into
 
 ## Adding, commiting and pushing
 
-First of all, one of your group should make a folder called **data** in your local repository. To do this, you can either go to the BASH terminal and type the command `mkdir data` (making sure you're in your local repositories root directory) or click the add folder button in the Files tab in the bottom right panel of RStudio.
+To adapt the existing template, we want to add some new data. There should be a data folder in the repository already, so all we need to do is grab some data and save it there. For this workshop, we'll use a file from a publication on Explore Education Statistics. Go to [the progression to higher education or training data catalogue](https://explore-education-statistics.service.gov.uk/data-catalogue/progression-to-higher-education-or-training/2019-20) and download the **Progression to higher education and training - Local authority level (csv, 4 Mb)** file and extract the data csv file (*l4_tidy_2020_all_la.csv*) into the repo's data folder.
 
-For some example data, we'll use a file from a publication on Explore Education Statistics. Go to [the progression to higher education or training data catalogue](https://explore-education-statistics.service.gov.uk/data-catalogue/progression-to-higher-education-or-training/2019-20) and download the **Progression to higher education and training - Local authority level (csv, 4 Mb)** file and extract the data csv file (*l4_tidy_2020_all_la.csv*) into the data folder you just created.
-
-Now to add this to the git log. Run the following commands:
+Now to add this to the git tracking: run the following commands:
 
 ```
   git add .
@@ -249,7 +253,19 @@ This searches the repo for any files that have been modified since the last comm
   git commit -m "Added data file into repository."
 ```
 
-This adds an entry on to the log, updating it with the file changes that you've just made. Note that the text after the `-m` is a comment used to describe the changes to make it easier for someone looking back from the log to see what changes have happened. Those are the two key steps for tracking changes to the files and folders in your repository. Say we decide we're not happy with the data filename, maybe we think the filename should be more informative for users. We'd now change the filename as normal, and then re-run the commands `git add .` and `git commit -m "Made data filename more informative."` (updating the commit comment to describe the changes that we've made). If we now run `git log` again, we get something along the lines of:
+This adds an entry on to the log, updating it with the file changes that you've just made. Note that the text after the `-m` is a comment used to describe the changes to make it easier for someone looking back from the log to see what changes have happened. Those are the two key steps for tracking changes to the files and folders in your repository. Say we decide we're not happy with the data filename, maybe we think the filename should be more informative for users. We'd now change the filename as normal (e.g. to *progress_he_la_2020.csv* using File Explorer), and then run the commands 
+
+```
+   git add data/progress_he_la_2020.csv
+``` 
+
+and 
+
+```
+   git commit -m "Made data filename more informative."
+```
+
+Note that in this instance, we're adding just a single specific file (by naming the file in the `git add` comand), rather than asking git to check the whole repo for any updated files (i.e. by using `git add .`). We've also updated the commit message to be informative about the changes that we've made. If we now run `git log` again, we get something along the lines of:
 
 ```{r echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("images/gitdemo/gitdemo-gitlog-2.png")
@@ -261,7 +277,7 @@ Finally, it's important to note that what we've done so far is only being applie
 
 ## Pulling from the remote repository
 
-Now that you've made changes, the rest of your team can update their own local copies of the repository with your updates bu pulling from the remote. Similarly to pushing, they can do this by either a) typing `git push` in the BASH terminal or b) pressing the down arrow in the toolbar of the git tab in RStudio.
+Now that you've made changes, the rest of your team can update their own local copies of the repository with your updates by pulling from the remote. Similarly to pushing, they can do this by either a) typing `git push` in the BASH terminal or b) pressing the down arrow in the toolbar of the git tab in RStudio.
 
 ## Summary of git basics
 
@@ -279,23 +295,23 @@ We've quickly tried out a quick cycle of adding and committing, which is used to
 
 # Working collaboratively with git
 
-Git only really makes proper sense once multiple people start working on a project collaboratively. Solo working, git is useful for version control and syncing your work to a remote repository site like Dev Ops and GitHub, but doesn't necessarily offer all that much more beyond that. Once we start working collaboratively however, the benefits of using git (alongside GitHub or Dev Ops) become more apparent. We'll now look further into this with some worked examples.
+Git only really makes proper sense once multiple people start working on a project collaboratively. Solo working, git is useful for version control and syncing your work to a remote repository site like Dev Ops and GitHub, but may not feel like it offers all that much more beyond that. Once we start working collaboratively however, the benefits of using git (alongside GitHub or Dev Ops) become more apparent. We'll now look further into this with some worked examples.
 
 ## Branches and splitting tasks
 
 ### Task management
 
-One useful management tool that we can use from GutHub is the Issues tab. Here we can create individual tasks, assign them to team member and then create new **branches** from those tasks. You can think of **branches** as self contained copies of the repository that complementary or conflicting differences with all other **branches** in the repository. These allow you to work on different multiple tasks on your code independently of any other changes you might be making. Bringing these different **branches** or tasks together is then managed using **merges** or **pull requests** (PRs).
+One useful management tool that we can use from GitHub is the Issues tab. Here we can create individual tasks, assign them to team member and then create new **branches** from those tasks. You can think of **branches** as self contained copies of the repository that can contain complementary or conflicting differences with all other **branches** in the repository. These allow you to work on different multiple tasks on your code independently of any other changes you might be making. Bringing these different **branches** or tasks together is then managed using **merges** or **pull requests** (PRs).
 
 We'll demonstrate this by performing 3 related tasks on 3 different branches. Split the following 3 tasks between your group and each follow the relevant instructions:
 
 * Reading in the data
+* Updating references in the server script and the user interface
 * Creating a chart
-* Creating a table
 
 Once you've decided who's doing what, each of you should jump to the relevant section below. And remember that you're not working in independent silos here, what you do can impact what other people are doing so communication needs to happen along the way.
 
-### Task 1a - Reading in the data
+#### Task 1a - Reading in the data
 
 This task underpins the next two. You need to read in the data file that we've already downloaded. Start by creating a new branch: go to the BASH terminal, and type:
 
@@ -349,7 +365,7 @@ You've made a substantive change, so let's run a quick add, commit and push in t
 
 ```
   git add .
-  git commit "Added function to read data in data."
+  git commit -m "Added function to read data in data."
   git push
 ```
 
@@ -389,20 +405,27 @@ to:
   choicesPhase <- unique(dfProgressHE$data_type)
 ```
 
-Give it a test, by sourcing *global.R* and checking the contents of `dfProgressHE` (e.g. by typing `dfProgressHE` in the R console). Once you're happy, then run another add/commit/push cycle and flag to your team that you've finished the code to read in the data.
+Give it a test, by sourcing *global.R* in the R console:
 
+```
+   source("global.R")
+```
 
-### Task 1b - Updating the user-interface inputs
+And then have a check of the contents of `dfProgressHE` (e.g. by typing `dfProgressHE` in the R console). It's also worth having a look through the contents of the `choicesAreas`, `choicesYear` and `choicesPhase` variables to get an idea of what they contain. 
 
-As task 1a is updating the data that's been read in, we'll need to update some of the code to work with this new data that's been read in, so that the dashboard still works. As we're no longer working with the same data, we've changed the name of the data frame holding the data and some of the column names will be different.
+Once you're happy, then run another `add`/`commit`/`push` cycle and flag to your team that you've finished the code to read in the data.
 
-In this task, we'll create a new branch using GitHub. Open up the repository on GitHub and select the Issues tab. You should see something similar to shown below.
+#### Task 1b - Updating the user-interface inputs
+
+Whilst task 1a is updating the data that's been read in, this task aims to tweak some of the code to make sure the dashboard still works. As we're no longer working with the same data, we've changed the name of the data frame holding it and as well some of the column names will be different.
+
+In this task, we'll create a new branch using GitHub. Open up the repository on GitHub in your web browser and select the Issues tab. You should see something similar to shown below.
 
 ```{r echo=FALSE, out.width='92%', fig.align='center', fig.cap="The Issues panel in GitHub. This can be used to keep track of jobs that need doing on a repository and create new branches linked to individual jobs."}
 knitr::include_graphics("images/gitdemo/gitdemo-GitHub-Issues.PNG")
 ```
 
-On the issues tab, select *New issue* and then **Feature request**. This will open a new issue panel, with boxes to put in some details about the feature being requested. Let's put in a title of *"Update inputs for new data"* and put in a description along the lines of "The data file being read in has been updated and the inputs needed updating to match the column headers etc.". You've got options to add assign this task and add labels, link to projects and milestones. We don't need much of that, but maybe add yourself as the assignee. When you're ready, click **Submit new issue**. 
+On the issues tab, select *New issue* and then click **Get started** alongside **Feature request**. This will open a new issue panel, with boxes to put in some details about the feature being requested. Let's put in a title of *"Update inputs for new data"*. You'll see some handy guidance on what information to enter for an issue. Have a quick read of this, but then for brevity here, let's ignore it and put in a short description along the lines of "The data file being read in has been updated and the inputs needed updating to match the column headers etc.". You've got options to add assign this task and add labels, link to projects and milestones. We don't need much of that, but maybe add yourself as the assignee. When you're ready, click **Submit new issue**. 
 
 After you've done so, you'll see you now have the option in the right hand side panel to create a new branch linked to this issue. Select that and choose to check out the branch locally as the next option. Once you've confirmed you'll get some code to use to checkout the branch locally, which you can copy and use in the terminal in RStudio. It should look something like this:
 
@@ -411,7 +434,7 @@ After you've done so, you'll see you now have the option in the right hand side 
   git checkout 1-update-inputs-for-new-data
 ```
 
-Run that in RStudio and you'll have your new branch ready to go.
+Run that in the `BASH` terminal in RStudio and you'll have your new branch ready to go.
 
 ```{r echo=FALSE, out.width='64%', fig.align='center', fig.cap="Once you've created an Issue on GitHub, you can create a new branch from the GitHub webpage and then fetch it to work on locally on your laptop."}
 knitr::include_graphics("images/gitdemo/gitdemo-GitHub-Issues-NewBranch.PNG")
@@ -419,7 +442,9 @@ knitr::include_graphics("images/gitdemo/gitdemo-GitHub-Issues-NewBranch.PNG")
 
 So we've got a few small changes just to update here given the changes to the input data. Whoever's performing Task 1a, should be updating the data frame containing the new input data to be called `dfProgressHE` to reflect the different data that's being read in. The main changes that are needed are in the *server.R* and *R/dashboard_panels.R*.
 
-Open up *server.R* and replace any instances of `dfRevBal` with `dfProgressHE`. Then in *R/dashboard_panels.R*, update the titles of the input boxes from:
+Open up *server.R* and replace any instances of `dfRevBal` with `dfProgressHE` and any instances of `school_phase` with `data_type` (which references a specific column within the data frame). 
+
+Then in *R/dashboard_panels.R*, update the titles of the input boxes from:
 
 ```
   selectizeInput("selectPhase",
@@ -435,10 +460,20 @@ to:
         choices = choicesPhase
 ```
 
-And that should be it for this task.
+And that should be it for this task. All that's left is to commit and push your changes. If you've got a preferred way already to perform commits, then go for it. If not then let's use the RStudio git panel.
+
+```{r echo=FALSE, out.width='64%', fig.align='center', fig.cap="Staging files in the RStudio git panel."}
+knitr::include_graphics("images/gitdemo/gitdemo-RStudio-gitpanel.PNG")
+```
+
+Firstly click on the git tab in the top right of RStudio to show the git panel (see the screenshot below). Next click the tickboxes next to the files with changes (i.e. these should be server.R and R/dashboards_panels.R) to **stage** (aka **add**) the files. Now click **commit**, add a commit message in the relavent text box and then hit **commit** in the bottom right corner of the window. 
+
+Assuming that all went through without any issues, you can now press the green up arrow in the git panel to **push** your changes to the remote repository on GitHub.
+
+Let the others know that you're done!
 
 
-### Task 1c - Creating a chart
+#### Task 1c - Creating a chart
 
 There's already an example chart in the template, so let's re-wire that as the basis for our demo chart here. Let's start by creating a new branch in RStudio. With your repo open (and pulled with the latest changes) in RStudio, click the new branch button in the git panel toolbar. This will open a dialogue box as shown here in which you can enter a new branch name. Enter a name (e.g. *featTimeSeriesChart*), make sure syncing to the remote is selected and press *Create*.
 
@@ -464,11 +499,39 @@ to:
 
 ```
 
+Then we need to update the code in *server.R* to reflect these changes to the plot, so update:
+
+```
+    ggplotly(createAvgRevTimeSeries(reactiveRevBal(), input$selectArea)) %>%
+```
+
+to
+
+```
+    ggplotly(createTimeSeries(reactiveRevBal(), input$selectArea)) %>%
+
+```
+
 This tells the plot to now take the variable `cohort` as the value to plot on the y-axis and `institution_group` as a filter on which to colour the output.
 
 
+And that should be it for this task. All that's left is to commit and push your changes. If you've got a preferred way already to perform commits, then go for it. If not then let's use the RStudio git panel.
 
-### Pull requests (PRs) and merging branches
+```{r echo=FALSE, out.width='64%', fig.align='center', fig.cap="Staging files in the RStudio git panel."}
+knitr::include_graphics("images/gitdemo/gitdemo-RStudio-gitpanel.PNG")
+```
+
+Firstly click on the git tab in the top right of RStudio to show the git panel (see the screenshot below). Next click the tickboxes next to the files with changes (i.e. these should be server.R and R/dashboards_panels.R) to **stage** (aka **add**) the files. Now click **commit**, add a commit message in the relavent text box and then hit **commit** in the bottom right corner of the window. 
+
+Assuming that all went through without any issues, you can now press the green up arrow in the git panel to **push** your changes to the remote repository on GitHub.
+
+Let the others know that you're done!
+
+### Wrap up
+
+Provided you've all followed the instructions above, then you should each have used a different method to create a new branch. Try and take a few minutes here to discuss and compare how you each made a new branch.
+
+**Each comes with it's own benefits, limitations and challenges. How do you find each compare?**
 
 ## Some basic merging
 
@@ -533,6 +596,13 @@ Assuming we've dealt with the outcomes of those reviews appropriately, the next 
 When `git` performs a merge, it uses the histories of different changes that were made to files to help understand what changes in any given file supersede other across a pair of branches. In some cases, for example of two branches contain contradictory changes to the same part of a file, then `git` won't automatically merge the two versions of that file and will instead call for the user to give it some steer on how it should procede. This is called a **merge conflict**.
 
 ## Summary
+
+We've looked through a lot of the basics in this section, covering adding/staging, committing, pushing/pulling between remote and local repos, merging and pull requests. These are all the main concepts you need to use git. 
+
+We've also tried to cover doing all this through a mixture of RStudio, git BASH and GitHub (and as we've said Azure Dev Ops offers similar functionality to GitHub). Most common processes can be done multiple ways and there's not necessarily a single right method to follow, just whichever makes most sense in your situation.
+
+Just a quick final note on why it's useful to be familiar with git `BASH`. Whilst most of the basic git functionality can be accessed via the RStudio interface or GitHub/Dev Ops, there are some things that are best achieved through BASH. In particular, if you have a file in your repo that you need to remove entirely, this pretty much requires someone to use commands via git BASH.
+
 
 | Process       | git BASH                          | RStudio git panel                               |
 |---------------|------------------------------|:------------------------:|

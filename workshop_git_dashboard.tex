@@ -235,7 +235,7 @@ the terminal screenshot.
 \subsection{Creating a new repository on
 GitHub}\label{creating-a-new-repository-on-github}}
 
-At this point, we're ready to create a new repository. The conext of
+At this point, we're ready to create a new repository. The context of
 this exercise is to create a dashboard, so let's get a head start on
 that by using the DfE R-Shiny template.
 
@@ -272,20 +272,20 @@ description and then click ``Create repository from template''.
 One of you at least should now have their own repository produced from
 this starting template project. We need everyone in your team to be able
 to work on this project however, so now you'll need to give access to
-your other team members. To do so, navigate to settings (at the far
-right of the menu bar on your repository page) and =
-
-Now you'll need to add your other team members as collaborators in order
-to allow them to contribute to the code development in this repository.
+your other team members. To do so, navigate to \textbf{Settings} (at the
+far right of the menu bar on your repository page) and select
+\textbf{Collaborators} on the left hand side. Under \textbf{Manage
+access}, add your teammates via either their email addresses or their
+GitHub user names.
 
 \hypertarget{cloning-the-repository-to-your-local-machine}{%
 \subsection{Cloning the repository to your local
 machine}\label{cloning-the-repository-to-your-local-machine}}
 
-Cloning the repostory refers to creating a copy of the remote repository
-(i.e.~the copy on GitHub or Dev Ops) on the disk on your local machine
-(i.e.~your DfE laptop). For an R project, there are two basic options to
-choose from for doing this:
+Cloning the repository refers to creating a copy of the remote
+repository (i.e.~the copy on GitHub or Dev Ops) on the disk on your
+local machine (i.e.~your DfE laptop). For an R project, there are two
+basic options to choose from for doing this:
 
 \begin{itemize}
 \tightlist
@@ -308,13 +308,13 @@ with it just by typing, similar to working in the R console in RStudio.
 First let's make a directory in which to store our repositories:
 
 \begin{verbatim}
-mkdir repos
+    mkdir repos
 \end{verbatim}
 
 We can then move into the directory we just created using:
 
 \begin{verbatim}
-cd repos
+    cd repos
 \end{verbatim}
 
 Now grab the repo url and replace
@@ -322,7 +322,7 @@ Now grab the repo url and replace
 actual url:
 
 \begin{verbatim}
-git clone <repo_url>
+    git clone <repo_url>
 \end{verbatim}
 
 You should get some messages letting you know git is connecting to the
@@ -379,7 +379,7 @@ OneDrive}\label{a-note-on-local-repository-clones-and-onedrive}}
 \begin{quote}
 Note that saving a repository within your OneDrive folder structure can
 cause some awkward issues. If you use git to perform version control on
-a repositorry saved within a OneDrive folder, you may start receiving
+a repository saved within a OneDrive folder, you may start receiving
 warning messages that large numbers of files have been removed from
 OneDrive. In addtion, it can put a heavy burden on your internet
 connection as OneDrive tries to keep up with changes to the files
@@ -401,7 +401,7 @@ Now that you've each got a clone of the repository, it's useful to
 understand a little bit about environment control. Using R as the
 specific example, any app or pipeline that you develop will have
 packages that it depends on. If someone wants to use your code, they
-need to know what pacakges are involved, whilst it can also be helpful
+need to know what packages are involved, whilst it can also be helpful
 for them to be able to use the same versions of those packages in order
 to recreate exactly what you intended the code to be able to do.
 
@@ -415,7 +415,7 @@ necessary packages and install them for us. You can do this by entering
 the following command in the R console:
 
 \begin{verbatim}
-renv::restore()
+    renv::restore()
 \end{verbatim}
 
 This should go through \texttt{renv}'s list of the required packages and
@@ -510,22 +510,17 @@ We'll go into making commits in the next section.
 \subsection{Adding, commiting and
 pushing}\label{adding-commiting-and-pushing}}
 
-First of all, one of your group should make a folder called
-\textbf{data} in your local repository. To do this, you can either go to
-the BASH terminal and type the command \texttt{mkdir\ data} (making sure
-you're in your local repositories root directory) or click the add
-folder button in the Files tab in the bottom right panel of RStudio.
-
-For some example data, we'll use a file from a publication on Explore
-Education Statistics. Go to
+To adapt the existing template, we want to add some new data. There
+should be a data folder in the repository already, so all we need to do
+is grab some data and save it there. For this workshop, we'll use a file
+from a publication on Explore Education Statistics. Go to
 \href{https://explore-education-statistics.service.gov.uk/data-catalogue/progression-to-higher-education-or-training/2019-20}{the
 progression to higher education or training data catalogue} and download
 the \textbf{Progression to higher education and training - Local
 authority level (csv, 4 Mb)} file and extract the data csv file
-(\emph{l4\_tidy\_2020\_all\_la.csv}) into the data folder you just
-created.
+(\emph{l4\_tidy\_2020\_all\_la.csv}) into the repo's data folder.
 
-Now to add this to the git log. Run the following commands:
+Now to add this to the git tracking: run the following commands:
 
 \begin{verbatim}
   git add .
@@ -545,11 +540,25 @@ from the log to see what changes have happened. Those are the two key
 steps for tracking changes to the files and folders in your repository.
 Say we decide we're not happy with the data filename, maybe we think the
 filename should be more informative for users. We'd now change the
-filename as normal, and then re-run the commands \texttt{git\ add\ .}
-and \texttt{git\ commit\ -m\ "Made\ data\ filename\ more\ informative."}
-(updating the commit comment to describe the changes that we've made).
-If we now run \texttt{git\ log} again, we get something along the lines
-of:
+filename as normal (e.g.~to \emph{progress\_he\_la\_2020.csv} using File
+Explorer), and then run the commands
+
+\begin{verbatim}
+   git add data/progress_he_la_2020.csv
+\end{verbatim}
+
+and
+
+\begin{verbatim}
+   git commit -m "Made data filename more informative."
+\end{verbatim}
+
+Note that in this instance, we're adding just a single specific file (by
+naming the file in the \texttt{git\ add} comand), rather than asking git
+to check the whole repo for any updated files (i.e.~by using
+\texttt{git\ add\ .}). We've also updated the commit message to be
+informative about the changes that we've made. If we now run
+\texttt{git\ log} again, we get something along the lines of:
 
 \begin{center}\includegraphics[width=0.8\linewidth]{images/gitdemo/gitdemo-gitlog-2} \end{center}
 
@@ -571,7 +580,7 @@ GitHub and you should now see the data file stored there.
 repository}\label{pulling-from-the-remote-repository}}
 
 Now that you've made changes, the rest of your team can update their own
-local copies of the repository with your updates bu pulling from the
+local copies of the repository with your updates by pulling from the
 remote. Similarly to pushing, they can do this by either a) typing
 \texttt{git\ push} in the BASH terminal or b) pressing the down arrow in
 the toolbar of the git tab in RStudio.
@@ -618,7 +627,7 @@ git}\label{working-collaboratively-with-git}}
 Git only really makes proper sense once multiple people start working on
 a project collaboratively. Solo working, git is useful for version
 control and syncing your work to a remote repository site like Dev Ops
-and GitHub, but doesn't necessarily offer all that much more beyond
+and GitHub, but may not feel like it offers all that much more beyond
 that. Once we start working collaboratively however, the benefits of
 using git (alongside GitHub or Dev Ops) become more apparent. We'll now
 look further into this with some worked examples.
@@ -630,11 +639,11 @@ tasks}\label{branches-and-splitting-tasks}}
 \hypertarget{task-management}{%
 \subsubsection{Task management}\label{task-management}}
 
-One useful management tool that we can use from GutHub is the Issues
+One useful management tool that we can use from GitHub is the Issues
 tab. Here we can create individual tasks, assign them to team member and
 then create new \textbf{branches} from those tasks. You can think of
-\textbf{branches} as self contained copies of the repository that
-complementary or conflicting differences with all other
+\textbf{branches} as self contained copies of the repository that can
+contain complementary or conflicting differences with all other
 \textbf{branches} in the repository. These allow you to work on
 different multiple tasks on your code independently of any other changes
 you might be making. Bringing these different \textbf{branches} or tasks
@@ -650,9 +659,9 @@ the relevant instructions:
 \item
   Reading in the data
 \item
-  Creating a chart
+  Updating references in the server script and the user interface
 \item
-  Creating a table
+  Creating a chart
 \end{itemize}
 
 Once you've decided who's doing what, each of you should jump to the
@@ -661,7 +670,7 @@ independent silos here, what you do can impact what other people are
 doing so communication needs to happen along the way.
 
 \hypertarget{task-1a---reading-in-the-data}{%
-\subsubsection{Task 1a - Reading in the
+\paragraph{Task 1a - Reading in the
 data}\label{task-1a---reading-in-the-data}}
 
 This task underpins the next two. You need to read in the data file that
@@ -730,7 +739,7 @@ push in the BASH terminal:
 
 \begin{verbatim}
   git add .
-  git commit "Added function to read data in data."
+  git commit -m "Added function to read data in data."
   git push
 \end{verbatim}
 
@@ -771,24 +780,35 @@ to:
   choicesPhase <- unique(dfProgressHE$data_type)
 \end{verbatim}
 
-Give it a test, by sourcing \emph{global.R} and checking the contents of
-\texttt{dfProgressHE} (e.g.~by typing \texttt{dfProgressHE} in the R
-console). Once you're happy, then run another add/commit/push cycle and
-flag to your team that you've finished the code to read in the data.
+Give it a test, by sourcing \emph{global.R} in the R console:
+
+\begin{verbatim}
+   source("global.R")
+\end{verbatim}
+
+And then have a check of the contents of \texttt{dfProgressHE} (e.g.~by
+typing \texttt{dfProgressHE} in the R console). It's also worth having a
+look through the contents of the \texttt{choicesAreas},
+\texttt{choicesYear} and \texttt{choicesPhase} variables to get an idea
+of what they contain.
+
+Once you're happy, then run another
+\texttt{add}/\texttt{commit}/\texttt{push} cycle and flag to your team
+that you've finished the code to read in the data.
 
 \hypertarget{task-1b---updating-the-user-interface-inputs}{%
-\subsubsection{Task 1b - Updating the user-interface
+\paragraph{Task 1b - Updating the user-interface
 inputs}\label{task-1b---updating-the-user-interface-inputs}}
 
-As task 1a is updating the data that's been read in, we'll need to
-update some of the code to work with this new data that's been read in,
-so that the dashboard still works. As we're no longer working with the
-same data, we've changed the name of the data frame holding the data and
-some of the column names will be different.
+Whilst task 1a is updating the data that's been read in, this task aims
+to tweak some of the code to make sure the dashboard still works. As
+we're no longer working with the same data, we've changed the name of
+the data frame holding it and as well some of the column names will be
+different.
 
 In this task, we'll create a new branch using GitHub. Open up the
-repository on GitHub and select the Issues tab. You should see something
-similar to shown below.
+repository on GitHub in your web browser and select the Issues tab. You
+should see something similar to shown below.
 
 \begin{figure}
 
@@ -799,15 +819,18 @@ similar to shown below.
 \caption{The Issues panel in GitHub. This can be used to keep track of jobs that need doing on a repository and create new branches linked to individual jobs.}\label{fig:unnamed-chunk-10}
 \end{figure}
 
-On the issues tab, select \emph{New issue} and then \textbf{Feature
-request}. This will open a new issue panel, with boxes to put in some
-details about the feature being requested. Let's put in a title of
-\emph{``Update inputs for new data''} and put in a description along the
-lines of ``The data file being read in has been updated and the inputs
-needed updating to match the column headers etc.''. You've got options
-to add assign this task and add labels, link to projects and milestones.
-We don't need much of that, but maybe add yourself as the assignee. When
-you're ready, click \textbf{Submit new issue}.
+On the issues tab, select \emph{New issue} and then click \textbf{Get
+started} alongside \textbf{Feature request}. This will open a new issue
+panel, with boxes to put in some details about the feature being
+requested. Let's put in a title of \emph{``Update inputs for new
+data''}. You'll see some handy guidance on what information to enter for
+an issue. Have a quick read of this, but then for brevity here, let's
+ignore it and put in a short description along the lines of ``The data
+file being read in has been updated and the inputs needed updating to
+match the column headers etc.''. You've got options to add assign this
+task and add labels, link to projects and milestones. We don't need much
+of that, but maybe add yourself as the assignee. When you're ready,
+click \textbf{Submit new issue}.
 
 After you've done so, you'll see you now have the option in the right
 hand side panel to create a new branch linked to this issue. Select that
@@ -821,7 +844,8 @@ should look something like this:
   git checkout 1-update-inputs-for-new-data
 \end{verbatim}
 
-Run that in RStudio and you'll have your new branch ready to go.
+Run that in the \texttt{BASH} terminal in RStudio and you'll have your
+new branch ready to go.
 
 \begin{figure}
 
@@ -840,8 +864,12 @@ in. The main changes that are needed are in the \emph{server.R} and
 \emph{R/dashboard\_panels.R}.
 
 Open up \emph{server.R} and replace any instances of \texttt{dfRevBal}
-with \texttt{dfProgressHE}. Then in \emph{R/dashboard\_panels.R}, update
-the titles of the input boxes from:
+with \texttt{dfProgressHE} and any instances of \texttt{school\_phase}
+with \texttt{data\_type} (which references a specific column within the
+data frame).
+
+Then in \emph{R/dashboard\_panels.R}, update the titles of the input
+boxes from:
 
 \begin{verbatim}
   selectizeInput("selectPhase",
@@ -857,10 +885,34 @@ to:
         choices = choicesPhase
 \end{verbatim}
 
-And that should be it for this task.
+And that should be it for this task. All that's left is to commit and
+push your changes. If you've got a preferred way already to perform
+commits, then go for it. If not then let's use the RStudio git panel.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.64\linewidth]{images/gitdemo/gitdemo-RStudio-gitpanel} 
+
+}
+
+\caption{Staging files in the RStudio git panel.}\label{fig:unnamed-chunk-12}
+\end{figure}
+
+Firstly click on the git tab in the top right of RStudio to show the git
+panel (see the screenshot below). Next click the tickboxes next to the
+files with changes (i.e.~these should be server.R and
+R/dashboards\_panels.R) to \textbf{stage} (aka \textbf{add}) the files.
+Now click \textbf{commit}, add a commit message in the relavent text box
+and then hit \textbf{commit} in the bottom right corner of the window.
+
+Assuming that all went through without any issues, you can now press the
+green up arrow in the git panel to \textbf{push} your changes to the
+remote repository on GitHub.
+
+Let the others know that you're done!
 
 \hypertarget{task-1c---creating-a-chart}{%
-\subsubsection{Task 1c - Creating a
+\paragraph{Task 1c - Creating a
 chart}\label{task-1c---creating-a-chart}}
 
 There's already an example chart in the template, so let's re-wire that
@@ -877,7 +929,7 @@ make sure syncing to the remote is selected and press \emph{Create}.
 
 }
 
-\caption{The new branch dialogue box in RStudio is opened using the purple new branch icon in the git toolbar.}\label{fig:unnamed-chunk-12}
+\caption{The new branch dialogue box in RStudio is opened using the purple new branch icon in the git toolbar.}\label{fig:unnamed-chunk-13}
 \end{figure}
 
 Now in this new branch, you can make updates that won't effect any other
@@ -900,13 +952,58 @@ to:
   ggplot(df, aes(x=year,y=cohort,color=institution_group)) + 
 \end{verbatim}
 
+Then we need to update the code in \emph{server.R} to reflect these
+changes to the plot, so update:
+
+\begin{verbatim}
+    ggplotly(createAvgRevTimeSeries(reactiveRevBal(), input$selectArea)) %>%
+\end{verbatim}
+
+to
+
+\begin{verbatim}
+    ggplotly(createTimeSeries(reactiveRevBal(), input$selectArea)) %>%
+\end{verbatim}
+
 This tells the plot to now take the variable \texttt{cohort} as the
 value to plot on the y-axis and \texttt{institution\_group} as a filter
 on which to colour the output.
 
-\hypertarget{pull-requests-prs-and-merging-branches}{%
-\subsubsection{Pull requests (PRs) and merging
-branches}\label{pull-requests-prs-and-merging-branches}}
+And that should be it for this task. All that's left is to commit and
+push your changes. If you've got a preferred way already to perform
+commits, then go for it. If not then let's use the RStudio git panel.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.64\linewidth]{images/gitdemo/gitdemo-RStudio-gitpanel} 
+
+}
+
+\caption{Staging files in the RStudio git panel.}\label{fig:unnamed-chunk-14}
+\end{figure}
+
+Firstly click on the git tab in the top right of RStudio to show the git
+panel (see the screenshot below). Next click the tickboxes next to the
+files with changes (i.e.~these should be server.R and
+R/dashboards\_panels.R) to \textbf{stage} (aka \textbf{add}) the files.
+Now click \textbf{commit}, add a commit message in the relavent text box
+and then hit \textbf{commit} in the bottom right corner of the window.
+
+Assuming that all went through without any issues, you can now press the
+green up arrow in the git panel to \textbf{push} your changes to the
+remote repository on GitHub.
+
+Let the others know that you're done!
+
+\hypertarget{wrap-up}{%
+\subsubsection{Wrap up}\label{wrap-up}}
+
+Provided you've all followed the instructions above, then you should
+each have used a different method to create a new branch. Try and take a
+few minutes here to discuss and compare how you each made a new branch.
+
+\textbf{Each comes with it's own benefits, limitations and challenges.
+How do you find each compare?}
 
 \hypertarget{some-basic-merging}{%
 \subsection{Some basic merging}\label{some-basic-merging}}
@@ -959,7 +1056,7 @@ the branches panel under the code tab.
 
 }
 
-\caption{The branches overview pane in GitHub.}\label{fig:unnamed-chunk-13}
+\caption{The branches overview pane in GitHub.}\label{fig:unnamed-chunk-15}
 \end{figure}
 
 Click \textbf{New pull request} on the branch for task 1c, which now
@@ -974,7 +1071,7 @@ from the branch you've created it on into the \emph{main} branch.
 
 }
 
-\caption{Opening a Pull Request on GitHub.}\label{fig:unnamed-chunk-14}
+\caption{Opening a Pull Request on GitHub.}\label{fig:unnamed-chunk-16}
 \end{figure}
 
 There are a few useful things to do here:
@@ -1060,6 +1157,24 @@ how it should procede. This is called a \textbf{merge conflict}.
 
 \hypertarget{summary-1}{%
 \subsection{Summary}\label{summary-1}}
+
+We've looked through a lot of the basics in this section, covering
+adding/staging, committing, pushing/pulling between remote and local
+repos, merging and pull requests. These are all the main concepts you
+need to use git.
+
+We've also tried to cover doing all this through a mixture of RStudio,
+git BASH and GitHub (and as we've said Azure Dev Ops offers similar
+functionality to GitHub). Most common processes can be done multiple
+ways and there's not necessarily a single right method to follow, just
+whichever makes most sense in your situation.
+
+Just a quick final note on why it's useful to be familiar with git
+\texttt{BASH}. Whilst most of the basic git functionality can be
+accessed via the RStudio interface or GitHub/Dev Ops, there are some
+things that are best achieved through BASH. In particular, if you have a
+file in your repo that you need to remove entirely, this pretty much
+requires someone to use commands via git BASH.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2113}}

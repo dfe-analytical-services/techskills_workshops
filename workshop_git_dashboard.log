@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2021.12.7)  15 SEP 2022 22:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2021.12.7)  16 SEP 2022 12:56
 entering extended mode
 **./workshop_git_dashboard.tex
 (workshop_git_dashboard.tex
@@ -1269,4 +1269,73 @@ G,.JBIG2,.JB2,.eps]
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
 * h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
-* v-part:(T,H,B)=(72.26999pt, 650.43001pt
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+ABD: EveryShipout initializing macros
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hyperref package is loaded.
+Package caption Info: Fixing longtable code of `floatrow' package.
+Package caption Info: End \AtBeginDocument code.
+
+(C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/floatrow\fr-longtable.st
+y
+Package: fr-longtable 2007/11/28 v0.1b (beta) floatrow: additions for longtable
+
+\flrow@LT@lasthead=\box76
+\flrow@LT@prelastfoot=\box77
+\c@FBLTpage=\count330
+)
+\AtBeginShipoutBox=\box78
+Package hyperref Info: Link coloring ON on input line 121.
+("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
+Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
+("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\refcount.sty"
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+) ("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\gettitlestring.sty"
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count331
+)
+LaTeX Info: Redefining \ref on input line 121.
+LaTeX Info: Redefining \pageref on input line 121.
+LaTeX Info: Redefining \nameref on input line 121.
+! I can't write on file `workshop_git_dashboard.pdf'.
+Please type another file name for output
+! Emergency stop.
+<to be read again> 
+                   \edef 
+l.121 \begin{document}
+                       
+Here is how much of TeX's memory you used:
+ 37648 strings out of 492452
+ 695122 string characters out of 3129802
+ 770340 words of memory out of 3000000
+ 41556 multiletter control sequences out of 15000+200000
+ 472181 words of font info for 33 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,1n,66p,1021b,920s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+!  ==> Fatal error occurred, no output PDF file produced!
