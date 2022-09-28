@@ -83,8 +83,14 @@ First of all, make sure to bring your laptop. This is going to be interactive an
 Preferably before coming along, you'll need to go through the following list of things you'll need to make sure are set up on your DfE laptop:
 
 * Create a GitHub account: [https://github.com/join](https://github.com/join);
+Either:
+
 * Install git on your laptop: [https://git-scm.com/downloads](https://git-scm.com/downloads);
 * Install R-Studio on your machine: Download **R for Windows (x64)** and **RStudio** from the Software Centre on your DfE laptop.
+
+Or:
+
+* If you're on EDAP and used to using R/R-Studio and/or git on there, feel free to just use that.
 
 You'll also need to make sure that git is set up in the git/SVN pane of global options in R-Studio (found in the Tools drop down menu). Make sure the path to your git executable is entered in the git path box and git should automatically be integrated with R-Studio. 
 
@@ -117,7 +123,7 @@ https://github.com/dfe-analytical-services/shiny-template
 
 On that page, you'll see the main repository page. This contains a menu bar to navigate the range of GitHub features (e.g. Code, Issues, Pull Requests, Discussions, Actions and others); shortcuts to access different branches within the repository; some top-level summary information on the repository; a listing of the files and folders in the repository's root directory; and a markdown render of the repository's Readme file if one exists. 
 
-In the case of our template, you'll also see a button saying use this repo as a template. At this point, one (and only one!) of your group should click that button, which will take you to the create repository page. Here you have the option to create a copy of the template in your own GitHub area as shown below. Give the new repository a name and a description and then click "Create repository from template".
+In the case of our template, you'll also see a button saying use this repo as a template. At this point, **one (and only one!)** of your group should click that button, which will take you to the create repository page. Here you have the option to create a copy of the template in your own GitHub area as shown below. Give the new repository a name and a description and then click "Create repository from template".
 
 ```{r echo=FALSE, out.width='72%', fig.cap='Put in a name for the new repo and a quick description and then click on Create repository from template'}
 knitr::include_graphics('images/gitdemo/gitdemo-shinydash-newrepofromtemplate.png')
@@ -239,7 +245,11 @@ The log shows all "commits" that have been made to the repository. We'll go into
 
 ## Adding, commiting and pushing
 
-To adapt the existing template, we want to add some new data. There should be a data folder in the repository already, so all we need to do is grab some data and save it there. For this workshop, we'll use a file from a publication on Explore Education Statistics. Go to [the progression to higher education or training data catalogue](https://explore-education-statistics.service.gov.uk/data-catalogue/progression-to-higher-education-or-training/2019-20) and download the **Progression to higher education and training - Local authority level (csv, 4 Mb)** file and extract the data csv file (*l4_tidy_2020_all_la.csv*) into the repo's data folder.
+To adapt the existing template, we want to add some new data. There should be a data folder in the repository already, so all we need to do is grab some data and save it there. For this workshop, we'll use a file from a publication on Explore Education Statistics. 
+
+*Again, for this section, just one of your group should run through the following steps:*
+
+Go to [the progression to higher education or training data catalogue](https://explore-education-statistics.service.gov.uk/data-catalogue/progression-to-higher-education-or-training/2019-20) and download the **Progression to higher education and training - Local authority level (csv, 4 Mb)** file, extract the data csv file (*l4_tidy_2020_all_la.csv*) and save it into the repo's data folder.
 
 Now to add this to the git tracking: run the following commands:
 
