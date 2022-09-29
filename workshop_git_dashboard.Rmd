@@ -313,11 +313,11 @@ Git only really makes proper sense once multiple people start working on a proje
 
 One useful management tool that we can use from GitHub is the Issues tab. Here we can create individual tasks, assign them to team member and then create new **branches** from those tasks. You can think of **branches** as self contained copies of the repository that can contain complementary or conflicting differences with all other **branches** in the repository. These allow you to work on different multiple tasks on your code independently of any other changes you might be making. Bringing these different **branches** or tasks together is then managed using **merges** or **pull requests** (PRs).
 
-We'll demonstrate this by performing 3 related tasks on 3 different branches. Split the following 3 tasks between your group and each follow the relevant instructions:
+We'll demonstrate this by performing 3 related tasks on 3 different branches. Each task should be done by only one of your group, so split the following 3 tasks between your group and each follow the relevant instructions in the subsections below:
 
-* Reading in the data
-* Updating references in the server script and the user interface
-* Creating a chart
+* 1a) Reading in the data
+* 1b) Updating references in the server script and the user interface
+* 1c) Creating a chart
 
 Once you've decided who's doing what, each of you should jump to the relevant section below. And remember that you're not working in independent silos here, what you do can impact what other people are doing so communication needs to happen along the way.
 
@@ -622,6 +622,54 @@ Just a quick final note on why it's useful to be familiar with git `BASH`. Whils
 
 
 \newpage
+
+# Troubleshooting
+
+## renv
+
+If `renv::restore()` causes issues, then one of your team should try `renv::init()` and select option 2 to restart renv. Then do a add/commit/push cycle and get the other team members to do a pull and then try running `renv::restore()` again on their local clones of the repo.
+
+## Datafiles commit-hooks/`.gitignore`
+
+To help teams keep on top of avoiding any accidental publishing of unpublished data, we've added in some code around commits that checks through any data files in the repo and checks them against a logfile and the .gitignore file. Any files listed in .gitignore will not be included in commits and therefore won't be sent to the remote repo as part of any push.
+
+## merge conflicts
+
+Merge commits happen when two branches have conflicting changes that have been made concurrently. `git` can usually figure out how to prioritise changes based on the commit history, but if changes have happened at the same time to the same bit of code across different branches, then it will need to get your input on how to prioritise the changes.
+
+The easiest way to go through how to deal with merge conflicts is by discussing with an example, so ask us in the workshop if and when you hit a merge conflict.
+
+Briefly though, when there's a merge conflict, git will add some text to the file containing the conflict along the following lines:
+
+```
+<<<<<<<<<<< branch_1
+code 
+on 
+branch 
+1
+===========
+conflicting code on branch 2
+>>>>>>>>>>> branch_2
+
+```
+
+Effectively as the user, you need to decide which bit of code is the right bit to keep and then delete anything you don't want to keep as well as the tag-lines that git has added in. So for example, you should be left with something along the lines of:
+
+```
+code 
+on 
+branch 
+1
+
+```
+
+Once you've cleared up all merge conflicts in the branch that you're working on, then perform another add/commit cycle and thay should clear out the conflict from the branch that you're working on and you'll be able to continue with the intended merge/PR.
+
+
+\newpage
+
+
+
 
 \resizebox{48mm}{!}{\includegraphics{images/Department_for_Education.png}}
 \vspace*{\fill}
