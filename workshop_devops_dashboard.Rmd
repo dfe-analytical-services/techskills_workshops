@@ -358,7 +358,7 @@ Once you've decided who's doing what, each of you should jump to the relevant se
 
 #### Tidying the data
 
-Start the task by going to your Dev Ops board and click on the options for the Tidying data task. Select **Create new branch** from the drop down menu that appears over the task. You'll get a pop-up dialogue box with some optinons about your new branch. Give the new branch a name (e.g. `grN_task1`), make sure it's based on your group's branch (`workshop_group_N`) in the `workshop_devopsintro` repo and then click **Create branch**.
+Start the task by going to your Dev Ops board and click on the options for the Tidying data task. Select **Create new branch** from the drop down menu that appears over the task. You'll get a pop-up dialogue box with some options about your new branch. Give the new branch a name (e.g. `grN_task1`), make sure it's based on your group's branch (`workshop_group_N`) in the `workshop_devopsintro` repo and then click **Create branch**.
 
 ```{r echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("images/DevOpsdemo/DevOps_Boards_newbranch.PNG")
@@ -441,7 +441,7 @@ knitr::include_graphics("images/gitdemo/gitdemo-RStudio-gitpanel.PNG")
 
 Firstly click on the git tab in the top right of RStudio to show the git panel (see the screenshot below). Next click the tickboxes next to the files with changes (i.e. these should be server.R and R/dashboards_panels.R) to **stage** (aka **add**) the files. Now click **commit**, add a commit message in the relavent text box and then hit **commit** in the bottom right corner of the window. 
 
-Assuming that all went through without any issues, you can now press the green up arrow in the git panel to **push** your changes to the remote repository on GitHub.
+Assuming that all went through without any issues, you can now press the green up arrow in the git panel to **push** your changes to the remote repository on Dev Ops
 
 Flag to your team that you've finished the code to read in the data. Then scroll down this guide to the [merging and pull requests](#merging-and-pull-requests) section.
 
