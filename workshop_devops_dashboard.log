@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2021.12.7)  10 OCT 2022 16:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2021.12.7)  12 OCT 2022 16:37
 entering extended mode
 **./workshop_devops_dashboard.tex
 (workshop_devops_dashboard.tex
@@ -1384,298 +1384,297 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
-2.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
+7.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/lm\t1lmtt.fd"
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-))
+)
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 17.
+)
 \tf@toc=\write4
 \openout4 = `workshop_devops_dashboard.toc'.
 
 [2]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 162.
+[3]
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 1
-93.
+96.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\ts1phv.fd"
 File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
-) [3]
-<images/gitdemo/gitdemo-gitRstudio-settings.png, id=78, 450.68375pt x 469.755pt
+)
+<images/gitdemo/gitdemo-gitRstudio-settings.png, id=88, 450.68375pt x 469.755pt
 >
 File: images/gitdemo/gitdemo-gitRstudio-settings.png Graphic file (type png)
 <use images/gitdemo/gitdemo-gitRstudio-settings.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-gitRstudio-settings.png  used o
-n input line 218.
+n input line 221.
 (pdftex.def)             Requested size: 300.6568pt x 313.37949pt.
-<images/gitdemo/gitdemo-gitRstudio-NewTerminal.png, id=79, 685.05937pt x 274.02
+[4 <./images/gitdemo/gitdemo-gitRstudio-settings.png>]
+<images/gitdemo/gitdemo-gitRstudio-NewTerminal.png, id=95, 685.05937pt x 274.02
 374pt>
 File: images/gitdemo/gitdemo-gitRstudio-NewTerminal.png Graphic file (type png)
 
 <use images/gitdemo/gitdemo-gitRstudio-NewTerminal.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-gitRstudio-NewTerminal.png  use
-d on input line 226.
+d on input line 229.
 (pdftex.def)             Requested size: 263.06398pt x 105.22559pt.
-[4 <./images/gitdemo/gitdemo-gitRstudio-settings.png>] [5 <./images/gitdemo/git
-demo-gitRstudio-NewTerminal.png>]
-<images/gitdemo/gitdemo-shinydash-template.png, id=92, 914.41624pt x 572.63937p
-t>
-File: images/gitdemo/gitdemo-shinydash-template.png Graphic file (type png)
-<use images/gitdemo/gitdemo-shinydash-template.png>
-Package pdftex.def Info: images/gitdemo/gitdemo-shinydash-template.png  used on
- input line 253.
-(pdftex.def)             Requested size: 469.75061pt x 294.17422pt.
-[6 <./images/gitdemo/gitdemo-shinydash-template.png>]
-<images/gitdemo/gitdemo-shinydash-newrepofromtemplate.png, id=102, 581.17125pt 
-x 540.51938pt>
-File: images/gitdemo/gitdemo-shinydash-newrepofromtemplate.png Graphic file (ty
-pe png)
-<use images/gitdemo/gitdemo-shinydash-newrepofromtemplate.png>
-Package pdftex.def Info: images/gitdemo/gitdemo-shinydash-newrepofromtemplate.p
-ng  used on input line 279.
-(pdftex.def)             Requested size: 338.22353pt x 314.5654pt.
-[7 <./images/gitdemo/gitdemo-shinydash-newrepofromtemplate.png>]
+[5 <./images/gitdemo/gitdemo-gitRstudio-NewTerminal.png>]
+<images/DevOpsdemo/DevOps_repo_frontpage.PNG, id=104, 808.52063pt x 604.2575pt>
+
+File: images/DevOpsdemo/DevOps_repo_frontpage.PNG Graphic file (type png)
+<use images/DevOpsdemo/DevOps_repo_frontpage.PNG>
+Package pdftex.def Info: images/DevOpsdemo/DevOps_repo_frontpage.PNG  used on i
+nput line 297.
+(pdftex.def)             Requested size: 469.75655pt x 351.07813pt.
+[6] [7 <./images/DevOpsdemo/DevOps_repo_frontpage.PNG>]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 312.
-<images/gitdemo/gitdemo-terminal_clone.png, id=111, 456.70625pt x 264.99pt>
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 355.
+<images/gitdemo/gitdemo-terminal_clone.png, id=119, 456.70625pt x 264.99pt>
 File: images/gitdemo/gitdemo-terminal_clone.png Graphic file (type png)
 <use images/gitdemo/gitdemo-terminal_clone.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-terminal_clone.png  used on inp
-ut line 343.
+ut line 386.
 (pdftex.def)             Requested size: 281.86572pt x 163.54407pt.
-<images/gitdemo/gitdemo-RStudio_OpenProj.png, id=112, 732.23563pt x 328.22626pt
+<images/gitdemo/gitdemo-RStudio_OpenProj.png, id=120, 732.23563pt x 328.22626pt
 >
 File: images/gitdemo/gitdemo-RStudio_OpenProj.png Graphic file (type png)
 <use images/gitdemo/gitdemo-RStudio_OpenProj.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-RStudio_OpenProj.png  used on i
-nput line 353.
+nput line 396.
 (pdftex.def)             Requested size: 281.86131pt x 126.34496pt.
-[8 <./images/gitdemo/gitdemo-terminal_clone.png>]
-<images/gitdemo/gitdemo-RStudio_OpenProj_fullpath.png, id=122, 732.23563pt x 32
+[8] [9 <./images/gitdemo/gitdemo-terminal_clone.png> <./images/gitdemo/gitdemo-
+RStudio_OpenProj.png>]
+<images/gitdemo/gitdemo-RStudio_OpenProj_fullpath.png, id=137, 732.23563pt x 32
 8.72812pt>
 File: images/gitdemo/gitdemo-RStudio_OpenProj_fullpath.png Graphic file (type p
 ng)
 <use images/gitdemo/gitdemo-RStudio_OpenProj_fullpath.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-RStudio_OpenProj_fullpath.png  
-used on input line 366.
+used on input line 409.
 (pdftex.def)             Requested size: 281.86131pt x 126.53813pt.
-<images/gitdemo/gitdemo-RStudio_OpenProj_wizard.png, id=123, 404.00937pt x 286.
+<images/gitdemo/gitdemo-RStudio_OpenProj_wizard.png, id=138, 404.00937pt x 286.
 57062pt>
 File: images/gitdemo/gitdemo-RStudio_OpenProj_wizard.png Graphic file (type png
 )
 <use images/gitdemo/gitdemo-RStudio_OpenProj_wizard.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-RStudio_OpenProj_wizard.png  us
-ed on input line 382.
+ed on input line 425.
 (pdftex.def)             Requested size: 281.86143pt x 199.92903pt.
-[9 <./images/gitdemo/gitdemo-RStudio_OpenProj.png> <./images/gitdemo/gitdemo-RS
-tudio_OpenProj_fullpath.png>] [10 <./images/gitdemo/gitdemo-RStudio_OpenProj_wi
-zard.png>]
-<images/gitdemo/gitdemo-ShinyAppTemplate.PNG, id=143, 1132.23pt x 754.82pt>
-File: images/gitdemo/gitdemo-ShinyAppTemplate.PNG Graphic file (type png)
-<use images/gitdemo/gitdemo-ShinyAppTemplate.PNG>
-Package pdftex.def Info: images/gitdemo/gitdemo-ShinyAppTemplate.PNG  used on i
-nput line 453.
-(pdftex.def)             Requested size: 469.74576pt x 313.16385pt.
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 460.
-[11 <./images/gitdemo/gitdemo-ShinyAppTemplate.PNG>] [12]
-<images/gitdemo/gitdemo-gitlog-1.png, id=157, 498.86375pt x 78.79437pt>
+[10 <./images/gitdemo/gitdemo-RStudio_OpenProj_fullpath.png> <./images/gitdemo/
+gitdemo-RStudio_OpenProj_wizard.png>] [11] [12]
+<images/gitdemo/gitdemo-gitlog-1.png, id=167, 498.86375pt x 78.79437pt>
 File: images/gitdemo/gitdemo-gitlog-1.png Graphic file (type png)
 <use images/gitdemo/gitdemo-gitlog-1.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-gitlog-1.png  used on input lin
-e 514.
+e 516.
 (pdftex.def)             Requested size: 375.81393pt x 59.35893pt.
-[13 <./images/gitdemo/gitdemo-gitlog-1.png>]
-<images/gitdemo/gitdemo-gitlog-2.png, id=168, 423.5825pt x 197.23688pt>
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 524.
+LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <14.4> not available
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 524.
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <14.4> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 524.
+<images/gitdemo/gitDemo-RStudio_gitinterface.png, id=168, 355.82938pt x 230.862
+5pt>
+File: images/gitdemo/gitDemo-RStudio_gitinterface.png Graphic file (type png)
+<use images/gitdemo/gitDemo-RStudio_gitinterface.png>
+Package pdftex.def Info: images/gitdemo/gitDemo-RStudio_gitinterface.png  used 
+on input line 528.
+(pdftex.def)             Requested size: 234.87524pt x 152.38731pt.
+<images/gitdemo/gitDemo-RStudio_gitterminal.png, id=169, 593.21625pt x 259.9712
+5pt>
+File: images/gitdemo/gitDemo-RStudio_gitterminal.png Graphic file (type png)
+<use images/gitdemo/gitDemo-RStudio_gitterminal.png>
+Package pdftex.def Info: images/gitdemo/gitDemo-RStudio_gitterminal.png  used o
+n input line 537.
+(pdftex.def)             Requested size: 234.87453pt x 102.93147pt.
+[13 <./images/gitdemo/gitdemo-gitlog-1.png> <./images/gitdemo/gitDemo-RStudio_g
+itinterface.png>]
+LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <12> not available
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 585.
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <12> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 585.
+[14 <./images/gitdemo/gitDemo-RStudio_gitterminal.png>]
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
+642.
+("C:\Program Files\MiKTeX 2.9\tex/latex/lm\ts1lmtt.fd"
+File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [15]
+<images/gitdemo/gitdemo-gitlog-2.png, id=200, 423.5825pt x 197.23688pt>
 File: images/gitdemo/gitdemo-gitlog-2.png Graphic file (type png)
 <use images/gitdemo/gitdemo-gitlog-2.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-gitlog-2.png  used on input lin
-e 579.
+e 653.
 (pdftex.def)             Requested size: 375.81737pt x 174.99551pt.
-[14 <./images/gitdemo/gitdemo-gitlog-2.png>]
-Underfull \hbox (badness 10000) in alignment at lines 616--626
+
+Underfull \hbox (badness 10000) in alignment at lines 692--702
 [] [] []
  []
 
 
-Underfull \hbox (badness 10000) in alignment at lines 626--635
+Underfull \hbox (badness 10000) in alignment at lines 702--711
 [] [] []
  []
 
-[15] [16]
-Overfull \hbox (5.71321pt too wide) in paragraph at lines 729--729
-[]      \T1/lmtt/m/n/12 mutate(year = as.numeric(paste0("20",substr(format(time
-_period),5,6))),[] 
- []
-
-LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-730.
-("C:\Program Files\MiKTeX 2.9\tex/latex/lm\ts1lmtt.fd"
-File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Overfull \hbox (30.41322pt too wide) in paragraph at lines 743--743
-[]      \T1/lmtt/m/n/12 mutate(year = as.numeric(paste0("20",substr(format(time
-_period),5,6)))) %>%[] 
- []
-
-
-Overfull \hbox (5.72021pt too wide) in paragraph at lines 747--747
-[]      \T1/lmtt/m/n/12 mutate(area_name=case_when(geographic_level==\TS1/lmtt/
-m/n/12 '\T1/lmtt/m/n/12 National\TS1/lmtt/m/n/12 ' \T1/lmtt/m/n/12 ~ country_na
-me,[] 
- []
-
-[17] [18]
-<images/gitdemo/gitdemo-GitHub-Issues.png, id=200, 793.46437pt x 493.34312pt>
+[16 <./images/gitdemo/gitdemo-gitlog-2.png>] [17] [18]
+<images/gitdemo/gitdemo-GitHub-Issues.png, id=223, 793.46437pt x 493.34312pt>
 File: images/gitdemo/gitdemo-GitHub-Issues.png Graphic file (type png)
 <use images/gitdemo/gitdemo-GitHub-Issues.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-GitHub-Issues.png  used on inpu
-t line 832.
+t line 842.
 (pdftex.def)             Requested size: 432.18132pt x 268.71234pt.
-[19 <./images/gitdemo/gitdemo-GitHub-Issues.png>]
-<images/gitdemo/gitdemo-GitHub-Issues-NewBranch.png, id=210, 249.43187pt x 299.
+[19] [20 <./images/gitdemo/gitdemo-GitHub-Issues.png>]
+<images/gitdemo/gitdemo-GitHub-Issues-NewBranch.png, id=238, 249.43187pt x 299.
 61937pt>
 File: images/gitdemo/gitdemo-GitHub-Issues-NewBranch.png Graphic file (type png
 )
 <use images/gitdemo/gitdemo-GitHub-Issues-NewBranch.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-GitHub-Issues-NewBranch.png  us
-ed on input line 869.
+ed on input line 879.
 (pdftex.def)             Requested size: 249.45029pt x 299.6415pt.
-[20 <./images/gitdemo/gitdemo-GitHub-Issues-NewBranch.png>]
-<images/gitdemo/gitdemo-RStudio-gitpanel.png, id=217, 329.23pt x 198.24063pt>
+
+Overfull \hbox (11.89522pt too wide) in paragraph at lines 904--904
+[]  \T1/lmtt/m/n/12 df1 <- dfplot %>% filter(time_period==202021,characteristic
+_gender==\TS1/lmtt/m/n/12 '\T1/lmtt/m/n/12 Total\TS1/lmtt/m/n/12 '\T1/lmtt/m/n/
+12 )[] 
+ []
+
+[21 <./images/gitdemo/gitdemo-GitHub-Issues-NewBranch.png>]
+<images/gitdemo/gitdemo-RStudio-gitpanel.png, id=245, 329.23pt x 198.24063pt>
 File: images/gitdemo/gitdemo-RStudio-gitpanel.png Graphic file (type png)
 <use images/gitdemo/gitdemo-RStudio-gitpanel.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-RStudio-gitpanel.png  used on i
-nput line 911.
+nput line 915.
 (pdftex.def)             Requested size: 300.6497pt x 181.03145pt.
-[21 <./images/gitdemo/gitdemo-RStudio-gitpanel.png>]
-<images/gitdemo/gitdemo-RStudio_NewBranch.png, id=224, 312.16624pt x 212.795pt>
+<images/gitdemo/gitdemo-RStudio_NewBranch.png, id=246, 312.16624pt x 212.795pt>
 
 File: images/gitdemo/gitdemo-RStudio_NewBranch.png Graphic file (type png)
 <use images/gitdemo/gitdemo-RStudio_NewBranch.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-RStudio_NewBranch.png  used on 
-input line 945.
+input line 949.
 (pdftex.def)             Requested size: 300.64789pt x 204.94324pt.
-
-Overfull \hbox (55.12024pt too wide) in paragraph at lines 962--962
+[22 <./images/gitdemo/gitdemo-RStudio-gitpanel.png>]
+Overfull \hbox (55.12024pt too wide) in paragraph at lines 966--966
 []    \T1/lmtt/m/n/12 ggplot(dfRevenueBalance, aes(x=year,y=average_revenue_bal
 ance,color=area_name)) +[] 
  []
 
-[22 <./images/gitdemo/gitdemo-RStudio_NewBranch.png>]
 File: images/gitdemo/gitdemo-RStudio-gitpanel.png Graphic file (type png)
 <use images/gitdemo/gitdemo-RStudio-gitpanel.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-RStudio-gitpanel.png  used on i
-nput line 995.
+nput line 999.
 (pdftex.def)             Requested size: 300.6497pt x 181.03145pt.
-[23]
-<images/gitdemo/gitdemo-GitHub-Branches.png, id=239, 739.76375pt x 298.11375pt>
+[23 <./images/gitdemo/gitdemo-RStudio_NewBranch.png>] [24]
+<images/gitdemo/gitdemo-GitHub-Branches.png, id=268, 739.76375pt x 298.11375pt>
 
 File: images/gitdemo/gitdemo-GitHub-Branches.png Graphic file (type png)
 <use images/gitdemo/gitdemo-GitHub-Branches.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-GitHub-Branches.png  used on in
-put line 1072.
+put line 1076.
 (pdftex.def)             Requested size: 300.64116pt x 121.1539pt.
-[24]
-<images/gitdemo/gitdemo-GitHub-OpenPullRequest.png, id=247, 733.74126pt x 478.2
+<images/gitdemo/gitdemo-GitHub-OpenPullRequest.png, id=269, 733.74126pt x 478.2
 8688pt>
 File: images/gitdemo/gitdemo-GitHub-OpenPullRequest.png Graphic file (type png)
 
 <use images/gitdemo/gitdemo-GitHub-OpenPullRequest.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-GitHub-OpenPullRequest.png  use
-d on input line 1087.
+d on input line 1091.
 (pdftex.def)             Requested size: 300.64554pt x 195.97482pt.
-[25 <./images/gitdemo/gitdemo-GitHub-Branches.png> <./images/gitdemo/gitdemo-Gi
-tHub-OpenPullRequest.png>] [26]
-Underfull \hbox (badness 10000) in alignment at lines 1199--1209
+[25 <./images/gitdemo/gitdemo-GitHub-Branches.png>] [26 <./images/gitdemo/gitde
+mo-GitHub-OpenPullRequest.png>] [27]
+Underfull \hbox (badness 10000) in alignment at lines 1203--1213
 [] [] []
  []
 
-<images/gitdemo/gitdemo-RStudio-gitToolbarCreateBranch.png, id=270, 33.12375pt 
+<images/gitdemo/gitdemo-RStudio-gitToolbarCreateBranch.png, id=298, 33.12375pt 
 x 29.10875pt>
 File: images/gitdemo/gitdemo-RStudio-gitToolbarCreateBranch.png Graphic file (t
 ype png)
 <use images/gitdemo/gitdemo-RStudio-gitToolbarCreateBranch.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-RStudio-gitToolbarCreateBranch.
-png  used on input line 1211.
+png  used on input line 1215.
 (pdftex.def)             Requested size: 33.12466pt x 29.10956pt.
-<images/gitdemo/gitdemo-RStudio-gitToolbarSwitchBranch.png, id=271, 76.285pt x 
+<images/gitdemo/gitdemo-RStudio-gitToolbarSwitchBranch.png, id=299, 76.285pt x 
 28.60687pt>
 File: images/gitdemo/gitdemo-RStudio-gitToolbarSwitchBranch.png Graphic file (t
 ype png)
 <use images/gitdemo/gitdemo-RStudio-gitToolbarSwitchBranch.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-RStudio-gitToolbarSwitchBranch.
-png  used on input line 1213.
+png  used on input line 1217.
 (pdftex.def)             Requested size: 76.28828pt x 28.6081pt.
 
-Underfull \hbox (badness 10000) in alignment at lines 1209--1217
+Underfull \hbox (badness 10000) in alignment at lines 1213--1221
 [] [] []
  []
 
-[27 <./images/gitdemo/gitdemo-RStudio-gitToolbarCreateBranch.png> <./images/git
-demo/gitdemo-RStudio-gitToolbarSwitchBranch.png>]
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1235.
-[28] [29]
+[28 <./images/gitdemo/gitdemo-RStudio-gitToolbarCreateBranch.png> <./images/git
+demo/gitdemo-RStudio-gitToolbarSwitchBranch.png>] [29] [30]
 File: images/Department_for_Education.png Graphic file (type png)
 <use images/Department_for_Education.png>
 Package pdftex.def Info: images/Department_for_Education.png  used on input lin
-e 1291.
+e 1295.
 (pdftex.def)             Requested size: 469.75311pt x 277.93726pt.
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 1304--1309
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 1308--1313
 [][]  
  []
 
 
-Overfull \hbox (0.9113pt too wide) in paragraph at lines 1313--1313
+Overfull \hbox (0.9113pt too wide) in paragraph at lines 1317--1317
 []|\T1/phv/m/n/12 (-20) enquiries| 
  []
 
 
-Overfull \hbox (3.174pt too wide) in paragraph at lines 1314--1314
+Overfull \hbox (3.174pt too wide) in paragraph at lines 1318--1318
 []|\T1/phv/m/n/12 (-20) download| 
  []
 
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 1312--1316
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 1316--1320
 [][]  
  []
 
-<images/logoTwitter.png, id=292, 27.2655pt x 21.681pt>
+<images/logoTwitter.png, id=319, 27.2655pt x 21.681pt>
 File: images/logoTwitter.png Graphic file (type png)
 <use images/logoTwitter.png>
-Package pdftex.def Info: images/logoTwitter.png  used on input line 1318.
+Package pdftex.def Info: images/logoTwitter.png  used on input line 1322.
 (pdftex.def)             Requested size: 27.26665pt x 21.68193pt.
-<images/logoFacebook.png, id=293, 21.681pt x 21.681pt>
+<images/logoFacebook.png, id=320, 21.681pt x 21.681pt>
 File: images/logoFacebook.png Graphic file (type png)
 <use images/logoFacebook.png>
-Package pdftex.def Info: images/logoFacebook.png  used on input line 1321.
+Package pdftex.def Info: images/logoFacebook.png  used on input line 1325.
 (pdftex.def)             Requested size: 21.68193pt x 21.68193pt.
-[30 <./images/logoTwitter.png> <./images/logoFacebook.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1325.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1325.
+[31 <./images/logoTwitter.png> <./images/logoFacebook.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1329.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1329.
 (workshop_devops_dashboard.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1325.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1325.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1329.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1329.
  ) 
 Here is how much of TeX's memory you used:
- 38615 strings out of 492452
- 715398 string characters out of 3129802
- 778577 words of memory out of 3000000
- 42116 multiletter control sequences out of 15000+200000
- 519246 words of font info for 178 fonts, out of 3000000 for 9000
+ 38661 strings out of 492452
+ 715988 string characters out of 3129802
+ 780147 words of memory out of 3000000
+ 42134 multiletter control sequences out of 15000+200000
+ 525782 words of font info for 186 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,14n,66p,1024b,920s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Program Files/
-MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/d
-vips/lm/lm-ec.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtk10.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw
-/helvetic/uhvro8a.pfb>
-Output written on workshop_devops_dashboard.pdf (30 pages, 1220841 bytes).
+pdfTeX warning (dest): name{create-a-pull-request} has been referenced but do
+es not exist, replaced by a fixed one
+
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Program Files/Mi
+KTeX 2.9/fonts/enc/dvips/base/8r.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvi
+ps/lm/lm-ec.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtk10.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/urw/helvetic/uhvbo8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/
+helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro
+8a.pfb>
+Output written on workshop_devops_dashboard.pdf (31 pages, 946337 bytes).
 PDF statistics:
- 421 PDF objects out of 1000 (max. 8388607)
- 122 named destinations out of 1000 (max. 500000)
- 47419 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 466 PDF objects out of 1000 (max. 8388607)
+ 136 named destinations out of 1000 (max. 500000)
+ 55643 words of extra memory for PDF output out of 61914 (max. 10000000)
 
