@@ -112,6 +112,15 @@ A useful thing here if you want to use git commands in the terminal is to switch
 
 To get the most out of git and Dev Ops, you're going to need to work in teams. We're aiming for groups of 3. Some of the tasks we'll work through will require just one of your team to perform, whilst others will require all of your team to perform them. If it's not clear then ask and most importantly, communicate with each other about what you're doing.
 
+To help illustrate the challenges and benefits of git and Dev Ops and how to work collectively within the same space, all the groups will be working within the same repository. Each group will have their own working branch (already created) with the naming format `workshop_group_N`:
+  * workshop_group_1
+  * workshop_group_2
+  * ...
+
+We'll need to prefix branches and tasks within the repository with grN_ and group N respectively (again switching the N for your group number). 
+
+By the end, you should get a good idea of how using branches can facilitate lots of people working within the same space on the same files independently (and where issues can occur!).
+
 \newpage
 
 # Getting started in Dev Ops
@@ -204,7 +213,7 @@ knitr::include_graphics('images/gitdemo/gitdemo-RStudio_OpenProj_fullpath.png')
 If that looks like a bit too much text based effort, RStudio offers a way to clone a repository with it's New project wizard. To do this navigate the menu bar to **File > New Project...**, select **Version Control** and then Git. This opens up a dialogue box to enter the repository url and select where to save it. As with the git BASH version, copy and paste your remote repo URL here and set a directory where you want it saved on your laptop.
 
 ```{r echo=FALSE, out.width='60%', fig.cap='Clone a project using the RStudio git wizard'}
-knitr::include_graphics('images/gitdemo/gitdemo-RStudio_OpenProj_wizard.png')
+knitr::include_graphics('images/DevOpsdemo/DevOps_RStudio_clonerepo.PNG')
 ```
 
 #### A note on local repository clones and OneDrive
@@ -215,11 +224,11 @@ knitr::include_graphics('images/gitdemo/gitdemo-RStudio_OpenProj_wizard.png')
 
 We're going to work through a demo of tidying up some data and running a quick QA on it.
 
-To start with, we'll create some tasks on the Kambam Board in Dev Ops. The tasks to create are:
+To start with, we'll create some tasks on the Kambam Board in Dev Ops. The tasks to create are (note that including your group number in the titles will make things easier further down the line):
 
-  * [Tidying the data](#tidying-the-data)
-  * [Creating the wide data plot](#creating-the-wide-data-plot)
-  * [Creating the tidy data plot](#creating-the-tidy-data-plot)
+  * Group N: [Tidying the data](#tidying-the-data)
+  * Group N: [Creating the wide data plot](#creating-the-wide-data-plot)
+  * Group N: [Creating the tidy data plot](#creating-the-tidy-data-plot)
 
 Go to the *Boards* > *Boards* tab on Dev Ops and make sure you're in the right board, i.e. workshop_devopsintro_N. Now create tasks for each of these using the New item button.
 
@@ -239,7 +248,7 @@ We'll now take a look at updating repositories using some simple processing and 
 
 ## The git log
 
-In order to move quickly between different versions of files and code, git is built around indexing and a log file that track the changes in a repository. To view the log of any repository, we can simply go into that repository and run the command `git log` from the BASH terminal. For example, if you run it in the repository you've created from the template, you'll get something along the lines of the following:
+In order to move quickly between different versions of files and code, git is built around indexing and a log file that track the changes in a repository. To view the log of any repository, we can simply go into that repository and run the command `git log` from the BASH terminal. Here's a minimal example on a fresh repsoitory:
 
 ```{r echo=FALSE, out.width='80%', fig.align='center'}
 knitr::include_graphics("images/gitdemo/gitdemo-gitlog-1.png")
@@ -447,7 +456,15 @@ Flag to your team that you've finished the code to read in the data. Then scroll
 
 #### Creating the tidy data plot
 
-Add the following lines of code to `R/plots.R` in your local copy of the repository:
+Start by creating a new branch in Dev Ops. Navigate to the files panel of the repo on Dev Ops and click the branch drop down menu. Select your groups working branch (`working_group_N`). Click the drop down again and now select **+ New branch**. You'll get a pop-up dialogue box that looks like the image below. Fill in a name for the new branch and make sure your groups working branch is selected in the **Based on** selection box. You can also link your task to this new branch by selecting it in the **Work items to link** selection box. Once you've done that, quickly go to your group's board and have a look at the task 3 card. If you haven't done so already, drag and drop the card into the Active column (you should then see that you automatically get asigned to the task in Dev Ops).
+
+```{r echo=FALSE, out.width='64%', fig.align='center'}
+knitr::include_graphics("images/DevOpsdemo/DevOps_Repo_newbranch.PNG")
+```
+
+Now head to R-Studio, perform a pull (`git pull` in the terminal or the green down arrow in the git panel) and then switch to your new branch.
+
+Then go ahead and add the following lines of code to `R/plots.R` in your local copy of the repository:
 
 ```
 plot_ACrange_tidy <- function(dftidy){
