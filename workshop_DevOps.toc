@@ -1,0 +1,39 @@
+\contentsline {section}{Introduction}{3}{section*.2}% 
+\contentsline {subsection}{GitHub versus Dev Ops}{3}{section*.3}% 
+\contentsline {section}{Pre-workshop requirements}{3}{section*.4}% 
+\contentsline {subsection}{Technical requirements}{3}{section*.5}% 
+\contentsline {subsection}{Working in teams}{5}{section*.8}% 
+\contentsline {section}{Getting started in Dev Ops}{6}{section*.9}% 
+\contentsline {subsection}{Navigating around Dev Ops}{6}{section*.10}% 
+\contentsline {subsection}{What's a repository?}{6}{section*.12}% 
+\contentsline {subsection}{Cloning the repository to your local machine}{8}{section*.13}% 
+\contentsline {subsubsection}{Cloning in \texttt {git\ BASH}}{8}{section*.14}% 
+\contentsline {subsubsection}{Cloning using the RStudio wizard}{10}{section*.18}% 
+\contentsline {paragraph}{A note on local repository clones and OneDrive}{11}{section*.20}% 
+\contentsline {subsection}{Using Dev Ops Boards}{11}{section*.21}% 
+\contentsline {subsection}{Summary}{11}{section*.22}% 
+\contentsline {section}{Basics of git}{13}{section*.23}% 
+\contentsline {subsection}{The git log}{13}{section*.24}% 
+\contentsline {subsection}{\texttt {git\ bash} versus the \emph {R-Studio} git panel}{13}{section*.25}% 
+\contentsline {subsection}{Branches}{14}{section*.28}% 
+\contentsline {subsubsection}{Switching branches in \texttt {git\ bash}}{14}{section*.29}% 
+\contentsline {subsubsection}{Switching branches in the \emph {R-Studio} git panel}{14}{section*.30}% 
+\contentsline {subsection}{Adding, commiting and pushing}{15}{section*.31}% 
+\contentsline {subsection}{Pulling from the remote repository}{16}{section*.32}% 
+\contentsline {subsection}{Summary of git basics}{16}{section*.33}% 
+\contentsline {section}{Working collaboratively with git}{18}{section*.34}% 
+\contentsline {subsection}{Branches and splitting tasks}{18}{section*.35}% 
+\contentsline {subsubsection}{Task management}{18}{section*.36}% 
+\contentsline {paragraph}{Tidying the data}{18}{section*.37}% 
+\contentsline {paragraph}{Creating the wide data plot}{20}{section*.38}% 
+\contentsline {paragraph}{Creating the tidy data plot}{22}{section*.40}% 
+\contentsline {subsection}{Merging and pull requests}{25}{section*.42}% 
+\contentsline {subsubsection}{\texttt {git\ merge} (and a simple merge conflict)}{25}{section*.43}% 
+\contentsline {subsubsection}{Pull requests \#1}{26}{section*.44}% 
+\contentsline {subsubsection}{Pull requests \#2 (and another merge conflict)}{27}{section*.45}% 
+\contentsline {subsubsection}{Notes on reviewing a pull request}{29}{section*.47}% 
+\contentsline {subsection}{Summary}{30}{section*.48}% 
+\contentsline {section}{Troubleshooting}{31}{section*.49}% 
+\contentsline {subsection}{renv}{31}{section*.50}% 
+\contentsline {subsection}{Datafiles commit-hooks/\texttt {.gitignore}}{31}{section*.51}% 
+\contentsline {subsection}{merge conflicts}{31}{section*.52}% 
