@@ -548,7 +548,7 @@ This will attempt to merge the task1 branch into the task3 branch. However, this
    >>>>>>> task1
 ```
 
-A merge conflict happens when two concurrent changes have been made across different branches to the same bit of a file. Here we can see that `main.R` has been edited simultaneously on both branches. Everying between `<<<<<<< HEAD` and `=======` is what was written in the current branch (i.e. task3) and everything between `=======` and `>>>>>>> task1` is from the branch that we're trying to merge *into* the current branch. Looking at the code, we can see that it needs the intervention of the person(s) writing the code to decide how the two pieces of code should be combined. In this case, there's a duplicated line that we can get rid of and then some lines that we need to make sure are in the right order. So now replace the lines between (and including) `<<<<<<< HEAD` and `>>>>>>> task1` with the following:
+A merge conflict happens when two concurrent changes have been made across different branches to the same bit of a file. Here we can see that `main.R` has been edited simultaneously on both branches. Everything between `<<<<<<< HEAD` and `=======` is what was written in the current branch (i.e. task3) and everything between `=======` and `>>>>>>> task1` is from the branch that we're trying to merge *into* the current branch. Looking at the code, we can see that it needs the intervention of the person(s) writing the code to decide how the two pieces of code should be combined. In this case, there's a duplicated line that we can get rid of and then some lines that we need to make sure are in the right order. So now replace the lines between (and including) `<<<<<<< HEAD` and `>>>>>>> task1` with the following:
 
 ```
    library(dplyr)
