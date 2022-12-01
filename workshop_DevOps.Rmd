@@ -146,7 +146,7 @@ If you follow the link below, that should take you to our demo repository for th
 
 The key things to note at this stage is that:
 
-  * The Boards area contains useful project management tools for tracking development of your code. Today we'll just use the Kambam board style functionality, but there's plenty more.
+  * The Boards area contains useful project management tools for tracking development of your code. Today we'll just use the Kanban board style functionality, but there's plenty more.
   * The Repo area contains any repositories you have access to. You can navigate between repositories using the dropdown menu at the top of the page.
   
 ## What's a repository?
@@ -226,7 +226,7 @@ knitr::include_graphics('images/DevOpsdemo/DevOps_RStudio_clonerepo.PNG')
 
 We're going to work through a demo of tidying up some data and running a quick QA on it.
 
-To start with, we'll create some tasks on the Kambam Board in Dev Ops. The tasks to create are (note that including your group number in the titles will make things easier further down the line):
+To start with, we'll create some tasks on the Kanban Board in Dev Ops. The tasks to create are (note that including your group number in the titles will make things easier further down the line):
 
   * Group N: [Tidying the data](#tidying-the-data)
   * Group N: [Creating the wide data plot](#creating-the-wide-data-plot)
