@@ -319,7 +319,7 @@ dfKS4 <- read.csv('data/2021_subject_timeseries_data.csv')
 colnames(dfKS4)[1] <- "time_period"
 ```
 
-Let's do a quick commit to log that change. In the termainl run `git add .` and `git commit -m "Added new data and reading it in."`.
+Let's do a quick commit to log that change. In the terminal run `git add .` and `git commit -m "Added new data and reading it in."`.
 
 If we now run `git log` again, we get something along the lines of:
 
