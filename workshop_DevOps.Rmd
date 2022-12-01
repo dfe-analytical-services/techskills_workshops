@@ -402,7 +402,7 @@ source('R/utils.R')
 dfKS4tidied <- tidy_subject_timeseries(dfKS4)
 ```
 
-At this point you could try sourcing `main.R` in the R console and that should create the data frame `dftidy` (and hopefully not produce any errors!).
+At this point you could try sourcing `main.R` in the R console and that should create the data frame `dftidied` (and hopefully not produce any errors!).
 
 Once you're happy, then run another `add`/`commit`/`push` cycle and flag to your team that you've finished the code to read in the data. Then scroll down this guide to the [merging and pull requests](#merging-and-pull-requests) section.
 
