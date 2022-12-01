@@ -333,7 +333,7 @@ Finally, it's important to note that what we've done so far is only being applie
 
 ## Pulling from the remote repository
 
-Now that you've made changes, the rest of your team need to update their own local copies of the repository with your updates by pulling from the remote. Similarly to pushing, they can do this by either a) typing `git push` in the BASH terminal or b) pressing the down arrow in the toolbar of the git panel in *R-Studio*.
+Now that you've made changes, the rest of your team need to update their own local copies of the repository with your updates by pulling from the remote. Similarly to pushing, they can do this by either a) typing `git pull` in the BASH terminal or b) pressing the down arrow in the toolbar of the git panel in *R-Studio*.
 
 ## Summary of git basics
 
