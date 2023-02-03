@@ -72,6 +72,31 @@ RAP stands for Reproducible Analytical Pipeline. The full words still hide the t
 
 Using R (the coding language) really helps us to put the R in RAP ('reproducible'). Ask yourself, if someone else picked up your work, could they easily reproduce your exact outputs? And when the time comes around to update your analysis with new data, how easy is it for you to reproduce the analysis you need? In an ideal RAP, it would be as simple as plugging the new data in and clicking 'go', with no need to manually scroll through multiple scripts updating the year in every file name or the variable name that's changed from using _ to -. 
 
+## What is R/R Studio?
+
+R is a coding language. There are many different languages of code, some others include SQL, python, JavaScript and many more. They all have benefits, and the difference is often the syntax used (literally like learning new languages!). R is open-source, meaning it is free, anyone can use it and anyone can contribute to developing new ‘packages’.
+
+* A *package* is a set of functions someone else has written and tied together in a nice neat bow, ready for you to use! You simply install the package, and then you have all of the functions available. 
+
+* A *function* is a chunk of code that has been grouped together, given a name, and often has ‘place holders’ you can change, such that you can use that name to run that code, and apply it to different data. 
+(for example, mean(x) is a function that calculates the arithmetic mean of x. You replace x with any numeric data.)
+
+R studio is a programme that enables us to code in the R coding language, while also providing a visual and interactive interface. It has useful areas and windows that enable you to see what tables you have loaded, charts you have created, Git user interface, file explorer, help windows and many more!
+Normally you will see the screen split into 3 or 4 windows:
+
+
+```{r echo=FALSE, out.width='100%', fig.cap='R studio panels'}
+knitr::include_graphics('images/RforRAP/R-studio-panels.png')
+```
+
+* Top left - Source pane. Open and view your code scripts, tables, data sets, functions. 
+
+* top right - Environment/History/Connections/Git (if you have it). The environment shows you what data, functions, objects etc you have.
+
+* Bottom left - Console. Shows what you have run, and you can type and run commands directly into the console. 
+
+* Bottom right - File explorer/plots/packages/Viewer. 
+
 # Pre-workshop requirements
 
 ## Technical requirements
@@ -122,7 +147,36 @@ By the end, you should get a good idea of how to utilize R for RAP processes, as
 
 # Getting started ...
 
-Now we will begin the tasks and group work. First, everyone open the R project that 
+Now we will begin the tasks and group work. First, everyone open up R studio.
+
+# Creating a collaborative project 
+
+When creating RAP processes, it's key that you use code that is reusable, transparent, and well documented, such that it is future-proofed for any future team members. It is also part of the department's baseline expectation that code scripts are version controlled. Therefore, first, we will show you how to create an R project that is linked to an online repository using Git. This means that all of the work is saved in an online, cloud-type environment that your team members can all access, which is great for QA, peer-review, and collaboration.
+
+Using version controlled scripts also removes the need to copy the same code scripts into a new folder every single year. When all of your code is saved in a Git repo, there is no need to recreate the same scripts every year, you can simply update the single code script you need each year since the version-control software automatically stores the history and tracks any changes. 
+
+## Setting up a version-controlled repository
+
+You are now going to work through a series of tasks. We are starting at the very beginning - creating a version-controlled R project, which is linked to a repository. There are two places we create the repository, *Azure DevOps* or *GitHub*.
+
+*Azure DevOps* is secure, and access is controlled within the department. This is where many teams save their RAP processes if they aren't suitable to be visible to the public. 
+
+*GitHub* is open to the public, and so you should only use GitHub for things that it's appropriate for the public to see. Transparency and reproducibility are important for RAP, and open-sourcing code to the public contributes to these. The code behind all of the department's public-facing dashboards is currently in the [dfe-analytical-services GitHub area](https://github.com/dfe-analytical-services). 
+
+Today we will use 
+
+First, open R studio and select File > New project...
+
+## Your initial script
+
+Your first script should definitely include the library-calls for all of the packages you will need. You should also activate 'renv', this stands for R environment, and is a package that tracks all of the packages you use/need within a project as well as the version used, and stores the information in a renv.lock file. If someone new comes to the project, they will only need to run renv::restore() to immediately install all of the packages that the project requires. Once renv is activated, if you add more or delete packages, you simply need to run renv::snapshot() to save the state of your library to the renv.lock file.
+
+Our first steps only require two packages, 'readr' and 'dplyr'. Install these by typing install.packages('readr') and 'install.packages('dplyr') in the console. Then, remember to take a renv::snapshot()! 
+
+Now we are going to create the first script of the project, in which we will call all of the packages, files and functions we need for the workshop!
+
+Open a new R script file by selecting *File > New File > R script*. Start by adding some useful comments to the first few lines that you think would be useful for someone
+
 
 
 ## Summary
