@@ -147,43 +147,52 @@ By the end, you should get a good idea of how to utilize R for RAP processes, as
 
 # Getting started ...
 
-Now we will begin the tasks and group work. First, everyone open up R studio.
+Now we will begin the tasks and group work. First, everyone **open up R studio.**
 
 # Creating a project 
 
-When creating RAP processes, it's key that you use code that is reusable, transparent, and well documented, such that it is future-proofed for any future team members. Therefore, first, we will show you how to create an R project. Using an R project ensures that all of the other files in the project folder (scripts, plots, notes) can all be referenced relative to the .Rproj file location. For example, if you have an R code script and a .csv file in a folder called 'workshop' that has been set up as an R project, with an .Rproj file, if you want to read the .csv into the R script, you don't need the entire file path of the csv, just the file path relative to the .Rproj file.
+When creating RAP processes, it's key that your code is reusable, transparent, and well documented, such that it is future-proofed for any future team members. Therefore, first, we will show you how to create an R project. Using an R project ensures that all of the files in the project folder (scripts, plots, notes, etc.) can all be referenced relative to the **.Rproj file** location. Basically, it removes the need to set and get your working directory, and removes the need to use long & complete file paths. Instead, you essentially start any file path from the location of the .Rproj file! *For example*, if you have an code.R code script and a data.csv file in a project folder called 'workshop' that has been set up as an R project, if you want to read the .csv into the R script, you don't need the entire file path of the csv, just the file path relative to the .Rproj fil, which in this case would simply be 'data.csv'.n 
 
-To create a new project, in R studio, go to File > New Project > New directory > New Project, then give your project a name and choose where abouts in your files you would like the project to be saved. Click 'Create project'.
+If you're struggling to grasp that, that's okay, we will create a project and see this in action now. To create a new project, in R studio, go to **File > New Project > New directory > New Project**. Give your project a name and choose where about in your files you would like the project to be saved. Click 'Create project'.
 
 
 ## Using renv
 
-Renv (short for R environment) is a package in R that helps you to keep a record of which packages your project uses, and what version of each package it uses. Using renv in your R project means that anybody in the future (including your future self) who comes back to this project, can immediately get all of the required packages. First you need to install the renv package by running install.packages('renv') in the console. 
+Renv (short for R environment) is a package in R that helps you to keep a record of which packages your project uses, and what version of each package it should use. Using renv in your R project means that anybody in the future (including your future self) who comes back to this project, can immediately get all of the required packages. First you need to install the renv package by running `install.packages('renv')` in the console. 
 
 Once that has installed, you can run the functions from this package. You can also see what packages are installed by navigating to the 'Packages' tab in the bottom right window - renv should have appeared in here now.
 
-When using functions from packages, you can either type 'the pacckage name'::'the function name' or just the function name on its own. However, problems can arrive if two packages have a function that uses the same name, so using the package name and colon is safer. 
+When using functions from packages, you can either type `the package name::the function name` or just the function name on its own. However, problems can arise if two packages have a function with the same name, so using the package name and colons is safer. 
 
-To activate renv, run renv::activate() in the console. If you navigate back to the files tab and look in your project folder, you should see some renv-related files have appeared, including a renv.lock file. The renv.lock file is the file that records all of your project's packages and their versions. If you click on the renv.lock file it will open for you to view in the top left. 
+To activate renv, run `renv::activate()` in the console. If you navigate back to the files tab in the bottom left and look in your project folder, you should see some renv-related files have appeared, including a *renv.lock* file. The renv.lock file is the file that records all of your project's packages and their versions. If you click on the renv.lock file it will open for you to view in the top left. 
 
-Each time you add or remove packages, or update the package versions, you should run renv::snapshot() to take a snapshot of the current state of your library. If you ever get a new device, or someone else wants to view your project, they simply need to run renv::restore() to restore the package library on their device to match the packages needed in the project. 
+Each time you add or remove packages, or update the package versions, you should run `renv::snapshot()` to take a snapshot of the current state of your library. If you ever get a new device, or someone else wants to view your project, they simply need to run `renv::restore()` to restore the package library on their device to match the packages needed in the project. 
 
 ## Your initial script
 
-Now that we have your project created and renv activated, we can create our first code script. Open a new R script file by selecting *File > New File > R script*. 
+Now that we have your project created and renv activated, we can create our first code script. Open a new R script file by selecting **File > New File > R script**. 
 
 ### Comments and headings
 
-Comments in code are some of the most useful documentation you can use, and are crucial for RAP! You should start your script with comments that provide important information such as what this code script contains and what it is for - basically anything you think a new person would need to know in order to understand and run the code effectively. You add comments in R scripts by starting the line with a hash symbol, #. Any line that starts with a hash symbol will be treated as a comment rather than code, and so will not be 'run'. You can also add comments to the end of lnes of code by including the hash symbol half-way through a line - everything after the # will be treated as a comment, and everything before will be treated as code. If you have multiple lines of comments you wish to add, you can type them out, highlight them and use ctrl+shift+C to 'comment out' all of the highlighted lines. 
+Comments in code are some of the most useful documentation you can use, and are crucial for RAP! You should start your script with comments that provide important information such as what this code script contains and what it is for - basically anything you think a new person would need to know in order to understand and run the code effectively. You add comments in R scripts by starting the line with a **hash symbol, #**. Any line that starts with a hash symbol will be treated as a comment rather than code, and so will not be 'run'. You can also add comments to the end of lines of code by including the hash symbol half-way through a line - everything after the # will be treated as a comment, and everything before will be treated as code. If you have multiple lines of comments you wish to add, you can type them out, highlight them and use `ctrl+shift+C` to 'comment out' all of the highlighted lines. 
 
-Your first script should definitely include the library-calls for all of the packages you will need. 
+Add some comments to the beginning of your script now - include your name, the date, and a short description that explains that this is the first script, and will include library calls as well as loading data and any functions that will be used in future.
 
-Our first steps only require two packages, 'readr' and 'dplyr'. Install these by typing install.packages('readr') and 'install.packages('dplyr') in the console. Then, remember to take a renv::snapshot()! 
+Your first script should definitely include the 'library-calls' for all of the packages you will need. This basically means loading any packages you need at the beginning, before running any future code that requires them. We load/call packages by using the `library()` function.
 
-Now we are going to create the first script of the project, in which we will call all of the packages, files and functions we need for the workshop!
+Our first steps only require two packages, 'readr' and 'dplyr'. You can either install these by typing `install.packages('readr')` and `install.packages('dplyr')` one at a time in the console, or you can install both packages at once by running `install.packages(c('readr', 'dplyr'))`. Then, remember to take a `renv::snapshot()`! 
 
+Now, below your initial comments, we will add the library calls to the script. First, we should add a section header! Section headers are yet again another form of good documentation, and and extremely helpful when navigating around scripts of code! To add a section header, we can use the keyboard shortcut `ctrl+shift+R`. In the pop-up window, give the first section the header 'Load in packages'. Then click okay and you should see the header has appeared in your code. In the bottom left of the code window, you should see the section header has appeared, and if you click on the name you can navigate to other sections when you have built up your script further. 
 
+```{r echo=FALSE, out.width='100%', fig.cap='R Studio section headers navigation'}
+knitr::include_graphics('images/RforRAP/section_headers.png')
+```
 
+Another way to view and navigate between all of the sections in a script is to use the keyboard shortcut `ctrl+shift+O` to open the sections in a small panel on the right of your script.
+
+### Adding and running code
+
+Now, below the heading on a new line, add `library(readr)`, then on a new line add `library(dplyr)`. In R, each new line represents a new code command. You don't need to use a semi-colon or any other punctuation to separate commands other than just starting a new line, and you cannot have two commands on the same line. Therefore, the two library calls are two distinct commands, as they load different packages, and so need to each be on a new line. 
 
 
 ## Summary
