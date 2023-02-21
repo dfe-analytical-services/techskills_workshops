@@ -151,9 +151,9 @@ Now we will begin the tasks and group work. First, everyone **open up R studio.*
 
 # Creating a project 
 
-When creating RAP processes, it's key that your code is reusable, transparent, and well documented, such that it is future-proofed for any future team members. Therefore, first, we will show you how to create an R project. Using an R project ensures that all of the files in the project folder (scripts, plots, notes, etc.) can all be referenced relative to the **.Rproj file** location. Basically, it removes the need to set and get your working directory, and removes the need to use long & complete file paths. Instead, you essentially start any file path from the location of the .Rproj file! *For example*, if you have an code.R code script and a data.csv file in a project folder called 'workshop' that has been set up as an R project, if you want to read the .csv into the R script, you don't need the entire file path of the csv, just the file path relative to the .Rproj fil, which in this case would simply be 'data.csv'.n 
+When creating RAP processes, it's key that your code is reusable, transparent, and well documented, such that it is future-proofed for any future team members. Therefore, first, we will show you how to create an R project. Using an R project ensures that all of the files in the project folder (scripts, plots, notes, etc.) can all be referenced relative to the **.Rproj file** location. Basically, it removes the need to set and get your working directory, and removes the need to use long & complete file paths. Instead, you essentially start any file path from the location of the .Rproj file! *For example*, if you have a code.R code script, and a data.csv file in a project folder that has been set up as an R project, and you want to read the .csv in the R script, you don't need the entire file path of the csv (which probably starts C:/... and can get very long), just the file path relative to the *.Rproj file* which in this case would simply be 'data.csv'.
 
-If you're struggling to grasp that, that's okay, we will create a project and see this in action now. To create a new project, in R studio, go to **File > New Project > New directory > New Project**. Give your project a name and choose where about in your files you would like the project to be saved. Click 'Create project'.
+If you're struggling to grasp that, that's okay, we will create a project and see this in action today. To create a new project, in R studio, go to **File > New Project > New directory > New Project**. Give your project a name and choose where about in your files you would like the project to be saved. Click 'Create project'. We aren't going to discuss using Git or version control today, but if you are using these in a project, make sure you **do not** save the project folder in OneDrive (this is because OneDrive has it's own version-control system, and trying to use Git within that can cause complications and errors). 
 
 
 ## Using renv
@@ -168,11 +168,11 @@ To activate renv, run `renv::activate()` in the console. If you navigate back to
 
 Each time you add or remove packages, or update the package versions, you should run `renv::snapshot()` to take a snapshot of the current state of your library. If you ever get a new device, or someone else wants to view your project, they simply need to run `renv::restore()` to restore the package library on their device to match the packages needed in the project. 
 
-## Your initial script
+# Your initial script
 
 Now that we have your project created and renv activated, we can create our first code script. Open a new R script file by selecting **File > New File > R script**. 
 
-### Comments and headings
+## Comments and headings
 
 Comments in code are some of the most useful documentation you can use, and are crucial for RAP! You should start your script with comments that provide important information such as what this code script contains and what it is for - basically anything you think a new person would need to know in order to understand and run the code effectively. You add comments in R scripts by starting the line with a **hash symbol, #**. Any line that starts with a hash symbol will be treated as a comment rather than code, and so will not be 'run'. You can also add comments to the end of lines of code by including the hash symbol half-way through a line - everything after the # will be treated as a comment, and everything before will be treated as code. If you have multiple lines of comments you wish to add, you can type them out, highlight them and use `ctrl+shift+C` to 'comment out' all of the highlighted lines. 
 
@@ -190,25 +190,88 @@ knitr::include_graphics('images/RforRAP/section_headers.png')
 
 Another way to view and navigate between all of the sections in a script is to use the keyboard shortcut `ctrl+shift+O` to open the sections in a small panel on the right of your script.
 
-### Adding and running code
+**Throughout this workshop, make sure to add comments at every step so you know what each code snippet is doing, and why!**
 
-Now, below the heading on a new line, add `library(readr)`, then on a new line add `library(dplyr)`. In R, each new line represents a new code command. You don't need to use a semi-colon or any other punctuation to separate commands other than just starting a new line, and you cannot have two commands on the same line. Therefore, the two library calls are two distinct commands, as they load different packages, and so need to each be on a new line. 
+## Adding and running code
 
+Now, below the heading on a new line, add `library(readr)`, then on a new line add `library(dplyr)`. In R, each new line represents a new code command. You don't need to use a semi-colon or any other punctuation to separate commands other than just starting a new line, and you cannot have two commands on the same line. Therefore, since the two library calls are two distinct commands because they load different packages, they each need to be on a new line. 
 
-## Summary
+To actually run code that you have saved in a script file, there are a few options. Firstly, there are buttons you can use to the top right of the script file's window. 
 
-We've looked through a lot of the basics in this section, covering adding/staging, committing, pushing/pulling between remote and local repos, merging and pull requests. These are all the main concepts you need to use git. 
+```{r echo=FALSE, out.width='100%', fig.cap='R Studio run and source buttons'}
+knitr::include_graphics('images/RforRAP/run_buttons.png')
+```
 
-We've also tried to cover doing all this through a mixture of RStudio, git BASH and GitHub (and as we've said Azure Dev Ops offers similar functionality to GitHub). Most common processes can be done multiple ways and there's not necessarily a single right method to follow, just whichever makes most sense in your situation.
+Button 1 in the above image (the 'run' button) will run either all *highlighted* code, or, if no lines are highlighted it will run the line or snippet where your cursor is located (in the above image, you can see the faint cursor line at the end of line 4, so clicking run would run line 4 in this instance). Another way to do this is to use the 'run' keyboard shortcut - `ctrl + Enter`. This works in the same way and will either run all highlighted lines, or the snippet where the cursor is located.
 
-Just a quick final note on why it's useful to be familiar with git `BASH`. Whilst most of the basic git functionality can be accessed via the RStudio panel or GitHub/Dev Ops, there are some things that are best achieved through BASH. In particular, if you have a file in your repo that you need to remove entirely, this pretty much requires someone to use commands via git BASH.
+Button 2 (the 'Source' button) will run the entire script from the first to the last line in one go! This is the same as running `Source("script_name.R")` in the console. `Source(...)` is particularly useful in RAPs, as one of the baseline expectations for statistics publication pipelines is that you have one script that runs every single step of the process - sourcing scripts one by one in the correct order in a 'run_pipeline' script (with comments!) is great way to do this while keeping it tidy and clear!
 
+Highlight the lines you have just added to the script and run them either using the button or the keyboard shortcut. Now we have the packages we need to load in some data. 
 
-| Process       | git BASH                          | RStudio git panel                               |
-|---------------|------------------------------|:------------------------:|
-| Create branch | `git checkout -b branch_name` |  \includegraphics{"images/gitdemo/gitdemo-RStudio-gitToolbarCreateBranch.png"} |
-| Switch branch  | `git checkout branch_name` | \includegraphics{"images/gitdemo/gitdemo-RStudio-gitToolbarSwitchBranch.png"} |
-| Merge branch   | `git merge branch_name`  | N/A - use GitHub/Dev Ops |
+## Loading in the data
+
+There are multiple ways to load data into R. Today we will cover two common ways we see analysts use;
+
+1. Reading in a **CSV** file,
+
+2. Loading data in directly from **SQL** servers.
+
+Before using either method to load in the data, we should add a new section header! Use the guidance above to add a new section header called 'Load in the data'. 
+
+### Reading in CSVs
+
+We already installed the `readr` package, which contains the functions we need to read CSVs into R. In R, i is best practice to name our objects (tables, data sets, etc) so that you can use that name to reference the objects you need. This means that while the code `readr::read_csv(insert_filename/filepath_here)` is the function that reads in a given csv, we should write it in the below format:
+
+`chosen_name <- readr::read_csv(insert_filename/filepath_here)`
+
+Then, if you navigate to the 'environment' window in the top right of the screen, you should see an object has appeared with your chosen name under the heading 'Data'. If you click the blue circle with the white arrow inside, it will expand to show you information about the data you've uploaded, including the name of every column/variable, and the format of each column (i.e. chr for character, num for numeric). If you click the name of the object, it will open in the viewer in the top left so that you can look at the table. This is the same as typing `View(name_of_data)` in the console. 
+
+### Reading in from SQL
+
+In order to read the data in from SQL we need to install the relevant packagesand connect to the SQL database. Firstly, we need to install the `odbc` and `DBI` packages. Try to use the above guidance to;
+
+a. Install the `odbc` and `DBI` packages,
+
+b. Add the library calls to the correct section of the initial script,
+
+c. Take a snapshot to update the renv.lock file.
+
+Once you have complete the above steps, we can use the new packages to connect to the secure SQL database. We use the following code (inserting the server and database we require) to create an object with the connection. You can call it anything, but common practice is to call this connection 'con':
+
+```
+# Connect to SQL database
+con <- DBI::dbConnect(odbc::odbc(),
+    Driver = "{SQL Server Native Client 17.0}",
+    Server = "...",
+    Database = "...",
+    Trusted_connection = "Yes"
+  )
+```
+
+[Note that this code will only work for you if you have access to the specified server and database, so only users with existing access can use this code in R to connect and pull in data! If someone without access tried to run this code, they would get an error in the R console.]
+
+Now that we have the connection stored and named, we can use it to read in a table from the database into R. There are multiple ways to do this - in this workshop we will cover two of them. 
+
+1. Use `tbl(con, table_name)`,
+
+2. Use `sqlQuery(con, "SELECT * FROM [table_name];")`.
+
+Option one above is a very concise and tidy way, which (as long as you're add descriptive comments) will make your code easy to read and understand. Option two is slightly longer, however, it allows you to run SQL queries in R, so if you have previous experience with SQL you may find this useful. You can edit and customise the SQL query, meaning you have the option of selecting specific columns and filtering at this stage, rather than reading in the entire table. Just ensure that you write the table_name exactly how you would in SQL (including schemas, )
+
+Whichever option you choose, you need to choose what name you would like this object to have in R once the table is read in. It is best practice to make object names descriptive but concise. This means describing what the table contains, but not including unnecessary and repetitive words such as 'table' in the name. The data we are using today contains data on the characteristics and grades of some students, so we might choose to call the table 'students'. We assign the table this name by using the `<-` symbols, so the full snippet should look something like this: 
+
+```
+# Read in student data from SQL
+students <- tbl(con, table_name)
+```
+
+Add this under an appropriate heading/comment to your initial script. 
+Then, if you navigate to the 'environment' window in the top right of the screen, you should see an object has appeared with your chosen name under the heading 'Data'. If you click the blue circle with the white arrow inside, it will expand to show you information about the data you've uploaded, including the name of every column/variable, and the format of each column (i.e. chr for character, num for numeric). If you click the name of the object, it will open in the viewer in the top left so that you can look at the table. This is the same as typing `View(name_of_data)` in the console. 
+
+# Manupilating data
+
+Once you have pulled data into R studio, it is likely you want to manipulate it in some way. In this workshop, we have pulled in data that contains one line per student, so one common task is to aggregate data, and get it in the correct tidy format for EES. 
+
 
 
 \newpage

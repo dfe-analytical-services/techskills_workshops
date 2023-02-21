@@ -1,10 +1,9 @@
 
 # install and call packages -----------------------------------------------
 
-install.packages("dplyr")
-
 library(readr)
 library(dplyr)
+library(odbc)
 
 
 # Read in the data --------------------------------------------------------
@@ -41,7 +40,10 @@ student_results_aggregated_ <- student_results_aggregated %>%
 
 # an initial way
 student_results_aggregated_suppressed <- student_results_aggregated %>%
-  mutate(students = ifelse(students < 5, 'c', students))
+  mutate(students = ifelse(students < 5, 'c', students),
+         G1_mean = ifelse(students < 5, 'c', G1_mean),
+         G2_mean = ifelse(students < 5, 'c', G2_mean),
+         G3_mean = ifelse(students < 5, 'c', G3_mean))
 
 #However, if we want to suppress multiple columns using the same rule, we should write a function for this.
 suppress_counts <- function(count){
@@ -53,10 +55,11 @@ suppress_counts <- function(count){
 
 # a better way
 student_results_aggregated_suppressed <- student_results_aggregated %>%
-  mutate(students = suppress_counts(students))
+  mutate(students = suppress_counts(students), 
+         G1_mean = suppress_counts(students))
 
 #the best way - this way your code is future-proofed if you want to add more columns to the mutate step which applies
 #the suppression.
 student_results_aggregated_suppressed <- student_results_aggregated %>%
-  mutate(across(c(students), suppress_counts))
+  mutate(across(c(students, G1_mean), suppress_counts))
 
