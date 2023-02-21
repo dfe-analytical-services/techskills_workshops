@@ -272,6 +272,19 @@ Then, if you navigate to the 'environment' window in the top right of the screen
 
 Once you have pulled data into R studio, it is likely you want to manipulate it in some way. In this workshop, we have pulled in data that contains one line per student, so one common task is to aggregate data, and get it in the correct tidy format for EES. 
 
+## Aggregate data
+
+Aggregating data is a common task analysts face. In the data we have loaded into R studio in this workshop, there is a line per student, containing that students characteristics and grades. We want to aggregate this by certain characteristics and get the average grade for each aggregated group. Firstly, it's possible that we might want to filter on certain variables so that we only include certain students in our data. 
+
+To **filter** data, we can simply use the `filter()` function from the `dplyr` package, which we have already installed and loaded. Here we will also introduce the **pipe** symbol - `%>%`. 
+
+In our environment, we should see the data we have loaded in with the name we gave it - 'students'. If we want to filter this, we would do so in the following format:
+
+```
+students %>%
+filter()
+```
+
 
 
 \newpage
