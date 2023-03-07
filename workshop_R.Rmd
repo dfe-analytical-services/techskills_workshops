@@ -262,7 +262,7 @@ Whichever option you choose, you need to choose what name you would like this ob
 
 ```
 # Read in student data from SQL
-students <- tbl(con, table_name)
+student_results <- tbl(con, table_name)
 ```
 
 Add this under an appropriate heading/comment to your initial script. 
@@ -272,20 +272,85 @@ Then, if you navigate to the 'environment' window in the top right of the screen
 
 Once you have pulled data into R studio, it is likely you want to manipulate it in some way. In this workshop, we have pulled in data that contains one line per student, so one common task is to aggregate data, and get it in the correct tidy format for EES. 
 
-## Aggregate data
+## Aggregate & filter data
 
-Aggregating data is a common task analysts face. In the data we have loaded into R studio in this workshop, there is a line per student, containing that students characteristics and grades. We want to aggregate this by certain characteristics and get the average grade for each aggregated group. Firstly, it's possible that we might want to filter on certain variables so that we only include certain students in our data. 
+Aggregating data is a common task analysts in in statistics publication face. In the data we have loaded into R studio in this workshop, there is currently one line per student, containing that students characteristics and grades. We want to aggregate this by certain characteristics and get the average grade for each aggregated group. Firstly, it's possible that we might want to filter on certain variables so that we only include certain students in our data. 
 
 To **filter** data, we can simply use the `filter()` function from the `dplyr` package, which we have already installed and loaded. Here we will also introduce the **pipe** symbol - `%>%`. 
 
-In our environment, we should see the data we have loaded in with the name we gave it - 'students'. If we want to filter this, we would do so in the following format:
+In our environment, we should see the data we have loaded in with the name we gave it - 'student_results'. If we want to filter this, we would do so in the following format:
 
 ```
-students %>%
-filter()
+student_results %>%
+filter(column_name == contraint, 
+      column_name2 < constraint2, 
+      column_name3 %in% c(list1, list2, list3))
+```
+
+You can give this a go in the console without storing the results in the environment by simply running the above without giving it a name like we did when we read the data in. If you wanted to store your results, you would add `name <-` at the start of the first line. 
+In today's workshop, we don't need to filter the data before we start aggregating. The first thing we want to do is specify the variables we want to group the data by. In this example we want to group by **school, sex** and **age**. This is very easily done using the `group_by()` function as below: 
+
+```
+student_results %>%
+group_by(school, sex, age)
+```
+
+However, the output from running the above code will look like it hasn't changed, because it doesn't know how to aggregate the groups yet. We define this using the `summarise()` function *after* the `group_by()` function. In this workshop we will use two common aggregations; averages and counts, however, this method can be applied to all sorts of aggregation methods!
+
+Today, we want to aggregate the data such that we have a row for every group of school, sex and age, with the summary statistics being the mean grades (G1, G2, G3) and the total count of students in each row. To start with, we will lay out the code in an explicit form, before we discuss how to convert it to best practice. Running the following code in the console will give the output we want:
+
+```
+student_results %>%
+  group_by(school, sex, age) %>%
+  summarise(G1_mean = mean(G1), 
+            G2_mean = mean(G2), 
+            G3_mean = mean(G1),
+            students = n())
+```
+
+Within the `summarise` statement, it's defining 4 new columns. `G1_mean = mean(G1)` means that the new column called G1_mean will be the mean of the previous G1 column when grouped by the variables defined in the `group_by()` statement. `students = n()` creates a new column named students, which contains the number of rows that have been included in each group.
+
+While the above code works, it can be written in many different ways, and while in this example we are only creating 4 summary columns and using 3 grouping variables, in real life this can get messy the more columns and variables we add! Copying and pasting functions and lines and changing the names each time is prone to mistakes. For example, did any of you notice that **there is a mistake in the above code**? I forgot to update the final mean, which should have been taking the mean of the G3 column! However, in my haste of copying and pasting the same thing 3 times, I only updated the name to G3_mean, while forgetting I also needed to edit what was in the mean() brackets. 
+
+In real life, mistakes like this are more common than you'd think! There are best practices in writing our code that can help us to avoid mistakes like this. If you're applying the same function to multiple columns like we are with `mean()` above, we can use `across()`. The `across()` function in R allows you to apply one function across a list of columns, and also enables you to specify the new column's names! We can therefore rewrite the above code as below: 
+
+```
+student_results %>%
+  group_by(school, sex, age) %>%
+  summarise(across(c(G1, G2, G3), mean, .names = "{.col}_mean"), 
+            students = n())
+```
+
+In the above, we have *nested* an `across()` function inside a `summarise()` function. `across(c(G1, G2, G3), mean, .names = "{.col}_mean")` means apply the `mean()` function to G1, G2 and G3 one-by-one, and set the new column name to be the original column name followed by `_mean`. In this instance it might not seem much simpler than the first version, however using 'across' can be extremely useful when real-life examples have extremely large data sets! Lets store the above results in our environemnt now and call them `student_results_aggregated` using the folloowing code: 
+
+```
+student_results_aggregated <- student_results %>%
+  group_by(school, sex, age) %>%
+  summarise(across(c(G1, G2, G3), mean, .names = "{.col}_mean"), 
+            students = n())
+```
+
+## Reorder and rename columns
+
+Something that some analysts might leave to the end or do manually in excel is reorder and rename columns. However, even simple steps such as are prone to human error and can result in big mistakes! It also means that your process isn't fully **automated** or **reproducible**, since someone new to your project wouldn't know from looking at it what you have done, and therefore wouldn't be able to recreate it! To avoid this, it's always best to do these simple steps in the code. It also makes your own code robust - if your code for analysis expects columns to have certain names, to all be lower case, or to be in a certain order, and they aren't, it will cause errors later down the line! 
+
+First, a very useful function to use is `variable.names()`. Try running `variable.names(student_results)` and `variable.names(student_results_aggregated)` in the console. It should return a list of all of the variable names in the specified tables. You can also use this to compare the names of two data sets by running `variable.names(student_results) == variable.names(student_results_aggregated)`. This will return a `TRUE/FALSE` list - you will see in this case, the first 3 are `TRUE` - this is because the names of the first 3 columns are school, sex, age in both tables, however the rest differ. This is useful when you are *expecting* two tables to have the same variable names, for example in an annual publication cycle, it is a good idea to check that the variable names this year are the same as they were last year before you start your analysis. 
+
+First, lets reorder the columns. I want the '`students` column to appear *before* the grade means. We can cimply use the `select()` function here, listing the columns in the order we wish them to appear: 
+```
+student_results_aggregated %>%
+  select(school, sex, age, students, G1_mean, G2_mean, G3_mean)
+```
+
+Now if we also wanted to rename columns, we can do it together in one step by using another 'pipe' (`%>%`). If there are only a select number of columns you wish to rename, you would use `rename` and specify as follows: 
+```
+student_results_aggregated %>%
+  select(school, sex, age, students, G1_mean, G2_mean, G3_mean) %>%
+  rename(PICK UP FROM HERE)
 ```
 
 
+Since we have started the first line with `student_results_aggregated <-`, this means everything that follows will overwrite what was stored under this name before! This *can* be risky, since `select()` can also be used to **drop** columns. If you left out any names from the select line, they would simply be dropped, so be careful if you use the same name as the object from before this step! This can be avoided by picking a different name, like `student_results_aggregated_reordered` for example. 
 
 \newpage
 

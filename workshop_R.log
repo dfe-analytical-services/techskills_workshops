@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  21 FEB 2023 10:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  7 MAR 2023 15:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -765,7 +765,7 @@ Package hyperref Info: Link coloring ON on input line 111.
 \@outlinefile=\write4
 \openout4 = `workshop_R.out'.
 
-<images/Department_for_Education.png, id=79, 1204.5pt x 712.6625pt>
+<images/Department_for_Education.png, id=83, 1204.5pt x 712.6625pt>
 File: images/Department_for_Education.png Graphic file (type png)
 <use images/Department_for_Education.png>
 Package pdftex.def Info: images/Department_for_Education.png  used on input line 114.
@@ -803,7 +803,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 1.
 (c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 19.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 20.
 (c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ))
@@ -818,18 +818,18 @@ File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 178.
 [3]
-<images/RforRAP/R-studio-panels.png, id=120, 430.992pt x 233.454pt>
+<images/RforRAP/R-studio-panels.png, id=125, 430.992pt x 233.454pt>
 File: images/RforRAP/R-studio-panels.png Graphic file (type png)
 <use images/RforRAP/R-studio-panels.png>
 Package pdftex.def Info: images/RforRAP/R-studio-panels.png  used on input line 197.
 (pdftex.def)             Requested size: 430.99094pt x 233.45341pt.
 [4 <./images/RforRAP/R-studio-panels.png>]
-<images/gitdemo/gitdemo-gitRstudio-settings.png, id=129, 450.68375pt x 469.755pt>
+<images/gitdemo/gitdemo-gitRstudio-settings.png, id=134, 450.68375pt x 469.755pt>
 File: images/gitdemo/gitdemo-gitRstudio-settings.png Graphic file (type png)
 <use images/gitdemo/gitdemo-gitRstudio-settings.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-gitRstudio-settings.png  used on input line 253.
 (pdftex.def)             Requested size: 300.6568pt x 313.37949pt.
-<images/gitdemo/gitdemo-gitRstudio-NewTerminal.png, id=130, 685.05937pt x 274.02374pt>
+<images/gitdemo/gitdemo-gitRstudio-NewTerminal.png, id=135, 685.05937pt x 274.02374pt>
 File: images/gitdemo/gitdemo-gitRstudio-NewTerminal.png Graphic file (type png)
 <use images/gitdemo/gitdemo-gitRstudio-NewTerminal.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-gitRstudio-NewTerminal.png  used on input line 261.
@@ -839,72 +839,77 @@ LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 3
 (c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [8] [9]
-<images/RforRAP/section_headers.png, id=166, 616.3025pt x 287.57437pt>
+<images/RforRAP/section_headers.png, id=171, 616.3025pt x 287.57437pt>
 File: images/RforRAP/section_headers.png Graphic file (type png)
 <use images/RforRAP/section_headers.png>
 Package pdftex.def Info: images/RforRAP/section_headers.png  used on input line 436.
 (pdftex.def)             Requested size: 469.76775pt x 219.19945pt.
 [10 <./images/RforRAP/section_headers.png>]
-<images/RforRAP/run_buttons.png, id=173, 580.569pt x 176.514pt>
+<images/RforRAP/run_buttons.png, id=178, 580.569pt x 176.514pt>
 File: images/RforRAP/run_buttons.png Graphic file (type png)
 <use images/RforRAP/run_buttons.png>
 Package pdftex.def Info: images/RforRAP/run_buttons.png  used on input line 462.
 (pdftex.def)             Requested size: 469.75337pt x 142.82202pt.
 [11 <./images/RforRAP/run_buttons.png>] [12] [13] [14]
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 634.
+Overfull \hbox (160.09529pt too wide) in paragraph at lines 645--645
+[]\T1/lmtt/m/n/12 filter(column_name == contraint, column_name2 < constraint2, column_name3 %in% c(list1, list2, list3))[] 
+ []
+
 [15] [16]
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 741.
+[17] [18]
 File: images/Department_for_Education.png Graphic file (type png)
 <use images/Department_for_Education.png>
-Package pdftex.def Info: images/Department_for_Education.png  used on input line 690.
+Package pdftex.def Info: images/Department_for_Education.png  used on input line 797.
 (pdftex.def)             Requested size: 469.75311pt x 277.93726pt.
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 703--708
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 810--815
 [][]  
  []
 
 
-Overfull \hbox (1.88498pt too wide) in paragraph at lines 712--712
+Overfull \hbox (1.88498pt too wide) in paragraph at lines 819--819
 []|\T1/phv/m/n/12 enquiries| 
  []
 
 
-Overfull \hbox (4.20119pt too wide) in paragraph at lines 713--713
+Overfull \hbox (4.20119pt too wide) in paragraph at lines 820--820
 []|\T1/phv/m/n/12 download| 
  []
 
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 711--715
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 818--822
 [][]  
  []
 
-<images/logoTwitter.png, id=220, 27.2655pt x 21.681pt>
+<images/logoTwitter.png, id=234, 27.2655pt x 21.681pt>
 File: images/logoTwitter.png Graphic file (type png)
 <use images/logoTwitter.png>
-Package pdftex.def Info: images/logoTwitter.png  used on input line 717.
+Package pdftex.def Info: images/logoTwitter.png  used on input line 824.
 (pdftex.def)             Requested size: 27.26665pt x 21.68193pt.
-<images/logoFacebook.png, id=221, 21.681pt x 21.681pt>
+<images/logoFacebook.png, id=235, 21.681pt x 21.681pt>
 File: images/logoFacebook.png Graphic file (type png)
 <use images/logoFacebook.png>
-Package pdftex.def Info: images/logoFacebook.png  used on input line 720.
+Package pdftex.def Info: images/logoFacebook.png  used on input line 827.
 (pdftex.def)             Requested size: 21.68193pt x 21.68193pt.
-[17 <./images/logoTwitter.png> <./images/logoFacebook.png>] (./workshop_R.aux)
+[19 <./images/logoTwitter.png> <./images/logoFacebook.png>] (./workshop_R.aux)
 Package rerunfilecheck Info: File `workshop_R.out' has not changed.
-(rerunfilecheck)             Checksum: 010A3B6565286B5DD71B5F4D1637CD91;2613.
+(rerunfilecheck)             Checksum: BA75A4B32C8AB82BC24769B83ACDC059;2797.
  ) 
 Here is how much of TeX's memory you used:
- 24546 strings out of 478026
- 462395 string characters out of 5838504
+ 24552 strings out of 478026
+ 462477 string characters out of 5838504
  1860340 words of memory out of 5000000
- 44161 multiletter control sequences out of 15000+600000
+ 44163 multiletter control sequences out of 15000+600000
  557232 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  83i,14n,80p,443b,599s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on workshop_R.pdf (17 pages, 1288284 bytes).
+Output written on workshop_R.pdf (19 pages, 1294025 bytes).
 PDF statistics:
- 274 PDF objects out of 1000 (max. 8388607)
- 225 compressed objects within 3 object streams
- 71 named destinations out of 1000 (max. 500000)
- 197 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 291 PDF objects out of 1000 (max. 8388607)
+ 240 compressed objects within 3 object streams
+ 75 named destinations out of 1000 (max. 500000)
+ 205 words of extra memory for PDF output out of 10000 (max. 10000000)
 
