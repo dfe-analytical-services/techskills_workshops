@@ -346,11 +346,39 @@ Now if we also wanted to rename columns, we can do it together in one step by us
 ```
 student_results_aggregated %>%
   select(school, sex, age, students, G1_mean, G2_mean, G3_mean) %>%
-  rename(PICK UP FROM HERE)
+  rename(g1_mean = G1_mean, g2_mean = G2_mean, g3_mean = G3_mean)
+```
+So when using `rename` as above, the order needed is `desired_name = original_name`. As you can see above, all this code does is convert the upper case G's to lower case, however, you could rename each column to anything you like using this method. It's best practice to stay consistent with the case you use, and in EES, we expect all column names in 'snake_case'. Therefore, something you might want to do is rename all of the columns to lower case. If your rename-step is something like converting all columns to lower case, this can be done in a more effective way, with less copying and pasting, using `rename_all()` and `tolower()` like this:
+```
+student_results_aggregated <- student_results_aggregated %>%
+  select(school, sex, age, students, G1_mean, G2_mean, G3_mean) %>%
+  rename_all(tolower)
 ```
 
+Since above, we have started the first line with `student_results_aggregated <-`, this means it's going to overwrite whatever was stored in the environment under that name before! This *can* be risky, since `select()` can also be used to **drop** columns. If you left out any names from the select line by accident, they would simply be dropped, so be careful if you use the same name as the object from before this step! This can be avoided by picking a different name, like `student_results_aggregated_reordered` for example. If you *did* make a mistake, and overwrote something by accident, you can just re-run the code that made the original object before it was overwritten. 
 
-Since we have started the first line with `student_results_aggregated <-`, this means everything that follows will overwrite what was stored under this name before! This *can* be risky, since `select()` can also be used to **drop** columns. If you left out any names from the select line, they would simply be dropped, so be careful if you use the same name as the object from before this step! This can be avoided by picking a different name, like `student_results_aggregated_reordered` for example. 
+## Suppression (and writing functions)
+
+Another common task that analysts face is suppressing data. In this section, we will write our own function that will do the supression step for us! We have already been using functions from *packages* throughout this workshop - everything in the format `function_name()` is a function that has already been written for us - it takes whatever we put in the brackets, does things to it, and creates an output. Here we will introduce writing our own! 
+
+### Writing functions
+
+The best way to introduce writing functions is by starting very simple to understand the concept first, so let's practice here with some easy examples. Open a **new R script** (file > New file > R script) and call it 'functions.R'. On the first line, add some **comments** that explain this script is to practice writing functions. 
+
+Firstly, we will write a simple function that adds two numbers together. Give it a heading that describes this. On a new line, we will use the following syntax to create our first function:
+```
+function_name <- function(inputs...){
+function instructions...
+}
+```
+In our function, we want to add two numbers, so we want two inputs. We can call them whatever we want, but you should choose something logical that makes it easy to understand. Whatever names you choose for the inputs in the `function(...)` bracket, you then use those names as place-fillers in the instructions. Then, whenever the function is used, it will carry the inputs through the instructions in the right places. Here is an example:
+```
+add_together <- function(x,y){
+x + y
+}
+```
+The above function takes two inputs, x and y, and adds them together. To *use* the function, you need to run the above code once to *create* it, then you can use it in the console. You should also see it appear under 'functions' in your environment! Once it's creates, you can use it in the console by running `add_together(x,y)`, choosing whatever numbers you want to as x and y. 
+
 
 \newpage
 
