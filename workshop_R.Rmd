@@ -288,20 +288,20 @@ filter(column_name == contraint,
 ```
 
 You can give this a go in the console without storing the results in the environment by simply running the above without giving it a name like we did when we read the data in. If you wanted to store your results, you would add `name <-` at the start of the first line. 
-In today's workshop, we don't need to filter the data before we start aggregating. The first thing we want to do is specify the variables we want to group the data by. In this example we want to group by **school, sex** and **age**. This is very easily done using the `group_by()` function as below: 
+In today's workshop, we don't need to filter the data before we start aggregating. The first thing we want to do is specify the variables we want to group the data by. In this example we want to group by **year, school, sex** and **age**. This is very easily done using the `group_by()` function as below: 
 
 ```
 student_results %>%
-group_by(school, sex, age)
+group_by(year, school, sex, age)
 ```
 
 However, the output from running the above code will look like it hasn't changed, because it doesn't know how to aggregate the groups yet. We define this using the `summarise()` function *after* the `group_by()` function. In this workshop we will use two common aggregations; averages and counts, however, this method can be applied to all sorts of aggregation methods!
 
-Today, we want to aggregate the data such that we have a row for every group of school, sex and age, with the summary statistics being the mean grades (G1, G2, G3) and the total count of students in each row. To start with, we will lay out the code in an explicit form, before we discuss how to convert it to best practice. Running the following code in the console will give the output we want:
+Today, we want to aggregate the data such that we have a row for every group of year, school, sex and age, with the summary statistics being the mean grades (G1, G2, G3) and the total count of students in each row. To start with, we will lay out the code in an explicit form, before we discuss how to convert it to best practice. Running the following code in the console will give the output we want:
 
 ```
 student_results %>%
-  group_by(school, sex, age) %>%
+  group_by(year, school, sex, age) %>%
   summarise(G1_mean = mean(G1), 
             G2_mean = mean(G2), 
             G3_mean = mean(G1),
@@ -310,22 +310,22 @@ student_results %>%
 
 Within the `summarise` statement, it's defining 4 new columns. `G1_mean = mean(G1)` means that the new column called G1_mean will be the mean of the previous G1 column when grouped by the variables defined in the `group_by()` statement. `students = n()` creates a new column named students, which contains the number of rows that have been included in each group.
 
-While the above code works, it can be written in many different ways, and while in this example we are only creating 4 summary columns and using 3 grouping variables, in real life this can get messy the more columns and variables we add! Copying and pasting functions and lines and changing the names each time is prone to mistakes. For example, did any of you notice that **there is a mistake in the above code**? I forgot to update the final mean, which should have been taking the mean of the G3 column! However, in my haste of copying and pasting the same thing 3 times, I only updated the name to G3_mean, while forgetting I also needed to edit what was in the mean() brackets. 
+While the above code works, it can be written in many different ways, and while in this example we are only creating 4 summary columns and using 4 grouping variables, in real life this can get messy the more columns and variables we add! Copying and pasting functions and lines and changing the names each time is prone to mistakes. For example, did any of you notice that **there is a mistake in the above code**? I forgot to update the final mean, which should have been taking the mean of the G3 column! However, in my haste of copying and pasting the same thing 3 times, I only updated the name to G3_mean, while forgetting I also needed to edit what was in the mean() brackets. 
 
 In real life, mistakes like this are more common than you'd think! There are best practices in writing our code that can help us to avoid mistakes like this. If you're applying the same function to multiple columns like we are with `mean()` above, we can use `across()`. The `across()` function in R allows you to apply one function across a list of columns, and also enables you to specify the new column's names! We can therefore rewrite the above code as below: 
 
 ```
 student_results %>%
-  group_by(school, sex, age) %>%
+  group_by(year, school, sex, age) %>%
   summarise(across(c(G1, G2, G3), mean, .names = "{.col}_mean"), 
             students = n())
 ```
 
-In the above, we have *nested* an `across()` function inside a `summarise()` function. `across(c(G1, G2, G3), mean, .names = "{.col}_mean")` means apply the `mean()` function to G1, G2 and G3 one-by-one, and set the new column name to be the original column name followed by `_mean`. In this instance it might not seem much simpler than the first version, however using 'across' can be extremely useful when real-life examples have extremely large data sets! Lets store the above results in our environemnt now and call them `student_results_aggregated` using the folloowing code: 
+In the above, we have *nested* an `across()` function inside a `summarise()` function. `across(c(G1, G2, G3), mean, .names = "{.col}_mean")` means apply the `mean()` function to G1, G2 and G3 one-by-one, and set the new column name to be the original column name followed by `_mean`. In this instance it might not seem much simpler than the first version, however using 'across' can be extremely useful when real-life examples have extremely large data sets! Lets store the above results in our environment now and call them `student_results_aggregated` using the following code: 
 
 ```
 student_results_aggregated <- student_results %>%
-  group_by(school, sex, age) %>%
+  group_by(year, school, sex, age) %>%
   summarise(across(c(G1, G2, G3), mean, .names = "{.col}_mean"), 
             students = n())
 ```
@@ -339,19 +339,19 @@ First, a very useful function to use is `variable.names()`. Try running `variabl
 First, lets reorder the columns. I want the '`students` column to appear *before* the grade means. We can cimply use the `select()` function here, listing the columns in the order we wish them to appear: 
 ```
 student_results_aggregated %>%
-  select(school, sex, age, students, G1_mean, G2_mean, G3_mean)
+  select(year, school, sex, age, students, G1_mean, G2_mean, G3_mean)
 ```
 
 Now if we also wanted to rename columns, we can do it together in one step by using another 'pipe' (`%>%`). If there are only a select number of columns you wish to rename, you would use `rename` and specify as follows: 
 ```
 student_results_aggregated %>%
-  select(school, sex, age, students, G1_mean, G2_mean, G3_mean) %>%
+  select(year, school, sex, age, students, G1_mean, G2_mean, G3_mean) %>%
   rename(g1_mean = G1_mean, g2_mean = G2_mean, g3_mean = G3_mean)
 ```
 So when using `rename` as above, the order needed is `desired_name = original_name`. As you can see above, all this code does is convert the upper case G's to lower case, however, you could rename each column to anything you like using this method. It's best practice to stay consistent with the case you use, and in EES, we expect all column names in 'snake_case'. Therefore, something you might want to do is rename all of the columns to lower case. If your rename-step is something like converting all columns to lower case, this can be done in a more effective way, with less copying and pasting, using `rename_all()` and `tolower()` like this:
 ```
 student_results_aggregated <- student_results_aggregated %>%
-  select(school, sex, age, students, G1_mean, G2_mean, G3_mean) %>%
+  select(year, school, sex, age, students, G1_mean, G2_mean, G3_mean) %>%
   rename_all(tolower)
 ```
 
@@ -359,7 +359,7 @@ Since above, we have started the first line with `student_results_aggregated <-`
 
 ## Suppression (and writing functions)
 
-Another common task that analysts face is suppressing data. In this section, we will write our own function that will do the supression step for us! We have already been using functions from *packages* throughout this workshop - everything in the format `function_name()` is a function that has already been written for us - it takes whatever we put in the brackets, does things to it, and creates an output. Here we will introduce writing our own! 
+Another common task that analysts face is suppressing data. In this section, we will write our own function that will do the suppression step for us! We have already been using functions from *packages* throughout this workshop - everything in the format `function_name()` is a function that has already been written for us - it takes whatever we put in the brackets, does things to it, and creates an output. Here we will introduce writing our own! 
 
 ### Writing functions
 
@@ -377,8 +377,74 @@ add_together <- function(x,y){
 x + y
 }
 ```
-The above function takes two inputs, x and y, and adds them together. To *use* the function, you need to run the above code once to *create* it, then you can use it in the console. You should also see it appear under 'functions' in your environment! Once it's creates, you can use it in the console by running `add_together(x,y)`, choosing whatever numbers you want to as x and y. 
+The above function takes two inputs, x and y, and adds them together. To *use* the function, you need to run the above code once to *create* it, then you can use it in the console. You should also see it appear under 'functions' in your environment! Once it's creates, you can use it in the console by running `add_together(2,3)` as an example, giving the output of 5 if it's been written correctly! You can choose whatever numbers you like to replace x and y when using it in the console as above. 
 
+Functions can also include character inputs as well as numeric! Another example we will use here to practice is creating a function that outputs a sentence. a simple way to output text in R is to use the `paste()` function. Try creating a function called 'introduction_text', that has *two inputs* defined as 'name' and 'age', and uses `paste("Hi, my name is", name, "and my age is", age)` as the *function instruction*. Test it out! Do you see your sentence appearing in the console?
+
+### Function for suppression
+
+Now that we now how to write our own functions, we can write one to help us suppress data. First of all, we can demonstrate the suppression using functions from existing packages. At this point we should still have `student_results_aggregated` in our environment. We want to suppress any rows that have less than 5 students. One way to do this is shown below:
+
+```
+student_results_aggregated_suppressed <- student_results_aggregated %>%
+  mutate(g1_mean = ifelse(students < 5, 'c', g1_mean),
+         g2_mean = ifelse(students < 5, 'c', g2_mean),
+         g3_mean = ifelse(students < 5, 'c', g3_mean),
+         students = ifelse(students < 5, 'c', students)
+         )
+```
+
+The above code takes the mean grade columns and uses an `ifelse()` statement *within* a `mutate()` statement. In the console, if you type a question mark followed by a function name. it will open the help page for that package! Try it out here by typing `?ifesle` and read the help page to understand the syntax. 
+
+Here, it's saying for each of the mean columns, if the number of students is less than 5, then replace the entry in that mean grade column with a 'c', if not, then keep what is already in the column. Note that we *have** to do the students column last, because once we add 'c' to any column it becomes a character variable rather than numeric. Since the previous columns are based on the numeric value of the students, we must order it so that these mutations occur first, while the student column is still a numeric variable and therefore able to apply the `students < 5` logic. 
+
+While the above code works, the same issues arise as in the previous aggregation section where you can end up copying and pasting the same line many times depending on the size of your real-life data sets! We want to avoid this type of repetition where possible so that we reduce the possibility of making mistakes (like forgetting to update every line you have copied and pasted). So let's create a function to suppress counts less than 5. With an approporiate comment to explain, ass the below to your functions.R script. 
+
+```
+suppress_counts <- function(column, count) {
+  ifelse(count < 5, 'c', column)
+}
+```
+
+The above function takes a column, and performs the `ifelse` statement from the previous example. Once you have created the function and can see it in your environment, you can rewrite the above example like this: 
+
+```
+student_results_aggregated_suppressed <- student_results_aggregated %>%
+  mutate(g1_mean = suppress_counts(g1_mean, students),
+         g2_mean = suppress_counts(g2_mean, students),
+         g3_mean = suppress_counts(g3_mean, students),
+         students = suppress_counts(students, students))
+```
+
+However, this *still* includes some repetition we would rather avoid! therefore, we can take this one step further and make use of the `dplyr::across()` function. The `across()` function allows you to apply the same function to multiple columns - type `?dplyr::across` in the console to view the help page and more information. 
+
+We can rewrite the above in the following way:
+```
+student_results_aggregated_suppressed <- student_results_aggregated %>%
+  mutate(across(c(g1_mean, g2_mean, g3_mean, students), ~ifelse(students < 5, 'c', .)))
+```
+
+So, we've just written the same thing in 3 different ways! While all three options produce the same output, the last example is the best for RAP, as it is the most concise and requires the least repetition. 
+
+
+### Adding EES columns
+
+Another common task that many analysts face is needing to add the required Explore Education Statistics (EES) columns formatted in the correct way. Using the [online guidance](https://rsconnect/rsc/stats-production-guidance/ud.html#Overview_of_EES_data_files), we can see that the following columns are required for EES: time_identifier, time_period, geographic_level, country_code (or geographic level equivalent), country_name (or geographic level equivalent). 
+
+When uploading data to EES, you should aim to include at least 3 years of data in EES where it exists in light of recent accessibility legislation. This example has 3 years of data, 2015, 2016, 2016. However, the time_identifier is not specified yet, and the year column is not correctly formatted! 
+
+Let's assume in this instance the time_identifier is *academic year*. We can easily add this column, and rename the existing year column using the following code: 
+```
+student_results_aggregated_suppressed_EES <- student_results_aggregated_suppressed %>%
+  mutate(time_identifier = 'Academic year') %>%
+  rename(time_period = year)
+```
+
+We also want to add the required geography columns. In this case, we are going to use the 'school' column to get the required geography via an `if()` statement. In the previous section, we used `ifelse()` statements in the format 'test, yes, no'. `if()` statements allow for more tests and outcomes than `ifelse()`. 
+Assume that the school 'GP' is in London, and the school 'MS' is in East England, and we want a *regional* geographic level (so we need region_name and region_code). We can use the following code to create these columns:
+```
+
+```
 
 \newpage
 

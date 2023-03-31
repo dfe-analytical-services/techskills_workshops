@@ -25,36 +25,37 @@ View(student_results_aggregated)
 # BUT copying and pasting repeated functions can get messy, especially as they get longer & the more columns you have!
 
 student_results_aggregated <- student_results %>%
-  group_by(school, sex, age) %>%
+  group_by(year, school, sex, age) %>%
   summarise(across(c(G1, G2, G3), mean, .names = "{.col}_mean"), 
-            students = n())
+            students = n()) %>%
+  ungroup()
 
 View(student_results_aggregated)
 
 
 # Re-oder columns ---------------------------------------------------------
 
-student_results_aggregated <- student_results_aggregated %>%
-  select(school, sex, age, students, G1_mean, G2_mean, G3_mean) %>%
-  rename(g1_mean = G1_mean)
+# student_results_aggregated <- student_results_aggregated %>%
+#   select(school, sex, age, students, G1_mean, G2_mean, G3_mean) %>%
+#   rename(g1_mean = G1_mean)
 
 student_results_aggregated <- student_results_aggregated %>%
-  select(school, sex, age, students, G1_mean, G2_mean, G3_mean) %>%
+  select(year, school, sex, age, students, G1_mean, G2_mean, G3_mean) %>%
   rename_all(tolower)
 
 # Suppression on rows with less than 5 students ---------------------------
 
 # an initial way
 student_results_aggregated_suppressed <- student_results_aggregated %>%
-  mutate(G1_mean = ifelse(students < 5, 'c', G1_mean),
-         G2_mean = ifelse(students < 5, 'c', G2_mean),
-         G3_mean = ifelse(students < 5, 'c', G3_mean),
+  mutate(g1_mean = ifelse(students < 5, 'c', g1_mean),
+         g2_mean = ifelse(students < 5, 'c', g2_mean),
+         g3_mean = ifelse(students < 5, 'c', g3_mean),
          students = ifelse(students < 5, 'c', students) # gotta do students last so it's numeric until this point!
          )
 
 #However, if we want to suppress multiple columns using the same rule, we should write a function for this.
-supress_counts <- function(column) {
-  ifelse(students < 5, 'c', column)
+suppress_counts <- function(column) {
+ifelse(students < 5, 'c', .)
 }
 
 # Note that the above will change the 'students' column from a numeric variable to a character variable, 
@@ -62,13 +63,20 @@ supress_counts <- function(column) {
 
 # a better way
 student_results_aggregated_suppressed <- student_results_aggregated %>%
-  mutate(G1_mean = supress_counts(G1_mean),
-         G2_mean = supress_counts(G2_mean),
-         G3_mean = supress_counts(G3_mean),
-         students = supress_counts(students))
+  mutate(g1_mean = suppress_counts(g1_mean),
+         g2_mean = suppress_counts(g2_mean),
+         g3_mean = suppress_counts(g3_mean),
+         students = suppress_counts(students))
 
 #the best way - this way your code is future-proofed if you want to add more columns to the mutate step which applies
 #the suppression.
 student_results_aggregated_suppressed <- student_results_aggregated %>%
-  mutate(across(c(students, G1_mean), suppress_counts))
+  mutate(across(c(g1_mean, g2_mean, g3_mean, students), ~ifelse(students < 5, 'c', .)))
+
+
+# Add EES columns ---------------------------------------------------------
+
+student_results_aggregated_suppressed_EES <- student_results_aggregated_suppressed %>%
+  mutate(time_identifier = 'Academic year') %>%
+  rename(time_period = year)
 
