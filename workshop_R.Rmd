@@ -430,7 +430,7 @@ student_results_aggregated_suppressed <- student_results_aggregated %>%
 The above code takes the mean grade columns and uses an `ifelse()` statement *within* a `mutate()` statement. 
 Here, it's saying for each of the mean columns, if the number of students is less than 5, then replace the entry in that mean grade column with a 'c', if not, then keep what is already in the column. Note that we *have** to do the students column last, because once we add 'c' to any column it becomes a character variable rather than numeric. Since the previous columns are based on the numeric value of the students, we must order it so that these mutations occur first, while the student column is still a numeric variable and therefore able to apply the `students < 5` logic. 
 
-While the above code works, the same issues arise as in the previous aggregation section where you can end up copying and pasting the same line many times depending on the size of your real-life data sets! We want to avoid this type of repetition where possible so that we reduce the possibility of making mistakes (like forgetting to update every line you have copied and pasted). So let's create a function to suppress counts less than 5. With an approporiate comment to explain, ass the below to your functions.R script. 
+While the above code works, the same issues arise as in the previous aggregation section where you can end up copying and pasting the same line many times depending on the size of your real-life data sets! We want to avoid this type of repetition where possible so that we reduce the possibility of making mistakes (like forgetting to update every line you have copied and pasted). So let's create a function to suppress counts less than 5. With an appropriate comment to explain, ass the below to your functions.R script. 
 
 ```
 suppress_counts <- function(column, count) {
@@ -488,7 +488,28 @@ The above code gets us the correct geographic level and region name, but not reg
 
 The [dfe-analytical-services](https://github.com/dfe-analytical-services) area on GitHub holds all publicly available code from DfE. The code behind the [EES data screener](https://rsconnect/rsc/dfe-published-data-qa/) is available here, and [the screener repository](https://github.com/dfe-analytical-services/dfe-published-data-qa) contains a [folder full of geographic lookup tables](https://github.com/dfe-analytical-services/dfe-published-data-qa/tree/master/data)! 
 
-Today we will use the [regions.csv](https://github.com/dfe-analytical-services/dfe-published-data-qa/blob/master/data/regions.csv) file from this folder.
+Today we will use the [regions.csv](https://github.com/dfe-analytical-services/dfe-published-data-qa/blob/master/data/regions.csv) file from this folder. We can pull the csv directly from the repo using the 'raw' URL: https://raw.githubusercontent.com/dfe-analytical-services/dfe-published-data-qa/master/data/regions.csv. 
+Using this also means if the CSV is updated on GitHub, when you run your code it will automatically pull the latest version of the CSV! Adding appropriate headings and comments, pull in this lookup table using the following code:
+
+```
+regions_lookup <- read.csv("https://raw.githubusercontent.com/dfe-analytical-services/dfe-published-data-qa/master/data/regions.csv")
+```
+
+The lookup table should have appeared in the environment! Click on the name to open it, or use the code `View(regions_lookup)`. Now we can join the codes to our data using the region name using the `left_join()` function! We can 'pipe' joins in the exact same way we have piped summarise, group_by, mutate and rename statements. In the console, type `?join` to see the different types of join within the `dplyr` package!
+
+Here we will use a left join because we want to keep all of the rows from our data, and only join on rows that match from the lookup table. We can use the following code to join the region code using region name and reorder the columns:
+
+```
+student_results_aggregated_suppressed_EES <- student_results_aggregated_suppressed %>%
+  mutate(time_identifier = 'Academic year', geographic_level = 'Regional',
+         region_name = case_when(school == 'MS' ~ "East of England",
+                                 school == 'GP' ~ 'London')) %>%
+  rename(time_period = year) %>%
+  left_join(regions_lookup, by = c('region_name' = 'region_name')) %>%
+  select(time_period, time_identifier, geographic_level, region_name, region_code, sex, age, students, g1_mean, g2_mean, g3_mean)
+```
+
+The data created should now look a lot like what you would normally upload to EES. 
 
 ###
 

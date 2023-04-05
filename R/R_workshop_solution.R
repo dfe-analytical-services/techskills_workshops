@@ -81,8 +81,19 @@ student_results_aggregated_suppressed_EES <- student_results_aggregated_suppress
          region_name = case_when(school == 'MS' ~ "East of England",
                                  school == 'GP' ~ 'London')) %>%
   rename(time_period = year)
-  
 
+
+# Add region code ---------------------------------------------------------
+
+regions_lookup <- read.csv("https://raw.githubusercontent.com/dfe-analytical-services/dfe-published-data-qa/master/data/regions.csv")
+
+student_results_aggregated_suppressed_EES <- student_results_aggregated_suppressed %>%
+  mutate(time_identifier = 'Academic year', geographic_level = 'Regional',
+         region_name = case_when(school == 'MS' ~ "East of England",
+                                 school == 'GP' ~ 'London')) %>%
+  rename(time_period = year) %>%
+  left_join(regions_lookup, by = c('region_name' = 'region_name')) %>%
+  select(time_period, time_identifier, geographic_level, region_name, region_code, sex, age, students, g1_mean, g2_mean, g3_mean)
 
 #Console messages
 
