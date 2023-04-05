@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  31 MAR 2023 13:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  5 APR 2023 11:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -803,7 +803,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 1.
 (c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 24.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 26.
 (c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ))
@@ -850,66 +850,76 @@ File: images/RforRAP/run_buttons.png Graphic file (type png)
 <use images/RforRAP/run_buttons.png>
 Package pdftex.def Info: images/RforRAP/run_buttons.png  used on input line 462.
 (pdftex.def)             Requested size: 469.75337pt x 142.82202pt.
-[11 <./images/RforRAP/run_buttons.png>] [12] [13] [14] [15] [16] [17] [18] [19]
-Overfull \hbox (234.19533pt too wide) in paragraph at lines 903--903
-[]         \T1/lmtt/m/n/12 students = ifelse(students < 5, 'c', students) # gotta do students last so it's numeric until this point![] 
+[11 <./images/RforRAP/run_buttons.png>] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21]
+Overfull \hbox (67.47025pt too wide) in paragraph at lines 1015--1015
+[]  \T1/lmtt/m/n/12 mutate(across(c(g1_mean, g2_mean, g3_mean, students), ~ifelse(students < 5, 'c', .)))[] 
  []
 
-[20]
+[22]
+Overfull \hbox (61.29524pt too wide) in paragraph at lines 1045--1045
+[]\T1/lmtt/m/n/12 student_results_aggregated_suppressed_EES <- student_results_aggregated_suppressed %>%[] 
+ []
+
+
+Overfull \hbox (61.29524pt too wide) in paragraph at lines 1061--1061
+[]\T1/lmtt/m/n/12 student_results_aggregated_suppressed_EES <- student_results_aggregated_suppressed %>%[] 
+ []
+
+[23]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 923.
-[21] [22]
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1083.
+[24] [25]
 File: images/Department_for_Education.png Graphic file (type png)
 <use images/Department_for_Education.png>
-Package pdftex.def Info: images/Department_for_Education.png  used on input line 979.
+Package pdftex.def Info: images/Department_for_Education.png  used on input line 1139.
 (pdftex.def)             Requested size: 469.75311pt x 277.93726pt.
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 992--997
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 1152--1157
 [][]  
  []
 
 
-Overfull \hbox (1.88498pt too wide) in paragraph at lines 1001--1001
+Overfull \hbox (1.88498pt too wide) in paragraph at lines 1161--1161
 []|\T1/phv/m/n/12 enquiries| 
  []
 
 
-Overfull \hbox (4.20119pt too wide) in paragraph at lines 1002--1002
+Overfull \hbox (4.20119pt too wide) in paragraph at lines 1162--1162
 []|\T1/phv/m/n/12 download| 
  []
 
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 1000--1004
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 1160--1164
 [][]  
  []
 
-<images/logoTwitter.png, id=267, 27.2655pt x 21.681pt>
+<images/logoTwitter.png, id=287, 27.2655pt x 21.681pt>
 File: images/logoTwitter.png Graphic file (type png)
 <use images/logoTwitter.png>
-Package pdftex.def Info: images/logoTwitter.png  used on input line 1006.
+Package pdftex.def Info: images/logoTwitter.png  used on input line 1166.
 (pdftex.def)             Requested size: 27.26665pt x 21.68193pt.
-<images/logoFacebook.png, id=268, 21.681pt x 21.681pt>
+<images/logoFacebook.png, id=288, 21.681pt x 21.681pt>
 File: images/logoFacebook.png Graphic file (type png)
 <use images/logoFacebook.png>
-Package pdftex.def Info: images/logoFacebook.png  used on input line 1009.
+Package pdftex.def Info: images/logoFacebook.png  used on input line 1169.
 (pdftex.def)             Requested size: 21.68193pt x 21.68193pt.
-[23 <./images/logoTwitter.png> <./images/logoFacebook.png>] (./workshop_R.aux)
+[26 <./images/logoTwitter.png> <./images/logoFacebook.png>] (./workshop_R.aux)
 Package rerunfilecheck Info: File `workshop_R.out' has not changed.
-(rerunfilecheck)             Checksum: 7F9E417731E3F8B6000547AA4CCEDD10;3240.
+(rerunfilecheck)             Checksum: FD4ED86F716FE4F280C57847DCC56352;3240.
  ) 
 Here is how much of TeX's memory you used:
- 24570 strings out of 478026
- 462783 string characters out of 5838504
+ 24579 strings out of 478026
+ 462914 string characters out of 5838504
  1860340 words of memory out of 5000000
- 44169 multiletter control sequences out of 15000+600000
+ 44171 multiletter control sequences out of 15000+600000
  557232 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  83i,14n,80p,443b,599s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on workshop_R.pdf (23 pages, 1302282 bytes).
+Output written on workshop_R.pdf (26 pages, 1309205 bytes).
 PDF statistics:
- 325 PDF objects out of 1000 (max. 8388607)
- 270 compressed objects within 3 object streams
- 87 named destinations out of 1000 (max. 500000)
+ 345 PDF objects out of 1000 (max. 8388607)
+ 287 compressed objects within 3 object streams
+ 94 named destinations out of 1000 (max. 500000)
  221 words of extra memory for PDF output out of 10000 (max. 10000000)
 

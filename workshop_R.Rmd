@@ -381,6 +381,39 @@ The above function takes two inputs, x and y, and adds them together. To *use* t
 
 Functions can also include character inputs as well as numeric! Another example we will use here to practice is creating a function that outputs a sentence. a simple way to output text in R is to use the `paste()` function. Try creating a function called 'introduction_text', that has *two inputs* defined as 'name' and 'age', and uses `paste("Hi, my name is", name, "and my age is", age)` as the *function instruction*. Test it out! Do you see your sentence appearing in the console?
 
+### if() and ifelse() statements
+
+`if()` and `ifelse()` statements work similarly to using IF in excel formulas - they apply tests and perform actions based on the outcome of the test. In the console, if you type a question mark followed by a function name it will open the help page for that package! Try it out here by typing `?ifelse` and read the help page to understand the syntax. 
+
+The difference between `if()` and `ifelse()` is that `ifelse()` statements perform one yes/no test - for example `ifelse(age >= 16, '16+','under 16')` tests whether age is greater than or equal to 16. If it is, then it outputs '16+'. If it is not, then it outputs 'under 16'. If statements can have multiple conditions and can be stacked. For example;
+```
+if(age >= 16){
+'16+'
+} else if(age < 12){
+'under 12'
+} else if(12 <= age < 16){
+'12 - 16'
+} else NA
+```
+
+Here there are 3 'tests' and 4 different outputs. The outputs are either '16+', '12-16', 'under 12' or NA. You can also have multiple conditions in one `if()` statement using *and* (`&` symbol) or *or* (`|` symbol) depending on what you need. For example;
+
+```
+if(age >= 16 & sex = 'Female){
+'16+ female'
+}
+```
+
+This test is finding instances where age is greater than or equal to 16 AND sex is female. We might want to use *or* in cases like the following example: 
+
+```
+if(object == 'Bread | object == 'Fish'){
+object == 'Food'
+}
+```
+
+The above rewrites object by combining two different options (Bread or Fish) into one 'Food' category. 
+
 ### Function for suppression
 
 Now that we now how to write our own functions, we can write one to help us suppress data. First of all, we can demonstrate the suppression using functions from existing packages. At this point we should still have `student_results_aggregated` in our environment. We want to suppress any rows that have less than 5 students. One way to do this is shown below:
@@ -394,8 +427,7 @@ student_results_aggregated_suppressed <- student_results_aggregated %>%
          )
 ```
 
-The above code takes the mean grade columns and uses an `ifelse()` statement *within* a `mutate()` statement. In the console, if you type a question mark followed by a function name. it will open the help page for that package! Try it out here by typing `?ifesle` and read the help page to understand the syntax. 
-
+The above code takes the mean grade columns and uses an `ifelse()` statement *within* a `mutate()` statement. 
 Here, it's saying for each of the mean columns, if the number of students is less than 5, then replace the entry in that mean grade column with a 'c', if not, then keep what is already in the column. Note that we *have** to do the students column last, because once we add 'c' to any column it becomes a character variable rather than numeric. Since the previous columns are based on the numeric value of the students, we must order it so that these mutations occur first, while the student column is still a numeric variable and therefore able to apply the `students < 5` logic. 
 
 While the above code works, the same issues arise as in the previous aggregation section where you can end up copying and pasting the same line many times depending on the size of your real-life data sets! We want to avoid this type of repetition where possible so that we reduce the possibility of making mistakes (like forgetting to update every line you have copied and pasted). So let's create a function to suppress counts less than 5. With an approporiate comment to explain, ass the below to your functions.R script. 
@@ -440,11 +472,26 @@ student_results_aggregated_suppressed_EES <- student_results_aggregated_suppress
   rename(time_period = year)
 ```
 
-We also want to add the required geography columns. In this case, we are going to use the 'school' column to get the required geography via an `if()` statement. In the previous section, we used `ifelse()` statements in the format 'test, yes, no'. `if()` statements allow for more tests and outcomes than `ifelse()`. 
-Assume that the school 'GP' is in London, and the school 'MS' is in East England, and we want a *regional* geographic level (so we need region_name and region_code). We can use the following code to create these columns:
+We also want to add the required geography columns. In this case, we are going to use the 'school' column to get the required geography using `case_when()` within `mutate()`.
+Assume that the school 'GP' is in London, and the school 'MS' is in East England, and we want a *regional* geographic level (so we need region_name and region_code). We can use the following code:
 ```
+student_results_aggregated_suppressed_EES <- student_results_aggregated_suppressed %>%
+  mutate(time_identifier = 'Academic year', geographic_level = 'Regional',
+         region_name = case_when(school == 'MS' ~ "East of England",
+                                 school == 'GP' ~ 'London')) %>%
+  rename(time_period = year)
+  
+```
+The above code gets us the correct geographic level and region name, but not region code. We can use a *look-up table* to get the correct code...
 
-```
+### joins & joining geographic codes via lookup tables
+
+The [dfe-analytical-services](https://github.com/dfe-analytical-services) area on GitHub holds all publicly available code from DfE. The code behind the [EES data screener](https://rsconnect/rsc/dfe-published-data-qa/) is available here, and [the screener repository](https://github.com/dfe-analytical-services/dfe-published-data-qa) contains a [folder full of geographic lookup tables](https://github.com/dfe-analytical-services/dfe-published-data-qa/tree/master/data)! 
+
+Today we will use the [regions.csv](https://github.com/dfe-analytical-services/dfe-published-data-qa/blob/master/data/regions.csv) file from this folder.
+
+###
+
 
 \newpage
 

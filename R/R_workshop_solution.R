@@ -77,6 +77,12 @@ student_results_aggregated_suppressed <- student_results_aggregated %>%
 # Add EES columns ---------------------------------------------------------
 
 student_results_aggregated_suppressed_EES <- student_results_aggregated_suppressed %>%
-  mutate(time_identifier = 'Academic year') %>%
+  mutate(time_identifier = 'Academic year', geographic_level = 'Regional',
+         region_name = case_when(school == 'MS' ~ "East of England",
+                                 school == 'GP' ~ 'London')) %>%
   rename(time_period = year)
+  
+
+
+#Console messages
 
