@@ -533,9 +533,9 @@ View the data and take a look at how it is different now! `pivot_wider()` works 
 
 In the above code, names_pattern uses a *regular expression*. Regular expressions (often shortened to *regex*) are expressions that describe patterns in text, and are used in many coding languages other than just R (i.e. Python, C++, Javascript etc.). In the above, `"(\\d+)"` means 'pull out the numeric digits from the string'. In practice, this means in the new assessment column that is being created, rather than using the old column names of g1_mean, g2_mean and g3_mean as the entries within the assessment column, it will only pull the digit from those strings, which will be 1, 2 or 3. 
 
-# Automating metadata
+<!-- # Automating metadata -->
 
-If you have lots of data files that you need to upload to EES, or you have the a regular publication cycle that repeats often, another big time saver is automating the creation of your metadata files! The best way to do this is to create and save a csv file that contains a list of all of the possible variables you might use, their labels, groupings and filter hints where appropriate. If you create this list once, you can then automate the metadata creation every single time afterwards, rather than recreating the metadata manually for every data file you have.
+<!-- If you have lots of data files that you need to upload to EES, or you have the a regular publication cycle that repeats often, another big time saver is automating the creation of your metadata files! The best way to do this is to create and save a csv file that contains a list of all of the possible variables you might use, their labels, groupings and filter hints where appropriate. If you create this list once, you can then automate the metadata creation every single time afterwards, rather than recreating the metadata manually for every data file you have. -->
 
 # Creating plots
 
@@ -570,6 +570,8 @@ Try and complete the following tasks using Google alone:
 * Change the colours of the bars
 * Format the Y-axis intervals
 * Spell out 'Female' and 'Male' in the legend.
+
+You are almost certainly going to create and cause errors while you experiment with the above. You can of course ask the workshop facilitators to help, but using Google to troubleshoot is one of the most valuable lessons you can learn for coding! Try and Google the error to see if someone else has already written an answer or solution online!
 
 
 ## try chatGPT (something completely from scratch)
