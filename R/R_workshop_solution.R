@@ -145,7 +145,7 @@ createMetadata <- function(x, metadata = fieldLabels, type = "Destinations"){
 # will have to reformat to easily use ggplot. Use the long/wide pivot thing we used at away day.
 
 plot_data <- student_results_aggregated_suppressed_EES %>%
- #filter(time_period == 2015, age == 16, region_name == 'London') %>%
+ filter(time_period == 2015, age == 16, region_name == 'London') %>%
   pivot_longer(cols = ends_with("mean"),
                names_to = "assessment",
                names_pattern = "(\\d)+",

@@ -537,15 +537,40 @@ In the above code, names_pattern uses a *regular expression*. Regular expression
 
 If you have lots of data files that you need to upload to EES, or you have the a regular publication cycle that repeats often, another big time saver is automating the creation of your metadata files! The best way to do this is to create and save a csv file that contains a list of all of the possible variables you might use, their labels, groupings and filter hints where appropriate. If you create this list once, you can then automate the metadata creation every single time afterwards, rather than recreating the metadata manually for every data file you have.
 
+# Creating plots
+
+Now that we have our data formatted nicely, lets imagine we want to create a chart. The most common package used to create charts in R is `ggplot2`. Install this package, add it to your library calls and snapshot your library for renv. You can view the package documentation online using this link: https://www.rdocumentation.org/packages/ggplot2/versions/3.4.1. While today we will create a simple grouped bar chart (which would preferably be created in EES if we were really publishing), the `ggplot2` package has a huge range of capabilities which are not yet available on EES, making it useful in those situations! Saving well-documented code used for plots and charts is also better practice than quickly creating charts in Excel, which can become lost, broken or distorted with no record of how it was initially created.  
+
+We want to create a grouped bar chart that compares the average grades of male and female students. `ggplot` works best with long data, which luckily, we now have! We will need to filter the data first of all to focus on one specific group. Try and take the 'long_data' we created previously (which should still exist in your environment) and create a subset called 'plot_data' with the following filters:
+
+* time period: 2015
+* age: 16
+* region_name: London
+ 
+Now we can use the 'plot_data' to create a bar chart using `ggplot2`. The following code creates a plot as described above: 
+
+```
+ggplot(plot_data, aes(x = assessment, y = mean_grade)) +
+  geom_bar(stat = 'identity', aes(fill = sex), position = "dodge")
+```
+
+
 # Using online resources
 
 An important skill when writing and developing code is knowing how to solve errors and find answers to your own questions. Since R is an open-source language that is free to use, the likelihood is any error or query you come across will have been asked by someone else before. The internet is full of forums and websites dedicated to R coding questions and guidance, making it an invaluable resource once you know how to find what you need! 
 
-# Creating plots & reformatting data
+## Google questions and errors
 
-Now that we have our data formatted nicely, lets imagine we want to create a chart. The most common package used to create charts in R is `ggplot2`. Install this package, add it to your library calls and snapshot your library for renv. You can view the package documentation online using this link: https://www.rdocumentation.org/packages/ggplot2/versions/3.4.1
+The plot you have just created might not look the prettiest. Here, you are going to learn *how* to use Google for what you want/need in R! Top tips are to try and include the package name, keep it short, focusing on key words that might appear in other peoples similar questions, and always mention R somewhere so you find solutions in the right language!
 
-We want to create a grouped bar chart that compares the average grades of male and female students. Before we can do this, we often need to reformat the data to work well with ggplot. This can be done in a simple step using
+Try and complete the following tasks using Google alone: 
+
+* Add a title to your plot
+* Rename the axis labels
+* Change the colours of the bars
+* Format the Y-axis intervals
+* Spell out 'Female' and 'Male' in the legend.
+
 
 ## try chatGPT (something completely from scratch)
 
