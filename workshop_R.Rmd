@@ -511,7 +511,21 @@ student_results_aggregated_suppressed_EES <- student_results_aggregated_suppress
 
 The data created should now look a lot like what you would normally upload to EES. 
 
-###
+## Automating metadata
+
+If you have lots of data files that you need to upload to EES, or you have the a regular publication cycle that repeats often, another big time saver is automating the creation of your metadata files! The best way to do this is to create and save a csv file that contains a list of all of the possible variables you might use, their labels, groupings and filter hints where appropriate. If you create this list once, you can then automate the metadata creation every single time afterwards, rather than recreating the metadata manually for every data file you have.
+
+## Using online resources
+
+An important skill when writing and developing code is knowing how to solve errors and find answers to your own questions. Since R is an open-source language that is free to use, the likelihood is any error or query you come across will have been asked by someone else before. The internet is full of forums and websites dedicated to R coding questions and guidance, making it an invaluable resource once you know how to find what you need! 
+
+### do something using google (force an error) 
+
+Now that we have our data formatted nicely, lets imagine we want to create a chart. The most common package used to create charts in R is `ggplot2`. Install this package, add it to your library calls and snapshot your library for renv. You can view the package documentation online using this link: https://www.rdocumentation.org/packages/ggplot2/versions/3.4.1
+
+We want to create a grouped bar chart that compares the average grades of male and female students. The `ggplot` package is clever in that it will generate what it assumes is the best chart for the data if you don't give it any instructions. 
+
+### try chatGPT (something completely from scratch)
 
 
 \newpage

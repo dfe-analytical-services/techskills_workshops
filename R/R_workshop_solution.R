@@ -4,6 +4,8 @@
 library(readr)
 library(dplyr)
 library(odbc)
+library(ggplot2)
+library(tidyverse)
 
 
 # Read in the data --------------------------------------------------------
@@ -95,5 +97,53 @@ student_results_aggregated_suppressed_EES <- student_results_aggregated_suppress
   left_join(regions_lookup, by = c('region_name' = 'region_name')) %>%
   select(time_period, time_identifier, geographic_level, region_name, region_code, sex, age, students, g1_mean, g2_mean, g3_mean)
 
-#Console messages
+
+# Create metadata with code & console messages ----------------------------
+
+createMetadata <- function(x, metadata = fieldLabels, type = "Destinations"){
+  if((!is.data.frame(x)) || NROW(x) == 0){
+    message("x must be a populated data frame.")
+    stop()
+  }
+  allColumns <- colnames(x)
+  removeCols <- metadata[metadata$label == "", 'col_name']
+  allColumns <- allColumns[!allColumns %in% removeCols]
+  
+  groupingCols <- allColumns[1:(firstNumCol-1)]
+  groupingCols <- groupingCols[!groupingCols %in% allColumns[firstNumCol]]
+  
+  indicatorCols <- allColumns[firstNumCol:NCOL(x)]
+  earningCols <- ifelse(TRUE %in% grepl("LearnersWithEarnings", allColumns),
+                        grep("LearnersWithEarnings", allColumns),
+                        grep("NumLearners", allColumns))
+  
+  
+  if(!is.na(earningCols)){
+    indicatorCols <- allColumns[firstNumCol:(earningCols-1)]
+    earningCols <- allColumns[(earningCols+1):NCOL(x)]
+    
+  }
+  
+  df <- data.frame(col_name = allColumns,
+                   col_type = ifelse(allColumns %in% groupingCols, "Filter", "Indicator"),
+                   indicator_unit = case_when(grepl("Percent$", allColumns) ~ "%",
+                                              allColumns %in% earningCols ~ "£"),
+                   indicator_dp = ifelse(allColumns %in% groupingCols, "", "0"))
+  #df <- data.frame(df, order =  row.names(df))
+  
+  df <- merge(df, metadata, by = "col_name", sort = FALSE, all.x = TRUE)
+  
+  df <- df[!df$col_name %in% removeCols, c("col_name", "col_type", "label", "indicator_grouping", "indicator_unit", "indicator_dp", "filter_hint", "filter_grouping_column")]
+  return(df)
+}
+
+
+
+# ggplot ------------------------------------------------------------------
+
+
+
+ggplot(student_results_aggregated_suppressed_EES, aes(x = sex, y = g1_mean)) +
+  geom_bar(stat = 'summary')
+
 
