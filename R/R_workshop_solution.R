@@ -7,6 +7,7 @@ library(odbc)
 library(ggplot2)
 library(tidyverse)
 library(tidyr)
+library(plotly)
 
 
 # Read in the data --------------------------------------------------------
@@ -18,12 +19,12 @@ View(student_results)
 # Aggregate the data ------------------------------------------------------
 
 #An initial way
-student_results_aggregated <- student_results %>%
-  group_by(school, sex, age) %>%
-  summarise(G1_mean = mean(G1), G2_mean = mean(G2), G3_mean = mean(G3),
-            students = n())
-
-View(student_results_aggregated)
+# student_results_aggregated <- student_results %>%
+#   group_by(school, sex, age) %>%
+#   summarise(G1_mean = mean(G1), G2_mean = mean(G2), G3_mean = mean(G3),
+#             students = n())
+# 
+# View(student_results_aggregated)
 
 # BUT copying and pasting repeated functions can get messy, especially as they get longer & the more columns you have!
 
@@ -49,27 +50,27 @@ student_results_aggregated <- student_results_aggregated %>%
 # Suppression on rows with less than 5 students ---------------------------
 
 # an initial way
-student_results_aggregated_suppressed <- student_results_aggregated %>%
-  mutate(g1_mean = ifelse(students < 5, 'c', g1_mean),
-         g2_mean = ifelse(students < 5, 'c', g2_mean),
-         g3_mean = ifelse(students < 5, 'c', g3_mean),
-         students = ifelse(students < 5, 'c', students) # gotta do students last so it's numeric until this point!
-         )
+# student_results_aggregated_suppressed <- student_results_aggregated %>%
+#   mutate(g1_mean = ifelse(students < 5, 'c', g1_mean),
+#          g2_mean = ifelse(students < 5, 'c', g2_mean),
+#          g3_mean = ifelse(students < 5, 'c', g3_mean),
+#          students = ifelse(students < 5, 'c', students) # gotta do students last so it's numeric until this point!
+#          )
 
 #However, if we want to suppress multiple columns using the same rule, we should write a function for this.
-suppress_counts <- function(column) {
-ifelse(students < 5, 'c', .)
-}
+# suppress_counts <- function(column) {
+# ifelse(students < 5, 'c', .)
+# }
 
 # Note that the above will change the 'students' column from a numeric variable to a character variable, 
 # because it will now contain the letter 'c' as well as numbers. 
 
 # a better way
-student_results_aggregated_suppressed <- student_results_aggregated %>%
-  mutate(g1_mean = suppress_counts(g1_mean),
-         g2_mean = suppress_counts(g2_mean),
-         g3_mean = suppress_counts(g3_mean),
-         students = suppress_counts(students))
+# student_results_aggregated_suppressed <- student_results_aggregated %>%
+#   mutate(g1_mean = suppress_counts(g1_mean),
+#          g2_mean = suppress_counts(g2_mean),
+#          g3_mean = suppress_counts(g3_mean),
+#          students = suppress_counts(students))
 
 #the best way - this way your code is future-proofed if you want to add more columns to the mutate step which applies
 #the suppression.
@@ -153,7 +154,11 @@ plot_data <- student_results_aggregated_suppressed_EES %>%
                values_drop_na = TRUE)
   
 
+ggplotly(ggplot(plot_data, aes(x = assessment, y = mean_grade)) +
+  geom_bar(stat = 'identity', aes(fill = sex), position = "dodge"))
+
+# from chatGPT:
 ggplot(plot_data, aes(x = assessment, y = mean_grade)) +
-  geom_bar(stat = 'identity', aes(fill = sex), position = "dodge")
+  geom_boxplot(aes(fill = sex), position = "dodge")
 
 

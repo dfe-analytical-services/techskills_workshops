@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  11 APR 2023 16:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  12 APR 2023 09:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -880,61 +880,66 @@ Overfull \hbox (326.82037pt too wide) in paragraph at lines 1114--1114
 []  \T1/lmtt/m/n/12 select(time_period, time_identifier, geographic_level, region_name, region_code, sex, age, students, g1_mean, g2_mean, g3_mean)[] 
  []
 
-[24] [25] [26] [27]
+[24] [25] [26]
+Overfull \hbox (405.09283pt too wide) in paragraph at lines 1263--1269
+\T1/phv/m/n/12 #$[][]:~:text=ChatGPT%20is%20a%20large%20language%20model%20chatbot%20developed,the%20next%20word%20in%20a%20series%20of%20words.)  
+ []
+
+[27] [28]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1279.
-[28] [29]
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1320.
+[29] [30]
 File: images/Department_for_Education.png Graphic file (type png)
 <use images/Department_for_Education.png>
-Package pdftex.def Info: images/Department_for_Education.png  used on input line 1335.
+Package pdftex.def Info: images/Department_for_Education.png  used on input line 1376.
 (pdftex.def)             Requested size: 469.75311pt x 277.93726pt.
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 1348--1353
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 1389--1394
 [][]  
  []
 
 
-Overfull \hbox (1.88498pt too wide) in paragraph at lines 1357--1357
+Overfull \hbox (1.88498pt too wide) in paragraph at lines 1398--1398
 []|\T1/phv/m/n/12 enquiries| 
  []
 
 
-Overfull \hbox (4.20119pt too wide) in paragraph at lines 1358--1358
+Overfull \hbox (4.20119pt too wide) in paragraph at lines 1399--1399
 []|\T1/phv/m/n/12 download| 
  []
 
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 1356--1360
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 1397--1401
 [][]  
  []
 
-<images/logoTwitter.png, id=342, 27.2655pt x 21.681pt>
+<images/logoTwitter.png, id=348, 27.2655pt x 21.681pt>
 File: images/logoTwitter.png Graphic file (type png)
 <use images/logoTwitter.png>
-Package pdftex.def Info: images/logoTwitter.png  used on input line 1362.
+Package pdftex.def Info: images/logoTwitter.png  used on input line 1403.
 (pdftex.def)             Requested size: 27.26665pt x 21.68193pt.
-<images/logoFacebook.png, id=343, 21.681pt x 21.681pt>
+<images/logoFacebook.png, id=349, 21.681pt x 21.681pt>
 File: images/logoFacebook.png Graphic file (type png)
 <use images/logoFacebook.png>
-Package pdftex.def Info: images/logoFacebook.png  used on input line 1365.
+Package pdftex.def Info: images/logoFacebook.png  used on input line 1406.
 (pdftex.def)             Requested size: 21.68193pt x 21.68193pt.
-[30 <./images/logoTwitter.png> <./images/logoFacebook.png>] (./workshop_R.aux)
+[31 <./images/logoTwitter.png> <./images/logoFacebook.png>] (./workshop_R.aux)
 Package rerunfilecheck Info: File `workshop_R.out' has not changed.
-(rerunfilecheck)             Checksum: 4CFBC5CA7B22AC9312E706B354F94C3C;4035.
+(rerunfilecheck)             Checksum: 3E8C39027E8D6E6BF8468AD827F89467;3847.
  ) 
 Here is how much of TeX's memory you used:
- 24608 strings out of 478026
- 463493 string characters out of 5838504
+ 24609 strings out of 478026
+ 463436 string characters out of 5838504
  1861340 words of memory out of 5000000
  44182 multiletter control sequences out of 15000+600000
  557232 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  83i,14n,80p,443b,599s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on workshop_R.pdf (30 pages, 1317991 bytes).
+Output written on workshop_R.pdf (31 pages, 1320500 bytes).
 PDF statistics:
- 405 PDF objects out of 1000 (max. 8388607)
- 342 compressed objects within 4 object streams
- 112 named destinations out of 1000 (max. 500000)
+ 412 PDF objects out of 1000 (max. 8388607)
+ 348 compressed objects within 4 object streams
+ 113 named destinations out of 1000 (max. 500000)
  253 words of extra memory for PDF output out of 10000 (max. 10000000)
 
