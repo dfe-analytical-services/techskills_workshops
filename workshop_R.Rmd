@@ -459,7 +459,7 @@ student_results_aggregated_suppressed <- student_results_aggregated %>%
 So, we've just written the same thing in 3 different ways! While all three options produce the same output, the last example is the best for RAP, as it is the most concise and requires the least repetition. 
 
 
-### Adding EES columns
+## Adding EES columns
 
 Another common task that many analysts face is needing to add the required Explore Education Statistics (EES) columns formatted in the correct way. Using the [online guidance](https://rsconnect/rsc/stats-production-guidance/ud.html#Overview_of_EES_data_files), we can see that the following columns are required for EES: time_identifier, time_period, geographic_level, country_code (or geographic level equivalent), country_name (or geographic level equivalent). 
 
@@ -484,7 +484,7 @@ student_results_aggregated_suppressed_EES <- student_results_aggregated_suppress
 ```
 The above code gets us the correct geographic level and region name, but not region code. We can use a *look-up table* to get the correct code...
 
-### joins & joining geographic codes via lookup tables
+## joins & joining geographic codes via lookup tables
 
 The [dfe-analytical-services](https://github.com/dfe-analytical-services) area on GitHub holds all publicly available code from DfE. The code behind the [EES data screener](https://rsconnect/rsc/dfe-published-data-qa/) is available here, and [the screener repository](https://github.com/dfe-analytical-services/dfe-published-data-qa) contains a [folder full of geographic lookup tables](https://github.com/dfe-analytical-services/dfe-published-data-qa/tree/master/data)! 
 
@@ -511,7 +511,7 @@ student_results_aggregated_suppressed_EES <- student_results_aggregated_suppress
 
 The data created should now look a lot like what you would normally upload to EES. 
 
-### Reformatting data (wide -> long)
+## Reformatting data (wide -> long)
 
 The data produced in the above section meets our EES data standards, and would pass all of the tests run by the [EES data screener](https://rsconnect/rsc/dfe-published-data-qa/). However, it is not optimised in the best way for users! Recent user testing found that when using the table tool, users preferred a 'long' data format rather than 'wide'. This instance is seen as 'wide' because we currently have 3 columns showing the average grade for three different assessments. The 'long' way to display this would be to have one column called 'assessment' and one column called 'mean_grade'. The 'assessment' column would indicate which assessment (1, 2 or 3) the grade in that row refers to. 
 
@@ -529,7 +529,7 @@ long_data <- student_results_aggregated_suppressed_EES %>%
 ```
 View the data and take a look at how it is different now! `pivot_wider()` works in a similar way to go from long to wide. 
 
-### Regular expressions
+## Regular expressions
 
 In the above code, names_pattern uses a *regular expression*. Regular expressions (often shortened to *regex*) are expressions that describe patterns in text, and are used in many coding languages other than just R (i.e. Python, C++, Javascript etc.). In the above, `"(\\d+)"` means 'pull out the numeric digits from the string'. In practice, this means in the new assessment column that is being created, rather than using the old column names of g1_mean, g2_mean and g3_mean as the entries within the assessment column, it will only pull the digit from those strings, which will be 1, 2 or 3. 
 
@@ -591,6 +591,8 @@ Write R code for a shiny app that....
 ```
 
 If the output code suggests you save the plot_data as a csv and then read it in, you can either do that to practice this, or comment out this line since plot_data will already be defined in your environment. 
+
+If you have any specific or more advanced questions that we haven't covered in this workshop, we encourage you to try and use chatGPT for these in any additional time you may have, as well as of course asking the workshop facilitators to support!
 
 \newpage
 

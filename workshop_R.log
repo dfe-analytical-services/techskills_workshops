@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  12 APR 2023 09:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  12 APR 2023 14:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -765,7 +765,7 @@ Package hyperref Info: Link coloring ON on input line 111.
 \@outlinefile=\write4
 \openout4 = `workshop_R.out'.
 
-<images/Department_for_Education.png, id=107, 1204.5pt x 712.6625pt>
+<images/Department_for_Education.png, id=123, 1204.5pt x 712.6625pt>
 File: images/Department_for_Education.png Graphic file (type png)
 <use images/Department_for_Education.png>
 Package pdftex.def Info: images/Department_for_Education.png  used on input line 114.
@@ -818,18 +818,18 @@ File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 178.
 [3]
-<images/RforRAP/R-studio-panels.png, id=155, 430.992pt x 233.454pt>
+<images/RforRAP/R-studio-panels.png, id=176, 430.992pt x 233.454pt>
 File: images/RforRAP/R-studio-panels.png Graphic file (type png)
 <use images/RforRAP/R-studio-panels.png>
 Package pdftex.def Info: images/RforRAP/R-studio-panels.png  used on input line 197.
 (pdftex.def)             Requested size: 430.99094pt x 233.45341pt.
 [4 <./images/RforRAP/R-studio-panels.png>]
-<images/gitdemo/gitdemo-gitRstudio-settings.png, id=164, 450.68375pt x 469.755pt>
+<images/gitdemo/gitdemo-gitRstudio-settings.png, id=185, 450.68375pt x 469.755pt>
 File: images/gitdemo/gitdemo-gitRstudio-settings.png Graphic file (type png)
 <use images/gitdemo/gitdemo-gitRstudio-settings.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-gitRstudio-settings.png  used on input line 253.
 (pdftex.def)             Requested size: 300.6568pt x 313.37949pt.
-<images/gitdemo/gitdemo-gitRstudio-NewTerminal.png, id=165, 685.05937pt x 274.02374pt>
+<images/gitdemo/gitdemo-gitRstudio-NewTerminal.png, id=186, 685.05937pt x 274.02374pt>
 File: images/gitdemo/gitdemo-gitRstudio-NewTerminal.png Graphic file (type png)
 <use images/gitdemo/gitdemo-gitRstudio-NewTerminal.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-gitRstudio-NewTerminal.png  used on input line 261.
@@ -839,13 +839,13 @@ LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 3
 (c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [8] [9]
-<images/RforRAP/section_headers.png, id=201, 616.3025pt x 287.57437pt>
+<images/RforRAP/section_headers.png, id=221, 616.3025pt x 287.57437pt>
 File: images/RforRAP/section_headers.png Graphic file (type png)
 <use images/RforRAP/section_headers.png>
 Package pdftex.def Info: images/RforRAP/section_headers.png  used on input line 436.
 (pdftex.def)             Requested size: 469.76775pt x 219.19945pt.
 [10 <./images/RforRAP/section_headers.png>]
-<images/RforRAP/run_buttons.png, id=208, 580.569pt x 176.514pt>
+<images/RforRAP/run_buttons.png, id=228, 580.569pt x 176.514pt>
 File: images/RforRAP/run_buttons.png Graphic file (type png)
 <use images/RforRAP/run_buttons.png>
 Package pdftex.def Info: images/RforRAP/run_buttons.png  used on input line 462.
@@ -882,59 +882,59 @@ Overfull \hbox (326.82037pt too wide) in paragraph at lines 1114--1114
 
 [24] [25] [26] [27] [28]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1321.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1326.
 [29] [30]
 File: images/Department_for_Education.png Graphic file (type png)
 <use images/Department_for_Education.png>
-Package pdftex.def Info: images/Department_for_Education.png  used on input line 1377.
+Package pdftex.def Info: images/Department_for_Education.png  used on input line 1382.
 (pdftex.def)             Requested size: 469.75311pt x 277.93726pt.
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 1390--1395
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 1395--1400
 [][]  
  []
 
 
-Overfull \hbox (1.88498pt too wide) in paragraph at lines 1399--1399
+Overfull \hbox (1.88498pt too wide) in paragraph at lines 1404--1404
 []|\T1/phv/m/n/12 enquiries| 
  []
 
 
-Overfull \hbox (4.20119pt too wide) in paragraph at lines 1400--1400
+Overfull \hbox (4.20119pt too wide) in paragraph at lines 1405--1405
 []|\T1/phv/m/n/12 download| 
  []
 
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 1398--1402
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 1403--1407
 [][]  
  []
 
-<images/logoTwitter.png, id=348, 27.2655pt x 21.681pt>
+<images/logoTwitter.png, id=364, 27.2655pt x 21.681pt>
 File: images/logoTwitter.png Graphic file (type png)
 <use images/logoTwitter.png>
-Package pdftex.def Info: images/logoTwitter.png  used on input line 1404.
+Package pdftex.def Info: images/logoTwitter.png  used on input line 1409.
 (pdftex.def)             Requested size: 27.26665pt x 21.68193pt.
-<images/logoFacebook.png, id=349, 21.681pt x 21.681pt>
+<images/logoFacebook.png, id=365, 21.681pt x 21.681pt>
 File: images/logoFacebook.png Graphic file (type png)
 <use images/logoFacebook.png>
-Package pdftex.def Info: images/logoFacebook.png  used on input line 1407.
+Package pdftex.def Info: images/logoFacebook.png  used on input line 1412.
 (pdftex.def)             Requested size: 21.68193pt x 21.68193pt.
 [31 <./images/logoTwitter.png> <./images/logoFacebook.png>] (./workshop_R.aux)
 Package rerunfilecheck Info: File `workshop_R.out' has not changed.
-(rerunfilecheck)             Checksum: 3E8C39027E8D6E6BF8468AD827F89467;3847.
+(rerunfilecheck)             Checksum: 4EF7B3C21E63D6D1CC82CE2FF1A6EA50;4721.
  ) 
 Here is how much of TeX's memory you used:
- 24609 strings out of 478026
- 463436 string characters out of 5838504
+ 24613 strings out of 478026
+ 463488 string characters out of 5838504
  1861340 words of memory out of 5000000
- 44182 multiletter control sequences out of 15000+600000
+ 44186 multiletter control sequences out of 15000+600000
  557232 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  83i,14n,80p,443b,599s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on workshop_R.pdf (31 pages, 1320119 bytes).
+Output written on workshop_R.pdf (31 pages, 1320878 bytes).
 PDF statistics:
- 412 PDF objects out of 1000 (max. 8388607)
- 348 compressed objects within 4 object streams
+ 428 PDF objects out of 1000 (max. 8388607)
+ 364 compressed objects within 4 object streams
  113 named destinations out of 1000 (max. 500000)
- 253 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 285 words of extra memory for PDF output out of 10000 (max. 10000000)
 
