@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  12 APR 2023 09:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  12 APR 2023 09:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -880,48 +880,43 @@ Overfull \hbox (326.82037pt too wide) in paragraph at lines 1114--1114
 []  \T1/lmtt/m/n/12 select(time_period, time_identifier, geographic_level, region_name, region_code, sex, age, students, g1_mean, g2_mean, g3_mean)[] 
  []
 
-[24] [25] [26]
-Overfull \hbox (405.09283pt too wide) in paragraph at lines 1263--1269
-\T1/phv/m/n/12 #$[][]:~:text=ChatGPT%20is%20a%20large%20language%20model%20chatbot%20developed,the%20next%20word%20in%20a%20series%20of%20words.)  
- []
-
-[27] [28]
+[24] [25] [26] [27] [28]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1320.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1321.
 [29] [30]
 File: images/Department_for_Education.png Graphic file (type png)
 <use images/Department_for_Education.png>
-Package pdftex.def Info: images/Department_for_Education.png  used on input line 1376.
+Package pdftex.def Info: images/Department_for_Education.png  used on input line 1377.
 (pdftex.def)             Requested size: 469.75311pt x 277.93726pt.
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 1389--1394
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 1390--1395
 [][]  
  []
 
 
-Overfull \hbox (1.88498pt too wide) in paragraph at lines 1398--1398
+Overfull \hbox (1.88498pt too wide) in paragraph at lines 1399--1399
 []|\T1/phv/m/n/12 enquiries| 
  []
 
 
-Overfull \hbox (4.20119pt too wide) in paragraph at lines 1399--1399
+Overfull \hbox (4.20119pt too wide) in paragraph at lines 1400--1400
 []|\T1/phv/m/n/12 download| 
  []
 
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 1397--1401
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 1398--1402
 [][]  
  []
 
 <images/logoTwitter.png, id=348, 27.2655pt x 21.681pt>
 File: images/logoTwitter.png Graphic file (type png)
 <use images/logoTwitter.png>
-Package pdftex.def Info: images/logoTwitter.png  used on input line 1403.
+Package pdftex.def Info: images/logoTwitter.png  used on input line 1404.
 (pdftex.def)             Requested size: 27.26665pt x 21.68193pt.
 <images/logoFacebook.png, id=349, 21.681pt x 21.681pt>
 File: images/logoFacebook.png Graphic file (type png)
 <use images/logoFacebook.png>
-Package pdftex.def Info: images/logoFacebook.png  used on input line 1406.
+Package pdftex.def Info: images/logoFacebook.png  used on input line 1407.
 (pdftex.def)             Requested size: 21.68193pt x 21.68193pt.
 [31 <./images/logoTwitter.png> <./images/logoFacebook.png>] (./workshop_R.aux)
 Package rerunfilecheck Info: File `workshop_R.out' has not changed.
@@ -936,7 +931,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  83i,14n,80p,443b,599s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on workshop_R.pdf (31 pages, 1320500 bytes).
+Output written on workshop_R.pdf (31 pages, 1320119 bytes).
 PDF statistics:
  412 PDF objects out of 1000 (max. 8388607)
  348 compressed objects within 4 object streams
