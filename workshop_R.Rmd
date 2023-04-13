@@ -79,9 +79,9 @@ R is a coding language. There are many different languages of code, some others 
 * A *package* is a set of functions someone else has written and tied together in a nice neat bow, ready for you to use! You simply install the package, and then you have all of the functions available. 
 
 * A *function* is a chunk of code that has been grouped together, given a name, and often has ‘place holders’ you can change, such that you can use that name to run that code, and apply it to different data. 
-(for example, mean(x) is a function that calculates the arithmetic mean of x. You replace x with any numeric data.)
+For example, mean(x) is a function that calculates the arithmetic mean of x. You replace x with any numeric data.
 
-R Studio is a piece of software, specifically an intergrated development environment (IDE), that enables us to write code in the R coding language, while also providing a visual and interactive interface. It has useful areas and windows that enable you to see what tables you have loaded, charts you have created, Git user interface, file explorer, help windows and many more!
+R Studio is a piece of software, specifically an integrated development environment (IDE), that enables us to write code in the R coding language, while also providing a visual and interactive interface. It has useful areas and windows that enable you to see what tables you have loaded, charts you have created, Git user interface, file explorer, help windows and many more!
 Normally you will see the screen split into 3 or 4 windows:
 
 
@@ -162,7 +162,7 @@ Renv (short for R environment) is a package in R that helps you to keep a record
 
 Once that has installed, you can run the functions from this package. You can also see what packages are installed by navigating to the 'Packages' tab in the bottom right window - renv should have appeared in here now.
 
-When using functions from packages, you can either type `the package name::the function name` or just the function name on its own. However, problems can arise if two packages have a function with the same name, so using the package name and colons is safer. 
+When using functions from packages, you can either type `<package name>::<function name>` )(e.g. `readr::read_csv()`) or just the function name on its own. However, problems can arise if two packages have different functions with the same name. When you have loaded two packages that contain functions with the same name and you only type the function name, R automatically uses the function from the package that was loaded most recently. If you want to choose which package to use and override the precedent set by R, you should use the package name and colons to explicitly state the source package and function you intended. 
 
 To activate renv, run `renv::activate()` in the console. If you navigate back to the files tab in the bottom left and look in your project folder, you should see some renv-related files have appeared, including a *renv.lock* file. The renv.lock file is the file that records all of your project's packages and their versions. If you click on the renv.lock file it will open for you to view in the top left. 
 
@@ -189,6 +189,8 @@ knitr::include_graphics('images/RforRAP/section_headers.png')
 ```
 
 Another way to view and navigate between all of the sections in a script is to use the keyboard shortcut `ctrl+shift+O` to open the sections in a small panel on the right of your script.
+
+Now save your initial script with the name 'main.R'. You can save code scripts by either selecting **File > Save As...** or by clicking the save icon in the bar below the script name. When your script contains **unsaved changes**, the script name will turn red and end with a * symbol. When it does not contain any unsaved changes, the name of the script will turn black, with no * symbol, and the save icon beneath it will grey-out.
 
 **Throughout this workshop, make sure to add comments at every step so you know what each code snippet is doing, and why!**
 
@@ -252,11 +254,13 @@ con <- DBI::dbConnect(odbc::odbc(),
 
 Now that we have the connection stored and named, we can use it to read in a table from the database into R. There are multiple ways to do this - in this workshop we will cover two of them. 
 
-1. Use `tbl(con, table_name)`,
+1. Use `dplyr::tbl(con, table_name)`,
 
-2. Use `sqlQuery(con, "SELECT * FROM [table_name];")`.
+2. Use `RODBC::sqlQuery(con, "SELECT * FROM [table_name];")`.
 
-Option one above is a very concise and tidy way, which (as long as you've add descriptive comments) will make your code easy to read and understand. Option two is slightly longer, but it does allow you to run SQL queries in R, so if you have previous experience with SQL you may find this useful. You can edit and customise the SQL query, meaning you have the option of selecting specific columns and filtering at this stage, rather than reading in the entire table. Just ensure that you write the table_name exactly how you would in SQL (including schemas, )
+Option one above is a very concise and tidy way to read in data from SQL tables, which (as long as you've added descriptive comments) will make your code easy to read and understand. This option runs extremely quickly because rather than storing the SQL table as a data table in R, it stores a 'live connection' to the table in SQL. You can type the name of the 'tbl' object in the console, and it will provide a preview of the SQL table using the live connection. In the environment it will appear as a list rather than a data table.
+
+Option two is slightly longer to write and takes much longer to run, but it does allow you to write SQL queries directly in R, so if you have previous experience with SQL you may find this useful. You can edit and customise the SQL query, meaning you have the option of selecting specific columns and filtering at this stage, rather than reading in the entire table. Just ensure that you write the table_name exactly how you would in SQL (including schemas).
 
 Whichever option you choose, you need to choose what name you would like this object to have in R once the table is read in. It is best practice to make object names descriptive but concise. This means describing what the table contains, but not including unnecessary and repetitive words such as 'table' in the name. The data we are using today contains data on the characteristics and grades of some students, so we might choose to call the table 'students'. We assign the table this name by using the `<-` symbols, so the full snippet should look something like this: 
 
