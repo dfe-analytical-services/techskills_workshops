@@ -81,7 +81,7 @@ R is a coding language. There are many different languages of code, some others 
 * A *function* is a chunk of code that has been grouped together, given a name, and often has ‘place holders’ you can change, such that you can use that name to run that code, and apply it to different data. 
 (for example, mean(x) is a function that calculates the arithmetic mean of x. You replace x with any numeric data.)
 
-R studio is a programme that enables us to code in the R coding language, while also providing a visual and interactive interface. It has useful areas and windows that enable you to see what tables you have loaded, charts you have created, Git user interface, file explorer, help windows and many more!
+R Studio is a piece of software, specifically an intergrated development environment (IDE), that enables us to write code in the R coding language, while also providing a visual and interactive interface. It has useful areas and windows that enable you to see what tables you have loaded, charts you have created, Git user interface, file explorer, help windows and many more!
 Normally you will see the screen split into 3 or 4 windows:
 
 
@@ -220,7 +220,7 @@ Before using either method to load in the data, we should add a new section head
 
 ### Reading in CSVs
 
-We already installed the `readr` package, which contains the functions we need to read CSVs into R. In R, i is best practice to name our objects (tables, data sets, etc) so that you can use that name to reference the objects you need. This means that while the code `readr::read_csv(insert_filename/filepath_here)` is the function that reads in a given csv, we should write it in the below format:
+We already installed the `readr` package, which contains the functions we need to read CSVs into R. In R, it is best practice to name our objects (tables, data sets, etc) so that you can use that name to reference the objects you need. This means that while the code `readr::read_csv(insert_filename/filepath_here)` is the function that reads in a given csv, we should write it in the below format:
 
 `chosen_name <- readr::read_csv(insert_filename/filepath_here)`
 
@@ -228,7 +228,7 @@ Then, if you navigate to the 'environment' window in the top right of the screen
 
 ### Reading in from SQL
 
-In order to read the data in from SQL we need to install the relevant packagesand connect to the SQL database. Firstly, we need to install the `odbc` and `DBI` packages. Try to use the above guidance to;
+In order to read the data in from SQL we need to install the relevant packages and connect to the SQL database. Firstly, we need to install the `odbc` and `DBI` packages. Try to use the above guidance to;
 
 a. Install the `odbc` and `DBI` packages,
 
@@ -236,7 +236,7 @@ b. Add the library calls to the correct section of the initial script,
 
 c. Take a snapshot to update the renv.lock file.
 
-Once you have complete the above steps, we can use the new packages to connect to the secure SQL database. We use the following code (inserting the server and database we require) to create an object with the connection. You can call it anything, but common practice is to call this connection 'con':
+Once you have completed the above steps, we can use the new packages to connect to the secure SQL database. We use the following code (inserting the server and database we require) to create an object with the connection. You can call it anything, but common practice is to call this connection 'con':
 
 ```
 # Connect to SQL database
@@ -256,7 +256,7 @@ Now that we have the connection stored and named, we can use it to read in a tab
 
 2. Use `sqlQuery(con, "SELECT * FROM [table_name];")`.
 
-Option one above is a very concise and tidy way, which (as long as you're add descriptive comments) will make your code easy to read and understand. Option two is slightly longer, however, it allows you to run SQL queries in R, so if you have previous experience with SQL you may find this useful. You can edit and customise the SQL query, meaning you have the option of selecting specific columns and filtering at this stage, rather than reading in the entire table. Just ensure that you write the table_name exactly how you would in SQL (including schemas, )
+Option one above is a very concise and tidy way, which (as long as you've add descriptive comments) will make your code easy to read and understand. Option two is slightly longer, but it does allow you to run SQL queries in R, so if you have previous experience with SQL you may find this useful. You can edit and customise the SQL query, meaning you have the option of selecting specific columns and filtering at this stage, rather than reading in the entire table. Just ensure that you write the table_name exactly how you would in SQL (including schemas, )
 
 Whichever option you choose, you need to choose what name you would like this object to have in R once the table is read in. It is best practice to make object names descriptive but concise. This means describing what the table contains, but not including unnecessary and repetitive words such as 'table' in the name. The data we are using today contains data on the characteristics and grades of some students, so we might choose to call the table 'students'. We assign the table this name by using the `<-` symbols, so the full snippet should look something like this: 
 
@@ -336,7 +336,7 @@ Something that some analysts might leave to the end or do manually in excel is r
 
 First, a very useful function to use is `variable.names()`. Try running `variable.names(student_results)` and `variable.names(student_results_aggregated)` in the console. It should return a list of all of the variable names in the specified tables. You can also use this to compare the names of two data sets by running `variable.names(student_results) == variable.names(student_results_aggregated)`. This will return a `TRUE/FALSE` list - you will see in this case, the first 3 are `TRUE` - this is because the names of the first 3 columns are school, sex, age in both tables, however the rest differ. This is useful when you are *expecting* two tables to have the same variable names, for example in an annual publication cycle, it is a good idea to check that the variable names this year are the same as they were last year before you start your analysis. 
 
-First, lets reorder the columns. I want the '`students` column to appear *before* the grade means. We can cimply use the `select()` function here, listing the columns in the order we wish them to appear: 
+First, lets reorder the columns. I want the '`students` column to appear *before* the grade means. We can simply use the `select()` function here, listing the columns in the order we wish them to appear: 
 ```
 student_results_aggregated %>%
   select(year, school, sex, age, students, G1_mean, G2_mean, G3_mean)
@@ -359,7 +359,7 @@ Since above, we have started the first line with `student_results_aggregated <-`
 
 ## Suppression (and writing functions)
 
-Another common task that analysts face is suppressing data. In this section, we will write our own function that will do the suppression step for us! We have already been using functions from *packages* throughout this workshop - everything in the format `function_name()` is a function that has already been written for us - it takes whatever we put in the brackets, does things to it, and creates an output. Here we will introduce writing our own! 
+Another common task that analysts face is suppressing data. In this section, we will write our own function that will do the primary suppression step for us! We have already been using functions from *packages* throughout this workshop - everything in the format `function_name()` is a function that has already been written for us - it takes whatever we put in the brackets, does things to it, and creates an output. Here we will introduce writing our own! 
 
 ### Writing functions
 
@@ -459,9 +459,9 @@ student_results_aggregated_suppressed <- student_results_aggregated %>%
 So, we've just written the same thing in 3 different ways! While all three options produce the same output, the last example is the best for RAP, as it is the most concise and requires the least repetition. 
 
 
-## Adding EES columns
+## Adding new columns
 
-Another common task that many analysts face is needing to add the required Explore Education Statistics (EES) columns formatted in the correct way. Using the [online guidance](https://rsconnect/rsc/stats-production-guidance/ud.html#Overview_of_EES_data_files), we can see that the following columns are required for EES: time_identifier, time_period, geographic_level, country_code (or geographic level equivalent), country_name (or geographic level equivalent). 
+Another common task that many analysts face is needing to add new columns to their data sets. In DfE, often analysts will need to add the required Explore Education Statistics (EES) columns formatted in the correct way. Using the [online guidance](https://rsconnect/rsc/stats-production-guidance/ud.html#Overview_of_EES_data_files), we can see that the following columns are required for EES: time_identifier, time_period, geographic_level, country_code (or geographic level equivalent), country_name (or geographic level equivalent). 
 
 When uploading data to EES, you should aim to include at least 3 years of data in EES where it exists in light of recent accessibility legislation. This example has 3 years of data, 2015, 2016, 2016. However, the time_identifier is not specified yet, and the year column is not correctly formatted! 
 
@@ -484,7 +484,7 @@ student_results_aggregated_suppressed_EES <- student_results_aggregated_suppress
 ```
 The above code gets us the correct geographic level and region name, but not region code. We can use a *look-up table* to get the correct code...
 
-## joins & joining geographic codes via lookup tables
+## Joins & joining geographic codes via lookup tables
 
 The [dfe-analytical-services](https://github.com/dfe-analytical-services) area on GitHub holds all publicly available code from DfE. The code behind the [EES data screener](https://rsconnect/rsc/dfe-published-data-qa/) is available here, and [the screener repository](https://github.com/dfe-analytical-services/dfe-published-data-qa) contains a [folder full of geographic lookup tables](https://github.com/dfe-analytical-services/dfe-published-data-qa/tree/master/data)! 
 
