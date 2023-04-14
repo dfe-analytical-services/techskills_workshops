@@ -598,6 +598,45 @@ If the output code suggests you save the plot_data as a csv and then read it in,
 
 If you have any specific or more advanced questions that we haven't covered in this workshop, we encourage you to try and use chatGPT for these in any additional time you may have, as well as of course asking the workshop facilitators to support!
 
+# dplyr vs. data.table
+
+Most of the code we covered today in the data manipulation section uses the `dplyr` package and syntax. The `dplyr` package is commonly used due to it's neat, easily read structure, however, depending on the size of your data it can be slow to run. The faster alternative is data.table, which is a higher-performance option based on the 'base R' syntax (base R is the original dialect of the R programming language that comes built-in without having to install any packages). 
+
+This site has an extremely useful side-by-side syntax comparison of `dplyr` and `data.table`: [https://towardsdatascience.com/fast-transition-between-dplyr-and-data-table](https://towardsdatascience.com/fast-transition-between-dplyr-and-data-table-c02d53cb769f)
+
+Here are a couple of quick examples taken from the site linked above that do the exact same thing using the two different syntax:
+
+1. Filtering by rows
+
+Filter for men aged 79 or younger
+```
+data %>% filter(AGE <= 79 & GENDER == “M”) #dplyr
+data[AGE <= 79 & GENDER == “M”] #datatable
+
+```
+
+2. Selecting columns
+
+Let’s select the columns GENDER, AGE, and PAID
+```
+data %>% select(GENDER, AGE, PAID) #dplyr
+data[, .(GENDER, AGE, PAID)] #datatable
+```
+
+3. Summarise by column
+
+What is the average insurance claim paid?
+
+The following code aggregates data and returns a single-record named AVG.PAID
+
+```
+data %>% summarise(AVG.PAID = mean(PAID)) #dplyr
+data[, .(AVG.PAID = mean(PAID))] #datatable
+
+```
+
+There is much more available on the linked site! 
+
 \newpage
 
 # Troubleshooting
