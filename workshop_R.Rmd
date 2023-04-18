@@ -129,19 +129,13 @@ knitr::include_graphics('images/gitdemo/gitdemo-gitRstudio-NewTerminal.png')
 
 A useful thing here if you want to use git commands in the terminal is to switch the terminal from the default Windows Command Prompt to `git BASH`. You can do this in the Terminal tab of R-Studio's global options - just select `git BASH` from the 'New terminal opens with' pull down menu. Click apply and then select the Terminal tab (next to the Console tab), click 'Terminal 1' and then select 'New terminal' from the drop down menu. You should see something similar to the terminal screenshot.
 
-## Working in teams
+## Working in groups
 
-To get the most out of git and Dev Ops, you're going to need to work in teams. We're aiming for groups of 3. Some of the tasks we'll work through will require just one of your team to perform, whilst others will require all of your team to perform them. If it's not clear then ask and most importantly, communicate with each other about what you're doing.
+To get the most out of the workshop, we expect everyone to work through all of the tasks themselves while discussing the work in small groups. If anything is unclear then ask and most importantly, communicate with each other about what you're doing.
 
-To help illustrate the challenges and benefits of git and Dev Ops and how to work collectively within the same space, all the groups will be working within the same repository. Each group will have their own working branch (already created) with the naming format `workshop_group_N`:
+SO that we all have a record of what we have done, everyone will be working in the same repository on their own branch. Once you have cloned the repository, please **create a branch** called your name (i.e. `<firstname>_<lastname>`). 
 
-  * `workshop_group_1`
-  * `workshop_group_2`
-  * ...
-
-We'll need to prefix branches and tasks within the repository with `grN_` and group N respectively (again switching the `N` for your group number). 
-
-By the end, you should get a good idea of how to utilize R for RAP processes, as well as how to collaborate using git!
+By the end, you should get a good idea of how to utilize R for RAP processes, as well as a brief understanding of using git.
 
 \newpage
 
@@ -650,49 +644,105 @@ There is much more available on the linked site!
 
 ## renv
 
-If `renv::restore()` causes issues, then one of your team should try `renv::init()` and select option 2 to restart renv. Then do a add/commit/push cycle and get the other team members to do a pull and then try running `renv::restore()` again on their local clones of the repo.
+### renv::restore()
 
-## Datafiles commit-hooks/`.gitignore`
+Sometimes `renv::restore()` can fail, and when in specific renv-controlled projects install.packages() will fail saying that packages aren’t available even when they clearly are. There are a couple of workarounds we have found that get around this failure.
 
-To help teams keep on top of avoiding any accidental publishing of unpublished data, we've added in some code around commits that checks through any data files in the repo and checks them against a logfile and the .gitignore file. Any files listed in .gitignore will not be included in commits and therefore won't be sent to the remote repo as part of any push.
-
-## merge conflicts
-
-Merge commits happen when two branches have conflicting changes that have been made concurrently. `git` can usually figure out how to prioritise changes based on the commit history, but if changes have happened at the same time to the same bit of code across different branches, then it will need to get your input on how to prioritise the changes.
-
-The easiest way to go through how to deal with merge conflicts is by discussing with an example, so ask us in the workshop if and when you hit a merge conflict.
-
-Briefly though, when there's a merge conflict, git will add some text to the file containing the conflict along the following lines:
+Configuring the proxy settings by running the below in R - this also helps if you are getting timeout issues when trying to webscrape with R:
 
 ```
-<<<<<<<<<<< branch_1
-code 
-on 
-branch 
-1
-===========
-conflicting code on branch 2
->>>>>>>>>>> branch_2
-
+Sys.setenv(no_proxy="*") 
 ```
 
-Effectively as the user, you need to decide which bit of code is the right bit to keep and then delete anything you don't want to keep as well as the tag-lines that git has added in. So for example, you should be left with something along the lines of:
+Specifying the renv library as the install location. It’s a bit of a fudge, though these lines are helpful to get the packages from the renv lockfile installed and you running the project when needed:
 
 ```
-code 
-on 
-branch 
-1
+myPath <- .libPaths()[1]
 
+forceInstall <- function(pkg, path) {
+missing <- suppressWarnings(eval(parse(text= paste0("!require(",pkg,")"))))
+
+if(missing == FALSE){
+message(pkg, " is already installed.")
+} else{
+install.packages(pkg, lib = path)
+}
+}
+
+forceInstall("jsonlite", myPath)
+
+renvPackages <- names(jsonlite::fromJSON("renv.lock", flatten = TRUE)$Packages)
+
+invisible(lapply(renvPackages, forceInstall, path = myPath))
 ```
 
-Once you've cleared up all merge conflicts in the branch that you're working on, then perform another add/commit cycle and thay should clear out the conflict from the branch that you're working on and you'll be able to continue with the intended merge/PR.
+More manual equivalent to use for specific packages:
 
+```
+.libPaths() # note down output 1, and reuse in the lib argument of install.packages() as below
+
+install.packages("rmarkdown", lib = "C:/Users/swong/OneDrive - Department for Education/Documents/stats-production-guidance/renv/library/R-4.0/x86_64-w64-mingw32")
+```
+
+### Updating packages in renv
+
+To update a single package run:
+```
+renv::update("dplyr")
+```
+To update all packages run:
+```
+renv::update()
+```
+
+### Installing old package versions in renv
+
+This is surprisingly neat to do. Let’s say you wanted to roll back to version 1.0.2 of dplyr, you would run the following:
+
+```
+renv::install("dplyr@1.0.2")
+```
+
+## 'Can't find make' error
+
+This error is usually due to Rtools not being properly installed, this has become fairly common since it has been dropped from the software centre. There have been several requests to read it, though as of yet none have succeeded. For now there’s a workaround to this. 
+
+You can [install Rtools as a direct download from CRAN](https://cran.r-project.org/bin/windows/Rtools/). On there, pick the right version of RTools for your version of R, download the file and install.
+When downloading RTools you may need to confirm that you understand the risks of downloading an .exe file from an unknown source, this is common, as this is a trusted source, you can click accept.
+
+When running the .exe file, Windows Defender may step in and act like it’s not going to let you progress any further. If this happens you’ll need to click “More info” and only then can you select something like “install anyway”.
+Set the install location to `C:\rtools40` (it is often this by default)
+
+Next you need to add it to the PATH variable. We can’t edit this without an admin password, though you can temporarily set it to allow you to restore from renv, by doing it from within the R console.
+This only sets it temporarily for as long as the R session is running, you’ll need to rerun each time you’re in an R session and need it.
+
+```
+old_path <- Sys.getenv(“PATH”) 
+Sys.setenv(PATH = paste(old_path, “C:\rtools40\usr\bin”, sep = “;”)) 
+Sys.getenv(“PATH”)
+```
 
 \newpage
 
+# Excel functions in R
 
+R can do everything you do in excel, but takes out the human error. [This reference table](https://rsconnect/rsc/stats-production-guidance/r.html#Excel_functions_in_R) shows how you would carry out popular Excel commands in R.
 
+R comes in with a built-in dataset called "iris". We'll use this for all examples so you can recreate them in your local area.
+
+**REMEMBER:** R is case sensitive, so all references to column names/entries need to be as-is in the dataset you are looking at. [Functions exist](https://www.rdocumentation.org/packages/janitor/versions/1.2.0/topics/clean_names) that can translate all your columns to lower or snake case for ease!
+
+[View the comparison table on our guidance site.](https://rsconnect/rsc/stats-production-guidance/r.html#Excel_functions_in_R)
+
+# SQL functions in R
+
+R can do a lot of the things that are possible in SQL. [This reference table](https://rsconnect/rsc/stats-production-guidance/r.html#SQL_functions_in_R) shows how you would carry out some popular SQL commands in R.
+
+**REMEMBER:** R is case sensitive, so all references to column names/entries need to be as-is in the dataset you are looking at. [Functions exist](https://www.rdocumentation.org/packages/janitor/versions/1.2.0/topics/clean_names) that can translate all your columns to lower or snake case for ease!
+
+[View the reference table on our guidance site.](https://rsconnect/rsc/stats-production-guidance/r.html#SQL_functions_in_R)
+
+\newpage
 
 \resizebox{48mm}{!}{\includegraphics{images/Department_for_Education.png}}
 \vspace*{\fill}
