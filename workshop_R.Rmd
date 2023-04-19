@@ -338,7 +338,7 @@ student_results_aggregated <- student_results %>%
 
 ## Reorder and rename columns
 
-Something that some analysts might leave to the end or do manually in excel is reorder and rename columns. However, even simple steps such as are prone to human error and can result in big mistakes! It also means that your process isn't fully **automated** or **reproducible**, since someone new to your project wouldn't know from looking at it what you have done, and therefore wouldn't be able to recreate it! To avoid this, it's always best to do these simple steps in the code. It also makes your own code robust - if your code for analysis expects columns to have certain names, to all be lower case, or to be in a certain order, and they aren't, it will cause errors later down the line! 
+Something that some analysts might leave to the end or do manually in excel is reorder and rename columns. However, even simple steps such as these are prone to human error and can result in big mistakes! It also means that your process isn't fully **automated** or **reproducible**, since someone new to your project wouldn't know from looking at it what you have done, and therefore wouldn't be able to recreate it! To avoid this, it's always best to do these simple steps in the code. It also makes your own code robust - if your code for analysis expects columns to have certain names, to all be lower case, or to be in a certain order, and they aren't, it will cause errors later down the line! 
 
 First, a very useful function to use is `variable.names()`. Try running `variable.names(student_results)` and `variable.names(student_results_aggregated)` in the console. It should return a list of all of the variable names in the specified tables. You can also use this to compare the names of two data sets by running `variable.names(student_results) == variable.names(student_results_aggregated)`. This will return a `TRUE/FALSE` list - you will see in this case, the first 3 are `TRUE` - this is because the names of the first 3 columns are school, sex, age in both tables, however the rest differ. This is useful when you are *expecting* two tables to have the same variable names, for example in an annual publication cycle, it is a good idea to check that the variable names this year are the same as they were last year before you start your analysis. 
 
@@ -383,7 +383,7 @@ add_together <- function(x,y){
 x + y
 }
 ```
-The above function takes two inputs, x and y, and adds them together. To *use* the function, you need to run the above code once to *create* it, then you can use it in the console. You should also see it appear under 'functions' in your environment! Once it's creates, you can use it in the console by running `add_together(2,3)` as an example, giving the output of 5 if it's been written correctly! You can choose whatever numbers you like to replace x and y when using it in the console as above. 
+The above function takes two inputs, x and y, and adds them together. To *use* the function, you need to run the above code once to *create* it, then you can use it in the console. You should also see it appear under 'functions' in your environment! Once it's created, you can use it in the console by running `add_together(2,3)` as an example, giving the output of 5 if it's been written correctly! You can choose whatever numbers you like to replace x and y when using it in the console as above. 
 
 Functions can also include character inputs as well as numeric! Another example we will use here to practice is creating a function that outputs a sentence. a simple way to output text in R is to use the `paste()` function. Try creating a function called 'introduction_text', that has *two inputs* defined as 'name' and 'age', and uses `paste("Hi, my name is", name, "and my age is", age)` as the *function instruction*. Test it out! Do you see your sentence appearing in the console?
 
@@ -391,7 +391,9 @@ Functions can also include character inputs as well as numeric! Another example 
 
 `if()` and `ifelse()` statements work similarly to using IF in excel formulas - they apply tests and perform actions based on the outcome of the test. In the console, if you type a question mark followed by a function name it will open the help page for that package! Try it out here by typing `?ifelse` and read the help page to understand the syntax. 
 
-The difference between `if()` and `ifelse()` is that `ifelse()` statements perform one yes/no test - for example `ifelse(age >= 16, '16+','under 16')` tests whether age is greater than or equal to 16. If it is, then it outputs '16+'. If it is not, then it outputs 'under 16'. If statements can have multiple conditions and can be stacked. For example;
+The difference between `if()` and `ifelse()` is that `ifelse()` statements perform one yes/no test - for example `ifelse(age >= 16, '16+','under 16')` tests whether age is greater than or equal to 16. If it is, then it outputs '16+'. If it is not, then it outputs 'under 16'. 
+
+If statements are different to ifelse statements - they can have multiple conditions and can be stacked. For example;
 ```
 if(age >= 16){
 '16+'
@@ -422,7 +424,7 @@ The above rewrites object by combining two different options (Bread or Fish) int
 
 ### Function for suppression
 
-Now that we now how to write our own functions, we can write one to help us suppress data. First of all, we can demonstrate the suppression using functions from existing packages. At this point we should still have `student_results_aggregated` in our environment. We want to suppress any rows that have less than 5 students. One way to do this is shown below:
+Now that we now how to write our own functions, we can write one to help us suppress data. First of all, we can demonstrate the suppression using functions from existing packages. Let's go back to our main.R script. At this point we should still have `student_results_aggregated` in our environment. We want to suppress any rows that have less than 5 students. One way to do this is shown below:
 
 ```
 student_results_aggregated_suppressed <- student_results_aggregated %>%
@@ -434,9 +436,9 @@ student_results_aggregated_suppressed <- student_results_aggregated %>%
 ```
 
 The above code takes the mean grade columns and uses an `ifelse()` statement *within* a `mutate()` statement. 
-Here, it's saying for each of the mean columns, if the number of students is less than 5, then replace the entry in that mean grade column with a 'c', if not, then keep what is already in the column. Note that we *have** to do the students column last, because once we add 'c' to any column it becomes a character variable rather than numeric. Since the previous columns are based on the numeric value of the students, we must order it so that these mutations occur first, while the student column is still a numeric variable and therefore able to apply the `students < 5` logic. 
+Here, it's saying for each of the mean columns, if the number of students is less than 5, then replace the entry in that mean grade column with a 'c', if not, then keep what is already in the column. Note that we *have* to do the students column last, because once we add 'c' to any column it becomes a character variable rather than numeric. Since the previous columns are based on the numeric value of the students, we must order it so that these mutations occur first, while the student column is still a numeric variable and therefore able to apply the `students < 5` logic. 
 
-While the above code works, the same issues arise as in the previous aggregation section where you can end up copying and pasting the same line many times depending on the size of your real-life data sets! We want to avoid this type of repetition where possible so that we reduce the possibility of making mistakes (like forgetting to update every line you have copied and pasted). So let's create a function to suppress counts less than 5. With an appropriate comment to explain, ass the below to your functions.R script. 
+While the above code works, the same issues arise as in the previous aggregation section where you can end up copying and pasting the same line many times depending on the size of your real-life data sets! We want to avoid this type of repetition where possible so that we reduce the possibility of making mistakes (like forgetting to update every line you have copied and pasted). So let's create a function to suppress counts less than 5. With an appropriate comment to explain, add the below to your functions.R script. 
 
 ```
 suppress_counts <- function(column, count) {
@@ -459,7 +461,8 @@ However, this *still* includes some repetition we would rather avoid! therefore,
 We can rewrite the above in the following way:
 ```
 student_results_aggregated_suppressed <- student_results_aggregated %>%
-  mutate(across(c(g1_mean, g2_mean, g3_mean, students), ~ifelse(students < 5, 'c', .)))
+  mutate(across(c(g1_mean, g2_mean, g3_mean, students), 
+          ~ifelse(students < 5, 'c', .)))
 ```
 
 So, we've just written the same thing in 3 different ways! While all three options produce the same output, the last example is the best for RAP, as it is the most concise and requires the least repetition. 
@@ -483,8 +486,8 @@ Assume that the school 'GP' is in London, and the school 'MS' is in East England
 ```
 student_results_aggregated_suppressed_EES <- student_results_aggregated_suppressed %>%
   mutate(time_identifier = 'Academic year', geographic_level = 'Regional',
-         region_name = case_when(school == 'MS' ~ "East of England",
-                                 school == 'GP' ~ 'London')) %>%
+         region_name = case_when(school == "MS" ~ "East of England",
+                                 school == "GP" ~ "London")) %>%
   rename(time_period = year)
   
 ```
@@ -497,11 +500,12 @@ The [dfe-analytical-services](https://github.com/dfe-analytical-services) area o
 Today we will use the [regions.csv](https://github.com/dfe-analytical-services/dfe-published-data-qa/blob/master/data/regions.csv) file from this folder. We can pull the csv directly from the repo using the 'raw' URL: https://raw.githubusercontent.com/dfe-analytical-services/dfe-published-data-qa/master/data/regions.csv. 
 Using this also means if the CSV is updated on GitHub, when you run your code it will automatically pull the latest version of the CSV! Adding appropriate headings and comments, pull in this lookup table using the following code:
 
-```
-regions_URL <- "https://raw.githubusercontent.com/dfe-analytical-services/
-                dfe-published-data-qa/master/data/regions.csv"
-regions_lookup <- read.csv(regions_URL)
-```
+`# Pull in regions lookup table`
+
+`regions_URL <-` "https://raw.githubusercontent.com/dfe-analytical-services/dfe-published-data-qa/master/data/regions.csv"
+
+`regions_lookup <- read.csv(regions_URL)`
+
 
 The lookup table should have appeared in the environment! Click on the name to open it, or use the code `View(regions_lookup)`. Now we can join the codes to our data using the region name using the `left_join()` function! We can 'pipe' joins in the exact same way we have piped summarise, group_by, mutate and rename statements. In the console, type `?join` to see the different types of join within the `dplyr` package!
 
@@ -550,7 +554,7 @@ In the above code, names_pattern uses a *regular expression*. Regular expression
 
 Now that we have our data formatted nicely, lets imagine we want to create a chart. The most common package used to create charts in R is `ggplot2`. Install this package, add it to your library calls and snapshot your library for renv. You can view the package documentation online using this link: https://www.rdocumentation.org/packages/ggplot2/versions/3.4.1. While today we will create a simple grouped bar chart (which would preferably be created in EES if we were really publishing), the `ggplot2` package has a huge range of capabilities which are not yet available on EES, making it useful in those situations! Saving well-documented code used for plots and charts is also better practice than quickly creating charts in Excel, which can become lost, broken or distorted with no record of how it was initially created.  
 
-We want to create a grouped bar chart that compares the average grades of male and female students. `ggplot` works best with long data, which luckily, we now have! We will need to filter the data first of all to focus on one specific group. Try and take the 'long_data' we created previously (which should still exist in your environment) and create a subset called 'plot_data' with the following filters:
+We want to create a grouped bar chart that compares the average grades of male and female students. `ggplot` works best with long data, which luckily, we now have! We will need to filter the data first of all to focus on one specific group. Create a new script called 'plots.R' and add some comments to introduce the plots script. Explain in your comments that the plots.R script should be run after the main.R script, since the data we are going to base this on is defined in the main.R script first. Try and take the 'long_data' we created previously (which should still exist in your environment) and create a subset called 'plot_data' with the following filters:
 
 * time period: 2015
 * age: 16
@@ -609,6 +613,22 @@ Write R code for a shiny app that....
 If the output code suggests you save the plot_data as a csv and then read it in, you can either do that to practice this, or comment out this line since plot_data will already be defined in your environment. 
 
 If you have any specific or more advanced questions that we haven't covered in this workshop, we encourage you to try and use chatGPT for these in any additional time you may have, as well as of course asking the workshop facilitators to support!
+
+# w-RAP it up 
+
+Now that we have a few different scripts in our project (main.R, functions.R and plots.R), we should wrap them all up into one 'run_pipeline.R' script! This is what we mean in our RAP guidance when we say [single dataset production script](https://rsconnect/rsc/stats-production-guidance/rap.html#dataset-production-scripts) or [whole publication prodcution script](https://rsconnect/rsc/stats-production-guidance/rap.html#whole-publication-production-scripts). We don't mean that *all* of your code is in one single script, we mean that there exists a single script (called run_pipeline.R) that will *source* each of your scripts, in order. 
+
+Create a new script called run_pipeline.R. Add some comments to introduce that this is the script that will source and run the entire pipeline. It is important that your run_pipeline script it **always** well documented. In a real life situation, here is where you will explain what each script is before you source it, what it does and why. 
+
+After your comments, add the following lines:
+```
+# Source the main.R script. 
+# This is where we run library calls, load in and manipulate the data. 
+source("main.R")
+```
+Then below, add a comment and source() for your functions script and plots script. 
+
+Once you have sourced all of your scripts here, you can run this run_pipeline script and (hopefully) see all your code running in the console, as well as the charts appearing in the plots viewer - all with the running of this one single script!
 
 # dplyr vs. data.table
 
@@ -690,9 +710,11 @@ invisible(lapply(renvPackages, forceInstall, path = myPath))
 More manual equivalent to use for specific packages:
 
 ```
-.libPaths() # note down output 1, and reuse in the lib argument of install.packages() as below
+.libPaths() 
+# note down output 1, and reuse in the lib argument of install.packages() as below
 
-install.packages("rmarkdown", lib = "C:/Users/swong/OneDrive - Department for Education/Documents/stats-production-guidance/renv/library/R-4.0/x86_64-w64-mingw32")
+install.packages("rmarkdown", lib = "C:/Users/swong/OneDrive - Department for
+Education/Documents/stats-production-guidance/renv/library/R-4.0/x86_64-w64-mingw32")
 ```
 
 ### Updating packages in renv
