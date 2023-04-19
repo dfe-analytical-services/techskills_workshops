@@ -133,7 +133,7 @@ A useful thing here if you want to use git commands in the terminal is to switch
 
 To get the most out of the workshop, we expect everyone to work through all of the tasks themselves while discussing the work in small groups. If anything is unclear then ask and most importantly, communicate with each other about what you're doing.
 
-SO that we all have a record of what we have done, everyone will be working in the same repository on their own branch. Once you have cloned the repository, please **create a branch** called your name (i.e. `<firstname>_<lastname>`). 
+So that we all have a record of what we have done, everyone will be working in the same repository on their own branch. Once you have cloned the repository, please **create a branch** called your name (i.e. `<firstname>_<lastname>`). 
 
 By the end, you should get a good idea of how to utilize R for RAP processes, as well as a brief understanding of using git.
 
@@ -147,7 +147,11 @@ Now we will begin the tasks and group work. First, everyone **open up R studio.*
 
 When creating RAP processes, it's key that your code is reusable, transparent, and well documented, such that it is future-proofed for any future team members. Therefore, first, we will show you how to create an R project. Using an R project ensures that all of the files in the project folder (scripts, plots, notes, etc.) can all be referenced relative to the **.Rproj file** location. Basically, it removes the need to set and get your working directory, and removes the need to use long & complete file paths. Instead, you essentially start any file path from the location of the .Rproj file! *For example*, if you have a code.R code script, and a data.csv file in a project folder that has been set up as an R project, and you want to read the .csv in the R script, you don't need the entire file path of the csv (which probably starts C:/... and can get very long), just the file path relative to the *.Rproj file* which in this case would simply be 'data.csv'.
 
-If you're struggling to grasp that, that's okay, we will create a project and see this in action today. To create a new project, in R studio, go to **File > New Project > New directory > New Project**. Give your project a name and choose where about in your files you would like the project to be saved. Click 'Create project'. We aren't going to discuss using Git or version control today, but if you are using these in a project, make sure you **do not** save the project folder in OneDrive (this is because OneDrive has it's own version-control system, and trying to use Git within that can cause complications and errors). 
+If you're struggling to grasp that, that's okay, we will create a project and see this in action today. To create a new project, in R studio, go to **File > New Project > ...**. If you were creating a new R project that was not linked to an online *Git* repository, you would select **File > New Project > New directory > New Project**, *however*, today we will be using the repository that has been shared with you already. Using Git repositories is also best RAP practice as it means you're using version control software and your work is more easily shared transparently within your team/department. Therefore, today we will select **File > New Project > Version Control > Git**. The repository URL is the 'clone' link on the DevOps repository that has already been sent to you. You can choose the project directory name, as this is how it will appear on your device. 
+
+For the file path at the bottom, you should make sure this is **not** saved in your OneDrive area. You should select Browse and navigate out of OneDrive to save the project directory elsewhere (this is because OneDrive has it's own version-control system, and trying to use Git within that can cause complications and errors). 
+
+Click 'Create project'. 
 
 
 ## Using renv
