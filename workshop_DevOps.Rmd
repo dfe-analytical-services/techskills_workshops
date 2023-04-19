@@ -312,7 +312,7 @@ This searches the repo for any files that have been modified since the last comm
 
 This adds an entry on to the log, updating it with the file changes that you've just made. Note that the text after the `-m` is a comment used to describe the changes to make it easier for someone looking back from the log to see what changes have happened. Those are the two key steps for tracking changes to the files and folders in your repository. 
 
-Now we'll add in some simple code to read in the file. Create a script in the repository's root directory called `main.R`. The add the following code to it:
+Now we'll add in some simple code to read in the file. Create a script called `main.R` in the repository's root *directory* within your group's *branch* (`workshop_group_N`). The add the following code to it:
 
 ```
 dfKS4 <- read.csv('data/2021_subject_timeseries_data.csv')
