@@ -618,7 +618,7 @@ If you have any specific or more advanced questions that we haven't covered in t
 
 Now that we have a few different scripts in our project (main.R, functions.R and plots.R), we should wrap them all up into one 'run_pipeline.R' script! This is what we mean in our RAP guidance when we say [single dataset production script](https://rsconnect/rsc/stats-production-guidance/rap.html#dataset-production-scripts) or [whole publication prodcution script](https://rsconnect/rsc/stats-production-guidance/rap.html#whole-publication-production-scripts). We don't mean that *all* of your code is in one single script, we mean that there exists a single script (called run_pipeline.R) that will *source* each of your scripts, in order. 
 
-Create a new script called run_pipeline.R. Add some comments to introduce that this is the script that will source and run the entire pipeline. It is important that your run_pipeline script it **always** well documented. In a real life situation, here is where you will explain what each script is before you source it, what it does and why. 
+Create a new script called run_pipeline.R. Add some comments to introduce that this is the script that will source and run the entire pipeline. It is important that your run_pipeline script is **always** well documented. In a real life situation, here is where you will explain what each script is before you source it, what it does and why. 
 
 After your comments, add the following lines:
 ```
