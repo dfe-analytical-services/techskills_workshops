@@ -282,7 +282,7 @@ Once you have pulled data into R studio and you can see it in your environment, 
 
 Aggregating data is a common task analysts in in statistics publication face. In the data we have loaded into R studio in this workshop, there is currently one line per student, containing that students characteristics and grades. We want to aggregate this by certain characteristics and get the average grade for each aggregated group. Firstly, it's possible that we might want to filter on certain variables so that we only include certain students in our data. 
 
-To **filter** data, we can simply use the `filter()` function from the `dplyr` package, which we have already installed and loaded. Here we will also introduce the **pipe** symbol - `%>%`. 
+To **filter** data, we can simply use the `filter()` function from the `dplyr` package, which we have already installed and loaded. Here we will also introduce the **pipe** symbol - `%>%`. As said before, in R, a new line is read as a new command, however, sometimes we might have long snippets of code that should all be run as one command! The pipe symbol is used with `dplyr` commands to join up multiple lines into one command, and the order does matter! 
 
 In our environment, we should see the data we have loaded in with the name we gave it - 'student_results'. If we want to filter this, we would do so in the following format:
 
