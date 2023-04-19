@@ -397,7 +397,7 @@ if(age >= 16){
 '16+'
 } else if(age < 12){
 'under 12'
-} else if(12 <= age < 16){
+} else if(age >= 12 & age < 16){
 '12 - 16'
 } else NA
 ```
@@ -414,7 +414,7 @@ This test is finding instances where age is greater than or equal to 16 AND sex 
 
 ```
 if(object == 'Bread | object == 'Fish'){
-object == 'Food'
+object <- 'Food'
 }
 ```
 
@@ -498,7 +498,9 @@ Today we will use the [regions.csv](https://github.com/dfe-analytical-services/d
 Using this also means if the CSV is updated on GitHub, when you run your code it will automatically pull the latest version of the CSV! Adding appropriate headings and comments, pull in this lookup table using the following code:
 
 ```
-regions_lookup <- read.csv("https://raw.githubusercontent.com/dfe-analytical-services/dfe-published-data-qa/master/data/regions.csv")
+regions_URL <- "https://raw.githubusercontent.com/dfe-analytical-services/
+                dfe-published-data-qa/master/data/regions.csv"
+regions_lookup <- read.csv(regions_URL)
 ```
 
 The lookup table should have appeared in the environment! Click on the name to open it, or use the code `View(regions_lookup)`. Now we can join the codes to our data using the region name using the `left_join()` function! We can 'pipe' joins in the exact same way we have piped summarise, group_by, mutate and rename statements. In the console, type `?join` to see the different types of join within the `dplyr` package!
@@ -512,7 +514,8 @@ student_results_aggregated_suppressed_EES <- student_results_aggregated_suppress
                                  school == 'GP' ~ 'London')) %>%
   rename(time_period = year) %>%
   left_join(regions_lookup, by = c('region_name' = 'region_name')) %>%
-  select(time_period, time_identifier, geographic_level, region_name, region_code, sex, age, students, g1_mean, g2_mean, g3_mean)
+  select(time_period, time_identifier, geographic_level, region_name, 
+         region_code, sex, age, students, g1_mean, g2_mean, g3_mean)
 ```
 
 The data created should now look a lot like what you would normally upload to EES. 

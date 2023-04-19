@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  19 APR 2023 11:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.3)  19 APR 2023 12:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -865,69 +865,59 @@ Overfull \hbox (61.29524pt too wide) in paragraph at lines 1087--1087
  []
 
 [25]
-Overfull \hbox (351.52039pt too wide) in paragraph at lines 1124--1124
-[]\T1/lmtt/m/n/12 regions_lookup <- read.csv("https://raw.githubusercontent.com/dfe-analytical-services/dfe-published-data-qa/master/data/regions.csv")[] 
- []
-
-
-Overfull \hbox (61.29524pt too wide) in paragraph at lines 1141--1141
+Overfull \hbox (61.29524pt too wide) in paragraph at lines 1143--1143
 []\T1/lmtt/m/n/12 student_results_aggregated_suppressed_EES <- student_results_aggregated_suppressed %>%[] 
  []
 
-
-Overfull \hbox (326.82037pt too wide) in paragraph at lines 1147--1147
-[]  \T1/lmtt/m/n/12 select(time_period, time_identifier, geographic_level, region_name, region_code, sex, age, students, g1_mean, g2_mean, g3_mean)[] 
- []
-
 [26] [27] [28] [29] [30] [31]
-Overfull \hbox (18.07022pt too wide) in paragraph at lines 1467--1467
+Overfull \hbox (18.07022pt too wide) in paragraph at lines 1470--1470
 []\T1/lmtt/m/n/12 renvPackages <- names(jsonlite::fromJSON("renv.lock", flatten = TRUE)$Packages)[] 
  []
 
 
-Overfull \hbox (110.69527pt too wide) in paragraph at lines 1475--1475
+Overfull \hbox (110.69527pt too wide) in paragraph at lines 1478--1478
 []\T1/lmtt/m/n/12 .libPaths() # note down output 1, and reuse in the lib argument of install.packages() as below[] 
  []
 
 [32]
-Overfull \hbox (536.74947pt too wide) in paragraph at lines 1477--1477
+Overfull \hbox (536.74947pt too wide) in paragraph at lines 1480--1480
 []\T1/lmtt/m/n/12 install.packages("rmarkdown", lib = "C:/Users/swong/OneDrive - Department for Education/Documents/stats-production-guidance/renv/library/R-4.0/x86_64-w64-mingw32")[] 
  []
 
 [33] [34] [35]
 File: images/Department_for_Education.png Graphic file (type png)
 <use images/Department_for_Education.png>
-Package pdftex.def Info: images/Department_for_Education.png  used on input line 1581.
+Package pdftex.def Info: images/Department_for_Education.png  used on input line 1584.
 (pdftex.def)             Requested size: 469.75311pt x 277.93726pt.
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 1594--1599
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 1597--1602
 [][]  
  []
 
 
-Overfull \hbox (1.88498pt too wide) in paragraph at lines 1603--1603
+Overfull \hbox (1.88498pt too wide) in paragraph at lines 1606--1606
 []|\T1/phv/m/n/12 enquiries| 
  []
 
 
-Overfull \hbox (4.20119pt too wide) in paragraph at lines 1604--1604
+Overfull \hbox (4.20119pt too wide) in paragraph at lines 1607--1607
 []|\T1/phv/m/n/12 download| 
  []
 
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 1602--1606
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 1605--1609
 [][]  
  []
 
 <images/logoTwitter.png, id=413, 27.2655pt x 21.681pt>
 File: images/logoTwitter.png Graphic file (type png)
 <use images/logoTwitter.png>
-Package pdftex.def Info: images/logoTwitter.png  used on input line 1608.
+Package pdftex.def Info: images/logoTwitter.png  used on input line 1611.
 (pdftex.def)             Requested size: 27.26665pt x 21.68193pt.
 <images/logoFacebook.png, id=414, 21.681pt x 21.681pt>
 File: images/logoFacebook.png Graphic file (type png)
 <use images/logoFacebook.png>
-Package pdftex.def Info: images/logoFacebook.png  used on input line 1611.
+Package pdftex.def Info: images/logoFacebook.png  used on input line 1614.
 (pdftex.def)             Requested size: 21.68193pt x 21.68193pt.
 [36 <./images/logoTwitter.png> <./images/logoFacebook.png>] (./workshop_R.aux)
 Package rerunfilecheck Info: File `workshop_R.out' has not changed.
@@ -942,7 +932,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  83i,14n,80p,443b,599s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on workshop_R.pdf (36 pages, 1307384 bytes).
+Output written on workshop_R.pdf (36 pages, 1307385 bytes).
 PDF statistics:
  475 PDF objects out of 1000 (max. 8388607)
  407 compressed objects within 5 object streams
