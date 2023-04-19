@@ -58,9 +58,9 @@ student_results_aggregated <- student_results_aggregated %>%
 #          )
 
 #However, if we want to suppress multiple columns using the same rule, we should write a function for this.
-# suppress_counts <- function(column) {
-# ifelse(students < 5, 'c', .)
-# }
+suppress_counts <- function(column, count) {
+  ifelse(count < 5, 'c', column)
+}
 
 # Note that the above will change the 'students' column from a numeric variable to a character variable, 
 # because it will now contain the letter 'c' as well as numbers. 
@@ -75,7 +75,7 @@ student_results_aggregated <- student_results_aggregated %>%
 #the best way - this way your code is future-proofed if you want to add more columns to the mutate step which applies
 #the suppression.
 student_results_aggregated_suppressed <- student_results_aggregated %>%
-  mutate(across(c(g1_mean, g2_mean, g3_mean, students), ~ifelse(students < 5, 'c', .)))
+  mutate(across(c(g1_mean, g2_mean, g3_mean, students), ~suppress_counts(. , students)))
 
 
 # Add EES columns ---------------------------------------------------------

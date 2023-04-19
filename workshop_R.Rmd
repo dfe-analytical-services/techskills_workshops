@@ -462,7 +462,7 @@ We can rewrite the above in the following way:
 ```
 student_results_aggregated_suppressed <- student_results_aggregated %>%
   mutate(across(c(g1_mean, g2_mean, g3_mean, students), 
-          ~ifelse(students < 5, 'c', .)))
+          ~suppress_counts(. , students)))
 ```
 
 So, we've just written the same thing in 3 different ways! While all three options produce the same output, the last example is the best for RAP, as it is the most concise and requires the least repetition. 
