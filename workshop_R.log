@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.1.11)  20 APR 2023 12:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.1.11)  20 APR 2023 12:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -864,78 +864,78 @@ Overfull \hbox (61.29524pt too wide) in paragraph at lines 1168--1168
 []\T1/lmtt/m/n/12 student_results_aggregated_suppressed_EES <- student_results_aggregated_suppressed %>%[] 
  []
 
-[26] [27] [28] [29] [30] [31] [32] [33]
-Overfull \hbox (18.07022pt too wide) in paragraph at lines 1579--1579
+[26] [27] [28] [29] [30] [31] [32] [33] [34]
+Overfull \hbox (18.07022pt too wide) in paragraph at lines 1585--1585
 []\T1/lmtt/m/n/12 renvPackages <- names(jsonlite::fromJSON("renv.lock", flatten = TRUE)$Packages)[] 
  []
 
-[34]
-Overfull \hbox (36.59523pt too wide) in paragraph at lines 1588--1588
+[35]
+Overfull \hbox (36.59523pt too wide) in paragraph at lines 1594--1594
 []\T1/lmtt/m/n/12 # note down output 1, and reuse in the lib argument of install.packages() as below[] 
  []
 
 
-Overfull \hbox (5.72021pt too wide) in paragraph at lines 1590--1590
+Overfull \hbox (5.72021pt too wide) in paragraph at lines 1596--1596
 []\T1/lmtt/m/n/12 install.packages("rmarkdown", lib = "C:/Users/swong/OneDrive - Department for[] 
  []
 
 
-Overfull \hbox (55.09923pt too wide) in paragraph at lines 1591--1591
+Overfull \hbox (55.09923pt too wide) in paragraph at lines 1597--1597
 []\T1/lmtt/m/n/12 Education/Documents/stats-production-guidance/renv/library/R-4.0/x86_64-w64-mingw32")[] 
  []
 
-[35] [36] [37]
+[36] [37] [38]
 File: images/Department_for_Education.png Graphic file (type png)
 <use images/Department_for_Education.png>
-Package pdftex.def Info: images/Department_for_Education.png  used on input line 1695.
+Package pdftex.def Info: images/Department_for_Education.png  used on input line 1701.
 (pdftex.def)             Requested size: 469.75311pt x 277.93726pt.
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 1708--1713
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 1714--1719
 [][]  
  []
 
 
-Overfull \hbox (1.88498pt too wide) in paragraph at lines 1717--1717
+Overfull \hbox (1.88498pt too wide) in paragraph at lines 1723--1723
 []|\T1/phv/m/n/12 enquiries| 
  []
 
 
-Overfull \hbox (4.20119pt too wide) in paragraph at lines 1718--1718
+Overfull \hbox (4.20119pt too wide) in paragraph at lines 1724--1724
 []|\T1/phv/m/n/12 download| 
  []
 
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 1716--1720
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 1722--1726
 [][]  
  []
 
-<images/logoTwitter.png, id=443, 27.2655pt x 21.681pt>
+<images/logoTwitter.png, id=447, 27.2655pt x 21.681pt>
 File: images/logoTwitter.png Graphic file (type png)
 <use images/logoTwitter.png>
-Package pdftex.def Info: images/logoTwitter.png  used on input line 1722.
+Package pdftex.def Info: images/logoTwitter.png  used on input line 1728.
 (pdftex.def)             Requested size: 27.26665pt x 21.68193pt.
-<images/logoFacebook.png, id=444, 21.681pt x 21.681pt>
+<images/logoFacebook.png, id=448, 21.681pt x 21.681pt>
 File: images/logoFacebook.png Graphic file (type png)
 <use images/logoFacebook.png>
-Package pdftex.def Info: images/logoFacebook.png  used on input line 1725.
+Package pdftex.def Info: images/logoFacebook.png  used on input line 1731.
 (pdftex.def)             Requested size: 21.68193pt x 21.68193pt.
-[38 <./images/logoTwitter.png> <./images/logoFacebook.png>] (./workshop_R.aux)
+[39 <./images/logoTwitter.png> <./images/logoFacebook.png>] (./workshop_R.aux)
 Package rerunfilecheck Info: File `workshop_R.out' has not changed.
 (rerunfilecheck)             Checksum: 0CB25D682E1F199A2EB2450C18BC4E92;5256.
  ) 
 Here is how much of TeX's memory you used:
- 24658 strings out of 478053
- 464246 string characters out of 5838816
+ 24659 strings out of 478053
+ 464253 string characters out of 5838816
  1860787 words of memory out of 5000000
  44171 multiletter control sequences out of 15000+600000
  556914 words of font info for 72 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  83i,14n,80p,443b,601s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/RBIELBY/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/RBIELBY/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/RBIELBY/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/Users/RBIELBY/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/Users/RBIELBY/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/RBIELBY/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/RBIELBY/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on workshop_R.pdf (38 pages, 1311748 bytes).
+Output written on workshop_R.pdf (39 pages, 1312455 bytes).
 PDF statistics:
- 509 PDF objects out of 1000 (max. 8388607)
- 439 compressed objects within 5 object streams
- 141 named destinations out of 1000 (max. 500000)
+ 513 PDF objects out of 1000 (max. 8388607)
+ 442 compressed objects within 5 object streams
+ 142 named destinations out of 1000 (max. 500000)
  317 words of extra memory for PDF output out of 10000 (max. 10000000)
 
