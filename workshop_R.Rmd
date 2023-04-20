@@ -564,7 +564,13 @@ In the above code, names_pattern uses a *regular expression*. Regular expression
 
 Whilst being able to do all this in R can be very useful, we sometimes have pre-existing SQL code that will do all this for us, or we have datasets that are too large to perform aggregations on efficiently on a typical laptop. In these cases, we would want to be able to just send a SQL script from within our R pipeline to run on a SQL server and send us back the results once it's done.
 
-Provided you've created the student table on your SQL database using `dbWriteTable()` as described earlier, we can demo this now. In the SQL folder in your workshop repository, you'll find a simple SQL aggregation script that does the same aggregation as we've just done in R. First we'll use a pre-built function that reads in the SQL script in a way that R can send it to the SQL server. This pre-built function is in the script R/utils.R and is called `getSQL()`, so first we'll need to source the utils.R script: `source("R/utils.R")`.
+Provided you've created the student table on your SQL database using `dbWriteTable()` as described earlier, we can demo this now. In the SQL folder in your workshop repository, you'll find a simple SQL aggregation script that does the same aggregation as we've just done in R. First though we'll try just sending a very basic SQL query to the database:
+
+`dbGetQuery(con, statement = "SELECT year, school, sex, age,
+   G1, G2, G3  
+   FROM dbo.sd_sandbox_student_results")`
+
+Now we've seen how that works, we'll use a pre-built function that reads in the SQL script in a way that R can send it to the SQL server. This pre-built function is in the script R/utils.R and is called `getSQL()`, so first we'll need to source the utils.R script: `source("R/utils.R")`.
 
 Let's run the getSQL() command with the example script as follows:
 
