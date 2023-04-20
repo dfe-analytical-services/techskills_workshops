@@ -230,11 +230,11 @@ In this workshop, the data is available as a csv in the 'data' folder of the pro
 
 Write and run this line in your script. Then, if you navigate to the 'environment' window in the top right of the screen, you should see an object has appeared with your chosen name under the heading 'Data'. If you click the blue circle with the white arrow inside, it will expand to show you information about the data you've uploaded, including the name of every column/variable, and the format of each column (i.e. chr for character, num for numeric). If you click the name of the object, it will open in the viewer in the top left so that you can look at the table. This is the same as typing `View(name_of_data)` in the console. 
 
-### Reading in from SQL
+### Writing to and reading from a SQL database
 
-In order to read the data in from SQL we need to install the relevant packages and connect to the SQL database. Firstly, we need to install the `odbc` and `DBI` packages. Try to use the above guidance to;
+In order to read and write data from and to a SQL database, we need to install the relevant packages and connect to the SQL database. Firstly, we need to install the `odbc` and `DBI` packages. Try to use the above guidance to;
 
-a. Install the `odbc` and `DBI` packages,
+a. Install the `odbc`, `DBI` and `dbplyr` packages,
 
 b. Add the library calls to the correct section of the initial script,
 
@@ -254,6 +254,16 @@ con <- DBI::dbConnect(odbc::odbc(),
 
 [Note that this code will only work for you if you have access to the specified server and database, so only users with existing access can use this code in R to connect and pull in data! If someone without access tried to run this code, they would get an error in the R console.]
 
+#### Writing a table to a SQL database
+
+There are a number of functions available in R that can write a data frame to a table on a SQL database. Here we'll use the `dbWriteTable()` function with our students dataframe:
+
+`dbWriteTable(con,  Id(schema = "dbo", table = 'sd_sandbox_student_results'), student_results)`
+
+Note the first argument the function takes is the database connection you've already created, the second is the table location that you want to write to on that database and the third argument is the data frame that you're sending to the database.
+
+#### Reading a table from a SQL database
+
 Now that we have the connection stored and named, we can use it to read in a table from the database into R. There are multiple ways to do this - in this workshop we will cover two of them. 
 
 1. Use `dplyr::tbl(con, table_name)`,
@@ -268,7 +278,7 @@ Whichever option you choose, you need to choose what name you would like this ob
 
 ```
 # Read in student data from SQL
-student_results <- tbl(con, table_name)
+student_results <- tbl(con, 'dbo.sd_sandbox_student_results')
 ```
 
 Add this under an appropriate heading/comment to your initial script. 
