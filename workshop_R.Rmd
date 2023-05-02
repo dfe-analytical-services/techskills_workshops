@@ -40,7 +40,7 @@ header-includes:
 
 
 output:
-  pdf_document:
+  pdf_document: 
     df_print: paged
     toc: true
     includes:
@@ -143,16 +143,15 @@ By the end, you should get a good idea of how to utilize R for RAP processes, as
 
 Now we will begin the tasks and group work. First, everyone **open up R studio.**
 
-# Creating a project 
+# Creating a project & cloning repositories
 
 When creating RAP processes, it's key that your code is reusable, transparent, and well documented, such that it is future-proofed for any future team members. Therefore, first, we will show you how to create an R project. Using an R project ensures that all of the files in the project folder (scripts, plots, notes, etc.) can all be referenced relative to the **.Rproj file** location. Basically, it removes the need to set and get your working directory, and removes the need to use long & complete file paths. Instead, you essentially start any file path from the location of the .Rproj file! *For example*, if you have a code.R code script, and a data.csv file in a project folder that has been set up as an R project, and you want to read the .csv in the R script, you don't need the entire file path of the csv (which probably starts C:/... and can get very long), just the file path relative to the *.Rproj file* which in this case would simply be 'data.csv'.
 
-If you're struggling to grasp that, that's okay, we will create a project and see this in action today. To create a new project, in R studio, go to **File > New Project > ...**. If you were creating a new R project that was not linked to an online *Git* repository, you would select **File > New Project > New directory > New Project**, *however*, today we will be using the repository that has been shared with you already. Using Git repositories is also best RAP practice as it means you're using version control software and your work is more easily shared transparently within your team/department. Therefore, today we will select **File > New Project > Version Control > Git**. The repository URL is the 'clone' link on the DevOps repository that has already been sent to you. You can choose the project directory name, as this is how it will appear on your device. 
+If you're struggling to grasp that, that's okay, we will create a project and see this in action today. To create a new project, in R studio, go to **File > New Project > ...**. If you were creating a new R project that was not linked to an online *Git* repository, you would select **File > New Project > New directory > New Project**, *however*, today we will be using [the GitHub repository for the workshop](https://github.com/dfe-analytical-services/techskills_workshops). Using Git repositories is best RAP practice as it means you're using version control software and your work is more easily shared transparently within your team/department. Therefore, today we will select **File > New Project > Version Control > Git**. To get the repository URL, go to the GitHub repository, click the green 'code' button and copy the link from there. You can choose the project directory name, as this is how it will appear on your device. 
 
 For the file path at the bottom, you should make sure this is **not** saved in your OneDrive area. You should select Browse and navigate out of OneDrive to save the project directory elsewhere (this is because OneDrive has it's own version-control system, and trying to use Git within that can cause complications and errors). 
 
 Click 'Create project'. 
-
 
 ## Using renv
 
@@ -245,7 +244,7 @@ Once you have completed the above steps, we can use the new packages to connect 
 ```
 # Connect to SQL database
 con <- DBI::dbConnect(odbc::odbc(),
-    Driver = "{SQL Server Native Client 17.0}",
+    Driver = "{SQL Server Native Client 11.0}",
     Server = "...",
     Database = "...",
     Trusted_connection = "Yes"
@@ -292,7 +291,7 @@ Once you have pulled data into R studio and you can see it in your environment, 
 
 Aggregating data is a common task analysts in in statistics publication face. In the data we have loaded into R studio in this workshop, there is currently one line per student, containing that students characteristics and grades. We want to aggregate this by certain characteristics and get the average grade for each aggregated group. Firstly, it's possible that we might want to filter on certain variables so that we only include certain students in our data. 
 
-To **filter** data, we can simply use the `filter()` function from the `dplyr` package, which we have already installed and loaded. Here we will also introduce the **pipe** symbol - `%>%`. As said before, in R, a new line is read as a new command, however, sometimes we might have long snippets of code that should all be run as one command! The pipe symbol is used with `dplyr` commands to join up multiple lines into one command, and the order does matter! 
+To **filter** data, we can simply use the `filter()` function from the `dplyr` package, which we have already installed and loaded. Here we will also introduce the **pipe** symbol - `%>%`. You can either type it out *or* use the keyboard shortcut `Ctrl + Shift + M` to insert it! As said before, in R, a new line is read as a new command, however, sometimes we might have long snippets of code that should all be run as one command! The pipe symbol is used with `dplyr` commands to join up multiple lines into one command, and the order does matter! 
 
 In our environment, we should see the data we have loaded in with the name we gave it - 'student_results'. If we want to filter this, we would do so in the following format:
 
@@ -350,7 +349,7 @@ student_results_aggregated <- student_results %>%
 
 Something that some analysts might leave to the end or do manually in excel is reorder and rename columns. However, even simple steps such as these are prone to human error and can result in big mistakes! It also means that your process isn't fully **automated** or **reproducible**, since someone new to your project wouldn't know from looking at it what you have done, and therefore wouldn't be able to recreate it! To avoid this, it's always best to do these simple steps in the code. It also makes your own code robust - if your code for analysis expects columns to have certain names, to all be lower case, or to be in a certain order, and they aren't, it will cause errors later down the line! 
 
-First, a very useful function to use is `variable.names()`. Try running `variable.names(student_results)` and `variable.names(student_results_aggregated)` in the console. It should return a list of all of the variable names in the specified tables. You can also use this to compare the names of two data sets by running `variable.names(student_results) == variable.names(student_results_aggregated)`. This will return a `TRUE/FALSE` list - you will see in this case, the first 3 are `TRUE` - this is because the names of the first 3 columns are school, sex, age in both tables, however the rest differ. This is useful when you are *expecting* two tables to have the same variable names, for example in an annual publication cycle, it is a good idea to check that the variable names this year are the same as they were last year before you start your analysis. 
+First, a very useful function to use is `names()`. Try running `names(student_results)` and `names(student_results_aggregated)` in the console. It should return a list of all of the variable/column names in the specified tables. You can also use this to compare the names of two data sets by running `names(student_results) == names(student_results_aggregated)`. This will return a `TRUE/FALSE` list - you will see in this case, the first 3 are `TRUE` - this is because the names of the first 3 columns are school, sex, age in both tables, however the rest differ. This is useful when you are *expecting* two tables to have the same variable names, for example in an annual publication cycle, it is a good idea to check that the variable names this year are the same as they were last year before you start your analysis. 
 
 First, lets reorder the columns. I want the '`students` column to appear *before* the grade means. We can simply use the `select()` function here, listing the columns in the order we wish them to appear: 
 ```
