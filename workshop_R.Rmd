@@ -151,6 +151,26 @@ If you're struggling to grasp that, that's okay, we will create a project and se
 
 For the file path at the bottom, you should make sure this is **not** saved in your OneDrive area. You should select Browse and navigate out of OneDrive to save the project directory elsewhere (this is because OneDrive has it's own version-control system, and trying to use Git within that can cause complications and errors). 
 
+\makebox[1.00\linewidth]{
+\centering
+
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\Huge \bfseries},
+ fontlower={\large \bfseries},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.49\linewidth,
+ boxrule=0pt,
+ equal height group=introbox
+ ]
+Task
+\tcblower
+task info blah blah 
+\end{tcolorbox}
+
 Click 'Create project'. 
 
 ## Using renv

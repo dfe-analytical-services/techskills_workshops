@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.2)  2 MAY 2023 13:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.5.3)  3 MAY 2023 12:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -688,7 +688,8 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 105.
 LaTeX Font Info:    Trying to load font information for T1+phv on input line 111.
 (c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
-) (./workshop_R.aux)
+)
+No file workshop_R.aux.
 \openout1 = `workshop_R.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 111.
@@ -760,71 +761,71 @@ Package: fr-longtable 2007/11/28 v0.1b (beta) floatrow: additions for longtable
 \c@FBLTpage=\count327
 )
 Package hyperref Info: Link coloring ON on input line 111.
-(./workshop_R.out) (./workshop_R.out)
 \@outlinefile=\write4
 \openout4 = `workshop_R.out'.
 
-<images/Department_for_Education.png, id=139, 1204.5pt x 712.6625pt>
+<images/Department_for_Education.png, id=7, 1204.5pt x 712.6625pt>
 File: images/Department_for_Education.png Graphic file (type png)
 <use images/Department_for_Education.png>
 Package pdftex.def Info: images/Department_for_Education.png  used on input line 114.
 (pdftex.def)             Requested size: 469.75311pt x 277.93726pt.
 [1
 
-{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc} <./images/Department_for_Education.png>] (./workshop_R.toc
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1.
-(c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
-File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1.
-(c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
-File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 1.
-(c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
-File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 1.
-(c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
-File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 1.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 1.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 1.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 1.
-(c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 1.
-(c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [2])
+{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc} <./images/Department_for_Education.png>]
+No file workshop_R.toc.
 \tf@toc=\write5
 \openout5 = `workshop_R.toc'.
 
-[3]
+[2]
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 178.
 (c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 178.
-[4]
-<images/RforRAP/R-studio-panels.png, id=199, 430.992pt x 233.454pt>
+[3]
+<images/RforRAP/R-studio-panels.png, id=32, 430.992pt x 233.454pt>
 File: images/RforRAP/R-studio-panels.png Graphic file (type png)
 <use images/RforRAP/R-studio-panels.png>
 Package pdftex.def Info: images/RforRAP/R-studio-panels.png  used on input line 198.
 (pdftex.def)             Requested size: 430.99094pt x 233.45341pt.
-[5 <./images/RforRAP/R-studio-panels.png>]
-<images/gitdemo/gitdemo-gitRstudio-settings.png, id=208, 450.68375pt x 469.755pt>
+[4 <./images/RforRAP/R-studio-panels.png>]
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 232.
+(c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 232.
+(c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 232.
+(c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 232.
+(c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 232.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 232.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 232.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 232.
+(c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 232.
+(c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+<images/gitdemo/gitdemo-gitRstudio-settings.png, id=41, 450.68375pt x 469.755pt>
 File: images/gitdemo/gitdemo-gitRstudio-settings.png Graphic file (type png)
 <use images/gitdemo/gitdemo-gitRstudio-settings.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-gitRstudio-settings.png  used on input line 254.
 (pdftex.def)             Requested size: 300.6568pt x 313.37949pt.
-<images/gitdemo/gitdemo-gitRstudio-NewTerminal.png, id=209, 685.05937pt x 274.02374pt>
+<images/gitdemo/gitdemo-gitRstudio-NewTerminal.png, id=42, 685.05937pt x 274.02374pt>
 File: images/gitdemo/gitdemo-gitRstudio-NewTerminal.png Graphic file (type png)
 <use images/gitdemo/gitdemo-gitRstudio-NewTerminal.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-gitRstudio-NewTerminal.png  used on input line 262.
@@ -832,109 +833,19 @@ Package pdftex.def Info: images/gitdemo/gitdemo-gitRstudio-NewTerminal.png  used
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 267.
 (c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [6{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}] [7 <./images/gitdemo/gitdemo-gitRstudio-settings.PNG> <./images/gitdemo/gitdemo-gitRstudio-NewTerminal.PNG>] [8]
-LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 352.
-(c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
-File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [9] [10{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] [11]
-<images/RforRAP/section_headers.png, id=250, 616.3025pt x 287.57437pt>
-File: images/RforRAP/section_headers.png Graphic file (type png)
-<use images/RforRAP/section_headers.png>
-Package pdftex.def Info: images/RforRAP/section_headers.png  used on input line 442.
-(pdftex.def)             Requested size: 469.76775pt x 219.19945pt.
-[12 <./images/RforRAP/section_headers.png>]
-<images/RforRAP/run_buttons.png, id=258, 580.569pt x 176.514pt>
-File: images/RforRAP/run_buttons.png Graphic file (type png)
-<use images/RforRAP/run_buttons.png>
-Package pdftex.def Info: images/RforRAP/run_buttons.png  used on input line 476.
-(pdftex.def)             Requested size: 469.75337pt x 142.82202pt.
-[13 <./images/RforRAP/run_buttons.png>] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24]
-Overfull \hbox (61.29524pt too wide) in paragraph at lines 1102--1102
-[]\T1/lmtt/m/n/12 student_results_aggregated_suppressed_EES <- student_results_aggregated_suppressed %>%[] 
- []
-
-
-Overfull \hbox (61.29524pt too wide) in paragraph at lines 1115--1115
-[]\T1/lmtt/m/n/12 student_results_aggregated_suppressed_EES <- student_results_aggregated_suppressed %>%[] 
- []
-
-[25]
-Overfull \hbox (61.29524pt too wide) in paragraph at lines 1172--1172
-[]\T1/lmtt/m/n/12 student_results_aggregated_suppressed_EES <- student_results_aggregated_suppressed %>%[] 
- []
-
-[26] [27] [28] [29] [30] [31] [32] [33] [34]
-Overfull \hbox (18.07022pt too wide) in paragraph at lines 1589--1589
-[]\T1/lmtt/m/n/12 renvPackages <- names(jsonlite::fromJSON("renv.lock", flatten = TRUE)$Packages)[] 
- []
-
-[35]
-Overfull \hbox (36.59523pt too wide) in paragraph at lines 1598--1598
-[]\T1/lmtt/m/n/12 # note down output 1, and reuse in the lib argument of install.packages() as below[] 
- []
-
-
-Overfull \hbox (5.72021pt too wide) in paragraph at lines 1600--1600
-[]\T1/lmtt/m/n/12 install.packages("rmarkdown", lib = "C:/Users/swong/OneDrive - Department for[] 
- []
-
-
-Overfull \hbox (55.09923pt too wide) in paragraph at lines 1601--1601
-[]\T1/lmtt/m/n/12 Education/Documents/stats-production-guidance/renv/library/R-4.0/x86_64-w64-mingw32")[] 
- []
-
-[36] [37] [38]
-File: images/Department_for_Education.png Graphic file (type png)
-<use images/Department_for_Education.png>
-Package pdftex.def Info: images/Department_for_Education.png  used on input line 1705.
-(pdftex.def)             Requested size: 469.75311pt x 277.93726pt.
-
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 1718--1723
-[][]  
- []
-
-
-Overfull \hbox (1.88498pt too wide) in paragraph at lines 1727--1727
-[]|\T1/phv/m/n/12 enquiries| 
- []
-
-
-Overfull \hbox (4.20119pt too wide) in paragraph at lines 1728--1728
-[]|\T1/phv/m/n/12 download| 
- []
-
-
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 1726--1730
-[][]  
- []
-
-<images/logoTwitter.png, id=448, 27.2655pt x 21.681pt>
-File: images/logoTwitter.png Graphic file (type png)
-<use images/logoTwitter.png>
-Package pdftex.def Info: images/logoTwitter.png  used on input line 1732.
-(pdftex.def)             Requested size: 27.26665pt x 21.68193pt.
-<images/logoFacebook.png, id=449, 21.681pt x 21.681pt>
-File: images/logoFacebook.png Graphic file (type png)
-<use images/logoFacebook.png>
-Package pdftex.def Info: images/logoFacebook.png  used on input line 1735.
-(pdftex.def)             Requested size: 21.68193pt x 21.68193pt.
-[39 <./images/logoTwitter.png> <./images/logoFacebook.png>] (./workshop_R.aux)
-Package rerunfilecheck Info: File `workshop_R.out' has not changed.
-(rerunfilecheck)             Checksum: F1F2F63646B8980696AAF314ECFA482D;5383.
- ) 
+) [5{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}] [6 <./images/gitdemo/gitdemo-gitRstudio-settings.PNG> <./images/gitdemo/gitdemo-gitRstudio-NewTerminal.PNG>] [7]
+! Missing number, treated as zero.
+<to be read again> 
+                   {
+l.340 \textbackslash makebox{[}1.00\linewidth{
+                                              ]}\{ \centering 
 Here is how much of TeX's memory you used:
- 24676 strings out of 477961
- 465199 string characters out of 5836431
- 1862068 words of memory out of 5000000
- 44288 multiletter control sequences out of 15000+600000
- 556914 words of font info for 72 fonts, out of 8000000 for 9000
+ 24390 strings out of 477961
+ 460108 string characters out of 5836431
+ 1861068 words of memory out of 5000000
+ 44139 multiletter control sequences out of 15000+600000
+ 556608 words of font info for 71 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 83i,14n,80p,443b,601s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on workshop_R.pdf (39 pages, 1312884 bytes).
-PDF statistics:
- 514 PDF objects out of 1000 (max. 8388607)
- 443 compressed objects within 5 object streams
- 142 named destinations out of 1000 (max. 500000)
- 317 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 83i,11n,80p,443b,523s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
+!  ==> Fatal error occurred, no output PDF file produced!
