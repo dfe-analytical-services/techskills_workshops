@@ -166,8 +166,7 @@ If you're struggling to grasp that, that's okay, we will create a project and se
  sharp corners, 
  colframe=gssmidblue,
  width=0.9\linewidth,
- boxrule=0pt,
- equal height group=introbox
+ boxrule=0pt
  ]
 Create project
 \tcblower
@@ -208,19 +207,50 @@ Each time you add or remove packages, or update the package versions, you should
 
 # Your initial script
 
-Now that we have your project created and renv activated, we can create our first code script. Open a new R script file by selecting **File > New File > R script**. 
+Now that we have your project created and renv activated, we can create our first code script. 
+
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+\tcblower
+Open a new R script file by selecting \textbf{File > New File > R script}.
+\end{tcolorbox}
+ 
 
 ## Comments and headings
 
 Comments in code are some of the most useful documentation you can use, and are crucial for RAP! You should start your script with comments that provide important information such as what this code script contains and what it is for - basically anything you think a new person would need to know in order to understand and run the code effectively. You add comments in R scripts by starting the line with a **hash symbol, #**. Any line that starts with a hash symbol will be treated as a comment rather than code, and so will not be 'run'. You can also add comments to the end of lines of code by including the hash symbol half-way through a line - everything after the # will be treated as a comment, and everything before will be treated as code. If you have multiple lines of comments you wish to add, you can type them out, highlight them and use \hlblue{`ctrl+shift+C`} to 'comment out' all of the highlighted lines. 
 
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Set up your script
+\tcblower
 Add some comments to the beginning of your script now - include your name, the date, and a short description that explains that this is the first script, and will include library calls as well as loading data and any functions that will be used in future.
 
-Your first script should definitely include the 'library-calls' for all of the packages you will need. This basically means loading any packages you need at the beginning, before running any future code that requires them. We load/call packages by using the `library()` function.
+Your first script should definitely include the 'library-calls' for all of the packages you will need. This basically means loading any packages you need at the beginning, before running any future code that requires them. We load/call packages by using the \verb|library()| function.
 
-Our first steps only require two packages, 'readr' and 'dplyr'. You can either install these by typing `install.packages('readr')` and `install.packages('dplyr')` one at a time in the console, or you can install both packages at once by running `install.packages(c('readr', 'dplyr'))`. Then, remember to take a `renv::snapshot()` to add these to the renv.lock file! 
+Our first steps only require two packages, 'readr' and 'dplyr'. You can either install these by typing \verb|install.packages('readr')| and \verb|install.packages('dplyr')| one at a time in the console, or you can install both packages at once by running \verb|install.packages(c('readr', 'dplyr'))|. Then, remember to take a \verb|renv::snapshot()| to add these to the renv.lock file! 
 
 Now, below your initial comments, we will add the library calls to the script. First, we should add a section header! Section headers are yet again another form of good documentation, and and extremely helpful when navigating around scripts of code! To add a section header, we can use the keyboard shortcut \hlblue{`ctrl+shift+R`}. In the pop-up window, give the first section the header 'Load in packages'. Then click okay and you should see the header has appeared in your code. In the bottom left of the code window, you should see the section header has appeared, and if you click on the name you can navigate to other sections when you have built up your script further. 
+\end{tcolorbox}
+
 
 ```{r echo=FALSE, out.width='100%', fig.cap='R Studio section headers navigation'}
 knitr::include_graphics('images/RforRAP/section_headers.png')
