@@ -249,6 +249,13 @@ Your first script should definitely include the 'library-calls' for all of the p
 Our first steps only require two packages, 'readr' and 'dplyr'. You can either install these by typing \verb|install.packages('readr')| and \verb|install.packages('dplyr')| one at a time in the console, or you can install both packages at once by running \verb|install.packages(c('readr', 'dplyr'))|. Then, remember to take a \verb|renv::snapshot()| to add these to the renv.lock file! 
 
 Now, below your initial comments, we will add the library calls to the script. First, we should add a section header! Section headers are yet again another form of good documentation, and and extremely helpful when navigating around scripts of code! To add a section header, we can use the keyboard shortcut \hlblue{`ctrl+shift+R`}. In the pop-up window, give the first section the header 'Load in packages'. Then click okay and you should see the header has appeared in your code. In the bottom left of the code window, you should see the section header has appeared, and if you click on the name you can navigate to other sections when you have built up your script further. 
+
+
+Another way to view and navigate between all of the sections in a script is to use the keyboard shortcut \hlblue{`ctrl+shift+O`} to open the sections in a small panel on the right of your script.
+
+Now save your initial script with the name 'main.R'. You can save code scripts by either selecting \textbf{File > Save As...} or by clicking the save icon in the bar below the script name. When your script contains \textbf{unsaved changes}, the script name will turn red and end with a * symbol. When it does not contain any unsaved changes, the name of the script will turn black, with no * symbol, and the save icon beneath it will grey-out.
+
+\textbf{Throughout this workshop, make sure to add comments at every step so you know what each code snippet is doing, and why!}
 \end{tcolorbox}
 
 
@@ -256,11 +263,7 @@ Now, below your initial comments, we will add the library calls to the script. F
 knitr::include_graphics('images/RforRAP/section_headers.png')
 ```
 
-Another way to view and navigate between all of the sections in a script is to use the keyboard shortcut \hlblue{`ctrl+shift+O`} to open the sections in a small panel on the right of your script.
 
-Now save your initial script with the name 'main.R'. You can save code scripts by either selecting **File > Save As...** or by clicking the save icon in the bar below the script name. When your script contains **unsaved changes**, the script name will turn red and end with a * symbol. When it does not contain any unsaved changes, the name of the script will turn black, with no * symbol, and the save icon beneath it will grey-out.
-
-**Throughout this workshop, make sure to add comments at every step so you know what each code snippet is doing, and why!**
 
 ## Adding and running code
 
