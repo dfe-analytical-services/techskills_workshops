@@ -14,6 +14,8 @@ header-includes:
 - \usepackage{fancyhdr}
 - \usepackage{xpatch}
 - \usepackage{booktabs}
+- \usepackage{soul}
+- \usepackage{color}
 - \onehalfspacing
 - \pagestyle{fancy}
 - \definecolor{gssmidblue}{RGB}{32, 115, 188}
@@ -37,6 +39,7 @@ header-includes:
 - \usepackage{cellspace}
 - \usepackage{etoolbox}
 - \colorlet{headercolour}{DarkSeaGreen}
+- \newcommand{\hlblue}[1]{{\sethlcolor{cyan}\hl{#1}}}
 
 
 output:
@@ -152,14 +155,14 @@ Now we will begin the tasks and group work. First, everyone **open up R studio.*
 
 When creating RAP processes, it's key that your code is reusable, transparent, and well documented, such that it is future-proofed for any future team members. Therefore, first, we will show you how to create an R project. Using an R project ensures that all of the files in the project folder (scripts, plots, notes, etc.) can all be referenced relative to the **.Rproj file** location. Basically, it removes the need to set and get your working directory, and removes the need to use long & complete file paths. Instead, you essentially start any file path from the location of the .Rproj file! *For example*, if you have a code.R code script, and a data.csv file in a project folder that has been set up as an R project, and you want to read the .csv in the R script, you don't need the entire file path of the csv (which probably starts C:/... and can get very long), just the file path relative to the *.Rproj file* which in this case would simply be 'data.csv'.
 
-If you're struggling to grasp that, that's okay, we will create a project and see this in action today. To create a new project, in R studio, go to **File > New Project > ...**. If you were creating a new R project that was not linked to an online *Git* repository, you would select **File > New Project > New directory > New Project**, *however*, today we will be using [the GitHub repository for the workshop](https://github.com/dfe-analytical-services/techskills_workshops). Using Git repositories is best RAP practice as it means you're using version control software and your work is more easily shared transparently within your team/department. Therefore, today we will 
+If you're struggling to grasp that, that's okay, we will create a project and see this in action today. To create a new project, in R studio, go to **File > New Project > ...**. If you were creating a new R project that was not linked to an online *Git* repository, you would select **File > New Project > New directory > New Project**, *however*, today we will be using [the GitHub repository for the workshop](https://github.com/dfe-analytical-services/techskills_workshops). Using Git repositories is best RAP practice as it means you're using version control software and your work is more easily shared transparently within your team/department. 
 
 \begin{tcolorbox}[colback=gssmidblue, 
  leftright skip=0.1cm,
  coltext=white, 
  halign=left, 
- fontupper={\Huge \bfseries},
- fontlower={\large \bfseries},
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
  sharp corners, 
  colframe=gssmidblue,
  width=0.9\linewidth,
@@ -168,14 +171,13 @@ If you're struggling to grasp that, that's okay, we will create a project and se
  ]
 Create project
 \tcblower
-select **File > New Project > Version Control > Git**. To get the repository URL, go to the GitHub repository, click the green 'code' button and copy the link from there. You can choose the project directory name, as this is how it will appear on your device. 
+Select \textbf{File > New Project > Version Control > Git}. To get the repository URL, go to the GitHub repository, click the green 'code' button and copy the link from there. You can choose the project directory name, as this is how it will appear on your device. 
 
-For the file path at the bottom, you should make sure this is **not** saved in your OneDrive area. You should select Browse and navigate out of OneDrive to save the project directory elsewhere (this is because OneDrive has it's own version-control system, and trying to use Git within that can cause complications and errors). 
+For the file path at the bottom, you should make sure this is \textbf{not} saved in your OneDrive area. You should select Browse and navigate out of OneDrive to save the project directory elsewhere (this is because OneDrive has it's own version-control system, and trying to use Git within that can cause complications and errors). 
 
 Click 'Create project'. 
 \end{tcolorbox}
 
-Click 'Create project'. 
 
 ## Using renv
 
@@ -185,7 +187,22 @@ Once that has installed, you can run the functions from this package. You can al
 
 When using functions from packages, you can either type `<package name>::<function name>` )(e.g. `readr::read_csv()`) or just the function name on its own. However, problems can arise if two packages have different functions with the same name. When you have loaded two packages that contain functions with the same name and you only type the function name, R automatically uses the function from the package that was loaded most recently. If you want to choose which package to use and override the precedent set by R, you should use the package name and colons to explicitly state the source package and function you intended. 
 
-To activate renv, run `renv::activate()` in the console. If you navigate back to the files tab in the bottom left and look in your project folder, you should see some renv-related files have appeared, including a *renv.lock* file. The renv.lock file is the file that records all of your project's packages and their versions. If you click on the renv.lock file it will open for you to view in the top left. 
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt,
+ ]
+Activate renv
+\tcblower
+To activate renv, run \verb|renv::activate()| in the console. If you navigate back to the files tab in the bottom left and look in your project folder, you should see some renv-related files have appeared, including a \textit{renv.lock} file. The renv.lock file is the file that records all of your project's packages and their versions. If you click on the renv.lock file it will open for you to view in the top left.  
+\end{tcolorbox}
+
 
 Each time you add or remove packages, or update the package versions, you should run `renv::snapshot()` to take a snapshot of the current state of your library. If you ever get a new device, or someone else wants to view your project, they simply need to run `renv::restore()` to restore the package library on their device to match the packages recorded in the renv.lock file. 
 
@@ -195,7 +212,7 @@ Now that we have your project created and renv activated, we can create our firs
 
 ## Comments and headings
 
-Comments in code are some of the most useful documentation you can use, and are crucial for RAP! You should start your script with comments that provide important information such as what this code script contains and what it is for - basically anything you think a new person would need to know in order to understand and run the code effectively. You add comments in R scripts by starting the line with a **hash symbol, #**. Any line that starts with a hash symbol will be treated as a comment rather than code, and so will not be 'run'. You can also add comments to the end of lines of code by including the hash symbol half-way through a line - everything after the # will be treated as a comment, and everything before will be treated as code. If you have multiple lines of comments you wish to add, you can type them out, highlight them and use `ctrl+shift+C` to 'comment out' all of the highlighted lines. 
+Comments in code are some of the most useful documentation you can use, and are crucial for RAP! You should start your script with comments that provide important information such as what this code script contains and what it is for - basically anything you think a new person would need to know in order to understand and run the code effectively. You add comments in R scripts by starting the line with a **hash symbol, #**. Any line that starts with a hash symbol will be treated as a comment rather than code, and so will not be 'run'. You can also add comments to the end of lines of code by including the hash symbol half-way through a line - everything after the # will be treated as a comment, and everything before will be treated as code. If you have multiple lines of comments you wish to add, you can type them out, highlight them and use \hlblue{`ctrl+shift+C`} to 'comment out' all of the highlighted lines. 
 
 Add some comments to the beginning of your script now - include your name, the date, and a short description that explains that this is the first script, and will include library calls as well as loading data and any functions that will be used in future.
 
@@ -203,13 +220,13 @@ Your first script should definitely include the 'library-calls' for all of the p
 
 Our first steps only require two packages, 'readr' and 'dplyr'. You can either install these by typing `install.packages('readr')` and `install.packages('dplyr')` one at a time in the console, or you can install both packages at once by running `install.packages(c('readr', 'dplyr'))`. Then, remember to take a `renv::snapshot()` to add these to the renv.lock file! 
 
-Now, below your initial comments, we will add the library calls to the script. First, we should add a section header! Section headers are yet again another form of good documentation, and and extremely helpful when navigating around scripts of code! To add a section header, we can use the keyboard shortcut `ctrl+shift+R`. In the pop-up window, give the first section the header 'Load in packages'. Then click okay and you should see the header has appeared in your code. In the bottom left of the code window, you should see the section header has appeared, and if you click on the name you can navigate to other sections when you have built up your script further. 
+Now, below your initial comments, we will add the library calls to the script. First, we should add a section header! Section headers are yet again another form of good documentation, and and extremely helpful when navigating around scripts of code! To add a section header, we can use the keyboard shortcut \hlblue{`ctrl+shift+R`}. In the pop-up window, give the first section the header 'Load in packages'. Then click okay and you should see the header has appeared in your code. In the bottom left of the code window, you should see the section header has appeared, and if you click on the name you can navigate to other sections when you have built up your script further. 
 
 ```{r echo=FALSE, out.width='100%', fig.cap='R Studio section headers navigation'}
 knitr::include_graphics('images/RforRAP/section_headers.png')
 ```
 
-Another way to view and navigate between all of the sections in a script is to use the keyboard shortcut `ctrl+shift+O` to open the sections in a small panel on the right of your script.
+Another way to view and navigate between all of the sections in a script is to use the keyboard shortcut \hlblue{`ctrl+shift+O`} to open the sections in a small panel on the right of your script.
 
 Now save your initial script with the name 'main.R'. You can save code scripts by either selecting **File > Save As...** or by clicking the save icon in the bar below the script name. When your script contains **unsaved changes**, the script name will turn red and end with a * symbol. When it does not contain any unsaved changes, the name of the script will turn black, with no * symbol, and the save icon beneath it will grey-out.
 
@@ -225,7 +242,7 @@ To actually run code that you have saved in a script file, there are a few optio
 knitr::include_graphics('images/RforRAP/run_buttons.png')
 ```
 
-Button 1 in the above image (the 'run' button) will run either all *highlighted* code, or, if no lines are highlighted it will run the line or snippet where your cursor is located (in the above image, you can see the faint cursor line at the end of line 4, so clicking run would run line 4 in this instance). Another way to do this is to use the 'run' keyboard shortcut - `ctrl + Enter`. This works in the same way and will either run all highlighted lines, or the snippet where the cursor is located.
+Button 1 in the above image (the 'run' button) will run either all *highlighted* code, or, if no lines are highlighted it will run the line or snippet where your cursor is located (in the above image, you can see the faint cursor line at the end of line 4, so clicking run would run line 4 in this instance). Another way to do this is to use the 'run' keyboard shortcut - \hlblue{`ctrl + Enter`}. This works in the same way and will either run all highlighted lines, or the snippet where the cursor is located.
 
 Button 2 (the 'Source' button) will run the entire script from the first to the last line in one go! This is the same as running `Source("script_name.R")` in the console. `Source(...)` is particularly useful in RAPs, as one of the baseline expectations for statistics publication pipelines is that you have one script that runs every single step of the process - sourcing scripts one by one in the correct order in a 'run_pipeline' script (with comments!) is great way to do this while keeping it tidy and clear!
 
@@ -319,7 +336,7 @@ Once you have pulled data into R studio and you can see it in your environment, 
 
 Aggregating data is a common task analysts in in statistics publication face. In the data we have loaded into R studio in this workshop, there is currently one line per student, containing that students characteristics and grades. We want to aggregate this by certain characteristics and get the average grade for each aggregated group. Firstly, it's possible that we might want to filter on certain variables so that we only include certain students in our data. 
 
-To **filter** data, we can simply use the `filter()` function from the `dplyr` package, which we have already installed and loaded. Here we will also introduce the **pipe** symbol - `%>%`. You can either type it out *or* use the keyboard shortcut `Ctrl + Shift + M` to insert it! As said before, in R, a new line is read as a new command, however, sometimes we might have long snippets of code that should all be run as one command! The pipe symbol is used with `dplyr` commands to join up multiple lines into one command, and **the order does matter!** 
+To **filter** data, we can simply use the `filter()` function from the `dplyr` package, which we have already installed and loaded. Here we will also introduce the **pipe** symbol - `%>%`. You can either type it out *or* use the keyboard shortcut \hlblue{`Ctrl + Shift + M`} to insert it! As said before, in R, a new line is read as a new command, however, sometimes we might have long snippets of code that should all be run as one command! The pipe symbol is used with `dplyr` commands to join up multiple lines into one command, and **the order does matter!** 
 
 In our environment, we should see the data we have loaded in with the name we gave it - 'student_results'. If we want to filter this, we could do so in the following format:
 
