@@ -8,6 +8,7 @@ library(ggplot2)
 library(tidyverse)
 library(tidyr)
 library(plotly)
+library(janitor)
 
 
 # Read in the data --------------------------------------------------------
@@ -15,6 +16,13 @@ library(plotly)
 student_results <- read_csv("data/some_student_results.csv")
 View(student_results)
 
+
+# Filter data -------------------------------------------------------------
+
+student_results_filtered <- student_results %>%
+  filter(year == 2015,
+         age > 16,
+         Mjob %in% c('health','teacher','services'))
 
 # Aggregate the data ------------------------------------------------------
 
@@ -46,6 +54,10 @@ View(student_results_aggregated)
 student_results_aggregated <- student_results_aggregated %>%
   select(year, school, sex, age, students, G1_mean, G2_mean, G3_mean) %>%
   rename_all(tolower)
+
+student_results_aggregated <- student_results_aggregated %>%
+  select(year, school, sex, age, students, G1_mean, G2_mean, G3_mean) %>%
+  clean_names(case = 'snake')
 
 # Suppression on rows with less than 5 students ---------------------------
 

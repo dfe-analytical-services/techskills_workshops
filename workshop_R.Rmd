@@ -97,6 +97,11 @@ knitr::include_graphics('images/RforRAP/R-studio-panels.png')
 
 * Bottom right - File explorer/plots/packages/Viewer. 
 
+# ADA and databricks
+
+This workshop and it's materials were developed before the implementation of ADA or databricks. Therefore, they are not currently covered in this workshop, and we use the existing tools of R Studio, Git and SQL for the tasks. As ADA develops and becomes more widely used, we will encorporate it into the workshop to account for new ways of working.
+
+
 # Pre-workshop requirements
 
 ## Technical requirements
@@ -147,12 +152,7 @@ Now we will begin the tasks and group work. First, everyone **open up R studio.*
 
 When creating RAP processes, it's key that your code is reusable, transparent, and well documented, such that it is future-proofed for any future team members. Therefore, first, we will show you how to create an R project. Using an R project ensures that all of the files in the project folder (scripts, plots, notes, etc.) can all be referenced relative to the **.Rproj file** location. Basically, it removes the need to set and get your working directory, and removes the need to use long & complete file paths. Instead, you essentially start any file path from the location of the .Rproj file! *For example*, if you have a code.R code script, and a data.csv file in a project folder that has been set up as an R project, and you want to read the .csv in the R script, you don't need the entire file path of the csv (which probably starts C:/... and can get very long), just the file path relative to the *.Rproj file* which in this case would simply be 'data.csv'.
 
-If you're struggling to grasp that, that's okay, we will create a project and see this in action today. To create a new project, in R studio, go to **File > New Project > ...**. If you were creating a new R project that was not linked to an online *Git* repository, you would select **File > New Project > New directory > New Project**, *however*, today we will be using [the GitHub repository for the workshop](https://github.com/dfe-analytical-services/techskills_workshops). Using Git repositories is best RAP practice as it means you're using version control software and your work is more easily shared transparently within your team/department. Therefore, today we will select **File > New Project > Version Control > Git**. To get the repository URL, go to the GitHub repository, click the green 'code' button and copy the link from there. You can choose the project directory name, as this is how it will appear on your device. 
-
-For the file path at the bottom, you should make sure this is **not** saved in your OneDrive area. You should select Browse and navigate out of OneDrive to save the project directory elsewhere (this is because OneDrive has it's own version-control system, and trying to use Git within that can cause complications and errors). 
-
-\makebox[1.00\linewidth]{
-\centering
+If you're struggling to grasp that, that's okay, we will create a project and see this in action today. To create a new project, in R studio, go to **File > New Project > ...**. If you were creating a new R project that was not linked to an online *Git* repository, you would select **File > New Project > New directory > New Project**, *however*, today we will be using [the GitHub repository for the workshop](https://github.com/dfe-analytical-services/techskills_workshops). Using Git repositories is best RAP practice as it means you're using version control software and your work is more easily shared transparently within your team/department. Therefore, today we will 
 
 \begin{tcolorbox}[colback=gssmidblue, 
  leftright skip=0.1cm,
@@ -162,13 +162,17 @@ For the file path at the bottom, you should make sure this is **not** saved in y
  fontlower={\large \bfseries},
  sharp corners, 
  colframe=gssmidblue,
- width=0.49\linewidth,
+ width=0.9\linewidth,
  boxrule=0pt,
  equal height group=introbox
  ]
-Task
+Create project
 \tcblower
-task info blah blah 
+select **File > New Project > Version Control > Git**. To get the repository URL, go to the GitHub repository, click the green 'code' button and copy the link from there. You can choose the project directory name, as this is how it will appear on your device. 
+
+For the file path at the bottom, you should make sure this is **not** saved in your OneDrive area. You should select Browse and navigate out of OneDrive to save the project directory elsewhere (this is because OneDrive has it's own version-control system, and trying to use Git within that can cause complications and errors). 
+
+Click 'Create project'. 
 \end{tcolorbox}
 
 Click 'Create project'. 
@@ -259,7 +263,7 @@ b. Add the library calls to the correct section of the initial script,
 
 c. Take a snapshot to update the renv.lock file.
 
-Once you have completed the above steps, we can use the new packages to connect to the secure SQL database. We use the following code (inserting the server and database we require) to create an object with the connection. You can call it anything, but common practice is to call this connection 'con':
+Once you have completed the above steps, we can use the new packages to connect to the secure SQL database. We use the following code (**inserting the server and database we require**) to create an object with the connection. You can call it anything, but common practice is to call this connection 'con':
 
 ```
 # Connect to SQL database
@@ -271,7 +275,7 @@ con <- DBI::dbConnect(odbc::odbc(),
   )
 ```
 
-[Note that this code will only work for you if you have access to the specified server and database, so only users with existing access can use this code in R to connect and pull in data! If someone without access tried to run this code, they would get an error in the R console.]
+**[Note that this code will only work for you if you have access to the specified server and database, so only users with existing access can use this code in R to connect and pull in data! If someone without access tried to run this code, they would get an error in the R console.]**
 
 #### Writing a table to a SQL database
 
@@ -279,11 +283,15 @@ There are a number of functions available in R that can write a data frame to a 
 
 `dbWriteTable(con,  Id(schema = "dbo", table = 'sd_sandbox_student_results'), student_results)`
 
-Note the first argument the function takes is the database connection you've already created, the second is the table location that you want to write to on that database and the third argument is the data frame that you're sending to the database.
+Note the first argument the function takes is the database connection you've already created, the second is the table location that you want to write to on that database (comprised of the schema and desired name) and the third argument is the data frame that you're sending to the database.
+
+If you have existing access to a SQL database that you or your team owns, you can give the above code a go at writing the student results data that we have just pulled in as a CSV to your SQL database, as long as you defined 'con' using the server and database name. 
+
+At the end of the workshop you can delete this by right clicking on the table in SQL Server Management.
 
 #### Reading a table from a SQL database
 
-Now that we have the connection stored and named, we can use it to read in a table from the database into R. There are multiple ways to do this - in this workshop we will cover two of them. 
+Now that we have the connection stored and named, we can use it to read in a table from the database into R. There are multiple ways to do this - in this workshop we will cover two of them. Unless you successfully wrote the table to a SQL database in the previous step, you **cannot run the following code**. It is still useful to read and have knowledge of this, and to refer back to in future. 
 
 1. Use `dplyr::tbl(con, table_name)`,
 
@@ -311,19 +319,21 @@ Once you have pulled data into R studio and you can see it in your environment, 
 
 Aggregating data is a common task analysts in in statistics publication face. In the data we have loaded into R studio in this workshop, there is currently one line per student, containing that students characteristics and grades. We want to aggregate this by certain characteristics and get the average grade for each aggregated group. Firstly, it's possible that we might want to filter on certain variables so that we only include certain students in our data. 
 
-To **filter** data, we can simply use the `filter()` function from the `dplyr` package, which we have already installed and loaded. Here we will also introduce the **pipe** symbol - `%>%`. You can either type it out *or* use the keyboard shortcut `Ctrl + Shift + M` to insert it! As said before, in R, a new line is read as a new command, however, sometimes we might have long snippets of code that should all be run as one command! The pipe symbol is used with `dplyr` commands to join up multiple lines into one command, and the order does matter! 
+To **filter** data, we can simply use the `filter()` function from the `dplyr` package, which we have already installed and loaded. Here we will also introduce the **pipe** symbol - `%>%`. You can either type it out *or* use the keyboard shortcut `Ctrl + Shift + M` to insert it! As said before, in R, a new line is read as a new command, however, sometimes we might have long snippets of code that should all be run as one command! The pipe symbol is used with `dplyr` commands to join up multiple lines into one command, and **the order does matter!** 
 
-In our environment, we should see the data we have loaded in with the name we gave it - 'student_results'. If we want to filter this, we would do so in the following format:
+In our environment, we should see the data we have loaded in with the name we gave it - 'student_results'. If we want to filter this, we could do so in the following format:
 
 ```
 student_results %>%
-filter(column_name == contraint, 
-      column_name2 < constraint2, 
-      column_name3 %in% c(list1, list2, list3))
+  filter(year == 2015,
+         age > 16, 
+         Mjob %in% c('health','teacher','services'))
 ```
 
-You can give this a go in the console without storing the results in the environment by simply running the above without giving it a name like we did when we read the data in. If you wanted to store your results, you would add `name <-` at the start of the first line. 
-In today's workshop, we don't need to filter the data before we start aggregating. The first thing we want to do is specify the variables we want to group the data by. In this example we want to group by **year, school, sex** and **age**. This is very easily done using the `group_by()` function as below: 
+In the above code you can see that when using `filter()`, we can choose to filter for specific values by usin g `==`, we can use the `>` and `<` symbols on numeric columns to filter numeric values, and we can use `%in% c(...)` to filter for a given list of multiple values.
+You can give this a go in the console without storing the results in the environment by simply running the above without giving it a name like we did when we read the data in. If you wanted to store your results, you would add `student_results_filtered <-` at the start of the first line (or any other name you choose). 
+
+In today's workshop, we don't need to filter the data before we start aggregating, so we don't need to give it a name. The first thing we want to do is specify the variables we want to group the data by. In this example we want to group by **year, school, sex** and **age**. This is very easily done using the `group_by()` function as below: 
 
 ```
 student_results %>%
@@ -383,11 +393,11 @@ student_results_aggregated %>%
   select(year, school, sex, age, students, G1_mean, G2_mean, G3_mean) %>%
   rename(g1_mean = G1_mean, g2_mean = G2_mean, g3_mean = G3_mean)
 ```
-So when using `rename` as above, the order needed is `desired_name = original_name`. As you can see above, all this code does is convert the upper case G's to lower case, however, you could rename each column to anything you like using this method. It's best practice to stay consistent with the case you use, and in EES, we expect all column names in 'snake_case'. Therefore, something you might want to do is rename all of the columns to lower case. If your rename-step is something like converting all columns to lower case, this can be done in a more effective way, with less copying and pasting, using `rename_all()` and `tolower()` like this:
+So when using `rename` as above, the order needed is `desired_name = original_name`. As you can see above, all this code does is convert the upper case G's to lower case, however, you could rename each column to anything you like using this method. It's best practice to stay consistent with the case you use, and in EES, we expect all column names in 'snake_case'. Therefore, something you might want to do is rename all of the columns to lower case. If your rename-step is something like converting all columns to lower case, this can be done in a more effective way, with less copying and pasting, using `janitor::clean_names()`. The `clean_names()` function will convert to snake case by default, however you can also choose title case or sentence case by using `clean_names(case = 'title)`. First, install the `janitor` package and add it to the library calls. Then you can run the following code:
 ```
 student_results_aggregated <- student_results_aggregated %>%
   select(year, school, sex, age, students, G1_mean, G2_mean, G3_mean) %>%
-  rename_all(tolower)
+  clean_names()
 ```
 
 Since above, we have started the first line with `student_results_aggregated <-`, this means it's going to overwrite whatever was stored in the environment under that name before! This *can* be risky, since `select()` can also be used to **drop** columns. If you left out any names from the select line by accident, they would simply be dropped, so be careful if you use the same name as the object from before this step! This can be avoided by picking a different name, like `student_results_aggregated_reordered` for example. If you *did* make a mistake, and overwrote something by accident, you can just re-run the code that made the original object before it was overwritten. 
@@ -526,8 +536,16 @@ The above code gets us the correct geographic level and region name, but not reg
 
 The [dfe-analytical-services](https://github.com/dfe-analytical-services) area on GitHub holds all publicly available code from DfE. The code behind the [EES data screener](https://rsconnect/rsc/dfe-published-data-qa/) is available here, and [the screener repository](https://github.com/dfe-analytical-services/dfe-published-data-qa) contains a [folder full of geographic lookup tables](https://github.com/dfe-analytical-services/dfe-published-data-qa/tree/master/data)! 
 
-Today we will use the [regions.csv](https://github.com/dfe-analytical-services/dfe-published-data-qa/blob/master/data/regions.csv) file from this folder. We can pull the csv directly from the repo using the 'raw' URL: https://raw.githubusercontent.com/dfe-analytical-services/dfe-published-data-qa/master/data/regions.csv. 
-Using this also means if the CSV is updated on GitHub, when you run your code it will automatically pull the latest version of the CSV! Adding appropriate headings and comments, pull in this lookup table using the following code:
+Today we will use the [regions.csv](https://github.com/dfe-analytical-services/dfe-published-data-qa/blob/master/data/regions.csv) file from this folder. We can pull the csv directly from the repo using the 'raw' URL! To find this, simply open the file in GitHub (in this case use the above link) and select the 'raw' button as in the screenshot below:
+
+```{r echo=FALSE, out.width='100%', fig.cap='R studio panels'}
+knitr::include_graphics('images/RforRAP/github-raw-button.png')
+```
+
+Clicking the button should take you to a new window that looks like a simple text file of the data. **Copy the URL of this page** - this is the raw URL! Using this URL to pull the data into R instead of downloading it to your desktop means if the CSV is updated on GitHub, when you run your code it will automatically pull the latest version of the CSV! 
+
+
+Adding appropriate headings and comments, pull in this lookup table using the following code:
 
 `# Pull in regions lookup table`
 
@@ -557,7 +575,7 @@ The data created should now look a lot like what you would normally upload to EE
 
 The data produced in the above section meets our EES data standards, and would pass all of the tests run by the [EES data screener](https://rsconnect/rsc/dfe-published-data-qa/). However, it is not optimised in the best way for users! Recent user testing found that when using the table tool, users preferred a 'long' data format rather than 'wide'. This instance is seen as 'wide' because we currently have 3 columns showing the average grade for three different assessments. The 'long' way to display this would be to have one column called 'assessment' and one column called 'mean_grade'. The 'assessment' column would indicate which assessment (1, 2 or 3) the grade in that row refers to. 
 
-You may be used to a version of this type of transformation in Excel using *pivot tables* for many reasons, not just for EES data. This can be easily done in R, which is better for RAP, and will also save you time and repetition in the future! In the `tidyr` package there are two functions that can be used to pivot tables - `pivot_longer()` and `pivot_wider()`. In this example, we want to use `pivot_longer()` to get the columns mentioned into a long format. 
+You may be used to a version of this type of transformation in Excel using *pivot tables* for many reasons, not just for EES data. This can be easily done in R, which is better for RAP, and will also save you time and repetition in the future! In the `tidyr` package there are two functions that can be used to pivot tables - `pivot_longer()` and `pivot_wider()`. In this example, we want to use `pivot_longer()` to get the columns mentioned into a long format. First, you need to install the `tidyr` package, add it to the library calls and take a `renv::snapshot()`.
 
 The code below will reformat the data: 
 
