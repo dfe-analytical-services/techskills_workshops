@@ -220,6 +220,7 @@ Now that we have your project created and renv activated, we can create our firs
  width=0.9\linewidth,
  boxrule=0pt
  ]
+ Open a new script
 \tcblower
 Open a new R script file by selecting \textbf{File > New File > R script}.
 \end{tcolorbox}
@@ -245,14 +246,58 @@ Set up your script
 Add some comments to the beginning of your script now - include your name, the date, and a short description that explains that this is the first script, and will include library calls as well as loading data and any functions that will be used in future.
 
 Your first script should definitely include the 'library-calls' for all of the packages you will need. This basically means loading any packages you need at the beginning, before running any future code that requires them. We load/call packages by using the \verb|library()| function.
+\end{tcolorbox}
 
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Install packages
+\tcblower
 Our first steps only require two packages, 'readr' and 'dplyr'. You can either install these by typing \verb|install.packages('readr')| and \verb|install.packages('dplyr')| one at a time in the console, or you can install both packages at once by running \verb|install.packages(c('readr', 'dplyr'))|. Then, remember to take a \verb|renv::snapshot()| to add these to the renv.lock file! 
+\end{tcolorbox}
 
-Now, below your initial comments, we will add the library calls to the script. First, we should add a section header! Section headers are yet again another form of good documentation, and and extremely helpful when navigating around scripts of code! To add a section header, we can use the keyboard shortcut \hlblue{`ctrl+shift+R`}. In the pop-up window, give the first section the header 'Load in packages'. Then click okay and you should see the header has appeared in your code. In the bottom left of the code window, you should see the section header has appeared, and if you click on the name you can navigate to other sections when you have built up your script further. 
 
+Now, below your initial comments, we will add the library calls to the script. First, we should add a section header! Section headers are yet again another form of good documentation, and and extremely helpful when navigating around scripts of code! 
+
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Add a section header
+\tcblower
+To add a section header, we can use the keyboard shortcut \hlblue{`ctrl+shift+R`}. In the pop-up window, give the first section the header 'Load in packages'. Then click okay and you should see the header has appeared in your code. In the bottom left of the code window, you should see the section header has appeared, and if you click on the name you can navigate to other sections when you have built up your script further. 
+\end{tcolorbox}
 
 Another way to view and navigate between all of the sections in a script is to use the keyboard shortcut \hlblue{`ctrl+shift+O`} to open the sections in a small panel on the right of your script.
 
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Save your script
+\tcblower
 Now save your initial script with the name 'main.R'. You can save code scripts by either selecting \textbf{File > Save As...} or by clicking the save icon in the bar below the script name. When your script contains \textbf{unsaved changes}, the script name will turn red and end with a * symbol. When it does not contain any unsaved changes, the name of the script will turn black, with no * symbol, and the save icon beneath it will grey-out.
 
 \textbf{Throughout this workshop, make sure to add comments at every step so you know what each code snippet is doing, and why!}
@@ -267,7 +312,23 @@ knitr::include_graphics('images/RforRAP/section_headers.png')
 
 ## Adding and running code
 
-Now, below the heading on a new line, add `library(readr)`, then on a new line add `library(dplyr)`. In R, each new line represents a new code command. You don't need to use a semi-colon or any other punctuation to separate commands other than just starting a new line, and you cannot have two commands on the same line. Therefore, since the two library calls are two distinct commands because they load different packages, they each need to be on a new line. 
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Add package library calls
+\tcblower
+Now, below the heading on a new line, add \verb|library(readr)|, then on a new line add \verb|library(dplyr)|. 
+\end{tcolorbox}
+
+In R, each new line represents a new code command. You don't need to use a semi-colon or any other punctuation to separate commands other than just starting a new line, and you cannot have two commands on the same line. Therefore, since the two library calls are two distinct commands because they load different packages, they each need to be on a new line. 
 
 To actually run code that you have saved in a script file, there are a few options. Firstly, there are buttons you can use to the top right of the script file's window. 
 
@@ -279,7 +340,21 @@ Button 1 in the above image (the 'run' button) will run either all *highlighted*
 
 Button 2 (the 'Source' button) will run the entire script from the first to the last line in one go! This is the same as running `Source("script_name.R")` in the console. `Source(...)` is particularly useful in RAPs, as one of the baseline expectations for statistics publication pipelines is that you have one script that runs every single step of the process - sourcing scripts one by one in the correct order in a 'run_pipeline' script (with comments!) is great way to do this while keeping it tidy and clear!
 
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Run your code
+\tcblower
 Highlight the lines you have just added to the script and run them either using the button or the keyboard shortcut. Now we have the packages we need to load in some data. 
+\end{tcolorbox}
 
 ## Loading in the data
 
@@ -297,11 +372,29 @@ We already installed the `readr` package, which contains the functions we need t
 
 `chosen_name <- readr::read_csv(insert_filename/filepath_here)`
 
-In this workshop, the data is available as a csv in the 'data' folder of the project, and is called `some_student_results.csv`. Therefore, the code will look like this:
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Read in the data
+\tcblower
+In this workshop, the data is available as a csv in the 'data' folder of the project, and is called \verb|some_student_results.csv|. Therefore, the code will look like this:
 
-`student_results <- read_csv("data/some_student_results.csv")`
+\begin{verbatim}
+student_results <- read_csv("data/some_student_results.csv")
+\end{verbatim}
 
-Write and run this line in your script. Then, if you navigate to the 'environment' window in the top right of the screen, you should see an object has appeared with your chosen name under the heading 'Data'. If you click the blue circle with the white arrow inside, it will expand to show you information about the data you've uploaded, including the name of every column/variable, and the format of each column (i.e. chr for character, num for numeric). If you click the name of the object, it will open in the viewer in the top left so that you can look at the table. This is the same as typing `View(name_of_data)` in the console. 
+Write and run this line in your script. 
+\end{tcolorbox}
+
+Then, if you navigate to the 'environment' window in the top right of the screen, you should see an object has appeared with your chosen name under the heading 'Data'. If you click the blue circle with the white arrow inside, it will expand to show you information about the data you've uploaded, including the name of every column/variable, and the format of each column (i.e. chr for character, num for numeric). If you click the name of the object, it will open in the viewer in the top left so that you can look at the table. This is the same as typing `View(name_of_data)` in the console. 
 
 ### Writing to and reading from a SQL database
 
@@ -335,9 +428,24 @@ There are a number of functions available in R that can write a data frame to a 
 
 Note the first argument the function takes is the database connection you've already created, the second is the table location that you want to write to on that database (comprised of the schema and desired name) and the third argument is the data frame that you're sending to the database.
 
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Try connecting to SQL 
+\tcblower
 If you have existing access to a SQL database that you or your team owns, you can give the above code a go at writing the student results data that we have just pulled in as a CSV to your SQL database, as long as you defined 'con' using the server and database name. 
 
 At the end of the workshop you can delete this by right clicking on the table in SQL Server Management.
+\end{tcolorbox}
+
 
 #### Reading a table from a SQL database
 
@@ -371,59 +479,137 @@ Aggregating data is a common task analysts in in statistics publication face. In
 
 To **filter** data, we can simply use the `filter()` function from the `dplyr` package, which we have already installed and loaded. Here we will also introduce the **pipe** symbol - `%>%`. You can either type it out *or* use the keyboard shortcut \hlblue{`Ctrl + Shift + M`} to insert it! As said before, in R, a new line is read as a new command, however, sometimes we might have long snippets of code that should all be run as one command! The pipe symbol is used with `dplyr` commands to join up multiple lines into one command, and **the order does matter!** 
 
-In our environment, we should see the data we have loaded in with the name we gave it - 'student_results'. If we want to filter this, we could do so in the following format:
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Filter data 
+\tcblower
+In our environment, we should see the data we have loaded in with the name we gave it - \verb|"student_results"|. If we want to filter this, we could do so in the following format:
 
-```
+\begin{verbatim}
 student_results %>%
   filter(year == 2015,
          age > 16, 
          Mjob %in% c('health','teacher','services'))
-```
+\end{verbatim}
+
+\end{tcolorbox}
 
 In the above code you can see that when using `filter()`, we can choose to filter for specific values by usin g `==`, we can use the `>` and `<` symbols on numeric columns to filter numeric values, and we can use `%in% c(...)` to filter for a given list of multiple values.
 You can give this a go in the console without storing the results in the environment by simply running the above without giving it a name like we did when we read the data in. If you wanted to store your results, you would add `student_results_filtered <-` at the start of the first line (or any other name you choose). 
 
-In today's workshop, we don't need to filter the data before we start aggregating, so we don't need to give it a name. The first thing we want to do is specify the variables we want to group the data by. In this example we want to group by **year, school, sex** and **age**. This is very easily done using the `group_by()` function as below: 
+In today's workshop, we don't need to filter the data before we start aggregating, so we don't need to give it a name. The first thing we want to do is specify the variables we want to group the data by. 
 
-```
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Grouping variables
+\tcblower
+In this example we want to group by \textbf{year, school, sex} and \textbf{age}. This is very easily done using the \verb|group_by()| function as below: 
+
+\begin{verbatim}
 student_results %>%
 group_by(year, school, sex, age)
-```
+\end{verbatim}
+
+\end{tcolorbox}
 
 However, the output from running the above code will look like it hasn't changed, because it doesn't know how to aggregate the groups yet. We define this using the `summarise()` function *after* the `group_by()` function. In this workshop we will use two common aggregations; averages and counts, however, this method can be applied to all sorts of aggregation methods!
 
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Aggregate data
+\tcblower
 Today, we want to aggregate the data such that we have a row for every group of year, school, sex and age, with the summary statistics being the mean grades (G1, G2, G3) and the total count of students in each row. To start with, we will lay out the code in an explicit form, before we discuss how to convert it to best practice. Running the following code in the console will give the output we want:
 
-```
+\begin{verbatim}
 student_results %>%
   group_by(year, school, sex, age) %>%
   summarise(G1_mean = mean(G1), 
             G2_mean = mean(G2), 
             G3_mean = mean(G1),
             students = n())
-```
+\end{verbatim}
 
-Within the `summarise` statement, it's defining 4 new columns. `G1_mean = mean(G1)` means that the new column called G1_mean will be the mean of the previous G1 column when grouped by the variables defined in the `group_by()` statement. `students = n()` creates a new column named students, which contains the number of rows that have been included in each group.
+Within the \verb|summarise| statement, it's defining 4 new columns. \verb|G1_mean = mean(G1)| means that the new column called \verb|G1_mean| will be the mean of the previous G1 column when grouped by the variables defined in the \verb|group_by()| statement. \verb|students = n()| creates a new column named students, which contains the number of rows that have been included in each group.
+\end{tcolorbox}
 
 While the above code works, it can be written in many different ways, and while in this example we are only creating 4 summary columns and using 4 grouping variables, in real life this can get messy the more columns and variables we add! Copying and pasting functions and lines and changing the names each time is prone to mistakes. For example, did any of you notice that **there is a mistake in the above code**? I forgot to update the final mean, which should have been taking the mean of the G3 column! However, in my haste of copying and pasting the same thing 3 times, I only updated the name to G3_mean, while forgetting I also needed to edit what was in the mean() brackets. 
 
-In real life, mistakes like this are more common than you'd think! There are best practices in writing our code that can help us to avoid mistakes like this. If you're applying the same function to multiple columns like we are with `mean()` above, we can use `across()`. The `across()` function in R allows you to apply one function across a list of columns, and also enables you to specify the new column's names! We can therefore rewrite the above code as below: 
+In real life, mistakes like this are more common than you'd think! There are best practices in writing our code that can help us to avoid mistakes like this. If you're applying the same function to multiple columns like we are with `mean()` above, we can use `across()`. 
 
-```
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Using across()
+\tcblower
+The \verb|across()| function in R allows you to apply one function across a list of columns, and also enables you to specify the new column's names! We can therefore rewrite the above code as below: 
+
+\begin{verbatim}
 student_results %>%
   group_by(year, school, sex, age) %>%
   summarise(across(c(G1, G2, G3), mean, .names = "{.col}_mean"), 
             students = n())
-```
+\end{verbatim}
+\end{tcolorbox}
 
-In the above, we have *nested* an `across()` function inside a `summarise()` function. `across(c(G1, G2, G3), mean, .names = "{.col}_mean")` means apply the `mean()` function to G1, G2 and G3 one-by-one, and set the new column name to be the original column name followed by `_mean`. In this instance it might not seem much simpler than the first version, however using 'across' can be extremely useful when real-life examples have extremely large data sets! Lets store the above results in our environment now and call them `student_results_aggregated` using the following code: 
+In the above, we have *nested* an `across()` function inside a `summarise()` function. `across(c(G1, G2, G3), mean, .names = "{.col}_mean")` means apply the `mean()` function to G1, G2 and G3 one-by-one, and set the new column name to be the original column name followed by `_mean`. In this instance it might not seem much simpler than the first version, however using 'across' can be extremely useful when real-life examples have extremely large data sets! 
 
-```
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Store the aggregated data
+\tcblower
+Lets store the above results in our environment now and call them \verb|student_results_aggregated| using the following code: 
+
+\begin{verbatim}
 student_results_aggregated <- student_results %>%
   group_by(year, school, sex, age) %>%
   summarise(across(c(G1, G2, G3), mean, .names = "{.col}_mean"), 
             students = n())
-```
+\end{verbatim}
+\end{tcolorbox}
 
 ## Reorder and rename columns
 
@@ -431,24 +617,59 @@ Something that some analysts might leave to the end or do manually in excel is r
 
 First, a very useful function to use is `names()`. Try running `names(student_results)` and `names(student_results_aggregated)` in the console. It should return a list of all of the variable/column names in the specified tables. You can also use this to compare the names of two data sets by running `names(student_results) == names(student_results_aggregated)`. This will return a `TRUE/FALSE` list - you will see in this case, the first 3 are `TRUE` - this is because the names of the first 3 columns are school, sex, age in both tables, however the rest differ. This is useful when you are *expecting* two tables to have the same variable names, for example in an annual publication cycle, it is a good idea to check that the variable names this year are the same as they were last year before you start your analysis. 
 
-First, lets reorder the columns. I want the '`students` column to appear *before* the grade means. We can simply use the `select()` function here, listing the columns in the order we wish them to appear: 
-```
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Reorder and rename
+\tcblower
+First, lets reorder the columns. I want the \verb|students| column to appear \textbf{before} the grade means. We can simply use the \verb|select()| function here, listing the columns in the order we wish them to appear: 
+
+\begin{verbatim}
 student_results_aggregated %>%
   select(year, school, sex, age, students, G1_mean, G2_mean, G3_mean)
-```
+\end{verbatim}
 
-Now if we also wanted to rename columns, we can do it together in one step by using another 'pipe' (`%>%`). If there are only a select number of columns you wish to rename, you would use `rename` and specify as follows: 
-```
+Now if we also wanted to rename columns, we can do it together in one step by using another 'pipe' (\verb|%>%|). If there are only a select number of columns you wish to rename, you would use \verb|rename| and specify as follows: 
+
+\begin{verbatim}
 student_results_aggregated %>%
-  select(year, school, sex, age, students, G1_mean, G2_mean, G3_mean) %>%
+  select(year, school, sex, age, students, G1_mean, G2_mean, 
+  G3_mean) %>%
   rename(g1_mean = G1_mean, g2_mean = G2_mean, g3_mean = G3_mean)
-```
-So when using `rename` as above, the order needed is `desired_name = original_name`. As you can see above, all this code does is convert the upper case G's to lower case, however, you could rename each column to anything you like using this method. It's best practice to stay consistent with the case you use, and in EES, we expect all column names in 'snake_case'. Therefore, something you might want to do is rename all of the columns to lower case. If your rename-step is something like converting all columns to lower case, this can be done in a more effective way, with less copying and pasting, using `janitor::clean_names()`. The `clean_names()` function will convert to snake case by default, however you can also choose title case or sentence case by using `clean_names(case = 'title)`. First, install the `janitor` package and add it to the library calls. Then you can run the following code:
-```
+\end{verbatim}
+\end{tcolorbox}
+
+So when using `rename` as above, the order needed is `desired_name = original_name`. As you can see above, all this code does is convert the upper case G's to lower case, however, you could rename each column to anything you like using this method. It's best practice to stay consistent with the case you use, and in EES, we expect all column names in 'snake_case'. Therefore, something you might want to do is rename all of the columns to lower case. If your rename-step is something like converting all columns to lower case, this can be done in a more effective way, with less copying and pasting, using `janitor::clean_names()`. The `clean_names()` function will convert to snake case by default, however you can also choose title case or sentence case by using `clean_names(case = 'title)`. 
+
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Rename all column names
+\tcblower
+First, install the \verb|janitor| package and add it to the library calls. Then you can run the following code:
+\begin{verbatim}
 student_results_aggregated <- student_results_aggregated %>%
-  select(year, school, sex, age, students, G1_mean, G2_mean, G3_mean) %>%
+  select(year, school, sex, age, students, G1_mean, G2_mean, 
+  G3_mean) %>%
   clean_names()
-```
+\end{verbatim}
+\end{tcolorbox}
 
 Since above, we have started the first line with `student_results_aggregated <-`, this means it's going to overwrite whatever was stored in the environment under that name before! This *can* be risky, since `select()` can also be used to **drop** columns. If you left out any names from the select line by accident, they would simply be dropped, so be careful if you use the same name as the object from before this step! This can be avoided by picking a different name, like `student_results_aggregated_reordered` for example. If you *did* make a mistake, and overwrote something by accident, you can just re-run the code that made the original object before it was overwritten. 
 
@@ -458,23 +679,73 @@ Another common task that analysts face is suppressing data. In this section, we 
 
 ### Writing functions
 
-The best way to introduce writing functions is by starting very simple to understand the concept first, so let's practice here with some easy examples. Open a **new R script** (file > New file > R script) and call it 'functions.R'. On the first line, add some **comments** that explain this script is to practice writing functions. 
+The best way to introduce writing functions is by starting very simple to understand the concept first, so let's practice here with some easy examples. 
 
-Firstly, we will write a simple function that adds two numbers together. Give it a heading that describes this. On a new line, we will use the following syntax to create our first function:
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Create a functions script
+\tcblower
+Open a \textbf{new R script} (\verb|file > New file > R script|) and call it 'functions.R'. On the first line, add some \textbf{comments} that explain this script is to practice writing functions. 
+
+Firstly, we will write a simple function that adds two numbers together. Give it a heading that describes this.
+\end{tcolorbox}
+
+On a new line, we will use the following syntax to create our first function:
 ```
 function_name <- function(inputs...){
 function instructions...
 }
 ```
-In our function, we want to add two numbers, so we want two inputs. We can call them whatever we want, but you should choose something logical that makes it easy to understand. Whatever names you choose for the inputs in the `function(...)` bracket, you then use those names as place-fillers in the instructions. Then, whenever the function is used, it will carry the inputs through the instructions in the right places. Here is an example:
-```
+
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Create a simple function
+\tcblower
+In our function, we want to add two numbers, so we want two inputs. We can call them whatever we want, but you should choose something logical that makes it easy to understand. Whatever names you choose for the inputs in the \verb|function(...)| bracket, you then use those names as place-fillers in the instructions. Then, whenever the function is used, it will carry the inputs through the instructions in the right places. Here is an example:
+\begin{verbatim}
 add_together <- function(x,y){
 x + y
 }
-```
+\end{verbatim}
+\end{tcolorbox}
+
 The above function takes two inputs, x and y, and adds them together. To *use* the function, you need to run the above code once to *create* it, then you can use it in the console. You should also see it appear under 'functions' in your environment! Once it's created, you can use it in the console by running `add_together(2,3)` as an example, giving the output of 5 if it's been written correctly! You can choose whatever numbers you like to replace x and y when using it in the console as above. 
 
-Functions can also include character inputs as well as numeric! Another example we will use here to practice is creating a function that outputs a sentence. a simple way to output text in R is to use the `paste()` function. Try creating a function called 'introduction_text', that has *two inputs* defined as 'name' and 'age', and uses `paste("Hi, my name is", name, "and my age is", age)` as the *function instruction*. Test it out! Do you see your sentence appearing in the console?
+Functions can also include character inputs as well as numeric! Another example we will use here to practice is creating a function that outputs a sentence. a simple way to output text in R is to use the `paste()` function. 
+
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Another practice function
+\tcblower
+Try creating a function called \verb|'introduction_text'|, that has \textit{two inputs} defined as 'name' and 'age', and uses \verb|paste("Hi, my name is", name, "and my age is", age)| as the \textit{function instruction}. Test it out! Do you see your sentence appearing in the console?
+\end{tcolorbox}
 
 ### if() and ifelse() statements
 
@@ -513,46 +784,95 @@ The above rewrites object by combining two different options (Bread or Fish) int
 
 ### Function for suppression
 
-Now that we now how to write our own functions, we can write one to help us suppress data. First of all, we can demonstrate the suppression using functions from existing packages. Let's go back to our main.R script. At this point we should still have `student_results_aggregated` in our environment. We want to suppress any rows that have less than 5 students. One way to do this is shown below:
+Now that we now how to write our own functions, we can write one to help us suppress data. First of all, we can demonstrate the suppression using functions from existing packages. Let's go back to our main.R script. At this point we should still have `student_results_aggregated` in our environment. 
 
-```
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+A suppression function
+\tcblower
+We want to suppress any rows that have less than 5 students. One way to do this is shown below:
+
+\begin{verbatim}
 student_results_aggregated_suppressed <- student_results_aggregated %>%
   mutate(g1_mean = ifelse(students < 5, 'c', g1_mean),
          g2_mean = ifelse(students < 5, 'c', g2_mean),
          g3_mean = ifelse(students < 5, 'c', g3_mean),
          students = ifelse(students < 5, 'c', students)
          )
-```
+\end{verbatim}
+\end{tcolorbox}
 
 The above code takes the mean grade columns and uses an `ifelse()` statement *within* a `mutate()` statement. 
 Here, it's saying for each of the mean columns, if the number of students is less than 5, then replace the entry in that mean grade column with a 'c', if not, then keep what is already in the column. Note that we *have* to do the students column last, because once we add 'c' to any column it becomes a character variable rather than numeric. Since the previous columns are based on the numeric value of the students, we must order it so that these mutations occur first, while the student column is still a numeric variable and therefore able to apply the `students < 5` logic. 
 
-While the above code works, the same issues arise as in the previous aggregation section where you can end up copying and pasting the same line many times depending on the size of your real-life data sets! We want to avoid this type of repetition where possible so that we reduce the possibility of making mistakes (like forgetting to update every line you have copied and pasted). So let's create a function to suppress counts less than 5. With an appropriate comment to explain, add the below to your functions.R script. 
+While the above code works, the same issues arise as in the previous aggregation section where you can end up copying and pasting the same line many times depending on the size of your real-life data sets! We want to avoid this type of repetition where possible so that we reduce the possibility of making mistakes (like forgetting to update every line you have copied and pasted). So let's create a function to suppress counts less than 5. 
 
-```
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+A better suppression function
+\tcblower
+With an appropriate comment to explain, add the below to your functions.R script. 
+
+\begin{verbatim}
 suppress_counts <- function(column, count) {
   ifelse(count < 5, 'c', column)
 }
-```
+\end{verbatim}
 
-The above function takes a column, and performs the `ifelse` statement from the previous example. Once you have created the function and can see it in your environment, you can rewrite the above example like this: 
+The above function takes a column, and performs the \verb|ifelse| statement from the previous example. Once you have created the function and can see it in your environment, you can rewrite the above example like this: 
 
-```
+\begin{verbatim}
 student_results_aggregated_suppressed <- student_results_aggregated %>%
   mutate(g1_mean = suppress_counts(g1_mean, students),
          g2_mean = suppress_counts(g2_mean, students),
          g3_mean = suppress_counts(g3_mean, students),
          students = suppress_counts(students, students))
-```
+\end{verbatim}
+\end{tcolorbox}
 
 However, this *still* includes some repetition we would rather avoid! therefore, we can take this one step further and make use of the `dplyr::across()` function. The `across()` function allows you to apply the same function to multiple columns - type `?dplyr::across` in the console to view the help page and more information. 
 
+
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+An even better function for suppression
+\tcblower
 We can rewrite the above in the following way:
-```
-student_results_aggregated_suppressed <- student_results_aggregated %>%
+
+\begin{verbatim}
+student_results_aggregated_suppressed <- 
+  student_results_aggregated %>%
   mutate(across(c(g1_mean, g2_mean, g3_mean, students), 
           ~suppress_counts(. , students)))
-```
+\end{verbatim}
+\end{tcolorbox}
 
 So, we've just written the same thing in 3 different ways! While all three options produce the same output, the last example is the best for RAP, as it is the most concise and requires the least repetition. 
 
@@ -563,23 +883,59 @@ Another common task that many analysts face is needing to add new columns to the
 
 When uploading data to EES, you should aim to include at least 3 years of data in EES where it exists in light of recent accessibility legislation. This example has 3 years of data, 2015, 2016, 2016. However, the time_identifier is not specified yet, and the year column is not correctly formatted! 
 
-Let's assume in this instance the time_identifier is *academic year*. We can easily add this column, and rename the existing year column using the following code: 
-```
-student_results_aggregated_suppressed_EES <- student_results_aggregated_suppressed %>%
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Add new columns and rename()
+\tcblower
+Let's assume in this instance the time identifier is \textit{academic year}. We can easily add this column, and rename the existing year column using the following code: 
+
+\begin{verbatim}
+student_results_aggregated_suppressed_EES <- 
+  student_results_aggregated_suppressed %>%
   mutate(time_identifier = 'Academic year') %>%
   rename(time_period = year)
-```
+\end{verbatim}
+\end{tcolorbox}
 
 We also want to add the required geography columns. In this case, we are going to use the 'school' column to get the required geography using `case_when()` within `mutate()`.
-Assume that the school 'GP' is in London, and the school 'MS' is in East England, and we want a *regional* geographic level (so we need region_name and region_code). We can use the following code:
-```
-student_results_aggregated_suppressed_EES <- student_results_aggregated_suppressed %>%
-  mutate(time_identifier = 'Academic year', geographic_level = 'Regional',
-         region_name = case_when(school == "MS" ~ "East of England",
-                                 school == "GP" ~ "London")) %>%
+
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Mutate and case when
+\tcblower
+Assume that the school 'GP' is in London, and the school 'MS' is in East England, and we want a \textit{regional} geographic level (so we need region name and region code). We can use the following code:
+
+\begin{verbatim}
+student_results_aggregated_suppressed_EES <- 
+  student_results_aggregated_suppressed %>%
+  mutate(time_identifier = 'Academic year', 
+         geographic_level = 'Regional',
+         region_name = 
+              case_when(school == "MS" ~ "East of England",
+                        school == "GP" ~ "London")) %>%
   rename(time_period = year)
-  
-```
+\end{verbatim}
+
+\end{tcolorbox}
+
 The above code gets us the correct geographic level and region name, but not region code. We can use a *look-up table* to get the correct code...
 
 ## Joins & joining geographic codes via lookup tables
@@ -594,30 +950,64 @@ knitr::include_graphics('images/RforRAP/github-raw-button.png')
 
 Clicking the button should take you to a new window that looks like a simple text file of the data. **Copy the URL of this page** - this is the raw URL! Using this URL to pull the data into R instead of downloading it to your desktop means if the CSV is updated on GitHub, when you run your code it will automatically pull the latest version of the CSV! 
 
-
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Pull raw data from GitHub
+\tcblower
 Adding appropriate headings and comments, pull in this lookup table using the following code:
 
-`# Pull in regions lookup table`
+\begin{verbatim}
+# Pull in regions lookup table
 
-`regions_URL <-` "https://raw.githubusercontent.com/dfe-analytical-services/dfe-published-data-qa/master/data/regions.csv"
+regions_URL <- "https://raw.githubusercontent.com/dfe-analytical-
+services/dfe-published-data-qa/master/data/regions.csv"
 
-`regions_lookup <- read.csv(regions_URL)`
-
+regions_lookup <- read.csv(regions_URL)
+\end{verbatim}
+\end{tcolorbox}
 
 The lookup table should have appeared in the environment! Click on the name to open it, or use the code `View(regions_lookup)`. Now we can join the codes to our data using the region name using the `left_join()` function! We can 'pipe' joins in the exact same way we have piped summarise, group_by, mutate and rename statements. In the console, type `?join` to see the different types of join within the `dplyr` package!
 
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Use a left join
+\tcblower
 Here we will use a left join because we want to keep all of the rows from our data, and only join on rows that match from the lookup table. We can use the following code to join the region code using region name and reorder the columns:
 
-```
-student_results_aggregated_suppressed_EES <- student_results_aggregated_suppressed %>%
-  mutate(time_identifier = 'Academic year', geographic_level = 'Regional',
-         region_name = case_when(school == 'MS' ~ "East of England",
-                                 school == 'GP' ~ 'London')) %>%
+\begin{verbatim}
+student_results_aggregated_suppressed_EES <- 
+student_results_aggregated_suppressed %>%
+  mutate(time_identifier = 'Academic year', 
+         geographic_level = 'Regional',
+         region_name = 
+            case_when(school == 'MS' ~ "East of England",
+                      school == 'GP' ~ 'London')) %>%
   rename(time_period = year) %>%
-  left_join(regions_lookup, by = c('region_name' = 'region_name')) %>%
-  select(time_period, time_identifier, geographic_level, region_name, 
-         region_code, sex, age, students, g1_mean, g2_mean, g3_mean)
-```
+  left_join(regions_lookup, 
+            by = c('region_name' = 'region_name')) %>%
+  select(time_period, time_identifier, geographic_level, 
+         region_name, region_code, sex, age, 
+         students, g1_mean, g2_mean, g3_mean)
+\end{verbatim}
+\end{tcolorbox}
 
 The data created should now look a lot like what you would normally upload to EES. 
 
@@ -625,18 +1015,35 @@ The data created should now look a lot like what you would normally upload to EE
 
 The data produced in the above section meets our EES data standards, and would pass all of the tests run by the [EES data screener](https://rsconnect/rsc/dfe-published-data-qa/). However, it is not optimised in the best way for users! Recent user testing found that when using the table tool, users preferred a 'long' data format rather than 'wide'. This instance is seen as 'wide' because we currently have 3 columns showing the average grade for three different assessments. The 'long' way to display this would be to have one column called 'assessment' and one column called 'mean_grade'. The 'assessment' column would indicate which assessment (1, 2 or 3) the grade in that row refers to. 
 
-You may be used to a version of this type of transformation in Excel using *pivot tables* for many reasons, not just for EES data. This can be easily done in R, which is better for RAP, and will also save you time and repetition in the future! In the `tidyr` package there are two functions that can be used to pivot tables - `pivot_longer()` and `pivot_wider()`. In this example, we want to use `pivot_longer()` to get the columns mentioned into a long format. First, you need to install the `tidyr` package, add it to the library calls and take a `renv::snapshot()`.
+You may be used to a version of this type of transformation in Excel using *pivot tables* for many reasons, not just for EES data. This can be easily done in R, which is better for RAP, and will also save you time and repetition in the future! In the `tidyr` package there are two functions that can be used to pivot tables - `pivot_longer()` and `pivot_wider()`. In this example, we want to use `pivot_longer()` to get the columns mentioned into a long format. 
+
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Pivot tales in R
+\tcblower
+First, you need to install the \verb|tidyr| package, add it to the library calls and take a \verb|renv::snapshot()|.
 
 The code below will reformat the data: 
 
-```
+\begin{verbatim}
 long_data <- student_results_aggregated_suppressed_EES %>%
   pivot_longer(cols = ends_with("mean"),
                names_to = "assessment",
                names_pattern = "(\\d)+",
                values_to = "mean_grade",
                values_drop_na = TRUE)
-```
+\end{verbatim}
+\end{tcolorbox}
+
 View the data and take a look at how it is different now! `pivot_wider()` works in a similar way to go from long to wide. 
 
 ## Regular expressions
@@ -651,46 +1058,105 @@ In the above code, names_pattern uses a *regular expression*. Regular expression
 
 Whilst being able to do all this in R can be very useful, we sometimes have pre-existing SQL code that will do all this for us, or we have datasets that are too large to perform aggregations on efficiently on a typical laptop. In these cases, we would want to be able to just send a SQL script from within our R pipeline to run on a SQL server and send us back the results once it's done.
 
-Provided you've created the student table on your SQL database using `dbWriteTable()` as described earlier, we can demo this now. In the SQL folder in your workshop repository, you'll find a simple SQL aggregation script that does the same aggregation as we've just done in R. First though we'll try just sending a very basic SQL query to the database:
+Provided you've created the student table on your SQL database using `dbWriteTable()` as described earlier, we can demo this now. In the SQL folder in your workshop repository, you'll find a simple SQL aggregation script that does the same aggregation as we've just done in R. 
 
-`dbGetQuery(con, statement = "SELECT year, school, sex, age,
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+SQL queries in R
+\tcblower
+First though we'll try just sending a very basic SQL query to the database:
+
+\begin{verbatim}
+dbGetQuery(con, statement = "SELECT year, school, sex, age,
    G1, G2, G3  
-   FROM dbo.sd_sandbox_student_results")`
+   FROM dbo.sd_sandbox_student_results")
+\end{verbatim}
+\end{tcolorbox}
 
-Now we've seen how that works, we'll use a pre-built function that reads in the SQL script in a way that R can send it to the SQL server. This pre-built function is in the script R/utils.R and is called `getSQL()`, so first we'll need to source the utils.R script: `source("R/utils.R")`.
+Now we've seen how that works, we'll use a pre-built function that reads in the SQL script in a way that R can send it to the SQL server. This pre-built function is in the script R/utils.R and is called `getSQL()`.
 
-Let's run the getSQL() command with the example script as follows:
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Run a SQL script
+\tcblower
+First we'll need to source the utils.R script: \verb|source("R/utils.R")|.
 
-`query <- getSQL("sql/aggregate_students.sql")`
+Let's run the \verb|getSQL()| command with the example script as follows:
 
-This creates a string variable called `query` containing the SQL script. We can now send this to the database using:
+\begin{verbatim}
+query <- getSQL("sql/aggregate_students.sql")`
+\end{verbatim}
 
-`dbGetQuery(con, statement = query)`
+This creates a string variable called \verb|query| containing the SQL script. We can now send this to the database using:
+
+\begin{verbatim}
+dbGetQuery(con, statement = query)
+\end{verbatim}
 
 Provided no-one has beaten you to it (that command won't overwrite an existing table if it already exists), this will create a new table in the database containing an aggregated view of the data. We can read this out using the command we used earlier to read a SQL table from the database:
 
-`student_results_aggregated_sql <- tbl(con, Id(schema = "dbo", table = 'sd_sandbox_student_results_aggregated'))`
+\begin{verbatim}
+student_results_aggregated_sql <- tbl(con, Id(schema = "dbo", 
+          table = 'sd_sandbox_student_results_aggregated'))
+\end{verbatim}
 
-(where this time we're explicitly defining the schema with the function `Id`).
+(where this time we're explicitly defining the schema with the function \verb|Id|).
 
-You should now find the aggregated data contained within the variable `student_results_aggregated_sql`.
+You should now find the aggregated data contained within the variable \verb|student_results_aggregated_sql|.
+\end{tcolorbox}
 
 # Creating plots
 
 Now that we have our data formatted nicely, lets imagine we want to create a chart. The most common package used to create charts in R is `ggplot2`. Install this package, add it to your library calls and snapshot your library for renv. You can view the package documentation online using this link: https://www.rdocumentation.org/packages/ggplot2/versions/3.4.1. While today we will create a simple grouped bar chart (which would preferably be created in EES if we were really publishing), the `ggplot2` package has a huge range of capabilities which are not yet available on EES, making it useful in those situations! Saving well-documented code used for plots and charts is also better practice than quickly creating charts in Excel, which can become lost, broken or distorted with no record of how it was initially created.  
 
-We want to create a grouped bar chart that compares the average grades of male and female students. `ggplot` works best with long data, which luckily, we now have! We will need to filter the data first of all to focus on one specific group. Create a new script called 'plots.R' and add some comments to introduce the plots script. Explain in your comments that the plots.R script should be run after the main.R script, since the data we are going to base this on is defined in the main.R script first. Try and take the 'long_data' we created previously (which should still exist in your environment) and create a subset called 'plot_data' with the following filters:
+We want to create a grouped bar chart that compares the average grades of male and female students. `ggplot` works best with long data, which luckily, we now have! We will need to filter the data first of all to focus on one specific group. Create a new script called 'plots.R' and add some comments to introduce the plots script. Explain in your comments that the plots.R script should be run after the main.R script, since the data we are going to base this on is defined in the main.R script first. 
 
-* time period: 2015
-* age: 16
-* region_name: London
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Filter plot data
+\tcblower
+Try and take the \verb|'long_data'| we created previously (which should still exist in your environment) and create a subset called \verb|'plot_data'| with the following filters:
+
+\begin{itemize}
+\item time period: 2015
+\item age: 16
+\item region name: London
+\end{itemize}
  
-Now we can use the 'plot_data' to create a bar chart using `ggplot2`. The following code creates a plot as described above: 
+Now we can use the \verb|'plot_data'| to create a bar chart using \verb|ggplot2|. The following code creates a plot as described above: 
 
-```
+\begin{verbatim}
 ggplot(plot_data, aes(x = assessment, y = mean_grade)) +
   geom_bar(stat = 'identity', aes(fill = sex), position = "dodge")
-```
+\end{verbatim}
+\end{tcolorbox}
 
 # Using online resources
 
@@ -698,15 +1164,31 @@ An important skill when writing and developing code is knowing how to solve erro
 
 ## Google questions and errors
 
-The plot you have just created might not look the prettiest. Here, you are going to learn *how* to use Google for what you want/need in R! Top tips are to try and include the package name, keep it short, focusing on key words that might appear in other peoples similar questions, and always mention R somewhere so you find solutions in the right language!
+The plot you have just created might not look the prettiest. Here, you are going to learn *how* to use Google (or any other search engine) for what you want/need in R! Top tips are to try and include the package name, keep it short, focusing on key words that might appear in other peoples similar questions, and always mention R somewhere so you find solutions in the right language!
 
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Using Google!
+\tcblower
 Try and complete the following tasks using Google alone: 
 
-* Add a title to your plot
-* Rename the axis labels
-* Change the colours of the bars
-* Format the Y-axis intervals
-* Spell out 'Female' and 'Male' in the legend.
+\begin{itemize}
+\item Add a title to your plot
+\item Rename the axis labels
+\item Change the colours of the bars
+\item Format the Y-axis intervals
+\item Spell out 'Female' and 'Male' in the legend.
+\end{itemize}
+\end{tcolorbox}
 
 You are almost certainly going to create and cause errors while you experiment with the above. You can of course ask the workshop facilitators to help, but using Google to troubleshoot is one of the most valuable lessons you can learn for coding! Try and Google the error to see if someone else has already written an answer or solution online!
 
@@ -717,11 +1199,28 @@ You are almost certainly going to create and cause errors while you experiment w
 
 [ChatGPT](https://openai.com/) is a new tool that is proving increasingly useful in learning to code, especially in it's capabilities of translating *natural language* to code. This means if you know what you would like to do and can express that in your natural, spoken language, chatGPT is pretty capable of translating that into code syntax for you. **However**, when it comes to writing code for you, it can get things a bit wrong and is known to 'invent' commands that sound ideal but do not in reality exist! There are still benefits to using chatGPT, since if it gets the syntax right and a few commands wrong, you have the bulk of what you need and you can use Google to troubleshoot the mistakes. 
 
-to start with, lets test out chatGPT using the 'palmer penguins' data. This is an example dataset available in R that we can ask chatGPT about directly. Ask chatGPT to do the following: 
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Using ChatGPT
+\tcblower
+To start with, lets test out chatGPT using the 'palmer penguins' data. This is an example dataset available in R that we can ask chatGPT about directly. Ask chatGPT to do the following: 
 
-> write some R code that will calculate what % of penguins from the palmer penguins data have a body mass greater than 4500
+\begin{verbatim}
+"write some R code that will calculate what % of penguins from the 
+palmer penguins data have a body mass greater than 4500"
+\end{verbatim}
 
-Read the answer carefully, as alongside writing code for you, chatGPT also provides explanations and commentary on the code it has written. Try copying and pasting the code output into a **new R code script** and running it on your device to test if it works!
+Read the answer carefully, as alongside writing code for you, chatGPT also provides explanations and commentary on the code it has written. Try copying and pasting the code output into a \textbf{new R code script} and running it on your device to test if it works!
+\end{tcolorbox}
 
 Now we can test out something a bit harder using the student results data we have been working with. 
 First of all, recreate your plot_data without filtering on time period so that it contains rows for 2015 and 2016. Then ask chatGPT to create an R shiny app for you that displays a grouped bar chart for the assessment mean grades, grouped by sex, with a dropdown that filters on the time period. Use Google to troubleshoot in the likely event that the code created doesn't work first time. 
@@ -743,15 +1242,32 @@ If you have any specific or more advanced questions that we haven't covered in t
 
 Now that we have a few different scripts in our project (main.R, functions.R and plots.R), we should wrap them all up into one 'run_pipeline.R' script! This is what we mean in our RAP guidance when we say [single dataset production script](https://rsconnect/rsc/stats-production-guidance/rap.html#dataset-production-scripts) or [whole publication prodcution script](https://rsconnect/rsc/stats-production-guidance/rap.html#whole-publication-production-scripts). We don't mean that *all* of your code is in one single script, we mean that there exists a single script (called run_pipeline.R) that will *source* each of your scripts, in order. 
 
-Create a new script called run_pipeline.R. Add some comments to introduce that this is the script that will source and run the entire pipeline. It is important that your run_pipeline script is **always** well documented. In a real life situation, here is where you will explain what each script is before you source it, what it does and why. 
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Create a run script
+\tcblower
+Create a new script called \verb|run_pipeline.R|. Add some comments to introduce that this is the script that will source and run the entire pipeline. It is important that your \verb|run_pipeline| script is \textbf{always} well documented. In a real life situation, here is where you will explain what each script is before you source it, what it does and why. 
 
 After your comments, add the following lines:
-```
+
+\begin{verbatim}
 # Source the main.R script. 
-# This is where we run library calls, load in and manipulate the data. 
+# This is where we run library calls, load in and manipulate 
+# the data. 
 source("main.R")
-```
-Then below, add a comment and source() for your functions script and plots script. 
+\end{verbatim}
+
+Then below, add a comment and \verb|source()| for your functions script and plots script. 
+\end{tcolorbox}
 
 Once you have sourced all of your scripts here, you can run this run_pipeline script and (hopefully) see all your code running in the console, as well as the charts appearing in the plots viewer - all with the running of this one single script!
 
