@@ -102,7 +102,7 @@ knitr::include_graphics('images/RforRAP/R-studio-panels.png')
 
 # ADA and databricks
 
-This workshop and it's materials were developed before the implementation of ADA or databricks. Therefore, they are not currently covered in this workshop, and we use the existing tools of R Studio, Git and SQL for the tasks. As ADA develops and becomes more widely used, we will encorporate it into the workshop to account for new ways of working.
+This workshop and it's materials were developed before the implementation of ADA or databricks. Therefore, they are not currently covered in this workshop, and we use the existing tools of R Studio, Git and SQL for the tasks. As ADA develops and becomes more widely used, we will incorporate it into the workshop to account for new ways of working.
 
 
 # Pre-workshop requirements
@@ -634,7 +634,8 @@ First, lets reorder the columns. I want the \verb|students| column to appear \te
 
 \begin{verbatim}
 student_results_aggregated %>%
-  select(year, school, sex, age, students, G1_mean, G2_mean, G3_mean)
+  select(year, school, sex, age, students, G1_mean, G2_mean, 
+         G3_mean)
 \end{verbatim}
 
 Now if we also wanted to rename columns, we can do it together in one step by using another 'pipe' (\verb|%>%|). If there are only a select number of columns you wish to rename, you would use \verb|rename| and specify as follows: 
@@ -940,7 +941,7 @@ The above code gets us the correct geographic level and region name, but not reg
 
 ## Joins & joining geographic codes via lookup tables
 
-The [dfe-analytical-services](https://github.com/dfe-analytical-services) area on GitHub holds all publicly available code from DfE. The code behind the [EES data screener](https://rsconnect/rsc/dfe-published-data-qa/) is available here, and [the screener repository](https://github.com/dfe-analytical-services/dfe-published-data-qa) contains a [folder full of geographic lookup tables](https://github.com/dfe-analytical-services/dfe-published-data-qa/tree/master/data)! 
+The [dfe-analytical-services](https://github.com/dfe-analytical-services) area on GitHub holds a range of useful, publicly available code. The code behind the [EES data screener](https://rsconnect/rsc/dfe-published-data-qa/) is available here, and [the screener repository](https://github.com/dfe-analytical-services/dfe-published-data-qa) contains a [folder full of geographic lookup tables](https://github.com/dfe-analytical-services/dfe-published-data-qa/tree/master/data)! 
 
 Today we will use the [regions.csv](https://github.com/dfe-analytical-services/dfe-published-data-qa/blob/master/data/regions.csv) file from this folder. We can pull the csv directly from the repo using the 'raw' URL! To find this, simply open the file in GitHub (in this case use the above link) and select the 'raw' button as in the screenshot below:
 
@@ -1028,7 +1029,7 @@ You may be used to a version of this type of transformation in Excel using *pivo
  width=0.9\linewidth,
  boxrule=0pt
  ]
-Pivot tales in R
+Pivot tables in R
 \tcblower
 First, you need to install the \verb|tidyr| package, add it to the library calls and take a \verb|renv::snapshot()|.
 

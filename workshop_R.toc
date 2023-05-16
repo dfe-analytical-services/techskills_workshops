@@ -19,26 +19,26 @@
 \contentsline {section}{Manupilating data}{18}{section*.25}%
 \contentsline {subsection}{Aggregate \& filter data}{18}{section*.26}%
 \contentsline {subsection}{Reorder and rename columns}{21}{section*.27}%
-\contentsline {subsection}{Suppression (and writing functions)}{23}{section*.28}%
+\contentsline {subsection}{Suppression (and writing functions)}{24}{section*.28}%
 \contentsline {subsubsection}{Writing functions}{24}{section*.29}%
-\contentsline {subsubsection}{if() and ifelse() statements}{25}{section*.30}%
-\contentsline {subsubsection}{Function for suppression}{26}{section*.31}%
-\contentsline {subsection}{Adding new columns}{28}{section*.32}%
-\contentsline {subsection}{Joins \& joining geographic codes via lookup tables}{29}{section*.33}%
-\contentsline {subsection}{Reformatting data (wide -\textgreater {} long)}{31}{section*.35}%
-\contentsline {subsection}{Regular expressions}{32}{section*.36}%
+\contentsline {subsubsection}{if() and ifelse() statements}{26}{section*.30}%
+\contentsline {subsubsection}{Function for suppression}{27}{section*.31}%
+\contentsline {subsection}{Adding new columns}{29}{section*.32}%
+\contentsline {subsection}{Joins \& joining geographic codes via lookup tables}{30}{section*.33}%
+\contentsline {subsection}{Reformatting data (wide -\textgreater {} long)}{32}{section*.35}%
+\contentsline {subsection}{Regular expressions}{33}{section*.36}%
 \contentsline {section}{Running a SQL query}{33}{section*.37}%
-\contentsline {section}{Creating plots}{34}{section*.38}%
-\contentsline {section}{Using online resources}{35}{section*.39}%
-\contentsline {subsection}{Google questions and errors}{36}{section*.40}%
-\contentsline {subsection}{Using chatGPT}{36}{section*.41}%
-\contentsline {section}{w-RAP it up}{38}{section*.42}%
-\contentsline {section}{dplyr vs.\nobreakspace {}data.table}{39}{section*.43}%
-\contentsline {section}{Troubleshooting}{40}{section*.44}%
-\contentsline {subsection}{renv}{40}{section*.45}%
-\contentsline {subsubsection}{renv::restore()}{40}{section*.46}%
-\contentsline {subsubsection}{Updating packages in renv}{41}{section*.47}%
-\contentsline {subsubsection}{Installing old package versions in renv}{41}{section*.48}%
-\contentsline {subsection}{`Can't find make' error}{41}{section*.49}%
-\contentsline {section}{Excel functions in R}{43}{section*.50}%
-\contentsline {section}{SQL functions in R}{43}{section*.51}%
+\contentsline {section}{Creating plots}{35}{section*.38}%
+\contentsline {section}{Using online resources}{36}{section*.39}%
+\contentsline {subsection}{Google questions and errors}{37}{section*.40}%
+\contentsline {subsection}{Using chatGPT}{37}{section*.41}%
+\contentsline {section}{w-RAP it up}{39}{section*.42}%
+\contentsline {section}{dplyr vs.\nobreakspace {}data.table}{40}{section*.43}%
+\contentsline {section}{Troubleshooting}{41}{section*.44}%
+\contentsline {subsection}{renv}{41}{section*.45}%
+\contentsline {subsubsection}{renv::restore()}{41}{section*.46}%
+\contentsline {subsubsection}{Updating packages in renv}{42}{section*.47}%
+\contentsline {subsubsection}{Installing old package versions in renv}{42}{section*.48}%
+\contentsline {subsection}{`Can't find make' error}{42}{section*.49}%
+\contentsline {section}{Excel functions in R}{44}{section*.50}%
+\contentsline {section}{SQL functions in R}{44}{section*.51}%
