@@ -1,0 +1,44 @@
+\contentsline {section}{Introduction}{4}{section*.2}%
+\contentsline {subsection}{What is a RAP?}{4}{section*.3}%
+\contentsline {subsection}{What is R/R Studio?}{4}{section*.4}%
+\contentsline {section}{ADA and databricks}{6}{section*.6}%
+\contentsline {section}{Pre-workshop requirements}{6}{section*.7}%
+\contentsline {subsection}{Technical requirements}{6}{section*.8}%
+\contentsline {subsection}{Working in groups}{8}{section*.11}%
+\contentsline {section}{Getting started \ldots {}}{9}{section*.12}%
+\contentsline {section}{Creating a project \& cloning repositories}{9}{section*.13}%
+\contentsline {subsection}{Using renv}{10}{section*.14}%
+\contentsline {section}{Your initial script}{11}{section*.15}%
+\contentsline {subsection}{Comments and headings}{11}{section*.16}%
+\contentsline {subsection}{Adding and running code}{13}{section*.18}%
+\contentsline {subsection}{Loading in the data}{15}{section*.20}%
+\contentsline {subsubsection}{Reading in CSVs}{15}{section*.21}%
+\contentsline {subsubsection}{Writing to and reading from a SQL database}{16}{section*.22}%
+\contentsline {paragraph}{Writing a table to a SQL database}{16}{section*.23}%
+\contentsline {paragraph}{Reading a table from a SQL database}{17}{section*.24}%
+\contentsline {section}{Manupilating data}{18}{section*.25}%
+\contentsline {subsection}{Aggregate \& filter data}{18}{section*.26}%
+\contentsline {subsection}{Reorder and rename columns}{21}{section*.27}%
+\contentsline {subsection}{Suppression (and writing functions)}{24}{section*.28}%
+\contentsline {subsubsection}{Writing functions}{24}{section*.29}%
+\contentsline {subsubsection}{if() and ifelse() statements}{26}{section*.30}%
+\contentsline {subsubsection}{Function for suppression}{27}{section*.31}%
+\contentsline {subsection}{Adding new columns}{29}{section*.32}%
+\contentsline {subsection}{Joins \& joining geographic codes via lookup tables}{30}{section*.33}%
+\contentsline {subsection}{Reformatting data (wide -\textgreater {} long)}{32}{section*.35}%
+\contentsline {subsection}{Regular expressions}{33}{section*.36}%
+\contentsline {section}{Running a SQL query}{33}{section*.37}%
+\contentsline {section}{Creating plots}{35}{section*.38}%
+\contentsline {section}{Using online resources}{36}{section*.39}%
+\contentsline {subsection}{Google questions and errors}{37}{section*.40}%
+\contentsline {subsection}{Using chatGPT}{37}{section*.41}%
+\contentsline {section}{w-RAP it up}{39}{section*.42}%
+\contentsline {section}{dplyr vs.\nobreakspace {}data.table}{40}{section*.43}%
+\contentsline {section}{Troubleshooting}{41}{section*.44}%
+\contentsline {subsection}{renv}{41}{section*.45}%
+\contentsline {subsubsection}{renv::restore()}{41}{section*.46}%
+\contentsline {subsubsection}{Updating packages in renv}{42}{section*.47}%
+\contentsline {subsubsection}{Installing old package versions in renv}{42}{section*.48}%
+\contentsline {subsection}{`Can't find make' error}{42}{section*.49}%
+\contentsline {section}{Excel functions in R}{44}{section*.50}%
+\contentsline {section}{SQL functions in R}{44}{section*.51}%
