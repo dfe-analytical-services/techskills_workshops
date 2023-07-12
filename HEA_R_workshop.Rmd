@@ -1733,6 +1733,88 @@ We'll use this for all examples so you can recreate them in your local area.
 ## VLOOKUP
 
 The **VLOOKUP** function in Excel allows you to look up a value in a table by matching on a column.
+For example, in the following Excel worksheet we can look up a player's team name by using the VLOOKUP to match on player name and return the player's team:
+
+```{r echo=FALSE, out.width='100%', fig.cap='R studio panels'}
+knitr::include_graphics('images/RforRAP/vlookup_excel.png')
+```
+
+This is essentially *joining* or *merging* data, as the above example is using the first table to join the team onto the second table using the player name.
+Joining and merging data are easily done in R!
+
+We can replicate this function in both base R or the `dplyr` package.
+
+### Using base R
+
+The following code shows how to perform a function similar to **VLOOKUP** in base R by using the `merge()` function:
+
+```         
+#create first data frame
+df1 <- data.frame(player=LETTERS[1:15],
+                  team=rep(c('Mavs', 'Lakers', 'Rockets'), each=5))
+
+#create second data frame 
+df2 <- data.frame(player=LETTERS[1:15],
+                  points=c(14, 15, 15, 16, 8, 9, 16, 27, 30, 24, 14, 19, 8, 6, 5))
+
+#merge the two data frames
+merge(df1, df2, by="player")
+
+   player    team points
+1       A    Mavs     14
+2       B    Mavs     15
+3       C    Mavs     15
+4       D    Mavs     16
+5       E    Mavs      8
+6       F  Lakers      9
+7       G  Lakers     16
+8       H  Lakers     27
+9       I  Lakers     30
+10      J  Lakers     24
+11      K Rockets     14
+12      L Rockets     19
+13      M Rockets      8
+14      N Rockets      6
+15      O Rockets      5
+```
+As you can see, the output above is the same as the output created using VLOOKUP in Excel. Note that you could specify multiple columns to merge on within the `by = ` function by using the syntax `by = c("column1", "column2", ...)`. 
+
+### Using dplyr
+The following code shows how to perform a function similar to **VLOOKUP** using `join()` functions from the `dplyr` package. 
+```
+library(dplyr)
+
+#create first data frame
+df1 <- data.frame(player=LETTERS[1:15],
+                  team=rep(c('Mavs', 'Lakers', 'Rockets'), each=5))
+
+#create second data frame 
+df2 <- data.frame(player=LETTERS[1:15],
+                  points=c(14, 15, 15, 16, 8, 9, 16, 27, 30, 24, 14, 19, 8, 6, 5))
+
+#merge the two data frames using inner_join
+inner_join(df1, df2, by="player")
+
+   player    team points
+1       A    Mavs     14
+2       B    Mavs     15
+3       C    Mavs     15
+4       D    Mavs     16
+5       E    Mavs      8
+6       F  Lakers      9
+7       G  Lakers     16
+8       H  Lakers     27
+9       I  Lakers     30
+10      J  Lakers     24
+11      K Rockets     14
+12      L Rockets     19
+13      M Rockets      8
+14      N Rockets      6
+15      O Rockets      5
+```
+As you can see, the output is the same as the output created in Excel. In the above code we use an `inner_join()`. You could also use a `left_join()` and get the same results. The **difference** between an `inner_join()` and a `left_join()` is that an `inner_join()` will only keep rows that have a match from **both sides**, whereas a `left_join` will always keep all rows form the 'left' (the data frame we state first), and join *what it can* from the 'right' (the second data frame). 
+
+For an example of a left join, go back to the [joins section](#joins-&-joining-geographic-codes-via-lookup-tables) earlier in this workshop!
 
 # SQL functions in R
 
