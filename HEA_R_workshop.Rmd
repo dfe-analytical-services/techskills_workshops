@@ -556,6 +556,161 @@ If you click the blue circle with the white arrow inside, it will expand to show
 If you click the name of the object, it will open in the viewer in the top left so that you can look at the table.
 This is the same as typing `View(name_of_data)` in the console.
 
+# Cleaning data
+
+Once you have pulled data into R studio and you can see it in your environment, you might need to give it a clean.
+
+In most cases, cleaning a data set involves dealing with missing values and duplicated data.
+The `dplyr` package includes some useful functions for cleaning data!
+
+## Dealing with missing values
+
+The `na.omit()` function removes any rows that contain NA's or missing values!
+We use this when we want to **completely remove** the rows with any missing values.
+You should be able to see `student_results` in your environment now.
+
+```{=tex}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Remove all rows with missing values 
+\tcblower
+To remove rows that contain any missing values or NA's, we use the following code. Let's call our new dataset \verb|'student_results_rmNAs'| (rmNAs meaning remove NAs):
+\begin{verbatim}
+student_results_rmNAs <- student_results %>%
+  na.omit()
+\end{verbatim}
+\end{tcolorbox}
+```
+However, we might only want to remove rows where a **specific column** is NA.
+For example, we might want to remove rows if the age or school is missing, but we might not mind if their are other missing values (for example, we might expect some missing values in G1 if a student didn't receive a grade for whatever reason).
+In this case there we can use the `drop_na()` function.
+
+```{=tex}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Remove rows with missing values in specific columns
+\tcblower
+To remove rows that contain missing values or NA's in a specific column, we use the following code. Let's call our new dataset \verb|'student_results_rmNAage'| (rmNAage meaning remove NAs for age):
+\begin{verbatim}
+student_results_rmNAage <- student_results %>%
+  drop_na(c(age, school))
+\end{verbatim}
+\end{tcolorbox}
+```
+We might also want to **replace NAs** with an alternative value such as 0 or the common GSS codes of z (not applicable) or x (unavailable).
+We can use the `mutate()` function from the `dplyr` package along with the `replace_na()` function from the `tidyr` package to do this.
+You'' need to install and call the `tidyr` package before you can use it, so **do that first!**
+
+```{=tex}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Replace missing values 
+\tcblower
+Something some teams do is replace numeric NAs with negative numbers that they can then filter out or ignore while doing things like creating charts:
+\begin{verbatim}
+student_results_negatives <- student_results %>%
+  mutate(across(where(is.numeric), ~replace_na(.,-100)))
+\end{verbatim}
+
+Another common need is to replace NAs with a GSS symbol like 'x'. The above will need tweaking in order to work, as if you replaced -100 with 'x' in the above code, you would get an error. This is because you can't change NAs in a \textbf{numeric} column to a character such as 'x'. We would have to make the columns into character variables first, however this prevents you from ordering and filtering them as numeric data, so this should be done \textbf{after all numeric calculations have been performed}:
+
+\begin{verbatim}
+student_results_x <- student_results %>%
+  mutate(across(where(is.numeric), ~as.character(.)),
+         across(names(student_results),~replace_na(.,'x')))
+\end{verbatim}
+\end{tcolorbox}
+```
+## Dealing with duplicates
+
+The other common task when cleaning data is checking for and removing duplicates.
+The easiest way to remove duplicate rows is to use the `distinct()` function from the `dplyr` package.
+
+```{=tex}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Remove duplicate rows
+\tcblower
+To remove duplicate rows, we simply use the \verb|distinct()| function as follows:
+\begin{verbatim}
+student_results_distinct <- student_results %>%
+  distinct()
+\end{verbatim}
+\end{tcolorbox}
+```
+You can also choose to only filter out duplicates in certain rows, for instance if you only wanted to keep one row per school you could just filter out the duplicates from that column.
+When specifying a column, if you still want the result to include the unused rows you'll need to add `.keep_all = TRUE` to the end, otherwise the output will only give the row you specified.
+
+```{=tex}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Remove duplicates based on one column
+\tcblower
+To remove duplicate rows based on a specific column, in this instance 'school', we use the \verb|distinct()| function as follows:
+\begin{verbatim}
+student_results_distinct_school <- student_results %>%
+  distinct(school, .keep_all = TRUE)
+\end{verbatim}
+\end{tcolorbox}
+```
+# Descriptive statistics
+
+Sometimes you might want a quick overview of a data set.
+There are some really useful functions we can use to immediately view descriptive statistics for data.
+One useful function to immediately view some descriptive statistics is `summary()`.
+
+Try running \hlblue{`summary(student\_results)`} in the console.
+You should see a quick output which includes a column for each variable.
+For character variables, it will simply give the length, class and mode of the variable.
+However, for numeric variables it will provide the minimum and maximum values, the interqaurtile range, the mean and the median.
+
+For a more comprehensive guide of descriptive statistics in R including a wide range of statistics and visualisations/plots, see <https://statsandr.com/blog/descriptive-statistics-in-r/> (pages like this are useful to bookmark!).
+
 # Manupilating data
 
 Once you have pulled data into R studio and you can see it in your environment, it is likely you want to manipulate it in some way.
@@ -1777,11 +1932,15 @@ merge(df1, df2, by="player")
 14      N Rockets      6
 15      O Rockets      5
 ```
-As you can see, the output above is the same as the output created using VLOOKUP in Excel. Note that you could specify multiple columns to merge on within the `by = ` function by using the syntax `by = c("column1", "column2", ...)`. 
+
+As you can see, the output above is the same as the output created using VLOOKUP in Excel.
+Note that you could specify multiple columns to merge on within the `by =` function by using the syntax `by = c("column1", "column2", ...)`.
 
 ### Using dplyr
-The following code shows how to perform a function similar to **VLOOKUP** using `join()` functions from the `dplyr` package. 
-```
+
+The following code shows how to perform a function similar to **VLOOKUP** using `join()` functions from the `dplyr` package.
+
+```         
 library(dplyr)
 
 #create first data frame
@@ -1812,7 +1971,11 @@ inner_join(df1, df2, by="player")
 14      N Rockets      6
 15      O Rockets      5
 ```
-As you can see, the output is the same as the output created in Excel. In the above code we use an `inner_join()`. You could also use a `left_join()` and get the same results. The **difference** between an `inner_join()` and a `left_join()` is that an `inner_join()` will only keep rows that have a match from **both sides**, whereas a `left_join` will always keep all rows form the 'left' (the data frame we state first), and join *what it can* from the 'right' (the second data frame). 
+
+As you can see, the output is the same as the output created in Excel.
+In the above code we use an `inner_join()`.
+You could also use a `left_join()` and get the same results.
+The **difference** between an `inner_join()` and a `left_join()` is that an `inner_join()` will only keep rows that have a match from **both sides**, whereas a `left_join` will always keep all rows form the 'left' (the data frame we state first), and join *what it can* from the 'right' (the second data frame).
 
 For an example of a left join, go back to the [joins section](#joins-&-joining-geographic-codes-via-lookup-tables) earlier in this workshop!
 
