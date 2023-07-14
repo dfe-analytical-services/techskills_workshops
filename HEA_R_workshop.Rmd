@@ -1854,7 +1854,7 @@ plot_function <- function(data, filteryear, filterage, filterregion, mapping){
   
 }
 
-
+You can now choose the filters and mapping as you wish!
 \end{verbatim}
 \end{tcolorbox}
 ```

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.7.11)  14 JUL 2023 15:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.7.11)  14 JUL 2023 16:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -958,33 +958,38 @@ Overfull \hbox (7.05125pt too wide) in paragraph at lines 2011--2011
 []\T1/lmtt/m/n/12 regions_URL <- "https://raw.githubusercontent.com/dfe-analytical-[] 
  []
 
-[39] [40 <./images/RforRAP/github-raw-button.png>] [41] [42] [43] [44]
-Overfull \hbox (272.57639pt too wide) in paragraph at lines 2263--2263
-[]           \T1/lmtt/m/n/12 geom_bar(stat = 'identity', aes(x = assessment, y = mean_grade, fill = sex), position = "dodge"))[] 
+[39] [40 <./images/RforRAP/github-raw-button.png>] [41] [42] [43] [44] [45]
+Overfull \hbox (87.3263pt too wide) in paragraph at lines 2303--2303
+[]\T1/lmtt/m/n/12 plot_function <- function(data, filteryear, filterage, filterregion, mapping){[] 
  []
 
-[45] [46]
-Overfull \hbox (13.22626pt too wide) in paragraph at lines 2397--2397
+
+Overfull \hbox (124.37631pt too wide) in paragraph at lines 2305--2305
+[]    \T1/lmtt/m/n/12 filter(time_period == filteryear, age == filterage, region_name == filterregion)[] 
+ []
+
+[46]
+Overfull \hbox (13.22626pt too wide) in paragraph at lines 2410--2410
 []\T1/lmtt/m/n/12 "write some R code that will calculate what % of penguins from the[] 
  []
 
 [47] [48] [49] [50] [51]
-Overfull \hbox (18.07022pt too wide) in paragraph at lines 2650--2650
+Overfull \hbox (18.07022pt too wide) in paragraph at lines 2663--2663
 []\T1/lmtt/m/n/12 renvPackages <- names(jsonlite::fromJSON("renv.lock", flatten = TRUE)$Packages)[] 
  []
 
 [52]
-Overfull \hbox (36.59523pt too wide) in paragraph at lines 2659--2659
+Overfull \hbox (36.59523pt too wide) in paragraph at lines 2672--2672
 []\T1/lmtt/m/n/12 # note down output 1, and reuse in the lib argument of install.packages() as below[] 
  []
 
 
-Overfull \hbox (5.72021pt too wide) in paragraph at lines 2661--2661
+Overfull \hbox (5.72021pt too wide) in paragraph at lines 2674--2674
 []\T1/lmtt/m/n/12 install.packages("rmarkdown", lib = "C:/Users/swong/OneDrive - Department for[] 
  []
 
 
-Overfull \hbox (55.09923pt too wide) in paragraph at lines 2662--2662
+Overfull \hbox (55.09923pt too wide) in paragraph at lines 2675--2675
 []\T1/lmtt/m/n/12 Education/Documents/stats-production-guidance/renv/library/R-4.0/x86_64-w64-mingw32")[] 
  []
 
@@ -992,52 +997,52 @@ Overfull \hbox (55.09923pt too wide) in paragraph at lines 2662--2662
 <images/RforRAP/vlookup_excel.png, id=571, 770.88pt x 542.025pt>
 File: images/RforRAP/vlookup_excel.png Graphic file (type png)
 <use images/RforRAP/vlookup_excel.png>
-Package pdftex.def Info: images/RforRAP/vlookup_excel.png  used on input line 2756.
+Package pdftex.def Info: images/RforRAP/vlookup_excel.png  used on input line 2769.
 (pdftex.def)             Requested size: 469.75385pt x 330.29567pt.
 
-Overfull \hbox (36.56021pt too wide) in paragraph at lines 2779--2779
+Overfull \hbox (36.56021pt too wide) in paragraph at lines 2792--2792
 []                  \T1/lmtt/m/n/12 points=c(14, 15, 15, 16, 8, 9, 16, 27, 30, 24, 14, 19, 8, 6, 5))[] 
  []
 
 [55] [56 <./images/RforRAP/vlookup_excel.png>]
-Overfull \hbox (36.56021pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (36.56021pt too wide) in paragraph at lines 2836--2836
 []                  \T1/lmtt/m/n/12 points=c(14, 15, 15, 16, 8, 9, 16, 27, 30, 24, 14, 19, 8, 6, 5))[] 
  []
 
 [57] [58] [59]
 File: images/Department_for_Education.png Graphic file (type png)
 <use images/Department_for_Education.png>
-Package pdftex.def Info: images/Department_for_Education.png  used on input line 2878.
+Package pdftex.def Info: images/Department_for_Education.png  used on input line 2891.
 (pdftex.def)             Requested size: 469.75311pt x 277.93726pt.
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 2891--2896
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 2904--2909
 [][]  
  []
 
 
-Overfull \hbox (1.88498pt too wide) in paragraph at lines 2900--2900
+Overfull \hbox (1.88498pt too wide) in paragraph at lines 2913--2913
 []|\T1/phv/m/n/12 enquiries| 
  []
 
 
-Overfull \hbox (4.20119pt too wide) in paragraph at lines 2901--2901
+Overfull \hbox (4.20119pt too wide) in paragraph at lines 2914--2914
 []|\T1/phv/m/n/12 download| 
  []
 
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 2899--2903
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 2912--2916
 [][]  
  []
 
 <images/logoTwitter.png, id=607, 27.2655pt x 21.681pt>
 File: images/logoTwitter.png Graphic file (type png)
 <use images/logoTwitter.png>
-Package pdftex.def Info: images/logoTwitter.png  used on input line 2905.
+Package pdftex.def Info: images/logoTwitter.png  used on input line 2918.
 (pdftex.def)             Requested size: 27.26665pt x 21.68193pt.
 <images/logoFacebook.png, id=608, 21.681pt x 21.681pt>
 File: images/logoFacebook.png Graphic file (type png)
 <use images/logoFacebook.png>
-Package pdftex.def Info: images/logoFacebook.png  used on input line 2908.
+Package pdftex.def Info: images/logoFacebook.png  used on input line 2921.
 (pdftex.def)             Requested size: 21.68193pt x 21.68193pt.
 [60 <./images/logoTwitter.png> <./images/logoFacebook.png>] (./HEA_R_workshop.aux)
  ***********
@@ -1059,7 +1064,7 @@ Here is how much of TeX's memory you used:
 pdfTeX warning (dest): name{joins-ux5cux26-joining-geographic-codes-via-lookup-tables} has been referenced but does not exist, replaced by a fixed one
 
 <c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on HEA_R_workshop.pdf (60 pages, 2015284 bytes).
+Output written on HEA_R_workshop.pdf (60 pages, 2015644 bytes).
 PDF statistics:
  684 PDF objects out of 1000 (max. 8388607)
  587 compressed objects within 6 object streams
