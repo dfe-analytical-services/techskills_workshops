@@ -414,6 +414,208 @@ Run your code
 Highlight the lines you have just added to the script and run them either using the button or the keyboard shortcut. Now we have the packages we need to load in some data. 
 \end{tcolorbox}
 ```
+## Data types and objects in R
+
+### Basic data types
+
+In R, you can have multiple types of data. The basic data types can be divided into the following: 
+
+* Numeric (10.5, 55, 787)
+* Integer (1L, 55L, 100L - "L" declares these as integers)
+* Complex (9 + 3i - "i" is an imaginary part)
+* Character (a.k.a string/text)
+* Logical (a.k.a boolean- e.g. TRUE or FALSE)
+
+We can use the `class()` function to check the data type of a variable in R. 
+
+### Basic data objects
+
+In R, we can store *objects* in our *environment*. There are 5 basic types of objects in the R language.
+
+**Atomic vectors** can store homogeneous data types such as character, doubles, integers, raw, logical, and complex. A single element variable is also said to be vector. To create vectors in R, we use `c()`. 
+
+```{=tex}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Atomic vectors
+\tcblower
+Try running the following code: 
+\begin{verbatim}
+# Create vectors
+x <- c(1, 2, 3, 4)
+y <- c("a", "b", "c", "d")
+z <- 5
+  
+# Print vector and class of vector
+print(x)
+class(x)
+
+print(y)
+class(y)
+
+print(z)
+class(z)
+\end{verbatim}
+\end{tcolorbox}
+```
+
+**Lists** are another type of object in R programming. Lists can contain heterogeneous data types such as vectors or another lists.
+
+```{=tex}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Lists
+\tcblower
+Try running the following code: 
+\begin{verbatim}
+# Create list
+ls <- list(c(1, 2, 3, 4), list("a", "b", "c"))
+  
+# Print
+print(ls)
+class(ls)
+\end{verbatim}
+\end{tcolorbox}
+```
+
+**Matrices** are used in R to store 2-dimensional arrays. Data, number of rows and columns are defined in the `matrix()` function. The syntax for the `matrix()` function is:
+```
+matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)
+```
+
+```{=tex}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Matrices
+\tcblower
+Try running the following code: 
+\begin{verbatim}
+x <- c(1, 2, 3, 4, 5, 6)
+  
+# Create matrix
+mat <- matrix(x, nrow = 2)
+  
+print(mat)
+class(mat)
+\end{verbatim}
+\end{tcolorbox}
+```
+
+**Factors** encode a vector of unique elements (levels) from the given data vector. 
+
+```{=tex}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Factors
+\tcblower
+Try running the following code: 
+\begin{verbatim}
+# Create vector
+s <- c("spring", "autumn", "winter", "summer", 
+"spring", "autumn")
+  
+factor(s)
+nlevels(factor(s))
+\end{verbatim}
+\end{tcolorbox}
+```
+
+**Arrays** are n-dimensional arrays. The `array()` function takes dim attribute as an argument and creates required length of each dimension as specified in the attribute.
+
+```{=tex}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Arrays
+\tcblower
+Try running the following code: 
+\begin{verbatim}
+# Create vector
+# Create 3-dimensional array
+# and filling values by column
+arr <- array(c(1, 2, 3), dim = c(3, 3, 3))
+  
+print(arr)
+\end{verbatim}
+\end{tcolorbox}
+```
+
+**Data frames** are tabular data objects in R. Data frames consists of multiple columns and each column represents a vector. Columns in data frame can have different modes of data unlike matrices.
+
+```{=tex}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Data frames
+\tcblower
+Try running the following code: 
+\begin{verbatim}
+# Create vectors
+x <- 1:5
+y <- LETTERS[1:5]
+z <- c("Albert", "Bob", "Charlie", "Denver", "Elie")
+  
+# Create data frame of vectors
+df <- data.frame(x, y, z)
+  
+# Print data frame
+print(df)
+\end{verbatim}
+\end{tcolorbox}
+```
+
 ## Loading in the data
 
 There are multiple ways to load data into R.
@@ -448,11 +650,10 @@ This means that while the code `readr::read_csv(insert_filename/filepath_here)` 
  ]
 Read in the data
 \tcblower
-In this workshop, the data is a direct download from HESA so we can use a URL. Using this [HESA data page](https://www.hesa.ac.uk/data-and-analysis/sb265/figure-5) I can see that the *Data file canonical link* is https://www.hesa.ac.uk/data-and-analysis/sb265/figure-5.csv, so we can read in the URL as follows:   \verb|some_student_results.csv|. Therefore, the code will look like this:
+In this workshop, the data is available as a csv in the 'data' folder of the project, and is called \verb|HEA_some_student_results.csv|. Therefore, the code will look like this:
 
 \begin{verbatim}
-Graduates <- read_csv("https://www.hesa.ac.uk/data-and-analysis
-/sb265/figure-5.csv")
+student_results <- read_csv("data/HEA_some_student_results.csv")
 \end{verbatim}
 
 Write and run this line in your script. 
@@ -587,11 +788,14 @@ To remove rows that contain any missing values or NA's, we use the following cod
 \begin{verbatim}
 student_results_rmNAs <- student_results %>%
   na.omit()
+  
+student_results_rmNAs
 \end{verbatim}
+See how in the environment, \verb|student_results_rmNAs| has less obserbations than \verb|student_results|. 
 \end{tcolorbox}
 ```
 However, we might only want to remove rows where a **specific column** is NA.
-For example, we might want to remove rows if the age or school is missing, but we might not mind if their are other missing values (for example, we might expect some missing values in G1 if a student didn't receive a grade for whatever reason).
+For example, we might want to remove rows if the age or school is missing, but we might not mind if there are other missing values (for example, we might expect some missing values in G1 if a student didn't receive a grade for whatever reason).
 In this case there we can use the `drop_na()` function.
 
 ```{=tex}
@@ -608,11 +812,15 @@ In this case there we can use the `drop_na()` function.
  ]
 Remove rows with missing values in specific columns
 \tcblower
-To remove rows that contain missing values or NA's in a specific column, we use the following code. Let's call our new dataset \verb|'student_results_rmNAage'| (rmNAage meaning remove NAs for age):
+To remove rows that contain missing values or NA's in a specific column, we use the following code.
 \begin{verbatim}
-student_results_rmNAage <- student_results %>%
+student_results_rmNAs <- student_results %>%
   drop_na(c(age, school))
+
+student_results_rmNAs
 \end{verbatim}
+
+Note how, because we've used the same name, we have just \textbf{overwritten} what \textit{used} to be saved with that name!
 \end{tcolorbox}
 ```
 We might also want to **replace NAs** with an alternative value such as 0 or the common GSS codes of z (not applicable) or x (unavailable).
@@ -637,6 +845,8 @@ Something some teams do is replace numeric NAs with negative numbers that they c
 \begin{verbatim}
 student_results_negatives <- student_results %>%
   mutate(across(where(is.numeric), ~replace_na(.,-100)))
+  
+student_results_negatives
 \end{verbatim}
 
 Another common need is to replace NAs with a GSS symbol like 'x'. The above will need tweaking in order to work, as if you replaced -100 with 'x' in the above code, you would get an error. This is because you can't change NAs in a \textbf{numeric} column to a character such as 'x'. We would have to make the columns into character variables first, however this prevents you from ordering and filtering them as numeric data, so this should be done \textbf{after all numeric calculations have been performed}:
@@ -644,7 +854,9 @@ Another common need is to replace NAs with a GSS symbol like 'x'. The above will
 \begin{verbatim}
 student_results_x <- student_results %>%
   mutate(across(where(is.numeric), ~as.character(.)),
-         across(names(student_results),~replace_na(.,'x')))
+         across(names(student_results),~replace_na(.,"x")))
+         
+student_results_x
 \end{verbatim}
 \end{tcolorbox}
 ```
@@ -672,6 +884,8 @@ To remove duplicate rows, we simply use the \verb|distinct()| function as follow
 student_results_distinct <- student_results %>%
   distinct()
 \end{verbatim}
+
+Again, see how in the environment, \verb|student_results_distinct| has less observations than \verb|student_results| because it has removed a duplicate row!
 \end{tcolorbox}
 ```
 You can also choose to only filter out duplicates in certain rows, for instance if you only wanted to keep one row per school you could just filter out the duplicates from that column.
@@ -696,6 +910,7 @@ To remove duplicate rows based on a specific column, in this instance 'school', 
 student_results_distinct_school <- student_results %>%
   distinct(school, .keep_all = TRUE)
 \end{verbatim}
+This returns only 2 observations, because there are only 2 distinct schools! Using distinct in this way will simply keep the first occurance of each distinct school.
 \end{tcolorbox}
 ```
 # Descriptive statistics
@@ -749,7 +964,7 @@ In our environment, we should see the data we have loaded in with the name we ga
 student_results %>%
   filter(year == 2015,
          age > 16, 
-         Mjob %in% c('health','teacher','services'))
+         Mjob %in% c("health","teacher","services"))
 \end{verbatim}
 
 \end{tcolorbox}
@@ -1192,10 +1407,10 @@ We want to suppress any rows that have less than 5 students. One way to do this 
 
 \begin{verbatim}
 student_results_aggregated_suppressed <- student_results_aggregated %>%
-  mutate(g1_mean = ifelse(students < 5, 'c', g1_mean),
-         g2_mean = ifelse(students < 5, 'c', g2_mean),
-         g3_mean = ifelse(students < 5, 'c', g3_mean),
-         students = ifelse(students < 5, 'c', students)
+  mutate(g1_mean = ifelse(students < 5, "c", g1_mean),
+         g2_mean = ifelse(students < 5, "c", g2_mean),
+         g3_mean = ifelse(students < 5, "c", g3_mean),
+         students = ifelse(students < 5, "c", students)
          )
 \end{verbatim}
 \end{tcolorbox}
@@ -1227,7 +1442,7 @@ With an appropriate comment to explain, add the below to your functions.R script
 
 \begin{verbatim}
 suppress_counts <- function(column, count) {
-  ifelse(count < 5, 'c', column)
+  ifelse(count < 5, "c", column)
 }
 \end{verbatim}
 
@@ -1302,7 +1517,7 @@ Let's assume in this instance the time identifier is \textit{academic year}. We 
 \begin{verbatim}
 student_results_aggregated_suppressed_EES <- 
   student_results_aggregated_suppressed %>%
-  mutate(time_identifier = 'Academic year') %>%
+  mutate(time_identifier = "Academic year") %>%
   rename(time_period = year)
 \end{verbatim}
 \end{tcolorbox}
@@ -1329,8 +1544,8 @@ Assume that the school 'GP' is in London, and the school 'MS' is in East England
 \begin{verbatim}
 student_results_aggregated_suppressed_EES <- 
   student_results_aggregated_suppressed %>%
-  mutate(time_identifier = 'Academic year', 
-         geographic_level = 'Regional',
+  mutate(time_identifier = "Academic year", 
+         geographic_level = "Regional",
          region_name = 
               case_when(school == "MS" ~ "East of England",
                         school == "GP" ~ "London")) %>%
@@ -1410,14 +1625,14 @@ Here we will use a left join because we want to keep all of the rows from our da
 \begin{verbatim}
 student_results_aggregated_suppressed_EES <- 
 student_results_aggregated_suppressed %>%
-  mutate(time_identifier = 'Academic year', 
-         geographic_level = 'Regional',
+  mutate(time_identifier = "Academic year", 
+         geographic_level = "Regional",
          region_name = 
-            case_when(school == 'MS' ~ "East of England",
-                      school == 'GP' ~ 'London')) %>%
+            case_when(school == "MS" ~ "East of England",
+                      school == "GP" ~ "London")) %>%
   rename(time_period = year) %>%
   left_join(regions_lookup, 
-            by = c('region_name' = 'region_name')) %>%
+            by = c("region_name" = "region_name")) %>%
   select(time_period, time_identifier, geographic_level, 
          region_name, region_code, sex, age, 
          students, g1_mean, g2_mean, g3_mean)
@@ -1596,11 +1811,54 @@ Try and take the \verb|'long_data'| we created previously (which should still ex
 Now we can use the \verb|'plot_data'| to create a bar chart using \verb|ggplot2|. The following code creates a plot as described above: 
 
 \begin{verbatim}
-ggplot(plot_data, aes(x = assessment, y = mean_grade)) +
-  geom_bar(stat = 'identity', aes(fill = sex), position = "dodge")
+ggplotly(ggplot(plot_data) +
+           geom_bar(stat = 'identity', aes(x = assessment, 
+                                           y = mean_grade, 
+                                           fill = sex), 
+                    position = "dodge"))
 \end{verbatim}
 \end{tcolorbox}
 ```
+
+## Creating functions for plots
+
+We had some practice earlier writing functions. We can apply our function-writing skills in many areas, wone of which is creating plots. If you are creating **many similar plots**, it can be really useful to create a function to save you repeating the same code over and over again! 
+
+Take the code above that we used to plot assessment against mean grade. Imagine we want to compare the mean grade not just by sex, but also want to see comparisons for age, year, and school. We can write a function to create a chart in which we simply input the data and the variables we want to split by each time, removing the need to repeat *all* of the plot code multiple times! 
+
+```{=tex}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Function for charts
+\tcblower
+We can take the code we used  before to define the plot data and the plot itself, and put in in a function. We simply replace the variables with 'placeholders' which we can choose each time we run the function!
+
+\begin{verbatim}
+plot_function <- function(data, filteryear, filterage, filterregion, mapping){
+  plot_data <- data %>%
+    filter(time_period == filteryear, age == filterage, region_name == filterregion)
+  
+  #return(plot_data)
+  ggplotly(ggplot(plot_data2) +
+             geom_bar(stat = 'identity', mapping, 
+                      position = "dodge"))
+  
+}
+
+
+\end{verbatim}
+\end{tcolorbox}
+```
+
 # Using online resources
 
 An important skill when writing and developing code is knowing how to solve errors and find answers to your own questions.
@@ -1731,6 +1989,57 @@ Then below, add a comment and \verb|source()| for your functions script and plot
 \end{tcolorbox}
 ```
 Once you have sourced all of your scripts here, you can run this run_pipeline script and (hopefully) see all your code running in the console, as well as the charts appearing in the plots viewer - all with the running of this one single script!
+
+# Unit testing in R 
+
+A unit test is basically a small function that tests and helps us to write *robust* code. By robust, we mean code that **won't break easily** upon changes, can be altered or extended, and can be tested with ease. Unit tests are extremely useful when writing **dynamic** code, as there isn't always a straight-forward way to check and test functions without 'invalid argument' errors!
+
+A simple function takes some input x and returns an output y. In unit testing, we verify that the function is returning the **expected value* of y for a specific value of x! We can perform unit tests using the `testthat` package. Make sure you install the `testthat` package first!
+
+```{=tex}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Unit testing
+\tcblower
+
+Lets use the \verb|add_together| function we defined earlier! To recap:
+
+\begin{verbatim}
+add_together <- function(x,y){
+x + y
+}
+\end{verbatim}
+
+Now let's use \verb|test_that()|:
+
+\begin{verbatim}
+# import testthat package
+library(testthat)
+
+# use expect_that to create tests
+test_that(
+  "Unexpected result!", #Customise your message
+  {
+    expect_equal(add_together(2,2), 5)
+    expect_identical(add_together(2,2), 4)
+    expect_equal(add_together(2,2), 4)
+  }
+)
+\end{verbatim}
+See how the above code returns a message in the console to let you know that there's a 'mismatch'! As we know, 2 + 2 is not 5, so the \verb|expect_that()| function flags where our function and our chosen expected value differ! 
+\end{tcolorbox}
+```
+
+See https://www.geeksforgeeks.org/unit-testing-in-r-programming/ for more info, including a table of over 20 'expectation' options (i.e. `expect_equal()`, `expect_lt()` means expect less than, `expect_gte()` means expect greater than or equal). 
 
 # dplyr vs. data.table
 

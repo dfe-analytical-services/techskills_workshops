@@ -51,9 +51,9 @@ View(student_results_aggregated)
 #   select(school, sex, age, students, G1_mean, G2_mean, G3_mean) %>%
 #   rename(g1_mean = G1_mean)
 
-student_results_aggregated <- student_results_aggregated %>%
-  select(year, school, sex, age, students, G1_mean, G2_mean, G3_mean) %>%
-  rename_all(tolower)
+# student_results_aggregated <- student_results_aggregated %>%
+#   select(year, school, sex, age, students, G1_mean, G2_mean, G3_mean) %>%
+#   rename_all(tolower)
 
 student_results_aggregated <- student_results_aggregated %>%
   select(year, school, sex, age, students, G1_mean, G2_mean, G3_mean) %>%
