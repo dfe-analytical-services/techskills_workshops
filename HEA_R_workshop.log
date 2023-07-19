@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.7.11)  14 JUL 2023 16:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.7.11)  19 JUL 2023 11:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1064,7 +1064,7 @@ Here is how much of TeX's memory you used:
 pdfTeX warning (dest): name{joins-ux5cux26-joining-geographic-codes-via-lookup-tables} has been referenced but does not exist, replaced by a fixed one
 
 <c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on HEA_R_workshop.pdf (60 pages, 2015644 bytes).
+Output written on HEA_R_workshop.pdf (60 pages, 2015646 bytes).
 PDF statistics:
  684 PDF objects out of 1000 (max. 8388607)
  587 compressed objects within 6 object streams
