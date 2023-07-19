@@ -241,7 +241,7 @@ If you want to choose which package to use and override the precedent set by R, 
  ]
 Activate renv
 \tcblower
-To activate renv, run \verb|renv::activate()| in the console. If you navigate back to the files tab in the bottom left and look in your project folder, you should see some renv-related files have appeared, including a \textit{renv.lock} file. The renv.lock file is the file that records all of your project's packages and their versions. If you click on the renv.lock file it will open for you to view in the top left.  
+To initiate renv, run \verb|renv::init()| in the console. If you navigate back to the files tab in the bottom left and look in your project folder, you should see some renv-related files have appeared, including a \textit{renv.lock} file. The renv.lock file is the file that records all of your project's packages and their versions. If you click on the renv.lock file it will open for you to view in the top left.  
 \end{tcolorbox}
 ```
 Each time you add or remove packages, or update the package versions, you should run `renv::snapshot()` to take a snapshot of the current state of your library.
