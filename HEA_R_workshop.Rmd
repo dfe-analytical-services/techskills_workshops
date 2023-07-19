@@ -206,7 +206,7 @@ Using Git repositories is best RAP practice as it means you're using version con
  ]
 Create project
 \tcblower
-Select \textbf{File > New Project > Version Control > Git}. To get the repository URL, go to the GitHub repository, click the green 'code' button and copy the link from there. You can choose the project directory name, as this is how it will appear on your device. 
+Select \textbf{File > New Project > Version Control > Git}. To get the repository URL, go to the GitHub/DevOps repository, click the green 'code' button and copy the link from there. You can choose the project directory name, as this is how it will appear on your device. 
 
 For the file path at the bottom, you should make sure this is \textbf{not} saved in your OneDrive area. You should select Browse and navigate out of OneDrive to save the project directory elsewhere (this is because OneDrive has it's own version-control system, and trying to use Git within that can cause complications and errors). 
 
