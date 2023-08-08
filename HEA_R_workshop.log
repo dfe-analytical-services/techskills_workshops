@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.7.11)  19 JUL 2023 11:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.7.11)  8 AUG 2023 14:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -845,204 +845,203 @@ Package pdftex.def Info: images/RforRAP/R-studio-panels.png  used on input line 
 <images/gitdemo/gitdemo-gitRstudio-settings.png, id=253, 450.68375pt x 469.755pt>
 File: images/gitdemo/gitdemo-gitRstudio-settings.png Graphic file (type png)
 <use images/gitdemo/gitdemo-gitRstudio-settings.png>
-Package pdftex.def Info: images/gitdemo/gitdemo-gitRstudio-settings.png  used on input line 270.
+Package pdftex.def Info: images/gitdemo/gitdemo-gitRstudio-settings.png  used on input line 269.
 (pdftex.def)             Requested size: 300.6568pt x 313.37949pt.
 <images/gitdemo/gitdemo-gitRstudio-NewTerminal.png, id=254, 685.05937pt x 274.02374pt>
 File: images/gitdemo/gitdemo-gitRstudio-NewTerminal.png Graphic file (type png)
 <use images/gitdemo/gitdemo-gitRstudio-NewTerminal.png>
 Package pdftex.def Info: images/gitdemo/gitdemo-gitRstudio-NewTerminal.png  used on input line 278.
 (pdftex.def)             Requested size: 263.06398pt x 105.22559pt.
-[6] [7 <./images/gitdemo/gitdemo-gitRstudio-settings.PNG>]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 283.
 (c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [8{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./images/gitdemo/gitdemo-gitRstudio-NewTerminal.PNG>] [9]
-LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 375.
+) [6] [7 <./images/gitdemo/gitdemo-gitRstudio-settings.PNG> <./images/gitdemo/gitdemo-gitRstudio-NewTerminal.PNG>] [8{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}] [9]
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 378.
 (c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [10{c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] [11]
-Underfull \hbox (badness 1052) in paragraph at lines 488--489
+Underfull \hbox (badness 1052) in paragraph at lines 480--481
 []\T1/phv/m/n/12 Our first steps only re-quire two pack-ages, 'readr' and 'dplyr'. You
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 488--489
+Underfull \hbox (badness 10000) in paragraph at lines 480--481
 \T1/phv/m/n/12 can ei-ther in-stall these by typ-ing [][]\T1/lmtt/m/n/12 install.packages('readr')
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 488--489
+Underfull \hbox (badness 10000) in paragraph at lines 480--481
 []\T1/phv/m/n/12 and [][]\T1/lmtt/m/n/12 install.packages('dplyr') []\T1/phv/m/n/12 one at a time in the con-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 488--489
+Underfull \hbox (badness 10000) in paragraph at lines 480--481
 \T1/phv/m/n/12 sole, or you can in-stall both pack-ages at once by run-ning
  []
 
 
-Underfull \hbox (badness 1478) in paragraph at lines 488--489
+Underfull \hbox (badness 1478) in paragraph at lines 480--481
 [][]\T1/lmtt/m/n/12 install.packages(c('readr', 'dplyr'))[]\T1/phv/m/n/12 . Then, re-mem-ber to take
  []
 
 [12]
-<images/RforRAP/section_headers.png, id=300, 616.3025pt x 287.57437pt>
+<images/RforRAP/section_headers.png, id=301, 616.3025pt x 287.57437pt>
 File: images/RforRAP/section_headers.png Graphic file (type png)
 <use images/RforRAP/section_headers.png>
-Package pdftex.def Info: images/RforRAP/section_headers.png  used on input line 535.
+Package pdftex.def Info: images/RforRAP/section_headers.png  used on input line 527.
 (pdftex.def)             Requested size: 469.76775pt x 219.19945pt.
 [13 <./images/RforRAP/section_headers.png>]
-<images/RforRAP/run_buttons.png, id=310, 580.569pt x 176.514pt>
+<images/RforRAP/run_buttons.png, id=311, 580.569pt x 176.514pt>
 File: images/RforRAP/run_buttons.png Graphic file (type png)
 <use images/RforRAP/run_buttons.png>
-Package pdftex.def Info: images/RforRAP/run_buttons.png  used on input line 569.
+Package pdftex.def Info: images/RforRAP/run_buttons.png  used on input line 561.
 (pdftex.def)             Requested size: 469.75337pt x 142.82202pt.
 [14 <./images/RforRAP/run_buttons.png>] [15] [16] [17]
-Overfull \hbox (0.87625pt too wide) in paragraph at lines 870--870
+Overfull \hbox (0.87625pt too wide) in paragraph at lines 862--862
 []\T1/lmtt/m/n/12 student_results <- read_csv("data/HEA_some_student_results.csv")[] 
  []
 
 [18] [19] [20] [21] [22] [23] [24] [25] [26]
-Underfull \hbox (badness 10000) in paragraph at lines 1337--1338
+Underfull \hbox (badness 10000) in paragraph at lines 1332--1333
 []\T1/phv/m/n/12 Within the [][]\T1/lmtt/m/n/12 summarise []\T1/phv/m/n/12 state-ment, it's defin-ing 4 new columns.
  []
 
 [27]
-Overfull \hbox (0.87625pt too wide) in paragraph at lines 1375--1375
+Overfull \hbox (0.87625pt too wide) in paragraph at lines 1370--1370
 []  \T1/lmtt/m/n/12 summarise(across(c(G1, G2, G3), mean, .names = "{.col}_mean"),[] 
  []
 
 [28]
-Overfull \hbox (0.87625pt too wide) in paragraph at lines 1407--1407
+Overfull \hbox (0.87625pt too wide) in paragraph at lines 1402--1402
 []  \T1/lmtt/m/n/12 summarise(across(c(G1, G2, G3), mean, .names = "{.col}_mean"),[] 
  []
 
 [29]
-Overfull \hbox (7.05125pt too wide) in paragraph at lines 1470--1470
+Overfull \hbox (7.05125pt too wide) in paragraph at lines 1465--1465
 []  \T1/lmtt/m/n/12 rename(g1_mean = G1_mean, g2_mean = G2_mean, g3_mean = G3_mean)[] 
  []
 
 [30] [31] [32]
-Underfull \hbox (badness 10000) in paragraph at lines 1617--1618
+Underfull \hbox (badness 10000) in paragraph at lines 1612--1613
 []\T1/phv/m/n/12 Try cre-at-ing a func-tion called [][]\T1/lmtt/m/n/12 'introduction_text'[]\T1/phv/m/n/12 , that
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1617--1618
+Underfull \hbox (badness 10000) in paragraph at lines 1612--1613
 \T1/phv/m/n/12 has \T1/phv/m/sl/12 two in-puts \T1/phv/m/n/12 de-fined as 'name' and 'age', and uses
  []
 
 
-Underfull \hbox (badness 1117) in paragraph at lines 1617--1618
+Underfull \hbox (badness 1117) in paragraph at lines 1612--1613
 [][]\T1/lmtt/m/n/12 paste("Hi, my name is", name, "and my age is", age) []\T1/phv/m/n/12 as the \T1/phv/m/sl/12 func-
  []
 
 [33] [34]
-Overfull \hbox (44.10127pt too wide) in paragraph at lines 1788--1788
+Overfull \hbox (44.10127pt too wide) in paragraph at lines 1783--1783
 []\T1/lmtt/m/n/12 student_results_aggregated_suppressed <- student_results_aggregated %>%[] 
  []
 
 [35]
-Overfull \hbox (44.10127pt too wide) in paragraph at lines 1841--1841
+Overfull \hbox (44.10127pt too wide) in paragraph at lines 1836--1836
 []\T1/lmtt/m/n/12 student_results_aggregated_suppressed <- student_results_aggregated %>%[] 
  []
 
 [36] [37] [38]
-<images/RforRAP/github-raw-button.png, id=463, 714.159pt x 355.437pt>
+<images/RforRAP/github-raw-button.png, id=464, 714.159pt x 355.437pt>
 File: images/RforRAP/github-raw-button.png Graphic file (type png)
 <use images/RforRAP/github-raw-button.png>
-Package pdftex.def Info: images/RforRAP/github-raw-button.png  used on input line 1983.
+Package pdftex.def Info: images/RforRAP/github-raw-button.png  used on input line 1978.
 (pdftex.def)             Requested size: 469.75542pt x 233.79729pt.
 
-Overfull \hbox (7.05125pt too wide) in paragraph at lines 2011--2011
+Overfull \hbox (7.05125pt too wide) in paragraph at lines 2006--2006
 []\T1/lmtt/m/n/12 regions_URL <- "https://raw.githubusercontent.com/dfe-analytical-[] 
  []
 
 [39] [40 <./images/RforRAP/github-raw-button.png>] [41] [42] [43] [44] [45]
-Overfull \hbox (87.3263pt too wide) in paragraph at lines 2303--2303
+Overfull \hbox (87.3263pt too wide) in paragraph at lines 2298--2298
 []\T1/lmtt/m/n/12 plot_function <- function(data, filteryear, filterage, filterregion, mapping){[] 
  []
 
 
-Overfull \hbox (124.37631pt too wide) in paragraph at lines 2305--2305
+Overfull \hbox (124.37631pt too wide) in paragraph at lines 2300--2300
 []    \T1/lmtt/m/n/12 filter(time_period == filteryear, age == filterage, region_name == filterregion)[] 
  []
 
 [46]
-Overfull \hbox (13.22626pt too wide) in paragraph at lines 2410--2410
+Overfull \hbox (13.22626pt too wide) in paragraph at lines 2405--2405
 []\T1/lmtt/m/n/12 "write some R code that will calculate what % of penguins from the[] 
  []
 
 [47] [48] [49] [50] [51]
-Overfull \hbox (18.07022pt too wide) in paragraph at lines 2663--2663
+Overfull \hbox (18.07022pt too wide) in paragraph at lines 2658--2658
 []\T1/lmtt/m/n/12 renvPackages <- names(jsonlite::fromJSON("renv.lock", flatten = TRUE)$Packages)[] 
  []
 
 [52]
-Overfull \hbox (36.59523pt too wide) in paragraph at lines 2672--2672
+Overfull \hbox (36.59523pt too wide) in paragraph at lines 2667--2667
 []\T1/lmtt/m/n/12 # note down output 1, and reuse in the lib argument of install.packages() as below[] 
  []
 
 
-Overfull \hbox (5.72021pt too wide) in paragraph at lines 2674--2674
+Overfull \hbox (5.72021pt too wide) in paragraph at lines 2669--2669
 []\T1/lmtt/m/n/12 install.packages("rmarkdown", lib = "C:/Users/swong/OneDrive - Department for[] 
  []
 
 
-Overfull \hbox (55.09923pt too wide) in paragraph at lines 2675--2675
+Overfull \hbox (55.09923pt too wide) in paragraph at lines 2670--2670
 []\T1/lmtt/m/n/12 Education/Documents/stats-production-guidance/renv/library/R-4.0/x86_64-w64-mingw32")[] 
  []
 
 [53] [54]
-<images/RforRAP/vlookup_excel.png, id=571, 770.88pt x 542.025pt>
+<images/RforRAP/vlookup_excel.png, id=572, 770.88pt x 542.025pt>
 File: images/RforRAP/vlookup_excel.png Graphic file (type png)
 <use images/RforRAP/vlookup_excel.png>
-Package pdftex.def Info: images/RforRAP/vlookup_excel.png  used on input line 2769.
+Package pdftex.def Info: images/RforRAP/vlookup_excel.png  used on input line 2764.
 (pdftex.def)             Requested size: 469.75385pt x 330.29567pt.
 
-Overfull \hbox (36.56021pt too wide) in paragraph at lines 2792--2792
+Overfull \hbox (36.56021pt too wide) in paragraph at lines 2787--2787
 []                  \T1/lmtt/m/n/12 points=c(14, 15, 15, 16, 8, 9, 16, 27, 30, 24, 14, 19, 8, 6, 5))[] 
  []
 
 [55] [56 <./images/RforRAP/vlookup_excel.png>]
-Overfull \hbox (36.56021pt too wide) in paragraph at lines 2836--2836
+Overfull \hbox (36.56021pt too wide) in paragraph at lines 2831--2831
 []                  \T1/lmtt/m/n/12 points=c(14, 15, 15, 16, 8, 9, 16, 27, 30, 24, 14, 19, 8, 6, 5))[] 
  []
 
 [57] [58] [59]
 File: images/Department_for_Education.png Graphic file (type png)
 <use images/Department_for_Education.png>
-Package pdftex.def Info: images/Department_for_Education.png  used on input line 2891.
+Package pdftex.def Info: images/Department_for_Education.png  used on input line 2886.
 (pdftex.def)             Requested size: 469.75311pt x 277.93726pt.
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 2904--2909
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 2899--2904
 [][]  
  []
 
 
-Overfull \hbox (1.88498pt too wide) in paragraph at lines 2913--2913
+Overfull \hbox (1.88498pt too wide) in paragraph at lines 2908--2908
 []|\T1/phv/m/n/12 enquiries| 
  []
 
 
-Overfull \hbox (4.20119pt too wide) in paragraph at lines 2914--2914
+Overfull \hbox (4.20119pt too wide) in paragraph at lines 2909--2909
 []|\T1/phv/m/n/12 download| 
  []
 
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 2912--2916
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 2907--2911
 [][]  
  []
 
-<images/logoTwitter.png, id=607, 27.2655pt x 21.681pt>
+<images/logoTwitter.png, id=608, 27.2655pt x 21.681pt>
 File: images/logoTwitter.png Graphic file (type png)
 <use images/logoTwitter.png>
-Package pdftex.def Info: images/logoTwitter.png  used on input line 2918.
+Package pdftex.def Info: images/logoTwitter.png  used on input line 2913.
 (pdftex.def)             Requested size: 27.26665pt x 21.68193pt.
-<images/logoFacebook.png, id=608, 21.681pt x 21.681pt>
+<images/logoFacebook.png, id=609, 21.681pt x 21.681pt>
 File: images/logoFacebook.png Graphic file (type png)
 <use images/logoFacebook.png>
-Package pdftex.def Info: images/logoFacebook.png  used on input line 2921.
+Package pdftex.def Info: images/logoFacebook.png  used on input line 2916.
 (pdftex.def)             Requested size: 21.68193pt x 21.68193pt.
 [60 <./images/logoTwitter.png> <./images/logoFacebook.png>] (./HEA_R_workshop.aux)
  ***********
@@ -1050,13 +1049,13 @@ LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `HEA_R_workshop.out' has not changed.
-(rerunfilecheck)             Checksum: A53A62F05FCF415CAE0F8F3735D95EB2;6821.
+(rerunfilecheck)             Checksum: E7763DC99983B521990487C9A10A6C59;6757.
  ) 
 Here is how much of TeX's memory you used:
- 24934 strings out of 477197
- 465028 string characters out of 5812034
+ 24937 strings out of 477197
+ 465061 string characters out of 5812034
  1929238 words of memory out of 5000000
- 45273 multiletter control sequences out of 15000+600000
+ 45274 multiletter control sequences out of 15000+600000
  600774 words of font info for 77 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  83i,14n,87p,557b,625s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1064,10 +1063,10 @@ Here is how much of TeX's memory you used:
 pdfTeX warning (dest): name{joins-ux5cux26-joining-geographic-codes-via-lookup-tables} has been referenced but does not exist, replaced by a fixed one
 
 <c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on HEA_R_workshop.pdf (60 pages, 2015652 bytes).
+Output written on HEA_R_workshop.pdf (60 pages, 2015247 bytes).
 PDF statistics:
- 684 PDF objects out of 1000 (max. 8388607)
- 587 compressed objects within 6 object streams
- 194 named destinations out of 1000 (max. 500000)
+ 685 PDF objects out of 1000 (max. 8388607)
+ 588 compressed objects within 6 object streams
+ 196 named destinations out of 1000 (max. 500000)
  399 words of extra memory for PDF output out of 10000 (max. 10000000)
 

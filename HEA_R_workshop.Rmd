@@ -133,9 +133,7 @@ This is going to be interactive and require you to do some coding.
 
 Preferably before coming along, you'll need to go through the following list of things you'll need to make sure are set up on your DfE laptop:
 
--   Set up an Azure Dev Ops Basic account (not a Stakeholder account) at the DfE Service Portal; Either:
-
--   Install git on your laptop: <https://git-scm.com/downloads>;
+-   Install git on your laptop: <https://git-scm.com/downloads> (optional);
 
 -   Install R-Studio on your machine: Download **R for Windows (x64)** and **RStudio** from the Software Centre on your DfE laptop.
 
@@ -143,14 +141,14 @@ Or:
 
 -   If you're on EDAP and used to using R/R-Studio and/or git on there, feel free to just use that.
 
-You'll also need to make sure that git is set up in the git/SVN pane of global options in R-Studio (found in the Tools drop down menu).
+If wanting to use git, you'll also need to make sure that git is set up in the git/SVN pane of global options in R-Studio (found in the Tools drop down menu).
 Make sure the path to your git executable is entered in the git path box and git should automatically be integrated with R-Studio.
 
 ```{r echo=FALSE, out.width='64%', fig.cap='Enter the path to your git executable in the git path option box'}
 knitr::include_graphics('images/gitdemo/gitdemo-gitRstudio-settings.png')
 ```
 
-Once you open a repository, you'll get an extra panel, named 'git', in the top right pane of R-Studio and you'll also be able to use git in the 'Terminal' tab at the bottom left (in the same place as the R console).
+Once you open a git-controlled repository, you'll get an extra panel, named 'git', in the top right pane of R-Studio and you'll also be able to use git in the 'Terminal' tab at the bottom left (in the same place as the R console).
 
 ```{r echo=FALSE, out.width='56%', fig.cap='The `git BASH` terminal in R-Studio'}
 knitr::include_graphics('images/gitdemo/gitdemo-gitRstudio-NewTerminal.png')
@@ -166,10 +164,7 @@ You should see something similar to the terminal screenshot.
 To get the most out of the workshop, we expect everyone to work through all of the tasks themselves while discussing the work in small groups.
 If anything is unclear then ask and most importantly, communicate with each other about what you're doing.
 
-So that we all have a record of what we have done, everyone will be working in the same repository on their own branch.
-Once you have cloned the repository, please **create a branch** called your name (i.e. `<firstname>_<lastname>`).
-
-By the end, you should get a good idea of how to utilize R for RAP processes, as well as a brief understanding of using git.
+By the end, you should get a good idea of how to utilize R for RAP processes!
 
 \newpage
 
@@ -178,7 +173,7 @@ By the end, you should get a good idea of how to utilize R for RAP processes, as
 Now we will begin the tasks and group work.
 First, everyone **open up R studio.**
 
-# Creating a project & cloning repositories
+# Creating a project
 
 When creating RAP processes, it's key that your code is reusable, transparent, and well documented, such that it is future-proofed for any future team members.
 Therefore, first, we will show you how to create an R project.
@@ -188,9 +183,7 @@ Instead, you essentially start any file path from the location of the .Rproj fil
 *For example*, if you have a code.R code script, and a data.csv file in a project folder that has been set up as an R project, and you want to read the .csv in the R script, you don't need the entire file path of the csv (which probably starts C:/... and can get very long), just the file path relative to the *.Rproj file* which in this case would simply be 'data.csv'.
 
 If you're struggling to grasp that, that's okay, we will create a project and see this in action today.
-To create a new project, in R studio, go to **File \> New Project \> ...**.
-If you were creating a new R project that was not linked to an online *Git* repository, you would select **File \> New Project \> New directory \> New Project**, *however*, today we will be using [the GitHub repository for the workshop](https://github.com/dfe-analytical-services/techskills_workshops).
-Using Git repositories is best RAP practice as it means you're using version control software and your work is more easily shared transparently within your team/department.
+To create a new project, in R studio, go to **File \> New Project \> New directory \> New Project**.
 
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 
@@ -206,14 +199,23 @@ Using Git repositories is best RAP practice as it means you're using version con
  ]
 Create project
 \tcblower
-Select \textbf{File > New Project > Version Control > Git}. To get the repository URL, go to the GitHub/DevOps repository, click the green 'code' button and copy the link from there. You can choose the project directory name, as this is how it will appear on your device. 
+Select \textbf{File > New Project > New directory > New Project}. Choose an appropriate name for your project folder.
 
-For the file path at the bottom, you should make sure this is \textbf{not} saved in your OneDrive area. You should select Browse and navigate out of OneDrive to save the project directory elsewhere (this is because OneDrive has it's own version-control system, and trying to use Git within that can cause complications and errors). 
+The two tick boxes; 'Create a git repository' or 'Use renv with this project' are optional. If you would like to learn about either git or renv, tick the box and let us know - we can direct you to the correct chapters!
+
+For the file path, \textbf{if using git} you should make sure this is \textbf{not} saved in your OneDrive area (this is less important when you aren't using git). If using git you should select Browse and navigate out of OneDrive to save the project directory elsewhere (this is because OneDrive has it's own version-control system, and trying to use Git within that can cause complications and errors). 
 
 Click 'Create project'. 
 \end{tcolorbox}
 ```
-## Using renv
+## Functions and packages
+
+When using functions from packages, you can either type `<package name>::<function name>` )(e.g. `readr::read_csv()`) or just the function name on its own.
+However, problems can arise if two packages have different functions with the same name.
+When you have loaded two packages that contain functions with the same name and you only type the function name, R automatically uses the function from the package that was loaded most recently.
+If you want to choose which package to use and override the precedent set by R, you should use the package name and colons to explicitly state the source package and function you intended.
+
+### Using renv (optional)
 
 Renv (short for R environment) is a package in R that helps you to keep a record of which packages your project uses, and what version of each package it should use (for a reminder of what a package is, check back to the What is R/R Studio? section above).
 Using renv in your R project means that anybody in the future (including your future self) who comes back to this project, can immediately get all of the required packages.
@@ -221,11 +223,6 @@ First you need to install the renv package by running `install.packages('renv')`
 
 Once that has installed, you can run the functions from this package.
 You can also see what packages are installed by navigating to the 'Packages' tab in the bottom right window - renv should have appeared in here now.
-
-When using functions from packages, you can either type `<package name>::<function name>` )(e.g. `readr::read_csv()`) or just the function name on its own.
-However, problems can arise if two packages have different functions with the same name.
-When you have loaded two packages that contain functions with the same name and you only type the function name, R automatically uses the function from the package that was loaded most recently.
-If you want to choose which package to use and override the precedent set by R, you should use the package name and colons to explicitly state the source package and function you intended.
 
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 
@@ -249,7 +246,7 @@ If you ever get a new device, or someone else wants to view your project, they s
 
 # Your initial script
 
-Now that we have your project created and renv activated, we can create our first code script.
+Now that we have your project created and renv activated (optional), we can create our first code script.
 
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 
@@ -418,21 +415,25 @@ Highlight the lines you have just added to the script and run them either using 
 
 ### Basic data types
 
-In R, you can have multiple types of data. The basic data types can be divided into the following: 
+In R, you can have multiple types of data.
+The basic data types can be divided into the following:
 
-* Numeric (10.5, 55, 787)
-* Integer (1L, 55L, 100L - "L" declares these as integers)
-* Complex (9 + 3i - "i" is an imaginary part)
-* Character (a.k.a string/text)
-* Logical (a.k.a boolean- e.g. TRUE or FALSE)
+-   Numeric (10.5, 55, 787)
+-   Integer (1L, 55L, 100L - "L" declares these as integers)
+-   Complex (9 + 3i - "i" is an imaginary part)
+-   Character (a.k.a string/text)
+-   Logical (a.k.a boolean- e.g. TRUE or FALSE)
 
-We can use the `class()` function to check the data type of a variable in R. 
+We can use the `class()` function to check the data type of a variable in R.
 
 ### Basic data objects
 
-In R, we can store *objects* in our *environment*. There are 5 basic types of objects in the R language.
+In R, we can store *objects* in our *environment*.
+There are 5 basic types of objects in the R language.
 
-**Atomic vectors** can store homogeneous data types such as character, doubles, integers, raw, logical, and complex. A single element variable is also said to be vector. To create vectors in R, we use `c()`. 
+**Atomic vectors** can store homogeneous data types such as character, doubles, integers, raw, logical, and complex.
+A single element variable is also said to be vector.
+To create vectors in R, we use `c()`.
 
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 
@@ -467,8 +468,8 @@ class(z)
 \end{verbatim}
 \end{tcolorbox}
 ```
-
-**Lists** are another type of object in R programming. Lists can contain heterogeneous data types such as vectors or another lists.
+**Lists** are another type of object in R programming.
+Lists can contain heterogeneous data types such as vectors or another lists.
 
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 
@@ -495,9 +496,11 @@ class(ls)
 \end{verbatim}
 \end{tcolorbox}
 ```
+**Matrices** are used in R to store 2-dimensional arrays.
+Data, number of rows and columns are defined in the `matrix()` function.
+The syntax for the `matrix()` function is:
 
-**Matrices** are used in R to store 2-dimensional arrays. Data, number of rows and columns are defined in the `matrix()` function. The syntax for the `matrix()` function is:
-```
+```         
 matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)
 ```
 
@@ -527,8 +530,7 @@ class(mat)
 \end{verbatim}
 \end{tcolorbox}
 ```
-
-**Factors** encode a vector of unique elements (levels) from the given data vector. 
+**Factors** encode a vector of unique elements (levels) from the given data vector.
 
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 
@@ -555,8 +557,8 @@ nlevels(factor(s))
 \end{verbatim}
 \end{tcolorbox}
 ```
-
-**Arrays** are n-dimensional arrays. The `array()` function takes dim attribute as an argument and creates required length of each dimension as specified in the attribute.
+**Arrays** are n-dimensional arrays.
+The `array()` function takes dim attribute as an argument and creates required length of each dimension as specified in the attribute.
 
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 
@@ -583,8 +585,9 @@ print(arr)
 \end{verbatim}
 \end{tcolorbox}
 ```
-
-**Data frames** are tabular data objects in R. Data frames consists of multiple columns and each column represents a vector. Columns in data frame can have different modes of data unlike matrices.
+**Data frames** are tabular data objects in R.
+Data frames consists of multiple columns and each column represents a vector.
+Columns in data frame can have different modes of data unlike matrices.
 
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 
@@ -615,7 +618,6 @@ print(df)
 \end{verbatim}
 \end{tcolorbox}
 ```
-
 ## Loading in the data
 
 There are multiple ways to load data into R.
@@ -666,6 +668,8 @@ This is the same as typing `View(name_of_data)` in the console.
 
 ### Writing to and reading from a SQL database (optional section)
 
+**NOTE:** to work through the tasks in these SQL sections, you must have access to an existing SQL database.
+
 In order to read and write data from and to a SQL database, we need to install the relevant packages and connect to the SQL database.
 Firstly, we need to install the `odbc` and `DBI` packages.
 Try to use the above guidance to;
@@ -677,7 +681,7 @@ b.  Add the library calls to the correct section of the initial script,
 c.  Take a snapshot to update the renv.lock file.
 
 Once you have completed the above steps, we can use the new packages to connect to the secure SQL database.
-We use the following code (**inserting the server and database we require**) to create an object with the connection.
+We use the following code (**inserting the server and database you require**) to create an object with the connection.
 You can call it anything, but common practice is to call this connection 'con':
 
 ```         
@@ -1819,12 +1823,15 @@ ggplotly(ggplot(plot_data) +
 \end{verbatim}
 \end{tcolorbox}
 ```
-
 ## Creating functions for plots
 
-We had some practice earlier writing functions. We can apply our function-writing skills in many areas, wone of which is creating plots. If you are creating **many similar plots**, it can be really useful to create a function to save you repeating the same code over and over again! 
+We had some practice earlier writing functions.
+We can apply our function-writing skills in many areas, wone of which is creating plots.
+If you are creating **many similar plots**, it can be really useful to create a function to save you repeating the same code over and over again!
 
-Take the code above that we used to plot assessment against mean grade. Imagine we want to compare the mean grade not just by sex, but also want to see comparisons for age, year, and school. We can write a function to create a chart in which we simply input the data and the variables we want to split by each time, removing the need to repeat *all* of the plot code multiple times! 
+Take the code above that we used to plot assessment against mean grade.
+Imagine we want to compare the mean grade not just by sex, but also want to see comparisons for age, year, and school.
+We can write a function to create a chart in which we simply input the data and the variables we want to split by each time, removing the need to repeat *all* of the plot code multiple times!
 
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 
@@ -1858,7 +1865,6 @@ You can now choose the filters and mapping as you wish!
 \end{verbatim}
 \end{tcolorbox}
 ```
-
 # Using online resources
 
 An important skill when writing and developing code is knowing how to solve errors and find answers to your own questions.
@@ -1900,7 +1906,7 @@ You are almost certainly going to create and cause errors while you experiment w
 You can of course ask the workshop facilitators to help, but using Google to troubleshoot is one of the most valuable lessons you can learn for coding!
 Try and Google the error to see if someone else has already written an answer or solution online!
 
-## Using chatGPT
+## Using chatGPT 
 
 > ChatGPT is a large language model chatbot developed by OpenAI.
 > It has a remarkable ability to interact in conversational dialogue form and provide responses that can appear surprisingly human.
@@ -1990,11 +1996,16 @@ Then below, add a comment and \verb|source()| for your functions script and plot
 ```
 Once you have sourced all of your scripts here, you can run this run_pipeline script and (hopefully) see all your code running in the console, as well as the charts appearing in the plots viewer - all with the running of this one single script!
 
-# Unit testing in R 
+# Unit testing in R
 
-A unit test is basically a small function that tests and helps us to write *robust* code. By robust, we mean code that **won't break easily** upon changes, can be altered or extended, and can be tested with ease. Unit tests are extremely useful when writing **dynamic** code, as there isn't always a straight-forward way to check and test functions without 'invalid argument' errors!
+A unit test is basically a small function that tests and helps us to write *robust* code.
+By robust, we mean code that **won't break easily** upon changes, can be altered or extended, and can be tested with ease.
+Unit tests are extremely useful when writing **dynamic** code, as there isn't always a straight-forward way to check and test functions without 'invalid argument' errors!
 
-A simple function takes some input x and returns an output y. In unit testing, we verify that the function is returning the **expected value* of y for a specific value of x! We can perform unit tests using the `testthat` package. Make sure you install the `testthat` package first!
+A simple function takes some input x and returns an output y.
+In unit testing, we verify that the function is returning the \*\*expected value\* of y for a specific value of x!
+We can perform unit tests using the `testthat` package.
+Make sure you install the `testthat` package first!
 
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 
@@ -2038,8 +2049,7 @@ test_that(
 See how the above code returns a message in the console to let you know that there's a 'mismatch'! As we know, 2 + 2 is not 5, so the \verb|expect_that()| function flags where our function and our chosen expected value differ! 
 \end{tcolorbox}
 ```
-
-See https://www.geeksforgeeks.org/unit-testing-in-r-programming/ for more info, including a table of over 20 'expectation' options (i.e. `expect_equal()`, `expect_lt()` means expect less than, `expect_gte()` means expect greater than or equal). 
+See <https://www.geeksforgeeks.org/unit-testing-in-r-programming/> for more info, including a table of over 20 'expectation' options (i.e. `expect_equal()`, `expect_lt()` means expect less than, `expect_gte()` means expect greater than or equal).
 
 # dplyr vs. data.table
 
