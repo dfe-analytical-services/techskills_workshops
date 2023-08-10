@@ -1826,7 +1826,7 @@ ggplotly(ggplot(plot_data) +
 ## Creating functions for plots
 
 We had some practice earlier writing functions.
-We can apply our function-writing skills in many areas, wone of which is creating plots.
+We can apply our function-writing skills in many areas, one of which is creating plots.
 If you are creating **many similar plots**, it can be really useful to create a function to save you repeating the same code over and over again!
 
 Take the code above that we used to plot assessment against mean grade.
@@ -1906,7 +1906,7 @@ You are almost certainly going to create and cause errors while you experiment w
 You can of course ask the workshop facilitators to help, but using Google to troubleshoot is one of the most valuable lessons you can learn for coding!
 Try and Google the error to see if someone else has already written an answer or solution online!
 
-## Using chatGPT 
+## Using chatGPT
 
 > ChatGPT is a large language model chatbot developed by OpenAI.
 > It has a remarkable ability to interact in conversational dialogue form and provide responses that can appear surprisingly human.
