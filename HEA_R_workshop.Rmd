@@ -1496,7 +1496,7 @@ While all three options produce the same output, the last example is the best fo
 
 Another common task that many analysts face is needing to add new columns to their data sets.
 In DfE, often analysts will need to add the required Explore Education Statistics (EES) columns formatted in the correct way.
-Using the [online guidance](https://rsconnect/rsc/stats-production-guidance/ud.html#Overview_of_EES_data_files), we can see that the following columns are required for EES: time_identifier, time_period, geographic_level, country_code (or geographic level equivalent), country_name (or geographic level equivalent).
+Using the [online guidance](https://dfe-analytical-services.github.io/analysts-guide/statistics-production/ud.html#overview-of-ees-data-files), we can see that the following columns are required for EES: time_identifier, time_period, geographic_level, country_code (or geographic level equivalent), country_name (or geographic level equivalent).
 
 When uploading data to EES, you should aim to include at least 3 years of data in EES where it exists in light of recent accessibility legislation.
 This example has 3 years of data, 2015, 2016, 2016.
@@ -1963,7 +1963,7 @@ If you have any specific or more advanced questions that we haven't covered in t
 # w-RAP it up
 
 Now that we have a few different scripts in our project (main.R, functions.R and plots.R), we should wrap them all up into one 'run_pipeline.R' script!
-This is what we mean in our RAP guidance when we say [single dataset production script](https://rsconnect/rsc/stats-production-guidance/rap.html#dataset-production-scripts) or [whole publication prodcution script](https://rsconnect/rsc/stats-production-guidance/rap.html#whole-publication-production-scripts).
+This is what we mean in our RAP guidance when we say [single dataset production script](https://dfe-analytical-services.github.io/analysts-guide/RAP/rap-statistics.html#dataset-production-scripts) or [whole publication prodcution script](https://dfe-analytical-services.github.io/analysts-guide/RAP/rap-statistics.html#dataset-production-scripts).
 We don't mean that *all* of your code is in one single script, we mean that there exists a single script (called run_pipeline.R) that will *source* each of your scripts, in order.
 
 ```{=tex}
@@ -2194,7 +2194,7 @@ Sys.getenv(“PATH”)
 # Excel functions in R
 
 R can do everything you do in excel, but takes out the human error.
-[This reference table](https://rsconnect/rsc/stats-production-guidance/r.html#Excel_functions_in_R) shows how you would carry out popular Excel commands in R.
+[This reference table](https://dfe-analytical-services.github.io/analysts-guide/learning-development/r.html#excel-functions-in-r) shows how you would carry out popular Excel commands in R.
 
 R comes in with a built-in dataset called "iris".
 We'll use this for all examples so you can recreate them in your local area.
@@ -2202,7 +2202,7 @@ We'll use this for all examples so you can recreate them in your local area.
 **REMEMBER:** R is case sensitive, so all references to column names/entries need to be as-is in the dataset you are looking at.
 [Functions exist](https://www.rdocumentation.org/packages/janitor/versions/1.2.0/topics/clean_names) that can translate all your columns to lower or snake case for ease!
 
-[View the comparison table on our guidance site.](https://rsconnect/rsc/stats-production-guidance/r.html#Excel_functions_in_R)
+[View the comparison table on our guidance site.](https://dfe-analytical-services.github.io/analysts-guide/learning-development/r.html#excel-functions-in-r)
 
 ## VLOOKUP
 
@@ -2301,12 +2301,12 @@ For an example of a left join, go back to the [joins section](#joins-&-joining-g
 # SQL functions in R
 
 R can do a lot of the things that are possible in SQL.
-[This reference table](https://rsconnect/rsc/stats-production-guidance/r.html#SQL_functions_in_R) shows how you would carry out some popular SQL commands in R.
+[This reference table](https://dfe-analytical-services.github.io/analysts-guide/learning-development/r.html#sql-function-equivalents-in-r) shows how you would carry out some popular SQL commands in R.
 
 **REMEMBER:** R is case sensitive, so all references to column names/entries need to be as-is in the dataset you are looking at.
 [Functions exist](https://www.rdocumentation.org/packages/janitor/versions/1.2.0/topics/clean_names) that can translate all your columns to lower or snake case for ease!
 
-[View the reference table on our guidance site.](https://rsconnect/rsc/stats-production-guidance/r.html#SQL_functions_in_R)
+[View the reference table on our guidance site.](https://dfe-analytical-services.github.io/analysts-guide/learning-development/r.html#sql-function-equivalents-in-r)
 
 \newpage
 
