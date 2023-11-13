@@ -146,8 +146,11 @@ Create a DfE Dev Ops account via the Service Portal;
   - Install R-Studio on your machine: Download R for Windows (x64) and RStudio from the    - Software Centre on your DfE laptop.
   - Set up the path to the git.exe in RStudio global settings
   
-# What is Azure Dev Ops?
+# What is Azure Dev Ops?  {auto-animate=true}
 
+:::: {.columns}
+
+::: {.column width="60%"}
 - A place to manage projects involving code development, e.g.
   - Reproducible analytical pipelines
   - R-Shiny dashboards
@@ -156,7 +159,24 @@ Create a DfE Dev Ops account via the Service Portal;
   - Remote repository storage and management
     – create branches, pull requests, change tracking, collaboration…
   - Deployment pipelines (e.g. for deploying R-Shiny apps to rsconnect)
+:::
 
-The above has a lot of overlap with GitHub. The key benefit of Dev Ops over GitHub is that it’s private.
+::: {.column width="40%"}
+![](ado-example-repo.png)
+:::
+::::
 
-The Statistics Development Team manages the Official Statistics Production project on Dev Ops where many of the department’s publication oriented repositories (i.e. RAP and dashboards) are kept. We can help you get set up and manage your repo.
+# What is Azure Dev Ops?  {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+Azure DevOps has a lot of overlap with GitHub. The key benefit of Azure over GitHub for analysts in the DfE is that it’s private.
+
+The Statistics Development Team manages the Official Statistics Production project on Azure DevOps where many of the department’s publication oriented repositories (i.e. RAP and dashboards) are kept. We can help you get set up and manage your repo.
+:::
+
+::: {.column width="40%"}
+![](ado-example-repo.png)
+:::
+::::
