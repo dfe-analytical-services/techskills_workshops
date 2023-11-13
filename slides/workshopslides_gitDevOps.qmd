@@ -36,45 +36,102 @@ Gain some familiarity with the concepts and use of git, Dev Ops (and of GitHub b
 
 # What are the key blockers to you using git? {auto-animate=true}
 
+:::: {.columns}
+
+::: {.column width="68%"}
+
+:::
+::: {.column width="32%"}
+![](images/blocker.png)
+:::
+::::
 
 # What are the key blockers to you using git? {auto-animate=true}
 
+:::: {.columns}
+
+::: {.column width="68%"}
 - Team or personal expertise/knowledge/capability
+:::
+::: {.column width="32%"}
+![](images/blocker.png)
+:::
+::::
 
 # What are the key blockers to you using git? {auto-animate=true}
 
+:::: {.columns}
+
+::: {.column width="68%"}
 - Team or personal expertise/knowledge/capability
 - Not enough support in the department
+:::
+::: {.column width="32%"}
+![](images/blocker.png)
+:::
+::::
 
 # What are the key blockers to you using git? {auto-animate=true}
 
+:::: {.columns}
+
+::: {.column width="68%"}
 - Team or personal expertise/knowledge/capability
 - Not enough support in the department
 - Challenges in setting it (and RStudio) up on work machines
+:::
+::: {.column width="32%"}
+![](images/blocker.png)
+:::
+::::
 
 # What are the key blockers to you using git? {auto-animate=true}
 
+:::: {.columns}
+
+::: {.column width="68%"}
 - Team or personal expertise/knowledge/capability
 - Not enough support in the department
 - Challenges in setting it (and RStudio) up on work machines
 - Don’t see how it benefits us compared to what we already do just on shared drives
+:::
+::: {.column width="32%"}
+![](images/blocker.png)
+:::
+::::
 
 # What are the key blockers to you using git? {auto-animate=true}
 
+:::: {.columns}
+
+::: {.column width="68%"}
 - Team or personal expertise/knowledge/capability
 - Not enough support in the department
 - Challenges in setting it (and RStudio) up on work machines
 - Don’t see how it benefits us compared to what we already do just on shared drives
 - Just don’t get the concept!
+:::
+::: {.column width="32%"}
+![](images/blocker.png)
+:::
+::::
 
 # What are the key blockers to you using git? {auto-animate=true}
 
+:::: {.columns}
+
+::: {.column width="68%"}
 - Team or personal expertise/knowledge/capability
 - Not enough support in the department
 - Challenges in setting it (and RStudio) up on work machines
 - Don’t see how it benefits us compared to what we already do just on shared drives
 - Just don’t get the concept!
 - Overwhelmed by too much to learn alongside R and SQL learning.
+:::
+::: {.column width="32%"}
+![](images/blocker.png)
+:::
+::::
 
 # What is git?
 
