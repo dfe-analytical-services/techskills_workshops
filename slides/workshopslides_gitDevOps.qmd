@@ -34,7 +34,40 @@ Gain some familiarity with the concepts and use of git, Dev Ops (and of GitHub b
 
 - Maybe a few other concepts if they come up/we have time (e.g. resetting and restoring)
 
-# What are the key blockers to you using git?
+# What are the key blockers to you using git? {auto-animate=true}
+
+
+# What are the key blockers to you using git? {auto-animate=true}
+
+- Team or personal expertise/knowledge/capability
+
+# What are the key blockers to you using git? {auto-animate=true}
+
+- Team or personal expertise/knowledge/capability
+- Not enough support in the department
+
+# What are the key blockers to you using git? {auto-animate=true}
+
+- Team or personal expertise/knowledge/capability
+- Not enough support in the department
+- Challenges in setting it (and RStudio) up on work machines
+
+# What are the key blockers to you using git? {auto-animate=true}
+
+- Team or personal expertise/knowledge/capability
+- Not enough support in the department
+- Challenges in setting it (and RStudio) up on work machines
+- Don’t see how it benefits us compared to what we already do just on shared drives
+
+# What are the key blockers to you using git? {auto-animate=true}
+
+- Team or personal expertise/knowledge/capability
+- Not enough support in the department
+- Challenges in setting it (and RStudio) up on work machines
+- Don’t see how it benefits us compared to what we already do just on shared drives
+- Just don’t get the concept!
+
+# What are the key blockers to you using git? {auto-animate=true}
 
 - Team or personal expertise/knowledge/capability
 - Not enough support in the department
