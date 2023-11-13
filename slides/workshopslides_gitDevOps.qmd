@@ -1,25 +1,129 @@
 ---
 title: "Introduction to using git with Azure DevOps"
-author: "Statistics Devlopment Team"
-format: revealjs
-editor: source
+author: "Statistics Development Team"
+institute: Department for Education
+format:
+  revealjs: 
+    theme: [dark, custom.scss]
+    width: 120%
+    height: 120%
+    logo: DfE_logo_landscape.png
 ---
 
-## Quarto
+# Aims of this workshop
 
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+Gain some familiarity with the concepts and use of git, Dev Ops (and of GitHub by association);
 
-## Bullets
+:::: {.columns}
+::: {.column width="50%"}
+- What is a repository?
+- Working with git bash and / or R-Studio interface
+- Creating branches
+- Resolving merge conflicts
+- Pushing and pulling between local and remote copies
+:::
+::: {.column width="50%"}
+- What’s the difference between git, GitHub and Dev Ops?
+- Cloning a repository
+- Staging and committing changes
+- Merging, pull requests and reviewing
+- Working with Dev Ops
+  - Task/Kambam board
+:::
+::::
 
-When you click the **Render** button a document will be generated that includes:
+- Maybe a few other concepts if they come up/we have time (e.g. resetting and restoring)
 
--   Content authored with markdown
--   Output from executable code
+# What are the key blockers to you using git?
 
-## Code
+- Team or personal expertise/knowledge/capability
+- Not enough support in the department
+- Challenges in setting it (and RStudio) up on work machines
+- Don’t see how it benefits us compared to what we already do just on shared drives
+- Just don’t get the concept!
+- Overwhelmed by too much to learn alongside R and SQL learning.
 
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+# What is git?
 
-```{r}
-1 + 1
-```
+- Git is a piece of software designed for version control, i.e.
+  - Tracking changes;
+  - Undoing changes;
+  - Maintaining parallel variants of code.
+- Git works with repositories:
+  - A repository (or repo) is simply a folder containing all the version controlled files of a given project.
+  - It can have multiple sub-folders that will can also be tracked.
+- Git records all the version control information within a hidden folder called .git 
+
+# And GitHub and Dev Ops…
+
+GitHub and Dev Ops provide a space to store and interact with a repository.
+
+- View the files;
+- View the history;
+- Create and view different branches (variants) of the code;
+- Management tools such as Issues logs (GitHub) or Kambam board (Dev Ops)
+- Create pull requests, review code and get feedback from collaborators;
+- Perform automated QA and deployment of code (e.g. sending a dashboard live).
+
+GitHub and Dev Ops are generally not a place to:
+
+- Run your code;
+- Edit your code (although there is some basic text editing functionality you can use).
+
+# What are the key benefits of using git?
+
+- Collaboration
+  - Get support from team and wider community by easily sharing code (our team find it much easier to support you if we can just go and clone your repo…)
+- Code QA via reviews and automated checks
+- Continuity
+- Can undo changes
+- Can try different methodologies in a properly controlled way
+
+# What does interacting with git look like?
+
+You can use git from with R-Studio, Visual Studio and GitHub Desktop using nice graphical user interfaces. At their heart though, all of these run the git command line functions. The key ones that you'll call on a lot (however you choose to interact with git) are:
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- `git clone repository-url`
+- `git add .`
+- `git commit -m "This is a message describing my latest changes"`
+:::
+
+::: {.column width="50%"}
+- `git push`
+- `git pull`
+- `git checkout -b branch-name`
+- `git merge branch-name`
+:::
+::::
+
+These 7 commands are the main things you need to start tracking your projects using git.
+
+# Getting set up
+
+This is a live coding session, so we need you set up with git and RStudio installed…
+
+- Open up the pdf that we’ve shared for this session or go to the following link:
+  - [Azure Dev Ops Workshop guide (pdf)](https://github.com/dfe-analytical-services/techskills_workshops/blob/main/workshop_DevOps.pdf)
+- Go to pre-workshop requirements section and check you’ve got everything from that list sorted (copied below). Get help from us if anything didn’t work!
+Create a DfE Dev Ops account via the Service Portal;
+  - Install git on your laptop: https://git-scm.com/downloads;
+  - Install R-Studio on your machine: Download R for Windows (x64) and RStudio from the    - Software Centre on your DfE laptop.
+  - Set up the path to the git.exe in RStudio global settings
+  
+# What is Azure Dev Ops?
+
+- A place to manage projects involving code development, e.g.
+  - Reproducible analytical pipelines
+  - R-Shiny dashboards
+- This includes:
+  - Team task/Kambam boards
+  - Remote repository storage and management
+    – create branches, pull requests, change tracking, collaboration…
+  - Deployment pipelines (e.g. for deploying R-Shiny apps to rsconnect)
+
+The above has a lot of overlap with GitHub. The key benefit of Dev Ops over GitHub is that it’s private.
+
+The Statistics Development Team manages the Official Statistics Production project on Dev Ops where many of the department’s publication oriented repositories (i.e. RAP and dashboards) are kept. We can help you get set up and manage your repo.
