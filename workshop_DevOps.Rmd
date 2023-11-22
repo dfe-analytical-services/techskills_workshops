@@ -170,25 +170,42 @@ Before starting either option, you'll need to copy the repo url from Dev Ops. To
 
 ### Cloning in `git BASH`
 
-You can open up a `git BASH` terminal, by typing `git BASH` in the Windows search bar and select `git BASH` when it comes up. With a terminal, you can interact with it just by typing, similar to working in the R console in RStudio. First let's make a directory in which to store our repositories:
+```{=tex}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt,
+ ]
 
-```
-    mkdir repos
-```
+\tcblower
+Open up a \verb|git| \verb|BASH| terminal, by typing \verb|git| \verb|BASH| in the Windows search bar and select \verb|git| \verb|BASH| when it comes up. With a terminal, you can interact with it just by typing, similar to working in the R console in RStudio. First let's make a directory in which to store our repositories (note: replace "\verb|<username>|" below with your own username):
+
+\begin{verbatim}
+cd /c/Users/<username>
+mkdir repos
+\end{verbatim}
 
 We can then move into the directory we just created using:
 
-```
-    cd repos
-```
-    
-Now grab the repo url and replace `<repo_url>` in the next command with the actual url from Dev Ops:
+\begin{verbatim}
+cd repos
+\end{verbatim}
 
-```
-    git clone <repo_url>
-```
+Now grab the repo url and replace \verb|<repo_url>| in the next command with the actual url from Azure DevOps:
+
+\begin{verbatim}
+git clone <repo_url>
+\end{verbatim}
 
 You should get some messages letting you know git is connecting to the server and cloning the repository and it should look something like the figure below.
+\end{tcolorbox}
+```
 
 ```{r echo=FALSE, out.width='60%', fig.cap='Cloning a repository in git BASH'}
 knitr::include_graphics('images/gitdemo/gitdemo-terminal_clone.png')
@@ -296,30 +313,70 @@ To have something to work with, we need some data. There should be a data folder
 
 *For this section, just one of your group should run through the following steps in your group's branch:*
 
-Go to [key stage 4 performance publication](https://explore-education-statistics.service.gov.uk/data-catalogue/key-stage-4-performance-revised/2020-21) and download the **KS4 subject timeseries data (csv, 364 Kb)** file, extract the data csv file (*2021_subject_timeseries_data.csv*) and save it into the repo's data folder (you can just use the normal Windows File Explorer to do this).
+```{=tex}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt,
+ ]
+
+\tcblower
+
+Go to [key stage 4 performance publication](https://explore-education-statistics.service.gov.uk/data-catalogue/key-stage-4-performance-revised/2020-21) and download the \textit{KS4 subject timeseries data (csv, 364 Kb)} file, extract the data csv file (\verb|2021_subject_timeseries_data.csv|) and save it into the repo's data folder (you can just use the normal Windows File Explorer to do this).
 
 Now to add this to the git tracking: run the following commands:
 
-```
+\begin{verbatim}
   git add .
-```
+\end{verbatim}
 
-This searches the repo for any files that have been modified since the last commit and creates a log of the changes. If you want to check that the command has worked, then you can type `git status` or `git st` and you'll get a summary of files that have been staged and are ready to commit.
+This searches the repo for any files that have been modified since the last commit and creates a log of the changes. If you want to check that the command has worked, then you can type \verb|git| \verb|status| or \verb|git| \verb|st| and you'll get a summary of files that have been staged and are ready to commit.
 
-```
+\begin{verbatim}
   git commit -m "Added data file into repository."
+\end{verbatim}
+
+This adds an entry on to the log, updating it with the file changes that you've just made.  
+\end{tcolorbox}
 ```
 
-This adds an entry on to the log, updating it with the file changes that you've just made. Note that the text after the `-m` is a comment used to describe the changes to make it easier for someone looking back from the log to see what changes have happened. Those are the two key steps for tracking changes to the files and folders in your repository. 
+Note that the text after the `-m` is a comment used to describe the changes to make it easier for someone looking back from the log to see what changes have happened. Those are the two key steps for tracking changes to the files and folders in your repository.
 
-Now we'll add in some simple code to read in the file. Create a script called `main.R` in the repository's root *directory* within your group's *branch* (`workshop_group_N`). The add the following code to it:
+```{=tex}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt,
+ ]
 
-```
+\tcblower
+Now we'll add in some simple code to read in the file. Create a script called \verb|main.R| in the repository's root *directory* within your group's *branch* (\verb|workshop_group_N|). The add the following code to it:
+
+\begin{verbatim}
 dfKS4 <- read.csv('data/2021_subject_timeseries_data.csv')
 colnames(dfKS4)[1] <- "time_period"
-```
+\end{verbatim}
 
-Let's do a quick commit to log that change. In the terminal run `git add .` and `git commit -m "Added new data and reading it in."`.
+Let's do a quick commit to log that change. In the terminal run 
+\begin{verbatim}
+git add .
+git commit -m "Added new data and reading it in."
+\end{verbatim}
+
+\end{tcolorbox}
+```
 
 If we now run `git log` again, we get something along the lines of:
 
@@ -377,29 +434,50 @@ knitr::include_graphics("images/DevOpsdemo/DevOps_Boards_newbranch.PNG")
 
 You'll now have a new branch in your remote repo that's identical to your groups working branch. To access that branch in your local repo, you just need to perform a pull (i.e. `git pull` in the `bash` terminal or the down arrow in the R-Studio git panel) and then switch branches (`git switch grN_task1` in `bash` or select from the drop down menu in the git panel).
 
-Now to make the edits. Copy and paste the following code into the script `R/utils.R`:
+```{=tex}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt,
+ ]
 
-```
+\tcblower
+Now to make the edits. Copy and paste the following code into the script \verb|R/utils.R|:
+
+\begin{verbatim}
 tidy_subject_timeseries <- function(dfin){
-  # Pivot long and then update the string values in the new filter column.
+  # Pivot long and then update the string values in the new 
+  # filter column.
   dftidied <- dfin  %>%
     pivot_longer(!c(time_period,time_identifier,geographic_level,
-                    country_code,country_name,version,characteristic_gender,
-                    subject,entries),
+                    country_code,country_name,version,
+                    characteristic_gender, subject,entries),
                  names_to="level",
                  values_to="percentage_pupils")
-  colnames(dftidied) <- gsub("characteristic_","",colnames(dftidied))
+  colnames(dftidied) <- gsub(
+    "characteristic_","",
+    colnames(dftidied)
+  )
   return(dftidied)
 }
-```
+\end{verbatim}
 
-And then go back to `main.R` and add the lines:
+And then go back to \verb|main.R| and add the lines:
 
-```
+\begin{verbatim}
 library(tidyr)
 library(dplyr)
 source('R/utils.R')
 dfKS4tidied <- tidy_subject_timeseries(dfKS4)
+\end{verbatim}
+
+\end{tcolorbox}
 ```
 
 At this point you could try sourcing `main.R` in the R console and that should create the data frame `dftidied` (and hopefully not produce any errors!).
@@ -422,29 +500,54 @@ We want to track this branch with the associated task in Dev Ops Boards, so go t
 knitr::include_graphics("images/DevOpsdemo/DevOps_Boards_linkbranch.PNG")
 ```
 
-Now to make the changes. Head back to R-Studio and add the following lines of code to `R/plots.R` in your local copy of the repository:
+```{=tex}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt,
+ ]
 
-```
+\tcblower
+Now to make the changes. Head back to R-Studio and add the following lines of code to \verb|R/plots.R| in your local copy of the repository:
+
+\begin{verbatim}
 plot_ACrange <- function(df){
-  dfplot <- df %>% filter(time_period>=201920,
-                             !X94AstarC %in% c('z',':','x'),
-                             grepl('Studies',subject)) %>% 
-    select(time_period,characteristic_gender,entries,subject,X94AstarC) %>%
+  dfplot <- df %>% 
+    filter(
+      time_period>=201920,
+      !X94AstarC %in% c('z',':','x'),
+      grepl('Studies',subject)
+    ) %>% 
+    select(
+      time_period,characteristic_gender,
+      entries,subject,X94AstarC
+    ) %>%
     mutate(entries=as.numeric(entries)/1.e3,
            X94AstarC=as.numeric(X94AstarC))
-  df1 <- dfplot %>% filter(time_period==202021,characteristic_gender=='Total')
+  df1 <- dfplot %>% 
+    filter(time_period==202021,characteristic_gender=='Total')
   plot(df1$entries,df1$X94AstarC)
 }
-```
+\end{verbatim}
+
 And the following to `main.R`:
 
-```
+\begin{verbatim}
 library(dplyr)
 source('R/plots.R')
 plot_ACrange(dfKS4)
-```
+\end{verbatim}
 
 And that should be it for this task. All that's left is to commit and push your changes. If you've got a preferred way already to perform commits, then go for it. If not then let's use the RStudio git panel.
+\end{tcolorbox}
+```
+
 
 ```{r echo=FALSE, out.width='64%', fig.align='center', fig.cap="Staging files in the RStudio git panel."}
 knitr::include_graphics("images/gitdemo/gitdemo-RStudio-gitpanel.PNG")
@@ -464,11 +567,25 @@ Start by creating a new branch in Dev Ops. Navigate to the files panel of the re
 knitr::include_graphics("images/DevOpsdemo/DevOps_Repo_newbranch.PNG")
 ```
 
-Now head to R-Studio, perform a pull (`git pull` in the terminal or the green down arrow in the git panel) and then switch to your new branch.
+```{=tex}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt,
+ ]
 
-Then go ahead and add the following lines of code to `R/plots.R` in your local copy of the repository:
+\tcblower
+Now head to R-Studio, perform a pull (\verb|git| \verb|pull| in the terminal or the green down arrow in the git panel) and then switch to your new branch.
 
-```
+Then go ahead and add the following lines of code to \verb|R/plots.R| in your local copy of the repository:
+
+\begin{verbatim}
 plot_ACrange_tidy <- function(dftidy){
   df <- dftidy %>% filter(time_period>=201920,level=='X94AstarC',
                           !percentage_pupils %in% c('z',':','x'),
@@ -477,23 +594,27 @@ plot_ACrange_tidy <- function(dftidy){
            entries=as.numeric(entries)/1.e3,
            percentage_pupils=as.numeric(percentage_pupils)) %>%
     mutate(achieved = as.numeric(percentage_pupils)/100.*entries)
-  ggplot(df,aes(x = entries,
-                y=percentage_pupils,group=time_period,color=subject)) +
+  ggplot(df,
+    aes(x = entries,
+        y=percentage_pupils,group=time_period,color=subject)) +
     geom_point() +
     facet_grid(time_period ~ gender)
 }
-```
+\end{verbatim}
 
 And the following to `main.R`:
 
-```
+\begin{verbatim}
 library(dplyr)
 library(ggplot2)
 source('R/plots.R')
 plot_ACrange_tidy(dfKS4tidied)
-```
+\end{verbatim}
 
 And that should be it for this task. All that's left is to commit and push your changes. If you've got a preferred way already to perform commits, then go for it. If not then let's use the RStudio git panel.
+\end{tcolorbox}
+```
+
 
 ```{r echo=FALSE, out.width='64%', fig.align='center', fig.cap="Staging files in the RStudio git panel."}
 knitr::include_graphics("images/gitdemo/gitdemo-RStudio-gitpanel.PNG")
