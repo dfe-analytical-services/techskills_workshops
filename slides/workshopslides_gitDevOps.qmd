@@ -40,93 +40,24 @@ Gain some familiarity with the concepts and use of git, Dev Ops (and of GitHub b
 
 ::: {.column width="68%"}
 
-:::
-::: {.column width="32%"}
-![](images/blocker.png)
-:::
-::::
-
-# What are the key blockers to you using git? {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="68%"}
+::: {.fragment .fade-up}
 - Team or personal expertise/knowledge/capability
 :::
-::: {.column width="32%"}
-![](images/blocker.png)
-:::
-::::
-
-# What are the key blockers to you using git? {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="68%"}
-- Team or personal expertise/knowledge/capability
+::: {.fragment .fade-up}
 - Not enough support in the department
 :::
-::: {.column width="32%"}
-![](images/blocker.png)
-:::
-::::
-
-# What are the key blockers to you using git? {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="68%"}
-- Team or personal expertise/knowledge/capability
-- Not enough support in the department
+::: {.fragment .fade-up}
 - Challenges in setting it (and RStudio) up on work machines
 :::
-::: {.column width="32%"}
-![](images/blocker.png)
-:::
-::::
-
-# What are the key blockers to you using git? {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="68%"}
-- Team or personal expertise/knowledge/capability
-- Not enough support in the department
-- Challenges in setting it (and RStudio) up on work machines
+::: {.fragment .fade-up}
 - Don’t see how it benefits us compared to what we already do just on shared drives
 :::
-::: {.column width="32%"}
-![](images/blocker.png)
-:::
-::::
-
-# What are the key blockers to you using git? {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="68%"}
-- Team or personal expertise/knowledge/capability
-- Not enough support in the department
-- Challenges in setting it (and RStudio) up on work machines
-- Don’t see how it benefits us compared to what we already do just on shared drives
+::: {.fragment .fade-up}
 - Just don’t get the concept!
 :::
-::: {.column width="32%"}
-![](images/blocker.png)
-:::
-::::
-
-# What are the key blockers to you using git? {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="68%"}
-- Team or personal expertise/knowledge/capability
-- Not enough support in the department
-- Challenges in setting it (and RStudio) up on work machines
-- Don’t see how it benefits us compared to what we already do just on shared drives
-- Just don’t get the concept!
+::: {.fragment .fade-up}
 - Overwhelmed by too much to learn alongside R and SQL learning.
+:::
 :::
 ::: {.column width="32%"}
 ![](images/blocker.png)
@@ -135,51 +66,98 @@ Gain some familiarity with the concepts and use of git, Dev Ops (and of GitHub b
 
 # What is git?
 
-- Git is a piece of software designed for version control, i.e.
+::: {.fragment .fade-up}
+Git is a piece of software designed for version control, i.e.
+:::
+::: {.fragment .fade-up}
   - Tracking changes;
+:::
+::: {.fragment .fade-up}
   - Undoing changes;
+:::
+::: {.fragment .fade-up}
   - Maintaining parallel variants of code.
+:::
+::: {.fragment .fade-up}
 - Git works with repositories:
+:::
+::: {.fragment .fade-up}
   - A repository (or repo) is simply a folder containing all the version controlled files of a given project.
+:::
+::: {.fragment .fade-up}
   - It can have multiple sub-folders that will can also be tracked.
+:::
+::: {.fragment .fade-up}
 - Git records all the version control information within a hidden folder called .git 
+:::
 
 # And GitHub and Dev Ops…
 
+::: {.fragment .fade-up}
 GitHub and Dev Ops provide a space to store and interact with a repository.
-
+:::
+::: {.fragment .fade-up}
 - View the files;
+:::
+::: {.fragment .fade-up}
 - View the history;
+:::
+::: {.fragment .fade-up}
 - Create and view different branches (variants) of the code;
+:::
+::: {.fragment .fade-up}
 - Management tools such as Issues logs (GitHub) or Kambam board (Dev Ops)
+:::
+::: {.fragment .fade-up}
 - Create pull requests, review code and get feedback from collaborators;
+:::
+::: {.fragment .fade-up}
 - Perform automated QA and deployment of code (e.g. sending a dashboard live).
+:::
+
+# And GitHub and Dev Ops…
 
 GitHub and Dev Ops are generally not a place to:
 
+::: {.fragment .fade-up}
 - Run your code;
+:::
+::: {.fragment .fade-up}
 - Edit your code (although there is some basic text editing functionality you can use).
+:::
 
 # What are the differences between GitHub and Dev Ops?
 
+::: {.fragment .fade-up}
 - GitHub
   - Public
   - Can publish (Shiny dashboards, quarto and Rmarkdown html) to ShinyApps.io, GitHub pages etc.
-
+:::
+::: {.fragment .fade-up}
 - Azure DevOps
   - Internal to DfE
   - Can manage secure permissions
   - Can publish (Shiny dashboards, quarto and Rmarkdown html) to rsconnect
-
+:::
 
 # What are the key benefits of using git?
 
+::: {.fragment .fade-up}
 - Collaboration
   - Get support from team and wider community by easily sharing code (our team find it much easier to support you if we can just go and clone your repo…)
+:::
+::: {.fragment .fade-up}
 - Code QA via reviews and automated checks
+:::
+::: {.fragment .fade-up}
 - Continuity
+:::
+::: {.fragment .fade-up}
 - Can undo changes
+:::
+::: {.fragment .fade-up}
 - Can try different methodologies in a properly controlled way
+:::
 
 # What does interacting with git look like?
 
