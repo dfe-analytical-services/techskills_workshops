@@ -160,6 +160,18 @@ GitHub and Dev Ops are generally not a place to:
 - Run your code;
 - Edit your code (although there is some basic text editing functionality you can use).
 
+# What are the differences between GitHub and Dev Ops?
+
+- GitHub
+  - Public
+  - Can publish (Shiny dashboards, quarto and Rmarkdown html) to ShinyApps.io, GitHub pages etc.
+
+- Azure DevOps
+  - Internal to DfE
+  - Can manage secure permissions
+  - Can publish (Shiny dashboards, quarto and Rmarkdown html) to rsconnect
+
+
 # What are the key benefits of using git?
 
 - Collaboration
