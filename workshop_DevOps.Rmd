@@ -521,8 +521,8 @@ plot_ACrange <- function(df){
   dfplot <- df %>% 
     filter(
       time_period>=201920,
-      !X94AstarC %in% c('z',':','x'),
-      grepl('Studies',subject)
+      !X94AstarC %in% c("z",":","x"),
+      grepl("Studies",subject)
     ) %>% 
     select(
       time_period,characteristic_gender,
@@ -531,7 +531,7 @@ plot_ACrange <- function(df){
     mutate(entries=as.numeric(entries)/1.e3,
            X94AstarC=as.numeric(X94AstarC))
   df1 <- dfplot %>% 
-    filter(time_period==202021,characteristic_gender=='Total')
+    filter(time_period==202021,characteristic_gender=="Total")
   plot(df1$entries,df1$X94AstarC)
 }
 \end{verbatim}
@@ -587,9 +587,9 @@ Then go ahead and add the following lines of code to \verb|R/plots.R| in your lo
 
 \begin{verbatim}
 plot_ACrange_tidy <- function(dftidy){
-  df <- dftidy %>% filter(time_period>=201920,level=='X94AstarC',
-                          !percentage_pupils %in% c('z',':','x'),
-                          grepl('Studies',subject)) %>%
+  df <- dftidy %>% filter(time_period>=201920,level=="X94AstarC",
+                          !percentage_pupils %in% c("z",":","x"),
+                          grepl("Studies",subject)) %>%
     mutate(time_period = as.character(time_period),
            entries=as.numeric(entries)/1.e3,
            percentage_pupils=as.numeric(percentage_pupils)) %>%
@@ -607,7 +607,7 @@ And the following to `main.R`:
 \begin{verbatim}
 library(dplyr)
 library(ggplot2)
-source('R/plots.R')
+source("R/plots.R")
 plot_ACrange_tidy(dfKS4tidied)
 \end{verbatim}
 
@@ -652,19 +652,19 @@ As we've left things, the code for task 1 and task 2 both should work without er
 This will attempt to merge the task1 branch into the task3 branch. However, this will produce a merge conflict and the merge will not complete. If you now look at the script `main.R`, it should now look something like the following:
 
 ```
-   dfKS4 <- read.csv('data/2021_subject_timeseries_data.csv')
+   dfKS4 <- read.csv("data/2021_subject_timeseries_data.csv")
    colnames(dfKS4)[1] <- "time_period"
 
    <<<<<<< HEAD
    library(dplyr)
    library(ggplot2)
 
-   source('R/plots.R')
+   source("R/plots.R")
    plot_ACrange_tidy(dfKS4tidied)
    =======
    library(tidyr)
    library(dplyr)
-   source('R/utils.R')
+   source("R/utils.R")
    dfKS4tidied <- tidy_subject_timeseries(dfKS4)
    >>>>>>> task1
 ```
@@ -701,7 +701,7 @@ Now back on Overview, give the pull request a descriptive title (e.g. "Tidied da
 
 You and your team mates will now have a pull request available under the pull requests panel where they can review the changes, add comments and provide approval. Get your teammates to run through a quick review and approve the pull request. You'll then be able to complete the merge by clicking the blue **Complete** button at the top of the page.
 
-Now head over to Dev Ops Boards and drag tasks 1 and 2 across to Closed to mark them as finished.
+Now head over to Dev Ops Boards and drag tasks 1 and 3 across to Closed to mark them as finished.
 
 ### Pull requests #2 (and another merge conflict)
 
