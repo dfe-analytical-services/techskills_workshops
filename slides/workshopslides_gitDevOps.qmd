@@ -28,7 +28,7 @@ Gain some familiarity with the concepts and use of git, Dev Ops (and of GitHub b
 - Staging and committing changes
 - Merging, pull requests and reviewing
 - Working with Dev Ops
-  - Task/Kambam board
+  - Task/Kanban board
 :::
 ::::
 
@@ -79,22 +79,21 @@ Git is a piece of software designed for version control, i.e.
   - Maintaining parallel variants of code.
 :::
 ::: {.fragment .fade-up}
-- Git works with repositories:
+  - Git works with repositories:
+    - A repository (or repo) is simply a folder containing all the version controlled files of a given project.
+    - It can have multiple sub-folders that can also be tracked.
 :::
 ::: {.fragment .fade-up}
-  - A repository (or repo) is simply a folder containing all the version controlled files of a given project.
-:::
-::: {.fragment .fade-up}
-  - It can have multiple sub-folders that will can also be tracked.
-:::
-::: {.fragment .fade-up}
-- Git records all the version control information within a hidden folder called .git 
+  - Git records all the version control information within a hidden folder called .git 
 :::
 
 # And GitHub and Dev Ops…
 
 ::: {.fragment .fade-up}
 GitHub and Dev Ops provide a space to store and interact with a repository.
+:::
+::: {.fragment .fade-up}
+- Store a central shared back-up of your repository;
 :::
 ::: {.fragment .fade-up}
 - View the files;
@@ -106,7 +105,7 @@ GitHub and Dev Ops provide a space to store and interact with a repository.
 - Create and view different branches (variants) of the code;
 :::
 ::: {.fragment .fade-up}
-- Management tools such as Issues logs (GitHub) or Kambam board (Dev Ops)
+- Management tools such as Issues logs (GitHub) or Kanban board (Dev Ops)
 :::
 ::: {.fragment .fade-up}
 - Create pull requests, review code and get feedback from collaborators;
@@ -126,18 +125,16 @@ GitHub and Dev Ops are generally not a place to:
 - Edit your code (although there is some basic text editing functionality you can use).
 :::
 
-# What are the differences between GitHub and Dev Ops?
+# What's the difference between git, GitHub and Azure Dev Ops?
 
 ::: {.fragment .fade-up}
-- GitHub
-  - Public
-  - Can publish (Shiny dashboards, quarto and Rmarkdown html) to ShinyApps.io, GitHub pages etc.
+- Git is the underlying software that you, GitHub and Azure DevOps use, providing the commands to record changes, create branches, merge branches, undo chages, etc.
 :::
 ::: {.fragment .fade-up}
-- Azure DevOps
-  - Internal to DfE
-  - Can manage secure permissions
-  - Can publish (Shiny dashboards, quarto and Rmarkdown html) to rsconnect
+- GitHub provides a public space to store a shared copy of your repository, with features to plan, manage and share your work publicly.
+:::
+::: {.fragment .fade-up}
+- Azure DevOps provides a secure space to store a shared copy of your repository, with features to plan, manage and share your work internally within the DfE.
 :::
 
 # What are the key benefits of using git?
@@ -202,7 +199,7 @@ Create a DfE Dev Ops account via the Service Portal;
   - Reproducible analytical pipelines
   - R-Shiny dashboards
 - This includes:
-  - Team task/Kambam boards
+  - Team task/Kanban boards
   - Remote repository storage and management
     – create branches, pull requests, change tracking, collaboration…
   - Deployment pipelines (e.g. for deploying R-Shiny apps to rsconnect)
