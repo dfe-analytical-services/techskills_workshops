@@ -105,7 +105,7 @@ GitHub and Dev Ops provide a space to store and interact with a repository.
 - Create and view different branches (variants) of the code;
 :::
 ::: {.fragment .fade-up}
-- Management tools such as Issues logs (GitHub) or Kanban board (Dev Ops)
+- Management tools such as Issues logs (GitHub) or Kanban board (Dev Ops);
 :::
 ::: {.fragment .fade-up}
 - Create pull requests, review code and get feedback from collaborators;
@@ -199,9 +199,9 @@ Create a DfE Dev Ops account via the Service Portal;
   - Reproducible analytical pipelines
   - R-Shiny dashboards
 - This includes:
-  - Team task/Kanban boards
+  - Team task/Kanban boards;
   - Remote repository storage and management
-    – create branches, pull requests, change tracking, collaboration…
+    – create branches, pull requests, change tracking, collaboration
   - Deployment pipelines (e.g. for deploying R-Shiny apps to rsconnect)
 :::
 
