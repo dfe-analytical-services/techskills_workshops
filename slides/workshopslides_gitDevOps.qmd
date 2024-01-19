@@ -128,7 +128,7 @@ GitHub and Dev Ops are generally not a place to:
 # What's the difference between git, GitHub and Azure Dev Ops?
 
 ::: {.fragment .fade-up}
-- Git is the underlying software that you, GitHub and Azure DevOps use, providing the commands to record changes, create branches, merge branches, undo chages, etc.
+- Git is the underlying software that you, GitHub and Azure DevOps use, providing the commands to record changes, create branches, merge branches, undo changes, etc.
 :::
 ::: {.fragment .fade-up}
 - GitHub provides a public space to store a shared copy of your repository, with features to plan, manage and share your work publicly.
