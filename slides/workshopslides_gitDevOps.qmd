@@ -28,7 +28,7 @@ Gain some familiarity with the concepts and use of git, Dev Ops (and of GitHub b
 - Staging and committing changes
 - Merging, pull requests and reviewing
 - Working with Dev Ops
-  - Task/Kambam board
+  - Task/Kanban board
 :::
 ::::
 
@@ -40,93 +40,24 @@ Gain some familiarity with the concepts and use of git, Dev Ops (and of GitHub b
 
 ::: {.column width="68%"}
 
-:::
-::: {.column width="32%"}
-![](images/blocker.png)
-:::
-::::
-
-# What are the key blockers to you using git? {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="68%"}
+::: {.fragment .fade-up}
 - Team or personal expertise/knowledge/capability
 :::
-::: {.column width="32%"}
-![](images/blocker.png)
-:::
-::::
-
-# What are the key blockers to you using git? {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="68%"}
-- Team or personal expertise/knowledge/capability
+::: {.fragment .fade-up}
 - Not enough support in the department
 :::
-::: {.column width="32%"}
-![](images/blocker.png)
-:::
-::::
-
-# What are the key blockers to you using git? {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="68%"}
-- Team or personal expertise/knowledge/capability
-- Not enough support in the department
+::: {.fragment .fade-up}
 - Challenges in setting it (and RStudio) up on work machines
 :::
-::: {.column width="32%"}
-![](images/blocker.png)
-:::
-::::
-
-# What are the key blockers to you using git? {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="68%"}
-- Team or personal expertise/knowledge/capability
-- Not enough support in the department
-- Challenges in setting it (and RStudio) up on work machines
+::: {.fragment .fade-up}
 - Don’t see how it benefits us compared to what we already do just on shared drives
 :::
-::: {.column width="32%"}
-![](images/blocker.png)
-:::
-::::
-
-# What are the key blockers to you using git? {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="68%"}
-- Team or personal expertise/knowledge/capability
-- Not enough support in the department
-- Challenges in setting it (and RStudio) up on work machines
-- Don’t see how it benefits us compared to what we already do just on shared drives
+::: {.fragment .fade-up}
 - Just don’t get the concept!
 :::
-::: {.column width="32%"}
-![](images/blocker.png)
-:::
-::::
-
-# What are the key blockers to you using git? {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="68%"}
-- Team or personal expertise/knowledge/capability
-- Not enough support in the department
-- Challenges in setting it (and RStudio) up on work machines
-- Don’t see how it benefits us compared to what we already do just on shared drives
-- Just don’t get the concept!
+::: {.fragment .fade-up}
 - Overwhelmed by too much to learn alongside R and SQL learning.
+:::
 :::
 ::: {.column width="32%"}
 ![](images/blocker.png)
@@ -135,39 +66,95 @@ Gain some familiarity with the concepts and use of git, Dev Ops (and of GitHub b
 
 # What is git?
 
-- Git is a piece of software designed for version control, i.e.
+::: {.fragment .fade-up}
+Git is a piece of software designed for version control, i.e.
+:::
+::: {.fragment .fade-up}
   - Tracking changes;
+:::
+::: {.fragment .fade-up}
   - Undoing changes;
+:::
+::: {.fragment .fade-up}
   - Maintaining parallel variants of code.
-- Git works with repositories:
-  - A repository (or repo) is simply a folder containing all the version controlled files of a given project.
-  - It can have multiple sub-folders that will can also be tracked.
-- Git records all the version control information within a hidden folder called .git 
+:::
+::: {.fragment .fade-up}
+  - Git works with repositories:
+    - A repository (or repo) is simply a folder containing all the version controlled files of a given project.
+    - It can have multiple sub-folders that can also be tracked.
+:::
+::: {.fragment .fade-up}
+  - Git records all the version control information within a hidden folder called .git 
+:::
 
 # And GitHub and Dev Ops…
 
+::: {.fragment .fade-up}
 GitHub and Dev Ops provide a space to store and interact with a repository.
-
+:::
+::: {.fragment .fade-up}
+- Store a central shared back-up of your repository;
+:::
+::: {.fragment .fade-up}
 - View the files;
+:::
+::: {.fragment .fade-up}
 - View the history;
+:::
+::: {.fragment .fade-up}
 - Create and view different branches (variants) of the code;
-- Management tools such as Issues logs (GitHub) or Kambam board (Dev Ops)
+:::
+::: {.fragment .fade-up}
+- Management tools such as Issues logs (GitHub) or Kanban board (Dev Ops);
+:::
+::: {.fragment .fade-up}
 - Create pull requests, review code and get feedback from collaborators;
+:::
+::: {.fragment .fade-up}
 - Perform automated QA and deployment of code (e.g. sending a dashboard live).
+:::
+
+# And GitHub and Dev Ops…
 
 GitHub and Dev Ops are generally not a place to:
 
+::: {.fragment .fade-up}
 - Run your code;
+:::
+::: {.fragment .fade-up}
 - Edit your code (although there is some basic text editing functionality you can use).
+:::
+
+# What's the difference between git, GitHub and Azure Dev Ops?
+
+::: {.fragment .fade-up}
+- Git is the underlying software that you, GitHub and Azure DevOps use, providing the commands to record changes, create branches, merge branches, undo changes, etc.
+:::
+::: {.fragment .fade-up}
+- GitHub provides a public space to store a shared copy of your repository, with features to plan, manage and share your work publicly.
+:::
+::: {.fragment .fade-up}
+- Azure DevOps provides a secure space to store a shared copy of your repository, with features to plan, manage and share your work internally within the DfE.
+:::
 
 # What are the key benefits of using git?
 
+::: {.fragment .fade-up}
 - Collaboration
   - Get support from team and wider community by easily sharing code (our team find it much easier to support you if we can just go and clone your repo…)
+:::
+::: {.fragment .fade-up}
 - Code QA via reviews and automated checks
+:::
+::: {.fragment .fade-up}
 - Continuity
+:::
+::: {.fragment .fade-up}
 - Can undo changes
+:::
+::: {.fragment .fade-up}
 - Can try different methodologies in a properly controlled way
+:::
 
 # What does interacting with git look like?
 
@@ -212,9 +199,9 @@ Create a DfE Dev Ops account via the Service Portal;
   - Reproducible analytical pipelines
   - R-Shiny dashboards
 - This includes:
-  - Team task/Kambam boards
+  - Team task/Kanban boards;
   - Remote repository storage and management
-    – create branches, pull requests, change tracking, collaboration…
+    – create branches, pull requests, change tracking, collaboration
   - Deployment pipelines (e.g. for deploying R-Shiny apps to rsconnect)
 :::
 
