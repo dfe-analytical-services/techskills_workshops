@@ -713,7 +713,7 @@ It is still useful to read and have knowledge of this, and to refer back to in f
 
 1.  Use `dplyr::tbl(con, in_schema(schema_name, table_name))`,
 
-2.  Use `RODBC::sqlQuery(con, "SELECT * FROM [table_name];")`.
+2.  Use `RODBC::sqlQuery(con, "SELECT * FROM table_name;")`.
 
 Option one above is a very concise and tidy way to read in data from SQL tables, which (as long as you've added descriptive comments) will make your code easy to read and understand.
 This option runs extremely quickly because rather than storing the SQL table as a data table in R, it stores a 'live connection' to the table in SQL.
