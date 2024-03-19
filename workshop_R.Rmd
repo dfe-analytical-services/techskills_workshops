@@ -711,7 +711,7 @@ There are multiple ways to do this - in this workshop we will cover two of them.
 Unless you successfully wrote the table to a SQL database in the previous step, you **cannot run the following code**.
 It is still useful to read and have knowledge of this, and to refer back to in future.
 
-1.  Use `dplyr::tbl(con, table_name)`,
+1.  Use `dplyr::tbl(con, in_schema(schema_name, table_name))`,
 
 2.  Use `RODBC::sqlQuery(con, "SELECT * FROM [table_name];")`.
 
@@ -732,7 +732,7 @@ We assign the table this name by using the `<-` symbols, so the full snippet sho
 
 ```         
 # Read in student data from SQL
-student_results <- tbl(con, "dbo.sd_sandbox_student_results")
+student_results <- tbl(con, in_schema("dbo", "sd_sandbox_student_results"))
 ```
 
 Add this under an appropriate heading/comment to your initial script.
