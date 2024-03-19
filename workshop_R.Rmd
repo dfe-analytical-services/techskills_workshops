@@ -651,7 +651,7 @@ This is the same as typing `View(name_of_data)` in the console.
 **NOTE:** to work through the tasks in these SQL sections, you must have access to an existing SQL database.
 
 In order to read and write data from and to a SQL database, we need to install the relevant packages and connect to the SQL database.
-Firstly, we need to install the `odbc` and `DBI` packages.
+Firstly, we need to install the relevant packages.
 Try to use the above guidance to;
 
 a.  Install the `odbc`, `DBI` and `dbplyr` packages,
@@ -723,6 +723,17 @@ In the environment it will appear as a list rather than a data table.
 Option two is slightly longer to write and takes much longer to run, but it does allow you to write SQL queries directly in R, so if you have previous experience with SQL you may find this useful.
 You can edit and customise the SQL query, meaning you have the option of selecting specific columns and filtering at this stage, rather than reading in the entire table.
 Just ensure that you write the table_name exactly how you would in SQL (including schemas).
+To try the second option, you'll need to create a new 'connection' object using the following code: 
+
+```         
+# Connect to SQL database using option 2
+con2 <- RODBC::odbcDriverConnect(
+    'driver = SQL Server Native Client 11.0,
+    server = ...,
+    database = ...,
+    Trusted_connection = yes'
+  )
+```
 
 Whichever option you choose, you need to choose what name you would like this object to have in R once the table is read in.
 It is best practice to make object names descriptive but concise.
