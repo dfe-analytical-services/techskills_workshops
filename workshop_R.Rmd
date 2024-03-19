@@ -746,7 +746,7 @@ This is the same as typing `View(name_of_data)` in the console.
 Once you have pulled data into R studio and you can see it in your environment, you might need to give it a clean.
 
 In most cases, cleaning a data set involves dealing with missing values and duplicated data.
-The `dplyr` package includes some useful functions for cleaning data!
+The `dplyr` and `tidyr` packages include some useful functions for cleaning data! Make sure these are both installed and added to your library calls!
 
 ## Dealing with missing values
 
