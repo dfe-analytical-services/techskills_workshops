@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.7.11)  19 MAR 2024 11:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.7.11)  3 MAY 2024 09:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -892,47 +892,47 @@ Overfull \hbox (0.87625pt too wide) in paragraph at lines 832--832
  []
 
 [16] [17] [18] [19] [20] [21] [22] [23] [24]
-Underfull \hbox (badness 10000) in paragraph at lines 1313--1314
+Underfull \hbox (badness 10000) in paragraph at lines 1315--1316
 []\T1/phv/m/n/12 Within the [][]\T1/lmtt/m/n/12 summarise []\T1/phv/m/n/12 state-ment, it's defin-ing 4 new columns.
  []
 
 [25]
-Overfull \hbox (0.87625pt too wide) in paragraph at lines 1351--1351
+Overfull \hbox (0.87625pt too wide) in paragraph at lines 1353--1353
 []  \T1/lmtt/m/n/12 summarise(across(c(G1, G2, G3), mean, .names = "{.col}_mean"),[] 
  []
 
 [26]
-Overfull \hbox (0.87625pt too wide) in paragraph at lines 1383--1383
+Overfull \hbox (0.87625pt too wide) in paragraph at lines 1385--1385
 []  \T1/lmtt/m/n/12 summarise(across(c(G1, G2, G3), mean, .names = "{.col}_mean"),[] 
  []
 
 [27]
-Overfull \hbox (7.05125pt too wide) in paragraph at lines 1446--1446
+Overfull \hbox (7.05125pt too wide) in paragraph at lines 1448--1448
 []  \T1/lmtt/m/n/12 rename(g1_mean = G1_mean, g2_mean = G2_mean, g3_mean = G3_mean)[] 
  []
 
 [28] [29] [30]
-Underfull \hbox (badness 10000) in paragraph at lines 1593--1594
+Underfull \hbox (badness 10000) in paragraph at lines 1595--1596
 []\T1/phv/m/n/12 Try cre-at-ing a func-tion called '[][]\T1/lmtt/m/n/12 introduction_text[]\T1/phv/m/n/12 ', that
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1593--1594
+Underfull \hbox (badness 10000) in paragraph at lines 1595--1596
 \T1/phv/m/n/12 has \T1/phv/m/sl/12 two in-puts \T1/phv/m/n/12 de-fined as 'name' and 'age', and uses
  []
 
 
-Underfull \hbox (badness 1117) in paragraph at lines 1593--1594
+Underfull \hbox (badness 1117) in paragraph at lines 1595--1596
 [][]\T1/lmtt/m/n/12 paste("Hi, my name is", name, "and my age is", age) []\T1/phv/m/n/12 as the \T1/phv/m/sl/12 func-
  []
 
 [31] [32]
-Overfull \hbox (44.10127pt too wide) in paragraph at lines 1764--1764
+Overfull \hbox (44.10127pt too wide) in paragraph at lines 1766--1766
 []\T1/lmtt/m/n/12 student_results_aggregated_suppressed <- student_results_aggregated %>%[] 
  []
 
 [33]
-Overfull \hbox (44.10127pt too wide) in paragraph at lines 1817--1817
+Overfull \hbox (44.10127pt too wide) in paragraph at lines 1819--1819
 []\T1/lmtt/m/n/12 student_results_aggregated_suppressed <- student_results_aggregated %>%[] 
  []
 
@@ -940,45 +940,45 @@ Overfull \hbox (44.10127pt too wide) in paragraph at lines 1817--1817
 <images/RforRAP/github-raw-button.png, id=448, 714.159pt x 355.437pt>
 File: images/RforRAP/github-raw-button.png Graphic file (type png)
 <use images/RforRAP/github-raw-button.png>
-Package pdftex.def Info: images/RforRAP/github-raw-button.png  used on input line 1959.
+Package pdftex.def Info: images/RforRAP/github-raw-button.png  used on input line 1961.
 (pdftex.def)             Requested size: 469.75542pt x 233.79729pt.
 
-Overfull \hbox (7.05125pt too wide) in paragraph at lines 1987--1987
+Overfull \hbox (7.05125pt too wide) in paragraph at lines 1989--1989
 []\T1/lmtt/m/n/12 regions_URL <- "https://raw.githubusercontent.com/dfe-analytical-[] 
  []
 
 [37] [38 <./images/RforRAP/github-raw-button.png>] [39] [40] [41] [42] [43]
-Overfull \hbox (87.3263pt too wide) in paragraph at lines 2279--2279
+Overfull \hbox (87.3263pt too wide) in paragraph at lines 2281--2281
 []\T1/lmtt/m/n/12 plot_function <- function(data, filteryear, filterage, filterregion, mapping){[] 
  []
 
 
-Overfull \hbox (124.37631pt too wide) in paragraph at lines 2281--2281
+Overfull \hbox (124.37631pt too wide) in paragraph at lines 2283--2283
 []    \T1/lmtt/m/n/12 filter(time_period == filteryear, age == filterage, region_name == filterregion)[] 
  []
 
 [44]
-Overfull \hbox (13.22626pt too wide) in paragraph at lines 2386--2386
+Overfull \hbox (13.22626pt too wide) in paragraph at lines 2388--2388
 []\T1/lmtt/m/n/12 "write some R code that will calculate what % of penguins from the[] 
  []
 
 [45] [46] [47] [48] [49]
-Overfull \hbox (18.07022pt too wide) in paragraph at lines 2639--2639
+Overfull \hbox (18.07022pt too wide) in paragraph at lines 2641--2641
 []\T1/lmtt/m/n/12 renvPackages <- names(jsonlite::fromJSON("renv.lock", flatten = TRUE)$Packages)[] 
  []
 
 [50]
-Overfull \hbox (36.59523pt too wide) in paragraph at lines 2648--2648
+Overfull \hbox (36.59523pt too wide) in paragraph at lines 2650--2650
 []\T1/lmtt/m/n/12 # note down output 1, and reuse in the lib argument of install.packages() as below[] 
  []
 
 
-Overfull \hbox (5.72021pt too wide) in paragraph at lines 2650--2650
+Overfull \hbox (5.72021pt too wide) in paragraph at lines 2652--2652
 []\T1/lmtt/m/n/12 install.packages("rmarkdown", lib = "C:/Users/swong/OneDrive - Department for[] 
  []
 
 
-Overfull \hbox (55.09923pt too wide) in paragraph at lines 2651--2651
+Overfull \hbox (55.09923pt too wide) in paragraph at lines 2653--2653
 []\T1/lmtt/m/n/12 Education/Documents/stats-production-guidance/renv/library/R-4.0/x86_64-w64-mingw32")[] 
  []
 
@@ -986,52 +986,52 @@ Overfull \hbox (55.09923pt too wide) in paragraph at lines 2651--2651
 <images/RforRAP/vlookup_excel.png, id=557, 770.88pt x 542.025pt>
 File: images/RforRAP/vlookup_excel.png Graphic file (type png)
 <use images/RforRAP/vlookup_excel.png>
-Package pdftex.def Info: images/RforRAP/vlookup_excel.png  used on input line 2745.
+Package pdftex.def Info: images/RforRAP/vlookup_excel.png  used on input line 2747.
 (pdftex.def)             Requested size: 469.75385pt x 330.29567pt.
 
-Overfull \hbox (36.56021pt too wide) in paragraph at lines 2768--2768
+Overfull \hbox (36.56021pt too wide) in paragraph at lines 2770--2770
 []                  \T1/lmtt/m/n/12 points=c(14, 15, 15, 16, 8, 9, 16, 27, 30, 24, 14, 19, 8, 6, 5))[] 
  []
 
 [53] [54 <./images/RforRAP/vlookup_excel.png>]
-Overfull \hbox (36.56021pt too wide) in paragraph at lines 2812--2812
+Overfull \hbox (36.56021pt too wide) in paragraph at lines 2814--2814
 []                  \T1/lmtt/m/n/12 points=c(14, 15, 15, 16, 8, 9, 16, 27, 30, 24, 14, 19, 8, 6, 5))[] 
  []
 
 [55] [56] [57]
 File: images/Department_for_Education.png Graphic file (type png)
 <use images/Department_for_Education.png>
-Package pdftex.def Info: images/Department_for_Education.png  used on input line 2867.
+Package pdftex.def Info: images/Department_for_Education.png  used on input line 2869.
 (pdftex.def)             Requested size: 469.75311pt x 277.93726pt.
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 2880--2885
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 2882--2887
 [][]  
  []
 
 
-Overfull \hbox (1.88498pt too wide) in paragraph at lines 2889--2889
+Overfull \hbox (1.88498pt too wide) in paragraph at lines 2891--2891
 []|\T1/phv/m/n/12 enquiries| 
  []
 
 
-Overfull \hbox (4.20119pt too wide) in paragraph at lines 2890--2890
+Overfull \hbox (4.20119pt too wide) in paragraph at lines 2892--2892
 []|\T1/phv/m/n/12 download| 
  []
 
 
-Overfull \hbox (36.00714pt too wide) in paragraph at lines 2888--2892
+Overfull \hbox (36.00714pt too wide) in paragraph at lines 2890--2894
 [][]  
  []
 
 <images/logoTwitter.png, id=593, 27.2655pt x 21.681pt>
 File: images/logoTwitter.png Graphic file (type png)
 <use images/logoTwitter.png>
-Package pdftex.def Info: images/logoTwitter.png  used on input line 2894.
+Package pdftex.def Info: images/logoTwitter.png  used on input line 2896.
 (pdftex.def)             Requested size: 27.26665pt x 21.68193pt.
 <images/logoFacebook.png, id=594, 21.681pt x 21.681pt>
 File: images/logoFacebook.png Graphic file (type png)
 <use images/logoFacebook.png>
-Package pdftex.def Info: images/logoFacebook.png  used on input line 2897.
+Package pdftex.def Info: images/logoFacebook.png  used on input line 2899.
 (pdftex.def)             Requested size: 21.68193pt x 21.68193pt.
 [58 <./images/logoTwitter.png> <./images/logoFacebook.png>] (./workshop_R.aux)
  ***********
@@ -1053,7 +1053,7 @@ Here is how much of TeX's memory you used:
 pdfTeX warning (dest): name{joins-ux5cux26-joining-geographic-codes-via-lookup-tables} has been referenced but does not exist, replaced by a fixed one
 
 <c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/cfoster4/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on workshop_R.pdf (58 pages, 1927884 bytes).
+Output written on workshop_R.pdf (58 pages, 1927994 bytes).
 PDF statistics:
  669 PDF objects out of 1000 (max. 8388607)
  578 compressed objects within 6 object streams
