@@ -633,7 +633,7 @@ This means that while the code `readr::read_csv(insert_filename/filepath_here)` 
 
 `chosen_name <- readr::read_csv(insert_filename/filepath_here)`
 
-When you're reading in the HEA CSV file for the below example, make sure that you have saved it inside a folder called "data", and that the file name matches exactly (e.g. doesn't have (1) or similar on the end).
+When you're reading in the HEA CSV file for the below example, make sure that you have saved it inside a folder called "data" (you may need to create this folder yourself), and that the file name matches exactly (e.g. doesn't have (1) or similar on the end).
 If you don't want to use a data folder, modify the read_csv command to say:
 
 `read_csv("HEA_some_student_results.csv")`
