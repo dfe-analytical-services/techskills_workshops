@@ -13,17 +13,36 @@
 \contentsline {subsection}{Comments and headings}{9}{section*.15}%
 \contentsline {subsection}{Adding and running code}{11}{section*.17}%
 \contentsline {subsection}{Data types and objects in R}{12}{section*.19}%
+<<<<<<< HEAD
+\contentsline {subsubsection}{Basic data types}{12}{section*.20}%
+=======
 \contentsline {subsubsection}{Basic data types}{13}{section*.20}%
+>>>>>>> d6357aa94f01c411c879c5230fd2fa8ea598ab26
 \contentsline {subsubsection}{Basic data objects}{13}{section*.21}%
 \contentsline {subsection}{Loading in the data}{16}{section*.22}%
 \contentsline {subsubsection}{Reading in CSVs}{16}{section*.23}%
 \contentsline {subsubsection}{Writing to and reading from a SQL database (optional section)}{17}{section*.24}%
 \contentsline {paragraph}{Writing a table to a SQL database}{18}{section*.25}%
+<<<<<<< HEAD
+\contentsline {paragraph}{Reading a table from a SQL database}{18}{section*.26}%
+=======
 \contentsline {paragraph}{Reading a table from a SQL database}{19}{section*.26}%
+>>>>>>> d6357aa94f01c411c879c5230fd2fa8ea598ab26
 \contentsline {section}{Cleaning data}{20}{section*.27}%
 \contentsline {subsection}{Dealing with missing values}{20}{section*.28}%
 \contentsline {subsection}{Dealing with duplicates}{22}{section*.29}%
 \contentsline {section}{Descriptive statistics}{23}{section*.30}%
+<<<<<<< HEAD
+\contentsline {section}{Manipulating data}{23}{section*.31}%
+\contentsline {subsection}{Aggregate \& filter data}{24}{section*.32}%
+\contentsline {subsection}{Reorder and rename columns}{27}{section*.33}%
+\contentsline {subsection}{Suppression (and writing functions)}{29}{section*.34}%
+\contentsline {subsubsection}{Writing functions}{29}{section*.35}%
+\contentsline {subsubsection}{Nested functions}{31}{section*.36}%
+\contentsline {subsubsection}{if() and ifelse() statements}{32}{section*.37}%
+\contentsline {subsubsection}{Function for suppression}{33}{section*.38}%
+\contentsline {subsection}{Adding new columns}{35}{section*.39}%
+=======
 \contentsline {section}{Manupilating data}{24}{section*.31}%
 \contentsline {subsection}{Aggregate \& filter data}{24}{section*.32}%
 \contentsline {subsection}{Reorder and rename columns}{27}{section*.33}%
@@ -33,10 +52,32 @@
 \contentsline {subsubsection}{if() and ifelse() statements}{32}{section*.37}%
 \contentsline {subsubsection}{Function for suppression}{33}{section*.38}%
 \contentsline {subsection}{Adding new columns}{36}{section*.39}%
+>>>>>>> d6357aa94f01c411c879c5230fd2fa8ea598ab26
 \contentsline {subsection}{Joins \& joining geographic codes via lookup tables}{37}{section*.40}%
 \contentsline {subsection}{Reformatting data (wide -\textgreater {} long)}{39}{section*.42}%
 \contentsline {subsection}{Regular expressions}{40}{section*.43}%
 \contentsline {section}{Running a SQL query}{40}{section*.44}%
+<<<<<<< HEAD
+\contentsline {section}{Creating plots}{41}{section*.45}%
+\contentsline {subsection}{Creating functions for plots}{42}{section*.46}%
+\contentsline {section}{Using online resources}{43}{section*.47}%
+\contentsline {subsection}{Google questions and errors}{43}{section*.48}%
+\contentsline {subsection}{Using chatGPT}{44}{section*.49}%
+\contentsline {section}{w-RAP it up}{46}{section*.50}%
+\contentsline {section}{Unit testing in R}{46}{section*.51}%
+\contentsline {section}{dplyr vs.~data.table}{47}{section*.52}%
+\contentsline {section}{Troubleshooting}{49}{section*.53}%
+\contentsline {subsection}{renv}{49}{section*.54}%
+\contentsline {subsubsection}{renv::restore()}{49}{section*.55}%
+\contentsline {subsubsection}{Updating packages in renv}{50}{section*.56}%
+\contentsline {subsubsection}{Installing old package versions in renv}{50}{section*.57}%
+\contentsline {subsection}{`Can't find make' error}{50}{section*.58}%
+\contentsline {section}{Excel functions in R}{52}{section*.59}%
+\contentsline {subsection}{VLOOKUP}{52}{section*.60}%
+\contentsline {subsubsection}{Using base R}{52}{section*.62}%
+\contentsline {subsubsection}{Using dplyr}{54}{section*.63}%
+\contentsline {section}{SQL functions in R}{55}{section*.64}%
+=======
 \contentsline {section}{Creating plots}{42}{section*.45}%
 \contentsline {subsection}{Creating functions for plots}{43}{section*.46}%
 \contentsline {section}{Using online resources}{44}{section*.47}%
@@ -56,3 +97,4 @@
 \contentsline {subsubsection}{Using base R}{53}{section*.62}%
 \contentsline {subsubsection}{Using dplyr}{55}{section*.63}%
 \contentsline {section}{SQL functions in R}{56}{section*.64}%
+>>>>>>> d6357aa94f01c411c879c5230fd2fa8ea598ab26

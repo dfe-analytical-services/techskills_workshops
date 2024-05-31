@@ -118,6 +118,9 @@ knitr::include_graphics('images/RforRAP/R-studio-panels.png')
 
 -   Bottom right - File explorer/plots/packages/Viewer.
 
+**Please note!:** R is a case sensitive language.
+You will see this when using functions like View(), which must have a capital V.
+
 # ADA and databricks
 
 This workshop and it's materials were developed before the implementation of ADA or databricks.
@@ -411,9 +414,11 @@ We can use the `class()` function to check the data type of a variable in R.
 In R, we can store *objects* in our *environment*.
 There are 5 basic types of objects in the R language.
 
-**Atomic vectors** can store homogeneous data types such as character, doubles, integers, raw, logical, and complex.
-A single element variable is also said to be vector.
-To create vectors in R, we use `c()`.
+**Atomic vectors** are the most basic objects in R.
+They can only contain data of one type (e.g. numeric or character).
+A vector is just a sequence of elements of a certain type.
+To create vectors in R by adding multiple elements, we use `c()`.
+You can then use `length()` with the name of the vector in the brackets to find out how many items are in your vector.
 
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 
@@ -449,7 +454,10 @@ class(z)
 \end{tcolorbox}
 ```
 **Lists** are another type of object in R programming.
-Lists can contain heterogeneous data types such as vectors or another lists.
+Lists are a variant of vectors known as "recursive vectors" (you don't need to worry about this terminology too much!) and can contain different data types together.
+They are one-dimensional and ordered.
+Lists can also contain other lists!
+You can create a list using `list()`and check its length using `length()`
 
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 
@@ -476,7 +484,7 @@ class(ls)
 \end{verbatim}
 \end{tcolorbox}
 ```
-**Matrices** are used in R to store 2-dimensional arrays.
+**Matrices** are collections of the same data type, but instead of being one-dimensional, they are arranged into columns and rows, a bit like a spreadsheet.
 Data, number of rows and columns are defined in the `matrix()` function.
 The syntax for the `matrix()` function is:
 
@@ -510,7 +518,11 @@ class(mat)
 \end{verbatim}
 \end{tcolorbox}
 ```
-**Factors** encode a vector of unique elements (levels) from the given data vector.
+**Factors** are usually used to store categorical variables with a limited range of potential answers.
+One example of this might be if you need to store the season in which something took place.
+You would first have a vector containing all of the data about the seasons, which might look like `("spring", "spring", "winter", "spring", "autumn", "summer", "summer")`.
+Within the factor, you would then identify the possible "levels" of the factor, which is just another way of saying that you'd list the *potential* options that the data vector could contain.
+In this case the levels would be "spring", "summer," "autumn" and "winter".
 
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 
@@ -537,7 +549,9 @@ nlevels(factor(s))
 \end{verbatim}
 \end{tcolorbox}
 ```
-**Arrays** are n-dimensional arrays.
+**Arrays** are objects that can hold two- or more than two-dimensional data.
+in rows and columns.
+They can only store one data type and are useful for organising and accessing data.
 The `array()` function takes dim attribute as an argument and creates required length of each dimension as specified in the attribute.
 
 ```{=tex}
@@ -565,9 +579,10 @@ print(arr)
 \end{verbatim}
 \end{tcolorbox}
 ```
-**Data frames** are tabular data objects in R.
+**Data frames** are tabular data objects in R, using rows and columns.
 Data frames consists of multiple columns and each column represents a vector.
-Columns in data frame can have different modes of data unlike matrices.
+Columns in data frames can have different types of data, unlike matrices.
+You can create data frames using `data.frame()`
 
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 
@@ -618,6 +633,11 @@ This means that while the code `readr::read_csv(insert_filename/filepath_here)` 
 
 `chosen_name <- readr::read_csv(insert_filename/filepath_here)`
 
+When you're reading in the HEA CSV file for the below example, make sure that you have saved it inside a folder called "data" (you may need to create this folder yourself), and that the file name matches exactly (e.g. doesn't have (1) or similar on the end).
+If you don't want to use a data folder, modify the read_csv command to say:
+
+`read_csv("HEA_some_student_results.csv")`
+
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 
  leftright skip=0.1cm,
@@ -644,7 +664,7 @@ Write and run this line in your script.
 Then, if you navigate to the 'environment' window in the top right of the screen, you should see an object has appeared with your chosen name under the heading 'Data'.
 If you click the blue circle with the white arrow inside, it will expand to show you information about the data you've uploaded, including the name of every column/variable, and the format of each column (i.e. chr for character, num for numeric).
 If you click the name of the object, it will open in the viewer in the top left so that you can look at the table.
-This is the same as typing `View(name_of_data)` in the console.
+This is the same as typing `View(name_of_data)` in the console (note that View must have a capital V!)
 
 ### Writing to and reading from a SQL database (optional section)
 
@@ -921,7 +941,7 @@ However, for numeric variables it will provide the minimum and maximum values, t
 
 For a more comprehensive guide of descriptive statistics in R including a wide range of statistics and visualisations/plots, see <https://statsandr.com/blog/descriptive-statistics-in-r/> (pages like this are useful to bookmark!).
 
-# Manupilating data
+# Manipulating data
 
 Once you have pulled data into R studio and you can see it in your environment, it is likely you want to manipulate it in some way.
 In this workshop, we have pulled in data that contains one line per student, so one common task is to aggregate data, and get it in the correct tidy format for EES.
