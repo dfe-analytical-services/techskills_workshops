@@ -671,7 +671,7 @@ This is the same as typing `View(name_of_data)` in the console (note that View m
 **NOTE:** to work through the tasks in these SQL sections, you must have access to an existing SQL database.
 
 In order to read and write data from and to a SQL database, we need to install the relevant packages and connect to the SQL database.
-Firstly, we need to install the `odbc` and `DBI` packages.
+Firstly, we need to install the relevant packages.
 Try to use the above guidance to;
 
 a.  Install the `odbc`, `DBI` and `dbplyr` packages,
@@ -731,9 +731,9 @@ There are multiple ways to do this - in this workshop we will cover two of them.
 Unless you successfully wrote the table to a SQL database in the previous step, you **cannot run the following code**.
 It is still useful to read and have knowledge of this, and to refer back to in future.
 
-1.  Use `dplyr::tbl(con, table_name)`,
+1.  Use `dplyr::tbl(con, in_schema(schema_name, table_name))`,
 
-2.  Use `RODBC::sqlQuery(con, "SELECT * FROM [table_name];")`.
+2.  Use `RODBC::sqlQuery(con, "SELECT * FROM table_name;")`.
 
 Option one above is a very concise and tidy way to read in data from SQL tables, which (as long as you've added descriptive comments) will make your code easy to read and understand.
 This option runs extremely quickly because rather than storing the SQL table as a data table in R, it stores a 'live connection' to the table in SQL.
@@ -743,6 +743,17 @@ In the environment it will appear as a list rather than a data table.
 Option two is slightly longer to write and takes much longer to run, but it does allow you to write SQL queries directly in R, so if you have previous experience with SQL you may find this useful.
 You can edit and customise the SQL query, meaning you have the option of selecting specific columns and filtering at this stage, rather than reading in the entire table.
 Just ensure that you write the table_name exactly how you would in SQL (including schemas).
+To try the second option, you'll need to create a new 'connection' object using the following code: 
+
+```         
+# Connect to SQL database using option 2
+con2 <- RODBC::odbcDriverConnect(
+    'driver = SQL Server Native Client 11.0,
+    server = ...,
+    database = ...,
+    Trusted_connection = yes'
+  )
+```
 
 Whichever option you choose, you need to choose what name you would like this object to have in R once the table is read in.
 It is best practice to make object names descriptive but concise.
@@ -752,7 +763,7 @@ We assign the table this name by using the `<-` symbols, so the full snippet sho
 
 ```         
 # Read in student data from SQL
-student_results <- tbl(con, "dbo.sd_sandbox_student_results")
+student_results <- tbl(con, in_schema("dbo", "sd_sandbox_student_results"))
 ```
 
 Add this under an appropriate heading/comment to your initial script.
@@ -766,7 +777,7 @@ This is the same as typing `View(name_of_data)` in the console.
 Once you have pulled data into R studio and you can see it in your environment, you might need to give it a clean.
 
 In most cases, cleaning a data set involves dealing with missing values and duplicated data.
-The `dplyr` package includes some useful functions for cleaning data!
+The `dplyr` and `tidyr` packages include some useful functions for cleaning data, such as `dplyr::filter(), dplyr::mutate(), dplyr::summarise()` and `tidyr::replace_na()`! Make sure these both of these packages are installed and included in your library calls!
 
 ## Dealing with missing values
 
