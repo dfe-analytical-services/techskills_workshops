@@ -129,6 +129,12 @@ GitHub and DevOps are generally not a place to:
 - **Documentation**: 'Run-notes' or README files in shared folders can be easily lost, outdated, or even not exist at all! Git projects often automatically generate README.md files for you to complete, and they render in Azure DevOps/GitHub automatically, providing instantly-seen documentation for anyone who opens the repo. Using a *markdown* (.md) file instead of .txt or word also gives additional abilities like linking to other pages or files and easily including code snippets. 
 :::
 
+## Getting set-up 
+
+- **GitHub:** Just [create your own GitHub account](https://github.com/), no IT support needed! You should use your work email address (or link it to an existing account if you have one) for GitHub accounts you will use at work. 
+
+- **Azure DevOps:** Fill in the [DevOps IT service request form](https://dfe.service-now.com/serviceportal?id=sc_cat_item&sys_id=5447e6e91bdbbb802fe864606e4bcba4). See the [help page on how to fill in the DevOps IT request](https://dfe-analytical-services.github.io/azure-devops-for-analysis/devops---the-basics.html#getting-a-devops-account) if you need support filling it in! 
+
 # Code
 
 When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
