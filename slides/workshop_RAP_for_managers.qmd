@@ -1,22 +1,135 @@
 ---
 title: "RAP for managers"
-author: "Charlotte Foster & Jen Machin"
-format: revealjs
-editor: visual
+author: "Statistics Development Team"
+institute: Department for Education
+format:
+  revealjs: 
+    theme: [dark, custom.scss]
+    width: 120%
+    height: 120%
+    logo: DfE_logo_landscape.png
 ---
 
-## Quarto
+# Intro
 
 Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
 
-## Bullets
+# Introduction to Git, GitHub and Azure DevOps
 
-When you click the **Render** button a document will be generated that includes:
+## Introduction to Git
+ 
+::: {.fragment .fade-up}
+Git is a piece of software designed for version control, i.e.
+:::
+::: {.fragment .fade-up}
+  - Tracking changes;
+:::
+::: {.fragment .fade-up}
+  - Undoing changes;
+:::
+::: {.fragment .fade-up}
+  - Maintaining parallel variants of code.
+:::
+::: {.fragment .fade-up}
+Git works with **repositories**:
 
--   Content authored with markdown
--   Output from executable code
+  - A repository (or repo) is just a folder that contains all of the version controlled files of a project.
+  - It can have multiple sub-folders that will also be tracked.
+:::
+::: {.fragment .fade-up}
+Git records all the version control information within a hidden folder called *.git* 
+:::
 
-## Code
+## GitHub & DevOps
+
+::: {.fragment .fade-up}
+GitHub and Dev Ops provide a space to store and interact with a repository. They allow you to: 
+:::
+::: {.fragment .fade-up}
+- Store a central shared back-up of your repository;
+:::
+::: {.fragment .fade-up}
+- View the files;
+:::
+::: {.fragment .fade-up}
+- View the history;
+:::
+::: {.fragment .fade-up}
+- Create and view different *branches* (variants) of the code;
+:::
+::: {.fragment .fade-up}
+- Use management tools such as *Issues logs* (on GitHub) or *Kanban boards*/task boards (on DevOps);
+:::
+::: {.fragment .fade-up}
+- Create *pull requests* (requests to review changes before *merging* them), review code, and get feedback from collaborators;
+:::
+::: {.fragment .fade-up}
+- Perform automated QA and deployment of code (e.g. sending a dashboard live).
+:::
+
+## GitHub and DevOps
+
+GitHub and DevOps are generally not a place to:
+
+::: {.fragment .fade-up}
+- Run your code;
+:::
+::: {.fragment .fade-up}
+- Edit your code (although there is some basic text editing functionality you can use).
+:::
+
+## What's the difference between git, GitHub and Azure Dev Ops?
+
+::: {.fragment .fade-up}
+- **Git** is the underlying software that you, GitHub and Azure DevOps use, providing the commands to record changes, create branches, merge branches, undo changes, etc.
+:::
+::: {.fragment .fade-up}
+- **GitHub** provides a public space to store a shared copy of your repository, with features to plan, manage and share your work publicly.
+:::
+::: {.fragment .fade-up}
+- **Azure DevOps** provides a secure space to store a shared copy of your repository, with features to plan, manage and share your work internally within the DfE.
+:::
+ 
+## Benefits of Git
+
+::: {.fragment .fade-up}
+- Collaboration: Get support from team and wider community by easily sharing code (our team find it much easier to support you if we can just go and clone your repo…)
+:::
+::: {.fragment .fade-up}
+- Code QA via reviews and automated checks
+:::
+::: {.fragment .fade-up}
+- Continuity
+:::
+::: {.fragment .fade-up}
+- Can undo changes
+:::
+::: {.fragment .fade-up}
+- Can try different methodologies in a properly controlled way
+:::
+
+## Why not use shared folders?
+
+::: {.fragment .fade-up} 
+
+- **Version control:** Shared folders lack good/detailed        version control which leads to;
+
+  - Messy folders with multiple versions of files (file_v1,       file_v2, file_final, File_final_FINAL etc.)
+  - Potential to overwrite/lose work
+  - No ablity to view a files history and see who made            previous changes and why. 
+
+  Git and platforms like GitHub and Azure DevOps provide        robust tracking of all changes, who made them, and their      *commit message*, ensuring continuity and auditability. 
+:::
+
+::: {.fragment .fade-up} 
+- **Collaboration** in shared folders can be tricky and require duplication of files. Branching with Git is a safe and sensible way to work collaboratively with parallel versions of files that can eventually be *merged*.
+:::
+
+::: {.fragment .fade-up} 
+- **Documentation**: 'Run-notes' or README files in shared folders can be easily lost, outdated, or even not exist at all! Git projects often automatically generate README.md files for you to complete, and they render in Azure DevOps/GitHub automatically, providing instantly-seen documentation for anyone who opens the repo. Using a *markdown* (.md) file instead of .txt or word also gives additional abilities like linking to other pages or files and easily including code snippets. 
+:::
+
+# Code
 
 When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
 

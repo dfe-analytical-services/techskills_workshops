@@ -7,10 +7,10 @@
 <link href="workshop_RAP_for_managers_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="workshop_RAP_for_managers_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="workshop_RAP_for_managers_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="workshop_RAP_for_managers_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="workshop_RAP_for_managers_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.555">
 
-  <meta name="author" content="Charlotte Foster &amp; Jen Machin">
+  <meta name="author" content="Statistics Development Team">
   <title>RAP for managers</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -321,7 +321,7 @@
     }
   </style>
 </head>
-<body class="quarto-light">
+<body class="quarto-dark">
   <div class="reveal">
     <div class="slides">
 
@@ -331,26 +331,183 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Charlotte Foster &amp; Jen Machin 
+Statistics Development Team 
 </div>
-</div>
+        <p class="quarto-title-affiliation">
+            Department for Education
+          </p>
+    </div>
 </div>
 
 </section>
-<section id="quarto" class="slide level2">
-<h2>Quarto</h2>
+<section id="intro" class="title-slide slide level1 center">
+<h1>Intro</h1>
 <p>Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <a href="https://quarto.org/docs/presentations/" class="uri">https://quarto.org/docs/presentations/</a>.</p>
 </section>
-<section id="bullets" class="slide level2">
-<h2>Bullets</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes:</p>
-<ul>
-<li>Content authored with markdown</li>
-<li>Output from executable code</li>
-</ul>
+
+<section>
+<section id="introduction-to-git-github-and-azure-devops" class="title-slide slide level1 center">
+<h1>Introduction to Git, GitHub and Azure DevOps</h1>
+
 </section>
-<section id="code" class="slide level2">
-<h2>Code</h2>
+<section id="introduction-to-git" class="slide level2">
+<h2>Introduction to Git</h2>
+<div class="fragment fade-up">
+<p>Git is a piece of software designed for version control, i.e.</p>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>Tracking changes;</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>Undoing changes;</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>Maintaining parallel variants of code.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<p>Git works with <strong>repositories</strong>:</p>
+<ul>
+<li>A repository (or repo) is just a folder that contains all of the version controlled files of a project.</li>
+<li>It can have multiple sub-folders that will also be tracked.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<p>Git records all the version control information within a hidden folder called <em>.git</em></p>
+</div>
+</section>
+<section id="github-devops" class="slide level2">
+<h2>GitHub &amp; DevOps</h2>
+<div class="fragment fade-up">
+<p>GitHub and Dev Ops provide a space to store and interact with a repository. They allow you to:</p>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>Store a central shared back-up of your repository;</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>View the files;</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>View the history;</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>Create and view different <em>branches</em> (variants) of the code;</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>Use management tools such as <em>Issues logs</em> (on GitHub) or <em>Kanban boards</em>/task boards (on DevOps);</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>Create <em>pull requests</em> (requests to review changes before <em>merging</em> them), review code, and get feedback from collaborators;</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>Perform automated QA and deployment of code (e.g.&nbsp;sending a dashboard live).</li>
+</ul>
+</div>
+</section>
+<section id="github-and-devops" class="slide level2">
+<h2>GitHub and DevOps</h2>
+<p>GitHub and DevOps are generally not a place to:</p>
+<div class="fragment fade-up">
+<ul>
+<li>Run your code;</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>Edit your code (although there is some basic text editing functionality you can use).</li>
+</ul>
+</div>
+</section>
+<section id="whats-the-difference-between-git-github-and-azure-dev-ops" class="slide level2">
+<h2>What’s the difference between git, GitHub and Azure Dev Ops?</h2>
+<div class="fragment fade-up">
+<ul>
+<li><strong>Git</strong> is the underlying software that you, GitHub and Azure DevOps use, providing the commands to record changes, create branches, merge branches, undo changes, etc.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li><strong>GitHub</strong> provides a public space to store a shared copy of your repository, with features to plan, manage and share your work publicly.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li><strong>Azure DevOps</strong> provides a secure space to store a shared copy of your repository, with features to plan, manage and share your work internally within the DfE.</li>
+</ul>
+</div>
+</section>
+<section id="benefits-of-git" class="slide level2">
+<h2>Benefits of Git</h2>
+<div class="fragment fade-up">
+<ul>
+<li>Collaboration: Get support from team and wider community by easily sharing code (our team find it much easier to support you if we can just go and clone your repo…)</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>Code QA via reviews and automated checks</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>Continuity</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>Can undo changes</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>Can try different methodologies in a properly controlled way</li>
+</ul>
+</div>
+</section>
+<section id="why-not-use-shared-folders" class="slide level2">
+<h2>Why not use shared folders?</h2>
+<div class="fragment fade-up">
+<ul>
+<li><p><strong>Version control:</strong> Shared folders lack good/detailed version control which leads to;</p>
+<ul>
+<li>Messy folders with multiple versions of files (file_v1, file_v2, file_final, File_final_FINAL etc.)</li>
+<li>Potential to overwrite/lose work</li>
+<li>No ablity to view a files history and see who made previous changes and why.</li>
+</ul>
+<p>Git and platforms like GitHub and Azure DevOps provide robust tracking of all changes, who made them, and their <em>commit message</em>, ensuring continuity and auditability.</p></li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li><strong>Collaboration</strong> in shared folders can be tricky and require duplication of files. Branching with Git is a safe and sensible way to work collaboratively with parallel versions of files that can eventually be <em>merged</em>.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li><strong>Documentation</strong>: ‘Run-notes’ or README files in shared folders can be easily lost, outdated, or even not exist at all! Git projects often automatically generate README.md files for you to complete, and they render in Azure DevOps/GitHub automatically, providing instantly-seen documentation for anyone who opens the repo. Using a <em>markdown</em> (.md) file instead of .txt or word also gives additional abilities like linking to other pages or files and easily including code snippets.</li>
+</ul>
+</div>
+</section></section>
+<section id="code" class="title-slide slide level1 center">
+<h1>Code</h1>
 <p>When you click the <strong>Render</strong> button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -358,6 +515,7 @@ Charlotte Foster &amp; Jen Machin
 </div>
 </div>
 <div class="quarto-auto-generated-content">
+<p><img src="DfE_logo_landscape.png" class="slide-logo"></p>
 <div class="footer footer-default">
 
 </div>
@@ -539,9 +697,9 @@ Charlotte Foster &amp; Jen Machin
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: '120%',
 
-        height: 700,
+        height: '120%',
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
