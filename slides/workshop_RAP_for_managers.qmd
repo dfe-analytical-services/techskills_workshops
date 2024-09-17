@@ -14,6 +14,60 @@ format:
 
 Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
 
+# What is RAP?
+ 
+::: {.fragment .fade-up}
+**R**eproducible **A**nalytical **P**ipelines are simply about using automation to our advantage when analysing data, and ensuring we are transparent when we do! 
+:::
+
+::: {.fragment .fade-up}
+We already have *analytical pipelines* and have done for many years. The aim of RAP is to:
+:::
+ 
+::: {.fragment .fade-up}
+- Automate all of the parts that we can,
+:::
+::: {.fragment .fade-up}
+- Increase efficiency and accuracy, 
+:::
+::: {.fragment .fade-up}
+- Create a clear audit trail to allow analysis to be easily reused if needed.
+:::
+
+# Why bother? - pipeline before/after
+::: {.fragment .fade-up}
+Implementing RAP best practices will free up time for us to focus on the parts of our work where human input adds true value. 
+:::
+
+::: {.columns}
+::: {.column width="33%"}
+::: {.fragment .fade-up}
+> *"The previous process with the two excel workbooks would take a couple of months to run, whereas now it can be run in a matter of hours."*  
+> **- Matt Jago, Ops & infrastructure**
+:::
+:::
+::: {.column width="33%"}
+::: {.fragment .fade-up}
+> *"[The improvements have] reduced the human errors and also mean analysts and LA colleagues’ time can be spent on more valuable tasks."*  
+> **- Family hubs research and analysis team**
+:::
+:::
+::: {.column width="33%"}
+::: {.fragment .fade-up}
+> *"The script itself is not complicated, but it removes the risk of human error and reduces the production time to minutes. The time saved can then be dedicated to further quality assurance."*  
+> **- RAAC response analyst**
+:::
+:::
+:::
+
+# What we expect of analyst managers (baseline expectations)/what it means for managers (implementation plan)
+
+# What are current blockers?
+
+# Rating of RAP confidence, honest skills gaps & Q&A (slido)
+
+# Self assessment - how to track your progress
+
 # Introduction to Git, GitHub and Azure DevOps
 
 ## Introduction to Git
