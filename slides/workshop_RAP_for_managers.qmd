@@ -95,12 +95,17 @@ We therefore have a baseline expectation for official statistics and we expect m
 </body>
 </html>
 
-
-# What are current blockers?
-
-# Rating of RAP confidence, honest skills gaps & Q&A (slido)
-
 # Self assessment - how to track your progress
+
+
+
+# Slido
+
+```{r}
+# Edit the slido here: https://admin.sli.do/event/adW5shWehmKfor3CAVt57U/polls
+```
+
+[Go to slido](https://wall.sli.do/event/adW5shWehmKfor3CAVt57U?section=eeeb3394-c49a-4530-98e4-ac140f1ed3e6){target="_blank" rel="noopener noreferrer"}
 
 # Introduction to Git, GitHub and Azure DevOps
 
