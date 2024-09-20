@@ -10,10 +10,6 @@ format:
     logo: DfE_logo_landscape.png
 ---
 
-# Intro
-
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
-
 # What is RAP?
  
 ::: {.fragment .fade-up}
@@ -95,9 +91,11 @@ We therefore have a baseline expectation for official statistics and we expect m
 </body>
 </html>
 
-# Self assessment - how to track your progress
+# How to track your progress
 
+The [RAP self-assessment tool](https://rsconnect/rsc/publication-self-assessment/) allows statistics producers to assess against the department's RAP standards. 
 
+Importantly for managers, you can monitor your team's progress towards achieving the RAP baseline by viewing 'RAP progress by area' and 'overview of latest responses'. 
 
 # Slido
 
