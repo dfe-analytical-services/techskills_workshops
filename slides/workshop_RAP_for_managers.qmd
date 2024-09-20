@@ -34,7 +34,7 @@ We already have *analytical pipelines* and have done for many years. The aim of 
 - Create a clear audit trail to allow analysis to be easily reused if needed.
 :::
 
-# Why bother? - pipeline before/after
+# Why bother? - case studies
 ::: {.fragment .fade-up}
 Implementing RAP best practices will free up time for us to focus on the parts of our work where human input adds true value. 
 :::
@@ -58,6 +58,18 @@ Implementing RAP best practices will free up time for us to focus on the parts o
 > **- RAAC response analyst**
 :::
 :::
+:::
+
+# Why bother - pipeline before/after
+
+::: {.column width="70%"}
+![](images/pipeline_before.png)
+:::
+::: {.column width="70%" .text-center}
+<span style="font-size: 48px; display: block; text-align: center;">&#8595;</span> <!-- This centers the unicode down arrow -->
+:::
+::: {.column width="70%"}
+![](images/pipeline_after.jpg)
 :::
 
 # What we expect of analyst managers (baseline expectations)/what it means for managers (implementation plan)
