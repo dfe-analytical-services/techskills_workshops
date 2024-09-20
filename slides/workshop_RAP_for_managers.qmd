@@ -95,7 +95,20 @@ We therefore have a baseline expectation for official statistics and we expect m
 
 The [RAP self-assessment tool](https://rsconnect/rsc/publication-self-assessment/) allows statistics producers to assess against the department's RAP standards. 
 
+::: {.fragment .fade-up}
 Importantly for managers, you can monitor your team's progress towards achieving the RAP baseline by viewing 'RAP progress by area' and 'overview of latest responses'. 
+:::
+
+::: {.fragment .fade-up}
+You should have entries for **every publication** you manage, and these should be updated either; 
+::: 
+
+> - **When you make updates to your processes** that change your responses or, 
+> - **once a year minimum** even if you've made no changes. 
+
+::: {.fragment .fade-up}
+This is so we always have an accurate picture of RAP in the department to share with analytical leaders. 
+:::
 
 # Slido
 
