@@ -747,13 +747,13 @@ There are some basic steps to go through if you're asked to review a pull reques
   
 In this case, we don't have any automated checks set up properly, so we'll focus on points 2 and 3.
 
-First of all try switching to the *featTimeSeriesChart* branch if you're not already in it and run the Shiny app - this can be done by opening the global.R script in RStudio and clicking Run App in the top right hand corner of the viewer pane. Assuming the dashboard runs, then try cycling through the different panels of the dashboard looking for any problems, errors or just things that could be improved.
+In DevOps, one person from your group should create a pull request to merge your `workshop_group_N` branch into the `main` branch. Add all your team members as reviewers. 
 
-There should be plenty of issues to find as we've kept the actual dashboard coding brief to focus on using git. As you find them, enter them in to the GitHub pull request, either under **Review changes** on the Files changed panel or as comments in the **Conversation** panel.
+As a group, look for any problems, errors or just things that could be improved. As you find them, enter them in to the pull request, by either clicking on specific lines of code in the **Files** tab to add comments, or adding general comments (not attached to specific lines of code) in the **Overview** tab. 
 
-In reality, once you've got those reviews collated, you'd go through and make changes to the code accordingly. This provides the checks and balances and a structure for code QA necessary when developing reproducible analyticle pipelines or data dashboards.
+In reality, once you've got those reviews collated, you'd go through and make changes to the code accordingly. This provides the checks and balances and a structure for code QA necessary when developing reproducible analytical pipelines or data dashboards.
 
-Assuming we've dealt with the outcomes of those reviews appropriately, the next step is to complete the Pull request by clicking the **Merge pull request** button. This then completes the merge in to *main* in this case. Whilst the basic mechanics of what's happening with the branches is the same here as with just running `git merge`, the Pull request provides that extra layer of administrative structure to perform proper QA of the code and the resulting product.
+Assuming we've dealt with the outcomes of those reviews appropriately, the next step is to complete the pull request by clicking the **Complete** button in the top right. This then completes the merge in to `main` in this case. Whilst the basic mechanics of what's happening with the branches is the same here as with just running `git merge`, the pull request provides that extra layer of administrative structure to perform proper QA of the code and the resulting product.
 
 
 ## Summary
