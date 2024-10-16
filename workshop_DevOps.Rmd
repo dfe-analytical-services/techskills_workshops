@@ -418,9 +418,9 @@ One useful management tool that we can use from Dev Ops is the *Boards* area. He
 
 We'll demonstrate this by performing 3 related tasks on 3 different branches. Each task should be done by only one of your group, so **split the following 3 tasks between your group** and each follow the relevant instructions in the subsections below:
 
-* 1) Tidying the data
-* 2) Creating the wide data plot
-* 3) Creating the tidy data plot
+* Task 1: Tidying the data
+* Task 2: Creating the wide data plot
+* Task 3: Creating the tidy data plot
 
 Once you've decided who's doing what, each of you should jump to the relevant section below. And remember that you're not working in independent silos here, what you do can impact what other people are doing so communication needs to happen along the way. Also, **note that the code in each branch might not run independently, so don't panic!**. 
 
