@@ -416,13 +416,13 @@ Git only really makes proper sense once multiple people start working on a proje
 
 One useful management tool that we can use from Dev Ops is the *Boards* area. Here we can create individual tasks, assign them to team member and then create new **branches** from those tasks. You can think of **branches** as self contained copies of the repository that can contain complementary or conflicting differences with all other **branches** in the repository. These allow you to work on different multiple tasks on your code independently of any other changes you might be making. Bringing these different **branches** or tasks together is then managed using **merges** or **pull requests** (PRs).
 
-We'll demonstrate this by performing 3 related tasks on 3 different branches. Each task should be done by only one of your group, so split the following 3 tasks between your group and each follow the relevant instructions in the subsections below:
+We'll demonstrate this by performing 3 related tasks on 3 different branches. Each task should be done by only one of your group, so **split the following 3 tasks between your group** and each follow the relevant instructions in the subsections below:
 
-* 1a) Tidying the data
-* 1b) Creating the wide data plot
-* 1c) Creating the tidy data plot
+* 1) Tidying the data
+* 2) Creating the wide data plot
+* 3) Creating the tidy data plot
 
-Once you've decided who's doing what, each of you should jump to the relevant section below. And remember that you're not working in independent silos here, what you do can impact what other people are doing so communication needs to happen along the way.
+Once you've decided who's doing what, each of you should jump to the relevant section below. And remember that you're not working in independent silos here, what you do can impact what other people are doing so communication needs to happen along the way. Also, **note that the code in each branch might not run independently, so don't panic!**. 
 
 #### Tidying the data
 
