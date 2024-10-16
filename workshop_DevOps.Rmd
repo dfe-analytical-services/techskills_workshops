@@ -184,10 +184,10 @@ Before starting either option, you'll need to copy the repo url from Dev Ops. To
  ]
 
 \tcblower
-Open up a \verb|git| \verb|BASH| terminal, by typing \verb|git| \verb|BASH| in the Windows search bar and select \verb|git| \verb|BASH| when it comes up. With a terminal, you can interact with it just by typing, similar to working in the R console in RStudio. First let's make a directory in which to store our repositories (note: replace "\verb|<username>|" below with your own username):
+Open up a \verb|git| \verb|BASH| terminal, by typing \verb|git| \verb|BASH| in the Windows search bar and select \verb|git| \verb|BASH| when it comes up. With a terminal, you can interact with it just by typing, similar to working in the R console in RStudio. First let's make a directory in which to store our repositories (note: replace "\verb|<username>|" below with your laptop username):
 
 \begin{verbatim}
-cd /c/Users/<username>
+cd /C/Users/<username>
 mkdir repos
 \end{verbatim}
 
