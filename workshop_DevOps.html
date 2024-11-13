@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Department for Education">
+<meta name="dcterms.date" content="2024-11-13">
+
+<title>DfE Statistics Development Team Workshops</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="workshop_DevOps_files/libs/clipboard/clipboard.min.js"></script>
+<script src="workshop_DevOps_files/libs/quarto-html/quarto.js"></script>
+<script src="workshop_DevOps_files/libs/quarto-html/popper.min.js"></script>
+<script src="workshop_DevOps_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="workshop_DevOps_files/libs/quarto-html/anchor.min.js"></script>
+<link href="workshop_DevOps_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="workshop_DevOps_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="workshop_DevOps_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="workshop_DevOps_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="workshop_DevOps_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#github-versus-dev-ops" id="toc-github-versus-dev-ops" class="nav-link" data-scroll-target="#github-versus-dev-ops">GitHub versus Dev Ops</a></li>
+  </ul></li>
+  <li><a href="#pre-workshop-requirements" id="toc-pre-workshop-requirements" class="nav-link" data-scroll-target="#pre-workshop-requirements">Pre-workshop requirements</a>
+  <ul class="collapse">
+  <li><a href="#technical-requirements" id="toc-technical-requirements" class="nav-link" data-scroll-target="#technical-requirements">Technical requirements</a></li>
+  <li><a href="#working-in-teams" id="toc-working-in-teams" class="nav-link" data-scroll-target="#working-in-teams">Working in teams</a></li>
+  </ul></li>
+  <li><a href="#getting-started-in-dev-ops" id="toc-getting-started-in-dev-ops" class="nav-link" data-scroll-target="#getting-started-in-dev-ops">Getting started in Dev Ops</a>
+  <ul class="collapse">
+  <li><a href="#navigating-around-dev-ops" id="toc-navigating-around-dev-ops" class="nav-link" data-scroll-target="#navigating-around-dev-ops">Navigating around Dev Ops</a></li>
+  <li><a href="#whats-a-repository" id="toc-whats-a-repository" class="nav-link" data-scroll-target="#whats-a-repository">What’s a repository?</a></li>
+  <li><a href="#cloning-the-repository-to-your-local-machine" id="toc-cloning-the-repository-to-your-local-machine" class="nav-link" data-scroll-target="#cloning-the-repository-to-your-local-machine">Cloning the repository to your local machine</a>
+  <ul class="collapse">
+  <li><a href="#cloning-in-git-bash" id="toc-cloning-in-git-bash" class="nav-link" data-scroll-target="#cloning-in-git-bash">Cloning in <code>git BASH</code></a></li>
+  <li><a href="#cloning-using-the-rstudio-wizard" id="toc-cloning-using-the-rstudio-wizard" class="nav-link" data-scroll-target="#cloning-using-the-rstudio-wizard">Cloning using the RStudio wizard</a></li>
+  </ul></li>
+  <li><a href="#using-dev-ops-boards" id="toc-using-dev-ops-boards" class="nav-link" data-scroll-target="#using-dev-ops-boards">Using Dev Ops Boards</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  </ul></li>
+  <li><a href="#basics-of-git" id="toc-basics-of-git" class="nav-link" data-scroll-target="#basics-of-git">Basics of git</a>
+  <ul class="collapse">
+  <li><a href="#the-git-log" id="toc-the-git-log" class="nav-link" data-scroll-target="#the-git-log">The git log</a></li>
+  <li><a href="#git-bash-versus-the-r-studio-git-panel" id="toc-git-bash-versus-the-r-studio-git-panel" class="nav-link" data-scroll-target="#git-bash-versus-the-r-studio-git-panel"><code>git bash</code> versus the <em>R-Studio</em> git panel</a></li>
+  <li><a href="#branches" id="toc-branches" class="nav-link" data-scroll-target="#branches">Branches</a>
+  <ul class="collapse">
+  <li><a href="#switching-branches-in-git-bash" id="toc-switching-branches-in-git-bash" class="nav-link" data-scroll-target="#switching-branches-in-git-bash">Switching branches in <code>git bash</code></a></li>
+  <li><a href="#switching-branches-in-the-r-studio-git-panel" id="toc-switching-branches-in-the-r-studio-git-panel" class="nav-link" data-scroll-target="#switching-branches-in-the-r-studio-git-panel">Switching branches in the <em>R-Studio</em> git panel</a></li>
+  </ul></li>
+  <li><a href="#adding-commiting-and-pushing" id="toc-adding-commiting-and-pushing" class="nav-link" data-scroll-target="#adding-commiting-and-pushing">Adding, commiting and pushing</a></li>
+  <li><a href="#pulling-from-the-remote-repository" id="toc-pulling-from-the-remote-repository" class="nav-link" data-scroll-target="#pulling-from-the-remote-repository">Pulling from the remote repository</a></li>
+  <li><a href="#summary-of-git-basics" id="toc-summary-of-git-basics" class="nav-link" data-scroll-target="#summary-of-git-basics">Summary of git basics</a></li>
+  </ul></li>
+  <li><a href="#working-collaboratively-with-git" id="toc-working-collaboratively-with-git" class="nav-link" data-scroll-target="#working-collaboratively-with-git">Working collaboratively with git</a>
+  <ul class="collapse">
+  <li><a href="#branches-and-splitting-tasks" id="toc-branches-and-splitting-tasks" class="nav-link" data-scroll-target="#branches-and-splitting-tasks">Branches and splitting tasks</a>
+  <ul class="collapse">
+  <li><a href="#task-management" id="toc-task-management" class="nav-link" data-scroll-target="#task-management">Task management</a></li>
+  </ul></li>
+  <li><a href="#merging-and-pull-requests" id="toc-merging-and-pull-requests" class="nav-link" data-scroll-target="#merging-and-pull-requests">Merging and pull requests</a>
+  <ul class="collapse">
+  <li><a href="#git-merge-and-a-simple-merge-conflict" id="toc-git-merge-and-a-simple-merge-conflict" class="nav-link" data-scroll-target="#git-merge-and-a-simple-merge-conflict"><code>git merge</code> (and a simple merge conflict)</a></li>
+  <li><a href="#pull-requests-1" id="toc-pull-requests-1" class="nav-link" data-scroll-target="#pull-requests-1">Pull requests #1</a></li>
+  <li><a href="#pull-requests-2-and-another-merge-conflict" id="toc-pull-requests-2-and-another-merge-conflict" class="nav-link" data-scroll-target="#pull-requests-2-and-another-merge-conflict">Pull requests #2 (and another merge conflict)</a></li>
+  <li><a href="#notes-on-reviewing-a-pull-request" id="toc-notes-on-reviewing-a-pull-request" class="nav-link" data-scroll-target="#notes-on-reviewing-a-pull-request">Notes on reviewing a pull request</a></li>
+  </ul></li>
+  <li><a href="#summary-1" id="toc-summary-1" class="nav-link" data-scroll-target="#summary-1">Summary</a></li>
+  </ul></li>
+  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a>
+  <ul class="collapse">
+  <li><a href="#renv" id="toc-renv" class="nav-link" data-scroll-target="#renv">renv</a></li>
+  <li><a href="#datafiles-commit-hooks.gitignore" id="toc-datafiles-commit-hooks.gitignore" class="nav-link" data-scroll-target="#datafiles-commit-hooks.gitignore">Datafiles commit-hooks/<code>.gitignore</code></a></li>
+  <li><a href="#merge-conflicts" id="toc-merge-conflicts" class="nav-link" data-scroll-target="#merge-conflicts">merge conflicts</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">DfE Statistics Development Team Workshops</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Department for Education </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 13, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>We’ve prepared this walkthrough guide for statistics publication teams as an introduction on how to work collaboratively with git and Dev Ops, using some typical data manipulation as an example. The guide is intended to be step-by-step, building up from the very basics. The plan is to work through this in groups of 3-ish and with access to experienced git users to call on for support. If it starts too basic for your level, then just go through at your own/your group’s pace as you see fit. By no means can we cover everything in this walkthrough, so please see it as a prompt to ask follow-up questions as you’re working through on anything related to git, Dev Ops and GitHub.</p>
+<p>We’re focusing on Azure Dev Ops rather than GitHub here, but much of the material is transferable.</p>
+<section id="github-versus-dev-ops" class="level2">
+<h2 class="anchored" data-anchor-id="github-versus-dev-ops">GitHub versus Dev Ops</h2>
+<p>GitHub and Dev Ops provide overlapping services in terms of creating software via a git repository: they both act as the host for the remote repository, whilst offering important tools to manage bugs and issues, tasks, merging branches, deploying applications and so on. There’s a lot more to both, but these are the main bits of functionality that statisticians are likely to need.</p>
+<p>Dev Ops is part of the Microsoft Azure platform and uses private DfE servers. This can allow you to connect or deploy your repository into wider Azure services. This includes SQL databases that you might already be storing data on as well as the DfE’s implementation of rsconnect on DfE internal servers, which allows deployment of shiny apps for internal DfE use.</p>
+<p>GitHub is hosted on external servers and therefore is more appropriate for making your code or application available for public access and use. For example, from a GitHub repository, you can deploy an R Shiny dashboard to shinyapps.io where members of the public may view and interact with your published data.</p>
+</section>
+</section>
+<section id="pre-workshop-requirements" class="level1">
+<h1>Pre-workshop requirements</h1>
+<section id="technical-requirements" class="level2">
+<h2 class="anchored" data-anchor-id="technical-requirements">Technical requirements</h2>
+<p>First of all, make sure to bring your laptop. This is going to be interactive and require you to do some coding.</p>
+<p>Preferably before coming along, you’ll need to go through the following list of things you’ll need to make sure are set up on your DfE laptop:</p>
+<ul>
+<li><p>Set up an Azure Dev Ops Basic account (not a Stakeholder account) at the DfE Service Portal; Either:</p></li>
+<li><p>Install git on your laptop: <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>;</p></li>
+<li><p>Install R-Studio on your machine: Download <strong>R for Windows (x64)</strong> and <strong>RStudio</strong> from the Software Centre on your DfE laptop.</p></li>
+</ul>
+<p>Or:</p>
+<ul>
+<li>If you’re on EDAP and used to using R/R-Studio and/or git on there, feel free to just use that.</li>
+</ul>
+<p>You’ll also need to make sure that git is set up in the git/SVN pane of global options in R-Studio (found in the Tools drop down menu). Make sure the path to your git executable is entered in the git path box and git should automatically be integrated with R-Studio.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gitdemo/gitdemo-gitRstudio-settings.png" class="img-fluid figure-img" style="width:64.0%"></p>
+<figcaption>Enter the path to your git executable in the git path option box</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Once you open a repository, you’ll get an extra panel, named ‘git’, in the top right pane of R-Studio and you’ll also be able to use git in the ‘Terminal’ tab at the bottom left (in the same place as the R console).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gitdemo/gitdemo-gitRstudio-NewTerminal.png" class="img-fluid figure-img" style="width:56.0%"></p>
+<figcaption>The <code>git BASH</code> terminal in R-Studio</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>A useful thing here if you want to use git commands in the terminal is to switch the terminal from the default Windows Command Prompt to <code>git BASH</code>. You can do this in the Terminal tab of R-Studio’s global options - just select <code>git BASH</code> from the ‘New terminal opens with’ pull down menu. Click apply and then select the Terminal tab (next to the Console tab), click ‘Terminal 1’ and then select ‘New terminal’ from the drop down menu. You should see something similar to the terminal screenshot.</p>
+</section>
+<section id="working-in-teams" class="level2">
+<h2 class="anchored" data-anchor-id="working-in-teams">Working in teams</h2>
+<p>To get the most out of git and Dev Ops, you’re going to need to work in teams. We’re aiming for groups of 3. Some of the tasks we’ll work through will require just one of your team to perform, whilst others will require all of your team to perform them. If it’s not clear then ask and most importantly, communicate with each other about what you’re doing.</p>
+<p>To help illustrate the challenges and benefits of git and Dev Ops and how to work collectively within the same space, all the groups will be working within the same repository. Each group will have their own working branch (already created) with the naming format <code>workshop_group_N</code>:</p>
+<ul>
+<li><code>workshop_group_1</code></li>
+<li><code>workshop_group_2</code></li>
+<li>…</li>
+</ul>
+<p>We’ll need to prefix branches and tasks within the repository with <code>grN_</code> and group N respectively (again switching the <code>N</code> for your group number).</p>
+<p>By the end, you should get a good idea of how using branches can facilitate lots of people working within the same space on the same files independently (and where issues can occur!).</p>
+</section>
+</section>
+<section id="getting-started-in-dev-ops" class="level1">
+<h1>Getting started in Dev Ops</h1>
+<section id="navigating-around-dev-ops" class="level2">
+<h2 class="anchored" data-anchor-id="navigating-around-dev-ops">Navigating around Dev Ops</h2>
+<p>There’s a lot to Azure Dev Ops, but we’re going to focus today on a handful of key elements arund task management and repositories:</p>
+<ul>
+<li>Boards
+<ul>
+<li>Boards</li>
+</ul></li>
+<li>Repos
+<ul>
+<li>Files</li>
+<li>Commits</li>
+<li>Branches</li>
+<li>Pull Requests</li>
+</ul></li>
+</ul>
+<p>If you follow the link below, that should take you to our demo repository for this workshop. Follow the link and explore the tabs on the left of the page that are listed above.</p>
+<p><a href="https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/workshop_devopsintro">Azure Dev Ops workshop_devopsintro</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/DevOpsdemo/DevOps_repo_frontpage.PNG" class="img-fluid figure-img"></p>
+<figcaption>An example repository front page on Dev Ops</figcaption>
+</figure>
+</div>
+<p>The key things to note at this stage is that:</p>
+<ul>
+<li>The Boards area contains useful project management tools for tracking development of your code. Today we’ll just use the Kanban board style functionality, but there’s plenty more.</li>
+<li>The Repo area contains any repositories you have access to. You can navigate between repositories using the dropdown menu at the top of the page.</li>
+</ul>
+</section>
+<section id="whats-a-repository" class="level2">
+<h2 class="anchored" data-anchor-id="whats-a-repository">What’s a repository?</h2>
+<p>A repository is a folder containing a related set of code and associated files. So for example, it can contain your full data processing pipeline or it could contain a dashboard app.</p>
+<p>The repo on Dev Ops represents the central safe copy of your repository and is called the <strong>Remote</strong> repository. It contains all the history and current code of your code and should also contain at least some associated documentation (primarily in the form of the Readme.md file).</p>
+<p>You and your team can also have as many copies (or clones) of the repository on your workstations. These are the <strong>Local</strong> repositories. Any updates that you and your team make to the files in your local copies of the repository should be synced to the remote repository at regular intervals, such that all team members can access the latest versions of the files.</p>
+</section>
+<section id="cloning-the-repository-to-your-local-machine" class="level2">
+<h2 class="anchored" data-anchor-id="cloning-the-repository-to-your-local-machine">Cloning the repository to your local machine</h2>
+<p>Cloning the repository refers to creating a copy of the remote repository (i.e.&nbsp;the copy on GitHub or Dev Ops) on the disk on your local machine (i.e.&nbsp;your DfE laptop). For an R project, there are two basic options to choose from for doing this:</p>
+<ul>
+<li>using the R-Studio new project wizard, or</li>
+<li>using <code>git BASH</code>.</li>
+</ul>
+<p>We’d recommend trying the different options across your working group.</p>
+<p>Before starting either option, you’ll need to copy the repo url from Dev Ops. To do this, open up the repo front page in Dev Ops (you can use the link from earlier) and click the grey <strong>Clone</strong> button near the top right of the page. Make sure HTTPS is selected and then click the copy button to grab the url.</p>
+<section id="cloning-in-git-bash" class="level3">
+<h3 class="anchored" data-anchor-id="cloning-in-git-bash">Cloning in <code>git BASH</code></h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open up a <code>git BASH</code> terminal, by typing <code>git BASH</code> in the Windows search bar and select <code>git BASH</code> when it comes up. With a terminal, you can interact with it just by typing, similar to working in the R console in RStudio. First let’s make a directory in which to store our repositories (note: replace “<code>&lt;username&gt;</code>” below with your laptop username):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /C/Users/<span class="op">&lt;</span>username<span class="op">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> repos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We can then move into the directory we just created using:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> repos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now grab the repo url and replace <code>&lt;repo_url&gt;</code> in the next command with the actual url from Azure DevOps:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>repo_url<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You should get some messages letting you know git is connecting to the server and cloning the repository and it should look something like the figure below.</p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gitdemo/gitdemo-terminal_clone.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Cloning a repository in git BASH</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>If all went well, you’ll now have a complete copy of the repository on your laptop. To open the repository in RStudio, start up RStudio and select Open project. In the file explorer window that opens up, type <code>C:\Users\</code> and hit enter (see the screenshot below) and then open up your home folder.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gitdemo/gitdemo-RStudio_OpenProj.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Open a cloned project in RStudio</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Then navigate into <code>repos</code> and the repository folder. The full path should be something along the lines of:</p>
+<blockquote class="blockquote">
+<p><code>This PC &gt; Windows (C:) &gt; Users &gt; &lt;USERNAME&gt; &gt; repos &gt; &lt;REPONAME&gt;</code></p>
+</blockquote>
+<p>Select the R project file and select open.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gitdemo/gitdemo-RStudio_OpenProj_fullpath.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Open a cloned project in RStudio</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="cloning-using-the-rstudio-wizard" class="level3">
+<h3 class="anchored" data-anchor-id="cloning-using-the-rstudio-wizard">Cloning using the RStudio wizard</h3>
+<p>If that looks like a bit too much text based effort, RStudio offers a way to clone a repository with it’s New project wizard. To do this navigate the menu bar to <strong>File &gt; New Project…</strong>, select <strong>Version Control</strong> and then Git. This opens up a dialogue box to enter the repository url and select where to save it. As with the git BASH version, copy and paste your remote repo URL here and set a directory where you want it saved on your laptop.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/DevOpsdemo/DevOps_RStudio_clonerepo.PNG" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Clone a project using the RStudio git wizard</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="a-note-on-local-repository-clones-and-onedrive" class="level4">
+<h4 class="anchored" data-anchor-id="a-note-on-local-repository-clones-and-onedrive">A note on local repository clones and OneDrive</h4>
+<blockquote class="blockquote">
+<p>Note that saving a repository within your OneDrive folder structure can cause some awkward issues. If you use git to perform version control on a repository saved within a OneDrive folder, you may start receiving warning messages that large numbers of files have been removed from OneDrive. In addtion, it can put a heavy burden on your internet connection as OneDrive tries to keep up with changes to the files managed by git. Best practice therefore is to store your repositories somewhere outside your OneDrive file structure. We recommend creating a <code>repos</code> directory within your base User directory (i.e.&nbsp;<code>C:\Users\&lt;USERNAME&gt;\repos\</code>. Windows sometimes tries to make it awkward for you to navigate to places on your laptop outside of the OneDrive folders, so a useful tip is to add your <code>repos</code> folder to your Quick access list in File Explorer.</p>
+</blockquote>
+</section>
+</section>
+</section>
+<section id="using-dev-ops-boards" class="level2">
+<h2 class="anchored" data-anchor-id="using-dev-ops-boards">Using Dev Ops Boards</h2>
+<p>We’re going to work through a demo of tidying up some data and running a quick QA on it.</p>
+<p>To start with, we’ll create some tasks on the Kanban Board in Dev Ops. The tasks to create are (note that including your group number in the titles will make things easier further down the line):</p>
+<ul>
+<li>Group N: <a href="#tidying-the-data">Tidying the data</a></li>
+<li>Group N: <a href="#creating-the-wide-data-plot">Creating the wide data plot</a></li>
+<li>Group N: <a href="#creating-the-tidy-data-plot">Creating the tidy data plot</a></li>
+</ul>
+<p>Go to the <em>Boards</em> &gt; <em>Boards</em> tab on Dev Ops and make sure you’re in the right board, i.e.&nbsp;workshop_devopsintro_N. Now create tasks for each of these using the New item button.</p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>In this section, we’ve had a quick look around Dev Ops and the remote repository, cloning it to your local drive (using both the BASH terminal and the RStudio wizard) and creating and assigning tasks on the Dev Ops Boards area.</p>
+<p>In the next section, we’ll cover some of the basics of using git to log changes to your code and sync them between the remote repo and local copies. If you open up one of the tasks, you’ll see you can add descriptions, comments, tags, priorities and story points (effectively an estimate of the effort or time required) among other things. We can leave those for the purpose of this demo and for now decide who’s going to do what and drag each task into the Active column. Note that whoever drags a given task across will automatically be assigned as the person working on that task. If that’s not the right person, then click on the name and select who should be doing it.</p>
+<p>We’ll take a break from Dev Ops now and move on to taking a look at using git.</p>
+</section>
+</section>
+<section id="basics-of-git" class="level1">
+<h1>Basics of git</h1>
+<p>We’ll now take a look at updating repositories using some simple processing and QA code as an example.</p>
+<section id="the-git-log" class="level2">
+<h2 class="anchored" data-anchor-id="the-git-log">The git log</h2>
+<p>In order to move quickly between different versions of files and code, git is built around indexing and a log file that track the changes in a repository. To view the log of any repository, we can simply go into that repository and run the command <code>git log</code> from the BASH terminal. Here’s a minimal example on a fresh repsoitory:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gitdemo/gitdemo-gitlog-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The log shows all “commits” that have been made to the repository. We’ll go into making commits in the next section.</p>
+</section>
+<section id="git-bash-versus-the-r-studio-git-panel" class="level2">
+<h2 class="anchored" data-anchor-id="git-bash-versus-the-r-studio-git-panel"><code>git bash</code> versus the <em>R-Studio</em> git panel</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gitdemo/gitDemo-RStudio_gitinterface.PNG" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>The <em>R-Studio</em> git panel provides all the common day to day git commands such as Stage/Add, Commit, Push and Pull, switch branches, view history.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gitdemo/gitDemo-RStudio_gitterminal.PNG" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>The <em>R-Studio</em> git bash terminal provides access to all git functionality via a command line interface.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>There are two main ways you can run git commands within R-Studio, either using the <code>git bash</code> terminal or the <em>R-Studio</em> git panel Each offers some advantages, but the main ones are that <code>git bash</code> offers the full range of tools for controlling your repository, whilst the <em>R-Studio</em> git panel offers the most common basic commands but with a simpler (and usually quicker) interface. We’ll use both in this workshop.</p>
+</section>
+<section id="branches" class="level2">
+<h2 class="anchored" data-anchor-id="branches">Branches</h2>
+<p>One of the most important elements of using <code>git</code> is <strong>branches</strong>. These provide a method to keep multiple different copies of your code in a single repository. This is usually intended to maintain a working base copy alongside one or many development branches with new features, updates or bugfixes.</p>
+<p>In this workshop, we’ve created a branch for each team, so you need to start by switching to the branch for your group - one of workshop_group_1, workshop_group_2, workshop_group_3 etc. As in most cases here, you can use either the RStudio git panel or <code>git bash</code> to switch branches.</p>
+<section id="switching-branches-in-git-bash" class="level3">
+<h3 class="anchored" data-anchor-id="switching-branches-in-git-bash">Switching branches in <code>git bash</code></h3>
+<p>In <code>git bash</code>, you can change branches using either the <code>switch</code> or <code>checkout</code> command. Go to the bash terminal in R-Studio and enter the command:</p>
+<p><code>git checkout workshop_group_1</code></p>
+<p>Updating the number to your group number. To switch back to main, you can simply use:</p>
+<p><code>git checkout main</code></p>
+</section>
+<section id="switching-branches-in-the-r-studio-git-panel" class="level3">
+<h3 class="anchored" data-anchor-id="switching-branches-in-the-r-studio-git-panel">Switching branches in the <em>R-Studio</em> git panel</h3>
+<p>In the git panel, the name of the current branch is given next to the purple create branch symbol. Click on the name of the current branch (which should be <em>main</em> at present) and a drop down list will appear. Select your group’s branch from this list and R-Studio will automatically switch to that branch. Anything you add and commit to the repository will now be written to the branch you’ve selected and not <em>main</em>.</p>
+</section>
+</section>
+<section id="adding-commiting-and-pushing" class="level2">
+<h2 class="anchored" data-anchor-id="adding-commiting-and-pushing">Adding, commiting and pushing</h2>
+<p>To have something to work with, we need some data. There should be a data folder in the repository already, so all we need to do is grab some data and save it there. For this workshop, we’ll use a file from a publication on Explore Education Statistics.</p>
+<p><em>For this section, just one of your group should run through the following steps in your group’s branch:</em></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Go to <a href="https://explore-education-statistics.service.gov.uk/data-catalogue/key-stage-4-performance-revised/2020-21">key stage 4 performance publication</a> and download the <em>KS4 subject timeseries data (csv, 364 Kb)</em> file. Extract the data CSV file (<code>2021_subject_timeseries_data.csv</code>) and save it into the repo’s data folder (you can just use the normal Windows File Explorer to do this).</p>
+<p>Now to add this to the git tracking: run the following commands:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This searches the repo for any files that have been modified since the last commit and creates a log of the changes. If you want to check that the command has worked, then you can type <code>git status</code> or <code>git st</code> and you’ll get a summary of files that have been staged and are ready to commit.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Added data file into repository."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This adds an entry on to the log, updating it with the file changes that you’ve just made.</p>
+</div>
+</div>
+<p>Note that the text after the <code>-m</code> is a comment used to describe the changes to make it easier for someone looking back from the log to see what changes have happened. Those are the two key steps for tracking changes to the files and folders in your repository.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Now we’ll add in some simple code to read in the file. Create a script called <code>main.R</code> in the repository’s root <em>directory</em> within your group’s <em>branch</em> (<code>workshop_group_N</code>). Then add the following code to it:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dfKS4 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'data/2021_subject_timeseries_data.csv'</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(dfKS4)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"time_period"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s do a quick commit to log that change. In the terminal run</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Added new data and reading it in."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>If we now run <code>git log</code> again, we get something along the lines of:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gitdemo/gitdemo-gitlog-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Here we can see, in reverse order, the commits that have been made, who made them, when they made them, and the messages that have been recorded with them.</p>
+<p>Finally, it’s important to note that what we’ve done so far is only being applied to the local copy of the repository (i.e.&nbsp;the copy on your laptop). To apply your changes to the remote repository (i.e.&nbsp;on GitHub or Dev Ops), you need to “push” the changes. This can be done a couple of different ways: a) in the terminal type <code>git push</code> or b) on the toolbar in the <em>R-Studio</em> git panel press the green up button! Once you’ve done this, open up a browser and go to your remote repository on Dev Ops and, once you’ve switched on to your branch, you should now see the data file stored there. You should also see that it’s not been added on to the main branch.</p>
+</section>
+<section id="pulling-from-the-remote-repository" class="level2">
+<h2 class="anchored" data-anchor-id="pulling-from-the-remote-repository">Pulling from the remote repository</h2>
+<p>Now that you’ve made changes, the rest of your team need to update their own local copies of the repository with your updates by pulling from the remote. Similarly to pushing, they can do this by either a) typing <code>git pull</code> in the BASH terminal or b) pressing the down arrow in the toolbar of the git panel in <em>R-Studio</em>.</p>
+</section>
+<section id="summary-of-git-basics" class="level2">
+<h2 class="anchored" data-anchor-id="summary-of-git-basics">Summary of git basics</h2>
+<p>We’ve quickly tried out a quick cycle of adding and committing, which is used to log changes into the local repository and then we’ve pushed and pulled to and from the remote repository and local copies on different laptops. The table below gives a summary of the relevant commands in the BASH terminal and the corresponding buttons in the RStudio git panel.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 37%">
+<col style="width: 52%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Process</th>
+<th>git BASH</th>
+<th>RStudio git panel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Add</td>
+<td><code>git add .</code></td>
+<td>Stage using tickbox next to each modified file.</td>
+</tr>
+<tr class="even">
+<td>Commit</td>
+<td><code>git commit -m "Commit message."</code></td>
+<td>“Commit” button in toolbar.</td>
+</tr>
+<tr class="odd">
+<td>Push</td>
+<td><code>git push</code></td>
+<td>Green up arrown in toolbar.</td>
+</tr>
+<tr class="even">
+<td>Pull</td>
+<td><code>git pull</code></td>
+<td>Blue down arrow in toolbar.</td>
+</tr>
+<tr class="odd">
+<td>View the log</td>
+<td><code>git log</code></td>
+<td>Clock icon in toolbar.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="working-collaboratively-with-git" class="level1">
+<h1>Working collaboratively with git</h1>
+<p>Git only really makes proper sense once multiple people start working on a project collaboratively. Solo working, git is useful for version control and syncing your work to a remote repository site like Dev Ops and GitHub, but may not feel like it offers all that much more beyond that. Once we start working collaboratively however, the benefits of using git (alongside GitHub or Dev Ops) become more apparent. We’ll now look further into this with some worked examples.</p>
+<section id="branches-and-splitting-tasks" class="level2">
+<h2 class="anchored" data-anchor-id="branches-and-splitting-tasks">Branches and splitting tasks</h2>
+<section id="task-management" class="level3">
+<h3 class="anchored" data-anchor-id="task-management">Task management</h3>
+<p>One useful management tool that we can use from Dev Ops is the <em>Boards</em> area. Here we can create individual tasks, assign them to team member and then create new <strong>branches</strong> from those tasks. You can think of <strong>branches</strong> as self contained copies of the repository that can contain complementary or conflicting differences with all other <strong>branches</strong> in the repository. These allow you to work on different multiple tasks on your code independently of any other changes you might be making. Bringing these different <strong>branches</strong> or tasks together is then managed using <strong>merges</strong> or <strong>pull requests</strong> (PRs).</p>
+<p>We’ll demonstrate this by performing 3 related tasks on 3 different branches. Each task should be done by only one of your group, so <strong>split the following 3 tasks between your group</strong> and each follow the relevant instructions in the subsections below:</p>
+<ul>
+<li>Task 1: Tidying the data</li>
+<li>Task 2: Creating the wide data plot</li>
+<li>Task 3: Creating the tidy data plot</li>
+</ul>
+<p>Once you’ve decided who’s doing what, each of you should jump to the relevant section below. And remember that you’re not working in independent silos here, what you do can impact what other people are doing so communication needs to happen along the way. Also, <strong>note that the code in each branch might not run independently, so don’t panic!</strong>.</p>
+<section id="tidying-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="tidying-the-data">Tidying the data</h4>
+<p>Start the task by going to your Dev Ops board and click on the options for the Tidying data task. Select <strong>Create new branch</strong> from the drop down menu that appears over the task. You’ll get a pop-up dialogue box with some options about your new branch. Give the new branch a name (e.g.&nbsp;<code>grN_task1</code>), make sure it’s based on your group’s branch (<code>workshop_group_N</code>) in the <code>workshop_devopsintro</code> repo and then click <strong>Create branch</strong>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/DevOpsdemo/DevOps_Boards_newbranch.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You’ll now have a new branch in your remote repo that’s identical to your groups working branch. To access that branch in your local repo, you just need to perform a pull (i.e.&nbsp;<code>git pull</code> in the <code>bash</code> terminal or the down arrow in the R-Studio git panel) and then switch branches (<code>git switch grN_task1</code> in <code>bash</code> or select from the drop down menu in the git panel).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Now to make the edits. Copy and paste the following code into the script <code>R/utils.R</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>tidy_subject_timeseries <span class="ot">&lt;-</span> <span class="cf">function</span>(dfin){</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Pivot long and then update the string values in the new </span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># filter column.</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  dftidied <span class="ot">&lt;-</span> dfin  <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="sc">!</span><span class="fu">c</span>(time_period,time_identifier,geographic_level,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                    country_code,country_name,version,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                    characteristic_gender, subject,entries),</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">names_to=</span><span class="st">"level"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">values_to=</span><span class="st">"percentage_pupils"</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(dftidied) <span class="ot">&lt;-</span> <span class="fu">gsub</span>(</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"characteristic_"</span>,<span class="st">""</span>,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">colnames</span>(dftidied)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(dftidied)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And then go back to <code>main.R</code> and add the lines:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">'R/utils.R'</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>dfKS4tidied <span class="ot">&lt;-</span> <span class="fu">tidy_subject_timeseries</span>(dfKS4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>At this point you could try sourcing <code>main.R</code> in the R console and that should create the data frame <code>dftidied</code> (and hopefully not produce any errors!).</p>
+<p>Once you’re happy, then run another <code>add</code>/<code>commit</code>/<code>push</code> cycle and flag to your team that you’ve finished the code to read in the data. Then scroll down this guide to the <a href="#merging-and-pull-requests">merging and pull requests</a> section.</p>
+</section>
+<section id="creating-the-wide-data-plot" class="level4">
+<h4 class="anchored" data-anchor-id="creating-the-wide-data-plot">Creating the wide data plot</h4>
+<p>Whilst the first task adds in some data, reads it in and does some processing, this task builds a quick chart based on the data.</p>
+<p>Create a new branch within R-Studio. To do this, first make sure that you’re in your groups branch (i.e.&nbsp;<code>workshop_group_N</code>) and then you can either a) use the command <code>git checkout -b grN_task2</code> (changing the N to your group number) and push to the remote (<code>git push</code>) or click the purple new branch button in the R-Studio git panel (see the image below).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/DevOpsdemo/DevOps_RStudio_newbranch.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:92.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We want to track this branch with the associated task in Dev Ops Boards, so go to the card you made for task 2 on your group’s board. Move it to the <strong>Active</strong> column and then open up the task to edit. On the right hand side of the dialogue box, you can link your branch to this task under <strong>Development</strong>. Click <strong>Add link</strong> and in the next dialogue box find and select your new branch from the branch drop down menu (as shown in the screenshot). Click Ok to complete the link. Then you should see your branch listed under <strong>Development</strong> (note the option to create a Pull request, which you can use later on when we merge this branch in to the rest of the development).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/DevOpsdemo/DevOps_Boards_linkbranch.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:82.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Now to make the changes. Head back to R-Studio and add the following lines of code to <code>/plots.R</code> in your local copy of the repository:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>plot_ACrange <span class="ot">&lt;-</span> <span class="cf">function</span>(df){</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  dfplot <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>      time_period<span class="sc">&gt;=</span><span class="dv">201920</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>      <span class="sc">!</span>X94AstarC <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"z"</span>,<span class="st">":"</span>,<span class="st">"x"</span>),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">"Studies"</span>,subject)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>      time_period,characteristic_gender,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>      entries,subject,X94AstarC</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">entries=</span><span class="fu">as.numeric</span>(entries)<span class="sc">/</span><span class="dv">1</span>.e3,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>           <span class="at">X94AstarC=</span><span class="fu">as.numeric</span>(X94AstarC))</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  df1 <span class="ot">&lt;-</span> dfplot <span class="sc">%&gt;%</span> </span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(time_period<span class="sc">==</span><span class="dv">202021</span>,characteristic_gender<span class="sc">==</span><span class="st">"Total"</span>)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(df1<span class="sc">$</span>entries,df1<span class="sc">$</span>X94AstarC)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And the following to <code>main.R</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">'R/plots.R'</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ACrange</span>(dfKS4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And that should be it for this task. All that’s left is to commit and push your changes. If you’ve got a preferred way already to perform commits, then go for it. If not then let’s use the RStudio git panel.</p>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gitdemo/gitdemo-RStudio-gitpanel.PNG" class="img-fluid figure-img" style="width:64.0%"></p>
+<figcaption>Staging files in the RStudio git panel.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Firstly click on the git tab in the top right of RStudio to show the git panel (see the screenshot below). Next click the tickboxes next to the files with changes (i.e.&nbsp;these should be server.R and R/dashboards_panels.R) to <strong>stage</strong> (aka <strong>add</strong>) the files. Now click <strong>commit</strong>, add a commit message in the relavent text box and then hit <strong>commit</strong> in the bottom right corner of the window.</p>
+<p>Assuming that all went through without any issues, you can now press the green up arrow in the git panel to <strong>push</strong> your changes to the remote repository on Dev Ops</p>
+<p>Flag to your team that you’ve finished the code to read in the data. Then scroll down this guide to the <a href="#merging-and-pull-requests">merging and pull requests</a> section.</p>
+</section>
+<section id="creating-the-tidy-data-plot" class="level4">
+<h4 class="anchored" data-anchor-id="creating-the-tidy-data-plot">Creating the tidy data plot</h4>
+<p>Start by creating a new branch in Dev Ops. Navigate to the files panel of the repo on Dev Ops and click the branch drop down menu. Select your groups working branch (<code>working_group_N</code>). Click the drop down again and now select <strong>+ New branch</strong>. You’ll get a pop-up dialogue box that looks like the image below. Fill in a name for the new branch and make sure your groups working branch is selected in the <strong>Based on</strong> selection box. You can also link your task to this new branch by selecting it in the <strong>Work items to link</strong> selection box. Once you’ve done that, quickly go to your group’s board and have a look at the task 3 card. If you haven’t done so already, drag and drop the card into the Active column (you should then see that you automatically get asigned to the task in Dev Ops).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/DevOpsdemo/DevOps_Repo_newbranch.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:64.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Task
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Now head to R-Studio, perform a pull (<code>git pull</code> in the terminal or the green down arrow in the git panel) and then switch to your new branch.</p>
+<p>Then go ahead and add the following lines of code to <code>R/plots.R</code> in your local copy of the repository:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plot_ACrange_tidy <span class="ot">&lt;-</span> <span class="cf">function</span>(dftidy){</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> dftidy <span class="sc">%&gt;%</span> <span class="fu">filter</span>(time_period<span class="sc">&gt;=</span><span class="dv">201920</span>,level<span class="sc">==</span><span class="st">"X94AstarC"</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                          <span class="sc">!</span>percentage_pupils <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"z"</span>,<span class="st">":"</span>,<span class="st">"x"</span>),</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">grepl</span>(<span class="st">"Studies"</span>,subject)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">time_period =</span> <span class="fu">as.character</span>(time_period),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">entries=</span><span class="fu">as.numeric</span>(entries)<span class="sc">/</span><span class="dv">1</span>.e3,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">percentage_pupils=</span><span class="fu">as.numeric</span>(percentage_pupils)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">achieved =</span> <span class="fu">as.numeric</span>(percentage_pupils)<span class="sc">/</span><span class="fl">100.</span><span class="sc">*</span>entries)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(df,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> entries,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">y=</span>percentage_pupils,<span class="at">group=</span>time_period,<span class="at">color=</span>subject)) <span class="sc">+</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_grid</span>(time_period <span class="sc">~</span> gender)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And the following to <code>main.R</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/plots.R"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_ACrange_tidy</span>(dfKS4tidied)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And that should be it for this task. All that’s left is to commit and push your changes. If you’ve got a preferred way already to perform commits, then go for it. If not then let’s use the RStudio git panel.</p>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gitdemo/gitdemo-RStudio-gitpanel.PNG" class="img-fluid figure-img" style="width:64.0%"></p>
+<figcaption>Staging files in the RStudio git panel.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Firstly click on the git tab in the top right of RStudio to show the git panel (see the screenshot below). Next click the tickboxes next to the files with changes (i.e.&nbsp;these should be server.R and R/dashboards_panels.R) to <strong>stage</strong> (aka <strong>add</strong>) the files. Now click <strong>commit</strong>, add a commit message in the relavent text box and then hit <strong>commit</strong> in the bottom right corner of the window.</p>
+<p>Assuming that all went through without any issues, you can now press the green up arrow in the git panel to <strong>push</strong> your changes to the remote repository on GitHub.</p>
+<p>Flag to your team that you’ve finished the code to read in the data. Then scroll down this guide to the <a href="#merging-and-pull-requests">merging and pull requests</a> section.</p>
+</section>
+</section>
+</section>
+<section id="merging-and-pull-requests" class="level2">
+<h2 class="anchored" data-anchor-id="merging-and-pull-requests">Merging and pull requests</h2>
+<p>As part of using branches within git, you’ll reach the point where you need to merge two branches together. This can be done with a git command from the <code>BASH</code> terminal, but usually it’s more helpful to perform merges using a <em>Pull Request (PR)</em> in Dev Ops or GitHub. The difference between a merge and a pull request is basically that a pull request is a way to run a merge from Dev Ops or GitHub which provides some useful tracking tools to help you clearly understand and communicate what is happening as part of a given merge. Some key things the pull requests offer are:</p>
+<ul>
+<li>user documentation of changes;</li>
+<li>quick look diff/overview of changes made to files on the branch being merged;</li>
+<li>run automated tests;</li>
+<li>ability for collaborators to review your code;</li>
+<li>control of merge conflicts;</li>
+<li>final sign-off from collaborators;</li>
+<li>complete a merge.</li>
+</ul>
+<p>We’ll start though by trying a basic <code>git merge</code> from the terminal without these features offered by pull requests.</p>
+<section id="git-merge-and-a-simple-merge-conflict" class="level3">
+<h3 class="anchored" data-anchor-id="git-merge-and-a-simple-merge-conflict"><code>git merge</code> (and a simple merge conflict)</h3>
+<p>As we’ve left things, the code for task 1 and task 2 both should work without errors. However, the code for task 3 (plotting from the tidied data frame) requires the code from task 1 (which produces the tided data frame) to be able to run. To get it running, we’re going to merge the branch for task 1 into the branch for task 3. To do this, <em>one of your team</em> should switch into the branch for task 3 (e.g.&nbsp;<code>git switch task3</code>) and then run the following command:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>   <span class="fu">git</span> merge task1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will attempt to merge the task1 branch into the task3 branch. However, this will produce a merge conflict and the merge will not complete. If you now look at the script <code>main.R</code>, it should now look something like the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>   dfKS4 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/2021_subject_timeseries_data.csv"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">colnames</span>(dfKS4)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"time_period"</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>   <span class="sc">&lt;</span><span class="er">&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(dplyr)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(ggplot2)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>   <span class="fu">source</span>(<span class="st">"R/plots.R"</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">plot_ACrange_tidy</span>(dfKS4tidied)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>   <span class="sc">==</span><span class="er">=====</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(tidyr)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(dplyr)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>   <span class="fu">source</span>(<span class="st">"R/utils.R"</span>)</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>   dfKS4tidied <span class="ot">&lt;-</span> <span class="fu">tidy_subject_timeseries</span>(dfKS4)</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>   <span class="sc">&gt;</span><span class="er">&gt;&gt;&gt;&gt;&gt;&gt;</span> task1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A merge conflict happens when two concurrent changes have been made across different branches to the same bit of a file. Here we can see that <code>main.R</code> has been edited simultaneously on both branches. Everything between <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and <code>=======</code> is what was written in the current branch (i.e.&nbsp;task3) and everything between <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; task1</code> is from the branch that we’re trying to merge <em>into</em> the current branch. Looking at the code, we can see that it needs the intervention of the person(s) writing the code to decide how the two pieces of code should be combined. In this case, there’s a duplicated line that we can get rid of and then some lines that we need to make sure are in the right order. So now replace the lines between (and including) <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; task1</code> with the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(dplyr)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(ggplot2)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(tidyr)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">source</span>(<span class="st">'R/plots.R'</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">source</span>(<span class="st">'R/utils.R'</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>   dfKS4tidied <span class="ot">&lt;-</span> <span class="fu">tidy_subject_timeseries</span>(dfKS4)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">plot_ACrange_tidy</span>(dfKS4tidied)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We’ve made a change to a file, so to fully resolve the conflict (and complete the merge), we’ll need to perform and <code>add</code> and <code>commit</code>. Do that whichever way you prefer and at that point the task1 branch will be fully merged into the <code>task3</code> branch.</p>
+<p>Now we’ll look at how a merge works via a pull request.</p>
+</section>
+<section id="pull-requests-1" class="level3">
+<h3 class="anchored" data-anchor-id="pull-requests-1">Pull requests #1</h3>
+<p>Whilst the basic merges above work fine for pulling in some simple changes, using <code>git merge</code> via the terminal lacks any collaborative functionality like discussing and reviewing changes. This is where pull requests come in to play. Pull requests are a part of both GitHub and Dev Ops and provide similar functionality between those two platforms. Here we’re using Azure Dev Ops, but a lot of this will be transferrable to using GitHub.</p>
+<p>Go to your repo in Azure Dev Ops and select Branches from the left hand navigation panel under Repos. Select the branch for task3 (<code>grN_task3</code>). You should see a panel near the top of the branch page telling you that “You updated grN_task3 Just now”. At the right hand side of this panel, there should be an option to create a pull request, click this!</p>
+<p>Once the create pull request page has loaded you should see a few text boxes to full in and a handful of options to make choices on. The default for a new pull request is to merge into main, but here we want to merge into your group’s branch, so click on <code>main</code> near the top and select <code>workshop_group_N</code>.</p>
+<p>You should see three tabs: Overview, Files and Commits. Try clicking onto the Files and Commits tabs and you’ll be given the details of what’s being included in the planned merge. You should see all the file changes and commits made as part of task3 and task1 (which was merged into task3 above).</p>
+<p>Now back on Overview, give the pull request a descriptive title (e.g.&nbsp;“Tidied data frame and created ggplot”) and a quick description in the relevant boxes. Then assign your teammates as reviewers and then click create pull request.</p>
+<p>You and your team mates will now have a pull request available under the pull requests panel where they can review the changes, add comments and provide approval. Get your teammates to run through a quick review and approve the pull request. You’ll then be able to complete the merge by clicking the blue <strong>Complete</strong> button at the top of the page.</p>
+<p>Now head over to Dev Ops Boards and drag tasks 1 and 3 across to Closed to mark them as finished.</p>
+</section>
+<section id="pull-requests-2-and-another-merge-conflict" class="level3">
+<h3 class="anchored" data-anchor-id="pull-requests-2-and-another-merge-conflict">Pull requests #2 (and another merge conflict)</h3>
+<p>We’ve got one final branch to merge in to complete the work: grN_task2. Whoever worked on task 2 should now go to Boards in Dev Ops and find their task. Open it up and under <strong>Development</strong>, select <strong>Create a Pull Request</strong>. Again, direct the merge into <code>workshop_group_N</code> instead of <code>main</code> and give the PR a title, description and reviewers, then click <strong>Create</strong>.</p>
+<p>Once you’ve created the pull request, you should find that this time there’s a merge conflict. Now instead of editing the conflicting file(s) in R-Studio, you’ll be able to resolve the conflict on Dev Ops. Click on the conflicts tab and review the conflict. It should look something like the following:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/DevOpsdemo/DevOps_PR_mergeconflict_1.PNG" class="img-fluid figure-img" style="width:96.0%"></p>
+<figcaption>Staging files in the RStudio git panel.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>You’ve got three options for resolving the conflict: <strong>Merge</strong>, <strong>Take Source (left) file</strong> and <strong>Take Target (right) file</strong>. For a simple conflict where just one or the other version is appropriate then you can click the corresponding of the latter two options. Here we have something a little more complicated, so we want to go in and edit and re-arrange the code ourselves. Click <strong>Merge</strong> and you’ll get a new screen showing the two versions side by side with an editor panel below.</p>
+<p>For the <code>main.R</code> file, change the conflicting lines in the editor to be the following and then click <strong>Submit merge</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(dplyr)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(ggplot2)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(tidyr)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">source</span>(<span class="st">'R/plots.R'</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">source</span>(<span class="st">'R/utils.R'</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>   <span class="fu">plot_ACrange</span>(dfKS4)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>   dfKS4tidied <span class="ot">&lt;-</span> <span class="fu">tidy_subject_timeseries</span>(dfKS4)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>   <span class="fu">plot_ACrange_tidy</span>(dfKS4tidied)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And for the <code>plots.R</code> file, simply remove the <strong>auto-generated</strong> lines in the editor (you might also get asked to add a line ending, in which case choose <em>LF</em>) and again click <strong>Submit merge</strong>.</p>
+<p>Back on the Overview page, it should now say <em>No merge conflicts</em> and the <strong>Complete</strong> button should be available to click. Now the PR is ready for your collaborators to review and approve and then you can complete the PR and merge into your group’s workshop branch.</p>
+<p>Once you’ve completed the PR, head back to the team board on Dev Ops and open up the task 2. You’ll now see that the PR is listed under the Devlopement section on the right as completed. To mark the task as finished, close the task dialogue box and drag the task from Active to Closed.</p>
+</section>
+<section id="notes-on-reviewing-a-pull-request" class="level3">
+<h3 class="anchored" data-anchor-id="notes-on-reviewing-a-pull-request">Notes on reviewing a pull request</h3>
+<p>There are some basic steps to go through if you’re asked to review a pull request. The key elements are:</p>
+<ol type="1">
+<li>Review any automated checks or QA scripts;</li>
+<li>Clone the repository, switch to the relevant branch and run the code;</li>
+<li>Look through and comment on the changes to the repository using the <strong>Files changes</strong> panel in the PR.</li>
+</ol>
+<p>In this case, we don’t have any automated checks set up properly, so we’ll focus on points 2 and 3.</p>
+<p>In DevOps, one person from your group should create a pull request to merge your <code>workshop_group_N</code> branch into the <code>main</code> branch. Add all your team members as reviewers.</p>
+<p>As a group, look for any problems, errors or just things that could be improved. As you find them, enter them in to the pull request, by either clicking on specific lines of code in the <strong>Files</strong> tab to add comments, or adding general comments (not attached to specific lines of code) in the <strong>Overview</strong> tab.</p>
+<p>In reality, once you’ve got those reviews collated, you’d go through and make changes to the code accordingly. This provides the checks and balances and a structure for code QA necessary when developing reproducible analytical pipelines or data dashboards.</p>
+<p>Assuming we’ve dealt with the outcomes of those reviews appropriately, the next step is to complete the pull request by clicking the <strong>Complete</strong> button in the top right. This then completes the merge in to <code>main</code> in this case. Whilst the basic mechanics of what’s happening with the branches is the same here as with just running <code>git merge</code>, the pull request provides that extra layer of administrative structure to perform proper QA of the code and the resulting product.</p>
+</section>
+</section>
+<section id="summary-1" class="level2">
+<h2 class="anchored" data-anchor-id="summary-1">Summary</h2>
+<p>We’ve looked through a lot of the basics in this section, covering adding/staging, committing, pushing/pulling between remote and local repos, merging and pull requests. These are all the main concepts you need to use git.</p>
+<p>We’ve also tried to cover doing all this through a mixture of RStudio, git BASH and GitHub (and as we’ve said Azure Dev Ops offers similar functionality to GitHub). Most common processes can be done multiple ways and there’s not necessarily a single right method to follow, just whichever makes most sense in your situation.</p>
+<p>Just a quick final note on why it’s useful to be familiar with git <code>BASH</code>. Whilst most of the basic git functionality can be accessed via the RStudio panel or GitHub/Dev Ops, there are some things that are best achieved through BASH. In particular, if you have a file in your repo that you need to remove entirely, this pretty much requires someone to use commands via git BASH.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 42%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Process</th>
+<th>git BASH</th>
+<th style="text-align: center;">RStudio git panel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Create branch</td>
+<td><code>git checkout -b branch_name</code></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>Switch branch</td>
+<td><code>git checkout branch_name</code></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td>Merge branch</td>
+<td><code>git merge branch_name</code></td>
+<td style="text-align: center;">N/A - use GitHub/Dev Ops</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="troubleshooting" class="level1">
+<h1>Troubleshooting</h1>
+<section id="renv" class="level2">
+<h2 class="anchored" data-anchor-id="renv">renv</h2>
+<p>If <code>renv::restore()</code> causes issues, then one of your team should try <code>renv::init()</code> and select option 2 to restart renv. Then do a add/commit/push cycle and get the other team members to do a pull and then try running <code>renv::restore()</code> again on their local clones of the repo.</p>
+</section>
+<section id="datafiles-commit-hooks.gitignore" class="level2">
+<h2 class="anchored" data-anchor-id="datafiles-commit-hooks.gitignore">Datafiles commit-hooks/<code>.gitignore</code></h2>
+<p>To help teams keep on top of avoiding any accidental publishing of unpublished data, we’ve added in some code around commits that checks through any data files in the repo and checks them against a logfile and the .gitignore file. Any files listed in .gitignore will not be included in commits and therefore won’t be sent to the remote repo as part of any push.</p>
+</section>
+<section id="merge-conflicts" class="level2">
+<h2 class="anchored" data-anchor-id="merge-conflicts">merge conflicts</h2>
+<p>Merge commits happen when two branches have conflicting changes that have been made concurrently. <code>git</code> can usually figure out how to prioritise changes based on the commit history, but if changes have happened at the same time to the same bit of code across different branches, then it will need to get your input on how to prioritise the changes.</p>
+<p>The easiest way to go through how to deal with merge conflicts is by discussing with an example, so ask us in the workshop if and when you hit a merge conflict.</p>
+<p>Briefly though, when there’s a merge conflict, git will add some text to the file containing the conflict along the following lines:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span><span class="er">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> branch_1</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>code </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>on </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>branch </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="sc">==</span><span class="er">=========</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>conflicting code on branch <span class="dv">2</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span><span class="er">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> branch_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Effectively as the user, you need to decide which bit of code is the right bit to keep and then delete anything you don’t want to keep as well as the tag-lines that git has added in. So for example, you should be left with something along the lines of:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>code </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>on </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>branch </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once you’ve cleared up all merge conflicts in the branch that you’re working on, then perform another add/commit cycle and thay should clear out the conflict from the branch that you’re working on and you’ll be able to continue with the intended merge/PR.</p>
+<div style="color: black;">
+<p>© Crown copyright 2022</p>
+<p>This publication (not including logos) is licensed under the terms of the Open Government Licence v3.0 except where otherwise stated. Where we have identified any third party copyright information you will need to obtain permission from the copyright holders concerned.</p>
+<p>To view this licence:</p>
+<ul>
+<li>visit www.nationalarchives.gov.uk/doc/open-government-licence/version/3</li>
+<li>email psi@nationalarchives.gsi.gov.uk</li>
+<li>write to Information Policy Team, The National Archives, Kew, London, TW9 4DU</li>
+</ul>
+<p>About this publication:</p>
+<ul>
+<li>enquiries: www.education.gov.uk/contactus</li>
+<li>download: www.gov.uk/government/publications</li>
+</ul>
+<p>Follow us on Twitter: ! <span class="citation" data-cites="educationgovuk">@educationgovuk</span></p>
+<p>Like us on Facebook: ! facebook.com/educationgovuk</p>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
