@@ -8,7 +8,7 @@
 <link href="workshop_RAP_for_managers_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="workshop_RAP_for_managers_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="workshop_RAP_for_managers_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.555">
+  <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Statistics Development Team">
   <title>RAP for managers</title>
@@ -392,22 +392,18 @@ Statistics Development Team
 <strong>- RAAC response analyst</strong></p>
 </blockquote>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 
 <section id="why-bother---pipeline-beforeafter" class="title-slide slide level1 center">
 <h1>Why bother - pipeline before/after</h1>
 <div class="column" style="width:70%;">
 <p><img data-src="images/pipeline_before.png"></p>
-</div>
-<div class="column text-center" style="width:70%;">
+</div><div class="column text-center" style="width:70%;">
 <p><span style="font-size: 48px; display: block; text-align: center;">↓</span> <!-- This centers the unicode down arrow --></p>
-</div>
-<div class="column" style="width:70%;">
+</div><div class="column" style="width:70%;">
 <p><img data-src="images/pipeline_after.jpg"></p>
-</div>
-</section>
+</div></section>
 
 <section id="what-it-means-for-managers" class="title-slide slide level1 center">
 <h1>What it means for managers</h1>
@@ -629,22 +625,13 @@ hex-diagram
 <li><p><strong>GitHub:</strong> Just <a href="https://github.com/">create your own GitHub account</a>, no IT support needed! You should use your work email address (or link it to an existing account if you have one) for GitHub accounts you will use at work.</p></li>
 <li><p><strong>Azure DevOps:</strong> Fill in the <a href="https://dfe.service-now.com/serviceportal?id=sc_cat_item&amp;sys_id=5447e6e91bdbbb802fe864606e4bcba4">DevOps IT service request form</a>. See the <a href="https://dfe-analytical-services.github.io/azure-devops-for-analysis/devops---the-basics.html#getting-a-devops-account">help page on how to fill in the DevOps IT request</a> if you need support filling it in!</p></li>
 </ul>
-</section></section>
-<section id="code" class="title-slide slide level1 center">
-<h1>Code</h1>
-<p>When you click the <strong>Render</strong> button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
 <div class="quarto-auto-generated-content">
 <p><img src="DfE_logo_landscape.png" class="slide-logo"></p>
 <div class="footer footer-default">
 
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -963,18 +950,7 @@ hex-diagram
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1006,7 +982,29 @@ hex-diagram
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1014,7 +1012,7 @@ hex-diagram
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
