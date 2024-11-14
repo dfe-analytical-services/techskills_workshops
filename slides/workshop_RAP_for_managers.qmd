@@ -248,7 +248,7 @@ GitHub and DevOps are generally not a place to:
 ::: {.column width="60%"}
 Open the [RAP for managers Azure DevOps repo](https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers)! 
 
-Your task is to explore the repo in order to find the 6 hidden letters and spell the myster-word! 
+Your task is to explore the repo in order to find the **2 mistakes** and **6 hidden letters** which spell the mystery-word! 
 
 Here are some hints to get your started: 
 
@@ -260,3 +260,7 @@ Here are some hints to get your started:
 ![](images/treasure_hunt.png)
 :::
 ::::
+
+# Quiz! 
+
+[Head back to slido!](https://wall.sli.do/event/adW5shWehmKfor3CAVt57U?section=eeeb3394-c49a-4530-98e4-ac140f1ed3e6){target="_blank" rel="noopener noreferrer"}
