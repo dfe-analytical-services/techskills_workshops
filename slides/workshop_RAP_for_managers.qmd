@@ -239,3 +239,24 @@ GitHub and DevOps are generally not a place to:
 
 - **Azure DevOps:** Fill in the [DevOps IT service request form](https://dfe.service-now.com/serviceportal?id=sc_cat_item&sys_id=5447e6e91bdbbb802fe864606e4bcba4). See the [help page on how to fill in the DevOps IT request](https://dfe-analytical-services.github.io/azure-devops-for-analysis/devops---the-basics.html#getting-a-devops-account) if you need support filling it in! 
 
+# Task 1
+
+## Azure DevOps treasure hunt! 
+
+:::: {.columns}
+
+::: {.column width="60%"}
+Open the [RAP for managers Azure DevOps repo](https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers)! 
+
+Your task is to explore the repo in order to find the 6 hidden letters and spell the myster-word! 
+
+Here are some hints to get your started: 
+
+1. The **README** file should be the first thing you look at in any repo (and should be of a high quality)
+2. As a manager, you will often be asked to approve **pull requests**.
+:::
+
+::: {.column width="40%"}
+![](images/treasure_hunt.png)
+:::
+::::
