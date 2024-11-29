@@ -5,6 +5,7 @@ institute: Department for Education
 format:
   revealjs: 
     theme: [dark, custom.scss]
+    include-in-header: fontawesome.html
     width: 120%
     height: 120%
     logo: DfE_logo_landscape.png
@@ -239,6 +240,181 @@ GitHub and DevOps are generally not a place to:
 
 - **Azure DevOps:** Fill in the [DevOps IT service request form](https://dfe.service-now.com/serviceportal?id=sc_cat_item&sys_id=5447e6e91bdbbb802fe864606e4bcba4). See the [help page on how to fill in the DevOps IT request](https://dfe-analytical-services.github.io/azure-devops-for-analysis/devops---the-basics.html#getting-a-devops-account) if you need support filling it in! 
 
+# Git Basics
+
+## What does interacting with git look like?
+
+You can use git from with R-Studio, Visual Studio and GitHub Desktop using nice graphical user interfaces. At their heart though, all of these run the git command line functions. The key ones that you'll call on a lot (however you choose to interact with git) are:
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- `git clone repository-url`
+- `git add .`
+- `git commit -m "This is a message describing my latest changes"`
+:::
+
+::: {.column width="50%"}
+- `git push`
+- `git pull`
+- `git checkout -b branch-name`
+- `git merge branch-name`
+:::
+::::
+
+These 7 commands are the main things you need to start tracking your projects using git.
+
+## Clone
+
+When you want to start working on a project that is already on GitHub or Azure DevOps, you need to *clone* the repository. This means creating a copy of the repository on your local machine. That means that you can work on the files on your device, and you choose when to update the online version with your changes (it does NOT update online automatically).
+
+## Push, Pull, Commit
+
+*Push, pull and commit* are the three main commands you will use in Git.
+
+- `Push:` Send your changes to the shared repository
+- `Pull:` Get the latest changes from the shared repository
+- `Commit:` Record your changes in the repository
+
+A typical workflow would therefore be:
+
+1. Open the project on your device and ensure you're in the correct branch, 
+2. `Pull` to ensure that any changes made to the online version by others are pulled down onto the version you are working on, 
+3. Make your own changes and save them. 
+4. Commit your saved changes, and include a useful *commit message* to explain what you have done.
+5. `Push` your changes to the shared repository when you're ready for others to see them.
+
+## Branches
+
+Branches in Git are like parallel universes of code. 
+
+Your *main* branch should be your most up-to-date, working version of your code. If you want to make updates or develop new features, you should **create a new branch**. This essentially creates a copy of the main branch in a different place. 
+
+Working on your new branch means that you can try new things and edit your code **without affecting the main branch** - allowing others to continue using the main, working branch if needed! It also means two people could both create their own branches and do development work simultaneously without affecting each others work! 
+
+## Pull requests 
+
+Imagine you have finished all of the development work in your branch, and you are ready for your changes to be moved into the main branch! To merge your changes into the main branch, you create a *pull request*. This is a request for someone else to review your changes and approve them before they are merged.
+
+
+## Visualise the process
+
+::: {.fragment}
+<span class="fa-solid fa-user" style="color: white; font-size: 6em; position: absolute; bottom: 10px; left: 10px;"></span>
+:::
+
+::: {.fragment}
+<span class="fa-solid fa-computer" style="color: white; font-size: 7em; position: absolute; bottom: 10px; left: 250px;"></span>
+
+<span class="fa-solid fa-cloud" style="color: white; font-size: 9em; position: absolute; top: 5px; right: 5px;"></span>
+:::
+
+::: {.fragment}
+<span class="fa-solid fa-folder-open" style="color: #12436d; font-size: 3em; position: absolute; top: 180px; right: 240px;"></span>
+
+<span class="fa-solid fa-file-lines" style="color: #12436d; font-size: 3em; position: absolute; top: 180px; right: 120px;"></span>
+
+:::
+
+::: {.fragment .fade-in-then-out}
+<span class="fa-solid fa-arrow-left-long" style="color: white; font-size: 3em; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg);"></span>
+
+<span style="color: white; position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);">**clone** the repository to your device...</span>
+:::
+
+::: {.fragment}
+<span class="fa-solid fa-folder-open" style="color: white; font-size: 1em; position: absolute; bottom: 140px; left: 310px;"></span>
+
+<span class="fa-solid fa-file-lines" style="color: white; font-size: 1em; position: absolute; bottom: 140px; left: 370px;"></span>
+
+:::
+
+::: {.fragment}
+<span class="fa-regular fa-user" style="color: white; font-size: 6em; position: absolute; bottom: 10px; right: 290px;"></span>
+
+<span class="fa-solid fa-laptop" style="color: white; font-size: 6em; position: absolute; bottom: 10px; right: 10px;"></span>
+:::
+
+::: {.fragment .fade-in-then-out}
+<span class="fa-solid fa-arrow-down-long" style="color: white; font-size: 3em; position: absolute; top: 50%; right: 100px;"></span>
+
+<span style="color: white; position: absolute; top: 40%; right: 50px;">**clone** the repository to your device...</span>
+:::
+
+::: {.fragment}
+<span class="fa-solid fa-folder-open" style="color: white; font-size: 1em; position: absolute; bottom: 100px; right: 190px;"></span>
+
+<span class="fa-solid fa-file-lines" style="color: white; font-size: 1em; position: absolute; bottom: 100px; right: 150px;"></span>
+:::
+
+::: {.fragment}
+<span class="fa-regular fa-file" style="color: red; font-size: 1em; position: absolute; bottom: 180px; left: 340px;"></span>
+
+:::{.fragment .fade-in-then-out}
+<span style="color: red; position: absolute; bottom: 300px; left: 170px;">**Make changes locally**</span>
+:::
+
+:::
+
+::: {.fragment .fade-in-then-out}
+<span class="fa-solid fa-arrow-right-long" style="color: white; font-size: 3em; position: absolute; top: 60%; left: 45%; transform: translate(-50%, -50%) rotate(-45deg);"></span>
+
+<span style="color: white; position: absolute; bottom: 25%; left: 45%; transform: translate(-50%, -50%);">**commit** the changes</span>
+:::
+
+:::{.fragment .fade-in-then-out}
+<span style="color: white; position: absolute; bottom: 50%; left: 50%; transform: translate(-50%, -50%);">**...**</span>
+:::
+
+::: {.fragment .fade-in-then-out}
+<span class="fa-solid fa-arrow-right-long" style="color: white; font-size: 3em; position: absolute; top: 40%; left: 55%; transform: translate(-50%, -50%) rotate(-45deg);"></span>
+
+<span style="color: white; position: absolute; top: 25%; left: 65%; transform: translate(-50%, -50%);">**push** the changes</span>
+:::
+
+:::{.fragment}
+<span class="fa-regular fa-file" style="color: red; font-size: 3em; position: absolute; top: 70px; right: 210px;"></span>
+:::
+
+:::{.fragment .fade-in-then-out}
+<span class="fa-solid fa-arrow-down-long" style="color: white; font-size: 3em; position: absolute; top: 50%; right: 100px;"></span>
+
+<span style="color: white; position: absolute; top: 40%; right: 50px;">**Pull** the changes to your device...</span>
+:::
+
+:::{.fragment}
+<span class="fa-regular fa-file" style="color: red; font-size: 1em; position: absolute; bottom: 150px; right: 180px;"></span>
+:::
+
+:::{.fragment}
+<span class="fa-solid fa-file-lines" style="color: green; font-size: 1em; position: absolute; bottom: 100px; right: 150px;"></span>
+
+:::{.fragment .fade-in-then-out}
+<span style="color: green; position: absolute; bottom: 300px; left: 80%;">**Make changes locally**</span>
+:::
+:::
+
+:::{.fragment .fade-in-then-out}
+<span class="fa-solid fa-arrow-up-long" style="color: white; font-size: 3em; position: absolute; top: 50%; right: 100px;"></span>
+
+<span style="color: white; position: absolute; top: 40%; right: 50px;">**commit & push** the changes</span>
+:::
+
+:::{.fragment}
+<span class="fa-solid fa-file-lines" style="color: green; font-size: 3em; position: absolute; top: 180px; right: 120px;"></span>
+:::
+
+::: {.fragment .fade-in-then-out}
+<span class="fa-solid fa-arrow-left-long" style="color: white; font-size: 3em; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg);"></span>
+
+<span style="color: white; position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);">**Pull** the changes to your device...</span>
+:::
+
+::: {.fragment}
+<span class="fa-solid fa-file-lines" style="color: green; font-size: 1em; position: absolute; bottom: 140px; left: 370px;"></span>
+
+:::
+
 # Task 1
 
 ## Azure DevOps treasure hunt! 
@@ -264,3 +440,6 @@ Here are some hints to get your started:
 # Quiz! 
 
 [Head back to slido!](https://wall.sli.do/event/adW5shWehmKfor3CAVt57U?section=eeeb3394-c49a-4530-98e4-ac140f1ed3e6){target="_blank" rel="noopener noreferrer"}
+
+# Reviewing Pull Requests
+

@@ -320,6 +320,8 @@
       margin-right: 0; 
     }
   </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+
 </head>
 <body class="quarto-dark">
   <div class="reveal">
@@ -627,6 +629,143 @@ hex-diagram
 </ul>
 </section></section>
 <section>
+<section id="git-basics" class="title-slide slide level1 center">
+<h1>Git Basics</h1>
+
+</section>
+<section id="what-does-interacting-with-git-look-like" class="slide level2">
+<h2>What does interacting with git look like?</h2>
+<p>You can use git from with R-Studio, Visual Studio and GitHub Desktop using nice graphical user interfaces. At their heart though, all of these run the git command line functions. The key ones that you’ll call on a lot (however you choose to interact with git) are:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><code>git clone repository-url</code></li>
+<li><code>git add .</code></li>
+<li><code>git commit -m "This is a message describing my latest changes"</code></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><code>git push</code></li>
+<li><code>git pull</code></li>
+<li><code>git checkout -b branch-name</code></li>
+<li><code>git merge branch-name</code></li>
+</ul>
+</div></div>
+<p>These 7 commands are the main things you need to start tracking your projects using git.</p>
+</section>
+<section id="clone" class="slide level2">
+<h2>Clone</h2>
+<p>When you want to start working on a project that is already on GitHub or Azure DevOps, you need to <em>clone</em> the repository. This means creating a copy of the repository on your local machine. That means that you can work on the files on your device, and you choose when to update the online version with your changes (it does NOT update online automatically).</p>
+</section>
+<section id="push-pull-commit" class="slide level2">
+<h2>Push, Pull, Commit</h2>
+<p><em>Push, pull and commit</em> are the three main commands you will use in Git.</p>
+<ul>
+<li><code>Push:</code> Send your changes to the shared repository</li>
+<li><code>Pull:</code> Get the latest changes from the shared repository</li>
+<li><code>Commit:</code> Record your changes in the repository</li>
+</ul>
+<p>A typical workflow would therefore be:</p>
+<ol type="1">
+<li>Open the project on your device and ensure you’re in the correct branch,</li>
+<li><code>Pull</code> to ensure that any changes made to the online version by others are pulled down onto the version you are working on,</li>
+<li>Make your own changes and save them.</li>
+<li>Commit your saved changes, and include a useful <em>commit message</em> to explain what you have done.</li>
+<li><code>Push</code> your changes to the shared repository when you’re ready for others to see them.</li>
+</ol>
+</section>
+<section id="branches" class="slide level2">
+<h2>Branches</h2>
+<p>Branches in Git are like parallel universes of code.</p>
+<p>Your <em>main</em> branch should be your most up-to-date, working version of your code. If you want to make updates or develop new features, you should <strong>create a new branch</strong>. This essentially creates a copy of the main branch in a different place.</p>
+<p>Working on your new branch means that you can try new things and edit your code <strong>without affecting the main branch</strong> - allowing others to continue using the main, working branch if needed! It also means two people could both create their own branches and do development work simultaneously without affecting each others work!</p>
+</section>
+<section id="pull-requests" class="slide level2">
+<h2>Pull requests</h2>
+<p>Imagine you have finished all of the development work in your branch, and you are ready for your changes to be moved into the main branch! To merge your changes into the main branch, you create a <em>pull request</em>. This is a request for someone else to review your changes and approve them before they are merged.</p>
+</section>
+<section id="visualise-the-process" class="slide level2">
+<h2>Visualise the process</h2>
+<div class="fragment">
+<p><span class="fa-solid fa-user" style="color: white; font-size: 6em; position: absolute; bottom: 10px; left: 10px;"></span></p>
+</div>
+<div class="fragment">
+<p><span class="fa-solid fa-computer" style="color: white; font-size: 7em; position: absolute; bottom: 10px; left: 250px;"></span></p>
+<p><span class="fa-solid fa-cloud" style="color: white; font-size: 9em; position: absolute; top: 5px; right: 5px;"></span></p>
+</div>
+<div class="fragment">
+<p><span class="fa-solid fa-folder-open" style="color: #12436d; font-size: 3em; position: absolute; top: 180px; right: 240px;"></span></p>
+<p><span class="fa-solid fa-file-lines" style="color: #12436d; font-size: 3em; position: absolute; top: 180px; right: 120px;"></span></p>
+</div>
+<div class="fragment fade-in-then-out">
+<p><span class="fa-solid fa-arrow-left-long" style="color: white; font-size: 3em; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg);"></span></p>
+<p><span style="color: white; position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);"><strong>clone</strong> the repository to your device…</span></p>
+</div>
+<div class="fragment">
+<p><span class="fa-solid fa-folder-open" style="color: white; font-size: 1em; position: absolute; bottom: 140px; left: 310px;"></span></p>
+<p><span class="fa-solid fa-file-lines" style="color: white; font-size: 1em; position: absolute; bottom: 140px; left: 370px;"></span></p>
+</div>
+<div class="fragment">
+<p><span class="fa-regular fa-user" style="color: white; font-size: 6em; position: absolute; bottom: 10px; right: 290px;"></span></p>
+<p><span class="fa-solid fa-laptop" style="color: white; font-size: 6em; position: absolute; bottom: 10px; right: 10px;"></span></p>
+</div>
+<div class="fragment fade-in-then-out">
+<p><span class="fa-solid fa-arrow-down-long" style="color: white; font-size: 3em; position: absolute; top: 50%; right: 100px;"></span></p>
+<p><span style="color: white; position: absolute; top: 40%; right: 50px;"><strong>clone</strong> the repository to your device…</span></p>
+</div>
+<div class="fragment">
+<p><span class="fa-solid fa-folder-open" style="color: white; font-size: 1em; position: absolute; bottom: 100px; right: 190px;"></span></p>
+<p><span class="fa-solid fa-file-lines" style="color: white; font-size: 1em; position: absolute; bottom: 100px; right: 150px;"></span></p>
+</div>
+<div class="fragment">
+<p><span class="fa-regular fa-file" style="color: red; font-size: 1em; position: absolute; bottom: 180px; left: 340px;"></span></p>
+<div class="fragment fade-in-then-out">
+<p><span style="color: red; position: absolute; bottom: 300px; left: 170px;"><strong>Make changes locally</strong></span></p>
+</div>
+</div>
+<div class="fragment fade-in-then-out">
+<p><span class="fa-solid fa-arrow-right-long" style="color: white; font-size: 3em; position: absolute; top: 60%; left: 45%; transform: translate(-50%, -50%) rotate(-45deg);"></span></p>
+<p><span style="color: white; position: absolute; bottom: 25%; left: 45%; transform: translate(-50%, -50%);"><strong>commit</strong> the changes</span></p>
+</div>
+<div class="fragment fade-in-then-out">
+<p><span style="color: white; position: absolute; bottom: 50%; left: 50%; transform: translate(-50%, -50%);"><strong>…</strong></span></p>
+</div>
+<div class="fragment fade-in-then-out">
+<p><span class="fa-solid fa-arrow-right-long" style="color: white; font-size: 3em; position: absolute; top: 40%; left: 55%; transform: translate(-50%, -50%) rotate(-45deg);"></span></p>
+<p><span style="color: white; position: absolute; top: 25%; left: 65%; transform: translate(-50%, -50%);"><strong>push</strong> the changes</span></p>
+</div>
+<div class="fragment">
+<p><span class="fa-regular fa-file" style="color: red; font-size: 3em; position: absolute; top: 70px; right: 210px;"></span></p>
+</div>
+<div class="fragment fade-in-then-out">
+<p><span class="fa-solid fa-arrow-down-long" style="color: white; font-size: 3em; position: absolute; top: 50%; right: 100px;"></span></p>
+<p><span style="color: white; position: absolute; top: 40%; right: 50px;"><strong>Pull</strong> the changes to your device…</span></p>
+</div>
+<div class="fragment">
+<p><span class="fa-regular fa-file" style="color: red; font-size: 1em; position: absolute; bottom: 150px; right: 180px;"></span></p>
+</div>
+<div class="fragment">
+<p><span class="fa-solid fa-file-lines" style="color: green; font-size: 1em; position: absolute; bottom: 100px; right: 150px;"></span></p>
+<div class="fragment fade-in-then-out">
+<p><span style="color: green; position: absolute; bottom: 300px; left: 80%;"><strong>Make changes locally</strong></span></p>
+</div>
+</div>
+<div class="fragment fade-in-then-out">
+<p><span class="fa-solid fa-arrow-up-long" style="color: white; font-size: 3em; position: absolute; top: 50%; right: 100px;"></span></p>
+<p><span style="color: white; position: absolute; top: 40%; right: 50px;"><strong>commit &amp; push</strong> the changes</span></p>
+</div>
+<div class="fragment">
+<p><span class="fa-solid fa-file-lines" style="color: green; font-size: 3em; position: absolute; top: 180px; right: 120px;"></span></p>
+</div>
+<div class="fragment fade-in-then-out">
+<p><span class="fa-solid fa-arrow-left-long" style="color: white; font-size: 3em; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg);"></span></p>
+<p><span style="color: white; position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);"><strong>Pull</strong> the changes to your device…</span></p>
+</div>
+<div class="fragment">
+<p><span class="fa-solid fa-file-lines" style="color: green; font-size: 1em; position: absolute; bottom: 140px; left: 370px;"></span></p>
+</div>
+</section></section>
+<section>
 <section id="task-1" class="title-slide slide level1 center">
 <h1>Task 1</h1>
 
@@ -636,7 +775,7 @@ hex-diagram
 <div class="columns">
 <div class="column" style="width:60%;">
 <p>Open the <a href="https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers">RAP for managers Azure DevOps repo</a>!</p>
-<p>Your task is to explore the repo in order to find the 6 hidden letters and spell the myster-word!</p>
+<p>Your task is to explore the repo in order to find the <strong>2 mistakes</strong> and <strong>6 hidden letters</strong> which spell the mystery-word!</p>
 <p>Here are some hints to get your started:</p>
 <ol type="1">
 <li>The <strong>README</strong> file should be the first thing you look at in any repo (and should be of a high quality)</li>
@@ -649,6 +788,10 @@ hex-diagram
 <section id="quiz" class="title-slide slide level1 center">
 <h1>Quiz!</h1>
 <p><a href="https://wall.sli.do/event/adW5shWehmKfor3CAVt57U?section=eeeb3394-c49a-4530-98e4-ac140f1ed3e6" target="_blank" rel="noopener noreferrer">Head back to slido!</a></p>
+</section>
+
+<section id="reviewing-pull-requests" class="title-slide slide level1 center">
+<h1>Reviewing Pull Requests</h1>
 <div class="quarto-auto-generated-content">
 <p><img src="DfE_logo_landscape.png" class="slide-logo"></p>
 <div class="footer footer-default">
