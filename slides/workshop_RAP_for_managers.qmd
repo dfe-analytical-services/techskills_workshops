@@ -415,6 +415,22 @@ Imagine you have finished all of the development work in your branch, and you ar
 
 :::
 
+## Visualise branches
+
+::: {style="display: grid; place-items: center; height: 100%;"}
+![](images/branch_lines.png)
+:::
+
+:::{.fragment}
+<span style="color: white; position: absolute; top: 50%; left: 3%;">Main</span>
+<span style="color: white; position: absolute; top: 25%; left: 5%;">Update_code</span>
+<span style="color: white; position: absolute; top: 75%; left: 5%;">Add_new_feature</span>
+:::
+
+:::{.fragment}
+<span class="fa-solid fa-circle" style="color: orange; font-size: 1em; position: absolute; top: 240px; left: 20%;"></span>
+:::
+
 # Task 1
 
 ## Azure DevOps treasure hunt! 
@@ -441,5 +457,64 @@ Here are some hints to get your started:
 
 [Head back to slido!](https://wall.sli.do/event/adW5shWehmKfor3CAVt57U?section=eeeb3394-c49a-4530-98e4-ac140f1ed3e6){target="_blank" rel="noopener noreferrer"}
 
-# Reviewing Pull Requests
+## How to Write Good Review Comments
 
+### Why Code Reviews Matter
+
+- **Ensure Quality**: Catch issues early, reduce bugs.
+- **Share Knowledge**: Improve team skills and understanding.
+- **Encourage Collaboration**: Foster teamwork and better practices.
+
+---
+
+## What Makes a Good Code Review?
+
+### Structure Your Review
+
+1. **Understand the Context**:
+   - Read the PR description and associated documentation.
+   - Run the code locally if necessary.
+2. **Be Constructive**:
+   - Focus on the code, not the coder.
+   - Suggest alternatives instead of just pointing out problems.
+3. **Praise and Critique**:
+   - Highlight good practices.
+   - Explain why changes are needed.
+
+---
+
+## Example 1: Requesting Clarity and Improved Comments
+
+**Pull Request Code**:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Original Code in the PR
+# Adding a flag for students who passed the threshold
+processed_data <- student_data %>%
+  mutate(passed_threshold = if_else(attendance >= 80, TRUE, FALSE)) %>%
+  filter(passed_threshold == TRUE)
+```
+
+**Review Comment**:
+
+- **Question**: I’m unclear on why the threshold is hardcoded to 80 here. Can you explain why 80 was chosen, and whether this is a departmental or industry standard? This might need to be more flexible for future updates."
+- **Suggestion**: "It would be useful to add a comment explaining the significance of the 80 threshold here and whether it will change in future. This will help future maintainers understand the code."
+
+**Suggested Revision**:
+
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Define attendance threshold
+attendance_threshold <- 80  # 80 is the department's standard threshold for 'passing' attendance
+
+# Adding a flag for students who passed the threshold
+processed_data <- student_data %>%
+  mutate(passed_threshold = if_else(attendance >= attendance_threshold, TRUE, FALSE)) %>%
+  filter(passed_threshold == TRUE)  # Only include students who passed the attendance threshold
+```
