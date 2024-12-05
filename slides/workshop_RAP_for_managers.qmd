@@ -2,6 +2,10 @@
 title: "RAP for managers"
 author: "Statistics Development Team"
 institute: Department for Education
+filters:
+  - webr
+webr:
+  packages: ['tidyverse']
 format:
   revealjs: 
     theme: black
@@ -11,6 +15,7 @@ format:
     width: 120%
     height: 120%
     logo: DfE_logo_landscape.png
+    scrollable: true
 ---
 
 # What is RAP?
@@ -517,12 +522,24 @@ Here are some hints to get your started:
 
 ## Example: Requesting Clarity and Improved Comments
 
+```{webr-r}
+#| context: setup
+
+# Create a dummy dataset
+student_data <- data.frame(
+  student_id = 1:10,
+  age = c(16, 17, 19, 18, 15, 20, 17, 16, 21, 18),
+  subject = c("Math", "Science", "Math", "English", "Math", "Science", "Math", "English", "Math", "Science"),
+  score = c(85, 90, 78, 88, 91, 84, 79, 92, 95, 89), 
+  attendance = c(95, 85, 60, 98, 70, 50, 85, 99, 90, 80),
+  year = c(2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023)
+)
+
+```
+
 **Pull Request Code**:
 
-```{r}
-#| echo: true
-#| eval: false
-
+```{webr-r}
 # Original Code in the PR
 
 processed_data <- student_data %>%
@@ -539,10 +556,7 @@ processed_data <- student_data %>%
 ::: {.fragment .fade-up}
 **Suggested Revision**:
 
-```{r}
-#| echo: true
-#| eval: false
-
+```{webr-r}
 # Define attendance threshold
 # 80 is the department's standard threshold for 'passing' attendance. This can be changed in future in line with policy changes.
 attendance_threshold <- 80  
@@ -558,10 +572,7 @@ processed_data <- student_data %>%
 
 **Pull Request Code**:
 
-```{r}
-#| echo: true
-#| eval: false
-
+```{webr-r}
 # Original Code in the PR
 
 # Filter out students over 18
@@ -575,15 +586,13 @@ cleaned_data <- student_data %>%
 ::: {.fragment .fade-up}
 **Review Comment**:
 
-> *The comment on line 3 states that students over 18 should be filtered out, but the code filter(age > 18) keeps students over 18 instead of removing them. This error will be carried through the pipeline, making the outputs inaccurate. I think the filter condition should be `filter(age <= 18)`.*
+> *The comment on line 3 states that students over 18 should be filtered out, but the code `filter(age > 18)` keeps students over 18 instead of removing them. This error will be carried through the pipeline, making the outputs inaccurate. I think the filter condition should be `filter(age <= 18)`.*
 :::
 
 ::: {.fragment .fade-up}
 **Suggested Revision**:
 
-```{r}
-#| echo: true
-#| eval: false
+```{webr-r}
 
 # Filter out students over 18
 cleaned_data <- student_data %>%
@@ -599,11 +608,7 @@ cleaned_data <- student_data %>%
 
 **Pull Request Code**:
 
-```{r}
-#| echo: true
-#| eval: false
-#| code-fold: show
-#| code-summary: "Calculate weighted average score by subject"
+```{webr-r}
 
 # Original Code in the PR
 
@@ -631,9 +636,7 @@ english_scores <- student_data %>%
 ::: {.fragment .fade-up}
 **Suggested Revision**:
 
-```{r}
-#| echo: true
-#| eval: false
+```{webr-r}
 
 # Define a function to calculate the weighted average score
 calculate_weighted_score <- function(data, subject_name) {
@@ -648,3 +651,74 @@ science_scores <- calculate_weighted_score(student_data, "Science")
 english_scores <- calculate_weighted_score(student_data, "English")
 ```
 
+:::
+
+## Example
+
+**Pull Request Code**:
+
+```{webr-r}
+
+# Original Code in the PR
+
+# Calculate average score by subject for 2023
+average_scores <- student_data %>%
+  filter(year == 2023) %>%
+  group_by(subject) %>%
+  summarise(mean_score = mean(score, na.rm = TRUE), .groups = "drop")
+
+# Create a summary message for 2023
+summary_message <- paste0("The average scores by subject for the year 2023 are as follows:")
+
+# Save the 2023 results to a CSV
+write.csv(average_scores, "average_scores_2023.csv", row.names = FALSE)
+
+# Add a flag for scores above 90 in 2023
+high_scores <- student_data %>%
+  filter(year == 2023) %>%
+  mutate(high_score_flag = score > 90)
+
+# Save the high scores dataset for 2023
+write.csv(high_scores, "high_scores_2023.csv", row.names = FALSE)
+
+```
+
+::: {.fragment .fade-up}
+**Review Comment**:
+
+> *The year `2023` is hardcoded in several places: filters, messages, and filenames. If we need to update this code for a different year, we’d have to make changes in every instance, which is error-prone. Consider defining the year as a variable at the top of the script or in a `variable_change` script. This will allow you to update the year in one place, making the code easier to maintain and reuse.*
+
+:::
+
+::: {.fragment .fade-up}
+
+**Suggested Revision**:
+
+```{webr-r}
+
+# Define the analysis year
+analysis_year <- 2023  # Update this each year
+
+# Calculate average score by subject for the analysis year
+average_scores <- student_data %>%
+  filter(year == analysis_year) %>%
+  group_by(subject) %>%
+  summarise(mean_score = mean(score, na.rm = TRUE), .groups = "drop")
+
+# Create a summary message for the analysis year
+summary_message <- paste0("The average scores by subject for the year ", analysis_year, " are as follows:")
+
+# Save the results to a CSV
+write.csv(average_scores, paste0("average_scores_", analysis_year, ".csv"), row.names = FALSE)
+
+# Add a flag for scores above 90 in the analysis year
+high_scores <- student_data %>%
+  filter(year == analysis_year) %>%
+  mutate(high_score_flag = score > 90)
+
+# Save the high scores dataset
+write.csv(high_scores, paste0("high_scores_", analysis_year, ".csv"), row.names = FALSE)
+
+```
+
+:::
