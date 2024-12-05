@@ -4,7 +4,9 @@ author: "Statistics Development Team"
 institute: Department for Education
 format:
   revealjs: 
-    theme: [dark, custom.scss]
+    theme: black
+    highlight-style: breezedark
+    code-overflow: wrap
     include-in-header: fontawesome.html
     width: 120%
     height: 120%
@@ -457,33 +459,63 @@ Here are some hints to get your started:
 
 [Head back to slido!](https://wall.sli.do/event/adW5shWehmKfor3CAVt57U?section=eeeb3394-c49a-4530-98e4-ac140f1ed3e6){target="_blank" rel="noopener noreferrer"}
 
-## How to Write Good Review Comments
+# How to Write Good Review Comments
 
-### Why Code Reviews Matter
+## Why Code Reviews Matter
 
+::: {.fragment .fade-up}
 - **Ensure Quality**: Catch issues early, reduce bugs.
+:::
+::: {.fragment .fade-up}
 - **Share Knowledge**: Improve team skills and understanding.
+:::
+::: {.fragment .fade-up}
 - **Encourage Collaboration**: Foster teamwork and better practices.
-
+:::
 ---
 
-## What Makes a Good Code Review?
+## Structure Your Review
 
-### Structure Your Review
-
+::: {.fragment .fade-up}
 1. **Understand the Context**:
    - Read the PR description and associated documentation.
-   - Run the code locally if necessary.
+   - Run the code locally if necessary (check that it works!)
+:::
+::: {.fragment .fade-up}
 2. **Be Constructive**:
-   - Focus on the code, not the coder.
    - Suggest alternatives instead of just pointing out problems.
+   - Add comments or questions to specific lines.
+:::
+::: {.fragment .fade-up}
 3. **Praise and Critique**:
    - Highlight good practices.
    - Explain why changes are needed.
+   - Ask questions where you require clarity - chances are if you don't understand something, then others looking at it won't either! This is a sign that documentation or comments need improving!
+:::
 
 ---
 
-## Example 1: Requesting Clarity and Improved Comments
+## Things to look for 
+
+<!-- e.g. check the code for things that don't make sense, is the logic clear, do hardcoded things look correct, do you understand the intention of the code  -->
+
+::: {.fragment .fade-up}
+1. **Correctness**: Does the code do what it's supposed to do? Are there any bugs or errors (e.g. an incorrect or missing filter)?
+:::
+::: {.fragment .fade-up}
+2. **Readability**: Is the code easy to understand? Is the logic clear? Do you understand the intention of the code?
+:::
+::: {.fragment .fade-up}
+3. **Maintainability**: Is the code easy to update in the future? Are there hard-coded values that will need changing in future spread throughout (bad practice), or are all variables that will change stored in one obvious place?
+:::
+::: {.fragment .fade-up}
+4. **Performance**: Is the code efficient? Are there any unnecessary steps or loops? Can you see repetitive code that could be made into a function?
+:::
+::: {.fragment .fade-up}
+5. **Documentation**: Are there comments and documentation where needed? Are they clear and helpful? If you don't understand a decision or piece of code, ask for clarification! The likelyhood is that others will also be confused by it and it needs additional comments or documentation.
+:::
+
+## Example: Requesting Clarity and Improved Comments
 
 **Pull Request Code**:
 
@@ -492,29 +524,127 @@ Here are some hints to get your started:
 #| eval: false
 
 # Original Code in the PR
-# Adding a flag for students who passed the threshold
+
 processed_data <- student_data %>%
   mutate(passed_threshold = if_else(attendance >= 80, TRUE, FALSE)) %>%
   filter(passed_threshold == TRUE)
 ```
 
+::: {.fragment .fade-up}
 **Review Comment**:
 
-- **Question**: I’m unclear on why the threshold is hardcoded to 80 here. Can you explain why 80 was chosen, and whether this is a departmental or industry standard? This might need to be more flexible for future updates."
-- **Suggestion**: "It would be useful to add a comment explaining the significance of the 80 threshold here and whether it will change in future. This will help future maintainers understand the code."
+> *I’m unclear on why the threshold is hardcoded to 80 here. Can you explain why 80 was chosen, and whether this is a departmental or industry standard? This might need to be more flexible for future updates. It would be useful to add a comment explaining the significance of the 80 threshold here and whether it will change in future. This will help future maintainers understand the code.*
+:::
 
+::: {.fragment .fade-up}
 **Suggested Revision**:
-
 
 ```{r}
 #| echo: true
 #| eval: false
 
 # Define attendance threshold
-attendance_threshold <- 80  # 80 is the department's standard threshold for 'passing' attendance
+# 80 is the department's standard threshold for 'passing' attendance. This can be changed in future in line with policy changes.
+attendance_threshold <- 80  
 
 # Adding a flag for students who passed the threshold
 processed_data <- student_data %>%
   mutate(passed_threshold = if_else(attendance >= attendance_threshold, TRUE, FALSE)) %>%
   filter(passed_threshold == TRUE)  # Only include students who passed the attendance threshold
 ```
+:::
+
+## Example: Identifying errors
+
+**Pull Request Code**:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Original Code in the PR
+
+# Filter out students over 18
+cleaned_data <- student_data %>%
+  filter(age > 18) %>% 
+# Calculate average score by subject for students under 18
+  group_by(subject) %>%
+  summarise(mean_score = mean(score), .groups = "drop")
+```
+
+::: {.fragment .fade-up}
+**Review Comment**:
+
+> *The comment on line 3 states that students over 18 should be filtered out, but the code filter(age > 18) keeps students over 18 instead of removing them. This error will be carried through the pipeline, making the outputs inaccurate. I think the filter condition should be `filter(age <= 18)`.*
+:::
+
+::: {.fragment .fade-up}
+**Suggested Revision**:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Filter out students over 18
+cleaned_data <- student_data %>%
+  filter(age <= 18) %>%
+# Calculate average score by subject for students under 18
+  group_by(subject) %>%
+  summarise(mean_score = mean(score), .groups = "drop")
+```
+
+:::
+
+## Example: Suggesting Improvements
+
+**Pull Request Code**:
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-fold: show
+#| code-summary: "Calculate weighted average score by subject"
+
+# Original Code in the PR
+
+# Calculate weighted average score by subject
+math_scores <- student_data %>%
+  filter(subject == "Math") %>%
+  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))
+
+science_scores <- student_data %>%
+  filter(subject == "Science") %>%
+  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))
+
+english_scores <- student_data %>%
+  filter(subject == "English") %>%
+  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))
+```
+
+::: {.fragment .fade-up}
+**Review Comment**:
+
+> *This code is repetitive and if we add more subjects, we'll need to duplicate the same logic for each one. This makes the code harder to maintain and more error-prone. Could you write a function to calculate the weighted average score to reduce the risk of errors and make the code easier to maintain?*
+
+:::
+
+::: {.fragment .fade-up}
+**Suggested Revision**:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Define a function to calculate the weighted average score
+calculate_weighted_score <- function(data, subject_name) {
+  data %>%
+    filter(subject == subject_name) %>%
+    summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))
+}
+
+# Calculate weighted average score by subject
+math_scores <- calculate_weighted_score(student_data, "Math")
+science_scores <- calculate_weighted_score(student_data, "Science")
+english_scores <- calculate_weighted_score(student_data, "English")
+```
+

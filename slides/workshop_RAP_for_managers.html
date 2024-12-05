@@ -56,44 +56,46 @@
         -khtml-user-select: none; -moz-user-select: none;
         -ms-user-select: none; user-select: none;
         padding: 0 4px; width: 4em;
+        background-color: #232629;
+        color: #7a7c7d;
       }
-    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #7a7c7d;  padding-left: 4px; }
     div.sourceCode
-      { color: #f8f8f2;  }
+      { color: #cfcfc2; background-color: #232629; }
     @media screen {
     pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
     }
-    code span { color: #f8f8f2; } /* Normal */
-    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
-    code span.an { color: #d4d0ab; } /* Annotation */
-    code span.at { color: #00e0e0; } /* Attribute */
-    code span.bn { color: #d4d0ab; } /* BaseN */
-    code span.bu { color: #abe338; } /* BuiltIn */
-    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #abe338; } /* Char */
-    code span.cn { color: #ffd700; } /* Constant */
-    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
-    code span.cv { color: #ffd700; } /* CommentVar */
-    code span.do { color: #f8f8f2; } /* Documentation */
-    code span.dt { color: #ffa07a; } /* DataType */
-    code span.dv { color: #d4d0ab; } /* DecVal */
-    code span.er { color: #f07178; text-decoration: underline; } /* Error */
-    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
-    code span.fl { color: #d4d0ab; } /* Float */
-    code span.fu { color: #ffa07a; } /* Function */
-    code span.im { color: #abe338; } /* Import */
-    code span.in { color: #d4d0ab; } /* Information */
-    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
-    code span.op { color: #ffa07a; } /* Operator */
-    code span.ot { color: #00e0e0; } /* Other */
-    code span.pp { color: #dcc6e0; } /* Preprocessor */
-    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
-    code span.sc { color: #abe338; } /* SpecialChar */
-    code span.ss { color: #abe338; } /* SpecialString */
-    code span.st { color: #abe338; } /* String */
-    code span.va { color: #00e0e0; } /* Variable */
-    code span.vs { color: #abe338; } /* VerbatimString */
-    code span.wa { color: #dcc6e0; } /* Warning */
+    code span { color: #cfcfc2; } /* Normal */
+    code span.al { color: #95da4c; background-color: #4d1f24; font-weight: bold; } /* Alert */
+    code span.an { color: #3f8058; } /* Annotation */
+    code span.at { color: #2980b9; } /* Attribute */
+    code span.bn { color: #f67400; } /* BaseN */
+    code span.bu { color: #7f8c8d; } /* BuiltIn */
+    code span.cf { color: #fdbc4b; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #3daee9; } /* Char */
+    code span.cn { color: #27aeae; font-weight: bold; } /* Constant */
+    code span.co { color: #7a7c7d; } /* Comment */
+    code span.cv { color: #7f8c8d; } /* CommentVar */
+    code span.do { color: #a43340; } /* Documentation */
+    code span.dt { color: #2980b9; } /* DataType */
+    code span.dv { color: #f67400; } /* DecVal */
+    code span.er { color: #da4453; text-decoration: underline; } /* Error */
+    code span.ex { color: #0099ff; font-weight: bold; } /* Extension */
+    code span.fl { color: #f67400; } /* Float */
+    code span.fu { color: #8e44ad; } /* Function */
+    code span.im { color: #27ae60; } /* Import */
+    code span.in { color: #c45b00; } /* Information */
+    code span.kw { color: #cfcfc2; font-weight: bold; } /* Keyword */
+    code span.op { color: #cfcfc2; } /* Operator */
+    code span.ot { color: #27ae60; } /* Other */
+    code span.pp { color: #27ae60; } /* Preprocessor */
+    code span.re { color: #2980b9; background-color: #153042; } /* RegionMarker */
+    code span.sc { color: #3daee9; } /* SpecialChar */
+    code span.ss { color: #da4453; } /* SpecialString */
+    code span.st { color: #f44f4f; } /* String */
+    code span.va { color: #27aeae; } /* Variable */
+    code span.vs { color: #da4453; } /* VerbatimString */
+    code span.wa { color: #da4453; } /* Warning */
   </style>
   <link rel="stylesheet" href="workshop_RAP_for_managers_files/libs/revealjs/dist/theme/quarto.css">
   <link href="workshop_RAP_for_managers_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -862,70 +864,203 @@ hex-diagram
 <p><img data-src="images/treasure_hunt.png"></p>
 </div></div>
 </section></section>
-<section>
 <section id="quiz" class="title-slide slide level1 center">
 <h1>Quiz!</h1>
 <p><a href="https://wall.sli.do/event/adW5shWehmKfor3CAVt57U?section=eeeb3394-c49a-4530-98e4-ac140f1ed3e6" target="_blank" rel="noopener noreferrer">Head back to slido!</a></p>
 </section>
-<section id="how-to-write-good-review-comments" class="slide level2">
-<h2>How to Write Good Review Comments</h2>
-<h3 id="why-code-reviews-matter">Why Code Reviews Matter</h3>
+
+<section>
+<section id="how-to-write-good-review-comments" class="title-slide slide level1 center">
+<h1>How to Write Good Review Comments</h1>
+
+</section>
+<section id="why-code-reviews-matter" class="slide level2">
+<h2>Why Code Reviews Matter</h2>
+<div class="fragment fade-up">
 <ul>
 <li><strong>Ensure Quality</strong>: Catch issues early, reduce bugs.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
 <li><strong>Share Knowledge</strong>: Improve team skills and understanding.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
 <li><strong>Encourage Collaboration</strong>: Foster teamwork and better practices.</li>
 </ul>
+</div>
 </section>
-<section id="what-makes-a-good-code-review" class="slide level2">
-<h2>What Makes a Good Code Review?</h2>
-<h3 id="structure-your-review">Structure Your Review</h3>
+<section id="structure-your-review" class="slide level2">
+<h2>Structure Your Review</h2>
+<div class="fragment fade-up">
 <ol type="1">
 <li><strong>Understand the Context</strong>:
 <ul>
 <li>Read the PR description and associated documentation.</li>
-<li>Run the code locally if necessary.</li>
+<li>Run the code locally if necessary (check that it works!)</li>
 </ul></li>
+</ol>
+</div>
+<div class="fragment fade-up">
+<ol start="2" type="1">
 <li><strong>Be Constructive</strong>:
 <ul>
-<li>Focus on the code, not the coder.</li>
 <li>Suggest alternatives instead of just pointing out problems.</li>
+<li>Add comments or questions to specific lines.</li>
 </ul></li>
+</ol>
+</div>
+<div class="fragment fade-up">
+<ol start="3" type="1">
 <li><strong>Praise and Critique</strong>:
 <ul>
 <li>Highlight good practices.</li>
 <li>Explain why changes are needed.</li>
+<li>Ask questions where you require clarity - chances are if you don’t understand something, then others looking at it won’t either! This is a sign that documentation or comments need improving!</li>
 </ul></li>
 </ol>
+</div>
 </section>
-<section id="example-1-requesting-clarity-and-improved-comments" class="slide level2">
-<h2>Example 1: Requesting Clarity and Improved Comments</h2>
+<section id="things-to-look-for" class="slide level2">
+<h2>Things to look for</h2>
+<!-- e.g. check the code for things that don't make sense, is the logic clear, do hardcoded things look correct, do you understand the intention of the code  -->
+<div class="fragment fade-up">
+<ol type="1">
+<li><strong>Correctness</strong>: Does the code do what it’s supposed to do? Are there any bugs or errors (e.g.&nbsp;an incorrect or missing filter)?</li>
+</ol>
+</div>
+<div class="fragment fade-up">
+<ol start="2" type="1">
+<li><strong>Readability</strong>: Is the code easy to understand? Is the logic clear? Do you understand the intention of the code?</li>
+</ol>
+</div>
+<div class="fragment fade-up">
+<ol start="3" type="1">
+<li><strong>Maintainability</strong>: Is the code easy to update in the future? Are there hard-coded values that will need changing in future spread throughout (bad practice), or are all variables that will change stored in one obvious place?</li>
+</ol>
+</div>
+<div class="fragment fade-up">
+<ol start="4" type="1">
+<li><strong>Performance</strong>: Is the code efficient? Are there any unnecessary steps or loops? Can you see repetitive code that could be made into a function?</li>
+</ol>
+</div>
+<div class="fragment fade-up">
+<ol start="5" type="1">
+<li><strong>Documentation</strong>: Are there comments and documentation where needed? Are they clear and helpful? If you don’t understand a decision or piece of code, ask for clarification! The likelyhood is that others will also be confused by it and it needs additional comments or documentation.</li>
+</ol>
+</div>
+</section>
+<section id="example-requesting-clarity-and-improved-comments" class="slide level2">
+<h2>Example: Requesting Clarity and Improved Comments</h2>
 <p><strong>Pull Request Code</strong>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Original Code in the PR</span></span>
-<span id="cb1-2"><a href=""></a><span class="co"># Adding a flag for students who passed the threshold</span></span>
+<span id="cb1-2"><a href=""></a></span>
 <span id="cb1-3"><a href=""></a>processed_data <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
 <span id="cb1-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">passed_threshold =</span> <span class="fu">if_else</span>(attendance <span class="sc">&gt;=</span> <span class="dv">80</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb1-5"><a href=""></a>  <span class="fu">filter</span>(passed_threshold <span class="sc">==</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="fragment fade-up">
 <p><strong>Review Comment</strong>:</p>
-<ul>
-<li><strong>Question</strong>: I’m unclear on why the threshold is hardcoded to 80 here. Can you explain why 80 was chosen, and whether this is a departmental or industry standard? This might need to be more flexible for future updates.”</li>
-<li><strong>Suggestion</strong>: “It would be useful to add a comment explaining the significance of the 80 threshold here and whether it will change in future. This will help future maintainers understand the code.”</li>
-</ul>
+<blockquote>
+<p><em>I’m unclear on why the threshold is hardcoded to 80 here. Can you explain why 80 was chosen, and whether this is a departmental or industry standard? This might need to be more flexible for future updates. It would be useful to add a comment explaining the significance of the 80 threshold here and whether it will change in future. This will help future maintainers understand the code.</em></p>
+</blockquote>
+</div>
+<div class="fragment fade-up">
 <p><strong>Suggested Revision</strong>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="co"># Define attendance threshold</span></span>
-<span id="cb2-2"><a href=""></a>attendance_threshold <span class="ot">&lt;-</span> <span class="dv">80</span>  <span class="co"># 80 is the department's standard threshold for 'passing' attendance</span></span>
-<span id="cb2-3"><a href=""></a></span>
-<span id="cb2-4"><a href=""></a><span class="co"># Adding a flag for students who passed the threshold</span></span>
-<span id="cb2-5"><a href=""></a>processed_data <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
-<span id="cb2-6"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">passed_threshold =</span> <span class="fu">if_else</span>(attendance <span class="sc">&gt;=</span> attendance_threshold, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb2-7"><a href=""></a>  <span class="fu">filter</span>(passed_threshold <span class="sc">==</span> <span class="cn">TRUE</span>)  <span class="co"># Only include students who passed the attendance threshold</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href=""></a><span class="co"># 80 is the department's standard threshold for 'passing' attendance. This can be changed in future in line with policy changes.</span></span>
+<span id="cb2-3"><a href=""></a>attendance_threshold <span class="ot">&lt;-</span> <span class="dv">80</span>  </span>
+<span id="cb2-4"><a href=""></a></span>
+<span id="cb2-5"><a href=""></a><span class="co"># Adding a flag for students who passed the threshold</span></span>
+<span id="cb2-6"><a href=""></a>processed_data <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb2-7"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">passed_threshold =</span> <span class="fu">if_else</span>(attendance <span class="sc">&gt;=</span> attendance_threshold, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-8"><a href=""></a>  <span class="fu">filter</span>(passed_threshold <span class="sc">==</span> <span class="cn">TRUE</span>)  <span class="co"># Only include students who passed the attendance threshold</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="example-identifying-errors" class="slide level2">
+<h2>Example: Identifying errors</h2>
+<p><strong>Pull Request Code</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># Original Code in the PR</span></span>
+<span id="cb3-2"><a href=""></a></span>
+<span id="cb3-3"><a href=""></a><span class="co"># Filter out students over 18</span></span>
+<span id="cb3-4"><a href=""></a>cleaned_data <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb3-5"><a href=""></a>  <span class="fu">filter</span>(age <span class="sc">&gt;</span> <span class="dv">18</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-6"><a href=""></a><span class="co"># Calculate average score by subject for students under 18</span></span>
+<span id="cb3-7"><a href=""></a>  <span class="fu">group_by</span>(subject) <span class="sc">%&gt;%</span></span>
+<span id="cb3-8"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_score =</span> <span class="fu">mean</span>(score), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment fade-up">
+<p><strong>Review Comment</strong>:</p>
+<blockquote>
+<p><em>The comment on line 3 states that students over 18 should be filtered out, but the code filter(age &gt; 18) keeps students over 18 instead of removing them. This error will be carried through the pipeline, making the outputs inaccurate. I think the filter condition should be <code>filter(age &lt;= 18)</code>.</em></p>
+</blockquote>
+</div>
+<div class="fragment fade-up">
+<p><strong>Suggested Revision</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Filter out students over 18</span></span>
+<span id="cb4-2"><a href=""></a>cleaned_data <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href=""></a>  <span class="fu">filter</span>(age <span class="sc">&lt;=</span> <span class="dv">18</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href=""></a><span class="co"># Calculate average score by subject for students under 18</span></span>
+<span id="cb4-5"><a href=""></a>  <span class="fu">group_by</span>(subject) <span class="sc">%&gt;%</span></span>
+<span id="cb4-6"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_score =</span> <span class="fu">mean</span>(score), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="example-suggesting-improvements" class="slide level2">
+<h2>Example: Suggesting Improvements</h2>
+<p><strong>Pull Request Code</strong>:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Calculate weighted average score by subject</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># Original Code in the PR</span></span>
+<span id="cb5-2"><a href=""></a></span>
+<span id="cb5-3"><a href=""></a><span class="co"># Calculate weighted average score by subject</span></span>
+<span id="cb5-4"><a href=""></a>math_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href=""></a>  <span class="fu">filter</span>(subject <span class="sc">==</span> <span class="st">"Math"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-6"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb5-7"><a href=""></a></span>
+<span id="cb5-8"><a href=""></a>science_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-9"><a href=""></a>  <span class="fu">filter</span>(subject <span class="sc">==</span> <span class="st">"Science"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-10"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb5-11"><a href=""></a></span>
+<span id="cb5-12"><a href=""></a>english_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-13"><a href=""></a>  <span class="fu">filter</span>(subject <span class="sc">==</span> <span class="st">"English"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-14"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="fragment fade-up">
+<p><strong>Review Comment</strong>:</p>
+<blockquote>
+<p><em>This code is repetitive and if we add more subjects, we’ll need to duplicate the same logic for each one. This makes the code harder to maintain and more error-prone. Could you write a function to calculate the weighted average score to reduce the risk of errors and make the code easier to maintain?</em></p>
+</blockquote>
+</div>
+<div class="fragment fade-up">
+<p><strong>Suggested Revision</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Define a function to calculate the weighted average score</span></span>
+<span id="cb6-2"><a href=""></a>calculate_weighted_score <span class="ot">&lt;-</span> <span class="cf">function</span>(data, subject_name) {</span>
+<span id="cb6-3"><a href=""></a>  data <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href=""></a>    <span class="fu">filter</span>(subject <span class="sc">==</span> subject_name) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href=""></a>    <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb6-6"><a href=""></a>}</span>
+<span id="cb6-7"><a href=""></a></span>
+<span id="cb6-8"><a href=""></a><span class="co"># Calculate weighted average score by subject</span></span>
+<span id="cb6-9"><a href=""></a>math_scores <span class="ot">&lt;-</span> <span class="fu">calculate_weighted_score</span>(student_data, <span class="st">"Math"</span>)</span>
+<span id="cb6-10"><a href=""></a>science_scores <span class="ot">&lt;-</span> <span class="fu">calculate_weighted_score</span>(student_data, <span class="st">"Science"</span>)</span>
+<span id="cb6-11"><a href=""></a>english_scores <span class="ot">&lt;-</span> <span class="fu">calculate_weighted_score</span>(student_data, <span class="st">"English"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-auto-generated-content">
 <p><img src="DfE_logo_landscape.png" class="slide-logo"></p>
 <div class="footer footer-default">
 
+</div>
 </div>
 </div>
 </section></section>
