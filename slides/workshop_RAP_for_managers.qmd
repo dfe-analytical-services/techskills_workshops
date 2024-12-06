@@ -722,3 +722,87 @@ write.csv(high_scores, paste0("high_scores_", analysis_year, ".csv"), row.names 
 ```
 
 :::
+
+# Azure Devops Boards
+
+## What are Azure DevOps Boards?
+
+Azure DevOps Boards are a project management tool that allows you to plan, track, and discuss work across your teams.
+
+**Key points:**
+
+::: {.fragment .fade-up}
+- Boards are associated with *teams* rather than repositories.
+:::
+
+::: {.fragment .fade-up}
+- This means multiple repositories can be tracked on one team board.
+:::
+
+::: {.fragment .fade-up}
+- They create a central place to monitor progress, assign tasks, and collaborate efficiently.
+:::
+
+## Features of Azure DevOps Boards
+
+Azure DevOps Boards offers powerful tools for project management:
+
+::: {.fragment .fade-up}
+- **Work Items:** Track individual tasks, bugs, or features. Each work item has a title, description, and status, and can be assigned to a team member. You can also add tags, attachments, and comments to work items to provide additional context, and even link work items to branches, commits and pull requests.
+:::
+
+::: {.fragment .fade-up}
+- **Backlogs:** Prioritised lists of work items that need to be completed as part of a project. You can add work items to the backlog, assign them to team members, and set priorities. The backlog helps you plan and track the progress of your project, and ensures that work is completed in the correct order.
+:::
+
+::: {.fragment .fade-up}
+- **Sprints:** Use sprint planning for time-boxed projects. You can move work items into sprints, assign them to team members, and track progress. Sprints help you break down work into manageable chunks, and ensure that work is completed on time.
+:::
+
+::: {.fragment .fade-up}
+- **Kanban Boards:** Visualize work in progress with a drag-and-drop interface (similar to trello).
+:::
+
+## Benefits for RAP
+
+Why use Azure DevOps Boards for Reproducible Analytical Pipelines?
+
+::: {.fragment .fade-up}
+- **Visibility:** Track all projects in one place.
+:::
+
+::: {.fragment .fade-up}
+- **Accountability:** Assign tasks with clear ownership.
+:::
+
+::: {.fragment .fade-up}
+- **Collaboration:** Comment directly on tasks to resolve issues or clarify requirements.
+:::
+
+::: {.fragment .fade-up}
+- **Documentation** Link to code, data, and other resources to provide context.
+:::
+
+::: {.fragment .fade-up}
+- **Integration:** Link directly to R scripts, SQL code, or other artifacts in your repositories.
+:::
+
+::: {.fragment .fade-up}
+- **Organisation** - Keep all your work in one place, and easily see what needs to be done next.
+:::
+
+## Let's Practice Together!
+
+### Task: Explore Azure DevOps Boards  
+
+1. Open the [RAP for managers Azure DevOps repo](https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers) and navigate to the **Boards** tab (In the sidebar, expand the boards section and select boards within that!).
+
+2. Click on the **+ New Item** button and give it a title. Hit Enter to save it!
+
+3. Now expand it by clicking on the title. Fill in the details for the task, including the description and assignee (you can assign it to yourself or the person you're sat next to!). Explore the different features like tags, attachments, and comments. Close the expanded view and click the three dots on the task to explore eve more features like creating a branch.
+
+2. **Move a task:** Update the task’s progress by dragging it to a new column.
+
+3. **Collaborate:** Comment on someone else’s task to provide additional context, ideas or instructions.
+
+**Goal:** By the end of this exercise, you’ll feel confident using Azure DevOps Boards to manage your projects and collaborate effectively.

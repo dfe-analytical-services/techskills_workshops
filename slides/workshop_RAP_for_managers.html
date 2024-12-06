@@ -623,7 +623,7 @@
   };
 
   // Store cell data
-  globalThis.qwebrCellDetails = [{"id":1,"options":{"results":"markup","label":"unnamed-chunk-1","fig-cap":"","editor-font-scale":"0.5","warning":"true","autorun":"true","context":"setup","output":"true","classes":"","fig-height":5,"comment":"","fig-width":7,"out-width":"700px","read-only":"false","editor-word-wrap":"true","dpi":72,"editor-quick-suggestions":"false","editor-max-height":"","out-height":"","message":"true"},"code":"# Create a dummy dataset\nstudent_data <- data.frame(\n  student_id = 1:10,\n  age = c(16, 17, 19, 18, 15, 20, 17, 16, 21, 18),\n  subject = c(\"Math\", \"Science\", \"Math\", \"English\", \"Math\", \"Science\", \"Math\", \"English\", \"Math\", \"Science\"),\n  score = c(85, 90, 78, 88, 91, 84, 79, 92, 95, 89), \n  attendance = c(95, 85, 60, 98, 70, 50, 85, 99, 90, 80),\n  year = c(2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023)\n)"},{"id":2,"options":{"results":"markup","label":"unnamed-chunk-2","fig-cap":"","editor-font-scale":"0.5","warning":"true","autorun":"false","context":"interactive","output":"true","classes":"","fig-height":5,"comment":"","fig-width":7,"out-width":"700px","read-only":"false","editor-word-wrap":"true","dpi":72,"editor-quick-suggestions":"false","editor-max-height":"","out-height":"","message":"true"},"code":"# Original Code in the PR\n\nprocessed_data <- student_data %>%\n  mutate(passed_threshold = if_else(attendance >= 80, TRUE, FALSE)) %>%\n  filter(passed_threshold == TRUE)"},{"id":3,"options":{"results":"markup","label":"unnamed-chunk-3","fig-cap":"","editor-font-scale":"0.5","warning":"true","autorun":"false","context":"interactive","output":"true","classes":"","fig-height":5,"comment":"","fig-width":7,"out-width":"700px","read-only":"false","editor-word-wrap":"true","dpi":72,"editor-quick-suggestions":"false","editor-max-height":"","out-height":"","message":"true"},"code":"# Define attendance threshold\n# 80 is the department's standard threshold for 'passing' attendance. This can be changed in future in line with policy changes.\nattendance_threshold <- 80  \n\n# Adding a flag for students who passed the threshold\nprocessed_data <- student_data %>%\n  mutate(passed_threshold = if_else(attendance >= attendance_threshold, TRUE, FALSE)) %>%\n  filter(passed_threshold == TRUE)  # Only include students who passed the attendance threshold"},{"id":4,"options":{"results":"markup","label":"unnamed-chunk-4","fig-cap":"","editor-font-scale":"0.5","warning":"true","autorun":"false","context":"interactive","output":"true","classes":"","fig-height":5,"comment":"","fig-width":7,"out-width":"700px","read-only":"false","editor-word-wrap":"true","dpi":72,"editor-quick-suggestions":"false","editor-max-height":"","out-height":"","message":"true"},"code":"# Original Code in the PR\n\n# Filter out students over 18\ncleaned_data <- student_data %>%\n  filter(age > 18) %>% \n# Calculate average score by subject for students under 18\n  group_by(subject) %>%\n  summarise(mean_score = mean(score), .groups = \"drop\")"},{"id":5,"options":{"results":"markup","label":"unnamed-chunk-5","fig-cap":"","editor-font-scale":"0.5","warning":"true","autorun":"false","context":"interactive","output":"true","classes":"","fig-height":5,"comment":"","fig-width":7,"out-width":"700px","read-only":"false","editor-word-wrap":"true","dpi":72,"editor-quick-suggestions":"false","editor-max-height":"","out-height":"","message":"true"},"code":"# Filter out students over 18\ncleaned_data <- student_data %>%\n  filter(age <= 18) %>%\n# Calculate average score by subject for students under 18\n  group_by(subject) %>%\n  summarise(mean_score = mean(score), .groups = \"drop\")"},{"id":6,"options":{"results":"markup","label":"unnamed-chunk-6","fig-cap":"","editor-font-scale":"0.5","warning":"true","autorun":"false","context":"interactive","output":"true","classes":"","fig-height":5,"comment":"","fig-width":7,"out-width":"700px","read-only":"false","editor-word-wrap":"true","dpi":72,"editor-quick-suggestions":"false","editor-max-height":"","out-height":"","message":"true"},"code":"# Original Code in the PR\n\n# Calculate weighted average score by subject\nmath_scores <- student_data %>%\n  filter(subject == \"Math\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n\nscience_scores <- student_data %>%\n  filter(subject == \"Science\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n\nenglish_scores <- student_data %>%\n  filter(subject == \"English\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))"},{"id":7,"options":{"results":"markup","label":"unnamed-chunk-7","fig-cap":"","editor-font-scale":"0.5","warning":"true","autorun":"false","context":"interactive","output":"true","classes":"","fig-height":5,"comment":"","fig-width":7,"out-width":"700px","read-only":"false","editor-word-wrap":"true","dpi":72,"editor-quick-suggestions":"false","editor-max-height":"","out-height":"","message":"true"},"code":"# Define a function to calculate the weighted average score\ncalculate_weighted_score <- function(data, subject_name) {\n  data %>%\n    filter(subject == subject_name) %>%\n    summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n}\n\n# Calculate weighted average score by subject\nmath_scores <- calculate_weighted_score(student_data, \"Math\")\nscience_scores <- calculate_weighted_score(student_data, \"Science\")\nenglish_scores <- calculate_weighted_score(student_data, \"English\")"},{"id":8,"options":{"results":"markup","label":"unnamed-chunk-8","fig-cap":"","editor-font-scale":"0.5","warning":"true","autorun":"false","context":"interactive","output":"true","classes":"","fig-height":5,"comment":"","fig-width":7,"out-width":"700px","read-only":"false","editor-word-wrap":"true","dpi":72,"editor-quick-suggestions":"false","editor-max-height":"","out-height":"","message":"true"},"code":"# Original Code in the PR\n\n# Calculate average score by subject for 2023\naverage_scores <- student_data %>%\n  filter(year == 2023) %>%\n  group_by(subject) %>%\n  summarise(mean_score = mean(score, na.rm = TRUE), .groups = \"drop\")\n\n# Create a summary message for 2023\nsummary_message <- paste0(\"The average scores by subject for the year 2023 are as follows:\")\n\n# Save the 2023 results to a CSV\nwrite.csv(average_scores, \"average_scores_2023.csv\", row.names = FALSE)\n\n# Add a flag for scores above 90 in 2023\nhigh_scores <- student_data %>%\n  filter(year == 2023) %>%\n  mutate(high_score_flag = score > 90)\n\n# Save the high scores dataset for 2023\nwrite.csv(high_scores, \"high_scores_2023.csv\", row.names = FALSE)"},{"id":9,"options":{"results":"markup","label":"unnamed-chunk-9","fig-cap":"","editor-font-scale":"0.5","warning":"true","autorun":"false","context":"interactive","output":"true","classes":"","fig-height":5,"comment":"","fig-width":7,"out-width":"700px","read-only":"false","editor-word-wrap":"true","dpi":72,"editor-quick-suggestions":"false","editor-max-height":"","out-height":"","message":"true"},"code":"# Define the analysis year\nanalysis_year <- 2023  # Update this each year\n\n# Calculate average score by subject for the analysis year\naverage_scores <- student_data %>%\n  filter(year == analysis_year) %>%\n  group_by(subject) %>%\n  summarise(mean_score = mean(score, na.rm = TRUE), .groups = \"drop\")\n\n# Create a summary message for the analysis year\nsummary_message <- paste0(\"The average scores by subject for the year \", analysis_year, \" are as follows:\")\n\n# Save the results to a CSV\nwrite.csv(average_scores, paste0(\"average_scores_\", analysis_year, \".csv\"), row.names = FALSE)\n\n# Add a flag for scores above 90 in the analysis year\nhigh_scores <- student_data %>%\n  filter(year == analysis_year) %>%\n  mutate(high_score_flag = score > 90)\n\n# Save the high scores dataset\nwrite.csv(high_scores, paste0(\"high_scores_\", analysis_year, \".csv\"), row.names = FALSE)"}];
+  globalThis.qwebrCellDetails = [{"id":1,"code":"# Create a dummy dataset\nstudent_data <- data.frame(\n  student_id = 1:10,\n  age = c(16, 17, 19, 18, 15, 20, 17, 16, 21, 18),\n  subject = c(\"Math\", \"Science\", \"Math\", \"English\", \"Math\", \"Science\", \"Math\", \"English\", \"Math\", \"Science\"),\n  score = c(85, 90, 78, 88, 91, 84, 79, 92, 95, 89), \n  attendance = c(95, 85, 60, 98, 70, 50, 85, 99, 90, 80),\n  year = c(2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023)\n)","options":{"out-width":"700px","dpi":72,"autorun":"true","context":"setup","editor-quick-suggestions":"false","comment":"","warning":"true","output":"true","label":"unnamed-chunk-1","editor-font-scale":"0.5","editor-max-height":"","classes":"","out-height":"","fig-width":7,"editor-word-wrap":"true","fig-height":5,"results":"markup","fig-cap":"","message":"true","read-only":"false"}},{"id":2,"code":"# Original Code in the PR\n\nprocessed_data <- student_data %>%\n  mutate(passed_threshold = if_else(attendance >= 80, TRUE, FALSE)) %>%\n  filter(passed_threshold == TRUE)","options":{"out-width":"700px","dpi":72,"autorun":"false","context":"interactive","editor-quick-suggestions":"false","comment":"","warning":"true","output":"true","label":"unnamed-chunk-2","editor-font-scale":"0.5","editor-max-height":"","classes":"","out-height":"","fig-width":7,"editor-word-wrap":"true","fig-height":5,"results":"markup","fig-cap":"","message":"true","read-only":"false"}},{"id":3,"code":"# Define attendance threshold\n# 80 is the department's standard threshold for 'passing' attendance. This can be changed in future in line with policy changes.\nattendance_threshold <- 80  \n\n# Adding a flag for students who passed the threshold\nprocessed_data <- student_data %>%\n  mutate(passed_threshold = if_else(attendance >= attendance_threshold, TRUE, FALSE)) %>%\n  filter(passed_threshold == TRUE)  # Only include students who passed the attendance threshold","options":{"out-width":"700px","dpi":72,"autorun":"false","context":"interactive","editor-quick-suggestions":"false","comment":"","warning":"true","output":"true","label":"unnamed-chunk-3","editor-font-scale":"0.5","editor-max-height":"","classes":"","out-height":"","fig-width":7,"editor-word-wrap":"true","fig-height":5,"results":"markup","fig-cap":"","message":"true","read-only":"false"}},{"id":4,"code":"# Original Code in the PR\n\n# Filter out students over 18\ncleaned_data <- student_data %>%\n  filter(age > 18) %>% \n# Calculate average score by subject for students under 18\n  group_by(subject) %>%\n  summarise(mean_score = mean(score), .groups = \"drop\")","options":{"out-width":"700px","dpi":72,"autorun":"false","context":"interactive","editor-quick-suggestions":"false","comment":"","warning":"true","output":"true","label":"unnamed-chunk-4","editor-font-scale":"0.5","editor-max-height":"","classes":"","out-height":"","fig-width":7,"editor-word-wrap":"true","fig-height":5,"results":"markup","fig-cap":"","message":"true","read-only":"false"}},{"id":5,"code":"# Filter out students over 18\ncleaned_data <- student_data %>%\n  filter(age <= 18) %>%\n# Calculate average score by subject for students under 18\n  group_by(subject) %>%\n  summarise(mean_score = mean(score), .groups = \"drop\")","options":{"out-width":"700px","dpi":72,"autorun":"false","context":"interactive","editor-quick-suggestions":"false","comment":"","warning":"true","output":"true","label":"unnamed-chunk-5","editor-font-scale":"0.5","editor-max-height":"","classes":"","out-height":"","fig-width":7,"editor-word-wrap":"true","fig-height":5,"results":"markup","fig-cap":"","message":"true","read-only":"false"}},{"id":6,"code":"# Original Code in the PR\n\n# Calculate weighted average score by subject\nmath_scores <- student_data %>%\n  filter(subject == \"Math\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n\nscience_scores <- student_data %>%\n  filter(subject == \"Science\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n\nenglish_scores <- student_data %>%\n  filter(subject == \"English\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))","options":{"out-width":"700px","dpi":72,"autorun":"false","context":"interactive","editor-quick-suggestions":"false","comment":"","warning":"true","output":"true","label":"unnamed-chunk-6","editor-font-scale":"0.5","editor-max-height":"","classes":"","out-height":"","fig-width":7,"editor-word-wrap":"true","fig-height":5,"results":"markup","fig-cap":"","message":"true","read-only":"false"}},{"id":7,"code":"# Define a function to calculate the weighted average score\ncalculate_weighted_score <- function(data, subject_name) {\n  data %>%\n    filter(subject == subject_name) %>%\n    summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n}\n\n# Calculate weighted average score by subject\nmath_scores <- calculate_weighted_score(student_data, \"Math\")\nscience_scores <- calculate_weighted_score(student_data, \"Science\")\nenglish_scores <- calculate_weighted_score(student_data, \"English\")","options":{"out-width":"700px","dpi":72,"autorun":"false","context":"interactive","editor-quick-suggestions":"false","comment":"","warning":"true","output":"true","label":"unnamed-chunk-7","editor-font-scale":"0.5","editor-max-height":"","classes":"","out-height":"","fig-width":7,"editor-word-wrap":"true","fig-height":5,"results":"markup","fig-cap":"","message":"true","read-only":"false"}},{"id":8,"code":"# Original Code in the PR\n\n# Calculate average score by subject for 2023\naverage_scores <- student_data %>%\n  filter(year == 2023) %>%\n  group_by(subject) %>%\n  summarise(mean_score = mean(score, na.rm = TRUE), .groups = \"drop\")\n\n# Create a summary message for 2023\nsummary_message <- paste0(\"The average scores by subject for the year 2023 are as follows:\")\n\n# Save the 2023 results to a CSV\nwrite.csv(average_scores, \"average_scores_2023.csv\", row.names = FALSE)\n\n# Add a flag for scores above 90 in 2023\nhigh_scores <- student_data %>%\n  filter(year == 2023) %>%\n  mutate(high_score_flag = score > 90)\n\n# Save the high scores dataset for 2023\nwrite.csv(high_scores, \"high_scores_2023.csv\", row.names = FALSE)","options":{"out-width":"700px","dpi":72,"autorun":"false","context":"interactive","editor-quick-suggestions":"false","comment":"","warning":"true","output":"true","label":"unnamed-chunk-8","editor-font-scale":"0.5","editor-max-height":"","classes":"","out-height":"","fig-width":7,"editor-word-wrap":"true","fig-height":5,"results":"markup","fig-cap":"","message":"true","read-only":"false"}},{"id":9,"code":"# Define the analysis year\nanalysis_year <- 2023  # Update this each year\n\n# Calculate average score by subject for the analysis year\naverage_scores <- student_data %>%\n  filter(year == analysis_year) %>%\n  group_by(subject) %>%\n  summarise(mean_score = mean(score, na.rm = TRUE), .groups = \"drop\")\n\n# Create a summary message for the analysis year\nsummary_message <- paste0(\"The average scores by subject for the year \", analysis_year, \" are as follows:\")\n\n# Save the results to a CSV\nwrite.csv(average_scores, paste0(\"average_scores_\", analysis_year, \".csv\"), row.names = FALSE)\n\n# Add a flag for scores above 90 in the analysis year\nhigh_scores <- student_data %>%\n  filter(year == analysis_year) %>%\n  mutate(high_score_flag = score > 90)\n\n# Save the high scores dataset\nwrite.csv(high_scores, paste0(\"high_scores_\", analysis_year, \".csv\"), row.names = FALSE)","options":{"out-width":"700px","dpi":72,"autorun":"false","context":"interactive","editor-quick-suggestions":"false","comment":"","warning":"true","output":"true","label":"unnamed-chunk-9","editor-font-scale":"0.5","editor-max-height":"","classes":"","out-height":"","fig-width":7,"editor-word-wrap":"true","fig-height":5,"results":"markup","fig-cap":"","message":"true","read-only":"false"}}];
 
   </script>
   <script type="module">
@@ -2792,6 +2792,101 @@ hex-diagram
 <div id="qwebr-insertion-location-9"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </div>
+</section></section>
+<section>
+<section id="azure-devops-boards" class="title-slide slide level1 center">
+<h1>Azure Devops Boards</h1>
+
+</section>
+<section id="what-are-azure-devops-boards" class="slide level2">
+<h2>What are Azure DevOps Boards?</h2>
+<p>Azure DevOps Boards are a project management tool that allows you to plan, track, and discuss work across your teams.</p>
+<p><strong>Key points:</strong></p>
+<div class="fragment fade-up">
+<ul>
+<li>Boards are associated with <em>teams</em> rather than repositories.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>This means multiple repositories can be tracked on one team board.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>They create a central place to monitor progress, assign tasks, and collaborate efficiently.</li>
+</ul>
+</div>
+</section>
+<section id="features-of-azure-devops-boards" class="slide level2">
+<h2>Features of Azure DevOps Boards</h2>
+<p>Azure DevOps Boards offers powerful tools for project management:</p>
+<div class="fragment fade-up">
+<ul>
+<li><strong>Work Items:</strong> Track individual tasks, bugs, or features. Each work item has a title, description, and status, and can be assigned to a team member. You can also add tags, attachments, and comments to work items to provide additional context, and even link work items to branches, commits and pull requests.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li><strong>Backlogs:</strong> Prioritised lists of work items that need to be completed as part of a project. You can add work items to the backlog, assign them to team members, and set priorities. The backlog helps you plan and track the progress of your project, and ensures that work is completed in the correct order.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li><strong>Sprints:</strong> Use sprint planning for time-boxed projects. You can move work items into sprints, assign them to team members, and track progress. Sprints help you break down work into manageable chunks, and ensure that work is completed on time.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li><strong>Kanban Boards:</strong> Visualize work in progress with a drag-and-drop interface (similar to trello).</li>
+</ul>
+</div>
+</section>
+<section id="benefits-for-rap" class="slide level2">
+<h2>Benefits for RAP</h2>
+<p>Why use Azure DevOps Boards for Reproducible Analytical Pipelines?</p>
+<div class="fragment fade-up">
+<ul>
+<li><strong>Visibility:</strong> Track all projects in one place.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li><strong>Accountability:</strong> Assign tasks with clear ownership.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li><strong>Collaboration:</strong> Comment directly on tasks to resolve issues or clarify requirements.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li><strong>Documentation</strong> Link to code, data, and other resources to provide context.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li><strong>Integration:</strong> Link directly to R scripts, SQL code, or other artifacts in your repositories.</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li><strong>Organisation</strong> - Keep all your work in one place, and easily see what needs to be done next.</li>
+</ul>
+</div>
+</section>
+<section id="lets-practice-together" class="slide level2 scrollable">
+<h2>Let’s Practice Together!</h2>
+<h3 id="task-explore-azure-devops-boards">Task: Explore Azure DevOps Boards</h3>
+<ol type="1">
+<li><p>Open the <a href="https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers">RAP for managers Azure DevOps repo</a> and navigate to the <strong>Boards</strong> tab (In the sidebar, expand the boards section and select boards within that!).</p></li>
+<li><p>Click on the <strong>+ New Item</strong> button and give it a title. Hit Enter to save it!</p></li>
+<li><p>Now expand it by clicking on the title. Fill in the details for the task, including the description and assignee (you can assign it to yourself or the person you’re sat next to!). Explore the different features like tags, attachments, and comments. Close the expanded view and click the three dots on the task to explore eve more features like creating a branch.</p></li>
+<li><p><strong>Move a task:</strong> Update the task’s progress by dragging it to a new column.</p></li>
+<li><p><strong>Collaborate:</strong> Comment on someone else’s task to provide additional context, ideas or instructions.</p></li>
+</ol>
+<p><strong>Goal:</strong> By the end of this exercise, you’ll feel confident using Azure DevOps Boards to manage your projects and collaborate effectively.</p>
 <div class="quarto-auto-generated-content">
 <p><img src="DfE_logo_landscape.png" class="slide-logo"></p>
 <div class="footer footer-default">
