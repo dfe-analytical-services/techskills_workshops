@@ -415,21 +415,21 @@ Imagine you have finished all of the development work in your branch, and you ar
 
 :::
 
-## Visualise branches
+<!-- ## Visualise branches -->
 
-::: {style="display: grid; place-items: center; height: 100%;"}
-![](images/branch_lines.png)
-:::
+<!-- ::: {style="display: grid; place-items: center; height: 100%;"} -->
+<!-- ![](images/branch_lines.png) -->
+<!-- ::: -->
 
-:::{.fragment}
-<span style="color: white; position: absolute; top: 50%; left: 3%;">Main</span>
-<span style="color: white; position: absolute; top: 25%; left: 5%;">Update_code</span>
-<span style="color: white; position: absolute; top: 75%; left: 5%;">Add_new_feature</span>
-:::
+<!-- :::{.fragment} -->
+<!-- <span style="color: white; position: absolute; top: 50%; left: 3%;">Main</span> -->
+<!-- <span style="color: white; position: absolute; top: 25%; left: 5%;">Update_code</span> -->
+<!-- <span style="color: white; position: absolute; top: 75%; left: 5%;">Add_new_feature</span> -->
+<!-- ::: -->
 
-:::{.fragment}
-<span class="fa-solid fa-circle" style="color: orange; font-size: 1em; position: absolute; top: 240px; left: 20%;"></span>
-:::
+<!-- :::{.fragment} -->
+<!-- <span class="fa-solid fa-circle" style="color: orange; font-size: 1em; position: absolute; top: 240px; left: 20%;"></span> -->
+<!-- ::: -->
 
 # Task 1
 
@@ -862,4 +862,77 @@ In practice, this roughly means:
 
 ::: {.fragment .fade-up}
 - The final outputs for EES should pass all checks in the [data screener](https://rsconnect/rsc/dfe-published-data-qa/). If they fail, amendments should be made to the code rather than the files directly, that make the required changes. 
+:::
+
+## Structure the process
+
+::: {.columns}
+
+::: {.column width="40%"}
+Typically, processes can be broken down into the following structure: 
+
+1. Ingest raw/input data
+2. Clean and transform data
+3. Validate/QA the data 
+4. Produce your output tables
+5. Produce output charts/dashboards/other products
+6. Write a commentary/report
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="55%"}
+![ - [DfT Strategic Reproducible Analysis in Coding book](https://department-for-transport.github.io/strategic_reproducible_analysis/choosing-a-coding-approach.html#break-your-process-into-chunks) example](images/process_chunks.svg)
+:::
+:::
+
+## Prioritise
+
+[Chapter 3 in the DfT Strategic Reproducible Analysis in Coding book](https://department-for-transport.github.io/strategic_reproducible_analysis/choosing-a-coding-approach.html#prioritising-coding-tasks) provides some great prioritisation guidance:
+
+*While it’s tempting to work through these steps in chronological order, with well-structured code it’s not necessary to do this, and you can start coding on the section which is the highest priority. Prioritisation of these 'chunks' can be done taking into account:*
+
+::: {.fragment .fade-up}
+- *Which of the sections offer the biggest benefits?*
+:::
+
+::: {.fragment .fade-up}
+- *Which sections represent the biggest potential for time-saving (creating a snowball effect in terms of more development time)?*
+:::
+
+::: {.fragment .fade-up}
+- *Can some sections fulfill a dual development purpose (i.e. automate table creation while also making it accessible)?*
+:::
+
+::: {.fragment .fade-up}
+- *What other processes are dependent on this chunk (i.e. if you don’t have a clear idea of clean data structure prior to table creation, it would make sense to do these chunks in order)?*
+:::
+
+::: {.fragment .fade-up}
+- *Is the existing method causing problems, or is it relatively robust?*
+:::
+
+## DfT prioritisation example
+
+::: {.columns}
+
+::: {.column width="45%"}
+![ - [DfT Strategic Reproducible Analysis in Coding book](https://department-for-transport.github.io/strategic_reproducible_analysis/choosing-a-coding-approach.html#break-your-process-into-chunks) example](images/process_chunks.svg)
+:::
+
+::: {.column width="10%"}
+<span class="fa-solid fa-arrow-right-long" style="color: white; font-size: 3em;"></span>
+:::
+
+::: {.column width="45%"}
+![ - [DfT Strategic Reproducible Analysis in Coding book](https://department-for-transport.github.io/strategic_reproducible_analysis/choosing-a-coding-approach.html#break-your-process-into-chunks) example](images/prioritised_chunks.svg)
+::: 
+:::
+
+## Example of a RAP repo structure: 
+
+::: {.column width="30%"}
+![](images/PRMA_repo.png)
+
 :::
