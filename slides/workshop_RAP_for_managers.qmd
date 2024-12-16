@@ -963,3 +963,33 @@ Imagine you are working on a project to produce a report on the number of pupils
 :::
 
 What would change and how would you prioritise?
+
+# Common things to automate
+
+## Data ingestion
+
+- **SQL queries**: Use R to run SQL queries and ingest data directly into R. This can be done using the `DBI` package.
+
+- **API calls**: Use R to make API calls and ingest data directly into R. This can be done using the `httr` package.
+
+- **File downloads**: Use R to download files from the internet and ingest data directly into R. This can be done using the `download.file` function.
+
+## Data cleaning and transformation
+
+- **Data cleaning**: Use R to clean data. This can be done using the `dplyr` package.
+
+- **Data transformation**: Use R to transform data. This can be done using the `dplyr` package.
+
+- **Data validation**: Use R to validate data. This can be done using the `assertthat` package.
+
+## Output tables
+
+- **Tables**: Use R to produce output tables. This can be done using the `kableExtra` package.
+
+## Output charts
+
+- **Charts**: Use R to produce output charts. This can be done using the `ggplot2` package.
+
+## Commentary/report
+
+- **Commentary**: Use R to produce a commentary/report. This can be done using the `rmarkdown` package.
