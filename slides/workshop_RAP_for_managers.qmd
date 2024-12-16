@@ -944,18 +944,18 @@ Typically, processes can be broken down into the following structure:
 
 ## Example/Disussion 
 
-Imagine you are working on a project to produce a report on the number of pupils in each school in England. 
+Imagine you are working on a project to produce a report on the number of pupils in each school in England. Within the report you also discuss differences between school types, geographic regions etc. 
 
 ::: {style="font-size: 75%;"}
 1. Currently your team ingest the raw data from a SQL database owned by another team in the department. You run SQL code that aggregates to school level, then you copy and paste the aggregated data from the SQL table into Excel so you can get to work.
 
-2. The data is then cleaned and transformed in  Excel. The aggregated data is copied into a new sheet to clean it, filters are applied to remove schools outside of England, and some duplicates are removed. Some new columns are also added based on formulas using existing columns.
+2. The data is then cleaned and transformed in  Excel. The aggregated data is copied into a new sheet to clean it, filters are applied to remove schools outside of England, and some duplicates are removed/combined where certain schools have had name changes etc.
 
 3. The data is then validated by checking the number of schools in your clean data against the number of schools in the raw data, and also by comparing it to last years figures and judging whether the changes look sensible. This is all done in some additional QA Excel sheets in the same workbook. 
 
-4. The output tables are then produced in Excel in some extra sheets. You copy and paste values from the validated data into these tables, using no formulas so they can't break.
+4. The output figures are then produced in Excel in some extra sheets. You copy and paste values from the validated data into new tables, using no formulas so they can't break. you also add some pivot tables to find totals for different school types and geographies etc.
 
-5. The output charts are then produced in Excel in some extra sheets.
+5. The pivot tables are copied into new sheets and used to produce relevant charts in Excel.  
 
 6. A commentary is written in Word, with some of the charts and tables copied in from Excel.
 
