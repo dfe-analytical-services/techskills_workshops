@@ -540,10 +540,12 @@ processed_data <- student_data %>%
   filter(passed_threshold == TRUE)
 ```
 
+::: {style="font-size: 75%;"}
 ::: {.fragment .fade-up}
 **Review Comment**:
 
 > *I’m unclear on why the threshold is hardcoded to 80 here. Can you explain why 80 was chosen, and whether this is a departmental or industry standard? This might need to be more flexible for future updates. It would be useful to add a comment explaining the significance of the 80 threshold here and whether it will change in future. This will help future maintainers understand the code.*
+:::
 :::
 
 ::: {.fragment .fade-up}
@@ -576,10 +578,12 @@ cleaned_data <- student_data %>%
   summarise(mean_score = mean(score), .groups = "drop")
 ```
 
+::: {style="font-size: 75%;"}
 ::: {.fragment .fade-up}
 **Review Comment**:
 
 > *The comment on line 3 states that students over 18 should be filtered out, but the code `filter(age > 18)` keeps students over 18 instead of removing them. This error will be carried through the pipeline, making the outputs inaccurate. I think the filter condition should be `filter(age <= 18)`.*
+:::
 :::
 
 ::: {.fragment .fade-up}
@@ -619,11 +623,13 @@ english_scores <- student_data %>%
   summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))
 ```
 
+::: {style="font-size: 75%;"}
 ::: {.fragment .fade-up}
 **Review Comment**:
 
 > *This code is repetitive and if we add more subjects, we'll need to duplicate the same logic for each one. This makes the code harder to maintain and more error-prone. Could you write a function to calculate the weighted average score to reduce the risk of errors and make the code easier to maintain?*
 
+:::
 :::
 
 ::: {.fragment .fade-up}
@@ -676,11 +682,13 @@ write.csv(high_scores, "high_scores_2023.csv", row.names = FALSE)
 
 ```
 
+::: {style="font-size: 75%;"}
 ::: {.fragment .fade-up}
 **Review Comment**:
 
 > *The year `2023` is hardcoded in several places: filters, messages, and filenames. If we need to update this code for a different year, we’d have to make changes in every instance, which is error-prone. Consider defining the year as a variable at the top of the script or in a `variable_change` script. This will allow you to update the year in one place, making the code easier to maintain and reuse.*
 
+:::
 :::
 
 ::: {.fragment .fade-up}
@@ -806,6 +814,7 @@ Why use Azure DevOps Boards for Reproducible Analytical Pipelines?
 
 The [Analytical Function guidance](https://github.com/best-practice-and-impact/rap_mvp_maturity_guidance/blob/master/Reproducible-Analytical-Pipelines-MVP.md#the-rap-minimum-viable-product) states that in order to achieve these benefits, at a minimum a Reproducible Analytical Pipeline must:
 
+::: {style="font-size: 75%;"}
 ::: {.fragment .fade-up}
 - **Minimise manual steps**. Manual steps include copy and paste, point and click or drag and drop operations. Where it is absolutely necessary to include a manual step in the process this must be fully documented as described below.
 :::
@@ -833,6 +842,7 @@ The [Analytical Function guidance](https://github.com/best-practice-and-impact/r
 ::: {.fragment .fade-up}
 - Contain [well-commented](https://best-practice-and-impact.github.io/qa-of-code-guidance/code_documentation.html#comments-span-role-image-aria-label-difficulty-rating-1-out-of-5-span) code and have [documentation embedded](https://best-practice-and-impact.github.io/qa-of-code-guidance/project_documentation.html) and version controlled within the product, rather than saved elsewhere
 :::
+:::
 
 ## In the DfE 
 
@@ -844,6 +854,7 @@ In the DfE we have our own good, great and best practice standards for RAP. Our 
 
 In practice, this roughly means: 
 
+::: {style="font-size: 75%;"}
 ::: {.fragment .fade-up}
 - You are using code to perform all calculations and data manipulation removing all manual steps - this can be a combination of SQL and R code, but one `run_all.R` script should source all code from both languages. Code should be efficient, well documented (good comments!) and easy to understand.
 :::
@@ -862,6 +873,7 @@ In practice, this roughly means:
 
 ::: {.fragment .fade-up}
 - The final outputs for EES should pass all checks in the [data screener](https://rsconnect/rsc/dfe-published-data-qa/). If they fail, amendments should be made to the code rather than the files directly, that make the required changes. 
+:::
 :::
 
 ## Structure the process
@@ -930,9 +942,24 @@ Typically, processes can be broken down into the following structure:
 ::: 
 :::
 
-## Example of a RAP repo structure: 
+## Example/Disussion 
 
-::: {.column width="30%"}
-![](images/PRMA_repo.png)
+Imagine you are working on a project to produce a report on the number of pupils in each school in England. 
 
+::: {style="font-size: 75%;"}
+1. Currently your team ingest the raw data from a SQL database owned by another team in the department. You run SQL code that aggregates to school level, then you copy and paste the aggregated data from the SQL table into Excel so you can get to work.
+
+2. The data is then cleaned and transformed in  Excel. The aggregated data is copied into a new sheet to clean it, filters are applied to remove schools outside of England, and some duplicates are removed. Some new columns are also added based on formulas using existing columns.
+
+3. The data is then validated by checking the number of schools in your clean data against the number of schools in the raw data, and also by comparing it to last years figures and judging whether the changes look sensible. This is all done in some additional QA Excel sheets in the same workbook. 
+
+4. The output tables are then produced in Excel in some extra sheets. You copy and paste values from the validated data into these tables, using no formulas so they can't break.
+
+5. The output charts are then produced in Excel in some extra sheets.
+
+6. A commentary is written in Word, with some of the charts and tables copied in from Excel.
+
+7. Once you have the report written up in word, you copy it across to EES.
 :::
+
+What would change and how would you prioritise?

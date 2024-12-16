@@ -623,7 +623,7 @@
   };
 
   // Store cell data
-  globalThis.qwebrCellDetails = [{"options":{"autorun":"true","warning":"true","editor-word-wrap":"true","fig-height":5,"fig-cap":"","classes":"","editor-quick-suggestions":"false","results":"markup","output":"true","label":"unnamed-chunk-1","context":"setup","dpi":72,"out-width":"700px","comment":"","message":"true","editor-max-height":"","editor-font-scale":"0.5","read-only":"false","out-height":"","fig-width":7},"code":"# Create a dummy dataset\nstudent_data <- data.frame(\n  student_id = 1:10,\n  age = c(16, 17, 19, 18, 15, 20, 17, 16, 21, 18),\n  subject = c(\"Math\", \"Science\", \"Math\", \"English\", \"Math\", \"Science\", \"Math\", \"English\", \"Math\", \"Science\"),\n  score = c(85, 90, 78, 88, 91, 84, 79, 92, 95, 89), \n  attendance = c(95, 85, 60, 98, 70, 50, 85, 99, 90, 80),\n  year = c(2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023)\n)","id":1},{"options":{"autorun":"false","warning":"true","editor-word-wrap":"true","fig-height":5,"fig-cap":"","classes":"","editor-quick-suggestions":"false","results":"markup","output":"true","label":"unnamed-chunk-2","context":"interactive","dpi":72,"out-width":"700px","comment":"","message":"true","editor-max-height":"","editor-font-scale":"0.5","read-only":"false","out-height":"","fig-width":7},"code":"# Original Code in the PR\n\nprocessed_data <- student_data %>%\n  mutate(passed_threshold = if_else(attendance >= 80, TRUE, FALSE)) %>%\n  filter(passed_threshold == TRUE)","id":2},{"options":{"autorun":"false","warning":"true","editor-word-wrap":"true","fig-height":5,"fig-cap":"","classes":"","editor-quick-suggestions":"false","results":"markup","output":"true","label":"unnamed-chunk-3","context":"interactive","dpi":72,"out-width":"700px","comment":"","message":"true","editor-max-height":"","editor-font-scale":"0.5","read-only":"false","out-height":"","fig-width":7},"code":"# Define attendance threshold\n# 80 is the department's standard threshold for 'passing' attendance. This can be changed in future in line with policy changes.\nattendance_threshold <- 80  \n\n# Adding a flag for students who passed the threshold\nprocessed_data <- student_data %>%\n  mutate(passed_threshold = if_else(attendance >= attendance_threshold, TRUE, FALSE)) %>%\n  filter(passed_threshold == TRUE)  # Only include students who passed the attendance threshold","id":3},{"options":{"autorun":"false","warning":"true","editor-word-wrap":"true","fig-height":5,"fig-cap":"","classes":"","editor-quick-suggestions":"false","results":"markup","output":"true","label":"unnamed-chunk-4","context":"interactive","dpi":72,"out-width":"700px","comment":"","message":"true","editor-max-height":"","editor-font-scale":"0.5","read-only":"false","out-height":"","fig-width":7},"code":"# Original Code in the PR\n\n# Filter out students over 18\ncleaned_data <- student_data %>%\n  filter(age > 18) %>% \n# Calculate average score by subject for students under 18\n  group_by(subject) %>%\n  summarise(mean_score = mean(score), .groups = \"drop\")","id":4},{"options":{"autorun":"false","warning":"true","editor-word-wrap":"true","fig-height":5,"fig-cap":"","classes":"","editor-quick-suggestions":"false","results":"markup","output":"true","label":"unnamed-chunk-5","context":"interactive","dpi":72,"out-width":"700px","comment":"","message":"true","editor-max-height":"","editor-font-scale":"0.5","read-only":"false","out-height":"","fig-width":7},"code":"# Filter out students over 18\ncleaned_data <- student_data %>%\n  filter(age <= 18) %>%\n# Calculate average score by subject for students under 18\n  group_by(subject) %>%\n  summarise(mean_score = mean(score), .groups = \"drop\")","id":5},{"options":{"autorun":"false","warning":"true","editor-word-wrap":"true","fig-height":5,"fig-cap":"","classes":"","editor-quick-suggestions":"false","results":"markup","output":"true","label":"unnamed-chunk-6","context":"interactive","dpi":72,"out-width":"700px","comment":"","message":"true","editor-max-height":"","editor-font-scale":"0.5","read-only":"false","out-height":"","fig-width":7},"code":"# Original Code in the PR\n\n# Calculate weighted average score by subject\nmath_scores <- student_data %>%\n  filter(subject == \"Math\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n\nscience_scores <- student_data %>%\n  filter(subject == \"Science\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n\nenglish_scores <- student_data %>%\n  filter(subject == \"English\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))","id":6},{"options":{"autorun":"false","warning":"true","editor-word-wrap":"true","fig-height":5,"fig-cap":"","classes":"","editor-quick-suggestions":"false","results":"markup","output":"true","label":"unnamed-chunk-7","context":"interactive","dpi":72,"out-width":"700px","comment":"","message":"true","editor-max-height":"","editor-font-scale":"0.5","read-only":"false","out-height":"","fig-width":7},"code":"# Define a function to calculate the weighted average score\ncalculate_weighted_score <- function(data, subject_name) {\n  data %>%\n    filter(subject == subject_name) %>%\n    summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n}\n\n# Calculate weighted average score by subject\nmath_scores <- calculate_weighted_score(student_data, \"Math\")\nscience_scores <- calculate_weighted_score(student_data, \"Science\")\nenglish_scores <- calculate_weighted_score(student_data, \"English\")","id":7},{"options":{"autorun":"false","warning":"true","editor-word-wrap":"true","fig-height":5,"fig-cap":"","classes":"","editor-quick-suggestions":"false","results":"markup","output":"true","label":"unnamed-chunk-8","context":"interactive","dpi":72,"out-width":"700px","comment":"","message":"true","editor-max-height":"","editor-font-scale":"0.5","read-only":"false","out-height":"","fig-width":7},"code":"# Original Code in the PR\n\n# Calculate average score by subject for 2023\naverage_scores <- student_data %>%\n  filter(year == 2023) %>%\n  group_by(subject) %>%\n  summarise(mean_score = mean(score, na.rm = TRUE), .groups = \"drop\")\n\n# Create a summary message for 2023\nsummary_message <- paste0(\"The average scores by subject for the year 2023 are as follows:\")\n\n# Save the 2023 results to a CSV\nwrite.csv(average_scores, \"average_scores_2023.csv\", row.names = FALSE)\n\n# Add a flag for scores above 90 in 2023\nhigh_scores <- student_data %>%\n  filter(year == 2023) %>%\n  mutate(high_score_flag = score > 90)\n\n# Save the high scores dataset for 2023\nwrite.csv(high_scores, \"high_scores_2023.csv\", row.names = FALSE)","id":8},{"options":{"autorun":"false","warning":"true","editor-word-wrap":"true","fig-height":5,"fig-cap":"","classes":"","editor-quick-suggestions":"false","results":"markup","output":"true","label":"unnamed-chunk-9","context":"interactive","dpi":72,"out-width":"700px","comment":"","message":"true","editor-max-height":"","editor-font-scale":"0.5","read-only":"false","out-height":"","fig-width":7},"code":"# Define the analysis year\nanalysis_year <- 2023  # Update this each year\n\n# Calculate average score by subject for the analysis year\naverage_scores <- student_data %>%\n  filter(year == analysis_year) %>%\n  group_by(subject) %>%\n  summarise(mean_score = mean(score, na.rm = TRUE), .groups = \"drop\")\n\n# Create a summary message for the analysis year\nsummary_message <- paste0(\"The average scores by subject for the year \", analysis_year, \" are as follows:\")\n\n# Save the results to a CSV\nwrite.csv(average_scores, paste0(\"average_scores_\", analysis_year, \".csv\"), row.names = FALSE)\n\n# Add a flag for scores above 90 in the analysis year\nhigh_scores <- student_data %>%\n  filter(year == analysis_year) %>%\n  mutate(high_score_flag = score > 90)\n\n# Save the high scores dataset\nwrite.csv(high_scores, paste0(\"high_scores_\", analysis_year, \".csv\"), row.names = FALSE)","id":9}];
+  globalThis.qwebrCellDetails = [{"code":"# Create a dummy dataset\nstudent_data <- data.frame(\n  student_id = 1:10,\n  age = c(16, 17, 19, 18, 15, 20, 17, 16, 21, 18),\n  subject = c(\"Math\", \"Science\", \"Math\", \"English\", \"Math\", \"Science\", \"Math\", \"English\", \"Math\", \"Science\"),\n  score = c(85, 90, 78, 88, 91, 84, 79, 92, 95, 89), \n  attendance = c(95, 85, 60, 98, 70, 50, 85, 99, 90, 80),\n  year = c(2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023)\n)","options":{"autorun":"true","comment":"","results":"markup","label":"unnamed-chunk-1","out-width":"700px","warning":"true","read-only":"false","fig-cap":"","context":"setup","output":"true","editor-max-height":"","editor-font-scale":"0.5","fig-width":7,"dpi":72,"editor-word-wrap":"true","classes":"","out-height":"","message":"true","fig-height":5,"editor-quick-suggestions":"false"},"id":1},{"code":"# Original Code in the PR\n\nprocessed_data <- student_data %>%\n  mutate(passed_threshold = if_else(attendance >= 80, TRUE, FALSE)) %>%\n  filter(passed_threshold == TRUE)","options":{"autorun":"false","comment":"","results":"markup","label":"unnamed-chunk-2","out-width":"700px","warning":"true","read-only":"false","fig-cap":"","context":"interactive","output":"true","editor-max-height":"","editor-font-scale":"0.5","fig-width":7,"dpi":72,"editor-word-wrap":"true","classes":"","out-height":"","message":"true","fig-height":5,"editor-quick-suggestions":"false"},"id":2},{"code":"# Define attendance threshold\n# 80 is the department's standard threshold for 'passing' attendance. This can be changed in future in line with policy changes.\nattendance_threshold <- 80  \n\n# Adding a flag for students who passed the threshold\nprocessed_data <- student_data %>%\n  mutate(passed_threshold = if_else(attendance >= attendance_threshold, TRUE, FALSE)) %>%\n  filter(passed_threshold == TRUE)  # Only include students who passed the attendance threshold","options":{"autorun":"false","comment":"","results":"markup","label":"unnamed-chunk-3","out-width":"700px","warning":"true","read-only":"false","fig-cap":"","context":"interactive","output":"true","editor-max-height":"","editor-font-scale":"0.5","fig-width":7,"dpi":72,"editor-word-wrap":"true","classes":"","out-height":"","message":"true","fig-height":5,"editor-quick-suggestions":"false"},"id":3},{"code":"# Original Code in the PR\n\n# Filter out students over 18\ncleaned_data <- student_data %>%\n  filter(age > 18) %>% \n# Calculate average score by subject for students under 18\n  group_by(subject) %>%\n  summarise(mean_score = mean(score), .groups = \"drop\")","options":{"autorun":"false","comment":"","results":"markup","label":"unnamed-chunk-4","out-width":"700px","warning":"true","read-only":"false","fig-cap":"","context":"interactive","output":"true","editor-max-height":"","editor-font-scale":"0.5","fig-width":7,"dpi":72,"editor-word-wrap":"true","classes":"","out-height":"","message":"true","fig-height":5,"editor-quick-suggestions":"false"},"id":4},{"code":"# Filter out students over 18\ncleaned_data <- student_data %>%\n  filter(age <= 18) %>%\n# Calculate average score by subject for students under 18\n  group_by(subject) %>%\n  summarise(mean_score = mean(score), .groups = \"drop\")","options":{"autorun":"false","comment":"","results":"markup","label":"unnamed-chunk-5","out-width":"700px","warning":"true","read-only":"false","fig-cap":"","context":"interactive","output":"true","editor-max-height":"","editor-font-scale":"0.5","fig-width":7,"dpi":72,"editor-word-wrap":"true","classes":"","out-height":"","message":"true","fig-height":5,"editor-quick-suggestions":"false"},"id":5},{"code":"# Original Code in the PR\n\n# Calculate weighted average score by subject\nmath_scores <- student_data %>%\n  filter(subject == \"Math\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n\nscience_scores <- student_data %>%\n  filter(subject == \"Science\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n\nenglish_scores <- student_data %>%\n  filter(subject == \"English\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))","options":{"autorun":"false","comment":"","results":"markup","label":"unnamed-chunk-6","out-width":"700px","warning":"true","read-only":"false","fig-cap":"","context":"interactive","output":"true","editor-max-height":"","editor-font-scale":"0.5","fig-width":7,"dpi":72,"editor-word-wrap":"true","classes":"","out-height":"","message":"true","fig-height":5,"editor-quick-suggestions":"false"},"id":6},{"code":"# Define a function to calculate the weighted average score\ncalculate_weighted_score <- function(data, subject_name) {\n  data %>%\n    filter(subject == subject_name) %>%\n    summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n}\n\n# Calculate weighted average score by subject\nmath_scores <- calculate_weighted_score(student_data, \"Math\")\nscience_scores <- calculate_weighted_score(student_data, \"Science\")\nenglish_scores <- calculate_weighted_score(student_data, \"English\")","options":{"autorun":"false","comment":"","results":"markup","label":"unnamed-chunk-7","out-width":"700px","warning":"true","read-only":"false","fig-cap":"","context":"interactive","output":"true","editor-max-height":"","editor-font-scale":"0.5","fig-width":7,"dpi":72,"editor-word-wrap":"true","classes":"","out-height":"","message":"true","fig-height":5,"editor-quick-suggestions":"false"},"id":7},{"code":"# Original Code in the PR\n\n# Calculate average score by subject for 2023\naverage_scores <- student_data %>%\n  filter(year == 2023) %>%\n  group_by(subject) %>%\n  summarise(mean_score = mean(score, na.rm = TRUE), .groups = \"drop\")\n\n# Create a summary message for 2023\nsummary_message <- paste0(\"The average scores by subject for the year 2023 are as follows:\")\n\n# Save the 2023 results to a CSV\nwrite.csv(average_scores, \"average_scores_2023.csv\", row.names = FALSE)\n\n# Add a flag for scores above 90 in 2023\nhigh_scores <- student_data %>%\n  filter(year == 2023) %>%\n  mutate(high_score_flag = score > 90)\n\n# Save the high scores dataset for 2023\nwrite.csv(high_scores, \"high_scores_2023.csv\", row.names = FALSE)","options":{"autorun":"false","comment":"","results":"markup","label":"unnamed-chunk-8","out-width":"700px","warning":"true","read-only":"false","fig-cap":"","context":"interactive","output":"true","editor-max-height":"","editor-font-scale":"0.5","fig-width":7,"dpi":72,"editor-word-wrap":"true","classes":"","out-height":"","message":"true","fig-height":5,"editor-quick-suggestions":"false"},"id":8},{"code":"# Define the analysis year\nanalysis_year <- 2023  # Update this each year\n\n# Calculate average score by subject for the analysis year\naverage_scores <- student_data %>%\n  filter(year == analysis_year) %>%\n  group_by(subject) %>%\n  summarise(mean_score = mean(score, na.rm = TRUE), .groups = \"drop\")\n\n# Create a summary message for the analysis year\nsummary_message <- paste0(\"The average scores by subject for the year \", analysis_year, \" are as follows:\")\n\n# Save the results to a CSV\nwrite.csv(average_scores, paste0(\"average_scores_\", analysis_year, \".csv\"), row.names = FALSE)\n\n# Add a flag for scores above 90 in the analysis year\nhigh_scores <- student_data %>%\n  filter(year == analysis_year) %>%\n  mutate(high_score_flag = score > 90)\n\n# Save the high scores dataset\nwrite.csv(high_scores, paste0(\"high_scores_\", analysis_year, \".csv\"), row.names = FALSE)","options":{"autorun":"false","comment":"","results":"markup","label":"unnamed-chunk-9","out-width":"700px","warning":"true","read-only":"false","fig-cap":"","context":"interactive","output":"true","editor-max-height":"","editor-font-scale":"0.5","fig-width":7,"dpi":72,"editor-word-wrap":"true","classes":"","out-height":"","message":"true","fig-height":5,"editor-quick-suggestions":"false"},"id":9}];
 
   </script>
   <script type="module">
@@ -2915,11 +2915,13 @@ Peer review of code from outside the team
 <p><strong>Pull Request Code</strong>:</p>
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div style="font-size: 75%;">
 <div class="fragment fade-up">
 <p><strong>Review Comment</strong>:</p>
 <blockquote>
 <p><em>I’m unclear on why the threshold is hardcoded to 80 here. Can you explain why 80 was chosen, and whether this is a departmental or industry standard? This might need to be more flexible for future updates. It would be useful to add a comment explaining the significance of the 80 threshold here and whether it will change in future. This will help future maintainers understand the code.</em></p>
 </blockquote>
+</div>
 </div>
 <div class="fragment fade-up">
 <p><strong>Suggested Revision</strong>:</p>
@@ -2932,11 +2934,13 @@ Peer review of code from outside the team
 <p><strong>Pull Request Code</strong>:</p>
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div style="font-size: 75%;">
 <div class="fragment fade-up">
 <p><strong>Review Comment</strong>:</p>
 <blockquote>
 <p><em>The comment on line 3 states that students over 18 should be filtered out, but the code <code>filter(age &gt; 18)</code> keeps students over 18 instead of removing them. This error will be carried through the pipeline, making the outputs inaccurate. I think the filter condition should be <code>filter(age &lt;= 18)</code>.</em></p>
 </blockquote>
+</div>
 </div>
 <div class="fragment fade-up">
 <p><strong>Suggested Revision</strong>:</p>
@@ -2949,11 +2953,13 @@ Peer review of code from outside the team
 <p><strong>Pull Request Code</strong>:</p>
 <div id="qwebr-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div style="font-size: 75%;">
 <div class="fragment fade-up">
 <p><strong>Review Comment</strong>:</p>
 <blockquote>
 <p><em>This code is repetitive and if we add more subjects, we’ll need to duplicate the same logic for each one. This makes the code harder to maintain and more error-prone. Could you write a function to calculate the weighted average score to reduce the risk of errors and make the code easier to maintain?</em></p>
 </blockquote>
+</div>
 </div>
 <div class="fragment fade-up">
 <p><strong>Suggested Revision</strong>:</p>
@@ -2966,11 +2972,13 @@ Peer review of code from outside the team
 <p><strong>Pull Request Code</strong>:</p>
 <div id="qwebr-insertion-location-8"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div style="font-size: 75%;">
 <div class="fragment fade-up">
 <p><strong>Review Comment</strong>:</p>
 <blockquote>
 <p><em>The year <code>2023</code> is hardcoded in several places: filters, messages, and filenames. If we need to update this code for a different year, we’d have to make changes in every instance, which is error-prone. Consider defining the year as a variable at the top of the script or in a <code>variable_change</code> script. This will allow you to update the year in one place, making the code easier to maintain and reuse.</em></p>
 </blockquote>
+</div>
 </div>
 <div class="fragment fade-up">
 <p><strong>Suggested Revision</strong>:</p>
@@ -3081,6 +3089,7 @@ Peer review of code from outside the team
 <section id="the-rap-mvp" class="slide level2">
 <h2>The RAP MVP</h2>
 <p>The <a href="https://github.com/best-practice-and-impact/rap_mvp_maturity_guidance/blob/master/Reproducible-Analytical-Pipelines-MVP.md#the-rap-minimum-viable-product">Analytical Function guidance</a> states that in order to achieve these benefits, at a minimum a Reproducible Analytical Pipeline must:</p>
+<div style="font-size: 75%;">
 <div class="fragment fade-up">
 <ul>
 <li><strong>Minimise manual steps</strong>. Manual steps include copy and paste, point and click or drag and drop operations. Where it is absolutely necessary to include a manual step in the process this must be fully documented as described below.</li>
@@ -3115,6 +3124,7 @@ Peer review of code from outside the team
 <ul>
 <li>Contain <a href="https://best-practice-and-impact.github.io/qa-of-code-guidance/code_documentation.html#comments-span-role-image-aria-label-difficulty-rating-1-out-of-5-span">well-commented</a> code and have <a href="https://best-practice-and-impact.github.io/qa-of-code-guidance/project_documentation.html">documentation embedded</a> and version controlled within the product, rather than saved elsewhere</li>
 </ul>
+</div>
 </div>
 </section>
 <section id="in-the-dfe" class="slide level2">
@@ -3323,6 +3333,7 @@ Peer review of code from outside the team
 <section id="in-the-dfe-in-practice" class="slide level2">
 <h2>In the DfE: In practice</h2>
 <p>In practice, this roughly means:</p>
+<div style="font-size: 75%;">
 <div class="fragment fade-up">
 <ul>
 <li>You are using code to perform all calculations and data manipulation removing all manual steps - this can be a combination of SQL and R code, but one <code>run_all.R</code> script should source all code from both languages. Code should be efficient, well documented (good comments!) and easy to understand.</li>
@@ -3347,6 +3358,7 @@ Peer review of code from outside the team
 <ul>
 <li>The final outputs for EES should pass all checks in the <a href="https://rsconnect/rsc/dfe-published-data-qa/">data screener</a>. If they fail, amendments should be made to the code rather than the files directly, that make the required changes.</li>
 </ul>
+</div>
 </div>
 </section>
 <section id="structure-the-process" class="slide level2 scrollable">
@@ -3424,11 +3436,22 @@ Peer review of code from outside the team
 </div>
 </div></div>
 </section>
-<section id="example-of-a-rap-repo-structure" class="slide level2">
-<h2>Example of a RAP repo structure:</h2>
-<div class="column" style="width:30%;">
-<p><img data-src="images/PRMA_repo.png"></p>
-</div><div class="quarto-auto-generated-content">
+<section id="exampledisussion" class="slide level2 scrollable">
+<h2>Example/Disussion</h2>
+<p>Imagine you are working on a project to produce a report on the number of pupils in each school in England.</p>
+<div style="font-size: 75%;">
+<ol type="1">
+<li><p>Currently your team ingest the raw data from a SQL database owned by another team in the department. You run SQL code that aggregates to school level, then you copy and paste the aggregated data from the SQL table into Excel so you can get to work.</p></li>
+<li><p>The data is then cleaned and transformed in Excel. The aggregated data is copied into a new sheet to clean it, filters are applied to remove schools outside of England, and some duplicates are removed. Some new columns are also added based on formulas using existing columns.</p></li>
+<li><p>The data is then validated by checking the number of schools in your clean data against the number of schools in the raw data, and also by comparing it to last years figures and judging whether the changes look sensible. This is all done in some additional QA Excel sheets in the same workbook.</p></li>
+<li><p>The output tables are then produced in Excel in some extra sheets. You copy and paste values from the validated data into these tables, using no formulas so they can’t break.</p></li>
+<li><p>The output charts are then produced in Excel in some extra sheets.</p></li>
+<li><p>A commentary is written in Word, with some of the charts and tables copied in from Excel.</p></li>
+<li><p>Once you have the report written up in word, you copy it across to EES.</p></li>
+</ol>
+</div>
+<p>What would change and how would you prioritise?</p>
+<div class="quarto-auto-generated-content">
 <p><img src="DfE_logo_landscape.png" class="slide-logo"></p>
 <div class="footer footer-default">
 
