@@ -29,6 +29,73 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        background-color: #232629;
+        color: #7a7c7d;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #7a7c7d;  padding-left: 4px; }
+    div.sourceCode
+      { color: #cfcfc2; background-color: #232629; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #cfcfc2; } /* Normal */
+    code span.al { color: #95da4c; background-color: #4d1f24; font-weight: bold; } /* Alert */
+    code span.an { color: #3f8058; } /* Annotation */
+    code span.at { color: #2980b9; } /* Attribute */
+    code span.bn { color: #f67400; } /* BaseN */
+    code span.bu { color: #7f8c8d; } /* BuiltIn */
+    code span.cf { color: #fdbc4b; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #3daee9; } /* Char */
+    code span.cn { color: #27aeae; font-weight: bold; } /* Constant */
+    code span.co { color: #7a7c7d; } /* Comment */
+    code span.cv { color: #7f8c8d; } /* CommentVar */
+    code span.do { color: #a43340; } /* Documentation */
+    code span.dt { color: #2980b9; } /* DataType */
+    code span.dv { color: #f67400; } /* DecVal */
+    code span.er { color: #da4453; text-decoration: underline; } /* Error */
+    code span.ex { color: #0099ff; font-weight: bold; } /* Extension */
+    code span.fl { color: #f67400; } /* Float */
+    code span.fu { color: #8e44ad; } /* Function */
+    code span.im { color: #27ae60; } /* Import */
+    code span.in { color: #c45b00; } /* Information */
+    code span.kw { color: #cfcfc2; font-weight: bold; } /* Keyword */
+    code span.op { color: #cfcfc2; } /* Operator */
+    code span.ot { color: #27ae60; } /* Other */
+    code span.pp { color: #27ae60; } /* Preprocessor */
+    code span.re { color: #2980b9; background-color: #153042; } /* RegionMarker */
+    code span.sc { color: #3daee9; } /* SpecialChar */
+    code span.ss { color: #da4453; } /* SpecialString */
+    code span.st { color: #f44f4f; } /* String */
+    code span.va { color: #27aeae; } /* Variable */
+    code span.vs { color: #da4453; } /* VerbatimString */
+    code span.wa { color: #da4453; } /* Warning */
   </style>
   <link rel="stylesheet" href="workshop_RAP_for_managers_files/libs/revealjs/dist/theme/quarto.css">
   <link href="workshop_RAP_for_managers_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -623,7 +690,7 @@
   };
 
   // Store cell data
-  globalThis.qwebrCellDetails = [{"code":"# Create a dummy dataset\nstudent_data <- data.frame(\n  student_id = 1:10,\n  age = c(16, 17, 19, 18, 15, 20, 17, 16, 21, 18),\n  subject = c(\"Math\", \"Science\", \"Math\", \"English\", \"Math\", \"Science\", \"Math\", \"English\", \"Math\", \"Science\"),\n  score = c(85, 90, 78, 88, 91, 84, 79, 92, 95, 89), \n  attendance = c(95, 85, 60, 98, 70, 50, 85, 99, 90, 80),\n  year = c(2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023)\n)","id":1,"options":{"dpi":72,"editor-word-wrap":"true","context":"setup","autorun":"true","results":"markup","warning":"true","fig-height":5,"output":"true","fig-cap":"","out-height":"","label":"unnamed-chunk-1","read-only":"false","editor-max-height":"","classes":"","fig-width":7,"message":"true","comment":"","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"0.5"}},{"code":"# Original Code in the PR\n\nprocessed_data <- student_data %>%\n  mutate(passed_threshold = if_else(attendance >= 80, TRUE, FALSE)) %>%\n  filter(passed_threshold == TRUE)","id":2,"options":{"dpi":72,"editor-word-wrap":"true","context":"interactive","autorun":"false","results":"markup","warning":"true","fig-height":5,"output":"true","fig-cap":"","out-height":"","label":"unnamed-chunk-2","read-only":"false","editor-max-height":"","classes":"","fig-width":7,"message":"true","comment":"","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"0.5"}},{"code":"# Define attendance threshold\n# 80 is the department's standard threshold for 'passing' attendance. This can be changed in future in line with policy changes.\nattendance_threshold <- 80  \n\n# Adding a flag for students who passed the threshold\nprocessed_data <- student_data %>%\n  mutate(passed_threshold = if_else(attendance >= attendance_threshold, TRUE, FALSE)) %>%\n  filter(passed_threshold == TRUE)  # Only include students who passed the attendance threshold","id":3,"options":{"dpi":72,"editor-word-wrap":"true","context":"interactive","autorun":"false","results":"markup","warning":"true","fig-height":5,"output":"true","fig-cap":"","out-height":"","label":"unnamed-chunk-3","read-only":"false","editor-max-height":"","classes":"","fig-width":7,"message":"true","comment":"","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"0.5"}},{"code":"# Original Code in the PR\n\n# Filter out students over 18\ncleaned_data <- student_data %>%\n  filter(age > 18) %>% \n# Calculate average score by subject for students under 18\n  group_by(subject) %>%\n  summarise(mean_score = mean(score), .groups = \"drop\")","id":4,"options":{"dpi":72,"editor-word-wrap":"true","context":"interactive","autorun":"false","results":"markup","warning":"true","fig-height":5,"output":"true","fig-cap":"","out-height":"","label":"unnamed-chunk-4","read-only":"false","editor-max-height":"","classes":"","fig-width":7,"message":"true","comment":"","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"0.5"}},{"code":"# Filter out students over 18\ncleaned_data <- student_data %>%\n  filter(age <= 18) %>%\n# Calculate average score by subject for students under 18\n  group_by(subject) %>%\n  summarise(mean_score = mean(score), .groups = \"drop\")","id":5,"options":{"dpi":72,"editor-word-wrap":"true","context":"interactive","autorun":"false","results":"markup","warning":"true","fig-height":5,"output":"true","fig-cap":"","out-height":"","label":"unnamed-chunk-5","read-only":"false","editor-max-height":"","classes":"","fig-width":7,"message":"true","comment":"","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"0.5"}},{"code":"# Original Code in the PR\n\n# Calculate weighted average score by subject\nmath_scores <- student_data %>%\n  filter(subject == \"Math\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n\nscience_scores <- student_data %>%\n  filter(subject == \"Science\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n\nenglish_scores <- student_data %>%\n  filter(subject == \"English\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))","id":6,"options":{"dpi":72,"editor-word-wrap":"true","context":"interactive","autorun":"false","results":"markup","warning":"true","fig-height":5,"output":"true","fig-cap":"","out-height":"","label":"unnamed-chunk-6","read-only":"false","editor-max-height":"","classes":"","fig-width":7,"message":"true","comment":"","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"0.5"}},{"code":"# Define a function to calculate the weighted average score\ncalculate_weighted_score <- function(data, subject_name) {\n  data %>%\n    filter(subject == subject_name) %>%\n    summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n}\n\n# Calculate weighted average score by subject\nmath_scores <- calculate_weighted_score(student_data, \"Math\")\nscience_scores <- calculate_weighted_score(student_data, \"Science\")\nenglish_scores <- calculate_weighted_score(student_data, \"English\")","id":7,"options":{"dpi":72,"editor-word-wrap":"true","context":"interactive","autorun":"false","results":"markup","warning":"true","fig-height":5,"output":"true","fig-cap":"","out-height":"","label":"unnamed-chunk-7","read-only":"false","editor-max-height":"","classes":"","fig-width":7,"message":"true","comment":"","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"0.5"}},{"code":"# Original Code in the PR\n\n# Calculate average score by subject for 2023\naverage_scores <- student_data %>%\n  filter(year == 2023) %>%\n  group_by(subject) %>%\n  summarise(mean_score = mean(score, na.rm = TRUE), .groups = \"drop\")\n\n# Create a summary message for 2023\nsummary_message <- paste0(\"The average scores by subject for the year 2023 are as follows:\")\n\n# Save the 2023 results to a CSV\nwrite.csv(average_scores, \"average_scores_2023.csv\", row.names = FALSE)\n\n# Add a flag for scores above 90 in 2023\nhigh_scores <- student_data %>%\n  filter(year == 2023) %>%\n  mutate(high_score_flag = score > 90)\n\n# Save the high scores dataset for 2023\nwrite.csv(high_scores, \"high_scores_2023.csv\", row.names = FALSE)","id":8,"options":{"dpi":72,"editor-word-wrap":"true","context":"interactive","autorun":"false","results":"markup","warning":"true","fig-height":5,"output":"true","fig-cap":"","out-height":"","label":"unnamed-chunk-8","read-only":"false","editor-max-height":"","classes":"","fig-width":7,"message":"true","comment":"","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"0.5"}},{"code":"# Define the analysis year\nanalysis_year <- 2023  # Update this each year\n\n# Calculate average score by subject for the analysis year\naverage_scores <- student_data %>%\n  filter(year == analysis_year) %>%\n  group_by(subject) %>%\n  summarise(mean_score = mean(score, na.rm = TRUE), .groups = \"drop\")\n\n# Create a summary message for the analysis year\nsummary_message <- paste0(\"The average scores by subject for the year \", analysis_year, \" are as follows:\")\n\n# Save the results to a CSV\nwrite.csv(average_scores, paste0(\"average_scores_\", analysis_year, \".csv\"), row.names = FALSE)\n\n# Add a flag for scores above 90 in the analysis year\nhigh_scores <- student_data %>%\n  filter(year == analysis_year) %>%\n  mutate(high_score_flag = score > 90)\n\n# Save the high scores dataset\nwrite.csv(high_scores, paste0(\"high_scores_\", analysis_year, \".csv\"), row.names = FALSE)","id":9,"options":{"dpi":72,"editor-word-wrap":"true","context":"interactive","autorun":"false","results":"markup","warning":"true","fig-height":5,"output":"true","fig-cap":"","out-height":"","label":"unnamed-chunk-9","read-only":"false","editor-max-height":"","classes":"","fig-width":7,"message":"true","comment":"","out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":"0.5"}}];
+  globalThis.qwebrCellDetails = [{"code":"# Create a dummy dataset\nstudent_data <- data.frame(\n  student_id = 1:10,\n  age = c(16, 17, 19, 18, 15, 20, 17, 16, 21, 18),\n  subject = c(\"Math\", \"Science\", \"Math\", \"English\", \"Math\", \"Science\", \"Math\", \"English\", \"Math\", \"Science\"),\n  score = c(85, 90, 78, 88, 91, 84, 79, 92, 95, 89), \n  attendance = c(95, 85, 60, 98, 70, 50, 85, 99, 90, 80),\n  year = c(2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023)\n)","id":1,"options":{"output":"true","out-width":"700px","classes":"","editor-quick-suggestions":"false","out-height":"","warning":"true","editor-max-height":"","autorun":"true","comment":"","label":"unnamed-chunk-1","fig-height":5,"context":"setup","fig-cap":"","fig-width":7,"message":"true","results":"markup","editor-font-scale":"0.5","dpi":72,"editor-word-wrap":"true","read-only":"false"}},{"code":"# Original Code in the PR\n\nprocessed_data <- student_data %>%\n  mutate(passed_threshold = if_else(attendance >= 80, TRUE, FALSE)) %>%\n  filter(passed_threshold == TRUE)","id":2,"options":{"output":"true","out-width":"700px","classes":"","editor-quick-suggestions":"false","out-height":"","warning":"true","editor-max-height":"","autorun":"false","comment":"","label":"unnamed-chunk-2","fig-height":5,"context":"interactive","fig-cap":"","fig-width":7,"message":"true","results":"markup","editor-font-scale":"0.5","dpi":72,"editor-word-wrap":"true","read-only":"false"}},{"code":"# Define attendance threshold\n# 80 is the department's standard threshold for 'passing' attendance. This can be changed in future in line with policy changes.\nattendance_threshold <- 80  \n\n# Adding a flag for students who passed the threshold\nprocessed_data <- student_data %>%\n  mutate(passed_threshold = if_else(attendance >= attendance_threshold, TRUE, FALSE)) %>%\n  filter(passed_threshold == TRUE)  # Only include students who passed the attendance threshold","id":3,"options":{"output":"true","out-width":"700px","classes":"","editor-quick-suggestions":"false","out-height":"","warning":"true","editor-max-height":"","autorun":"false","comment":"","label":"unnamed-chunk-3","fig-height":5,"context":"interactive","fig-cap":"","fig-width":7,"message":"true","results":"markup","editor-font-scale":"0.5","dpi":72,"editor-word-wrap":"true","read-only":"false"}},{"code":"# Original Code in the PR\n\n# Filter out students over 18\ncleaned_data <- student_data %>%\n  filter(age > 18) %>% \n# Calculate average score by subject for students under 18\n  group_by(subject) %>%\n  summarise(mean_score = mean(score), .groups = \"drop\")","id":4,"options":{"output":"true","out-width":"700px","classes":"","editor-quick-suggestions":"false","out-height":"","warning":"true","editor-max-height":"","autorun":"false","comment":"","label":"unnamed-chunk-4","fig-height":5,"context":"interactive","fig-cap":"","fig-width":7,"message":"true","results":"markup","editor-font-scale":"0.5","dpi":72,"editor-word-wrap":"true","read-only":"false"}},{"code":"# Filter out students over 18\ncleaned_data <- student_data %>%\n  filter(age <= 18) %>%\n# Calculate average score by subject for students under 18\n  group_by(subject) %>%\n  summarise(mean_score = mean(score), .groups = \"drop\")","id":5,"options":{"output":"true","out-width":"700px","classes":"","editor-quick-suggestions":"false","out-height":"","warning":"true","editor-max-height":"","autorun":"false","comment":"","label":"unnamed-chunk-5","fig-height":5,"context":"interactive","fig-cap":"","fig-width":7,"message":"true","results":"markup","editor-font-scale":"0.5","dpi":72,"editor-word-wrap":"true","read-only":"false"}},{"code":"# Original Code in the PR\n\n# Calculate weighted average score by subject\nmath_scores <- student_data %>%\n  filter(subject == \"Math\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n\nscience_scores <- student_data %>%\n  filter(subject == \"Science\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n\nenglish_scores <- student_data %>%\n  filter(subject == \"English\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))","id":6,"options":{"output":"true","out-width":"700px","classes":"","editor-quick-suggestions":"false","out-height":"","warning":"true","editor-max-height":"","autorun":"false","comment":"","label":"unnamed-chunk-6","fig-height":5,"context":"interactive","fig-cap":"","fig-width":7,"message":"true","results":"markup","editor-font-scale":"0.5","dpi":72,"editor-word-wrap":"true","read-only":"false"}},{"code":"# Define a function to calculate the weighted average score\ncalculate_weighted_score <- function(data, subject_name) {\n  data %>%\n    filter(subject == subject_name) %>%\n    summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n}\n\n# Calculate weighted average score by subject\nmath_scores <- calculate_weighted_score(student_data, \"Math\")\nscience_scores <- calculate_weighted_score(student_data, \"Science\")\nenglish_scores <- calculate_weighted_score(student_data, \"English\")","id":7,"options":{"output":"true","out-width":"700px","classes":"","editor-quick-suggestions":"false","out-height":"","warning":"true","editor-max-height":"","autorun":"false","comment":"","label":"unnamed-chunk-7","fig-height":5,"context":"interactive","fig-cap":"","fig-width":7,"message":"true","results":"markup","editor-font-scale":"0.5","dpi":72,"editor-word-wrap":"true","read-only":"false"}},{"code":"# Original Code in the PR\n\n# Calculate average score by subject for 2023\naverage_scores <- student_data %>%\n  filter(year == 2023) %>%\n  group_by(subject) %>%\n  summarise(mean_score = mean(score, na.rm = TRUE), .groups = \"drop\")\n\n# Create a summary message for 2023\nsummary_message <- paste0(\"The average scores by subject for the year 2023 are as follows:\")\n\n# Save the 2023 results to a CSV\nwrite.csv(average_scores, \"average_scores_2023.csv\", row.names = FALSE)\n\n# Add a flag for scores above 90 in 2023\nhigh_scores <- student_data %>%\n  filter(year == 2023) %>%\n  mutate(high_score_flag = score > 90)\n\n# Save the high scores dataset for 2023\nwrite.csv(high_scores, \"high_scores_2023.csv\", row.names = FALSE)","id":8,"options":{"output":"true","out-width":"700px","classes":"","editor-quick-suggestions":"false","out-height":"","warning":"true","editor-max-height":"","autorun":"false","comment":"","label":"unnamed-chunk-8","fig-height":5,"context":"interactive","fig-cap":"","fig-width":7,"message":"true","results":"markup","editor-font-scale":"0.5","dpi":72,"editor-word-wrap":"true","read-only":"false"}},{"code":"# Define the analysis year\nanalysis_year <- 2023  # Update this each year\n\n# Calculate average score by subject for the analysis year\naverage_scores <- student_data %>%\n  filter(year == analysis_year) %>%\n  group_by(subject) %>%\n  summarise(mean_score = mean(score, na.rm = TRUE), .groups = \"drop\")\n\n# Create a summary message for the analysis year\nsummary_message <- paste0(\"The average scores by subject for the year \", analysis_year, \" are as follows:\")\n\n# Save the results to a CSV\nwrite.csv(average_scores, paste0(\"average_scores_\", analysis_year, \".csv\"), row.names = FALSE)\n\n# Add a flag for scores above 90 in the analysis year\nhigh_scores <- student_data %>%\n  filter(year == analysis_year) %>%\n  mutate(high_score_flag = score > 90)\n\n# Save the high scores dataset\nwrite.csv(high_scores, paste0(\"high_scores_\", analysis_year, \".csv\"), row.names = FALSE)","id":9,"options":{"output":"true","out-width":"700px","classes":"","editor-quick-suggestions":"false","out-height":"","warning":"true","editor-max-height":"","autorun":"false","comment":"","label":"unnamed-chunk-9","fig-height":5,"context":"interactive","fig-cap":"","fig-width":7,"message":"true","results":"markup","editor-font-scale":"0.5","dpi":72,"editor-word-wrap":"true","read-only":"false"}},{"code":"# Data cleaning and transformation\nstudent_data_cleaned <- student_data %>% \n  # Remove any rows with missing data\n  drop_na() %>% \n  # Filter to only include students 18 and under\n  filter(age <= 18) %>% \n  # pivot wider on subject \n  pivot_wider(names_from = subject, values_from = grade) %>%","id":10,"options":{"output":"true","out-width":"700px","classes":"","editor-quick-suggestions":"false","out-height":"","warning":"true","editor-max-height":"","autorun":"false","comment":"","label":"unnamed-chunk-10","fig-height":5,"context":"interactive","fig-cap":"","fig-width":7,"message":"true","results":"markup","editor-font-scale":"0.5","dpi":72,"editor-word-wrap":"true","read-only":"false"}}];
 
   </script>
   <script type="module">
@@ -3457,27 +3524,167 @@ Peer review of code from outside the team
 <h1>Common things to automate</h1>
 
 </section>
-<section id="data-ingestion" class="slide level2">
-<h2>Data ingestion</h2>
-<ul>
-<li><p><strong>SQL queries</strong>: Use R to run SQL queries and ingest data directly into R. This can be done using the <code>DBI</code> package.</p></li>
-<li><p><strong>API calls</strong>: Use R to make API calls and ingest data directly into R. This can be done using the <code>httr</code> package.</p></li>
-<li><p><strong>File downloads</strong>: Use R to download files from the internet and ingest data directly into R. This can be done using the <code>download.file</code> function.</p></li>
-</ul>
+<section id="data-ingestion-sql" class="slide level2">
+<h2>Data ingestion: SQL</h2>
+<p><strong>SQL queries</strong>: Use R to run SQL queries and ingest data directly into R. This can be done using the <code>DBI</code> package.</p>
+<p>Example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(DBI)</span>
+<span id="cb1-2"><a href=""></a><span class="co"># Step 1: Define SQL variables</span></span>
+<span id="cb1-3"><a href=""></a></span>
+<span id="cb1-4"><a href=""></a>sql_server <span class="ot">&lt;-</span> <span class="st">"MY_SQL_SERVER_NAME"</span> <span class="co"># replace with your SQL server name</span></span>
+<span id="cb1-5"><a href=""></a>database <span class="ot">&lt;-</span> <span class="st">"MY_DATABASE_NAME"</span> <span class="co"># replace with your database name</span></span>
+<span id="cb1-6"><a href=""></a></span>
+<span id="cb1-7"><a href=""></a></span>
+<span id="cb1-8"><a href=""></a><span class="co"># Step 2: Connect to SQL Server</span></span>
+<span id="cb1-9"><a href=""></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="fu">odbc</span>(),</span>
+<span id="cb1-10"><a href=""></a>                 <span class="at">Driver =</span> <span class="st">"ODBC Driver 17 for SQL Server"</span>,</span>
+<span id="cb1-11"><a href=""></a>                 <span class="at">Server =</span> sql_server,</span>
+<span id="cb1-12"><a href=""></a>                 <span class="at">Database =</span> database,</span>
+<span id="cb1-13"><a href=""></a>                 <span class="at">Trusted_Connection =</span> <span class="st">"yes"</span></span>
+<span id="cb1-14"><a href=""></a>)</span>
+<span id="cb1-15"><a href=""></a></span>
+<span id="cb1-16"><a href=""></a><span class="co"># Step 3: Pull data from SQL Server</span></span>
+<span id="cb1-17"><a href=""></a>my_table <span class="ot">&lt;-</span> <span class="fu">tbl</span>(con, DBI<span class="sc">::</span><span class="fu">Id</span>(<span class="at">schema =</span> <span class="st">"dbo"</span>, <span class="at">table =</span> <span class="st">"my_SQL_table"</span>)) <span class="sc">%&gt;%</span> <span class="co"># replace with your SQL table name</span></span>
+<span id="cb1-18"><a href=""></a>  <span class="co"># filter and tidy your data before using collect()</span></span>
+<span id="cb1-19"><a href=""></a>  <span class="fu">filter</span>(my_column <span class="sc">==</span> <span class="st">"my_value"</span>, my_column_2 <span class="sc">==</span> <span class="st">"my_value_2"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-20"><a href=""></a>  <span class="fu">select</span>(my_column_3, my_column_4) <span class="sc">%&gt;%</span></span>
+<span id="cb1-21"><a href=""></a>  <span class="fu">collect</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-ingestion-api" class="slide level2">
+<h2>Data ingestion: API</h2>
+<p><strong>API calls</strong>: Use R to make API calls and ingest data directly into R. This can be done using the <code>httr</code> package. Some APIs, like the EES API and Nomis, have their own R packages (<a href="https://dfe-analytical-services.github.io/eesyapi/"><code>eesyapi</code></a> and <a href="https://docs.evanodell.com/nomisr/"><code>nomisR</code></a>) designed to pull data into R from their APIs.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>EES Example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(eesyapi)</span>
+<span id="cb2-2"><a href=""></a><span class="co"># Query the publication list</span></span>
+<span id="cb2-3"><a href=""></a>eesyapi<span class="sc">::</span><span class="fu">get_publications</span>()</span>
+<span id="cb2-4"><a href=""></a></span>
+<span id="cb2-5"><a href=""></a><span class="co"># For example from the test list, we can pick out “Attendance API data”, </span></span>
+<span id="cb2-6"><a href=""></a><span class="co"># which has an ID of 25d0e40b-643a-4f73-3ae5-08dcf1c4d57f.</span></span>
+<span id="cb2-7"><a href=""></a><span class="co"># Find all the data sets within that publication</span></span>
+<span id="cb2-8"><a href=""></a>eesyapi<span class="sc">::</span><span class="fu">get_data_catalogue</span>(<span class="st">"25d0e40b-643a-4f73-3ae5-08dcf1c4d57f"</span>)</span>
+<span id="cb2-9"><a href=""></a></span>
+<span id="cb2-10"><a href=""></a><span class="co"># For example, we can query the dataset with </span></span>
+<span id="cb2-11"><a href=""></a><span class="co"># ID 57b69201-033a-2c77-a19f-abcce2b11341</span></span>
+<span id="cb2-12"><a href=""></a>eesyapi<span class="sc">::</span><span class="fu">query_dataset</span>(</span>
+<span id="cb2-13"><a href=""></a>  <span class="at">dataset_id =</span> <span class="st">"57b69201-033a-2c77-a19f-abcce2b11341"</span>,</span>
+<span id="cb2-14"><a href=""></a>  <span class="at">indicators =</span> <span class="st">"tj0Em"</span>,</span>
+<span id="cb2-15"><a href=""></a>  <span class="at">filter_items =</span> <span class="fu">list</span>(</span>
+<span id="cb2-16"><a href=""></a>    <span class="at">attendance_status =</span> <span class="fu">c</span>(<span class="st">"qGJjG"</span>),</span>
+<span id="cb2-17"><a href=""></a>    <span class="at">attendance_type =</span> <span class="fu">c</span>(<span class="st">"TuxPJ"</span>, <span class="st">"cZO31"</span>, <span class="st">"jgoAM"</span>),</span>
+<span id="cb2-18"><a href=""></a>    <span class="at">day_number =</span> <span class="st">"AOhGK"</span>,</span>
+<span id="cb2-19"><a href=""></a>    <span class="at">attendance_reason =</span> <span class="st">"9Ru4v"</span></span>
+<span id="cb2-20"><a href=""></a>  ),</span>
+<span id="cb2-21"><a href=""></a>  <span class="at">geographies =</span> <span class="fu">c</span>(<span class="st">"NAT|id|mRj9K"</span>, <span class="st">"LA|ID|arLPb"</span>),</span>
+<span id="cb2-22"><a href=""></a>  <span class="at">time_periods =</span> <span class="fu">c</span>(<span class="st">"2024|W24"</span>)</span>
+<span id="cb2-23"><a href=""></a>)</span>
+<span id="cb2-24"><a href=""></a><span class="co">#&gt;    code period geographic_level la_name   la_code la_oldCode nat_name</span></span>
+<span id="cb2-25"><a href=""></a><span class="co">#&gt; 1   W24   2024               LA    York E06000014        816  England</span></span>
+<span id="cb2-26"><a href=""></a><span class="co">#&gt; 2   W24   2024               LA    York E06000014        816  England</span></span>
+<span id="cb2-27"><a href=""></a><span class="co">#&gt; 3   W24   2024               LA    York E06000014        816  England</span></span>
+<span id="cb2-28"><a href=""></a><span class="co">#&gt; 4   W24   2024               LA    York E06000014        816  England</span></span>
+<span id="cb2-29"><a href=""></a><span class="co">#&gt; 5   W24   2024               LA    York E06000014        816  England</span></span>
+<span id="cb2-30"><a href=""></a><span class="co">#&gt; 6   W24   2024               LA    York E06000014        816  England</span></span>
+<span id="cb2-31"><a href=""></a><span class="co">#&gt; 7   W24   2024              NAT    &lt;NA&gt;      &lt;NA&gt;       &lt;NA&gt;  England</span></span>
+<span id="cb2-32"><a href=""></a><span class="co">#&gt; 8   W24   2024              NAT    &lt;NA&gt;      &lt;NA&gt;       &lt;NA&gt;  England</span></span>
+<span id="cb2-33"><a href=""></a><span class="co">#&gt; 9   W24   2024              NAT    &lt;NA&gt;      &lt;NA&gt;       &lt;NA&gt;  England</span></span>
+<span id="cb2-34"><a href=""></a><span class="co">#&gt; 10  W24   2024              NAT    &lt;NA&gt;      &lt;NA&gt;       &lt;NA&gt;  England</span></span>
+<span id="cb2-35"><a href=""></a><span class="co">#&gt; 11  W24   2024              NAT    &lt;NA&gt;      &lt;NA&gt;       &lt;NA&gt;  England</span></span>
+<span id="cb2-36"><a href=""></a><span class="co">#&gt; 12  W24   2024              NAT    &lt;NA&gt;      &lt;NA&gt;       &lt;NA&gt;  England</span></span>
+<span id="cb2-37"><a href=""></a><span class="co">#&gt; 13  W24   2024              NAT    &lt;NA&gt;      &lt;NA&gt;       &lt;NA&gt;  England</span></span>
+<span id="cb2-38"><a href=""></a><span class="co">#&gt; 14  W24   2024              NAT    &lt;NA&gt;      &lt;NA&gt;       &lt;NA&gt;  England</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<p>Nomis Example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">library</span>(nomisr)</span>
+<span id="cb3-2"><a href=""></a></span>
+<span id="cb3-3"><a href=""></a><span class="co"># Use nomis_search to search keywords in table names</span></span>
+<span id="cb3-4"><a href=""></a><span class="fu">nomis_search</span>(<span class="at">keyword =</span> <span class="st">'Population'</span>)</span>
+<span id="cb3-5"><a href=""></a></span>
+<span id="cb3-6"><a href=""></a><span class="co"># Use the table ID "NM_2006_1" and the nomis_get_date()</span></span>
+<span id="cb3-7"><a href=""></a><span class="co"># function to get the data and filter </span></span>
+<span id="cb3-8"><a href=""></a>nomis_data_county <span class="ot">&lt;-</span> <span class="fu">nomis_get_data</span>(</span>
+<span id="cb3-9"><a href=""></a>  <span class="at">id =</span> <span class="st">"NM_2006_1"</span>, <span class="co"># the ID for the dataset</span></span>
+<span id="cb3-10"><a href=""></a>  <span class="at">time =</span> <span class="st">"latest"</span>, </span>
+<span id="cb3-11"><a href=""></a>  <span class="at">gender =</span> <span class="dv">0</span>, <span class="co"># 0 is Total, 1 is male, 2 is female</span></span>
+<span id="cb3-12"><a href=""></a>  <span class="at">c_age =</span> <span class="fu">c</span>(<span class="dv">101</span>, <span class="dv">102</span>, <span class="dv">103</span>, <span class="dv">104</span>, <span class="dv">105</span>), <span class="co"># ages 0, 1, 2, 3, 4</span></span>
+<span id="cb3-13"><a href=""></a>  <span class="at">projected_year =</span> this_year<span class="dv">-1</span>, </span>
+<span id="cb3-14"><a href=""></a>  <span class="at">geography =</span> <span class="st">"TYPE433"</span>, <span class="co"># this is 'local authorities: county / unitary'</span></span>
+<span id="cb3-15"><a href=""></a>  <span class="at">measures =</span> <span class="dv">20100</span>, <span class="co"># value rather than percent which would be 20301</span></span>
+<span id="cb3-16"><a href=""></a>  <span class="at">select =</span> <span class="fu">c</span>(<span class="st">"projected_year"</span>, <span class="st">"geography_code"</span>, <span class="st">"geography_name"</span>, </span>
+<span id="cb3-17"><a href=""></a>             <span class="st">"gender_name"</span>, <span class="st">"c_age_sortorder"</span>, <span class="st">"obs_value"</span>)</span>
+<span id="cb3-18"><a href=""></a>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-19"><a href=""></a>  <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-20"><a href=""></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-21"><a href=""></a>  <span class="fu">rename</span>(<span class="at">age =</span> c_age_sortorder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
+<section id="data-ingestion-file-downloads" class="slide level2">
+<h2>Data ingestion: File downloads</h2>
+<p><strong>File downloads</strong>: Use R to download files from the internet and ingest data directly into R. This can be done using the <code>download.file</code> function.</p>
+<p>Example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Get ONS population data from here: https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales</span></span>
+<span id="cb4-2"><a href=""></a></span>
+<span id="cb4-3"><a href=""></a><span class="co"># Insert the URL to the latest dataset below by right clicking the xlxs button </span></span>
+<span id="cb4-4"><a href=""></a><span class="co"># and selecting 'copy link'. </span></span>
+<span id="cb4-5"><a href=""></a></span>
+<span id="cb4-6"><a href=""></a><span class="co"># REPLACE THIS EACH YEAR</span></span>
+<span id="cb4-7"><a href=""></a>pop_est_url <span class="ot">&lt;-</span> <span class="st">"https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales/mid2011tomid2022detailedtimeseries/myebtablesenglandwales20112022v2.xlsx"</span></span>
+<span id="cb4-8"><a href=""></a></span>
+<span id="cb4-9"><a href=""></a><span class="co"># ONS population estimates data 2011 - 2022  ------------------------------</span></span>
+<span id="cb4-10"><a href=""></a></span>
+<span id="cb4-11"><a href=""></a><span class="co"># Download the file to the repo - URL defined in variable_change.R</span></span>
+<span id="cb4-12"><a href=""></a><span class="fu">download.file</span>(pop_est_url, <span class="st">"ONS_input_data/ons_population_estimates.xlsx"</span>, <span class="at">mode =</span> <span class="st">"wb"</span>)</span>
+<span id="cb4-13"><a href=""></a></span>
+<span id="cb4-14"><a href=""></a>population_est_2011_2022 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"ONS_input_data/ons_population_estimates.xlsx"</span>, </span>
+<span id="cb4-15"><a href=""></a>                             <span class="at">sheet =</span> <span class="st">"MYEB1 (2021 Geography)"</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-16"><a href=""></a>  <span class="co"># Only keep English LAs (remove Wales)</span></span>
+<span id="cb4-17"><a href=""></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">'E'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-18"><a href=""></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">'population_'</span>), </span>
+<span id="cb4-19"><a href=""></a>               <span class="at">names_to =</span> <span class="st">'year'</span>, </span>
+<span id="cb4-20"><a href=""></a>               <span class="at">names_prefix =</span> <span class="st">'population_'</span>,</span>
+<span id="cb4-21"><a href=""></a>               <span class="at">values_to =</span> <span class="st">'estimate'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="data-cleaning-and-transformation" class="slide level2">
 <h2>Data cleaning and transformation</h2>
-<ul>
-<li><p><strong>Data cleaning</strong>: Use R to clean data. This can be done using the <code>dplyr</code> package.</p></li>
-<li><p><strong>Data transformation</strong>: Use R to transform data. This can be done using the <code>dplyr</code> package.</p></li>
-<li><p><strong>Data validation</strong>: Use R to validate data. This can be done using the <code>assertthat</code> package.</p></li>
-</ul>
+<p><strong>Data cleaning &amp; transformation</strong>: Use R to clean and transform data. This can be done using the <code>dplyr</code> package.</p>
+<p>Example:</p>
+<div id="qwebr-insertion-location-10"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
-<section id="output-tables" class="slide level2">
-<h2>Output tables</h2>
-<ul>
-<li><strong>Tables</strong>: Use R to produce output tables. This can be done using the <code>kableExtra</code> package.</li>
-</ul>
+<section id="changing-variables" class="slide level2">
+<h2>Changing variables</h2>
+<p><strong>Variable changes</strong>: Use R to define variables that are expected to change. This can be done using a <code>variable_change.R</code> script. You define these variables once here, and use the variable names in your code rather than their values.</p>
+<p>Example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># Define variables that are expected to change</span></span>
+<span id="cb5-2"><a href=""></a>this_year <span class="ot">&lt;-</span> <span class="dv">2024</span></span>
+<span id="cb5-3"><a href=""></a>last_year <span class="ot">&lt;-</span> this_year <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb5-4"><a href=""></a>comparison_year <span class="ot">&lt;-</span> this_year <span class="sc">-</span> <span class="dv">10</span></span>
+<span id="cb5-5"><a href=""></a></span>
+<span id="cb5-6"><a href=""></a>geog_level <span class="ot">&lt;-</span> <span class="st">"national"</span></span>
+<span id="cb5-7"><a href=""></a></span>
+<span id="cb5-8"><a href=""></a><span class="co"># Use the defined variables in code </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="output-files" class="slide level2">
+<h2>Output files</h2>
+<p><strong>Tables</strong>: Use R to produce output files. This can be done using the <code>write_csv</code> function from the <code>readr</code> package.</p>
+<p>Example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">library</span>(readr)</span>
+<span id="cb6-2"><a href=""></a></span>
+<span id="cb6-3"><a href=""></a><span class="co"># Save student_data_cleaned as CSV in appropriate folder: </span></span>
+<span id="cb6-4"><a href=""></a><span class="fu">write_csv</span>(student_data_cleaned, <span class="st">"output_data/student_data_cleaned.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="output-charts" class="slide level2">
 <h2>Output charts</h2>

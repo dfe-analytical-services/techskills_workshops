@@ -470,7 +470,7 @@ Here are some hints to get your started:
 ::: {.fragment .fade-up}
 - **Encourage Collaboration**: Foster teamwork and better practices.
 :::
----
+
 
 ## Structure Your Review
 
@@ -966,25 +966,212 @@ What would change and how would you prioritise?
 
 # Common things to automate
 
-## Data ingestion
+## Data ingestion: SQL
 
-- **SQL queries**: Use R to run SQL queries and ingest data directly into R. This can be done using the `DBI` package.
+**SQL queries**: Use R to run SQL queries and ingest data directly into R. This can be done using the `DBI` package.
 
-- **API calls**: Use R to make API calls and ingest data directly into R. This can be done using the `httr` package.
+Example: 
+```{r}
+#| echo: true
+#| eval: false
 
-- **File downloads**: Use R to download files from the internet and ingest data directly into R. This can be done using the `download.file` function.
+library(DBI)
+# Step 1: Define SQL variables
+
+sql_server <- "MY_SQL_SERVER_NAME" # replace with your SQL server name
+database <- "MY_DATABASE_NAME" # replace with your database name
+
+
+# Step 2: Connect to SQL Server
+con <- dbConnect(odbc(),
+                 Driver = "ODBC Driver 17 for SQL Server",
+                 Server = sql_server,
+                 Database = database,
+                 Trusted_Connection = "yes"
+)
+
+# Step 3: Pull data from SQL Server
+my_table <- tbl(con, DBI::Id(schema = "dbo", table = "my_SQL_table")) %>% # replace with your SQL table name
+  # filter and tidy your data before using collect()
+  filter(my_column == "my_value", my_column_2 == "my_value_2") %>% 
+  select(my_column_3, my_column_4) %>%
+  collect()
+
+```
+
+## Data ingestion: API
+
+**API calls**: Use R to make API calls and ingest data directly into R. This can be done using the `httr` package. Some APIs, like the EES API and Nomis, have their own R packages ([`eesyapi`](https://dfe-analytical-services.github.io/eesyapi/) and [`nomisR`](https://docs.evanodell.com/nomisr/)) designed to pull data into R from their APIs. 
+
+::: {.columns}
+::: {.column width="50%"}
+EES Example:
+```{r}
+#| echo: true
+#| eval: false
+
+library(eesyapi)
+# Query the publication list
+eesyapi::get_publications()
+
+# For example from the test list, we can pick out “Attendance API data”, 
+# which has an ID of 25d0e40b-643a-4f73-3ae5-08dcf1c4d57f.
+# Find all the data sets within that publication
+eesyapi::get_data_catalogue("25d0e40b-643a-4f73-3ae5-08dcf1c4d57f")
+
+# For example, we can query the dataset with 
+# ID 57b69201-033a-2c77-a19f-abcce2b11341
+eesyapi::query_dataset(
+  dataset_id = "57b69201-033a-2c77-a19f-abcce2b11341",
+  indicators = "tj0Em",
+  filter_items = list(
+    attendance_status = c("qGJjG"),
+    attendance_type = c("TuxPJ", "cZO31", "jgoAM"),
+    day_number = "AOhGK",
+    attendance_reason = "9Ru4v"
+  ),
+  geographies = c("NAT|id|mRj9K", "LA|ID|arLPb"),
+  time_periods = c("2024|W24")
+)
+#>    code period geographic_level la_name   la_code la_oldCode nat_name
+#> 1   W24   2024               LA    York E06000014        816  England
+#> 2   W24   2024               LA    York E06000014        816  England
+#> 3   W24   2024               LA    York E06000014        816  England
+#> 4   W24   2024               LA    York E06000014        816  England
+#> 5   W24   2024               LA    York E06000014        816  England
+#> 6   W24   2024               LA    York E06000014        816  England
+#> 7   W24   2024              NAT    <NA>      <NA>       <NA>  England
+#> 8   W24   2024              NAT    <NA>      <NA>       <NA>  England
+#> 9   W24   2024              NAT    <NA>      <NA>       <NA>  England
+#> 10  W24   2024              NAT    <NA>      <NA>       <NA>  England
+#> 11  W24   2024              NAT    <NA>      <NA>       <NA>  England
+#> 12  W24   2024              NAT    <NA>      <NA>       <NA>  England
+#> 13  W24   2024              NAT    <NA>      <NA>       <NA>  England
+#> 14  W24   2024              NAT    <NA>      <NA>       <NA>  England
+
+
+```
+:::
+
+::: {.column width="50%"}
+Nomis Example:
+```{r}
+#| echo: true
+#| eval: false
+
+library(nomisr)
+
+# Use nomis_search to search keywords in table names
+nomis_search(keyword = 'Population')
+
+# Use the table ID "NM_2006_1" and the nomis_get_date()
+# function to get the data and filter 
+nomis_data_county <- nomis_get_data(
+  id = "NM_2006_1", # the ID for the dataset
+  time = "latest", 
+  gender = 0, # 0 is Total, 1 is male, 2 is female
+  c_age = c(101, 102, 103, 104, 105), # ages 0, 1, 2, 3, 4
+  projected_year = this_year-1, 
+  geography = "TYPE433", # this is 'local authorities: county / unitary'
+  measures = 20100, # value rather than percent which would be 20301
+  select = c("projected_year", "geography_code", "geography_name", 
+             "gender_name", "c_age_sortorder", "obs_value")
+) %>% 
+  clean_names() %>% 
+  distinct() %>% 
+  rename(age = c_age_sortorder)
+
+```
+:::
+::: 
+
+## Data ingestion: File downloads
+
+**File downloads**: Use R to download files from the internet and ingest data directly into R. This can be done using the `download.file` function.
+ 
+Example: 
+```{r}
+#| echo: true
+#| eval: false
+
+# Get ONS population data from here: https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales
+
+# Insert the URL to the latest dataset below by right clicking the xlxs button 
+# and selecting 'copy link'. 
+
+# REPLACE THIS EACH YEAR
+pop_est_url <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales/mid2011tomid2022detailedtimeseries/myebtablesenglandwales20112022v2.xlsx"
+
+# ONS population estimates data 2011 - 2022  ------------------------------
+
+# Download the file to the repo - URL defined in variable_change.R
+download.file(pop_est_url, "ONS_input_data/ons_population_estimates.xlsx", mode = "wb")
+
+population_est_2011_2022 <- read_excel("ONS_input_data/ons_population_estimates.xlsx", 
+                             sheet = "MYEB1 (2021 Geography)", skip = 1) %>% 
+  # Only keep English LAs (remove Wales)
+  filter(country == 'E') %>% 
+  pivot_longer(cols = starts_with('population_'), 
+               names_to = 'year', 
+               names_prefix = 'population_',
+               values_to = 'estimate')
+
+```
 
 ## Data cleaning and transformation
 
-- **Data cleaning**: Use R to clean data. This can be done using the `dplyr` package.
+**Data cleaning & transformation**: Use R to clean and transform data. This can be done using the `dplyr` package.
 
-- **Data transformation**: Use R to transform data. This can be done using the `dplyr` package.
+Example:
+```{webr-r}
 
-- **Data validation**: Use R to validate data. This can be done using the `assertthat` package.
+# Data cleaning and transformation
+student_data_cleaned <- student_data %>% 
+  # Remove any rows with missing data
+  drop_na() %>% 
+  # Filter to only include students 18 and under
+  filter(age <= 18) %>% 
+  # pivot wider on subject 
+  pivot_wider(names_from = subject, values_from = grade) %>%
 
-## Output tables
+```
 
-- **Tables**: Use R to produce output tables. This can be done using the `kableExtra` package.
+## Changing variables
+
+**Variable changes**: Use R to define variables that are expected to change. This can be done using a `variable_change.R` script. You define these variables once here, and use the variable names in your code rather than their values. 
+
+Example:
+```{r}
+#| echo: true
+#| eval: false
+
+# Define variables that are expected to change
+this_year <- 2024
+last_year <- this_year - 1
+comparison_year <- this_year - 10
+
+geog_level <- "national"
+
+# Use the defined variables in code 
+
+```
+
+## Output files
+
+**Tables**: Use R to produce output files. This can be done using the `write_csv` function from the `readr` package. 
+
+Example: 
+```{r}
+#| echo: true
+#| eval: false
+
+library(readr)
+
+# Save student_data_cleaned as CSV in appropriate folder: 
+write_csv(student_data_cleaned, "output_data/student_data_cleaned.csv")
+
+
+```
 
 ## Output charts
 
