@@ -1154,6 +1154,12 @@ geog_level <- "national"
 
 # Use the defined variables in code 
 
+output_table <- data %>% 
+  filter(year %in% c(this_year, last_year, comparison_year), 
+         geography == geog_level) %>%
+  group_by(year) %>%
+  summarise(mean_value = mean(value))
+
 ```
 
 ## Output files
@@ -1173,10 +1179,16 @@ write_csv(student_data_cleaned, "output_data/student_data_cleaned.csv")
 
 ```
 
-## Output charts
+## Output charts and commentry 
 
 - **Charts**: Use R to produce output charts. This can be done using the `ggplot2` package.
 
-## Commentary/report
+- **Commentary**: Use R to produce a commentary/report. This can be done using `rmarkdown` or `quarto`. We have an example QA report that includes template code snippets for our minimum expectations in the [Automated data QA  repo](https://github.com/dfe-analytical-services/automated-data-qa), which produces the following html output examples:
 
-- **Commentary**: Use R to produce a commentary/report. This can be done using the `rmarkdown` package.
+::: {.columns}
+::: {.column width="50%"}
+![](images/QA_report_1.png)
+:::
+::: {.column width="50%"}
+![](images/QA_report_2.png)
+:::
