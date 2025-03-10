@@ -690,7 +690,7 @@
   };
 
   // Store cell data
-  globalThis.qwebrCellDetails = [{"id":1,"code":"# Create a dummy dataset\nstudent_data <- data.frame(\n  student_id = 1:10,\n  age = c(16, 17, 19, 18, 15, 20, 17, 16, 21, 18),\n  subject = c(\"Math\", \"Science\", \"Math\", \"English\", \"Math\", \"Science\", \"Math\", \"English\", \"Math\", \"Science\"),\n  score = c(85, 90, 78, 88, 91, 84, 79, 92, 95, 89), \n  attendance = c(95, 85, 60, 98, 70, 50, 85, 99, 90, 80),\n  year = c(2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023)\n)","options":{"fig-cap":"","context":"setup","out-width":"700px","editor-quick-suggestions":"false","editor-word-wrap":"true","out-height":"","autorun":"true","editor-max-height":"","results":"markup","label":"unnamed-chunk-1","warning":"true","message":"true","fig-width":7,"read-only":"false","output":"true","classes":"","editor-font-scale":"0.5","comment":"","dpi":72,"fig-height":5}},{"id":2,"code":"# Original Code in the PR\n\nprocessed_data <- student_data %>%\n  mutate(passed_threshold = if_else(attendance >= 80, TRUE, FALSE)) %>%\n  filter(passed_threshold == TRUE)","options":{"fig-cap":"","context":"interactive","out-width":"700px","editor-quick-suggestions":"false","editor-word-wrap":"true","out-height":"","autorun":"false","editor-max-height":"","results":"markup","label":"unnamed-chunk-2","warning":"true","message":"true","fig-width":7,"read-only":"false","output":"true","classes":"","editor-font-scale":"0.5","comment":"","dpi":72,"fig-height":5}},{"id":3,"code":"# Define attendance threshold\n# 80 is the department's standard threshold for 'passing' attendance. This can be changed in future in line with policy changes.\nattendance_threshold <- 80  \n\n# Adding a flag for students who passed the threshold\nprocessed_data <- student_data %>%\n  mutate(passed_threshold = if_else(attendance >= attendance_threshold, TRUE, FALSE)) %>%\n  filter(passed_threshold == TRUE)  # Only include students who passed the attendance threshold","options":{"fig-cap":"","context":"interactive","out-width":"700px","editor-quick-suggestions":"false","editor-word-wrap":"true","out-height":"","autorun":"false","editor-max-height":"","results":"markup","label":"unnamed-chunk-3","warning":"true","message":"true","fig-width":7,"read-only":"false","output":"true","classes":"","editor-font-scale":"0.5","comment":"","dpi":72,"fig-height":5}},{"id":4,"code":"# Original Code in the PR\n\n# Filter out students over 18\ncleaned_data <- student_data %>%\n  filter(age > 18) %>% \n# Calculate average score by subject for students under 18\n  group_by(subject) %>%\n  summarise(mean_score = mean(score), .groups = \"drop\")","options":{"fig-cap":"","context":"interactive","out-width":"700px","editor-quick-suggestions":"false","editor-word-wrap":"true","out-height":"","autorun":"false","editor-max-height":"","results":"markup","label":"unnamed-chunk-4","warning":"true","message":"true","fig-width":7,"read-only":"false","output":"true","classes":"","editor-font-scale":"0.5","comment":"","dpi":72,"fig-height":5}},{"id":5,"code":"# Filter out students over 18\ncleaned_data <- student_data %>%\n  filter(age <= 18) %>%\n# Calculate average score by subject for students under 18\n  group_by(subject) %>%\n  summarise(mean_score = mean(score), .groups = \"drop\")","options":{"fig-cap":"","context":"interactive","out-width":"700px","editor-quick-suggestions":"false","editor-word-wrap":"true","out-height":"","autorun":"false","editor-max-height":"","results":"markup","label":"unnamed-chunk-5","warning":"true","message":"true","fig-width":7,"read-only":"false","output":"true","classes":"","editor-font-scale":"0.5","comment":"","dpi":72,"fig-height":5}},{"id":6,"code":"# Original Code in the PR\n\n# Calculate weighted average score by subject\nmath_scores <- student_data %>%\n  filter(subject == \"Math\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n\nscience_scores <- student_data %>%\n  filter(subject == \"Science\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n\nenglish_scores <- student_data %>%\n  filter(subject == \"English\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))","options":{"fig-cap":"","context":"interactive","out-width":"700px","editor-quick-suggestions":"false","editor-word-wrap":"true","out-height":"","autorun":"false","editor-max-height":"","results":"markup","label":"unnamed-chunk-6","warning":"true","message":"true","fig-width":7,"read-only":"false","output":"true","classes":"","editor-font-scale":"0.5","comment":"","dpi":72,"fig-height":5}},{"id":7,"code":"# Define a function to calculate the weighted average score\ncalculate_weighted_score <- function(data, subject_name) {\n  data %>%\n    filter(subject == subject_name) %>%\n    summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n}\n\n# Calculate weighted average score by subject\nmath_scores <- calculate_weighted_score(student_data, \"Math\")\nscience_scores <- calculate_weighted_score(student_data, \"Science\")\nenglish_scores <- calculate_weighted_score(student_data, \"English\")","options":{"fig-cap":"","context":"interactive","out-width":"700px","editor-quick-suggestions":"false","editor-word-wrap":"true","out-height":"","autorun":"false","editor-max-height":"","results":"markup","label":"unnamed-chunk-7","warning":"true","message":"true","fig-width":7,"read-only":"false","output":"true","classes":"","editor-font-scale":"0.5","comment":"","dpi":72,"fig-height":5}},{"id":8,"code":"# Original Code in the PR\n\n# Calculate average score by subject for 2023\naverage_scores <- student_data %>%\n  filter(year == 2023) %>%\n  group_by(subject) %>%\n  summarise(mean_score = mean(score, na.rm = TRUE), .groups = \"drop\")\n\n# Create a summary message for 2023\nsummary_message <- paste0(\"The average scores by subject for the year 2023 are as follows:\")\n\n# Save the 2023 results to a CSV\nwrite.csv(average_scores, \"average_scores_2023.csv\", row.names = FALSE)\n\n# Add a flag for scores above 90 in 2023\nhigh_scores <- student_data %>%\n  filter(year == 2023) %>%\n  mutate(high_score_flag = score > 90)\n\n# Save the high scores dataset for 2023\nwrite.csv(high_scores, \"high_scores_2023.csv\", row.names = FALSE)","options":{"fig-cap":"","context":"interactive","out-width":"700px","editor-quick-suggestions":"false","editor-word-wrap":"true","out-height":"","autorun":"false","editor-max-height":"","results":"markup","label":"unnamed-chunk-8","warning":"true","message":"true","fig-width":7,"read-only":"false","output":"true","classes":"","editor-font-scale":"0.5","comment":"","dpi":72,"fig-height":5}},{"id":9,"code":"# Define the analysis year\nanalysis_year <- 2023  # Update this each year\n\n# Calculate average score by subject for the analysis year\naverage_scores <- student_data %>%\n  filter(year == analysis_year) %>%\n  group_by(subject) %>%\n  summarise(mean_score = mean(score, na.rm = TRUE), .groups = \"drop\")\n\n# Create a summary message for the analysis year\nsummary_message <- paste0(\"The average scores by subject for the year \", analysis_year, \" are as follows:\")\n\n# Save the results to a CSV\nwrite.csv(average_scores, paste0(\"average_scores_\", analysis_year, \".csv\"), row.names = FALSE)\n\n# Add a flag for scores above 90 in the analysis year\nhigh_scores <- student_data %>%\n  filter(year == analysis_year) %>%\n  mutate(high_score_flag = score > 90)\n\n# Save the high scores dataset\nwrite.csv(high_scores, paste0(\"high_scores_\", analysis_year, \".csv\"), row.names = FALSE)","options":{"fig-cap":"","context":"interactive","out-width":"700px","editor-quick-suggestions":"false","editor-word-wrap":"true","out-height":"","autorun":"false","editor-max-height":"","results":"markup","label":"unnamed-chunk-9","warning":"true","message":"true","fig-width":7,"read-only":"false","output":"true","classes":"","editor-font-scale":"0.5","comment":"","dpi":72,"fig-height":5}},{"id":10,"code":"# Data cleaning and transformation\nstudent_data_cleaned <- student_data %>% \n  # Remove any rows with missing data\n  drop_na() %>% \n  # Filter to only include students 18 and under\n  filter(age <= 18) %>% \n  # pivot wider on subject \n  pivot_wider(names_from = subject, values_from = grade) %>%","options":{"fig-cap":"","context":"interactive","out-width":"700px","editor-quick-suggestions":"false","editor-word-wrap":"true","out-height":"","autorun":"false","editor-max-height":"","results":"markup","label":"unnamed-chunk-10","warning":"true","message":"true","fig-width":7,"read-only":"false","output":"true","classes":"","editor-font-scale":"0.5","comment":"","dpi":72,"fig-height":5}}];
+  globalThis.qwebrCellDetails = [{"options":{"fig-width":7,"output":"true","warning":"true","classes":"","editor-max-height":"","results":"markup","context":"setup","comment":"","fig-cap":"","out-width":"700px","message":"true","editor-font-scale":"0.5","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","dpi":72,"autorun":"true","label":"unnamed-chunk-1","editor-word-wrap":"true","out-height":""},"id":1,"code":"# Create a dummy dataset\nstudent_data <- data.frame(\n  student_id = 1:10,\n  age = c(16, 17, 19, 18, 15, 20, 17, 16, 21, 18),\n  subject = c(\"Math\", \"Science\", \"Math\", \"English\", \"Math\", \"Science\", \"Math\", \"English\", \"Math\", \"Science\"),\n  score = c(85, 90, 78, 88, 91, 84, 79, 92, 95, 89), \n  attendance = c(95, 85, 60, 98, 70, 50, 85, 99, 90, 80),\n  year = c(2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023)\n)"},{"options":{"fig-width":7,"output":"true","warning":"true","classes":"","editor-max-height":"","results":"markup","context":"interactive","comment":"","fig-cap":"","out-width":"700px","message":"true","editor-font-scale":"0.5","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","dpi":72,"autorun":"false","label":"unnamed-chunk-2","editor-word-wrap":"true","out-height":""},"id":2,"code":"# Original Code in the PR\n\nprocessed_data <- student_data %>%\n  mutate(passed_threshold = if_else(attendance >= 80, TRUE, FALSE)) %>%\n  filter(passed_threshold == TRUE)"},{"options":{"fig-width":7,"output":"true","warning":"true","classes":"","editor-max-height":"","results":"markup","context":"interactive","comment":"","fig-cap":"","out-width":"700px","message":"true","editor-font-scale":"0.5","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","dpi":72,"autorun":"false","label":"unnamed-chunk-3","editor-word-wrap":"true","out-height":""},"id":3,"code":"# Define attendance threshold\n# 80 is the department's standard threshold for 'passing' attendance. This can be changed in future in line with policy changes.\nattendance_threshold <- 80  \n\n# Adding a flag for students who passed the threshold\nprocessed_data <- student_data %>%\n  mutate(passed_threshold = if_else(attendance >= attendance_threshold, TRUE, FALSE)) %>%\n  filter(passed_threshold == TRUE)  # Only include students who passed the attendance threshold"},{"options":{"fig-width":7,"output":"true","warning":"true","classes":"","editor-max-height":"","results":"markup","context":"interactive","comment":"","fig-cap":"","out-width":"700px","message":"true","editor-font-scale":"0.5","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","dpi":72,"autorun":"false","label":"unnamed-chunk-4","editor-word-wrap":"true","out-height":""},"id":4,"code":"# Original Code in the PR\n\n# Filter out students over 18\ncleaned_data <- student_data %>%\n  filter(age > 18) %>% \n# Calculate average score by subject for students under 18\n  group_by(subject) %>%\n  summarise(mean_score = mean(score), .groups = \"drop\")"},{"options":{"fig-width":7,"output":"true","warning":"true","classes":"","editor-max-height":"","results":"markup","context":"interactive","comment":"","fig-cap":"","out-width":"700px","message":"true","editor-font-scale":"0.5","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","dpi":72,"autorun":"false","label":"unnamed-chunk-5","editor-word-wrap":"true","out-height":""},"id":5,"code":"# Filter out students over 18\ncleaned_data <- student_data %>%\n  filter(age <= 18) %>%\n# Calculate average score by subject for students under 18\n  group_by(subject) %>%\n  summarise(mean_score = mean(score), .groups = \"drop\")"},{"options":{"fig-width":7,"output":"true","warning":"true","classes":"","editor-max-height":"","results":"markup","context":"interactive","comment":"","fig-cap":"","out-width":"700px","message":"true","editor-font-scale":"0.5","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","dpi":72,"autorun":"false","label":"unnamed-chunk-6","editor-word-wrap":"true","out-height":""},"id":6,"code":"# Original Code in the PR\n\n# Calculate weighted average score by subject\nmath_scores <- student_data %>%\n  filter(subject == \"Math\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n\nscience_scores <- student_data %>%\n  filter(subject == \"Science\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n\nenglish_scores <- student_data %>%\n  filter(subject == \"English\") %>%\n  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))"},{"options":{"fig-width":7,"output":"true","warning":"true","classes":"","editor-max-height":"","results":"markup","context":"interactive","comment":"","fig-cap":"","out-width":"700px","message":"true","editor-font-scale":"0.5","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","dpi":72,"autorun":"false","label":"unnamed-chunk-7","editor-word-wrap":"true","out-height":""},"id":7,"code":"# Define a function to calculate the weighted average score\ncalculate_weighted_score <- function(data, subject_name) {\n  data %>%\n    filter(subject == subject_name) %>%\n    summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))\n}\n\n# Calculate weighted average score by subject\nmath_scores <- calculate_weighted_score(student_data, \"Math\")\nscience_scores <- calculate_weighted_score(student_data, \"Science\")\nenglish_scores <- calculate_weighted_score(student_data, \"English\")"},{"options":{"fig-width":7,"output":"true","warning":"true","classes":"","editor-max-height":"","results":"markup","context":"interactive","comment":"","fig-cap":"","out-width":"700px","message":"true","editor-font-scale":"0.5","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","dpi":72,"autorun":"false","label":"unnamed-chunk-8","editor-word-wrap":"true","out-height":""},"id":8,"code":"# Original Code in the PR\n\n# Calculate average score by subject for 2023\naverage_scores <- student_data %>%\n  filter(year == 2023) %>%\n  group_by(subject) %>%\n  summarise(mean_score = mean(score, na.rm = TRUE), .groups = \"drop\")\n\n# Create a summary message for 2023\nsummary_message <- paste0(\"The average scores by subject for the year 2023 are as follows:\")\n\n# Save the 2023 results to a CSV\nwrite.csv(average_scores, \"average_scores_2023.csv\", row.names = FALSE)\n\n# Add a flag for scores above 90 in 2023\nhigh_scores <- student_data %>%\n  filter(year == 2023) %>%\n  mutate(high_score_flag = score > 90)\n\n# Save the high scores dataset for 2023\nwrite.csv(high_scores, \"high_scores_2023.csv\", row.names = FALSE)"},{"options":{"fig-width":7,"output":"true","warning":"true","classes":"","editor-max-height":"","results":"markup","context":"interactive","comment":"","fig-cap":"","out-width":"700px","message":"true","editor-font-scale":"0.5","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","dpi":72,"autorun":"false","label":"unnamed-chunk-9","editor-word-wrap":"true","out-height":""},"id":9,"code":"# Define the analysis year\nanalysis_year <- 2023  # Update this each year\n\n# Calculate average score by subject for the analysis year\naverage_scores <- student_data %>%\n  filter(year == analysis_year) %>%\n  group_by(subject) %>%\n  summarise(mean_score = mean(score, na.rm = TRUE), .groups = \"drop\")\n\n# Create a summary message for the analysis year\nsummary_message <- paste0(\"The average scores by subject for the year \", analysis_year, \" are as follows:\")\n\n# Save the results to a CSV\nwrite.csv(average_scores, paste0(\"average_scores_\", analysis_year, \".csv\"), row.names = FALSE)\n\n# Add a flag for scores above 90 in the analysis year\nhigh_scores <- student_data %>%\n  filter(year == analysis_year) %>%\n  mutate(high_score_flag = score > 90)\n\n# Save the high scores dataset\nwrite.csv(high_scores, paste0(\"high_scores_\", analysis_year, \".csv\"), row.names = FALSE)"},{"options":{"fig-width":7,"output":"true","warning":"true","classes":"","editor-max-height":"","results":"markup","context":"interactive","comment":"","fig-cap":"","out-width":"700px","message":"true","editor-font-scale":"0.5","fig-height":5,"editor-quick-suggestions":"false","read-only":"false","dpi":72,"autorun":"false","label":"unnamed-chunk-10","editor-word-wrap":"true","out-height":""},"id":10,"code":"# Data cleaning and transformation\nstudent_data_cleaned <- student_data %>% \n  # Remove any rows with missing data\n  drop_na() %>% \n  # Filter to only include students 18 and under\n  filter(age <= 18) %>% \n  # pivot wider on subject \n  pivot_wider(names_from = subject, values_from = grade) %>%"}];
 
   </script>
   <script type="module">
@@ -2257,23 +2257,28 @@ Statistics Development Team
 </div>
 <div class="fragment fade-up">
 <ul>
-<li>Automate all of the parts that we can,</li>
+<li>Automate all of the parts that we can</li>
 </ul>
 </div>
 <div class="fragment fade-up">
 <ul>
-<li>Increase efficiency and accuracy,</li>
+<li>Increase efficiency and accuracy</li>
 </ul>
 </div>
 <div class="fragment fade-up">
 <ul>
-<li>Create a clear audit trail to allow analysis to be easily reused if needed.</li>
+<li>Create a clear audit trail to allow analysis to be easily reused if needed</li>
 </ul>
 </div>
 </section>
 
-<section id="why-bother---case-studies" class="title-slide slide level1 center">
-<h1>Why bother? - case studies</h1>
+<section id="what-does-rap-look-like" class="title-slide slide level1 center">
+<h1>What does RAP look like?</h1>
+
+</section>
+
+<section id="rap-in-real-life---case-studies" class="title-slide slide level1 center">
+<h1>RAP in “real life” - case studies</h1>
 <div class="fragment fade-up">
 <p>Implementing RAP best practices will free up time for us to focus on the parts of our work where human input adds true value.</p>
 </div>
@@ -2281,7 +2286,7 @@ Statistics Development Team
 <div class="column" style="width:33%;">
 <div class="fragment fade-up">
 <blockquote>
-<p><em>“The previous process with the two excel workbooks would take a couple of months to run, whereas now it can be run in a matter of hours.”</em><br>
+<p><em>“The previous process with the two Excel workbooks would take a couple of months to run, whereas now it can be run in a matter of hours.”</em><br>
 <strong>- Matt Jago, Ops &amp; infrastructure</strong></p>
 </blockquote>
 </div>
@@ -2302,14 +2307,10 @@ Statistics Development Team
 </div></div>
 </section>
 
-<section id="why-bother---pipeline-beforeafter" class="title-slide slide level1 center">
-<h1>Why bother - pipeline before/after</h1>
-<div class="column" style="width:70%;">
-<p><img data-src="images/pipeline_before.png"></p>
-</div><div class="column text-center" style="width:70%;">
-<p><span style="font-size: 48px; display: block; text-align: center;">↓</span> <!-- This centers the unicode down arrow --></p>
-</div><div class="column" style="width:70%;">
-<p><img data-src="images/pipeline_after.jpg"></p>
+<section id="improving-pipeline-efficiency" class="title-slide slide level1 center">
+<h1>Improving pipeline efficiency</h1>
+<div class="column" style="width:90%;">
+<p><img data-src="images/RAP-flowchart-white.png"></p>
 </div></section>
 
 <section id="what-it-means-for-managers" class="title-slide slide level1 center">
@@ -2326,210 +2327,210 @@ Statistics Development Team
 <section id="what-we-expect-from-managers" class="title-slide slide level1 center">
 <h1>What we expect from managers</h1>
 <p>We therefore have a baseline expectation for official statistics and we expect managers to mandate this, while ensuring that their teams and themselves can develop the required skills:</p>
-<div class="mxgraph" style="max-width: 100%; border: 1px solid transparent; position: relative; touch-action: none; overflow: hidden; margin-top: 26px; width: 999px; height: 494px;" data-mxgraph="{&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;<mxfile host=\&quot;app.diagrams.net\&quot; agent=\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0\&quot; version=\&quot;25.0.3\&quot;>\n  <diagram id=\&quot;_ltWYIdbVKAG_Xyvna0Y\&quot; name=\&quot;Page-1\&quot;>\n    <mxGraphModel dx=\&quot;1786\&quot; dy=\&quot;749\&quot; grid=\&quot;0\&quot; gridSize=\&quot;10\&quot; guides=\&quot;1\&quot; tooltips=\&quot;1\&quot; connect=\&quot;1\&quot; arrows=\&quot;1\&quot; fold=\&quot;1\&quot; page=\&quot;0\&quot; pageScale=\&quot;1\&quot; pageWidth=\&quot;827\&quot; pageHeight=\&quot;1169\&quot; math=\&quot;0\&quot; shadow=\&quot;0\&quot;>\n      <root>\n        <mxCell id=\&quot;0\&quot; />\n        <mxCell id=\&quot;1\&quot; parent=\&quot;0\&quot; />\n        <UserObject label=\&quot;Sensible folder and file structure\&quot; link=\&quot;#sensible-folder-and-file-structure\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-5\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;69\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Use appropriate tools\&quot; link=\&quot;#appropriate-tools\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-6\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;fillColor=#4472C4;spacingLeft=7;spacingRight=7;rounded=0;shadow=0;sketch=0;backgroundOutline=0;gradientDirection=north;strokeColor=none;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;-55\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Processing is done with code\&quot; link=\&quot;#processing-is-done-with-code\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-7\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;7\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Basic automated QA\&quot; link=\&quot;#basic-automated-qa\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-8\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;132\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;All source data stored in a database\&quot; link=\&quot;#all-source-data-stored-in-a-database\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-9\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;-118\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Files meet data standards\&quot; link=\&quot;../creating-statistics/ud.html#how-to-check-against-these-standards\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-10\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;-55\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Documentation\&quot; link=\&quot;#documentation\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-11\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;69\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Version controlled final code scripts\&quot; link=\&quot;#version-controlled-final-code-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-12\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;320\&quot; y=\&quot;327\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Recyclable code for future use\&quot; link=\&quot;#recyclable-code-for-future-use\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-13\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;195\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Dataset production scripts\&quot; link=\&quot;#dataset-production-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-14\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;257\&quot; y=\&quot;421\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Publication specific automated QA\&quot; link=\&quot;#publication-specific-automated-qa\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-15\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;382\&quot; y=\&quot;421\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Automated summaries\&quot; link=\&quot;#automated-summaries\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-17\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;194\&quot; y=\&quot;515\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Peer review of code within team\&quot; link=\&quot;#review-of-code-within-team\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-18\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;319\&quot; y=\&quot;515\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Collaboratively develop code using git\&quot; link=\&quot;#collaboratively-develop-code-using-git\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-19\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;674\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;&amp;#39;Clean&amp;#39; final code\&quot; link=\&quot;#clean-final-code\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-20\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;550\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;&amp;lt;div style=&amp;quot;&amp;quot;&amp;gt;&amp;lt;font style=&amp;quot;font-size: 14px;&amp;quot;&amp;gt;Whole publication production scripts&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;\&quot; link=\&quot;#whole-publication-production-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-21\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;align=center;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;612\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Use open source repositories\&quot; link=\&quot;#use-open-source-repositories\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-22\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;737\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Publication specific automated summaries\&quot; link=\&quot;#publication-specific-automated-summaries\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-23\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;550\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Peer review of code from outside the team\&quot; link=\&quot;#review-of-code-from-outside-the-team\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-24\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;674\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-25\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#4472c4&amp;quot;&amp;gt;Good practice&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;-38\&quot; y=\&quot;652\&quot; width=\&quot;210\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-26\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#70ad47&amp;quot;&amp;gt;Great practice&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;206\&quot; y=\&quot;652\&quot; width=\&quot;220\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-27\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#ed7d31&amp;quot;&amp;gt;Best practice&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;572\&quot; y=\&quot;652\&quot; width=\&quot;200\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-1\&quot; value=\&quot;\&quot; style=\&quot;shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;fontSize=13;rotation=90;strokeWidth=2;strokeColor=#4472c4;gradientColor=none;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;168.5\&quot; y=\&quot;26\&quot; width=\&quot;47\&quot; height=\&quot;538\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-2\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#4472c4&amp;quot;&amp;gt;Baseline expectation&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;35.5\&quot; y=\&quot;216\&quot; width=\&quot;313\&quot; height=\&quot;50\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-4\&quot; value=\&quot;\&quot; style=\&quot;shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;fontSize=13;rotation=90;strokeWidth=2;strokeColor=#ed7d31;gradientColor=none;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;659\&quot; y=\&quot;145\&quot; width=\&quot;47\&quot; height=\&quot;292\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-5\&quot; value=\&quot;&amp;lt;font color=&amp;quot;#ed7d31&amp;quot; style=&amp;quot;font-size: 32px&amp;quot;&amp;gt;Ambition&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;612\&quot; y=\&quot;216\&quot; width=\&quot;143\&quot; height=\&quot;50\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n      </root>\n    </mxGraphModel>\n  </diagram>\n</mxfile>\n&quot;}">
+<div class="mxgraph" style="max-width: 100%; border: 1px solid transparent; position: relative; touch-action: none; overflow: hidden; margin-top: 26px; width: 999px; height: 494px;" data-mxgraph="{&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;<mxfile host=\&quot;app.diagrams.net\&quot; agent=\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0\&quot; version=\&quot;25.0.3\&quot;>\n  <diagram id=\&quot;_ltWYIdbVKAG_Xyvna0Y\&quot; name=\&quot;Page-1\&quot;>\n    <mxGraphModel dx=\&quot;1786\&quot; dy=\&quot;749\&quot; grid=\&quot;0\&quot; gridSize=\&quot;10\&quot; guides=\&quot;1\&quot; tooltips=\&quot;1\&quot; connect=\&quot;1\&quot; arrows=\&quot;1\&quot; fold=\&quot;1\&quot; page=\&quot;0\&quot; pageScale=\&quot;1\&quot; pageWidth=\&quot;827\&quot; pageHeight=\&quot;1169\&quot; math=\&quot;0\&quot; shadow=\&quot;0\&quot;>\n      <root>\n        <mxCell id=\&quot;0\&quot; />\n        <mxCell id=\&quot;1\&quot; parent=\&quot;0\&quot; />\n        <UserObject label=\&quot;Sensible folder and file structure\&quot; link=\&quot;#sensible-folder-and-file-structure\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-5\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;69\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Use appropriate tools\&quot; link=\&quot;#appropriate-tools\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-6\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;fillColor=#4472C4;spacingLeft=7;spacingRight=7;rounded=0;shadow=0;sketch=0;backgroundOutline=0;gradientDirection=north;strokeColor=none;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;-55\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Processing is done with code\&quot; link=\&quot;#processing-is-done-with-code\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-7\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;7\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Basic automated QA\&quot; link=\&quot;#basic-automated-qa\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-8\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;132\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;All source data stored in a database\&quot; link=\&quot;#all-source-data-stored-in-a-database\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-9\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;-118\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Files meet data standards\&quot; link=\&quot;../creating-statistics/ud.html#how-to-check-against-these-standards\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-10\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;-55\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Documentation\&quot; link=\&quot;#documentation\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-11\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;69\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Version controlled final code scripts\&quot; link=\&quot;#version-controlled-final-code-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-12\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;320\&quot; y=\&quot;327\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Recyclable code for future use\&quot; link=\&quot;#recyclable-code-for-future-use\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-13\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;195\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Dataset production scripts\&quot; link=\&quot;#dataset-production-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-14\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;257\&quot; y=\&quot;421\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Publication specific automated QA\&quot; link=\&quot;#publication-specific-automated-qa\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-15\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;382\&quot; y=\&quot;421\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Automated summaries\&quot; link=\&quot;#automated-summaries\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-17\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;194\&quot; y=\&quot;515\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Peer review of code within team\&quot; link=\&quot;#review-of-code-within-team\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-18\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;319\&quot; y=\&quot;515\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Collaboratively develop code using git\&quot; link=\&quot;#collaboratively-develop-code-using-git\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-19\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;674\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;'Clean' final code\&quot; link=\&quot;#clean-final-code\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-20\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;550\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;<div style=&quot;&quot;><font style=&quot;font-size: 14px;&quot;>Whole publication production scripts</font></div>\&quot; link=\&quot;#whole-publication-production-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-21\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;align=center;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;612\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Use open source repositories\&quot; link=\&quot;#use-open-source-repositories\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-22\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;737\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Publication specific automated summaries\&quot; link=\&quot;#publication-specific-automated-summaries\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-23\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;550\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Peer review of code from outside the team\&quot; link=\&quot;#review-of-code-from-outside-the-team\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-24\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;674\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-25\&quot; value=\&quot;<font style=&quot;font-size: 32px&quot; color=&quot;#4472c4&quot;>Good practice</font>\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;-38\&quot; y=\&quot;652\&quot; width=\&quot;210\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-26\&quot; value=\&quot;<font style=&quot;font-size: 32px&quot; color=&quot;#70ad47&quot;>Great practice</font>\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;206\&quot; y=\&quot;652\&quot; width=\&quot;220\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-27\&quot; value=\&quot;<font style=&quot;font-size: 32px&quot; color=&quot;#ed7d31&quot;>Best practice</font>\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;572\&quot; y=\&quot;652\&quot; width=\&quot;200\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-1\&quot; value=\&quot;\&quot; style=\&quot;shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;fontSize=13;rotation=90;strokeWidth=2;strokeColor=#4472c4;gradientColor=none;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;168.5\&quot; y=\&quot;26\&quot; width=\&quot;47\&quot; height=\&quot;538\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-2\&quot; value=\&quot;<font style=&quot;font-size: 32px&quot; color=&quot;#4472c4&quot;>Baseline expectation</font>\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;35.5\&quot; y=\&quot;216\&quot; width=\&quot;313\&quot; height=\&quot;50\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-4\&quot; value=\&quot;\&quot; style=\&quot;shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;fontSize=13;rotation=90;strokeWidth=2;strokeColor=#ed7d31;gradientColor=none;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;659\&quot; y=\&quot;145\&quot; width=\&quot;47\&quot; height=\&quot;292\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-5\&quot; value=\&quot;<font color=&quot;#ed7d31&quot; style=&quot;font-size: 32px&quot;>Ambition</font>\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;612\&quot; y=\&quot;216\&quot; width=\&quot;143\&quot; height=\&quot;50\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n      </root>\n    </mxGraphModel>\n  </diagram>\n</mxfile>\n&quot;}">
 <svg style="left: 0px; top: 0px; width: 100%; height: 100%; display: block; min-width: 999px; min-height: 494px; background-image: none; background-color: transparent;">
-<defs><filter id="dropShadow"><fegaussianblur in="SourceAlpha" stddeviation="1.7" result="blur"></fegaussianblur><feoffset in="blur" dx="3" dy="3" result="offsetBlur"></feoffset><feflood flood-color="#3D4574" flood-opacity="0.4" result="offsetColor"></feflood><fecomposite in="offsetColor" in2="offsetBlur" operator="in" result="offsetBlur"></fecomposite><feblend in="SourceGraphic" in2="offsetBlur"></feblend></filter></defs><g transformorigin="0 0" transform="scale(1,1)translate(126,-208)"><g></g><g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 99 326 L 159 326 L 189 386 L 159 446 L 99 446 L 69 386 Z" fill="#4472c4" stroke="none" transform="rotate(90,129,386)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+</svg><p><defs><filter id="dropShadow"><fegaussianblur in="SourceAlpha" stddeviation="1.7" result="blur"></fegaussianblur><feoffset in="blur" dx="3" dy="3" result="offsetBlur"></feoffset><feflood flood-color="#3D4574" flood-opacity="0.4" result="offsetColor"></feflood><fecomposite in="offsetColor" in2="offsetBlur" operator="in" result="offsetBlur"></fecomposite><feblend in="SourceGraphic" in2="offsetBlur"></feblend></filter></defs><g transformorigin="0 0" transform="scale(1,1)translate(126,-208)"><g></g><g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 99 326 L 159 326 L 189 386 L 159 446 L 99 446 L 69 386 Z" fill="#4472c4" stroke="none" transform="rotate(90,129,386)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 386px; margin-left: 77px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Sensible folder and file structure
+<p>Sensible folder and file structure</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M -25 326 L 35 326 L 65 386 L 35 446 L -25 446 L -55 386 Z" fill="#4472c4" stroke="none" transform="rotate(90,5,386)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M -25 326 L 35 326 L 65 386 L 35 446 L -25 446 L -55 386 Z" fill="#4472c4" stroke="none" transform="rotate(90,5,386)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 386px; margin-left: -47px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Use appropriate tools
+<p>Use appropriate tools</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 37 420 L 97 420 L 127 480 L 97 540 L 37 540 L 7 480 Z" fill="#4472c4" stroke="none" transform="rotate(90,67,480)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 37 420 L 97 420 L 127 480 L 97 540 L 37 540 L 7 480 Z" fill="#4472c4" stroke="none" transform="rotate(90,67,480)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 480px; margin-left: 15px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Processing is done with code
+<p>Processing is done with code</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 162 420 L 222 420 L 252 480 L 222 540 L 162 540 L 132 480 Z" fill="#4472c4" stroke="none" transform="rotate(90,192,480)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 162 420 L 222 420 L 252 480 L 222 540 L 162 540 L 132 480 Z" fill="#4472c4" stroke="none" transform="rotate(90,192,480)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 480px; margin-left: 140px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Basic automated QA
+<p>Basic automated QA</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M -88 420 L -28 420 L 2 480 L -28 540 L -88 540 L -118 480 Z" fill="#4472c4" stroke="none" transform="rotate(90,-58,480)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M -88 420 L -28 420 L 2 480 L -28 540 L -88 540 L -118 480 Z" fill="#4472c4" stroke="none" transform="rotate(90,-58,480)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 480px; margin-left: -110px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-All source data stored in a database
+<p>All source data stored in a database</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M -25 514 L 35 514 L 65 574 L 35 634 L -25 634 L -55 574 Z" fill="#4472c4" stroke="none" transform="rotate(90,5,574)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M -25 514 L 35 514 L 65 574 L 35 634 L -25 634 L -55 574 Z" fill="#4472c4" stroke="none" transform="rotate(90,5,574)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 574px; margin-left: -47px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Files meet data standards
+<p>Files meet data standards</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 99 514 L 159 514 L 189 574 L 159 634 L 99 634 L 69 574 Z" fill="#4472c4" stroke="none" transform="rotate(90,129,574)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 99 514 L 159 514 L 189 574 L 159 634 L 99 634 L 69 574 Z" fill="#4472c4" stroke="none" transform="rotate(90,129,574)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 574px; margin-left: 77px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Documentation
+<p>Documentation</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 350 327 L 410 327 L 440 387 L 410 447 L 350 447 L 320 387 Z" fill="#70ad47" stroke="none" transform="rotate(90,380,387)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 350 327 L 410 327 L 440 387 L 410 447 L 350 447 L 320 387 Z" fill="#70ad47" stroke="none" transform="rotate(90,380,387)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 387px; margin-left: 328px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Version controlled final code scripts
+<p>Version controlled final code scripts</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 225 326 L 285 326 L 315 386 L 285 446 L 225 446 L 195 386 Z" fill="#70ad47" stroke="none" transform="rotate(90,255,386)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 225 326 L 285 326 L 315 386 L 285 446 L 225 446 L 195 386 Z" fill="#70ad47" stroke="none" transform="rotate(90,255,386)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 386px; margin-left: 203px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Recyclable code for future use
+<p>Recyclable code for future use</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 287 421 L 347 421 L 377 481 L 347 541 L 287 541 L 257 481 Z" fill="#70ad47" stroke="none" transform="rotate(90,317,481)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 287 421 L 347 421 L 377 481 L 347 541 L 287 541 L 257 481 Z" fill="#70ad47" stroke="none" transform="rotate(90,317,481)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 481px; margin-left: 265px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Dataset production scripts
+<p>Dataset production scripts</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 412 421 L 472 421 L 502 481 L 472 541 L 412 541 L 382 481 Z" fill="#70ad47" stroke="none" transform="rotate(90,442,481)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 412 421 L 472 421 L 502 481 L 472 541 L 412 541 L 382 481 Z" fill="#70ad47" stroke="none" transform="rotate(90,442,481)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 481px; margin-left: 390px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Publication specific automated QA
+<p>Publication specific automated QA</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 224 515 L 284 515 L 314 575 L 284 635 L 224 635 L 194 575 Z" fill="#70ad47" stroke="none" transform="rotate(90,254,575)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 224 515 L 284 515 L 314 575 L 284 635 L 224 635 L 194 575 Z" fill="#70ad47" stroke="none" transform="rotate(90,254,575)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 575px; margin-left: 202px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Automated summaries
+<p>Automated summaries</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 349 515 L 409 515 L 439 575 L 409 635 L 349 635 L 319 575 Z" fill="#70ad47" stroke="none" transform="rotate(90,379,575)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 349 515 L 409 515 L 439 575 L 409 635 L 349 635 L 319 575 Z" fill="#70ad47" stroke="none" transform="rotate(90,379,575)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 575px; margin-left: 327px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Peer review of code within team
+<p>Peer review of code within team</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 704 326 L 764 326 L 794 386 L 764 446 L 704 446 L 674 386 Z" fill="#ed7d31" stroke="none" transform="rotate(90,734,386)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 704 326 L 764 326 L 794 386 L 764 446 L 704 446 L 674 386 Z" fill="#ed7d31" stroke="none" transform="rotate(90,734,386)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 386px; margin-left: 682px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Collaboratively develop code using git
+<p>Collaboratively develop code using git</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 580 326 L 640 326 L 670 386 L 640 446 L 580 446 L 550 386 Z" fill="#ed7d31" stroke="none" transform="rotate(90,610,386)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 580 326 L 640 326 L 670 386 L 640 446 L 580 446 L 550 386 Z" fill="#ed7d31" stroke="none" transform="rotate(90,610,386)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 386px; margin-left: 558px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-‘Clean’ final code
+<p>‘Clean’ final code</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 642 420 L 702 420 L 732 480 L 702 540 L 642 540 L 612 480 Z" fill="#ed7d31" stroke="none" transform="rotate(90,672,480)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 642 420 L 702 420 L 732 480 L 702 540 L 642 540 L 612 480 Z" fill="#ed7d31" stroke="none" transform="rotate(90,672,480)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 480px; margin-left: 620px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
 <div style="">
-<font style="font-size: 14px;">Whole publication production scripts</font>
+<p><font style="font-size: 14px;">Whole publication production scripts</font></p>
 </div>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 767 420 L 827 420 L 857 480 L 827 540 L 767 540 L 737 480 Z" fill="#ed7d31" stroke="none" transform="rotate(90,797,480)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 767 420 L 827 420 L 857 480 L 827 540 L 767 540 L 737 480 Z" fill="#ed7d31" stroke="none" transform="rotate(90,797,480)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 480px; margin-left: 745px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Use open source repositories
+<p>Use open source repositories</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 580 514 L 640 514 L 670 574 L 640 634 L 580 634 L 550 574 Z" fill="#ed7d31" stroke="none" transform="rotate(90,610,574)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 580 514 L 640 514 L 670 574 L 640 634 L 580 634 L 550 574 Z" fill="#ed7d31" stroke="none" transform="rotate(90,610,574)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 574px; margin-left: 558px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Publication specific automated summaries
+<p>Publication specific automated summaries</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 704 514 L 764 514 L 794 574 L 764 634 L 704 634 L 674 574 Z" fill="#ed7d31" stroke="none" transform="rotate(90,734,574)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 704 514 L 764 514 L 794 574 L 764 634 L 704 634 L 674 574 Z" fill="#ed7d31" stroke="none" transform="rotate(90,734,574)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 574px; margin-left: 682px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Peer review of code from outside the team
+<p>Peer review of code from outside the team</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="-38" y="652" width="210" height="30" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="-38" y="652" width="210" height="30" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="-38" y="652" width="210" height="30" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="-38" y="652" width="210" height="30" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 667px; margin-left: 67px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: nowrap;">
-<font color="#4472c4" style="font-size: 32px">Good practice</font>
+<p><font color="#4472c4" style="font-size: 32px">Good practice</font></p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="206" y="652" width="220" height="30" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="206" y="652" width="220" height="30" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="206" y="652" width="220" height="30" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="206" y="652" width="220" height="30" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 667px; margin-left: 316px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: nowrap;">
-<font color="#70ad47" style="font-size: 32px">Great practice</font>
+<p><font color="#70ad47" style="font-size: 32px">Great practice</font></p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="572" y="652" width="200" height="30" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="572" y="652" width="200" height="30" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="572" y="652" width="200" height="30" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="572" y="652" width="200" height="30" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 667px; margin-left: 672px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: nowrap;">
-<font color="#ed7d31" style="font-size: 32px">Best practice</font>
+<p><font color="#ed7d31" style="font-size: 32px">Best practice</font></p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g style="visibility: visible;"><path d="M 215.5 26 L 202 26 Q 192 26 192 36 L 192 285 Q 192 295 182 295 L 175.25 295 Q 168.5 295 178.5 295 L 185.25 295 Q 192 295 192 305 L 192 554 Q 192 564 202 564 L 215.5 564" fill="none" stroke="white" stroke-width="20" stroke-miterlimit="10" transform="rotate(90,192,295)" pointer-events="stroke" visibility="hidden"></path><path d="M 215.5 26 L 202 26 Q 192 26 192 36 L 192 285 Q 192 295 182 295 L 175.25 295 Q 168.5 295 178.5 295 L 185.25 295 Q 192 295 192 305 L 192 554 Q 192 564 202 564 L 215.5 564" fill="none" stroke="#4472c4" stroke-width="2" stroke-miterlimit="10" transform="rotate(90,192,295)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="35.5" y="216" width="313" height="50" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="35.5" y="216" width="313" height="50" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g style="visibility: visible;"><path d="M 215.5 26 L 202 26 Q 192 26 192 36 L 192 285 Q 192 295 182 295 L 175.25 295 Q 168.5 295 178.5 295 L 185.25 295 Q 192 295 192 305 L 192 554 Q 192 564 202 564 L 215.5 564" fill="none" stroke="white" stroke-width="20" stroke-miterlimit="10" transform="rotate(90,192,295)" pointer-events="stroke" visibility="hidden"></path><path d="M 215.5 26 L 202 26 Q 192 26 192 36 L 192 285 Q 192 295 182 295 L 175.25 295 Q 168.5 295 178.5 295 L 185.25 295 Q 192 295 192 305 L 192 554 Q 192 564 202 564 L 215.5 564" fill="none" stroke="#4472c4" stroke-width="2" stroke-miterlimit="10" transform="rotate(90,192,295)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="35.5" y="216" width="313" height="50" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="35.5" y="216" width="313" height="50" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 241px; margin-left: 192px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: nowrap;">
-<font color="#4472c4" style="font-size: 32px">Baseline expectation</font>
+<p><font color="#4472c4" style="font-size: 32px">Baseline expectation</font></p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g style="visibility: visible;"><path d="M 706 145 L 692.5 145 Q 682.5 145 682.5 155 L 682.5 281 Q 682.5 291 672.5 291 L 665.75 291 Q 659 291 669 291 L 675.75 291 Q 682.5 291 682.5 301 L 682.5 427 Q 682.5 437 692.5 437 L 706 437" fill="none" stroke="white" stroke-width="20" stroke-miterlimit="10" transform="rotate(90,682.5,291)" pointer-events="stroke" visibility="hidden"></path><path d="M 706 145 L 692.5 145 Q 682.5 145 682.5 155 L 682.5 281 Q 682.5 291 672.5 291 L 665.75 291 Q 659 291 669 291 L 675.75 291 Q 682.5 291 682.5 301 L 682.5 427 Q 682.5 437 692.5 437 L 706 437" fill="none" stroke="#ed7d31" stroke-width="2" stroke-miterlimit="10" transform="rotate(90,682.5,291)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="612" y="216" width="143" height="50" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="612" y="216" width="143" height="50" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g style="visibility: visible;"><path d="M 706 145 L 692.5 145 Q 682.5 145 682.5 155 L 682.5 281 Q 682.5 291 672.5 291 L 665.75 291 Q 659 291 669 291 L 675.75 291 Q 682.5 291 682.5 301 L 682.5 427 Q 682.5 437 692.5 437 L 706 437" fill="none" stroke="white" stroke-width="20" stroke-miterlimit="10" transform="rotate(90,682.5,291)" pointer-events="stroke" visibility="hidden"></path><path d="M 706 145 L 692.5 145 Q 682.5 145 682.5 155 L 682.5 281 Q 682.5 291 672.5 291 L 665.75 291 Q 659 291 669 291 L 675.75 291 Q 682.5 291 682.5 301 L 682.5 427 Q 682.5 437 692.5 437 L 706 437" fill="none" stroke="#ed7d31" stroke-width="2" stroke-miterlimit="10" transform="rotate(90,682.5,291)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="612" y="216" width="143" height="50" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="612" y="216" width="143" height="50" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 241px; margin-left: 684px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: nowrap;">
-<font style="font-size: 32px" color="#ed7d31">Ambition</font>
+<p><font style="font-size: 32px" color="#ed7d31">Ambition</font></p>
 </div>
 </div>
 </div>
-</foreignobject></g></g></g><g></g><g></g></g>
-</svg>
+<p><g></g><g></g></p>
+
 </div>
 </section>
 
 <section id="how-to-track-your-progress" class="title-slide slide level1 center">
 <h1>How to track your progress</h1>
-<p>The <a href="https://rsconnect/rsc/publication-self-assessment/">RAP self-assessment tool</a> allows statistics producers to assess against the department’s RAP standards.</p>
+<p>The <a href="https://rsconnect/rsc/publication-self-assessment/">RAP self-assessment tool</a> allows statistics producers to assess themselves against the department’s RAP standards.</p>
 <div class="fragment fade-up">
 <p>Importantly for managers, you can monitor your team’s progress towards achieving the RAP baseline by viewing ‘RAP progress by area’ and ‘overview of latest responses’.</p>
 </div>
@@ -2553,7 +2554,7 @@ Peer review of code from outside the team
 <section>
 <section id="introduction-to-git-github-and-azure-devops" class="title-slide slide level1 center">
 <h1>Introduction to Git, GitHub and Azure DevOps</h1>
-
+<p>::::: ::: <img data-src="images/great-practice.svg" style="width:27.0%"> ::: :::::</p>
 </section>
 <section id="introduction-to-git" class="slide level2">
 <h2>Introduction to Git</h2>
@@ -2562,17 +2563,17 @@ Peer review of code from outside the team
 </div>
 <div class="fragment fade-up">
 <ul>
-<li>Tracking changes;</li>
+<li>Tracking changes</li>
 </ul>
 </div>
 <div class="fragment fade-up">
 <ul>
-<li>Undoing changes;</li>
+<li>Undoing changes</li>
 </ul>
 </div>
 <div class="fragment fade-up">
 <ul>
-<li>Maintaining parallel variants of code.</li>
+<li>Maintaining parallel variants of code during development periods</li>
 </ul>
 </div>
 <div class="fragment fade-up">
@@ -2586,24 +2587,19 @@ Peer review of code from outside the team
 <p>Git records all the version control information within a hidden folder called <em>.git</em></p>
 </div>
 </section>
-<section id="github-devops" class="slide level2">
-<h2>GitHub &amp; DevOps</h2>
+<section id="github-azure-devops" class="slide level2">
+<h2>GitHub &amp; Azure DevOps</h2>
 <div class="fragment fade-up">
-<p>GitHub and Dev Ops provide a space to store and interact with a repository. They allow you to:</p>
+<p>There are multiple different ways that you can work with the Git software and interact with your repositories. In DfE, the main two are GitHub and Azure DevOps. Git is the underlying software, and GitHub and Azure DevOps are websites that work alongside it. They allow you to:</p>
 </div>
 <div class="fragment fade-up">
 <ul>
-<li>Store a central shared back-up of your repository;</li>
+<li>Store a central shared back-up of your repository and view the files in it;</li>
 </ul>
 </div>
 <div class="fragment fade-up">
 <ul>
-<li>View the files;</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li>View the history;</li>
+<li>View a complete history of any changes made to files in the repo and see who made them and when;</li>
 </ul>
 </div>
 <div class="fragment fade-up">
@@ -2613,12 +2609,12 @@ Peer review of code from outside the team
 </div>
 <div class="fragment fade-up">
 <ul>
-<li>Use management tools such as <em>Issues logs</em> (on GitHub) or <em>Kanban boards</em>/task boards (on DevOps);</li>
+<li>Use project management tools such as <em>Issues logs</em> (on GitHub) or <em>Kanban boards</em>/task boards (on Azure DevOps);</li>
 </ul>
 </div>
 <div class="fragment fade-up">
 <ul>
-<li>Create <em>pull requests</em> (requests to review changes before <em>merging</em> them), review code, and get feedback from collaborators;</li>
+<li>Complete QA by creating <em>pull requests</em> (requests to review changes before <em>merging</em> them), reviewing code, and getting feedback from collaborators;</li>
 </ul>
 </div>
 <div class="fragment fade-up">
@@ -2627,9 +2623,9 @@ Peer review of code from outside the team
 </ul>
 </div>
 </section>
-<section id="github-and-devops" class="slide level2">
-<h2>GitHub and DevOps</h2>
-<p>GitHub and DevOps are generally not a place to:</p>
+<section id="github-and-azure-devops" class="slide level2">
+<h2>GitHub and Azure DevOps</h2>
+<p>GitHub and Azure DevOps are generally not a place to:</p>
 <div class="fragment fade-up">
 <ul>
 <li>Run your code;</li>
@@ -2641,8 +2637,8 @@ Peer review of code from outside the team
 </ul>
 </div>
 </section>
-<section id="whats-the-difference-between-git-github-and-azure-dev-ops" class="slide level2">
-<h2>What’s the difference between git, GitHub and Azure Dev Ops?</h2>
+<section id="whats-the-difference-between-git-github-and-azure-devops" class="slide level2">
+<h2>What’s the difference between git, GitHub and Azure DevOps?</h2>
 <div class="fragment fade-up">
 <ul>
 <li><strong>Git</strong> is the underlying software that you, GitHub and Azure DevOps use, providing the commands to record changes, create branches, merge branches, undo changes, etc.</li>
@@ -2695,19 +2691,19 @@ Peer review of code from outside the team
 <ul>
 <li>Messy folders with multiple versions of files (file_v1, file_v2, file_final, File_final_FINAL etc.)</li>
 <li>Potential to overwrite/lose work</li>
-<li>No ablity to view a files history and see who made previous changes and why.</li>
+<li>No ability to view a file’s history and see who made previous changes and why.</li>
 </ul>
 <p>Git and platforms like GitHub and Azure DevOps provide robust tracking of all changes, who made them, and their <em>commit message</em>, ensuring continuity and auditability.</p></li>
 </ul>
 </div>
 <div class="fragment fade-up">
 <ul>
-<li><strong>Collaboration</strong> in shared folders can be tricky and require duplication of files. Branching with Git is a safe and sensible way to work collaboratively with parallel versions of files that can eventually be <em>merged</em>.</li>
+<li><strong>Collaboration</strong> in shared folders can be tricky and require duplication of files. Branching with Git is a safe and sensible way to work collaboratively with parallel versions of files that can eventually be <em>merged</em> into a final version.</li>
 </ul>
 </div>
 <div class="fragment fade-up">
 <ul>
-<li><strong>Documentation</strong>: ‘Run-notes’ or README files in shared folders can be easily lost, outdated, or even not exist at all! Git projects often automatically generate README.md files for you to complete, and they render in Azure DevOps/GitHub automatically, providing instantly-seen documentation for anyone who opens the repo. Using a <em>markdown</em> (.md) file instead of .txt or word also gives additional abilities like linking to other pages or files and easily including code snippets.</li>
+<li><strong>Documentation</strong>: ‘Run-notes’ or README files in shared folders can be easily lost, outdated, or even not exist at all! Git projects often automatically generate README.md files for you to complete, and they render in Azure DevOps/GitHub automatically, providing instantly-seen documentation for anyone who opens the repo. Using a <em>markdown</em> (.md) file instead of .txt or Word also gives additional abilities like linking to other pages or files and easily including code snippets.</li>
 </ul>
 </div>
 </section>
@@ -2724,8 +2720,8 @@ Peer review of code from outside the team
 
 </section>
 <section id="what-does-interacting-with-git-look-like" class="slide level2">
-<h2>What does interacting with git look like?</h2>
-<p>You can use git from with R-Studio, Visual Studio and GitHub Desktop using nice graphical user interfaces. At their heart though, all of these run the git command line functions. The key ones that you’ll call on a lot (however you choose to interact with git) are:</p>
+<h2>What does interacting with Git look like?</h2>
+<p>You can use Git from with R-Studio, Visual Studio and GitHub Desktop using nice graphical user interfaces. At their heart though, all of these run the Git command line functions. The key ones that you’ll call on a lot (however you choose to interact with Git) are:</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
@@ -2741,7 +2737,7 @@ Peer review of code from outside the team
 <li><code>git merge branch-name</code></li>
 </ul>
 </div></div>
-<p>These 7 commands are the main things you need to start tracking your projects using git.</p>
+<p>These 7 commands are the main things you need to start tracking your projects using Git.</p>
 </section>
 <section id="clone" class="slide level2">
 <h2>Clone</h2>
@@ -2777,82 +2773,68 @@ Peer review of code from outside the team
 <section id="visualise-the-process" class="slide level2">
 <h2>Visualise the process</h2>
 <div class="fragment">
-<p><span class="fa-solid fa-user" style="color: white; font-size: 6em; position: absolute; bottom: 10px; left: 10px;"></span></p>
+
 </div>
 <div class="fragment">
-<p><span class="fa-solid fa-computer" style="color: white; font-size: 7em; position: absolute; bottom: 10px; left: 250px;"></span></p>
-<p><span class="fa-solid fa-cloud" style="color: white; font-size: 9em; position: absolute; top: 5px; right: 5px;"></span></p>
+
 </div>
 <div class="fragment">
-<p><span class="fa-solid fa-folder-open" style="color: #12436d; font-size: 3em; position: absolute; top: 180px; right: 240px;"></span></p>
-<p><span class="fa-solid fa-file-lines" style="color: #12436d; font-size: 3em; position: absolute; top: 180px; right: 120px;"></span></p>
+
 </div>
 <div class="fragment fade-in-then-out">
-<p><span class="fa-solid fa-arrow-left-long" style="color: white; font-size: 3em; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg);"></span></p>
 <p><span style="color: white; position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);"><strong>clone</strong> the repository to your device…</span></p>
 </div>
 <div class="fragment">
-<p><span class="fa-solid fa-folder-open" style="color: white; font-size: 1em; position: absolute; bottom: 140px; left: 310px;"></span></p>
-<p><span class="fa-solid fa-file-lines" style="color: white; font-size: 1em; position: absolute; bottom: 140px; left: 370px;"></span></p>
+
 </div>
 <div class="fragment">
-<p><span class="fa-regular fa-user" style="color: white; font-size: 6em; position: absolute; bottom: 10px; right: 290px;"></span></p>
-<p><span class="fa-solid fa-laptop" style="color: white; font-size: 6em; position: absolute; bottom: 10px; right: 10px;"></span></p>
+
 </div>
 <div class="fragment fade-in-then-out">
-<p><span class="fa-solid fa-arrow-down-long" style="color: white; font-size: 3em; position: absolute; top: 50%; right: 100px;"></span></p>
 <p><span style="color: white; position: absolute; top: 40%; right: 50px;"><strong>clone</strong> the repository to your device…</span></p>
 </div>
 <div class="fragment">
-<p><span class="fa-solid fa-folder-open" style="color: white; font-size: 1em; position: absolute; bottom: 100px; right: 190px;"></span></p>
-<p><span class="fa-solid fa-file-lines" style="color: white; font-size: 1em; position: absolute; bottom: 100px; right: 150px;"></span></p>
+
 </div>
 <div class="fragment">
-<p><span class="fa-regular fa-file" style="color: red; font-size: 1em; position: absolute; bottom: 180px; left: 340px;"></span></p>
 <div class="fragment fade-in-then-out">
 <p><span style="color: red; position: absolute; bottom: 300px; left: 170px;"><strong>Make changes locally</strong></span></p>
 </div>
 </div>
 <div class="fragment fade-in-then-out">
-<p><span class="fa-solid fa-arrow-right-long" style="color: white; font-size: 3em; position: absolute; top: 60%; left: 45%; transform: translate(-50%, -50%) rotate(-45deg);"></span></p>
 <p><span style="color: white; position: absolute; bottom: 25%; left: 45%; transform: translate(-50%, -50%);"><strong>commit</strong> the changes</span></p>
 </div>
 <div class="fragment fade-in-then-out">
 <p><span style="color: white; position: absolute; bottom: 50%; left: 50%; transform: translate(-50%, -50%);"><strong>…</strong></span></p>
 </div>
 <div class="fragment fade-in-then-out">
-<p><span class="fa-solid fa-arrow-right-long" style="color: white; font-size: 3em; position: absolute; top: 40%; left: 55%; transform: translate(-50%, -50%) rotate(-45deg);"></span></p>
 <p><span style="color: white; position: absolute; top: 25%; left: 65%; transform: translate(-50%, -50%);"><strong>push</strong> the changes</span></p>
 </div>
 <div class="fragment">
-<p><span class="fa-regular fa-file" style="color: red; font-size: 3em; position: absolute; top: 70px; right: 210px;"></span></p>
+
 </div>
 <div class="fragment fade-in-then-out">
-<p><span class="fa-solid fa-arrow-down-long" style="color: white; font-size: 3em; position: absolute; top: 50%; right: 100px;"></span></p>
 <p><span style="color: white; position: absolute; top: 40%; right: 50px;"><strong>Pull</strong> the changes to your device…</span></p>
 </div>
 <div class="fragment">
-<p><span class="fa-regular fa-file" style="color: red; font-size: 1em; position: absolute; bottom: 150px; right: 180px;"></span></p>
+
 </div>
 <div class="fragment">
-<p><span class="fa-solid fa-file-lines" style="color: green; font-size: 1em; position: absolute; bottom: 100px; right: 150px;"></span></p>
 <div class="fragment fade-in-then-out">
 <p><span style="color: green; position: absolute; bottom: 300px; left: 80%;"><strong>Make changes locally</strong></span></p>
 </div>
 </div>
 <div class="fragment fade-in-then-out">
-<p><span class="fa-solid fa-arrow-up-long" style="color: white; font-size: 3em; position: absolute; top: 50%; right: 100px;"></span></p>
 <p><span style="color: white; position: absolute; top: 40%; right: 50px;"><strong>commit &amp; push</strong> the changes</span></p>
 </div>
 <div class="fragment">
-<p><span class="fa-solid fa-file-lines" style="color: green; font-size: 3em; position: absolute; top: 180px; right: 120px;"></span></p>
+
 </div>
 <div class="fragment fade-in-then-out">
-<p><span class="fa-solid fa-arrow-left-long" style="color: white; font-size: 3em; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg);"></span></p>
 <p><span style="color: white; position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);"><strong>Pull</strong> the changes to your device…</span></p>
 </div>
 <div class="fragment">
-<p><span class="fa-solid fa-file-lines" style="color: green; font-size: 1em; position: absolute; bottom: 140px; left: 370px;"></span></p>
+
 </div>
 <!-- ## Visualise branches -->
 <!-- ::: {style="display: grid; place-items: center; height: 100%;"} -->
@@ -2868,8 +2850,169 @@ Peer review of code from outside the team
 <!-- ::: -->
 </section></section>
 <section>
-<section id="task-1" class="title-slide slide level1 center">
-<h1>Task 1</h1>
+<section id="readme-files-and-pull-requests" class="title-slide slide level1 center">
+<h1>README files and pull requests</h1>
+
+</section>
+<section id="readme-files-expectations" class="slide level2">
+<h2>README files: expectations</h2>
+<div class="fragment">
+<ul>
+<li>You will see a README file on each repository. READMEs should be filled in by your team to help someone familiarise themselves with the code in the repo, any access requirements, places where lines of code might need updating before each run, and contact details if anyone runs into issues.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><a href="https://dfe-analytical-services.github.io/dfeR/reference/create_project.html">The dfeR package</a> contains a README template, and we have information on how to populate it on the <a href="https://dfe-analytical-services.github.io/analysts-guide/RAP/rap-statistics.html#writing-a-readme-file">Analysts Guide</a></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>During RAP audits, we check the contents of the repo’s README to ensure that it is detailed enough</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>If you’re using a public GitHub repo, the contents of the README will also be public, so carefully consider what information you include there</li>
+</ul>
+</div>
+</section>
+<section id="readme-template" class="slide level2">
+<h2>README template</h2>
+<div class="fragment">
+<p>Your README should contain the following information (but you can always add more!):</p>
+</div>
+<div class="fragment">
+<ul>
+<li>Introduction: explain the purpose of the code</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Requirements: which databases do you need access to so that you can run the code? How do you get that access? Is version control being managed using renv? What skills do you need to run the code?</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Getting started: describe the expected input data and where it can be found, as well as what output you expect from the code</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>How to run and update: do any lines of code need updating before the code is run? If so, list them here. Outline the process for contributing to the repo, updating the code, or raising issues</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Contact details: list the names and contact information of the people who maintain the repo, as well as any support channels</li>
+</ul>
+</div>
+</section>
+<section id="pull-requests---what-are-they" class="slide level2">
+<h2>Pull Requests - what are they?</h2>
+<div class="fragment">
+<ul>
+<li>As a manager, your main interaction with GitHub or Azure DevOps is likely to be through pull requests (PRs). They offer a way to do transparent code QA without having to send long and complicated emails with line numbers that currently contain problems! Any comments added to a pull request are saved in the history of a repo, so you can always go back and confirm whether you asked for certain changes, and check when and how the changes were made</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>When someone in your team is ready for their code to be checked, they should raise a pull request and add you as a reviewer. You will receive an email notification to let you know that your review has been requested</li>
+</ul>
+</div>
+</section>
+<section id="pull-requests---what-should-be-included" class="slide level2">
+<h2>Pull Requests - what should be included?</h2>
+<div class="fragment">
+<ul>
+<li>It is up to the person requesting review to include sufficient detail in their PR.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>The ideal scenario is that you should be able to pick up a PR and know exactly what you need to check without asking the person who wrote the code for any more information!</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>You might wish to set a PR template on your repo to encourage people to add all the information that any potential reviewers might need:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><img data-src="images/github-pr-template.png" style="width:30.0%"></p>
+</div>
+</section>
+<section id="pull-requests---how-to-use-them" class="slide level2">
+<h2>Pull Requests - how to use them</h2>
+<div class="fragment">
+<ul>
+<li>When viewing a pull request, you’ll be able to see where new lines or characters have been added to the pre-existing code (shown in green), or whether lines or characters have been deleted (shown in red). You’ll only be shown files that have been changed as part of that PR, so don’t worry if some files aren’t visible.</li>
+</ul>
+</div>
+<div class="fragment">
+<p><img data-src="images/pull-request-changed-lines.png"></p>
+</div>
+</section>
+<section id="pull-requests---adding-comments-to-code-scripts" class="slide level2">
+<h2>Pull Requests - adding comments to code scripts</h2>
+<div class="fragment">
+<ul>
+<li>On Azure DevOps, if you hover over a line of code, you’ll see the comment icon appear next to the line number. Click on it to add a review comment to that specific line of code</li>
+</ul>
+</div>
+<div class="fragment">
+<p><img data-src="images/adding-comments-to-pr.png" width="328" height="98"></p>
+</div>
+<div class="fragment">
+<ul>
+<li>On GitHub, the process is the same, but the comment icon looks like a blue + symbol instead:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><img data-src="images/adding-comments-to-pr-github.png" width="328"></p>
+</div>
+</section>
+<section id="pull-requests---adding-general-comments" class="slide level2">
+<h2>Pull Requests - adding general comments</h2>
+<div class="fragment">
+<p>You can also add overall comments on a pull request, rather than leaving comments on specific lines of code.</p>
+</div>
+<div class="fragment">
+<ul>
+<li>On Azure DevOps, the comment box is at the bottom of the pull request page and looks like this:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><img data-src="images/devops-add-overall-comment.png"></p>
+</div>
+<div class="fragment">
+<ul>
+<li>On GitHub, the comment box is underneath the PR description box and looks like this:</li>
+</ul>
+</div>
+<div class="fragment">
+<p><img data-src="images/github-overall-comment.png"></p>
+</div>
+</section>
+<section id="pull-requests---requesting-changes-or-approving" class="slide level2">
+<h2>Pull Requests - requesting changes or approving</h2>
+<div class="fragment">
+<p>When you’ve finished your review, you have two options:</p>
+</div>
+<div class="fragment">
+<ul>
+<li>Approve the PR - this means that you’re happy with everything and you agree for the current branch to be merged into the main branch. This will overwrite the files in the main branch that have been changed as part of this PR</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Comment on the PR - this means that you’ve requested changes to the code, and it’ll be sent back to the person who raised the PR so that they can make the requested fixes</li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="task-1-getting-familiar-with-readmes-and-prs" class="title-slide slide level1 center">
+<h1>TASK 1: Getting familiar with READMEs and PRs</h1>
 
 </section>
 <section id="azure-devops-treasure-hunt" class="slide level2 scrollable">
@@ -3138,7 +3281,7 @@ Peer review of code from outside the team
 </section>
 <section id="lets-practice-together" class="slide level2 scrollable">
 <h2>Let’s Practice Together!</h2>
-<h3 id="task-explore-azure-devops-boards">Task: Explore Azure DevOps Boards</h3>
+<h3 id="task-2-explore-azure-devops-boards">TASK 2: Explore Azure DevOps Boards</h3>
 <ol type="1">
 <li><p>Open the <a href="https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers">RAP for managers Azure DevOps repo</a> and navigate to the <strong>Boards</strong> tab (In the sidebar, expand the boards section and select boards within that!).</p></li>
 <li><p>Click on the <strong>+ New Item</strong> button and give it a title. Hit Enter to save it!</p></li>
@@ -3169,7 +3312,7 @@ Peer review of code from outside the team
 </div>
 <div class="fragment fade-up">
 <ul>
-<li>Deepen technical and quality assurance processes with <strong><a href="https://best-practice-and-impact.github.io/qa-of-code-guidance/peer_review.html">peer review</a></strong> to ensure that the process is reproducible and that the below requirements have been met</li>
+<li>Deepen technical and quality assurance processes with <a href="https://best-practice-and-impact.github.io/qa-of-code-guidance/peer_review.html"><strong>peer review</strong></a> to ensure that the process is reproducible and that the below requirements have been met</li>
 </ul>
 </div>
 <div class="fragment fade-up">
@@ -3197,204 +3340,204 @@ Peer review of code from outside the team
 <section id="in-the-dfe" class="slide level2">
 <h2>In the DfE</h2>
 <p>In the DfE we have our own good, great and best practice standards for RAP. Our minimum requirement is that everyone publishing statistics meets the baseline expectation.</p>
-<div class="mxgraph" style="max-width: 100%;border: 1px solid transparent; position: relative; touch-action: none; overflow: hidden; margin-top: 26px; width: 999px; height: 494px;" data-mxgraph="{&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;<mxfile host=\&quot;app.diagrams.net\&quot; agent=\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0\&quot; version=\&quot;25.0.3\&quot;>\n  <diagram id=\&quot;_ltWYIdbVKAG_Xyvna0Y\&quot; name=\&quot;Page-1\&quot;>\n    <mxGraphModel dx=\&quot;1786\&quot; dy=\&quot;749\&quot; grid=\&quot;0\&quot; gridSize=\&quot;10\&quot; guides=\&quot;1\&quot; tooltips=\&quot;1\&quot; connect=\&quot;1\&quot; arrows=\&quot;1\&quot; fold=\&quot;1\&quot; page=\&quot;0\&quot; pageScale=\&quot;1\&quot; pageWidth=\&quot;827\&quot; pageHeight=\&quot;1169\&quot; math=\&quot;0\&quot; shadow=\&quot;0\&quot;>\n      <root>\n        <mxCell id=\&quot;0\&quot; />\n        <mxCell id=\&quot;1\&quot; parent=\&quot;0\&quot; />\n        <UserObject label=\&quot;Sensible folder and file structure\&quot; link=\&quot;#sensible-folder-and-file-structure\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-5\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;69\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Use appropriate tools\&quot; link=\&quot;#appropriate-tools\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-6\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;fillColor=#4472C4;spacingLeft=7;spacingRight=7;rounded=0;shadow=0;sketch=0;backgroundOutline=0;gradientDirection=north;strokeColor=none;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;-55\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Processing is done with code\&quot; link=\&quot;#processing-is-done-with-code\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-7\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;7\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Basic automated QA\&quot; link=\&quot;#basic-automated-qa\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-8\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;132\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;All source data stored in a database\&quot; link=\&quot;#all-source-data-stored-in-a-database\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-9\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;-118\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Files meet data standards\&quot; link=\&quot;../creating-statistics/ud.html#how-to-check-against-these-standards\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-10\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;-55\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Documentation\&quot; link=\&quot;#documentation\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-11\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;69\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Version controlled final code scripts\&quot; link=\&quot;#version-controlled-final-code-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-12\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;320\&quot; y=\&quot;327\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Recyclable code for future use\&quot; link=\&quot;#recyclable-code-for-future-use\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-13\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;195\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Dataset production scripts\&quot; link=\&quot;#dataset-production-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-14\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;257\&quot; y=\&quot;421\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Publication specific automated QA\&quot; link=\&quot;#publication-specific-automated-qa\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-15\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;382\&quot; y=\&quot;421\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Automated summaries\&quot; link=\&quot;#automated-summaries\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-17\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;194\&quot; y=\&quot;515\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Peer review of code within team\&quot; link=\&quot;#review-of-code-within-team\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-18\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;319\&quot; y=\&quot;515\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Collaboratively develop code using git\&quot; link=\&quot;#collaboratively-develop-code-using-git\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-19\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;674\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;&amp;#39;Clean&amp;#39; final code\&quot; link=\&quot;#clean-final-code\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-20\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;550\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;&amp;lt;div style=&amp;quot;&amp;quot;&amp;gt;&amp;lt;font style=&amp;quot;font-size: 14px;&amp;quot;&amp;gt;Whole publication production scripts&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;\&quot; link=\&quot;#whole-publication-production-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-21\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;align=center;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;612\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Use open source repositories\&quot; link=\&quot;#use-open-source-repositories\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-22\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;737\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Publication specific automated summaries\&quot; link=\&quot;#publication-specific-automated-summaries\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-23\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;550\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Peer review of code from outside the team\&quot; link=\&quot;#review-of-code-from-outside-the-team\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-24\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;674\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-25\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#4472c4&amp;quot;&amp;gt;Good practice&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;-38\&quot; y=\&quot;652\&quot; width=\&quot;210\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-26\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#70ad47&amp;quot;&amp;gt;Great practice&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;206\&quot; y=\&quot;652\&quot; width=\&quot;220\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-27\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#ed7d31&amp;quot;&amp;gt;Best practice&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;572\&quot; y=\&quot;652\&quot; width=\&quot;200\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-1\&quot; value=\&quot;\&quot; style=\&quot;shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;fontSize=13;rotation=90;strokeWidth=2;strokeColor=#4472c4;gradientColor=none;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;168.5\&quot; y=\&quot;26\&quot; width=\&quot;47\&quot; height=\&quot;538\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-2\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#4472c4&amp;quot;&amp;gt;Baseline expectation&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;35.5\&quot; y=\&quot;216\&quot; width=\&quot;313\&quot; height=\&quot;50\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-4\&quot; value=\&quot;\&quot; style=\&quot;shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;fontSize=13;rotation=90;strokeWidth=2;strokeColor=#ed7d31;gradientColor=none;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;659\&quot; y=\&quot;145\&quot; width=\&quot;47\&quot; height=\&quot;292\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-5\&quot; value=\&quot;&amp;lt;font color=&amp;quot;#ed7d31&amp;quot; style=&amp;quot;font-size: 32px&amp;quot;&amp;gt;Ambition&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;612\&quot; y=\&quot;216\&quot; width=\&quot;143\&quot; height=\&quot;50\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n      </root>\n    </mxGraphModel>\n  </diagram>\n</mxfile>\n&quot;}">
+<div class="mxgraph" style="max-width: 100%;border: 1px solid transparent; position: relative; touch-action: none; overflow: hidden; margin-top: 26px; width: 999px; height: 494px;" data-mxgraph="{&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;<mxfile host=\&quot;app.diagrams.net\&quot; agent=\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0\&quot; version=\&quot;25.0.3\&quot;>\n  <diagram id=\&quot;_ltWYIdbVKAG_Xyvna0Y\&quot; name=\&quot;Page-1\&quot;>\n    <mxGraphModel dx=\&quot;1786\&quot; dy=\&quot;749\&quot; grid=\&quot;0\&quot; gridSize=\&quot;10\&quot; guides=\&quot;1\&quot; tooltips=\&quot;1\&quot; connect=\&quot;1\&quot; arrows=\&quot;1\&quot; fold=\&quot;1\&quot; page=\&quot;0\&quot; pageScale=\&quot;1\&quot; pageWidth=\&quot;827\&quot; pageHeight=\&quot;1169\&quot; math=\&quot;0\&quot; shadow=\&quot;0\&quot;>\n      <root>\n        <mxCell id=\&quot;0\&quot; />\n        <mxCell id=\&quot;1\&quot; parent=\&quot;0\&quot; />\n        <UserObject label=\&quot;Sensible folder and file structure\&quot; link=\&quot;#sensible-folder-and-file-structure\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-5\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;69\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Use appropriate tools\&quot; link=\&quot;#appropriate-tools\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-6\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;fillColor=#4472C4;spacingLeft=7;spacingRight=7;rounded=0;shadow=0;sketch=0;backgroundOutline=0;gradientDirection=north;strokeColor=none;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;-55\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Processing is done with code\&quot; link=\&quot;#processing-is-done-with-code\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-7\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;7\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Basic automated QA\&quot; link=\&quot;#basic-automated-qa\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-8\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;132\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;All source data stored in a database\&quot; link=\&quot;#all-source-data-stored-in-a-database\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-9\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;-118\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Files meet data standards\&quot; link=\&quot;../creating-statistics/ud.html#how-to-check-against-these-standards\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-10\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;-55\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Documentation\&quot; link=\&quot;#documentation\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-11\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;69\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Version controlled final code scripts\&quot; link=\&quot;#version-controlled-final-code-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-12\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;320\&quot; y=\&quot;327\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Recyclable code for future use\&quot; link=\&quot;#recyclable-code-for-future-use\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-13\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;195\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Dataset production scripts\&quot; link=\&quot;#dataset-production-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-14\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;257\&quot; y=\&quot;421\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Publication specific automated QA\&quot; link=\&quot;#publication-specific-automated-qa\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-15\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;382\&quot; y=\&quot;421\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Automated summaries\&quot; link=\&quot;#automated-summaries\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-17\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;194\&quot; y=\&quot;515\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Peer review of code within team\&quot; link=\&quot;#review-of-code-within-team\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-18\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;319\&quot; y=\&quot;515\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Collaboratively develop code using git\&quot; link=\&quot;#collaboratively-develop-code-using-git\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-19\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;674\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;'Clean' final code\&quot; link=\&quot;#clean-final-code\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-20\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;550\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;<div style=&quot;&quot;><font style=&quot;font-size: 14px;&quot;>Whole publication production scripts</font></div>\&quot; link=\&quot;#whole-publication-production-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-21\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;align=center;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;612\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Use open source repositories\&quot; link=\&quot;#use-open-source-repositories\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-22\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;737\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Publication specific automated summaries\&quot; link=\&quot;#publication-specific-automated-summaries\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-23\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;550\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Peer review of code from outside the team\&quot; link=\&quot;#review-of-code-from-outside-the-team\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-24\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;674\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-25\&quot; value=\&quot;<font style=&quot;font-size: 32px&quot; color=&quot;#4472c4&quot;>Good practice</font>\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;-38\&quot; y=\&quot;652\&quot; width=\&quot;210\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-26\&quot; value=\&quot;<font style=&quot;font-size: 32px&quot; color=&quot;#70ad47&quot;>Great practice</font>\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;206\&quot; y=\&quot;652\&quot; width=\&quot;220\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-27\&quot; value=\&quot;<font style=&quot;font-size: 32px&quot; color=&quot;#ed7d31&quot;>Best practice</font>\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;572\&quot; y=\&quot;652\&quot; width=\&quot;200\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-1\&quot; value=\&quot;\&quot; style=\&quot;shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;fontSize=13;rotation=90;strokeWidth=2;strokeColor=#4472c4;gradientColor=none;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;168.5\&quot; y=\&quot;26\&quot; width=\&quot;47\&quot; height=\&quot;538\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-2\&quot; value=\&quot;<font style=&quot;font-size: 32px&quot; color=&quot;#4472c4&quot;>Baseline expectation</font>\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;35.5\&quot; y=\&quot;216\&quot; width=\&quot;313\&quot; height=\&quot;50\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-4\&quot; value=\&quot;\&quot; style=\&quot;shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;fontSize=13;rotation=90;strokeWidth=2;strokeColor=#ed7d31;gradientColor=none;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;659\&quot; y=\&quot;145\&quot; width=\&quot;47\&quot; height=\&quot;292\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-5\&quot; value=\&quot;<font color=&quot;#ed7d31&quot; style=&quot;font-size: 32px&quot;>Ambition</font>\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;612\&quot; y=\&quot;216\&quot; width=\&quot;143\&quot; height=\&quot;50\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n      </root>\n    </mxGraphModel>\n  </diagram>\n</mxfile>\n&quot;}">
 <svg style="left: 0px; top: 0px; width: 100%; height: 100%; display: block; min-width: 999px; min-height: 494px; background-image: none; background-color: transparent;">
-<defs><filter id="dropShadow"><fegaussianblur in="SourceAlpha" stddeviation="1.7" result="blur"></fegaussianblur><feoffset in="blur" dx="3" dy="3" result="offsetBlur"></feoffset><feflood flood-color="#3D4574" flood-opacity="0.4" result="offsetColor"></feflood><fecomposite in="offsetColor" in2="offsetBlur" operator="in" result="offsetBlur"></fecomposite><feblend in="SourceGraphic" in2="offsetBlur"></feblend></filter></defs><g transformorigin="0 0" transform="scale(1,1)translate(126,-208)"><g></g><g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 99 326 L 159 326 L 189 386 L 159 446 L 99 446 L 69 386 Z" fill="#4472c4" stroke="none" transform="rotate(90,129,386)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+</svg><p><defs><filter id="dropShadow"><fegaussianblur in="SourceAlpha" stddeviation="1.7" result="blur"></fegaussianblur><feoffset in="blur" dx="3" dy="3" result="offsetBlur"></feoffset><feflood flood-color="#3D4574" flood-opacity="0.4" result="offsetColor"></feflood><fecomposite in="offsetColor" in2="offsetBlur" operator="in" result="offsetBlur"></fecomposite><feblend in="SourceGraphic" in2="offsetBlur"></feblend></filter></defs><g transformorigin="0 0" transform="scale(1,1)translate(126,-208)"><g></g><g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 99 326 L 159 326 L 189 386 L 159 446 L 99 446 L 69 386 Z" fill="#4472c4" stroke="none" transform="rotate(90,129,386)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 386px; margin-left: 77px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Sensible folder and file structure
+<p>Sensible folder and file structure</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M -25 326 L 35 326 L 65 386 L 35 446 L -25 446 L -55 386 Z" fill="#4472c4" stroke="none" transform="rotate(90,5,386)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M -25 326 L 35 326 L 65 386 L 35 446 L -25 446 L -55 386 Z" fill="#4472c4" stroke="none" transform="rotate(90,5,386)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 386px; margin-left: -47px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Use appropriate tools
+<p>Use appropriate tools</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 37 420 L 97 420 L 127 480 L 97 540 L 37 540 L 7 480 Z" fill="#4472c4" stroke="none" transform="rotate(90,67,480)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 37 420 L 97 420 L 127 480 L 97 540 L 37 540 L 7 480 Z" fill="#4472c4" stroke="none" transform="rotate(90,67,480)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 480px; margin-left: 15px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Processing is done with code
+<p>Processing is done with code</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 162 420 L 222 420 L 252 480 L 222 540 L 162 540 L 132 480 Z" fill="#4472c4" stroke="none" transform="rotate(90,192,480)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 162 420 L 222 420 L 252 480 L 222 540 L 162 540 L 132 480 Z" fill="#4472c4" stroke="none" transform="rotate(90,192,480)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 480px; margin-left: 140px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Basic automated QA
+<p>Basic automated QA</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M -88 420 L -28 420 L 2 480 L -28 540 L -88 540 L -118 480 Z" fill="#4472c4" stroke="none" transform="rotate(90,-58,480)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M -88 420 L -28 420 L 2 480 L -28 540 L -88 540 L -118 480 Z" fill="#4472c4" stroke="none" transform="rotate(90,-58,480)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 480px; margin-left: -110px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-All source data stored in a database
+<p>All source data stored in a database</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M -25 514 L 35 514 L 65 574 L 35 634 L -25 634 L -55 574 Z" fill="#4472c4" stroke="none" transform="rotate(90,5,574)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M -25 514 L 35 514 L 65 574 L 35 634 L -25 634 L -55 574 Z" fill="#4472c4" stroke="none" transform="rotate(90,5,574)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 574px; margin-left: -47px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Files meet data standards
+<p>Files meet data standards</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 99 514 L 159 514 L 189 574 L 159 634 L 99 634 L 69 574 Z" fill="#4472c4" stroke="none" transform="rotate(90,129,574)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 99 514 L 159 514 L 189 574 L 159 634 L 99 634 L 69 574 Z" fill="#4472c4" stroke="none" transform="rotate(90,129,574)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 574px; margin-left: 77px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Documentation
+<p>Documentation</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 350 327 L 410 327 L 440 387 L 410 447 L 350 447 L 320 387 Z" fill="#70ad47" stroke="none" transform="rotate(90,380,387)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 350 327 L 410 327 L 440 387 L 410 447 L 350 447 L 320 387 Z" fill="#70ad47" stroke="none" transform="rotate(90,380,387)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 387px; margin-left: 328px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Version controlled final code scripts
+<p>Version controlled final code scripts</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 225 326 L 285 326 L 315 386 L 285 446 L 225 446 L 195 386 Z" fill="#70ad47" stroke="none" transform="rotate(90,255,386)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 225 326 L 285 326 L 315 386 L 285 446 L 225 446 L 195 386 Z" fill="#70ad47" stroke="none" transform="rotate(90,255,386)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 386px; margin-left: 203px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Recyclable code for future use
+<p>Recyclable code for future use</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 287 421 L 347 421 L 377 481 L 347 541 L 287 541 L 257 481 Z" fill="#70ad47" stroke="none" transform="rotate(90,317,481)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 287 421 L 347 421 L 377 481 L 347 541 L 287 541 L 257 481 Z" fill="#70ad47" stroke="none" transform="rotate(90,317,481)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 481px; margin-left: 265px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Dataset production scripts
+<p>Dataset production scripts</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 412 421 L 472 421 L 502 481 L 472 541 L 412 541 L 382 481 Z" fill="#70ad47" stroke="none" transform="rotate(90,442,481)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 412 421 L 472 421 L 502 481 L 472 541 L 412 541 L 382 481 Z" fill="#70ad47" stroke="none" transform="rotate(90,442,481)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 481px; margin-left: 390px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Publication specific automated QA
+<p>Publication specific automated QA</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 224 515 L 284 515 L 314 575 L 284 635 L 224 635 L 194 575 Z" fill="#70ad47" stroke="none" transform="rotate(90,254,575)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 224 515 L 284 515 L 314 575 L 284 635 L 224 635 L 194 575 Z" fill="#70ad47" stroke="none" transform="rotate(90,254,575)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 575px; margin-left: 202px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Automated summaries
+<p>Automated summaries</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 349 515 L 409 515 L 439 575 L 409 635 L 349 635 L 319 575 Z" fill="#70ad47" stroke="none" transform="rotate(90,379,575)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 349 515 L 409 515 L 439 575 L 409 635 L 349 635 L 319 575 Z" fill="#70ad47" stroke="none" transform="rotate(90,379,575)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 575px; margin-left: 327px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Peer review of code within team
+<p>Peer review of code within team</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 704 326 L 764 326 L 794 386 L 764 446 L 704 446 L 674 386 Z" fill="#ed7d31" stroke="none" transform="rotate(90,734,386)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 704 326 L 764 326 L 794 386 L 764 446 L 704 446 L 674 386 Z" fill="#ed7d31" stroke="none" transform="rotate(90,734,386)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 386px; margin-left: 682px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Collaboratively develop code using git
+<p>Collaboratively develop code using git</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 580 326 L 640 326 L 670 386 L 640 446 L 580 446 L 550 386 Z" fill="#ed7d31" stroke="none" transform="rotate(90,610,386)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 580 326 L 640 326 L 670 386 L 640 446 L 580 446 L 550 386 Z" fill="#ed7d31" stroke="none" transform="rotate(90,610,386)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 386px; margin-left: 558px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-‘Clean’ final code
+<p>‘Clean’ final code</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 642 420 L 702 420 L 732 480 L 702 540 L 642 540 L 612 480 Z" fill="#ed7d31" stroke="none" transform="rotate(90,672,480)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 642 420 L 702 420 L 732 480 L 702 540 L 642 540 L 612 480 Z" fill="#ed7d31" stroke="none" transform="rotate(90,672,480)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 480px; margin-left: 620px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
 <div style="">
-<font style="font-size: 14px;">Whole publication production scripts</font>
+<p><font style="font-size: 14px;">Whole publication production scripts</font></p>
 </div>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 767 420 L 827 420 L 857 480 L 827 540 L 767 540 L 737 480 Z" fill="#ed7d31" stroke="none" transform="rotate(90,797,480)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 767 420 L 827 420 L 857 480 L 827 540 L 767 540 L 737 480 Z" fill="#ed7d31" stroke="none" transform="rotate(90,797,480)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 480px; margin-left: 745px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Use open source repositories
+<p>Use open source repositories</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 580 514 L 640 514 L 670 574 L 640 634 L 580 634 L 550 574 Z" fill="#ed7d31" stroke="none" transform="rotate(90,610,574)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 580 514 L 640 514 L 670 574 L 640 634 L 580 634 L 550 574 Z" fill="#ed7d31" stroke="none" transform="rotate(90,610,574)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 574px; margin-left: 558px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Publication specific automated summaries
+<p>Publication specific automated summaries</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 704 514 L 764 514 L 794 574 L 764 634 L 704 634 L 674 574 Z" fill="#ed7d31" stroke="none" transform="rotate(90,734,574)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 704 514 L 764 514 L 794 574 L 764 634 L 704 634 L 674 574 Z" fill="#ed7d31" stroke="none" transform="rotate(90,734,574)" pointer-events="all"></path></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 574px; margin-left: 682px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-Peer review of code from outside the team
+<p>Peer review of code from outside the team</p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="-38" y="652" width="210" height="30" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="-38" y="652" width="210" height="30" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="-38" y="652" width="210" height="30" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="-38" y="652" width="210" height="30" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 667px; margin-left: 67px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: nowrap;">
-<font color="#4472c4" style="font-size: 32px">Good practice</font>
+<p><font color="#4472c4" style="font-size: 32px">Good practice</font></p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="206" y="652" width="220" height="30" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="206" y="652" width="220" height="30" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="206" y="652" width="220" height="30" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="206" y="652" width="220" height="30" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 667px; margin-left: 316px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: nowrap;">
-<font color="#70ad47" style="font-size: 32px">Great practice</font>
+<p><font color="#70ad47" style="font-size: 32px">Great practice</font></p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="572" y="652" width="200" height="30" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="572" y="652" width="200" height="30" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="572" y="652" width="200" height="30" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="572" y="652" width="200" height="30" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 667px; margin-left: 672px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: nowrap;">
-<font color="#ed7d31" style="font-size: 32px">Best practice</font>
+<p><font color="#ed7d31" style="font-size: 32px">Best practice</font></p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g style="visibility: visible;"><path d="M 215.5 26 L 202 26 Q 192 26 192 36 L 192 285 Q 192 295 182 295 L 175.25 295 Q 168.5 295 178.5 295 L 185.25 295 Q 192 295 192 305 L 192 554 Q 192 564 202 564 L 215.5 564" fill="none" stroke="white" stroke-width="20" stroke-miterlimit="10" transform="rotate(90,192,295)" pointer-events="stroke" visibility="hidden"></path><path d="M 215.5 26 L 202 26 Q 192 26 192 36 L 192 285 Q 192 295 182 295 L 175.25 295 Q 168.5 295 178.5 295 L 185.25 295 Q 192 295 192 305 L 192 554 Q 192 564 202 564 L 215.5 564" fill="none" stroke="#4472c4" stroke-width="2" stroke-miterlimit="10" transform="rotate(90,192,295)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="35.5" y="216" width="313" height="50" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="35.5" y="216" width="313" height="50" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g style="visibility: visible;"><path d="M 215.5 26 L 202 26 Q 192 26 192 36 L 192 285 Q 192 295 182 295 L 175.25 295 Q 168.5 295 178.5 295 L 185.25 295 Q 192 295 192 305 L 192 554 Q 192 564 202 564 L 215.5 564" fill="none" stroke="white" stroke-width="20" stroke-miterlimit="10" transform="rotate(90,192,295)" pointer-events="stroke" visibility="hidden"></path><path d="M 215.5 26 L 202 26 Q 192 26 192 36 L 192 285 Q 192 295 182 295 L 175.25 295 Q 168.5 295 178.5 295 L 185.25 295 Q 192 295 192 305 L 192 554 Q 192 564 202 564 L 215.5 564" fill="none" stroke="#4472c4" stroke-width="2" stroke-miterlimit="10" transform="rotate(90,192,295)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="35.5" y="216" width="313" height="50" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="35.5" y="216" width="313" height="50" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 241px; margin-left: 192px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: nowrap;">
-<font color="#4472c4" style="font-size: 32px">Baseline expectation</font>
+<p><font color="#4472c4" style="font-size: 32px">Baseline expectation</font></p>
 </div>
 </div>
 </div>
-</foreignobject></g></g><g style="visibility: visible;"><path d="M 706 145 L 692.5 145 Q 682.5 145 682.5 155 L 682.5 281 Q 682.5 291 672.5 291 L 665.75 291 Q 659 291 669 291 L 675.75 291 Q 682.5 291 682.5 301 L 682.5 427 Q 682.5 437 692.5 437 L 706 437" fill="none" stroke="white" stroke-width="20" stroke-miterlimit="10" transform="rotate(90,682.5,291)" pointer-events="stroke" visibility="hidden"></path><path d="M 706 145 L 692.5 145 Q 682.5 145 682.5 155 L 682.5 281 Q 682.5 291 672.5 291 L 665.75 291 Q 659 291 669 291 L 675.75 291 Q 682.5 291 682.5 301 L 682.5 427 Q 682.5 437 692.5 437 L 706 437" fill="none" stroke="#ed7d31" stroke-width="2" stroke-miterlimit="10" transform="rotate(90,682.5,291)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="612" y="216" width="143" height="50" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="612" y="216" width="143" height="50" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;">
+<p><g style="visibility: visible;"><path d="M 706 145 L 692.5 145 Q 682.5 145 682.5 155 L 682.5 281 Q 682.5 291 672.5 291 L 665.75 291 Q 659 291 669 291 L 675.75 291 Q 682.5 291 682.5 301 L 682.5 427 Q 682.5 437 692.5 437 L 706 437" fill="none" stroke="white" stroke-width="20" stroke-miterlimit="10" transform="rotate(90,682.5,291)" pointer-events="stroke" visibility="hidden"></path><path d="M 706 145 L 692.5 145 Q 682.5 145 682.5 155 L 682.5 281 Q 682.5 291 672.5 291 L 665.75 291 Q 659 291 669 291 L 675.75 291 Q 682.5 291 682.5 301 L 682.5 427 Q 682.5 437 692.5 437 L 706 437" fill="none" stroke="#ed7d31" stroke-width="2" stroke-miterlimit="10" transform="rotate(90,682.5,291)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="612" y="216" width="143" height="50" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="612" y="216" width="143" height="50" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignobject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"></foreignobject></g></g></p>
 <div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 241px; margin-left: 684px;">
 <div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;">
 <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: nowrap;">
-<font style="font-size: 32px" color="#ed7d31">Ambition</font>
+<p><font style="font-size: 32px" color="#ed7d31">Ambition</font></p>
 </div>
 </div>
 </div>
-</foreignobject></g></g></g><g></g><g></g></g>
-</svg>
+<p><g></g><g></g></p>
+
 </div>
 </section>
 <section id="in-the-dfe-in-practice" class="slide level2">
@@ -3493,7 +3636,7 @@ Peer review of code from outside the team
 </figure>
 </div>
 </div><div class="column" style="width:10%;">
-<p><span class="fa-solid fa-arrow-right-long" style="color: white; font-size: 3em;"></span></p>
+
 </div><div class="column" style="width:45%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -3692,8 +3835,8 @@ Peer review of code from outside the team
 <span id="cb6-4"><a href=""></a><span class="fu">write_csv</span>(student_data_cleaned, <span class="st">"output_data/student_data_cleaned.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="output-charts-and-commentry" class="slide level2">
-<h2>Output charts and commentry</h2>
+<section id="output-charts-and-commentary" class="slide level2">
+<h2>Output charts and commentary</h2>
 <ul>
 <li><p><strong>Charts</strong>: Use R to produce output charts. This can be done using the <code>ggplot2</code> package.</p></li>
 <li><p><strong>Commentary</strong>: Use R to produce a commentary/report. This can be done using <code>rmarkdown</code> or <code>quarto</code>. We have an example QA report that includes template code snippets for our minimum expectations in the <a href="https://github.com/dfe-analytical-services/automated-data-qa">Automated data QA repo</a>, which produces the following html output examples:</p></li>
@@ -3703,14 +3846,37 @@ Peer review of code from outside the team
 <p><img data-src="images/QA_report_1.png"></p>
 </div><div class="column" style="width:50%;">
 <p><img data-src="images/QA_report_2.png"></p>
-</div><div class="quarto-auto-generated-content">
+</div></div>
+</section></section>
+<section id="how-to-future-proof-your-projects" class="title-slide slide level1 center">
+<h1>How to future-proof your projects</h1>
+
+</section>
+
+<section id="how-to-spot-things-going-wrong" class="title-slide slide level1 center">
+<h1>How to spot things going wrong 🚩</h1>
+
+</section>
+
+<section id="top-tips-and-troubleshooting" class="title-slide slide level1 center">
+<h1>Top tips and troubleshooting</h1>
+
+</section>
+
+<section id="resources-to-take-away" class="title-slide slide level1 center">
+<h1>Resources to take away</h1>
+
+</section>
+
+<section id="quiz-1" class="title-slide slide level1 center">
+<h1>Quiz!</h1>
+<div class="quarto-auto-generated-content">
 <p><img src="DfE_logo_landscape.png" class="slide-logo"></p>
 <div class="footer footer-default">
 
 </div>
 </div>
-</div>
-</section></section>
+</section>
     </div>
   </div>
 
