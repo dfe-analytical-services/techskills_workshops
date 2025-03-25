@@ -17,12 +17,27 @@ format:
 
 # Why am I here?
 
-Add stuff here about why we're doing this session:
+This session is designed to cover some of the basic principles of RAP from the perspective of a manager, and to give you a chance to ask any questions that you might have.
 
--   Want to avoid being left behind
--   Skilled managers can't collaborate with peers and teams because they don't have necessary skills
--   How can you advise your team on RAP if you're not sure yourself
--   Should be as confident commenting on your team's code in repo as you are on a Word doc
+<br>
+
+Our main aims are to:
+
+- Avoid managers feeling "left behind" and lacking the confidence to effectively support their teams in achieving best practice
+- Ensure that managers have skill levels at which they can effectively collaborate with and advise their peers and teams
+- Be confident that managers know where to go for RAP advice and support if they cannot provide it directly themselves
+
+
+
+# Do I really need technical skills as a manager? 
+
+<br>
+
+We understand that many managers won't be doing as much of the hands-on coding or technical work, but it's important to have strong enough skill levels in order to successfully support your teams to achieve their potential, or to cover during absence. 
+
+<br>
+
+Applying elements of RAP will also make your lives easier if there is staff turnover or long-term absence, and you have to step in to cover. 
 
 # Intro quiz
 
@@ -278,13 +293,32 @@ You should have entries for <span style="color:#f67400;">**every publication**</
 This is so we always have an accurate picture of RAP in the department to share with analytical leaders.
 :::
 
-# How to help your teams familiarise themselves with code
+# RAP Mythbusting
 
--   should this be moved to intermediate workshop?
+- <span style="color:#f67400;">**Myth**</span>: **If we move to a RAP process, we'll be relying on computers rather than humans with experience**
+- <span style="color:#f67400;">**Reality**</span>: RAP is about using computers to do the things they're good at (speeding up repetitive processes), so humans can do the things they're good at (critical thinking and quality assurance based on knowledge and context). It's about making the best use of both. 
 
-# How to have meaningful discussions with your teams about code
+<br>
 
--   should this be moved to intermediate workshop?
+- <span style="color:#f67400;">**Myth**</span>: **Once our project has achieved the RAP standards, it'll be perfect**
+- <span style="color:#f67400;">**Reality**</span>: RAP is a set of best practice standards, but there are always ways to improve code efficiency. You should be looking to make continuous improvements to your processes where necessary. 
+
+
+# More RAP Mythbusting
+
+- <span style="color:#f67400;">**Myth**</span>: **If we move to RAP best practice, we'll have to rewrite all our SQL code into R**
+- <span style="color:#f67400;">**Reality**</span>: RAP is about using the best tool for the job. If you're using SQL and it's working for you, that's great, and there's no pressure to rewrite code if it's not necessary. We especially recommend using SQL for any heavy processing work with large datasets. 
+
+<br>
+
+- <span style="color:#f67400;">**Myth**</span>: **RAP is complicated and hugely time consuming**
+- <span style="color:#f67400;">**Reality**</span>: Gradual, small changes towards best practice all add up - you don't have to change everything all at once!
+
+<br>
+
+- <span style="color:#f67400;">**Myth**</span>: **RAP is a barrier to innovation and creativity**
+- <span style="color:#f67400;">**Reality**</span>: RAP is about making sure that your code is transparent, repeatable and efficient. It's about making sure that tedious and time consuming parts of processes are automated, so that you can spend more time on the creative and innovative parts of your work.
+
 
 # Slido
 
@@ -292,4 +326,18 @@ This is so we always have an accurate picture of RAP in the department to share 
 # Edit the slido here: https://admin.sli.do/event/adW5shWehmKfor3CAVt57U/polls
 ```
 
+::: {.column width="100%"}
 [Go to slido](https://wall.sli.do/event/adW5shWehmKfor3CAVt57U?section=eeeb3394-c49a-4530-98e4-ac140f1ed3e6){target="_blank" rel="noopener noreferrer"}
+:::
+
+::: {.column width="40%"}
+:::
+
+::: {.column width="20%"}
+![](images/RFM-slido.png){fig-align="center"}
+:::
+
+::: {.column width="40%"}
+:::
+
+# Final quiz!

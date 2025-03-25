@@ -19,7 +19,13 @@ format:
     standalone: true
 ---
 
+# How to help your teams familiarise themselves with code
 
+-   should this be moved to intermediate workshop?
+
+# How to have meaningful discussions with your teams about code
+
+-   should this be moved to intermediate workshop?
 
 # Introduction to Git, GitHub and Azure DevOps
 :::::
