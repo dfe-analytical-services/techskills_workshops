@@ -19,18 +19,39 @@ format:
 
 Add stuff here about why we're doing this session:
 
-- Want to avoid being left behind 
-- Skilled managers can't collaborate with peers and teams because they don't have necessary skills
-- How can you advise your team on RAP if you're not sure yourself 
-- Should be as confident commenting on your team's code in repo as you are on a Word doc
+-   Want to avoid being left behind
+-   Skilled managers can't collaborate with peers and teams because they don't have necessary skills
+-   How can you advise your team on RAP if you're not sure yourself
+-   Should be as confident commenting on your team's code in repo as you are on a Word doc
 
 # Intro quiz
 
-Put the Menti thing here
+::: {.column width="40%"}
+:::
+
+::: {.column width="20%"}
+Menti:
+
+![](images/mentimeter_qr_code.png){fig-align="center"}
+:::
+
+::: {.column width="40%"}
+:::
+
 
 # Q&A - what do you want to know?
 
-Put the Slido thing here
+::: {.column width="40%"}
+:::
+
+::: {.column width="20%"}
+Slido:
+
+![](images/RFM-slido.png){fig-align="center"}
+:::
+
+::: {.column width="40%"}
+:::
 
 # What is RAP?
 
@@ -85,16 +106,29 @@ Implementing RAP best practices will free up time for us to focus on the parts o
 ::::
 :::::::::
 
-# Improving pipeline efficiency - before RAP
+# Improving pipeline efficiency: before RAP
 
-::: {.column width="90%"}
-![](images/RAP-flowchart-white.png)
+::: {.column width="10%"}
 :::
 
+::: {.column width="80%"}
+![](images/RAP-flowchart-white-before.png)
+:::
 
-# Improving pipeline efficiency - after RAP
+::: {.column width="10%"}
+:::
 
-Split out bottom of diagram from prev slide onto this slide
+# Improving pipeline efficiency: after RAP
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="80%"}
+![](images/RAP-flowchart-white-after.png)
+:::
+
+::: {.column width="10%"}
+:::
 
 # What it means for managers
 
@@ -116,8 +150,8 @@ On our [RAP expectations page](https://dfe-analytical-services.github.io/analyst
 No problem! You can just run the code yourself, right?
 
 # Ok, first I need to find the code...
-::: {.column width="100%"}
 
+::: {.column width="100%"}
 :::
 
 ::: {.column width="40%"}
@@ -128,7 +162,7 @@ This should be easy, it's in our shared folder because we haven't had a chance t
 ![](images/code_nightmare_1.png){fig-align="center" width="60%"}
 :::
 
-#
+# 
 
 ::: {.column width="100%"}
 ![](images/one-hour-later.jpg){fig-align="center" width="60%"}
@@ -137,7 +171,6 @@ This should be easy, it's in our shared folder because we haven't had a chance t
 # Ok, I think I've found the right code...
 
 ::: {.column width="100%"}
-
 :::
 
 ::: {.column width="40%"}
@@ -148,11 +181,9 @@ It's been a little while since I've run this code, I ought to check the document
 ![](images/code_nightmare_2.png){fig-align="center" width="75%"}
 :::
 
-
 # I'm sure there'll be comments in the code that tell me what to do...
 
 ::: {.column width="100%"}
-
 :::
 
 ::: {.column width="100%"}
@@ -174,27 +205,27 @@ Time to ask for help!
 
 # Of course...
 
-- This scenario is exaggerated, but it's not far from the truth of what we see in many teams
-- It's not just about the time it takes to find the code and the stress it might cause, but the risk of errors and the lack of transparency
-- Imagine how it would feel to encounter this issue as a new starter in the team
+-   This scenario is exaggerated, but it's not far from the truth of what we see in many teams
+-   It's not just about the time it takes to find the code and the stress it might cause, but the risk of errors and the lack of transparency
+-   Imagine how it would feel to encounter this issue as a new starter in the team
 
 # How could RAP have avoided these issues?
 
 # Finding the correct version of the code
 
-- Sensible folder and file structure (Good practice)
-- Version controlled final code scripts (Great practice)
-- Collaboratively develop code using Git (Best practice)
+-   Sensible folder and file structure (Good practice)
+-   Version controlled final code scripts (Great practice)
+-   Collaboratively develop code using Git (Best practice)
 
 Using Azure DevOps to store and version control your code scripts allows you to:
 
-- Immediately see the current version of any code your team has been using
-- View all historical versions of the code, along with when the changes were made, what they were, and who made them
-- Roll back to previous versions of the code if you encounter an issue with the current version
+-   Immediately see the current version of any code your team has been using
+-   View all historical versions of the code, along with when the changes were made, what they were, and who made them
+-   Roll back to previous versions of the code if you encounter an issue with the current version
 
 # Understanding how to run the code
 
-- Documentation (Good practice)
+-   Documentation (Good practice)
 
 In your Azure DevOps repo, you should have a README file that explains how to run the code, what it does, and any other important information about the code. This means that anyone in your team (including you!) can pick up the code and run it without needing to ask for help.
 
@@ -202,13 +233,12 @@ Your code should also be well-commented, so that anyone reading it can understan
 
 # Running the code
 
-- Recyclable code for future use (Great practice)
-- All source data stored in a database (Good practice)
+-   Recyclable code for future use (Great practice)
+-   All source data stored in a database (Good practice)
 
 If your code is set up to read data from a database, you can be sure that the data you're using is up-to-date and accurate. This also means that you can easily update the data you're using without needing to change the code.
 
 Recyclable code is code that can be used in multiple projects. This means that you can write code once and use it in multiple projects, saving time and reducing the risk of errors. This is particularly useful for code that is used in multiple publications, or for code that is used in multiple parts of the same publication.
-
 
 # What we expect from managers
 
@@ -485,11 +515,11 @@ This is so we always have an accurate picture of RAP in the department to share 
 
 # How to help your teams familiarise themselves with code
 
-- should this be moved to intermediate workshop?
+-   should this be moved to intermediate workshop?
 
 # How to have meaningful discussions with your teams about code
 
-- should this be moved to intermediate workshop? 
+-   should this be moved to intermediate workshop?
 
 # Slido
 
