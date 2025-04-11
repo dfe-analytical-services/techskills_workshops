@@ -1,5 +1,5 @@
 ---
-title: "RAP for managers - basics and principles"
+title: "RAP and technical skills for managers - basics and principles"
 author: "Statistics Development Team"
 institute: Department for Education
 format:
@@ -17,15 +17,19 @@ format:
 
 # Why am I here?
 
-This session is designed to cover some of the basic principles of RAP from the perspective of a manager, and to give you a chance to ask any questions that you might have.
+This session is designed to cover some of the basic principles of RAP from the perspective of a manager, to outline the level of technical skills (R, SQL, Git) that we expect, and to give you a chance to ask any questions that you might have.
+
+Coding and technical skills form a core part of our work as analysts in DfE. To continue producing high quality statistics, teams need to maintain consistent levels of capability at all levels, and so should be looking to build these skills at every opportunity. 
 
 <br>
 
-Our main aims are to:
+In this workshop, our main aims are to:
 
-- Avoid managers feeling "left behind" and lacking the confidence to effectively support their teams in achieving best practice
+- Avoid managers feeling "left behind" and lacking the confidence to effectively support their teams 
+- Reduce the risk of single points of failure in teams where only one person has specific coding knowledge or ability
 - Ensure that managers have skill levels at which they can effectively collaborate with and advise their peers and teams
 - Be confident that managers know where to go for RAP advice and support if they cannot provide it directly themselves
+- Provide information on resources available to allow you to build your skills 
 
 
 
@@ -33,11 +37,15 @@ Our main aims are to:
 
 <br>
 
-We understand that many managers won't be doing as much of the hands-on coding or technical work, but it's important to have strong enough skill levels in order to successfully support your teams to achieve their potential, or to cover during absence. 
+We understand that many managers won't be doing as much of the hands-on coding or technical work, but it's important to have strong enough skill levels in order to successfully support your teams to achieve their potential. 
 
 <br>
 
-Applying elements of RAP will also make your lives easier if there is staff turnover or long-term absence, and you have to step in to cover. 
+Building your own skills will allow you to demonstrate effective technical leadership, provide advice to team members on how to develop their skills, and to cover during absence or busy periods. 
+
+<br>
+
+Improving your team's skills and applying elements of RAP will also build more flexible and resilient teams, reducing stress during periods of staff turnover or absence. 
 
 # Intro quiz
 
@@ -71,7 +79,7 @@ Slido:
 # What is RAP?
 
 ::: {.fragment .fade-up}
-<span style="color:#f67400;">**R**</span>eproducible <span style="color:#f67400;">**A**</span>nalytical <span style="color:#f67400;">**P**</span>ipelines are simply about using automation to our advantage when analysing data, and ensuring we are transparent when we do!
+<span style="color:#f67400;">**R**</span>eproducible <span style="color:#f67400;">**A**</span>nalytical <span style="color:#f67400;">**P**</span>ipelines are simply about having well-documented, reusable processes when analysing data, and ensuring we are transparent when we do!
 :::
 
 ::: {.fragment .fade-up}
@@ -79,15 +87,15 @@ We already have *analytical pipelines* and have done for many years. The aim of 
 :::
 
 ::: {.fragment .fade-up}
--   Automate all of the parts that we can
+-   Automate all of the parts that we can, e.g. rather than entering a hardcoded date repeatedly throughout your code, instead use one date variable that can be changed in one place and reused throughout
 :::
 
 ::: {.fragment .fade-up}
--   Increase efficiency and accuracy
+-   Increase efficiency and accuracy by reducing the risk of human error, and making sure that calculations are done the same way each time wherever possible
 :::
 
 ::: {.fragment .fade-up}
--   Create a clear audit trail to allow analysis to be easily reused if needed
+-   Create a clear audit trail using documentation to allow analysis to be easily reused where needed, either for repeated publications, or for PQ and FOI requests
 :::
 
 # What does RAP look like?
@@ -95,7 +103,7 @@ We already have *analytical pipelines* and have done for many years. The aim of 
 # RAP in "real life" - case studies
 
 ::: {.fragment .fade-up}
-Implementing RAP best practices will free up time for us to focus on the parts of our work where human input adds true value.
+Implementing RAP best practices can free up time for us to focus on the parts of our work where human input adds true value.
 :::
 
 ::::::::: columns
@@ -145,7 +153,7 @@ Implementing RAP best practices will free up time for us to focus on the parts o
 ::: {.column width="10%"}
 :::
 
-# What it means for managers
+# What it means for managers: cross government RAP strategy
 
 On our [RAP expectations page](https://dfe-analytical-services.github.io/analysts-guide/RAP/rap-expectations.html#analyst-managers), we have pulled out the expectations for analyst managers from the [cross-government RAP strategy](https://analysisfunction.civilservice.gov.uk/policy-store/reproducible-analytical-pipelines-strategy/), which include:
 
@@ -154,12 +162,20 @@ On our [RAP expectations page](https://dfe-analytical-services.github.io/analyst
 > -   evaluate RAP projects within organisations to understand and demonstrate the benefits of RAP
 > -   mandate their teams use RAP principles whenever possible
 
+# What it means for managers: GSS expectations
+
+The [GSG competency framework](https://analysisfunction.civilservice.gov.uk/policy-store/competency-framework-for-the-government-statistician-group-gsg/) contains a Data Analysis strand, applicable to all grades, with the following requirements: 
+
+> - Innovate and seek out new ways of analysing the data
+> - Ensure that analysis is reproducible, transparent and robust using coding and code management best practices.
+
+
 # What does it actually mean for managers?
 
 # A nightmare scenario...
 
--   You get a call from your team member, they're too ill to come to work this week
--   They were the only one who knew how to run the code for your publication
+-   You get a call from your team member, they're too ill to come to work this week. Your other "coder" left the team a month ago and you haven't been able to replace them or train anyone else up yet, so no one else is around
+-   Your team member was the only one who knew how to run the code for your publication
 -   You're already behind schedule
 
 No problem! You can just run the code yourself, right?
@@ -221,8 +237,8 @@ Time to ask for help!
 # Of course...
 
 -   This scenario is exaggerated, but it's not far from the truth of what we see in many teams
--   It's not just about the time it takes to find the code and the stress it might cause, but the risk of errors and the lack of transparency
--   Imagine how it would feel to encounter this issue as a new starter in the team
+-   It's not just about the time it takes to find code in multiple folders and unpick and run undocumented processes and the stress it might cause, but the risk of errors and the lack of transparency
+
 
 # How could RAP have avoided these issues?
 
@@ -237,6 +253,8 @@ Using Azure DevOps to store and version control your code scripts allows you to:
 -   Immediately see the current version of any code your team has been using
 -   View all historical versions of the code, along with when the changes were made, what they were, and who made them
 -   Roll back to previous versions of the code if you encounter an issue with the current version
+- Run each others' versions of local code to collaborate and debug issues
+- Quickly work with the Statistics Development Team to resolve issues if they occur
 
 # Understanding how to run the code
 
@@ -257,15 +275,14 @@ Recyclable code is code that can be used in multiple projects. This means that y
 
 # What we expect from managers
 
-::: {.column width="40%"}
-- You should be familiar with our RAP standards, and we expect managers to ensure that their teams are following these standards
-- When your team reaches "baseline" (all elements of Good + Great), they will undergo an audit to ensure that the standards have been met
-- We then expect teams to begin working towards Best practice levels
+::: {.column width="45%"}
+- You should have sufficient levels of technical skills (R, SQL, Git) relevant to the work of your team to allow you to act as a technical leader and build capability in your team and the wider analyst community
+- You should be familiar with our RAP standards as a framework for analytical work, and we expect managers to ensure that their teams are following these standards
 - Each standard is described in detail on the Analysts' Guide - if this guidance is not suitable for your needs, <b>tell us</b>
 - <span style="color:#f67400;">**You should know how to advise your teams on each of these standards**</span>
 :::
 
-::: {.column width="10%"}
+::: {.column width="5%"}
 :::
 
 ::: {.column width="50%"}
@@ -274,7 +291,7 @@ Recyclable code is code that can be used in multiple projects. This means that y
 :::
 
 
-# How to track your progress
+# How to track your RAP progress
 
 The [RAP self-assessment tool](https://rsconnect/rsc/publication-self-assessment/) allows statistics producers to assess themselves against the department's RAP standards.
 
@@ -309,15 +326,13 @@ This is so we always have an accurate picture of RAP in the department to share 
 - <span style="color:#f67400;">**Myth**</span>: **If we move to RAP best practice, we'll have to rewrite all our SQL code into R**
 - <span style="color:#f67400;">**Reality**</span>: RAP is about using the best tool for the job. If you're using SQL and it's working for you, that's great, and there's no pressure to rewrite code if it's not necessary. We especially recommend using SQL for any heavy processing work with large datasets. 
 
-<br>
 
 - <span style="color:#f67400;">**Myth**</span>: **RAP is complicated and hugely time consuming**
-- <span style="color:#f67400;">**Reality**</span>: Gradual, small changes towards best practice all add up - you don't have to change everything all at once!
+- <span style="color:#f67400;">**Reality**</span>: Gradual, small changes towards best practice all add up - you don't have to change everything all at once! You have probably made much more progress towards best practice than you realise
 
-<br>
 
 - <span style="color:#f67400;">**Myth**</span>: **RAP is a barrier to innovation and creativity**
-- <span style="color:#f67400;">**Reality**</span>: RAP is about making sure that your code is transparent, repeatable and efficient. It's about making sure that tedious and time consuming parts of processes are automated, so that you can spend more time on the creative and innovative parts of your work.
+- <span style="color:#f67400;">**Reality**</span>: RAP is just a framework that gives us a consistent way of doing analysis across government. It's about making sure that your code is transparent, repeatable and efficient. It's about making sure that tedious and time consuming parts of processes are automated, so that you can spend more time on the creative and innovative parts of your work.
 
 
 # Slido
@@ -341,3 +356,23 @@ This is so we always have an accurate picture of RAP in the department to share 
 :::
 
 # Final quiz!
+
+# Making time for learning
+
+It may feel difficult to work on your technical skills when you have fewer opportunities to do hands-on work. 
+
+Why not request a [DataCamp](https://www.datacamp.com/) license and spend an hour a month working on one of the courses? You could even put time in the calendar for your whole team and work through the courses together. 
+
+<br>
+
+You can request DataCamp licenses by emailing [Lisa Smyth](mailto:lisa.smyth@education.gov.uk)
+
+# Learning Resources
+
+- [Codecademy course on Strategies for Managing Technical Teams](https://www.codecademy.com/learn/ext-courses/strategies-for-managing-technical-teams)
+- [Analysts Guide: Learning support](https://dfe-analytical-services.github.io/analysts-guide/learning-development/learning-support.html)
+- [Analysis Function training courses](https://analysisfunction.civilservice.gov.uk/training-courses/)
+- [DfE Git Academy](https://dfe-analytical-services.github.io/git-academy/)
+- [NHS-R Youtube, including intro to R courses](https://www.youtube.com/c/nhsrcommunity)
+- [Analysis Function RAP learning pathway](https://analysisfunction.civilservice.gov.uk/learning-development/learning-pathways/reproducible-analytical-pipelines-rap-learning-pathway/)
+- [Statistics Services Unit support offer](https://educationgovuk.sharepoint.com/sites/lveesfa00074/SSU%20%20Open%20sharing?newTargetListUrl=https%3A%2F%2Feducationgovuk%2Esharepoint%2Ecom%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing&id=%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing%2FSSU%20support%20%2D%20one%20pager%2FRoutes%20and%20support%20one%20pager%2Epdf&viewid=a3d9f08d%2D4fe8%2D4848%2D9157%2Dd7e09b43f701&parent=%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing%2FSSU%20support%20%2D%20one%20pager)

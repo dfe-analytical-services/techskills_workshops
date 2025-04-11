@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Statistics Development Team">
-  <title>RAP for managers - basics and principles</title>
+  <title>RAP and technical skills for managers - basics and principles</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -329,7 +329,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">RAP for managers - basics and principles</h1>
+  <h1 class="title">RAP and technical skills for managers - basics and principles</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -345,22 +345,27 @@ Statistics Development Team
 </section>
 <section id="why-am-i-here" class="title-slide slide level1 center">
 <h1>Why am I here?</h1>
-<p>This session is designed to cover some of the basic principles of RAP from the perspective of a manager, and to give you a chance to ask any questions that you might have.</p>
+<p>This session is designed to cover some of the basic principles of RAP from the perspective of a manager, to outline the level of technical skills (R, SQL, Git) that we expect, and to give you a chance to ask any questions that you might have.</p>
+<p>Coding and technical skills form a core part of our work as analysts in DfE. To continue producing high quality statistics, teams need to maintain consistent levels of capability at all levels, and so should be looking to build these skills at every opportunity.</p>
 <p><br></p>
-<p>Our main aims are to:</p>
+<p>In this workshop, our main aims are to:</p>
 <ul>
-<li>Avoid managers feeling “left behind” and lacking the confidence to effectively support their teams in achieving best practice</li>
+<li>Avoid managers feeling “left behind” and lacking the confidence to effectively support their teams</li>
+<li>Reduce the risk of single points of failure in teams where only one person has specific coding knowledge or ability</li>
 <li>Ensure that managers have skill levels at which they can effectively collaborate with and advise their peers and teams</li>
 <li>Be confident that managers know where to go for RAP advice and support if they cannot provide it directly themselves</li>
+<li>Provide information on resources available to allow you to build your skills</li>
 </ul>
 </section>
 
 <section id="do-i-really-need-technical-skills-as-a-manager" class="title-slide slide level1 center">
 <h1>Do I really need technical skills as a manager?</h1>
 <p><br></p>
-<p>We understand that many managers won’t be doing as much of the hands-on coding or technical work, but it’s important to have strong enough skill levels in order to successfully support your teams to achieve their potential, or to cover during absence.</p>
+<p>We understand that many managers won’t be doing as much of the hands-on coding or technical work, but it’s important to have strong enough skill levels in order to successfully support your teams to achieve their potential.</p>
 <p><br></p>
-<p>Applying elements of RAP will also make your lives easier if there is staff turnover or long-term absence, and you have to step in to cover.</p>
+<p>Building your own skills will allow you to demonstrate effective technical leadership, provide advice to team members on how to develop their skills, and to cover during absence or busy periods.</p>
+<p><br></p>
+<p>Improving your team’s skills and applying elements of RAP will also build more flexible and resilient teams, reducing stress during periods of staff turnover or absence.</p>
 </section>
 
 <section id="intro-quiz" class="title-slide slide level1 center">
@@ -396,24 +401,24 @@ Statistics Development Team
 <section id="what-is-rap" class="title-slide slide level1 center">
 <h1>What is RAP?</h1>
 <div class="fragment fade-up">
-<p><span style="color:#f67400;"><strong>R</strong></span>eproducible <span style="color:#f67400;"><strong>A</strong></span>nalytical <span style="color:#f67400;"><strong>P</strong></span>ipelines are simply about using automation to our advantage when analysing data, and ensuring we are transparent when we do!</p>
+<p><span style="color:#f67400;"><strong>R</strong></span>eproducible <span style="color:#f67400;"><strong>A</strong></span>nalytical <span style="color:#f67400;"><strong>P</strong></span>ipelines are simply about having well-documented, reusable processes when analysing data, and ensuring we are transparent when we do!</p>
 </div>
 <div class="fragment fade-up">
 <p>We already have <em>analytical pipelines</em> and have done for many years. The aim of RAP is to:</p>
 </div>
 <div class="fragment fade-up">
 <ul>
-<li>Automate all of the parts that we can</li>
+<li>Automate all of the parts that we can, e.g.&nbsp;rather than entering a hardcoded date repeatedly throughout your code, instead use one date variable that can be changed in one place and reused throughout</li>
 </ul>
 </div>
 <div class="fragment fade-up">
 <ul>
-<li>Increase efficiency and accuracy</li>
+<li>Increase efficiency and accuracy by reducing the risk of human error, and making sure that calculations are done the same way each time wherever possible</li>
 </ul>
 </div>
 <div class="fragment fade-up">
 <ul>
-<li>Create a clear audit trail to allow analysis to be easily reused if needed</li>
+<li>Create a clear audit trail using documentation to allow analysis to be easily reused where needed, either for repeated publications, or for PQ and FOI requests</li>
 </ul>
 </div>
 </section>
@@ -426,7 +431,7 @@ Statistics Development Team
 <section id="rap-in-real-life---case-studies" class="title-slide slide level1 center">
 <h1>RAP in “real life” - case studies</h1>
 <div class="fragment fade-up">
-<p>Implementing RAP best practices will free up time for us to focus on the parts of our work where human input adds true value.</p>
+<p>Implementing RAP best practices can free up time for us to focus on the parts of our work where human input adds true value.</p>
 </div>
 <div class="columns">
 <div class="column" style="width:33%;">
@@ -473,14 +478,23 @@ Statistics Development Team
 
 </div></section>
 
-<section id="what-it-means-for-managers" class="title-slide slide level1 center">
-<h1>What it means for managers</h1>
+<section id="what-it-means-for-managers-cross-government-rap-strategy" class="title-slide slide level1 center">
+<h1>What it means for managers: cross government RAP strategy</h1>
 <p>On our <a href="https://dfe-analytical-services.github.io/analysts-guide/RAP/rap-expectations.html#analyst-managers">RAP expectations page</a>, we have pulled out the expectations for analyst managers from the <a href="https://analysisfunction.civilservice.gov.uk/policy-store/reproducible-analytical-pipelines-strategy/">cross-government RAP strategy</a>, which include:</p>
 <ul>
 <li class="fragment">build extra time into projects to adopt new skills and practices where appropriate</li>
 <li class="fragment">learn the skills they need to manage software</li>
 <li class="fragment">evaluate RAP projects within organisations to understand and demonstrate the benefits of RAP</li>
 <li class="fragment">mandate their teams use RAP principles whenever possible</li>
+</ul>
+</section>
+
+<section id="what-it-means-for-managers-gss-expectations" class="title-slide slide level1 center">
+<h1>What it means for managers: GSS expectations</h1>
+<p>The <a href="https://analysisfunction.civilservice.gov.uk/policy-store/competency-framework-for-the-government-statistician-group-gsg/">GSG competency framework</a> contains a Data Analysis strand, applicable to all grades, with the following requirements:</p>
+<ul>
+<li class="fragment">Innovate and seek out new ways of analysing the data</li>
+<li class="fragment">Ensure that analysis is reproducible, transparent and robust using coding and code management best practices.</li>
 </ul>
 </section>
 
@@ -492,8 +506,8 @@ Statistics Development Team
 <section id="a-nightmare-scenario" class="title-slide slide level1 center">
 <h1>A nightmare scenario…</h1>
 <ul>
-<li>You get a call from your team member, they’re too ill to come to work this week</li>
-<li>They were the only one who knew how to run the code for your publication</li>
+<li>You get a call from your team member, they’re too ill to come to work this week. Your other “coder” left the team a month ago and you haven’t been able to replace them or train anyone else up yet, so no one else is around</li>
+<li>Your team member was the only one who knew how to run the code for your publication</li>
 <li>You’re already behind schedule</li>
 </ul>
 <p>No problem! You can just run the code yourself, right?</p>
@@ -567,8 +581,7 @@ Statistics Development Team
 <h1>Of course…</h1>
 <ul>
 <li>This scenario is exaggerated, but it’s not far from the truth of what we see in many teams</li>
-<li>It’s not just about the time it takes to find the code and the stress it might cause, but the risk of errors and the lack of transparency</li>
-<li>Imagine how it would feel to encounter this issue as a new starter in the team</li>
+<li>It’s not just about the time it takes to find code in multiple folders and unpick and run undocumented processes and the stress it might cause, but the risk of errors and the lack of transparency</li>
 </ul>
 </section>
 
@@ -589,6 +602,8 @@ Statistics Development Team
 <li>Immediately see the current version of any code your team has been using</li>
 <li>View all historical versions of the code, along with when the changes were made, what they were, and who made them</li>
 <li>Roll back to previous versions of the code if you encounter an issue with the current version</li>
+<li>Run each others’ versions of local code to collaborate and debug issues</li>
+<li>Quickly work with the Statistics Development Team to resolve issues if they occur</li>
 </ul>
 </section>
 
@@ -613,15 +628,14 @@ Statistics Development Team
 
 <section id="what-we-expect-from-managers" class="title-slide slide level1 center">
 <h1>What we expect from managers</h1>
-<div class="column" style="width:40%;">
+<div class="column" style="width:45%;">
 <ul>
-<li>You should be familiar with our RAP standards, and we expect managers to ensure that their teams are following these standards</li>
-<li>When your team reaches “baseline” (all elements of Good + Great), they will undergo an audit to ensure that the standards have been met</li>
-<li>We then expect teams to begin working towards Best practice levels</li>
+<li>You should have sufficient levels of technical skills (R, SQL, Git) relevant to the work of your team to allow you to act as a technical leader and build capability in your team and the wider analyst community</li>
+<li>You should be familiar with our RAP standards as a framework for analytical work, and we expect managers to ensure that their teams are following these standards</li>
 <li>Each standard is described in detail on the Analysts’ Guide - if this guidance is not suitable for your needs, <b>tell us</b></li>
 <li><span style="color:#f67400;"><strong>You should know how to advise your teams on each of these standards</strong></span></li>
 </ul>
-</div><div class="column" style="width:10%;">
+</div><div class="column" style="width:5%;">
 
 </div><div class="column" style="width:50%;">
 <div class="mxgraph" style="max-width: 100%; border: 1px solid transparent; position: relative; touch-action: none; overflow: hidden; margin-top: 26px; width: 999px; height: 494px;" data-mxgraph="{&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;<mxfile host=\&quot;app.diagrams.net\&quot; agent=\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0\&quot; version=\&quot;25.0.3\&quot;>\n  <diagram id=\&quot;_ltWYIdbVKAG_Xyvna0Y\&quot; name=\&quot;Page-1\&quot;>\n    <mxGraphModel dx=\&quot;1786\&quot; dy=\&quot;749\&quot; grid=\&quot;0\&quot; gridSize=\&quot;10\&quot; guides=\&quot;1\&quot; tooltips=\&quot;1\&quot; connect=\&quot;1\&quot; arrows=\&quot;1\&quot; fold=\&quot;1\&quot; page=\&quot;0\&quot; pageScale=\&quot;1\&quot; pageWidth=\&quot;827\&quot; pageHeight=\&quot;1169\&quot; math=\&quot;0\&quot; shadow=\&quot;0\&quot;>\n      <root>\n        <mxCell id=\&quot;0\&quot; />\n        <mxCell id=\&quot;1\&quot; parent=\&quot;0\&quot; />\n        <UserObject label=\&quot;Sensible folder and file structure\&quot; link=\&quot;#sensible-folder-and-file-structure\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-5\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;69\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Use appropriate tools\&quot; link=\&quot;#appropriate-tools\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-6\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;fillColor=#4472C4;spacingLeft=7;spacingRight=7;rounded=0;shadow=0;sketch=0;backgroundOutline=0;gradientDirection=north;strokeColor=none;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;-55\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Processing is done with code\&quot; link=\&quot;#processing-is-done-with-code\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-7\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;7\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Basic automated QA\&quot; link=\&quot;#basic-automated-qa\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-8\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;132\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;All source data stored in a database\&quot; link=\&quot;#all-source-data-stored-in-a-database\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-9\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;-118\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Files meet data standards\&quot; link=\&quot;../creating-statistics/ud.html#how-to-check-against-these-standards\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-10\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;-55\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Documentation\&quot; link=\&quot;#documentation\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-11\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;69\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Version controlled final code scripts\&quot; link=\&quot;#version-controlled-final-code-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-12\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;320\&quot; y=\&quot;327\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Recyclable code for future use\&quot; link=\&quot;#recyclable-code-for-future-use\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-13\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;195\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Dataset production scripts\&quot; link=\&quot;#dataset-production-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-14\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;257\&quot; y=\&quot;421\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Publication specific automated QA\&quot; link=\&quot;#publication-specific-automated-qa\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-15\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;382\&quot; y=\&quot;421\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Automated summaries\&quot; link=\&quot;#automated-summaries\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-17\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;194\&quot; y=\&quot;515\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Peer review of code within team\&quot; link=\&quot;#review-of-code-within-team\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-18\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;319\&quot; y=\&quot;515\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Collaboratively develop code using git\&quot; link=\&quot;#collaboratively-develop-code-using-git\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-19\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;674\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;&amp;#39;Clean&amp;#39; final code\&quot; link=\&quot;#clean-final-code\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-20\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;550\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;&amp;lt;div style=&amp;quot;&amp;quot;&amp;gt;&amp;lt;font style=&amp;quot;font-size: 14px;&amp;quot;&amp;gt;Whole publication production scripts&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;\&quot; link=\&quot;#whole-publication-production-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-21\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;align=center;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;612\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Use open source repositories\&quot; link=\&quot;#use-open-source-repositories\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-22\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;737\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Publication specific automated summaries\&quot; link=\&quot;#publication-specific-automated-summaries\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-23\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;550\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Peer review of code from outside the team\&quot; link=\&quot;#review-of-code-from-outside-the-team\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-24\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;674\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-25\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#4472c4&amp;quot;&amp;gt;Good practice&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;-38\&quot; y=\&quot;652\&quot; width=\&quot;210\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-26\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#70ad47&amp;quot;&amp;gt;Great practice&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;206\&quot; y=\&quot;652\&quot; width=\&quot;220\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-27\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#ed7d31&amp;quot;&amp;gt;Best practice&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;572\&quot; y=\&quot;652\&quot; width=\&quot;200\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-1\&quot; value=\&quot;\&quot; style=\&quot;shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;fontSize=13;rotation=90;strokeWidth=2;strokeColor=#4472c4;gradientColor=none;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;168.5\&quot; y=\&quot;26\&quot; width=\&quot;47\&quot; height=\&quot;538\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-2\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#4472c4&amp;quot;&amp;gt;Baseline expectation&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;35.5\&quot; y=\&quot;216\&quot; width=\&quot;313\&quot; height=\&quot;50\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-4\&quot; value=\&quot;\&quot; style=\&quot;shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;fontSize=13;rotation=90;strokeWidth=2;strokeColor=#ed7d31;gradientColor=none;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;659\&quot; y=\&quot;145\&quot; width=\&quot;47\&quot; height=\&quot;292\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-5\&quot; value=\&quot;&amp;lt;font color=&amp;quot;#ed7d31&amp;quot; style=&amp;quot;font-size: 32px&amp;quot;&amp;gt;Ambition&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;612\&quot; y=\&quot;216\&quot; width=\&quot;143\&quot; height=\&quot;50\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n      </root>\n    </mxGraphModel>\n  </diagram>\n</mxfile>\n&quot;}">
@@ -825,8 +839,8 @@ Peer review of code from outside the team
 </div>
 </div></section>
 
-<section id="how-to-track-your-progress" class="title-slide slide level1 center">
-<h1>How to track your progress</h1>
+<section id="how-to-track-your-rap-progress" class="title-slide slide level1 center">
+<h1>How to track your RAP progress</h1>
 <p>The <a href="https://rsconnect/rsc/publication-self-assessment/">RAP self-assessment tool</a> allows statistics producers to assess themselves against the department’s RAP standards.</p>
 <div class="fragment fade-up">
 <p>Importantly for managers, you can monitor your team’s progress towards achieving the RAP baseline by viewing ‘RAP progress by area’ and ‘overview of latest responses’.</p>
@@ -859,18 +873,12 @@ Peer review of code from outside the team
 <section id="more-rap-mythbusting" class="title-slide slide level1 center">
 <h1>More RAP Mythbusting</h1>
 <ul>
-<li><span style="color:#f67400;"><strong>Myth</strong></span>: <strong>If we move to RAP best practice, we’ll have to rewrite all our SQL code into R</strong></li>
-<li><span style="color:#f67400;"><strong>Reality</strong></span>: RAP is about using the best tool for the job. If you’re using SQL and it’s working for you, that’s great, and there’s no pressure to rewrite code if it’s not necessary. We especially recommend using SQL for any heavy processing work with large datasets.</li>
-</ul>
-<p><br></p>
-<ul>
-<li><span style="color:#f67400;"><strong>Myth</strong></span>: <strong>RAP is complicated and hugely time consuming</strong></li>
-<li><span style="color:#f67400;"><strong>Reality</strong></span>: Gradual, small changes towards best practice all add up - you don’t have to change everything all at once!</li>
-</ul>
-<p><br></p>
-<ul>
-<li><span style="color:#f67400;"><strong>Myth</strong></span>: <strong>RAP is a barrier to innovation and creativity</strong></li>
-<li><span style="color:#f67400;"><strong>Reality</strong></span>: RAP is about making sure that your code is transparent, repeatable and efficient. It’s about making sure that tedious and time consuming parts of processes are automated, so that you can spend more time on the creative and innovative parts of your work.</li>
+<li><p><span style="color:#f67400;"><strong>Myth</strong></span>: <strong>If we move to RAP best practice, we’ll have to rewrite all our SQL code into R</strong></p></li>
+<li><p><span style="color:#f67400;"><strong>Reality</strong></span>: RAP is about using the best tool for the job. If you’re using SQL and it’s working for you, that’s great, and there’s no pressure to rewrite code if it’s not necessary. We especially recommend using SQL for any heavy processing work with large datasets.</p></li>
+<li><p><span style="color:#f67400;"><strong>Myth</strong></span>: <strong>RAP is complicated and hugely time consuming</strong></p></li>
+<li><p><span style="color:#f67400;"><strong>Reality</strong></span>: Gradual, small changes towards best practice all add up - you don’t have to change everything all at once! You have probably made much more progress towards best practice than you realise</p></li>
+<li><p><span style="color:#f67400;"><strong>Myth</strong></span>: <strong>RAP is a barrier to innovation and creativity</strong></p></li>
+<li><p><span style="color:#f67400;"><strong>Reality</strong></span>: RAP is just a framework that gives us a consistent way of doing analysis across government. It’s about making sure that your code is transparent, repeatable and efficient. It’s about making sure that tedious and time consuming parts of processes are automated, so that you can spend more time on the creative and innovative parts of your work.</p></li>
 </ul>
 </section>
 
@@ -892,6 +900,28 @@ Peer review of code from outside the team
 
 <section id="final-quiz" class="title-slide slide level1 center">
 <h1>Final quiz!</h1>
+
+</section>
+
+<section id="making-time-for-learning" class="title-slide slide level1 center">
+<h1>Making time for learning</h1>
+<p>It may feel difficult to work on your technical skills when you have fewer opportunities to do hands-on work.</p>
+<p>Why not request a <a href="https://www.datacamp.com/">DataCamp</a> license and spend an hour a month working on one of the courses? You could even put time in the calendar for your whole team and work through the courses together.</p>
+<p><br></p>
+<p>You can request DataCamp licenses by emailing <a href="mailto:lisa.smyth@education.gov.uk">Lisa Smyth</a></p>
+</section>
+
+<section id="learning-resources" class="title-slide slide level1 center">
+<h1>Learning Resources</h1>
+<ul>
+<li><a href="https://www.codecademy.com/learn/ext-courses/strategies-for-managing-technical-teams">Codecademy course on Strategies for Managing Technical Teams</a></li>
+<li><a href="https://dfe-analytical-services.github.io/analysts-guide/learning-development/learning-support.html">Analysts Guide: Learning support</a></li>
+<li><a href="https://analysisfunction.civilservice.gov.uk/training-courses/">Analysis Function training courses</a></li>
+<li><a href="https://dfe-analytical-services.github.io/git-academy/">DfE Git Academy</a></li>
+<li><a href="https://www.youtube.com/c/nhsrcommunity">NHS-R Youtube, including intro to R courses</a></li>
+<li><a href="https://analysisfunction.civilservice.gov.uk/learning-development/learning-pathways/reproducible-analytical-pipelines-rap-learning-pathway/">Analysis Function RAP learning pathway</a></li>
+<li><a href="https://educationgovuk.sharepoint.com/sites/lveesfa00074/SSU%20%20Open%20sharing?newTargetListUrl=https%3A%2F%2Feducationgovuk%2Esharepoint%2Ecom%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing&amp;id=%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing%2FSSU%20support%20%2D%20one%20pager%2FRoutes%20and%20support%20one%20pager%2Epdf&amp;viewid=a3d9f08d%2D4fe8%2D4848%2D9157%2Dd7e09b43f701&amp;parent=%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing%2FSSU%20support%20%2D%20one%20pager">Statistics Services Unit support offer</a></li>
+</ul>
 <div class="quarto-auto-generated-content">
 <p><img src="DfE_logo_landscape.png" class="slide-logo"></p>
 <div class="footer footer-default">
