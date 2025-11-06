@@ -39,21 +39,23 @@
 \contentsline {subsection}{Google questions and errors}{42}{section*.44}%
 \contentsline {subsection}{Using Copilot}{43}{section*.45}%
 \contentsline {section}{w-RAP it up}{44}{section*.46}%
-\contentsline {section}{Unit testing in R}{45}{section*.47}%
-\contentsline {section}{dplyr vs.~data.table}{46}{section*.48}%
-\contentsline {section}{Troubleshooting}{48}{section*.49}%
-\contentsline {subsection}{renv}{48}{section*.50}%
-\contentsline {subsubsection}{renv::restore()}{48}{section*.51}%
-\contentsline {subsubsection}{Updating packages in renv}{49}{section*.52}%
-\contentsline {subsubsection}{Installing old package versions in renv}{49}{section*.53}%
-\contentsline {subsection}{`Can't find make' error}{49}{section*.54}%
-\contentsline {section}{Excel functions in R}{51}{section*.55}%
-\contentsline {subsection}{VLOOKUP}{51}{section*.56}%
-\contentsline {subsubsection}{Using base R}{51}{section*.58}%
-\contentsline {subsubsection}{Using dplyr}{53}{section*.59}%
-\contentsline {section}{Accessing remote data \textbf {(Optional)}}{55}{section*.60}%
-\contentsline {subsection}{SQL}{55}{section*.61}%
-\contentsline {subsubsection}{Writing a table to a SQL database}{56}{section*.62}%
-\contentsline {subsubsection}{Reading a table from a SQL database}{57}{section*.63}%
-\contentsline {subsubsection}{SQL functions in R}{58}{section*.64}%
-\contentsline {subsection}{Alternative ways to read in data}{59}{section*.65}%
+\contentsline {section}{Optional exercises}{46}{section*.47}%
+\contentsline {subsection}{Unit testing in R (optional)}{46}{section*.48}%
+\contentsline {subsection}{Accessing remote data (optional)}{48}{section*.49}%
+\contentsline {subsubsection}{SQL}{48}{section*.50}%
+\contentsline {paragraph}{Writing a table to a SQL database}{49}{section*.51}%
+\contentsline {paragraph}{Reading a table from a SQL database}{50}{section*.52}%
+\contentsline {paragraph}{SQL functions in R}{51}{section*.53}%
+\contentsline {subsubsection}{Alternative ways to read in data}{52}{section*.54}%
+\contentsline {section}{Supplementary information}{53}{section*.55}%
+\contentsline {subsection}{dplyr vs.~data.table (supplementary)}{53}{section*.56}%
+\contentsline {subsection}{Troubleshooting (supplementary)}{54}{section*.57}%
+\contentsline {subsubsection}{renv}{54}{section*.58}%
+\contentsline {paragraph}{renv::restore()}{54}{section*.59}%
+\contentsline {paragraph}{Updating packages in renv}{55}{section*.60}%
+\contentsline {paragraph}{Installing old package versions in renv}{55}{section*.61}%
+\contentsline {subsubsection}{`Can't find make' error}{55}{section*.62}%
+\contentsline {subsection}{Excel functions in R (supplementary)}{57}{section*.63}%
+\contentsline {subsubsection}{VLOOKUP}{57}{section*.64}%
+\contentsline {paragraph}{Using base R}{57}{section*.66}%
+\contentsline {paragraph}{Using dplyr}{59}{section*.67}%

@@ -624,7 +624,7 @@ There are multiple ways to load data into R, including:
 
 3.  Accessing data stored in **Databricks**.
 
-Today we will focus on 1. Reading in a **CSV** file, but you will find an optional section on linking to **SQL** later on. There is also a link to guidance on connecting to **Databricks** provided at the end of this PDF.
+Today we will focus on 1. Reading in a **CSV** file, but you will find an optional section on accessing remote data later on. This covers reading data from and writing data to **SQL**, as well a link to guidance on connecting to **Databricks** if you would like to learn more about that.
 
 Before loading in any data, we should add a new section header!
 Use the guidance above to add a new section header called 'Load in the data'.
@@ -1837,7 +1837,11 @@ Then below, add a comment and \verb|source()| for your functions script and plot
 ```
 Once you have sourced all of your scripts here, you can run this run_pipeline script and (hopefully) see all your code running in the console, as well as the charts appearing in the plots viewer - all with the running of this one single script!
 
-# Unit testing in R
+\newpage
+
+# Optional exercises
+
+## Unit testing in R (optional)
 
 A unit test is basically a small function that tests and helps us to write *robust* code.
 By robust, we mean code that **won't break easily** upon changes, can be altered or extended, and can be tested with ease.
@@ -1892,263 +1896,16 @@ See how the above code returns a message in the console to let you know that the
 ```
 See <https://www.geeksforgeeks.org/unit-testing-in-r-programming/> for more info, including a table of over 20 'expectation' options (i.e. `expect_equal()`, `expect_lt()` means expect less than, `expect_gte()` means expect greater than or equal).
 
-# dplyr vs. data.table
-
-Most of the code we covered today in the data manipulation section uses the `dplyr` package and syntax.
-The `dplyr` package is commonly used due to it's neat, easily read structure, however, depending on the size of your data it can be slow to run.
-The faster alternative is data.table, which is a higher-performance option based on the 'base R' syntax (base R is the original dialect of the R programming language that comes built-in without having to install any packages).
-
-This site has an extremely useful side-by-side syntax comparison of `dplyr` and `data.table`: [https://towardsdatascience.com/fast-transition-between-dplyr-and-data-table](https://towardsdatascience.com/fast-transition-between-dplyr-and-data-table-c02d53cb769f)
-
-Here are a couple of quick examples taken from the site linked above that do the exact same thing using the two different syntax:
-
-1.  Filtering by rows
-
-Filter for men aged 79 or younger
-
-```         
-data %>% filter(AGE <= 79 & GENDER == “M”) #dplyr
-data[AGE <= 79 & GENDER == “M”] #datatable
-```
-
-2.  Selecting columns
-
-Let's select the columns GENDER, AGE, and PAID
-
-```         
-data %>% select(GENDER, AGE, PAID) #dplyr
-data[, .(GENDER, AGE, PAID)] #datatable
-```
-
-3.  Summarise by column
-
-What is the average insurance claim paid?
-
-The following code aggregates data and returns a single-record named AVG.PAID
-
-```         
-data %>% summarise(AVG.PAID = mean(PAID)) #dplyr
-data[, .(AVG.PAID = mean(PAID))] #datatable
-```
-
-There is much more available on the linked site!
-
 \newpage
 
-# Troubleshooting
-
-## renv
-
-### renv::restore()
-
-Sometimes `renv::restore()` can fail, and when in specific renv-controlled projects install.packages() will fail saying that packages aren't available even when they clearly are.
-There are a couple of workarounds we have found that get around this failure.
-
-Configuring the proxy settings by running the below in R - this also helps if you are getting timeout issues when trying to webscrape with R:
-
-```         
-Sys.setenv(no_proxy="*") 
-```
-
-Specifying the renv library as the install location.
-It's a bit of a fudge, though these lines are helpful to get the packages from the renv lockfile installed and you running the project when needed:
-
-```         
-myPath <- .libPaths()[1]
-
-forceInstall <- function(pkg, path) {
-missing <- suppressWarnings(eval(parse(text= paste0("!require(",pkg,")"))))
-
-if(missing == FALSE){
-message(pkg, " is already installed.")
-} else{
-install.packages(pkg, lib = path)
-}
-}
-
-forceInstall("jsonlite", myPath)
-
-renvPackages <- names(jsonlite::fromJSON("renv.lock", flatten = TRUE)$Packages)
-
-invisible(lapply(renvPackages, forceInstall, path = myPath))
-```
-
-More manual equivalent to use for specific packages:
-
-```         
-.libPaths() 
-# note down output 1, and reuse in the lib argument of install.packages() as below
-
-install.packages("rmarkdown", lib = "C:/Users/swong/OneDrive - Department for
-Education/Documents/stats-production-guidance/renv/library/R-4.0/x86_64-w64-mingw32")
-```
-
-### Updating packages in renv
-
-To update a single package run:
-
-```         
-renv::update("dplyr")
-```
-
-To update all packages run:
-
-```         
-renv::update()
-```
-
-### Installing old package versions in renv
-
-This is surprisingly neat to do.
-Let's say you wanted to roll back to version 1.0.2 of dplyr, you would run the following:
-
-```         
-renv::install("dplyr@1.0.2")
-```
-
-## 'Can't find make' error
-
-This error is usually due to RTools not being properly installed, which should be uncommon since Rtools can be accessed from the Software Center.
-
-If re-installing from the Software Center does not work then there is a work around:
-
-You can [install RTools as a direct download from CRAN](https://cran.r-project.org/bin/windows/Rtools/).
-On there, pick the right version of RTools for your version of R, download the file and install.
-When downloading RTools you may need to confirm that you understand the risks of downloading an .exe file from an unknown source; this is common, and as this is a trusted source, you can click accept.
-
-When running the .exe file, Windows Defender may step in and act like it's not going to let you progress any further.
-If this happens you'll need to click "More info" and only then can you select something like "install anyway".
-Set the install location to `C:\rtools40` (it is often this by default)
-
-Next you need to add it to the PATH variable.
-We can't edit this without an admin password, though you can temporarily set it to allow you to restore from renv, by doing it from within the R console.
-This only sets it temporarily for as long as the R session is running, you'll need to rerun each time you're in an R session and need it.
-
-```         
-old_path <- Sys.getenv(“PATH”) 
-Sys.setenv(PATH = paste(old_path, “C:\rtools40\usr\bin”, sep = “;”)) 
-Sys.getenv(“PATH”)
-```
-
-\newpage
-
-# Excel functions in R
-
-R can do much of what you can do in Excel, but analysis done using R is less prone to human error.
-[This reference table](https://dfe-analytical-services.github.io/analysts-guide/learning-development/r.html#excel-functions-in-r) shows how you would carry out popular Excel commands in R.
-
-R comes in with a built-in dataset called "iris".
-We'll use this for all examples so you can recreate them in your local area.
-
-**REMEMBER:** R is case sensitive, so all references to column names/entries need to be as-is in the dataset you are looking at.
-[Functions exist](https://www.rdocumentation.org/packages/janitor/versions/1.2.0/topics/clean_names) that can translate all your columns to lower or snake case for ease!
-
-[View the comparison table on our guidance site.](https://dfe-analytical-services.github.io/analysts-guide/learning-development/r.html#excel-functions-in-r)
-
-## VLOOKUP
-
-The **VLOOKUP** function in Excel allows you to look up a value in a table by matching on a column.
-For example, in the following Excel worksheet we can look up a player's team name by using the VLOOKUP to match on player name and return the player's team:
-
-```{r echo=FALSE, out.width='100%', fig.cap='R studio panels'}
-knitr::include_graphics('images/RforRAP/vlookup_excel.png')
-```
-
-This is essentially *joining* or *merging* data, as the above example is using the first table to join the team onto the second table using the player name.
-Joining and merging data are easily done in R!
-
-We can replicate this function in both base R or the `dplyr` package.
-
-### Using base R
-
-The following code shows how to perform a function similar to **VLOOKUP** in base R by using the `merge()` function:
-
-```         
-#create first data frame
-df1 <- data.frame(player=LETTERS[1:15],
-                  team=rep(c("Mavs", "Lakers", "Rockets"), each=5))
-
-#create second data frame 
-df2 <- data.frame(player=LETTERS[1:15],
-                  points=c(14, 15, 15, 16, 8, 9, 16, 27, 30, 24, 14, 19, 8, 6, 5))
-
-#merge the two data frames
-merge(df1, df2, by="player")
-
-   player    team points
-1       A    Mavs     14
-2       B    Mavs     15
-3       C    Mavs     15
-4       D    Mavs     16
-5       E    Mavs      8
-6       F  Lakers      9
-7       G  Lakers     16
-8       H  Lakers     27
-9       I  Lakers     30
-10      J  Lakers     24
-11      K Rockets     14
-12      L Rockets     19
-13      M Rockets      8
-14      N Rockets      6
-15      O Rockets      5
-```
-
-As you can see, the output above is the same as the output created using VLOOKUP in Excel.
-Note that you could specify multiple columns to merge on within the `by =` function by using the syntax `by = c("column1", "column2", ...)`.
-
-### Using dplyr
-
-The following code shows how to perform a function similar to **VLOOKUP** using `join()` functions from the `dplyr` package.
-
-```         
-library(dplyr)
-
-#create first data frame
-df1 <- data.frame(player=LETTERS[1:15],
-                  team=rep(c("Mavs", "Lakers", "Rockets"), each=5))
-
-#create second data frame 
-df2 <- data.frame(player=LETTERS[1:15],
-                  points=c(14, 15, 15, 16, 8, 9, 16, 27, 30, 24, 14, 19, 8, 6, 5))
-
-#merge the two data frames using inner_join
-inner_join(df1, df2, by="player")
-
-   player    team points
-1       A    Mavs     14
-2       B    Mavs     15
-3       C    Mavs     15
-4       D    Mavs     16
-5       E    Mavs      8
-6       F  Lakers      9
-7       G  Lakers     16
-8       H  Lakers     27
-9       I  Lakers     30
-10      J  Lakers     24
-11      K Rockets     14
-12      L Rockets     19
-13      M Rockets      8
-14      N Rockets      6
-15      O Rockets      5
-```
-
-As you can see, the output is the same as the output created in Excel.
-In the above code we use an `inner_join()`.
-You could also use a `left_join()` and get the same results.
-The **difference** between an `inner_join()` and a `left_join()` is that an `inner_join()` will only keep rows that have a match from **both sides**, whereas a `left_join` will always keep all rows form the 'left' (the data frame we state first), and join *what it can* from the 'right' (the second data frame).
-
-For an example of a left join, go back to the [joins section](#joins-&-joining-geographic-codes-via-lookup-tables) earlier in this workshop!
-
-\newpage
-
-# Accessing remote data **(Optional)**
+## Accessing remote data (optional)
 
 Often it's not feasible to have all the data you want to work with stored on your local machine. This means that you have to have a way of pulling it down from external sources. Within the department we are currently using two forms of external storage:
 
 1. On-site SQL servers.
 2. Databricks lakes, lakehouses and warehouses.
 
-## SQL
+### SQL
 
 **NOTE:** to work through the tasks in these SQL sections, you must have access to an existing SQL database. We will use {SQL_server}, {SQL_database}, and {SQL_table} instead of your server, database, and table names throughout.
 
@@ -2199,7 +1956,7 @@ con_RODBC <- RODBC::odbcDriverConnect(
 
 **[Note that this code will only work for you if you have access to the specified server and database! If someone without access tried to run this code, they would get an error in the R console.]**
 
-### Writing a table to a SQL database
+#### Writing a table to a SQL database
 
 There are a number of functions available in R that can write a data frame to a table on a SQL database.
 Here we'll show the 3 possible ways of writing a table with our students dataframe:
@@ -2231,7 +1988,7 @@ If you have existing write access to a SQL database that you or your team owns, 
 At the end of the workshop you can delete this by right clicking on the table in SQL Server Management.
 \end{tcolorbox}
 ```
-### Reading a table from a SQL database
+#### Reading a table from a SQL database
 
 As well as writing tables from R to the database, we can use our connection to read in a table from the database into R.
 There are multiple ways to do this:
@@ -2278,7 +2035,7 @@ If you click the name of the object, it will open in the viewer in the top left 
 This is the same as typing `View(name_of_data)` in the console.
 
 
-### SQL functions in R
+#### SQL functions in R
 
 R can do a lot of the things that are possible in SQL.
 [This reference table](https://dfe-analytical-services.github.io/analysts-guide/learning-development/r.html#sql-function-equivalents-in-r) shows how you would carry out some popular SQL commands in R.
@@ -2288,11 +2045,261 @@ R can do a lot of the things that are possible in SQL.
 
 [View the reference table on our guidance site.](https://dfe-analytical-services.github.io/analysts-guide/learning-development/r.html#sql-function-equivalents-in-r)
 
-## Alternative ways to read in data
+### Alternative ways to read in data
 
 There are other ways to read in data to RStudio, for example by creating a connection to Databricks or by using an application programming interface (API) call. Neither of these are covered in this introductory workshop but both are used within the Department and we would strongly recommend taking time to learn about these options.
 
 You can find guidance on getting started with Databricks [here](https://dfe-analytical-services.github.io/analysts-guide/ADA/databricks_fundamentals.html).
+
+\newpage
+
+# Supplementary information
+
+## dplyr vs. data.table (supplementary)
+
+Most of the code we covered today in the data manipulation section uses the `dplyr` package and syntax.
+The `dplyr` package is commonly used due to it's neat, easily read structure, however, depending on the size of your data it can be slow to run.
+The faster alternative is data.table, which is a higher-performance option based on the 'base R' syntax (base R is the original dialect of the R programming language that comes built-in without having to install any packages).
+
+This site has an extremely useful side-by-side syntax comparison of `dplyr` and `data.table`: [https://towardsdatascience.com/fast-transition-between-dplyr-and-data-table](https://towardsdatascience.com/fast-transition-between-dplyr-and-data-table-c02d53cb769f)
+
+Here are a couple of quick examples taken from the site linked above that do the exact same thing using the two different syntax:
+
+1.  Filtering by rows
+
+Filter for men aged 79 or younger
+
+```         
+data %>% filter(AGE <= 79 & GENDER == “M”) #dplyr
+data[AGE <= 79 & GENDER == “M”] #datatable
+```
+
+2.  Selecting columns
+
+Let's select the columns GENDER, AGE, and PAID
+
+```         
+data %>% select(GENDER, AGE, PAID) #dplyr
+data[, .(GENDER, AGE, PAID)] #datatable
+```
+
+3.  Summarise by column
+
+What is the average insurance claim paid?
+
+The following code aggregates data and returns a single-record named AVG.PAID
+
+```         
+data %>% summarise(AVG.PAID = mean(PAID)) #dplyr
+data[, .(AVG.PAID = mean(PAID))] #datatable
+```
+
+There is much more available on the linked site!
+
+## Troubleshooting (supplementary)
+
+### renv
+
+#### renv::restore()
+
+Sometimes `renv::restore()` can fail, and when in specific renv-controlled projects install.packages() will fail saying that packages aren't available even when they clearly are.
+There are a couple of workarounds we have found that get around this failure.
+
+Configuring the proxy settings by running the below in R - this also helps if you are getting timeout issues when trying to webscrape with R:
+
+```         
+Sys.setenv(no_proxy="*") 
+```
+
+Specifying the renv library as the install location.
+It's a bit of a fudge, though these lines are helpful to get the packages from the renv lockfile installed and you running the project when needed:
+
+```         
+myPath <- .libPaths()[1]
+
+forceInstall <- function(pkg, path) {
+missing <- suppressWarnings(eval(parse(text= paste0("!require(",pkg,")"))))
+
+if(missing == FALSE){
+message(pkg, " is already installed.")
+} else{
+install.packages(pkg, lib = path)
+}
+}
+
+forceInstall("jsonlite", myPath)
+
+renvPackages <- names(jsonlite::fromJSON("renv.lock", flatten = TRUE)$Packages)
+
+invisible(lapply(renvPackages, forceInstall, path = myPath))
+```
+
+More manual equivalent to use for specific packages:
+
+```         
+.libPaths() 
+# note down output 1, and reuse in the lib argument of install.packages() as below
+
+install.packages("rmarkdown", lib = "C:/Users/swong/OneDrive - Department for
+Education/Documents/stats-production-guidance/renv/library/R-4.0/x86_64-w64-mingw32")
+```
+
+#### Updating packages in renv
+
+To update a single package run:
+
+```         
+renv::update("dplyr")
+```
+
+To update all packages run:
+
+```         
+renv::update()
+```
+
+#### Installing old package versions in renv
+
+This is surprisingly neat to do.
+Let's say you wanted to roll back to version 1.0.2 of dplyr, you would run the following:
+
+```         
+renv::install("dplyr@1.0.2")
+```
+
+### 'Can't find make' error
+
+This error is usually due to RTools not being properly installed, which should be uncommon since Rtools can be accessed from the Software Center.
+
+If re-installing from the Software Center does not work then there is a work around:
+
+You can [install RTools as a direct download from CRAN](https://cran.r-project.org/bin/windows/Rtools/).
+On there, pick the right version of RTools for your version of R, download the file and install.
+When downloading RTools you may need to confirm that you understand the risks of downloading an .exe file from an unknown source; this is common, and as this is a trusted source, you can click accept.
+
+When running the .exe file, Windows Defender may step in and act like it's not going to let you progress any further.
+If this happens you'll need to click "More info" and only then can you select something like "install anyway".
+Set the install location to `C:\rtools40` (it is often this by default)
+
+Next you need to add it to the PATH variable.
+We can't edit this without an admin password, though you can temporarily set it to allow you to restore from renv, by doing it from within the R console.
+This only sets it temporarily for as long as the R session is running, you'll need to rerun each time you're in an R session and need it.
+
+```         
+old_path <- Sys.getenv(“PATH”) 
+Sys.setenv(PATH = paste(old_path, “C:\rtools40\usr\bin”, sep = “;”)) 
+Sys.getenv(“PATH”)
+```
+
+
+\newpage
+
+## Excel functions in R (supplementary)
+
+R can do much of what you can do in Excel, but analysis done using R is less prone to human error.
+[This reference table](https://dfe-analytical-services.github.io/analysts-guide/learning-development/r.html#excel-functions-in-r) shows how you would carry out popular Excel commands in R.
+
+R comes in with a built-in dataset called "iris".
+We'll use this for all examples so you can recreate them in your local area.
+
+**REMEMBER:** R is case sensitive, so all references to column names/entries need to be as-is in the dataset you are looking at.
+[Functions exist](https://www.rdocumentation.org/packages/janitor/versions/1.2.0/topics/clean_names) that can translate all your columns to lower or snake case for ease!
+
+[View the comparison table on our guidance site.](https://dfe-analytical-services.github.io/analysts-guide/learning-development/r.html#excel-functions-in-r)
+
+### VLOOKUP
+
+The **VLOOKUP** function in Excel allows you to look up a value in a table by matching on a column.
+For example, in the following Excel worksheet we can look up a player's team name by using the VLOOKUP to match on player name and return the player's team:
+
+```{r echo=FALSE, out.width='100%', fig.cap='R studio panels'}
+knitr::include_graphics('images/RforRAP/vlookup_excel.png')
+```
+
+This is essentially *joining* or *merging* data, as the above example is using the first table to join the team onto the second table using the player name.
+Joining and merging data are easily done in R!
+
+We can replicate this function in both base R or the `dplyr` package.
+
+#### Using base R
+
+The following code shows how to perform a function similar to **VLOOKUP** in base R by using the `merge()` function:
+
+```         
+#create first data frame
+df1 <- data.frame(player=LETTERS[1:15],
+                  team=rep(c("Mavs", "Lakers", "Rockets"), each=5))
+
+#create second data frame 
+df2 <- data.frame(player=LETTERS[1:15],
+                  points=c(14, 15, 15, 16, 8, 9, 16, 27, 30, 24, 14, 19, 8, 6, 5))
+
+#merge the two data frames
+merge(df1, df2, by="player")
+
+   player    team points
+1       A    Mavs     14
+2       B    Mavs     15
+3       C    Mavs     15
+4       D    Mavs     16
+5       E    Mavs      8
+6       F  Lakers      9
+7       G  Lakers     16
+8       H  Lakers     27
+9       I  Lakers     30
+10      J  Lakers     24
+11      K Rockets     14
+12      L Rockets     19
+13      M Rockets      8
+14      N Rockets      6
+15      O Rockets      5
+```
+
+As you can see, the output above is the same as the output created using VLOOKUP in Excel.
+Note that you could specify multiple columns to merge on within the `by =` function by using the syntax `by = c("column1", "column2", ...)`.
+
+#### Using dplyr
+
+The following code shows how to perform a function similar to **VLOOKUP** using `join()` functions from the `dplyr` package.
+
+```         
+library(dplyr)
+
+#create first data frame
+df1 <- data.frame(player=LETTERS[1:15],
+                  team=rep(c("Mavs", "Lakers", "Rockets"), each=5))
+
+#create second data frame 
+df2 <- data.frame(player=LETTERS[1:15],
+                  points=c(14, 15, 15, 16, 8, 9, 16, 27, 30, 24, 14, 19, 8, 6, 5))
+
+#merge the two data frames using inner_join
+inner_join(df1, df2, by="player")
+
+   player    team points
+1       A    Mavs     14
+2       B    Mavs     15
+3       C    Mavs     15
+4       D    Mavs     16
+5       E    Mavs      8
+6       F  Lakers      9
+7       G  Lakers     16
+8       H  Lakers     27
+9       I  Lakers     30
+10      J  Lakers     24
+11      K Rockets     14
+12      L Rockets     19
+13      M Rockets      8
+14      N Rockets      6
+15      O Rockets      5
+```
+
+As you can see, the output is the same as the output created in Excel.
+In the above code we use an `inner_join()`.
+You could also use a `left_join()` and get the same results.
+The **difference** between an `inner_join()` and a `left_join()` is that an `inner_join()` will only keep rows that have a match from **both sides**, whereas a `left_join` will always keep all rows form the 'left' (the data frame we state first), and join *what it can* from the 'right' (the second data frame).
+
+For an example of a left join, go back to the [joins section](#joins-&-joining-geographic-codes-via-lookup-tables) earlier in this workshop!
 
 <!-- \newpage -->
 
