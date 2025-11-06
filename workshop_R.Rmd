@@ -187,9 +187,7 @@ Create project
 \tcblower
 Select \textbf{File > New Project > New directory > New Project}. Choose an appropriate name for your project folder.
 
-The two tick boxes; 'Create a git repository' or 'Use renv with this project' are optional. If you would like to learn about either git or renv, tick the box and let us know - we can direct you to the correct chapters!
-
-For the file path, \textbf{if using git} you should make sure this is \textbf{not} saved in your OneDrive area (this is less important when you aren't using git). If using git you should select Browse and navigate out of OneDrive to save the project directory elsewhere (this is because OneDrive has it's own version-control system, and trying to use Git within that can cause complications and errors). 
+There are two tick boxes: 'Create a git repository' and 'Use renv with this project'. We won't be covering Git in this workshop, but if you would like to use renv, tick the box and and follow the optional renv instructions as you go through the exercises.
 
 Click 'Create project'. 
 \end{tcolorbox}
@@ -205,7 +203,7 @@ If you want to choose which package to use and override the precedent set by R, 
 
 Renv (short for R environment) is a package in R that helps you to keep a record of which packages your project uses, and what version of each package it should use (for a reminder of what a package is, check back to the What is R/R Studio? section above).
 Using renv in your R project means that anybody in the future (including your future self) who comes back to this project, can immediately get all of the required packages.
-First you need to install the renv package by running `install.packages('renv')` in the console.
+If you didn't tick the 'Use renv with this project' box when creating your project, install the renv package by running `install.packages('renv')` in the console.
 
 Once that has installed, you can run the functions from this package.
 You can also see what packages are installed by navigating to the 'Packages' tab in the bottom right window - renv should have appeared in here now.
@@ -224,7 +222,7 @@ You can also see what packages are installed by navigating to the 'Packages' tab
  ]
 Activate renv
 \tcblower
-To initiate renv, run \verb|renv::init()| in the console. If you navigate back to the files tab in the bottom left and look in your project folder, you should see some renv-related files have appeared, including a \textit{renv.lock} file. The renv.lock file is the file that records all of your project's packages and their versions. If you click on the renv.lock file it will open for you to view in the top left.  
+To initiate renv [note: it will already be initiated if you ticked 'Use renv with this project' when creating your R project], run \verb|renv::init()| in the console . If you navigate back to the files tab in the bottom left and look in your project folder, you should see some renv-related files have appeared, including a \textit{renv.lock} file. The renv.lock file is the file that records all of your project's packages and their versions. If you click on the renv.lock file it will open for you to view in the top left.  
 \end{tcolorbox}
 ```
 Each time you add or remove packages, or update the package versions, you should run `renv::snapshot()` to take a snapshot of the current state of your library.
@@ -293,7 +291,7 @@ Your first script should definitely include the 'library-calls' for all of the p
  ]
 Install packages
 \tcblower
-Our first steps only require two packages, 'readr' and 'dplyr'. You can either install these by typing \verb|install.packages('readr')| and \verb|install.packages('dplyr')| one at a time in the console, or you can install both packages at once by running \verb|install.packages(c('readr', 'dplyr'))|. Then, remember to take a \verb|renv::snapshot()| to add these to the renv.lock file! 
+Our first steps only require two packages, 'readr' and 'dplyr'. You can either install these by typing \verb|install.packages('readr')| and \verb|install.packages('dplyr')| one at a time in the console, or you can install both packages at once by running \verb|install.packages(c('readr', 'dplyr'))|. Then, remember to take a \verb|renv::snapshot()| to add these to the renv.lock file if you are using renv. 
 \end{tcolorbox}
 ```
 Now, below your initial comments, we will add the library calls to the script.
@@ -624,9 +622,9 @@ There are multiple ways to load data into R, including:
 
 2.  Loading data in directly from **SQL** servers,
 
-3.  Making an API call, for example using the **sparklyr** package to access data stored in **Databricks**.
+3.  Accessing data stored in **Databricks**.
 
-Today we will cover 1. Reading in a **CSV** file, but you will find optional sections on linking to **SQL** and **Databricks** towards the end.
+Today we will focus on 1. Reading in a **CSV** file, but you will find an optional section on linking to **SQL** later on. There is also a link to guidance on connecting to **Databricks** provided at the end of this PDF.
 
 Before loading in any data, we should add a new section header!
 Use the guidance above to add a new section header called 'Load in the data'.
@@ -641,10 +639,8 @@ This means that while the code `readr::read_csv(insert_filename/filepath_here)` 
 
 Please download the CSV data file [HEA_some_student_results.csv](https://github.com/dfe-analytical-services/techskills_workshops/blob/main/data/HEA_some_student_results.csv); you can download it by clicking "More file actions" - the ellipsis on the same row as the file name. 
 
-When you're reading in the CSV file for the below example, make sure that you have saved it inside a folder called "data" (you may need to create this folder yourself), and that the file name matches exactly.
-If you don't want to use a data folder, modify the read_csv command to say:
+For the below example, create a "data" folder inside your R project and save the CSV file inside this folder. Make sure the file name matches exactly.
 
-`read_csv("HEA_some_student_results.csv")`
 
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 

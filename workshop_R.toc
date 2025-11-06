@@ -7,53 +7,53 @@
 \contentsline {subsection}{Working in groups}{7}{section*.9}%
 \contentsline {section}{Getting started}{8}{section*.10}%
 \contentsline {section}{Creating a project}{8}{section*.11}%
-\contentsline {subsection}{Functions and packages}{9}{section*.12}%
+\contentsline {subsection}{Functions and packages}{8}{section*.12}%
 \contentsline {subsubsection}{Using renv (optional)}{9}{section*.13}%
 \contentsline {section}{Your initial script}{10}{section*.14}%
 \contentsline {subsection}{Comments and headings}{10}{section*.15}%
 \contentsline {subsection}{Adding and running code}{12}{section*.17}%
 \contentsline {subsection}{Data types and objects in R}{13}{section*.19}%
-\contentsline {subsubsection}{Basic data types}{14}{section*.20}%
+\contentsline {subsubsection}{Basic data types}{13}{section*.20}%
 \contentsline {subsubsection}{Basic data objects}{14}{section*.21}%
 \contentsline {subsection}{Loading in the data}{17}{section*.22}%
-\contentsline {subsubsection}{Reading in CSVs}{18}{section*.23}%
-\contentsline {section}{Cleaning data}{19}{section*.24}%
+\contentsline {subsubsection}{Reading in CSVs}{17}{section*.23}%
+\contentsline {section}{Cleaning data}{18}{section*.24}%
 \contentsline {subsection}{Dealing with missing values}{19}{section*.25}%
-\contentsline {subsection}{Dealing with duplicates}{22}{section*.26}%
-\contentsline {section}{Descriptive statistics}{23}{section*.27}%
-\contentsline {section}{Manipulating data}{24}{section*.28}%
-\contentsline {subsection}{Aggregate \& filter data}{24}{section*.29}%
-\contentsline {subsection}{Reorder and rename columns}{27}{section*.30}%
-\contentsline {subsection}{Suppression (and writing functions)}{29}{section*.31}%
-\contentsline {subsubsection}{Writing functions}{30}{section*.32}%
-\contentsline {subsubsection}{Nested functions}{31}{section*.33}%
-\contentsline {subsubsection}{if() and ifelse() statements}{32}{section*.34}%
-\contentsline {subsubsection}{Function for suppression}{33}{section*.35}%
-\contentsline {subsection}{Adding new columns}{36}{section*.36}%
-\contentsline {subsection}{Joins \& joining geographic codes via lookup tables}{37}{section*.37}%
-\contentsline {subsection}{Reformatting data (wide -\textgreater {} long)}{39}{section*.39}%
-\contentsline {subsection}{Regular expressions}{40}{section*.40}%
-\contentsline {section}{Creating plots}{40}{section*.41}%
-\contentsline {subsection}{Creating functions for plots}{42}{section*.42}%
-\contentsline {section}{Using online resources}{43}{section*.43}%
-\contentsline {subsection}{Google questions and errors}{43}{section*.44}%
-\contentsline {subsection}{Using Copilot}{44}{section*.45}%
-\contentsline {section}{w-RAP it up}{45}{section*.46}%
-\contentsline {section}{Unit testing in R}{46}{section*.47}%
-\contentsline {section}{dplyr vs.~data.table}{47}{section*.48}%
-\contentsline {section}{Troubleshooting}{49}{section*.49}%
-\contentsline {subsection}{renv}{49}{section*.50}%
-\contentsline {subsubsection}{renv::restore()}{49}{section*.51}%
-\contentsline {subsubsection}{Updating packages in renv}{50}{section*.52}%
-\contentsline {subsubsection}{Installing old package versions in renv}{50}{section*.53}%
-\contentsline {subsection}{`Can't find make' error}{50}{section*.54}%
-\contentsline {section}{Excel functions in R}{52}{section*.55}%
-\contentsline {subsection}{VLOOKUP}{52}{section*.56}%
-\contentsline {subsubsection}{Using base R}{52}{section*.58}%
-\contentsline {subsubsection}{Using dplyr}{54}{section*.59}%
-\contentsline {section}{Accessing remote data \textbf {(Optional)}}{56}{section*.60}%
-\contentsline {subsection}{SQL}{56}{section*.61}%
-\contentsline {subsubsection}{Writing a table to a SQL database}{57}{section*.62}%
-\contentsline {subsubsection}{Reading a table from a SQL database}{58}{section*.63}%
-\contentsline {subsubsection}{SQL functions in R}{59}{section*.64}%
-\contentsline {subsection}{Alternative ways to read in data}{60}{section*.65}%
+\contentsline {subsection}{Dealing with duplicates}{21}{section*.26}%
+\contentsline {section}{Descriptive statistics}{22}{section*.27}%
+\contentsline {section}{Manipulating data}{23}{section*.28}%
+\contentsline {subsection}{Aggregate \& filter data}{23}{section*.29}%
+\contentsline {subsection}{Reorder and rename columns}{26}{section*.30}%
+\contentsline {subsection}{Suppression (and writing functions)}{28}{section*.31}%
+\contentsline {subsubsection}{Writing functions}{29}{section*.32}%
+\contentsline {subsubsection}{Nested functions}{30}{section*.33}%
+\contentsline {subsubsection}{if() and ifelse() statements}{31}{section*.34}%
+\contentsline {subsubsection}{Function for suppression}{32}{section*.35}%
+\contentsline {subsection}{Adding new columns}{35}{section*.36}%
+\contentsline {subsection}{Joins \& joining geographic codes via lookup tables}{36}{section*.37}%
+\contentsline {subsection}{Reformatting data (wide -\textgreater {} long)}{38}{section*.39}%
+\contentsline {subsection}{Regular expressions}{39}{section*.40}%
+\contentsline {section}{Creating plots}{39}{section*.41}%
+\contentsline {subsection}{Creating functions for plots}{41}{section*.42}%
+\contentsline {section}{Using online resources}{42}{section*.43}%
+\contentsline {subsection}{Google questions and errors}{42}{section*.44}%
+\contentsline {subsection}{Using Copilot}{43}{section*.45}%
+\contentsline {section}{w-RAP it up}{44}{section*.46}%
+\contentsline {section}{Unit testing in R}{45}{section*.47}%
+\contentsline {section}{dplyr vs.~data.table}{46}{section*.48}%
+\contentsline {section}{Troubleshooting}{48}{section*.49}%
+\contentsline {subsection}{renv}{48}{section*.50}%
+\contentsline {subsubsection}{renv::restore()}{48}{section*.51}%
+\contentsline {subsubsection}{Updating packages in renv}{49}{section*.52}%
+\contentsline {subsubsection}{Installing old package versions in renv}{49}{section*.53}%
+\contentsline {subsection}{`Can't find make' error}{49}{section*.54}%
+\contentsline {section}{Excel functions in R}{51}{section*.55}%
+\contentsline {subsection}{VLOOKUP}{51}{section*.56}%
+\contentsline {subsubsection}{Using base R}{51}{section*.58}%
+\contentsline {subsubsection}{Using dplyr}{53}{section*.59}%
+\contentsline {section}{Accessing remote data \textbf {(Optional)}}{55}{section*.60}%
+\contentsline {subsection}{SQL}{55}{section*.61}%
+\contentsline {subsubsection}{Writing a table to a SQL database}{56}{section*.62}%
+\contentsline {subsubsection}{Reading a table from a SQL database}{57}{section*.63}%
+\contentsline {subsubsection}{SQL functions in R}{58}{section*.64}%
+\contentsline {subsection}{Alternative ways to read in data}{59}{section*.65}%
