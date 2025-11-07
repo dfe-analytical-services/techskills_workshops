@@ -639,7 +639,7 @@ This means that while the code `readr::read_csv(insert_filename/filepath_here)` 
 
 Please download the CSV data file [HEA_some_student_results.csv](https://github.com/dfe-analytical-services/techskills_workshops/blob/main/data/HEA_some_student_results.csv); you can download it by clicking "More file actions" - the ellipsis on the same row as the file name. 
 
-For the below example, create a "data" folder inside your R project and save the CSV file inside this folder. Make sure the file name matches exactly.
+For the example below, create a folder named "data" within your project directory (i.e., the folder where your .Rproj file is located). Save the CSV file inside this data folder, and ensure the file name matches exactly.
 
 
 ```{=tex}
