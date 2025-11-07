@@ -1621,7 +1621,7 @@ In practice, this means in the new assessment column that is being created, rath
 
 Now that we have our data formatted nicely, lets imagine we want to create a chart.
 The most common package used to create charts in R is `ggplot2`.
-Install this package, add it to your library calls and snapshot your library for renv.
+Install this package, add it to your library calls and take a snapshot if you are using renv.
 You can view the package documentation online using this link: <https://www.rdocumentation.org/packages/ggplot2/versions/3.4.1>.
 While today we will create a simple grouped bar chart (which would preferably be created in EES if we were really publishing), the `ggplot2` package has a huge range of capabilities which are not yet available on EES, making it useful in those situations!
 Saving well-documented code used for plots and charts is also better practice than quickly creating charts in Excel, which can become lost, broken or distorted with no record of how it was initially created.
