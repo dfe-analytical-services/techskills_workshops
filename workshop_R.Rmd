@@ -71,7 +71,7 @@ close(connTitle)
 
 # Introduction
 
-We've prepared this walkthrough guide for statistics publication teams as an introduction to the ways in which coding in R can be used for Reproducible Analystical Pipelines (RAPs), creating functions for typical tasks that teams may come across.
+We've prepared this walkthrough guide for analysts as an introduction to the ways in which coding in R can be used for Reproducible Analystical Pipelines (RAPs), creating functions for typical tasks that teams may come across.
 The guide is intended to be step-by-step, building up from the very basics.
 The plan is to work through this in groups of 3-ish with access to experienced R users for support.
 If it starts too basic for your level, then just go through at your own/your group's pace as you see fit.
