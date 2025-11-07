@@ -41,15 +41,18 @@ header-includes:
 - \colorlet{headercolour}{DarkSeaGreen}
 - \newcommand{\hlblue}[1]{{\sethlcolor{cyan}\hl{#1}}}
 output:
-  pdf_document: 
+  pdf_document:
     df_print: paged
     toc: true
     includes:
       before_body: title.sty
+  html_document:
+    toc: true
+    df_print: paged
 urlcolor: blue
 fontsize: 12pt
-editor_options: 
-  markdown: 
+editor_options:
+  markdown:
     wrap: sentence
 ---
 
@@ -57,8 +60,8 @@ editor_options:
 connTitle <- file("title.sty")
 writeLines(c("\\resizebox{48mm}{!}{\\includegraphics{images/Department_for_Education.png}}\n",
              "\\vspace*{0.24\\textheight}\n",
-             "\\raggedright\\HUGE{\\color{dfeheadingblue}\\textbf{DfE Statistics Development Team Workshops}} \n",
-             paste0("\\huge{\\color{dfeheadingblue}\\textbf{Coding RAP using R}}"),
+             "\\raggedright\\HUGE{\\color{dfeheadingblue}\\textbf{Technical Workshop: Introduction to R for Reproducible Analytical Pipelines}} \n",
+             paste0("\\huge{\\color{dfeheadingblue}\\textbf{Statistics Services Unit}}"),
              "\\vspace*{2\\baselineskip} \n",
              "\\normalsize \n \\newpage \n"), connTitle)
 close(connTitle)
@@ -85,7 +88,7 @@ Ask yourself, if someone else picked up your work, could they easily reproduce y
 And when the time comes around to update your analysis with new data, how easy is it for you to reproduce the analysis you need?
 In an ideal RAP, it would be as simple as plugging the new data in and clicking 'go', with no need to manually scroll through multiple scripts updating the year in every file name or the variable name that's changed from using \_ to -.
 
-## What is R/R Studio?
+## What is R/RStudio?
 
 R is a coding language.
 There are many different languages of code, some others include SQL, python, JavaScript and many more.
@@ -99,7 +102,7 @@ R is open-source, meaning it is free, anyone can use it and anyone can contribut
     For example, mean(x) is a function that calculates the arithmetic mean of x.
     You replace x with any numeric data.
 
-R Studio is a piece of software, specifically an integrated development environment (IDE), that enables us to write code in the R coding language, while also providing a visual and interactive interface.
+RStudio is a piece of software, specifically an integrated development environment (IDE), that enables us to write code in the R coding language, while also providing a visual and interactive interface.
 It has useful areas and windows that enable you to see what tables you have loaded, charts you have created, Git user interface, file explorer, help windows and many more!
 Normally you will see the screen split into 3 or 4 windows:
 
@@ -110,22 +113,22 @@ knitr::include_graphics('images/RforRAP/R-studio-panels.png')
 -   Top left - Source pane.
     Open and view your code scripts, tables, data sets, functions.
 
--   top right - Environment/History/Connections/Git (if you have it).
-    The environment shows you what data, functions, objects etc you have.
+-   Top right - Environment/History/Connections/Git (if you have it).
+    The environment shows you what data, functions, objects etc. you have.
 
 -   Bottom left - Console.
     Shows what you have run, and you can type and run commands directly into the console.
 
--   Bottom right - File explorer/plots/packages/Viewer.
+-   Bottom right - File explorer/plots/packages/help/viewer.
 
 **Please note!:** R is a case sensitive language.
 You will see this when using functions like View(), which must have a capital V.
 
-# ADA and databricks
+### Helpful console commands
 
-This workshop and it's materials were developed before the implementation of ADA or databricks.
-Therefore, they are not currently covered in this workshop, and we use the existing tools of R Studio, Git and SQL for the tasks.
-As ADA develops and becomes more widely used, we will incorporate it into the workshop to account for new ways of working.
+In the bottom right there is a help tab. By typing "?" into the console followed by a function name it will search for any functions with that name and display them in the help tab, from which you can navigate to documentation which often includes usage examples.
+
+Similarly if you type "??" followed by a word, it will search the function name **and** documentation for that word, before providing a list of potential matches in the help tab.
 
 # Pre-workshop requirements
 
@@ -151,7 +154,7 @@ By the end, you should get a good idea of how to utilize R for RAP processes!
 
 \newpage
 
-# Getting started ...
+# Getting started
 
 Now we will begin the tasks and group work.
 First, everyone **open up R studio.**
@@ -184,9 +187,7 @@ Create project
 \tcblower
 Select \textbf{File > New Project > New directory > New Project}. Choose an appropriate name for your project folder.
 
-The two tick boxes; 'Create a git repository' or 'Use renv with this project' are optional. If you would like to learn about either git or renv, tick the box and let us know - we can direct you to the correct chapters!
-
-For the file path, \textbf{if using git} you should make sure this is \textbf{not} saved in your OneDrive area (this is less important when you aren't using git). If using git you should select Browse and navigate out of OneDrive to save the project directory elsewhere (this is because OneDrive has it's own version-control system, and trying to use Git within that can cause complications and errors). 
+There are two tick boxes: 'Create a git repository' and 'Use renv with this project'. We won't be covering Git in this workshop, but if you would like to use renv, tick the box and and follow the optional renv instructions as you go through the exercises.
 
 Click 'Create project'. 
 \end{tcolorbox}
@@ -202,7 +203,7 @@ If you want to choose which package to use and override the precedent set by R, 
 
 Renv (short for R environment) is a package in R that helps you to keep a record of which packages your project uses, and what version of each package it should use (for a reminder of what a package is, check back to the What is R/R Studio? section above).
 Using renv in your R project means that anybody in the future (including your future self) who comes back to this project, can immediately get all of the required packages.
-First you need to install the renv package by running `install.packages('renv')` in the console.
+If you didn't tick the 'Use renv with this project' box when creating your project, install the renv package by running `install.packages('renv')` in the console.
 
 Once that has installed, you can run the functions from this package.
 You can also see what packages are installed by navigating to the 'Packages' tab in the bottom right window - renv should have appeared in here now.
@@ -221,7 +222,7 @@ You can also see what packages are installed by navigating to the 'Packages' tab
  ]
 Activate renv
 \tcblower
-To initiate renv, run \verb|renv::init()| in the console. If you navigate back to the files tab in the bottom left and look in your project folder, you should see some renv-related files have appeared, including a \textit{renv.lock} file. The renv.lock file is the file that records all of your project's packages and their versions. If you click on the renv.lock file it will open for you to view in the top left.  
+To initiate renv [note: it will already be initiated if you ticked 'Use renv with this project' when creating your R project], run \verb|renv::init()| in the console . If you navigate back to the files tab in the bottom left and look in your project folder, you should see some renv-related files have appeared, including a \textit{renv.lock} file. The renv.lock file is the file that records all of your project's packages and their versions. If you click on the renv.lock file it will open for you to view in the top left.  
 \end{tcolorbox}
 ```
 Each time you add or remove packages, or update the package versions, you should run `renv::snapshot()` to take a snapshot of the current state of your library.
@@ -290,7 +291,7 @@ Your first script should definitely include the 'library-calls' for all of the p
  ]
 Install packages
 \tcblower
-Our first steps only require two packages, 'readr' and 'dplyr'. You can either install these by typing \verb|install.packages('readr')| and \verb|install.packages('dplyr')| one at a time in the console, or you can install both packages at once by running \verb|install.packages(c('readr', 'dplyr'))|. Then, remember to take a \verb|renv::snapshot()| to add these to the renv.lock file! 
+Our first steps only require two packages, 'readr' and 'dplyr'. You can either install these by typing \verb|install.packages('readr')| and \verb|install.packages('dplyr')| one at a time in the console, or you can install both packages at once by running \verb|install.packages(c('readr', 'dplyr'))|. Then, remember to take a \verb|renv::snapshot()| to add these to the renv.lock file if you are using renv. 
 \end{tcolorbox}
 ```
 Now, below your initial comments, we will add the library calls to the script.
@@ -615,14 +616,17 @@ print(df)
 ```
 ## Loading in the data
 
-There are multiple ways to load data into R.
-Today we will cover two common ways we see analysts use;
+There are multiple ways to load data into R, including:
 
 1.  Reading in a **CSV** file,
 
-2.  Loading data in directly from **SQL** servers.
+2.  Loading data in directly from **SQL** servers,
 
-Before using either method to load in the data, we should add a new section header!
+3.  Accessing data stored in **Databricks**.
+
+Today we will focus on 1. Reading in a **CSV** file, but you will find an optional section on accessing remote data later on. This covers reading data from and writing data to **SQL**, as well a link to guidance on connecting to **Databricks** if you would like to learn more about that.
+
+Before loading in any data, we should add a new section header!
 Use the guidance above to add a new section header called 'Load in the data'.
 
 ### Reading in CSVs
@@ -633,10 +637,10 @@ This means that while the code `readr::read_csv(insert_filename/filepath_here)` 
 
 `chosen_name <- readr::read_csv(insert_filename/filepath_here)`
 
-When you're reading in the HEA CSV file for the below example, make sure that you have saved it inside a folder called "data" (you may need to create this folder yourself), and that the file name matches exactly (e.g. doesn't have (1) or similar on the end).
-If you don't want to use a data folder, modify the read_csv command to say:
+Please download the CSV data file [HEA_some_student_results.csv](https://github.com/dfe-analytical-services/techskills_workshops/blob/main/data/HEA_some_student_results.csv); you can download it by clicking "More file actions" - the ellipsis on the same row as the file name. 
 
-`read_csv("HEA_some_student_results.csv")`
+For the example below, create a folder named "data" within your project directory (i.e., the folder where your .Rproj file is located). Save the CSV file inside this data folder, and ensure the file name matches exactly.
+
 
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 
@@ -665,112 +669,6 @@ Then, if you navigate to the 'environment' window in the top right of the screen
 If you click the blue circle with the white arrow inside, it will expand to show you information about the data you've uploaded, including the name of every column/variable, and the format of each column (i.e. chr for character, num for numeric).
 If you click the name of the object, it will open in the viewer in the top left so that you can look at the table.
 This is the same as typing `View(name_of_data)` in the console (note that View must have a capital V!)
-
-### Writing to and reading from a SQL database (optional section)
-
-**NOTE:** to work through the tasks in these SQL sections, you must have access to an existing SQL database.
-
-In order to read and write data from and to a SQL database, we need to install the relevant packages and connect to the SQL database.
-Firstly, we need to install the relevant packages.
-Try to use the above guidance to;
-
-a.  Install the `odbc`, `DBI` and `dbplyr` packages,
-
-b.  Add the library calls to the correct section of the initial script,
-
-c.  Take a snapshot to update the renv.lock file.
-
-Once you have completed the above steps, we can use the new packages to connect to the secure SQL database.
-We use the following code (**inserting the server and database you require**) to create an object with the connection.
-You can call it anything, but common practice is to call this connection 'con':
-
-```         
-# Connect to SQL database
-con <- DBI::dbConnect(odbc::odbc(),
-    Driver = "{SQL Server Native Client 11.0}",
-    Server = "...",
-    Database = "...",
-    Trusted_connection = "Yes"
-  )
-```
-
-**[Note that this code will only work for you if you have access to the specified server and database, so only users with existing access can use this code in R to connect and pull in data! If someone without access tried to run this code, they would get an error in the R console.]**
-
-#### Writing a table to a SQL database
-
-There are a number of functions available in R that can write a data frame to a table on a SQL database.
-Here we'll use the `dbWriteTable()` function with our students dataframe:
-
-`dbWriteTable(con,  Id(schema = "dbo", table = "sd_sandbox_student_results"), student_results)`
-
-Note the first argument the function takes is the database connection you've already created, the second is the table location that you want to write to on that database (comprised of the schema and desired name) and the third argument is the data frame that you're sending to the database.
-
-```{=tex}
-\begin{tcolorbox}[colback=gssmidblue, 
- leftright skip=0.1cm,
- coltext=white, 
- halign=left, 
- fontupper={\large \bfseries},
- fontlower={\normalsize},
- sharp corners, 
- colframe=gssmidblue,
- width=0.9\linewidth,
- boxrule=0pt
- ]
-Try connecting to SQL 
-\tcblower
-If you have existing access to a SQL database that you or your team owns, you can give the above code a go at writing the student results data that we have just pulled in as a CSV to your SQL database, as long as you defined 'con' using the server and database name. 
-
-At the end of the workshop you can delete this by right clicking on the table in SQL Server Management.
-\end{tcolorbox}
-```
-#### Reading a table from a SQL database
-
-Now that we have the connection stored and named, we can use it to read in a table from the database into R.
-There are multiple ways to do this - in this workshop we will cover two of them.
-Unless you successfully wrote the table to a SQL database in the previous step, you **cannot run the following code**.
-It is still useful to read and have knowledge of this, and to refer back to in future.
-
-1.  Use `dplyr::tbl(con, in_schema(schema_name, table_name))`,
-
-2.  Use `RODBC::sqlQuery(con, "SELECT * FROM table_name;")`.
-
-Option one above is a very concise and tidy way to read in data from SQL tables, which (as long as you've added descriptive comments) will make your code easy to read and understand.
-This option runs extremely quickly because rather than storing the SQL table as a data table in R, it stores a 'live connection' to the table in SQL.
-You can type the name of the 'tbl' object in the console, and it will provide a preview of the SQL table using the live connection.
-In the environment it will appear as a list rather than a data table.
-
-Option two is slightly longer to write and takes much longer to run, but it does allow you to write SQL queries directly in R, so if you have previous experience with SQL you may find this useful.
-You can edit and customise the SQL query, meaning you have the option of selecting specific columns and filtering at this stage, rather than reading in the entire table.
-Just ensure that you write the table_name exactly how you would in SQL (including schemas).
-To try the second option, you'll need to create a new 'connection' object using the following code: 
-
-```         
-# Connect to SQL database using option 2
-con2 <- RODBC::odbcDriverConnect(
-    'driver = SQL Server Native Client 11.0,
-    server = ...,
-    database = ...,
-    Trusted_connection = yes'
-  )
-```
-
-Whichever option you choose, you need to choose what name you would like this object to have in R once the table is read in.
-It is best practice to make object names descriptive but concise.
-This means describing what the table contains, but not including unnecessary and repetitive words such as 'table' in the name.
-The data we are using today contains data on the characteristics and grades of some students, so we might choose to call the table 'students'.
-We assign the table this name by using the `<-` symbols, so the full snippet should look something like this:
-
-```         
-# Read in student data from SQL
-student_results <- tbl(con, in_schema("dbo", "sd_sandbox_student_results"))
-```
-
-Add this under an appropriate heading/comment to your initial script.
-Then, if you navigate to the 'environment' window in the top right of the screen, you should see an object has appeared with your chosen name under the heading 'Data'.
-If you click the blue circle with the white arrow inside, it will expand to show you information about the data you've uploaded, including the name of every column/variable, and the format of each column (i.e. chr for character, num for numeric).
-If you click the name of the object, it will open in the viewer in the top left so that you can look at the table.
-This is the same as typing `View(name_of_data)` in the console.
 
 # Cleaning data
 
@@ -811,7 +709,15 @@ See how in the environment, \verb|student_results_rmNAs| has less obserbations t
 ```
 However, we might only want to remove rows where a **specific column** is NA.
 For example, we might want to remove rows if the age or school is missing, but we might not mind if there are other missing values (for example, we might expect some missing values in G1 if a student didn't receive a grade for whatever reason).
-In this case there we can use the `drop_na()` function.
+In this case there we can use the `drop_na()` function from the tidyr package.
+
+Note it is common to install the tidyr package through installing the tidyverse package, which is a collection of useful packages such as dplyr and ggplot2.
+
+a.  Install the `tidyr` or `tidyverse` package,
+
+b.  Add the library calls to the correct section of the initial script,
+
+c.  Take a snapshot to update the renv.lock file if using renv.
 
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 
@@ -840,7 +746,6 @@ Note how, because we've used the same name, we have just \textbf{overwritten} wh
 ```
 We might also want to **replace NAs** with an alternative value such as 0 or the common GSS codes of z (not applicable) or x (unavailable).
 We can use the `mutate()` function from the `dplyr` package along with the `replace_na()` function from the `tidyr` package to do this.
-You'' need to install and call the `tidyr` package before you can use it, so **do that first!**
 
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 
@@ -1712,85 +1617,11 @@ In practice, this means in the new assessment column that is being created, rath
 
 <!-- If you have lots of data files that you need to upload to EES, or you have the a regular publication cycle that repeats often, another big time saver is automating the creation of your metadata files! The best way to do this is to create and save a csv file that contains a list of all of the possible variables you might use, their labels, groupings and filter hints where appropriate. If you create this list once, you can then automate the metadata creation every single time afterwards, rather than recreating the metadata manually for every data file you have. -->
 
-# Running a SQL query
-
-Whilst being able to do all this in R can be very useful, we sometimes have pre-existing SQL code that will do all this for us, or we have datasets that are too large to perform aggregations on efficiently on a typical laptop.
-In these cases, we would want to be able to just send a SQL script from within our R pipeline to run on a SQL server and send us back the results once it's done.
-
-Provided you've created the student table on your SQL database using `dbWriteTable()` as described earlier, we can demo this now.
-In the SQL folder in your workshop repository, you'll find a simple SQL aggregation script that does the same aggregation as we've just done in R.
-
-```{=tex}
-\begin{tcolorbox}[colback=gssmidblue, 
- leftright skip=0.1cm,
- coltext=white, 
- halign=left, 
- fontupper={\large \bfseries},
- fontlower={\normalsize},
- sharp corners, 
- colframe=gssmidblue,
- width=0.9\linewidth,
- boxrule=0pt
- ]
-SQL queries in R
-\tcblower
-First though we'll try just sending a very basic SQL query to the database:
-
-\begin{verbatim}
-dbGetQuery(con, statement = "SELECT year, school, sex, age,
-   G1, G2, G3  
-   FROM dbo.sd_sandbox_student_results")
-\end{verbatim}
-\end{tcolorbox}
-```
-Now we've seen how that works, we'll use a pre-built function that reads in the SQL script in a way that R can send it to the SQL server.
-This pre-built function is in the script R/utils.R and is called `getSQL()`.
-
-```{=tex}
-\begin{tcolorbox}[colback=gssmidblue, 
- leftright skip=0.1cm,
- coltext=white, 
- halign=left, 
- fontupper={\large \bfseries},
- fontlower={\normalsize},
- sharp corners, 
- colframe=gssmidblue,
- width=0.9\linewidth,
- boxrule=0pt
- ]
-Run a SQL script
-\tcblower
-First we'll need to source the utils.R script: \verb|source("R/utils.R")|.
-
-Let's run the \verb|getSQL()| command with the example script as follows:
-
-\begin{verbatim}
-query <- getSQL("sql/aggregate_students.sql")
-\end{verbatim}
-
-This creates a string variable called \verb|query| containing the SQL script. We can now send this to the database using:
-
-\begin{verbatim}
-dbGetQuery(con, statement = query)
-\end{verbatim}
-
-Provided no-one has beaten you to it (that command won't overwrite an existing table if it already exists), this will create a new table in the database containing an aggregated view of the data. We can read this out using the command we used earlier to read a SQL table from the database:
-
-\begin{verbatim}
-student_results_aggregated_sql <- tbl(con, Id(schema = "dbo", 
-          table = "sd_sandbox_student_results_aggregated"))
-\end{verbatim}
-
-(where this time we're explicitly defining the schema with the function \verb|Id|).
-
-You should now find the aggregated data contained within the variable \verb|student_results_aggregated_sql|.
-\end{tcolorbox}
-```
 # Creating plots
 
 Now that we have our data formatted nicely, lets imagine we want to create a chart.
 The most common package used to create charts in R is `ggplot2`.
-Install this package, add it to your library calls and snapshot your library for renv.
+Install this package, add it to your library calls and take a snapshot if you are using renv.
 You can view the package documentation online using this link: <https://www.rdocumentation.org/packages/ggplot2/versions/3.4.1>.
 While today we will create a simple grouped bar chart (which would preferably be created in EES if we were really publishing), the `ggplot2` package has a huge range of capabilities which are not yet available on EES, making it useful in those situations!
 Saving well-documented code used for plots and charts is also better practice than quickly creating charts in Excel, which can become lost, broken or distorted with no record of how it was initially created.
@@ -1826,11 +1657,11 @@ Try and take the '\verb|long_data|' we created previously (which should still ex
 Now we can use the '\verb|plot_data|' to create a bar chart using \verb|ggplot2|. The following code creates a plot as described above: 
 
 \begin{verbatim}
-ggplotly(ggplot(plot_data) +
+ggplot(plot_data) +
            geom_bar(stat = "identity", aes(x = assessment, 
                                            y = mean_grade, 
                                            fill = sex), 
-                    position = "dodge"))
+                    position = "dodge")
 \end{verbatim}
 \end{tcolorbox}
 ```
@@ -1861,14 +1692,16 @@ Function for charts
 We can take the code we used  before to define the plot data and the plot itself, and put in in a function. We simply replace the variables with 'placeholders' which we can choose each time we run the function!
 
 \begin{verbatim}
-plot_function <- function(data, filteryear, filterage, filterregion, mapping){
+plot_function <- function(data, filteryear, filterage, 
+                          filterregion, mapping){
   plot_data <- data %>%
-    filter(time_period == filteryear, age == filterage, region_name == filterregion)
+    filter(time_period == filteryear, age == filterage, 
+           region_name == filterregion)
   
   #return(plot_data)
-  ggplotly(ggplot(plot_data2) +
-             geom_bar(stat = "identity", mapping, 
-                      position = "dodge"))
+  ggplot(plot_data) +
+      geom_bar(stat = "identity", mapping, 
+          position = "dodge")
   
 }
 
@@ -1917,17 +1750,17 @@ You are almost certainly going to create and cause errors while you experiment w
 You can of course ask the workshop facilitators to help, but using Google to troubleshoot is one of the most valuable lessons you can learn for coding!
 Try and Google the error to see if someone else has already written an answer or solution online!
 
-## Using chatGPT
+## Using Copilot
 
-> ChatGPT is a large language model chatbot developed by OpenAI.
+> Copilot is a large language model chatbot developed by Microsoft AI.
 > It has a remarkable ability to interact in conversational dialogue form and provide responses that can appear surprisingly human.
 > Large language models perform the task of predicting the next word in a series of words.
-> [(https://www.searchenginejournal.com)](https://www.searchenginejournal.com/what-is-chatgpt/473664/#:~:text=ChatGPT%20is%20a%20large%20language%20model%20chatbot%20developed,the%20next%20word%20in%20a%20series%20of%20words.)
+> [(https://azure.microsoft.com)](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-are-large-language-models-llms)
 
-[ChatGPT](https://openai.com/) is a new tool that is proving increasingly useful in learning to code, especially in it's capabilities of translating *natural language* to code.
-This means if you know what you would like to do and can express that in your natural, spoken language, chatGPT is pretty capable of translating that into code syntax for you.
+[Copilot](https://copilot.microsoft.com/) is a new tool that is proving increasingly useful in learning to code, especially in its capabilities of translating *natural language* to code.
+This means if you know what you would like to do and can express that in your natural, spoken language, Copilot is pretty capable of translating that into code syntax for you.
 **However**, when it comes to writing code for you, it can get things a bit wrong and is known to 'invent' commands that sound ideal but do not in reality exist!
-There are still benefits to using chatGPT, since if it gets the syntax right and a few commands wrong, you have the bulk of what you need and you can use Google to troubleshoot the mistakes.
+There are still benefits to using Copliot, since if it gets the syntax right and a few commands wrong, you have the bulk of what you need so it saves time, and you can use Google to troubleshoot the mistakes.
 
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 
@@ -1941,41 +1774,38 @@ There are still benefits to using chatGPT, since if it gets the syntax right and
  width=0.9\linewidth,
  boxrule=0pt
  ]
-Using ChatGPT
+Using Copilot
 \tcblower
-To start with, lets test out chatGPT using the 'palmer penguins' data. This is an example dataset available in R that we can ask chatGPT about directly. Ask chatGPT to do the following: 
+Let's test out Copilot using the 'palmer penguins' data. This is an example dataset available in R that we can ask Copilot about directly. Ask Copilot to do the following: 
 
 \begin{verbatim}
-"write some R code that will calculate what % of penguins from the 
-palmer penguins data have a body mass greater than 4500"
+"Write some R code that will calculate the % of penguins in the 
+palmer penguins data that have a body mass greater than 4500"
 \end{verbatim}
 
-Read the answer carefully, as alongside writing code for you, chatGPT also provides explanations and commentary on the code it has written. Try copying and pasting the code output into a \textbf{new R code script} and running it on your device to test if it works!
+Read the answer carefully, as alongside writing code for you, Copilot also provides explanations and commentary on the code it has written. Try copying and pasting the code output into a \textbf{new R code script} and running it to test if it works!
 \end{tcolorbox}
 ```
 Now we can test out something a bit harder using the student results data we have been working with.
-First of all, recreate your plot_data without filtering on time period so that it contains rows for 2015 and 2016.
-Then ask chatGPT to create an R shiny app for you that displays a grouped bar chart for the assessment mean grades, grouped by sex, with a dropdown that filters on the time period.
+First of all, recreate your plot_data without filtering on time period so that it contains rows for multiple years.
+Then ask Copilot to create an R Shiny app for you that displays a grouped bar chart for the assessment mean grades, grouped by sex, with a drop-down that filters on the time period.
 Use Google to troubleshoot in the likely event that the code created doesn't work first time.
 
-Top tips: You can define the data in chatGPT by naming it and copying and pasting it as plain text (even if it's long!).
-In one message you can start new lines to include multiple things in one message, like defining data followed by your request, i.e.:
+Top tips: You can attach files to a Copilot prompt!
 
 ```         
-plot_data: <paste data here>
-
-Write R code for a shiny app that....
+Write R code for a Shiny app that....
 ```
 
-If the output code suggests you save the plot_data as a csv and then read it in, you can either do that to practice this, or comment out this line since plot_data will already be defined in your environment.
+If the output code suggests you save the plot_data as a CSV and then read it in, you can either do that to practice this, or comment out this line since plot_data will already be defined in your environment from earlier in the workshop.
 
-If you have any specific or more advanced questions that we haven't covered in this workshop, we encourage you to try and use chatGPT for these in any additional time you may have, as well as of course asking the workshop facilitators to support!
+If you have any specific or more advanced questions that we haven't covered in this workshop, we encourage you to try and use Copilot for these in any additional time you may have, as well as of course asking the workshop facilitators to support!
 
 # w-RAP it up
 
 Now that we have a few different scripts in our project (main.R, functions.R and plots.R), we should wrap them all up into one 'run_pipeline.R' script!
-This is what we mean in our RAP guidance when we say [single dataset production script](https://dfe-analytical-services.github.io/analysts-guide/RAP/rap-statistics.html#dataset-production-scripts) or [whole publication prodcution script](https://dfe-analytical-services.github.io/analysts-guide/RAP/rap-statistics.html#dataset-production-scripts).
-We don't mean that *all* of your code is in one single script, we mean that there exists a single script (called run_pipeline.R) that will *source* each of your scripts, in order.
+This is what we mean in our [RAP guidance](https://dfe-analytical-services.github.io/analysts-guide/RAP/rap-statistics.html#dataset-production-scripts) when we say single dataset production script or whole publication production script.
+We don't mean that *all* of your code is in one single script, but instead that there exists a single script (called run_pipeline.R here) that will *source* each of your scripts, in order.
 
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 
@@ -2007,7 +1837,11 @@ Then below, add a comment and \verb|source()| for your functions script and plot
 ```
 Once you have sourced all of your scripts here, you can run this run_pipeline script and (hopefully) see all your code running in the console, as well as the charts appearing in the plots viewer - all with the running of this one single script!
 
-# Unit testing in R
+\newpage
+
+# Optional exercises
+
+## Unit testing in R (optional)
 
 A unit test is basically a small function that tests and helps us to write *robust* code.
 By robust, we mean code that **won't break easily** upon changes, can be altered or extended, and can be tested with ease.
@@ -2062,7 +1896,166 @@ See how the above code returns a message in the console to let you know that the
 ```
 See <https://www.geeksforgeeks.org/unit-testing-in-r-programming/> for more info, including a table of over 20 'expectation' options (i.e. `expect_equal()`, `expect_lt()` means expect less than, `expect_gte()` means expect greater than or equal).
 
-# dplyr vs. data.table
+\newpage
+
+## Accessing remote data (optional)
+
+Often it's not feasible to have all the data you want to work with stored on your local machine. This means that you have to have a way of pulling it down from external sources. Within the department we are currently using two forms of external storage:
+
+1. On-site SQL servers.
+2. Databricks lakes, lakehouses and warehouses.
+
+### SQL
+
+**NOTE:** to work through the tasks in these SQL sections, you must have access to an existing SQL database. We will use {SQL_server}, {SQL_database}, and {SQL_table} instead of your server, database, and table names throughout.
+
+Most methods of interacting with an SQL database in R follow the below structure:
+
+1.  Create a connection to the SQL database of interest,
+
+2.  Feed that connection to a wrapper which executes some SQL code in that area,
+
+3.  (Depending on process) Collect the resulting output back in R.
+
+In order to read data from, and write data to, a SQL database we need to install the relevant packages and connect to that SQL database.
+
+To apply the various options in this guide you should;
+
+a.  Install the `odbc`, `DBI`, `RODBC`, and `dbplyr` packages,
+
+b.  Add the library calls to the correct section of the initial script,
+
+c.  Take a snapshot to update the renv.lock file if using renv.
+
+Once you have completed the above steps, we can use the new packages to connect to the secure SQL database.
+We use the following code (**inserting the server and database you require**) to create an object with the connection.
+You can call it anything, but common practice is to call this connection 'con':
+
+```         
+# Connect to SQL database for use with odbc and DBI packages
+con_DBI <- DBI::dbConnect(odbc::odbc(),
+    Driver = "SQL Server",
+    Server = "{SQL_server}",
+    Database = "{SQL_database}",
+    Trusted_connection = "Yes"
+  )
+```
+
+```         
+# Connect to SQL database for use with RODBC package
+con_RODBC <- RODBC::odbcDriverConnect(
+          paste0(
+            "driver = SQL Server",
+            "server =",{SQL_server},
+            "database =",{SQL_database},
+            "Trusted_connection = yes"
+          )
+        )
+```
+
+
+**[Note that this code will only work for you if you have access to the specified server and database! If someone without access tried to run this code, they would get an error in the R console.]**
+
+#### Writing a table to a SQL database
+
+There are a number of functions available in R that can write a data frame to a table on a SQL database.
+Here we'll show the 3 possible ways of writing a table with our students dataframe:
+
+a.  DBI's dbWriteTable: `dbWriteTable(con_DBI,  Id(schema = "dbo", table = "sd_sandbox_student_results"), student_results)`
+
+b.  dbplyr's db_copy_to: `db_copy_to(con_DBI,  table = "sd_sandbox_student_results", student_results, overwrite = TRUE)`
+
+c.  RODBC's sqlSave: `sqlSave(con_RODBC, student_results, tablename = "sd_sandbox_student_results")`
+
+Note the first argument the function takes is the database connection you've already created, the second is the table location that you want to write to on that database (comprised of the schema and desired name) and the third argument is the data frame that you're sending to the database.
+
+```{=tex}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\large \bfseries},
+ fontlower={\normalsize},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.9\linewidth,
+ boxrule=0pt
+ ]
+Try connecting to SQL 
+\tcblower
+If you have existing write access to a SQL database that you or your team owns, you can give the above code a go to write the student results data that we have just pulled in to your SQL database, as long as you defined your connection object using the server and database name. 
+
+At the end of the workshop you can delete this by right clicking on the table in SQL Server Management.
+\end{tcolorbox}
+```
+#### Reading a table from a SQL database
+
+As well as writing tables from R to the database, we can use our connection to read in a table from the database into R.
+There are multiple ways to do this:
+
+a.  Use `DBI::dbGetQuery(con, SQL_string)`
+
+b.  Use i) `dplyr::tbl(con, in_schema(schema_name, {SQL_table}))`, or ii) `dbplyr::tbl(con,dplyr::sql(SQL_string)) %>% dplyr::collect()`
+
+c.  Use `RODBC::sqlQuery(con, "select * from {SQL_table};")`
+
+with `SQL_string` being SQL code to query data from the database - something like: `SQL_string = "select * from {SQL_table}"`
+
+**[Note that schema refers to a structural component of an SQL_database used to better organise tables.]**
+
+Option b.i) above is a very concise and tidy way to read in data from SQL tables, which (as long as you've added descriptive comments) will make your code easy to read and understand.
+This option runs extremely quickly because rather than storing the SQL table as a data table in R, it stores a 'live connection' to the table in SQL.
+You can type the name of the 'tbl' object in the console, and it will provide a preview of the SQL table using the live connection.
+In the environment it will appear as a list rather than a data table.
+
+**[Note that while slower option b.ii) enables standard dplyr manipulation before collection, saving you local resourcing e.g. tbl(...) %>% mutate(...) %>% group_by(...) %>% summarize(...) %>% collect(...)]**
+
+Option c. is slightly longer to write and takes much longer to run, but it does allow you to write SQL queries directly in R, so if you have previous experience with SQL you may find this useful.
+You can edit and customise the SQL query, meaning you have the option of selecting specific columns and filtering at this stage, rather than reading in the entire table.
+Just ensure that you write the table_name exactly how you would in SQL (including schemas).
+
+
+
+
+Whichever option you choose, you need to choose what name you would like this object to have in R once the table is read in.
+It is best practice to make object names descriptive but concise.
+This means describing what the table contains, but not including unnecessary and repetitive words such as 'table' in the name.
+The data we are using today contains data on the characteristics and grades of some students, so we might choose to call the table 'student_results'.
+We assign the table this name by using the `<-` symbols, so the full snippet would look something like this:
+
+```         
+# Read in student data from SQL
+student_results <- tbl(con, in_schema("dbo", "sd_sandbox_student_results"))
+```
+
+If you managed to write the table to your SQL database in the above section, add this code under an appropriate heading/comment to your initial script.
+Then, if you navigate to the 'environment' window in the top right of the screen, you should see an object has appeared with your chosen name under the heading 'Data'.
+If you click the blue circle with the white arrow inside, it will expand to show you information about the data you've uploaded, including the name of every column/variable, and the format of each column (i.e. chr for character, num for numeric).
+If you click the name of the object, it will open in the viewer in the top left so that you can look at the table.
+This is the same as typing `View(name_of_data)` in the console.
+
+
+#### SQL functions in R
+
+R can do a lot of the things that are possible in SQL.
+[This reference table](https://dfe-analytical-services.github.io/analysts-guide/learning-development/r.html#sql-function-equivalents-in-r) shows how you would carry out some popular SQL commands in R.
+
+**REMEMBER:** R is case sensitive, so all references to column names/entries need to be as-is in the dataset you are looking at.
+[Functions exist](https://www.rdocumentation.org/packages/janitor/versions/1.2.0/topics/clean_names) that can translate all your columns to lower or snake case for ease!
+
+[View the reference table on our guidance site.](https://dfe-analytical-services.github.io/analysts-guide/learning-development/r.html#sql-function-equivalents-in-r)
+
+### Alternative ways to read in data
+
+There are other ways to read in data to RStudio, for example by creating a connection to Databricks or by using an application programming interface (API) call. Neither of these are covered in this introductory workshop but both are used within the Department and we would strongly recommend taking time to learn about these options.
+
+You can find guidance on getting started with Databricks [here](https://dfe-analytical-services.github.io/analysts-guide/ADA/databricks_fundamentals.html).
+
+\newpage
+
+# Supplementary information
+
+## dplyr vs. data.table (supplementary)
 
 Most of the code we covered today in the data manipulation section uses the `dplyr` package and syntax.
 The `dplyr` package is commonly used due to it's neat, easily read structure, however, depending on the size of your data it can be slow to run.
@@ -2103,13 +2096,11 @@ data[, .(AVG.PAID = mean(PAID))] #datatable
 
 There is much more available on the linked site!
 
-\newpage
+## Troubleshooting (supplementary)
 
-# Troubleshooting
+### renv
 
-## renv
-
-### renv::restore()
+#### renv::restore()
 
 Sometimes `renv::restore()` can fail, and when in specific renv-controlled projects install.packages() will fail saying that packages aren't available even when they clearly are.
 There are a couple of workarounds we have found that get around this failure.
@@ -2153,7 +2144,7 @@ install.packages("rmarkdown", lib = "C:/Users/swong/OneDrive - Department for
 Education/Documents/stats-production-guidance/renv/library/R-4.0/x86_64-w64-mingw32")
 ```
 
-### Updating packages in renv
+#### Updating packages in renv
 
 To update a single package run:
 
@@ -2167,7 +2158,7 @@ To update all packages run:
 renv::update()
 ```
 
-### Installing old package versions in renv
+#### Installing old package versions in renv
 
 This is surprisingly neat to do.
 Let's say you wanted to roll back to version 1.0.2 of dplyr, you would run the following:
@@ -2176,15 +2167,15 @@ Let's say you wanted to roll back to version 1.0.2 of dplyr, you would run the f
 renv::install("dplyr@1.0.2")
 ```
 
-## 'Can't find make' error
+### 'Can't find make' error
 
-This error is usually due to Rtools not being properly installed, this has become fairly common since it has been dropped from the software centre.
-There have been several requests to read it, though as of yet none have succeeded.
-For now there's a workaround to this.
+This error is usually due to RTools not being properly installed, which should be uncommon since Rtools can be accessed from the Software Center.
 
-You can [install Rtools as a direct download from CRAN](https://cran.r-project.org/bin/windows/Rtools/).
+If re-installing from the Software Center does not work then there is a work around:
+
+You can [install RTools as a direct download from CRAN](https://cran.r-project.org/bin/windows/Rtools/).
 On there, pick the right version of RTools for your version of R, download the file and install.
-When downloading RTools you may need to confirm that you understand the risks of downloading an .exe file from an unknown source, this is common, as this is a trusted source, you can click accept.
+When downloading RTools you may need to confirm that you understand the risks of downloading an .exe file from an unknown source; this is common, and as this is a trusted source, you can click accept.
 
 When running the .exe file, Windows Defender may step in and act like it's not going to let you progress any further.
 If this happens you'll need to click "More info" and only then can you select something like "install anyway".
@@ -2200,11 +2191,12 @@ Sys.setenv(PATH = paste(old_path, “C:\rtools40\usr\bin”, sep = “;”))
 Sys.getenv(“PATH”)
 ```
 
+
 \newpage
 
-# Excel functions in R
+## Excel functions in R (supplementary)
 
-R can do everything you do in excel, but takes out the human error.
+R can do much of what you can do in Excel, but analysis done using R is less prone to human error.
 [This reference table](https://dfe-analytical-services.github.io/analysts-guide/learning-development/r.html#excel-functions-in-r) shows how you would carry out popular Excel commands in R.
 
 R comes in with a built-in dataset called "iris".
@@ -2215,7 +2207,7 @@ We'll use this for all examples so you can recreate them in your local area.
 
 [View the comparison table on our guidance site.](https://dfe-analytical-services.github.io/analysts-guide/learning-development/r.html#excel-functions-in-r)
 
-## VLOOKUP
+### VLOOKUP
 
 The **VLOOKUP** function in Excel allows you to look up a value in a table by matching on a column.
 For example, in the following Excel worksheet we can look up a player's team name by using the VLOOKUP to match on player name and return the player's team:
@@ -2229,7 +2221,7 @@ Joining and merging data are easily done in R!
 
 We can replicate this function in both base R or the `dplyr` package.
 
-### Using base R
+#### Using base R
 
 The following code shows how to perform a function similar to **VLOOKUP** in base R by using the `merge()` function:
 
@@ -2266,7 +2258,7 @@ merge(df1, df2, by="player")
 As you can see, the output above is the same as the output created using VLOOKUP in Excel.
 Note that you could specify multiple columns to merge on within the `by =` function by using the syntax `by = c("column1", "column2", ...)`.
 
-### Using dplyr
+#### Using dplyr
 
 The following code shows how to perform a function similar to **VLOOKUP** using `join()` functions from the `dplyr` package.
 
@@ -2309,51 +2301,41 @@ The **difference** between an `inner_join()` and a `left_join()` is that an `inn
 
 For an example of a left join, go back to the [joins section](#joins-&-joining-geographic-codes-via-lookup-tables) earlier in this workshop!
 
-# SQL functions in R
+<!-- \newpage -->
 
-R can do a lot of the things that are possible in SQL.
-[This reference table](https://dfe-analytical-services.github.io/analysts-guide/learning-development/r.html#sql-function-equivalents-in-r) shows how you would carry out some popular SQL commands in R.
+<!-- ```{=tex} -->
+<!-- \resizebox{48mm}{!}{\includegraphics{images/Department_for_Education.png}} -->
+<!-- \vspace*{\fill} -->
+<!-- \color{black} -->
+<!-- ``` -->
+<!-- © Crown copyright 2022 -->
 
-**REMEMBER:** R is case sensitive, so all references to column names/entries need to be as-is in the dataset you are looking at.
-[Functions exist](https://www.rdocumentation.org/packages/janitor/versions/1.2.0/topics/clean_names) that can translate all your columns to lower or snake case for ease!
+<!-- This publication (not including logos) is licensed under the terms of the Open Government Licence v3.0 except where otherwise stated. -->
+<!-- Where we have identified any third party copyright information you will need to obtain permission from the copyright holders concerned. -->
 
-[View the reference table on our guidance site.](https://dfe-analytical-services.github.io/analysts-guide/learning-development/r.html#sql-function-equivalents-in-r)
+<!-- To view this licence: -->
 
-\newpage
+<!-- ```{=tex} -->
+<!-- \begin{tabular}{p{0.02\linewidth} p{0.1\linewidth} p{0.88\linewidth}} -->
+<!-- & visit & www.nationalarchives.gov.uk/doc/open-government-licence/version/3 \\ -->
+<!-- & email & psi@nationalarchives.gsi.gov.uk \\ -->
+<!-- & write to & Information Policy Team, The National Archives, Kew, London, TW9 4DU \\ -->
+<!-- \end{tabular} -->
+<!-- ``` -->
+<!-- About this publication: -->
 
-```{=tex}
-\resizebox{48mm}{!}{\includegraphics{images/Department_for_Education.png}}
-\vspace*{\fill}
-\color{black}
-```
-© Crown copyright 2022
-
-This publication (not including logos) is licensed under the terms of the Open Government Licence v3.0 except where otherwise stated.
-Where we have identified any third party copyright information you will need to obtain permission from the copyright holders concerned.
-
-To view this licence:
-
-```{=tex}
-\begin{tabular}{p{0.02\linewidth} p{0.1\linewidth} p{0.88\linewidth}}
-& visit & www.nationalarchives.gov.uk/doc/open-government-licence/version/3 \\
-& email & psi@nationalarchives.gsi.gov.uk \\
-& write to & Information Policy Team, The National Archives, Kew, London, TW9 4DU \\
-\end{tabular}
-```
-About this publication:
-
-```{=tex}
-\begin{tabular}{p{0.02\linewidth} p{0.1\linewidth} p{0.88\linewidth}}
-& enquiries & www.education.gov.uk/contactus \\
-& download & www.gov.uk/government/publications \\
-\end{tabular}
-```
-```{=tex}
-\begin{tabular}[t]{p{0.06\linewidth} p{0.24\linewidth} p{0.04\linewidth} p{0.06\linewidth} p{0.36\linewidth}}
-\raisebox{-.5\height}{\includegraphics{images/logoTwitter.png}} &
-Follow us on Twitter: @educationgovuk &
-&
-\raisebox{-.5\height}{\includegraphics{images/logoFacebook.png}} &
-Like us on Facebook: \qquad facebook.com/educationgovuk\\
-\end{tabular}
-```
+<!-- ```{=tex} -->
+<!-- \begin{tabular}{p{0.02\linewidth} p{0.1\linewidth} p{0.88\linewidth}} -->
+<!-- & enquiries & www.education.gov.uk/contactus \\ -->
+<!-- & download & www.gov.uk/government/publications \\ -->
+<!-- \end{tabular} -->
+<!-- ``` -->
+<!-- ```{=tex} -->
+<!-- \begin{tabular}[t]{p{0.06\linewidth} p{0.24\linewidth} p{0.04\linewidth} p{0.06\linewidth} p{0.36\linewidth}} -->
+<!-- \raisebox{-.5\height}{\includegraphics{images/logoTwitter.png}} & -->
+<!-- Follow us on Twitter: @educationgovuk & -->
+<!-- & -->
+<!-- \raisebox{-.5\height}{\includegraphics{images/logoFacebook.png}} & -->
+<!-- Like us on Facebook: \qquad facebook.com/educationgovuk\\ -->
+<!-- \end{tabular} -->
+<!-- ``` -->

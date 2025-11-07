@@ -1,100 +1,61 @@
 \contentsline {section}{Introduction}{4}{section*.2}%
 \contentsline {subsection}{What is a RAP?}{4}{section*.3}%
-\contentsline {subsection}{What is R/R Studio?}{4}{section*.4}%
-\contentsline {section}{ADA and databricks}{6}{section*.6}%
+\contentsline {subsection}{What is R/RStudio?}{4}{section*.4}%
+\contentsline {subsubsection}{Helpful console commands}{6}{section*.6}%
 \contentsline {section}{Pre-workshop requirements}{6}{section*.7}%
 \contentsline {subsection}{Technical requirements}{6}{section*.8}%
-\contentsline {subsection}{Working in groups}{6}{section*.9}%
-\contentsline {section}{Getting started \ldots {}}{7}{section*.10}%
-\contentsline {section}{Creating a project}{7}{section*.11}%
+\contentsline {subsection}{Working in groups}{7}{section*.9}%
+\contentsline {section}{Getting started}{8}{section*.10}%
+\contentsline {section}{Creating a project}{8}{section*.11}%
 \contentsline {subsection}{Functions and packages}{8}{section*.12}%
-\contentsline {subsubsection}{Using renv (optional)}{8}{section*.13}%
-\contentsline {section}{Your initial script}{9}{section*.14}%
-\contentsline {subsection}{Comments and headings}{9}{section*.15}%
-\contentsline {subsection}{Adding and running code}{11}{section*.17}%
-\contentsline {subsection}{Data types and objects in R}{12}{section*.19}%
-<<<<<<< HEAD
-\contentsline {subsubsection}{Basic data types}{12}{section*.20}%
-=======
+\contentsline {subsubsection}{Using renv (optional)}{9}{section*.13}%
+\contentsline {section}{Your initial script}{10}{section*.14}%
+\contentsline {subsection}{Comments and headings}{10}{section*.15}%
+\contentsline {subsection}{Adding and running code}{12}{section*.17}%
+\contentsline {subsection}{Data types and objects in R}{13}{section*.19}%
 \contentsline {subsubsection}{Basic data types}{13}{section*.20}%
->>>>>>> d6357aa94f01c411c879c5230fd2fa8ea598ab26
-\contentsline {subsubsection}{Basic data objects}{13}{section*.21}%
-\contentsline {subsection}{Loading in the data}{16}{section*.22}%
-\contentsline {subsubsection}{Reading in CSVs}{16}{section*.23}%
-\contentsline {subsubsection}{Writing to and reading from a SQL database (optional section)}{17}{section*.24}%
-\contentsline {paragraph}{Writing a table to a SQL database}{18}{section*.25}%
-<<<<<<< HEAD
-\contentsline {paragraph}{Reading a table from a SQL database}{18}{section*.26}%
-=======
-\contentsline {paragraph}{Reading a table from a SQL database}{19}{section*.26}%
->>>>>>> d6357aa94f01c411c879c5230fd2fa8ea598ab26
-\contentsline {section}{Cleaning data}{20}{section*.27}%
-\contentsline {subsection}{Dealing with missing values}{20}{section*.28}%
-\contentsline {subsection}{Dealing with duplicates}{22}{section*.29}%
-\contentsline {section}{Descriptive statistics}{23}{section*.30}%
-<<<<<<< HEAD
-\contentsline {section}{Manipulating data}{23}{section*.31}%
-\contentsline {subsection}{Aggregate \& filter data}{24}{section*.32}%
-\contentsline {subsection}{Reorder and rename columns}{27}{section*.33}%
-\contentsline {subsection}{Suppression (and writing functions)}{29}{section*.34}%
-\contentsline {subsubsection}{Writing functions}{29}{section*.35}%
-\contentsline {subsubsection}{Nested functions}{31}{section*.36}%
-\contentsline {subsubsection}{if() and ifelse() statements}{32}{section*.37}%
-\contentsline {subsubsection}{Function for suppression}{33}{section*.38}%
-\contentsline {subsection}{Adding new columns}{35}{section*.39}%
-=======
-\contentsline {section}{Manupilating data}{24}{section*.31}%
-\contentsline {subsection}{Aggregate \& filter data}{24}{section*.32}%
-\contentsline {subsection}{Reorder and rename columns}{27}{section*.33}%
-\contentsline {subsection}{Suppression (and writing functions)}{29}{section*.34}%
-\contentsline {subsubsection}{Writing functions}{30}{section*.35}%
-\contentsline {subsubsection}{Nested functions}{31}{section*.36}%
-\contentsline {subsubsection}{if() and ifelse() statements}{32}{section*.37}%
-\contentsline {subsubsection}{Function for suppression}{33}{section*.38}%
-\contentsline {subsection}{Adding new columns}{36}{section*.39}%
->>>>>>> d6357aa94f01c411c879c5230fd2fa8ea598ab26
-\contentsline {subsection}{Joins \& joining geographic codes via lookup tables}{37}{section*.40}%
-\contentsline {subsection}{Reformatting data (wide -\textgreater {} long)}{39}{section*.42}%
-\contentsline {subsection}{Regular expressions}{40}{section*.43}%
-\contentsline {section}{Running a SQL query}{40}{section*.44}%
-<<<<<<< HEAD
-\contentsline {section}{Creating plots}{41}{section*.45}%
-\contentsline {subsection}{Creating functions for plots}{42}{section*.46}%
-\contentsline {section}{Using online resources}{43}{section*.47}%
-\contentsline {subsection}{Google questions and errors}{43}{section*.48}%
-\contentsline {subsection}{Using chatGPT}{44}{section*.49}%
-\contentsline {section}{w-RAP it up}{46}{section*.50}%
-\contentsline {section}{Unit testing in R}{46}{section*.51}%
-\contentsline {section}{dplyr vs.~data.table}{47}{section*.52}%
-\contentsline {section}{Troubleshooting}{49}{section*.53}%
-\contentsline {subsection}{renv}{49}{section*.54}%
-\contentsline {subsubsection}{renv::restore()}{49}{section*.55}%
-\contentsline {subsubsection}{Updating packages in renv}{50}{section*.56}%
-\contentsline {subsubsection}{Installing old package versions in renv}{50}{section*.57}%
-\contentsline {subsection}{`Can't find make' error}{50}{section*.58}%
-\contentsline {section}{Excel functions in R}{52}{section*.59}%
-\contentsline {subsection}{VLOOKUP}{52}{section*.60}%
-\contentsline {subsubsection}{Using base R}{52}{section*.62}%
-\contentsline {subsubsection}{Using dplyr}{54}{section*.63}%
-\contentsline {section}{SQL functions in R}{55}{section*.64}%
-=======
-\contentsline {section}{Creating plots}{42}{section*.45}%
-\contentsline {subsection}{Creating functions for plots}{43}{section*.46}%
-\contentsline {section}{Using online resources}{44}{section*.47}%
-\contentsline {subsection}{Google questions and errors}{44}{section*.48}%
-\contentsline {subsection}{Using chatGPT}{45}{section*.49}%
-\contentsline {section}{w-RAP it up}{47}{section*.50}%
-\contentsline {section}{Unit testing in R}{47}{section*.51}%
-\contentsline {section}{dplyr vs.\nobreakspace {}data.table}{49}{section*.52}%
-\contentsline {section}{Troubleshooting}{50}{section*.53}%
-\contentsline {subsection}{renv}{50}{section*.54}%
-\contentsline {subsubsection}{renv::restore()}{50}{section*.55}%
-\contentsline {subsubsection}{Updating packages in renv}{51}{section*.56}%
-\contentsline {subsubsection}{Installing old package versions in renv}{51}{section*.57}%
-\contentsline {subsection}{`Can't find make' error}{51}{section*.58}%
-\contentsline {section}{Excel functions in R}{53}{section*.59}%
-\contentsline {subsection}{VLOOKUP}{53}{section*.60}%
-\contentsline {subsubsection}{Using base R}{53}{section*.62}%
-\contentsline {subsubsection}{Using dplyr}{55}{section*.63}%
-\contentsline {section}{SQL functions in R}{56}{section*.64}%
->>>>>>> d6357aa94f01c411c879c5230fd2fa8ea598ab26
+\contentsline {subsubsection}{Basic data objects}{14}{section*.21}%
+\contentsline {subsection}{Loading in the data}{17}{section*.22}%
+\contentsline {subsubsection}{Reading in CSVs}{17}{section*.23}%
+\contentsline {section}{Cleaning data}{18}{section*.24}%
+\contentsline {subsection}{Dealing with missing values}{19}{section*.25}%
+\contentsline {subsection}{Dealing with duplicates}{21}{section*.26}%
+\contentsline {section}{Descriptive statistics}{22}{section*.27}%
+\contentsline {section}{Manipulating data}{23}{section*.28}%
+\contentsline {subsection}{Aggregate \& filter data}{23}{section*.29}%
+\contentsline {subsection}{Reorder and rename columns}{26}{section*.30}%
+\contentsline {subsection}{Suppression (and writing functions)}{28}{section*.31}%
+\contentsline {subsubsection}{Writing functions}{29}{section*.32}%
+\contentsline {subsubsection}{Nested functions}{30}{section*.33}%
+\contentsline {subsubsection}{if() and ifelse() statements}{31}{section*.34}%
+\contentsline {subsubsection}{Function for suppression}{32}{section*.35}%
+\contentsline {subsection}{Adding new columns}{35}{section*.36}%
+\contentsline {subsection}{Joins \& joining geographic codes via lookup tables}{36}{section*.37}%
+\contentsline {subsection}{Reformatting data (wide -\textgreater {} long)}{38}{section*.39}%
+\contentsline {subsection}{Regular expressions}{39}{section*.40}%
+\contentsline {section}{Creating plots}{39}{section*.41}%
+\contentsline {subsection}{Creating functions for plots}{41}{section*.42}%
+\contentsline {section}{Using online resources}{42}{section*.43}%
+\contentsline {subsection}{Google questions and errors}{42}{section*.44}%
+\contentsline {subsection}{Using Copilot}{43}{section*.45}%
+\contentsline {section}{w-RAP it up}{44}{section*.46}%
+\contentsline {section}{Optional exercises}{46}{section*.47}%
+\contentsline {subsection}{Unit testing in R (optional)}{46}{section*.48}%
+\contentsline {subsection}{Accessing remote data (optional)}{48}{section*.49}%
+\contentsline {subsubsection}{SQL}{48}{section*.50}%
+\contentsline {paragraph}{Writing a table to a SQL database}{49}{section*.51}%
+\contentsline {paragraph}{Reading a table from a SQL database}{50}{section*.52}%
+\contentsline {paragraph}{SQL functions in R}{51}{section*.53}%
+\contentsline {subsubsection}{Alternative ways to read in data}{52}{section*.54}%
+\contentsline {section}{Supplementary information}{53}{section*.55}%
+\contentsline {subsection}{dplyr vs.~data.table (supplementary)}{53}{section*.56}%
+\contentsline {subsection}{Troubleshooting (supplementary)}{54}{section*.57}%
+\contentsline {subsubsection}{renv}{54}{section*.58}%
+\contentsline {paragraph}{renv::restore()}{54}{section*.59}%
+\contentsline {paragraph}{Updating packages in renv}{55}{section*.60}%
+\contentsline {paragraph}{Installing old package versions in renv}{55}{section*.61}%
+\contentsline {subsubsection}{`Can't find make' error}{55}{section*.62}%
+\contentsline {subsection}{Excel functions in R (supplementary)}{57}{section*.63}%
+\contentsline {subsubsection}{VLOOKUP}{57}{section*.64}%
+\contentsline {paragraph}{Using base R}{57}{section*.66}%
+\contentsline {paragraph}{Using dplyr}{59}{section*.67}%
