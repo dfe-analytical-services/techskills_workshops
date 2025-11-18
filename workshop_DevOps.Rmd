@@ -76,6 +76,8 @@ DevOps is part of the Microsoft Azure platform and uses private DfE servers. Thi
 
 GitHub is hosted on external servers and therefore is more appropriate for making your code or application available for public access and use. For example, from a GitHub repository, you can deploy an R Shiny dashboard to shinyapps.io where members of the public may view and interact with your published data.
 
+\newpage
+
 # Pre-workshop requirements
 
 ## Technical requirements
@@ -94,7 +96,7 @@ Or:
 
 * If you're on EDAP and used to using R/R-Studio and/or Git on there, feel free to just use that.
 
-You'll also need to make sure that Git is set up in the Git/SVN pane of global options in R-Studio (found in the Tools drop down menu). Make sure the path to your Git executable is entered in the Git path box and Git should automatically be integrated with R-Studio. 
+You'll also need to make sure that Git is set up in the Git/SVN pane of global options in R-Studio (found in the Tools drop down menu). Make sure the path to your Git executable is entered in the Git path box and Git should automatically be integrated with R-Studio; if it's not, restart your R session. 
 
 ```{r echo=FALSE, out.width='64%', fig.cap='Enter the path to your Git executable in the Git path option box'}
 knitr::include_graphics('images/gitdemo/gitdemo-gitRstudio-settings.png')
@@ -106,7 +108,7 @@ Once you open a repository, you'll get an extra panel, named 'Git', in the top r
 knitr::include_graphics('images/gitdemo/gitdemo-gitRstudio-NewTerminal.png')
 ```
 
-A useful thing here if you want to use Git commands in the terminal is to switch the terminal from the default Windows Command Prompt to `Git Bash`. You can do this in the Terminal tab of R-Studio's global options - just select `Git Bash` from the 'New terminal opens with' pull down menu. Click apply and then select the Terminal tab (next to the Console tab), click 'Terminal 1' and then select 'New terminal' from the drop down menu. You should see something similar to the terminal screenshot.
+A useful thing here if you want to use Git commands in the terminal is to switch the terminal from the default Windows Command Prompt to `Git Bash`. Git Bash is a command line tool that uses BASH (Bourne Again SHell) language. You can switch to Git Bash in the Terminal tab of R-Studio's global options - just select `Git Bash` from the 'New terminal opens with' pull down menu. Click apply and then select the Terminal tab (next to the Console tab), click 'Terminal 1' and then select 'New terminal' from the drop down menu. You should see something similar to the terminal screenshot. 
 
 ## Working in teams
 
@@ -187,7 +189,7 @@ Before starting either option, you'll need to copy the repo url from DevOps. To 
 Open up a \verb|Git| \verb|Bash| terminal, by typing \verb|Git| \verb|Bash| in the Windows search bar and select \verb|Git| \verb|Bash| when it comes up. With a terminal, you can interact with it just by typing, similar to working in the R console in RStudio. First let's make a directory in which to store our repositories (note: replace "\verb|<username>|" below with your laptop username):
 
 \begin{verbatim}
-cd /C:/Users/<username>
+cd /c/Users/<username>
 mkdir repos
 \end{verbatim}
 
@@ -197,7 +199,7 @@ We can then move into the directory we just created using:
 cd repos
 \end{verbatim}
 
-Now grab the repo url and replace \verb|<repo_url>| in the next command with the actual url from Azure DevOps:
+Now use the next command, replacing \verb|<repo_url>| with the url you just copied from Azure DevOps:
 
 \begin{verbatim}
 git clone <repo_url>
@@ -309,7 +311,7 @@ In the Git panel, the name of the current branch is given next to the purple cre
 
 ## Adding, commiting and pushing
 
-To have something to work with, we need some data. There should be a data folder in the repository already, so all we need to do is grab some data and save it there. For this workshop, we'll use a data file from the [Key Stage 4 performance publication](https://explore-education-statistics.service.gov.uk/data-catalogue/data-set/462d625a-f233-4f16-98d9-eaed10014157) on Explore Education Statistics.
+To have something to work with, we need some data. For this workshop, we'll use a data file from the [Key Stage 4 performance publication](https://explore-education-statistics.service.gov.uk/data-catalogue/data-set/462d625a-f233-4f16-98d9-eaed10014157) on Explore Education Statistics.
 
 *For this section, just one of your group should run through the following steps in your group's branch:*
 
@@ -328,7 +330,7 @@ To have something to work with, we need some data. There should be a data folder
 
 \tcblower
 
-Download the data set ZIP file, extract the csv file and save it into the "data" folder in the repository (you can just use the normal Windows File Explorer to do this).
+Download the data set ZIP file, extract the csv file and save it in a new "data" folder in the repository (you can just use the normal Windows File Explorer to do this).
 
 Now to add this to the Git tracking: run the following commands:
 
@@ -346,7 +348,7 @@ This adds an entry on to the log, updating it with the file changes that you've 
 \end{tcolorbox}
 ```
 
-Note that the text after the `-m` is a comment used to describe the changes to make it easier for someone looking back from the log to see what changes have happened. Those are the two key steps for tracking changes to the files and folders in your repository.
+Those are the two key steps for tracking changes to the files and folders in your repository. The text after the `-m` is a comment used to describe the changes to make it easier for someone looking back from the log to see what changes have happened. Note: if you don't submit a commit message Git Bash will automatically navigate you to the "vim" text editor to add one; vim is not in scope of this workshop but knowing how to exit the editor, using `Esc` + `:q`, is helpful.
 
 ```{=tex}
 \begin{tcolorbox}[colback=gssmidblue, 
@@ -498,13 +500,13 @@ Whilst the first task adds in some data, reads it in and does some processing, t
 
 Create a new branch within R-Studio. To do this, first make sure that you're in your groups branch (i.e. `workshop_group_N`) and then you can either a) use the command `git checkout -b groupN_task2` (changing the N to your group number) and push to the remote (`git push`) or click the purple new branch button in the R-Studio Git panel (see the image below).
 
-```{r echo=FALSE, out.width='92%', fig.align='center'}
+```{r echo=FALSE, out.width='60%', fig.align='center'}
 knitr::include_graphics("images/DevOpsdemo/DevOps_RStudio_newbranch.PNG")
 ```
 
 We want to track this branch with the associated task in DevOps Boards, so go to the card you made for task 2 on your group's board. Move it to the **Active** column and then open up the task to edit. On the right hand side of the dialogue box, you can link your branch to this task under **Development**. Click **branch** and in the next dialogue box find and select your new branch from the branch drop down menu (as shown in the screenshot). Click Ok to complete the link. Then you should see your branch listed under **Development** (note the option to create a Pull request, which you can use later on when we merge this branch in to the rest of the development).
 
-```{r echo=FALSE, out.width='82%', fig.align='center'}
+```{r echo=FALSE, out.width='70%', fig.align='center'}
 knitr::include_graphics("images/DevOpsdemo/DevOps_Boards_linkbranch.PNG")
 ```
 
@@ -664,7 +666,8 @@ This will attempt to merge the task1 branch into the task3 branch. However, this
 		library(dplyr)
 		library(ggplot2)
 		
-		dfKS4 <- read.csv("data/202425_subject_national_gcse_exam_entriesgrades_timeseries_provisional.csv")
+		dfKS4 <- read.csv("data/202425_subject_national_gcse_exam_entries
+		                   grades_timeseries_provisional.csv")
 		
 		source("R/plots.R")
 		
@@ -673,7 +676,8 @@ This will attempt to merge the task1 branch into the task3 branch. However, this
 		library(tidyr)
 		library(dplyr)
 		
-		dfKS4 <- read.csv("data/202425_subject_national_gcse_exam_entriesgrades_timeseries_provisional.csv")
+		dfKS4 <- read.csv("data/202425_subject_national_gcse_exam_entries
+		                   grades_timeseries_provisional.csv")
 		
 		source("R/utils.R")
 		
@@ -689,7 +693,8 @@ library(tidyr)
 library(dplyr)
 library(ggplot2)
 
-dfKS4 <- read.csv("data/202425_subject_national_gcse_exam_entriesgrades_timeseries_provisional.csv")
+dfKS4 <- read.csv("data/202425_subject_national_gcse_exam_entries
+                   grades_timeseries_provisional.csv")
 
 source("R/plots.R")
 source("R/utils.R")
@@ -698,7 +703,7 @@ dfKS4tidied <- tidy_subject_timeseries(dfKS4)
 
 plot_ACrange_tidy(dfKS4tidied)
 ```
-We've made a change to a file, so to fully resolve the conflict (and complete the merge), we'll need to perform and `add` and `commit`. Do that whichever way you prefer and at that point the `groupN_task1` branch will be fully merged into the `groupN_task3` branch.
+We've made a change to a file, so to fully resolve the conflict (and complete the merge), we'll need to perform an `add` and `commit`. Do that whichever way you prefer and at that point the `groupN_task1` branch will be fully merged into the `groupN_task3` branch. 
 
 Now we'll look at how a merge works via a pull request.
 
