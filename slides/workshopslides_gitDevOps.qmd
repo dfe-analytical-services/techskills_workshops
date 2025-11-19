@@ -1,6 +1,6 @@
 ---
-title: "Introduction to using git with Azure DevOps"
-author: "Statistics Development Team"
+title: "Introduction to using Git with Azure DevOps"
+author: "Statistics Services Unit"
 institute: Department for Education
 format:
   revealjs: 
@@ -12,36 +12,36 @@ format:
 
 # Aims of this workshop
 
-Gain some familiarity with the concepts and use of git, Dev Ops (and of GitHub by association);
+Gain some familiarity with the concepts and use of Git, DevOps (and of GitHub by association);
 
 :::: {.columns}
 ::: {.column width="50%"}
 - What is a repository?
-- Working with git bash and / or R-Studio interface
+- Working with Git Bash and / or RStudio interface
 - Creating branches
 - Resolving merge conflicts
 - Pushing and pulling between local and remote copies
 :::
 ::: {.column width="50%"}
-- What’s the difference between git, GitHub and Dev Ops?
+- What’s the difference between Git, DevOps and GitHub?
 - Cloning a repository
 - Staging and committing changes
 - Merging, pull requests and reviewing
-- Working with Dev Ops
-  - Task/Kanban board
+- Working with DevOps
+  - Task/Kanban boards
 :::
 ::::
 
 - Maybe a few other concepts if they come up/we have time (e.g. resetting and restoring)
 
-# What are the key blockers to you using git? {auto-animate=true}
+# What are the key blockers to you using Git? {auto-animate=true}
 
 :::: {.columns}
 
 ::: {.column width="68%"}
 
 ::: {.fragment .fade-up}
-- Team or personal expertise/knowledge/capability
+- Lack of expertise/capability within team, or personally
 :::
 ::: {.fragment .fade-up}
 - Not enough support in the department
@@ -50,13 +50,13 @@ Gain some familiarity with the concepts and use of git, Dev Ops (and of GitHub b
 - Challenges in setting it (and RStudio) up on work machines
 :::
 ::: {.fragment .fade-up}
-- Don’t see how it benefits us compared to what we already do just on shared drives
+- Unclear on the benefits compared to just using shared drives and areas
 :::
 ::: {.fragment .fade-up}
 - Just don’t get the concept!
 :::
 ::: {.fragment .fade-up}
-- Overwhelmed by too much to learn alongside R and SQL learning.
+- Overwhelmed by too much to learn alongside other technical development
 :::
 :::
 ::: {.column width="32%"}
@@ -64,106 +64,110 @@ Gain some familiarity with the concepts and use of git, Dev Ops (and of GitHub b
 :::
 ::::
 
-# What is git?
+# What is Git?
 
 ::: {.fragment .fade-up}
-Git is a piece of software designed for version control, i.e.
+Git is a piece of software designed for version control, and can be used for:
 :::
 ::: {.fragment .fade-up}
-  - Tracking changes;
+  - Tracking changes
 :::
 ::: {.fragment .fade-up}
-  - Undoing changes;
+  - Undoing changes
 :::
 ::: {.fragment .fade-up}
-  - Maintaining parallel variants of code.
+  - Maintaining parallel variants of code
 :::
 ::: {.fragment .fade-up}
-  - Git works with repositories:
-    - A repository (or repo) is simply a folder containing all the version controlled files of a given project.
-    - It can have multiple sub-folders that can also be tracked.
+Git works with repositories:
 :::
 ::: {.fragment .fade-up}
-  - Git records all the version control information within a hidden folder called .git 
+  - A repository (repo) is a folder containing all the version controlled files of a given project
+:::
+::: {.fragment .fade-up}
+  - It can have multiple sub-folders that can also be tracked
+:::
+::: {.fragment .fade-up}
+Git records all the version control information within a hidden folder called .git 
 :::
 
-# And GitHub and Dev Ops…
+# And DevOps and GitHub…?
 
 ::: {.fragment .fade-up}
-GitHub and Dev Ops provide a space to store and interact with a repository.
+DevOps and GitHub provide a space to store and interact with a repository:
 :::
 ::: {.fragment .fade-up}
-- Store a central shared back-up of your repository;
+- Store a central, shared back-up of your repository
 :::
 ::: {.fragment .fade-up}
-- View the files;
+- View the files in the repository
 :::
 ::: {.fragment .fade-up}
-- View the history;
+- View its history
 :::
 ::: {.fragment .fade-up}
-- Create and view different branches (variants) of the code;
+- Create and view different branches (variants) of the code
 :::
 ::: {.fragment .fade-up}
-- Management tools such as Issues logs (GitHub) or Kanban board (Dev Ops);
+- Create pull requests, review code and get feedback from collaborators
 :::
 ::: {.fragment .fade-up}
-- Create pull requests, review code and get feedback from collaborators;
+- Perform automated QA and deployment of code (e.g. sending a dashboard live)
 :::
 ::: {.fragment .fade-up}
-- Perform automated QA and deployment of code (e.g. sending a dashboard live).
+They also have management tools such as Issues logs (GitHub) or Kanban boards (DevOps)
 :::
 
-# And GitHub and Dev Ops…
+# And DevOps and GitHub…?
 
-GitHub and Dev Ops are generally not a place to:
+DevOps and GitHub are generally not a place to:
 
 ::: {.fragment .fade-up}
-- Run your code;
+- Run your code
 :::
 ::: {.fragment .fade-up}
-- Edit your code (although there is some basic text editing functionality you can use).
+- Edit your code (although there is some basic text editing functionality you can use)
 :::
 
-# What's the difference between git, GitHub and Azure Dev Ops?
+# What's the difference between Git, GitHub and Azure DevOps?
 
 ::: {.fragment .fade-up}
 - Git is the underlying software that you, GitHub and Azure DevOps use, providing the commands to record changes, create branches, merge branches, undo changes, etc.
 :::
 ::: {.fragment .fade-up}
-- GitHub provides a public space to store a shared copy of your repository, with features to plan, manage and share your work publicly.
+- GitHub provides a public space to store a shared copy of your repository, with features to plan, manage and share your work publicly
 :::
 ::: {.fragment .fade-up}
-- Azure DevOps provides a secure space to store a shared copy of your repository, with features to plan, manage and share your work internally within the DfE.
+- Azure DevOps provides a secure space to store a shared copy of your repository, with features to plan, manage and share your work internally within DfE
 :::
 
-# What are the key benefits of using git?
+# What are the key benefits of using Git?
 
 ::: {.fragment .fade-up}
 - Collaboration
   - Get support from team and wider community by easily sharing code (our team find it much easier to support you if we can just go and clone your repo…)
 :::
 ::: {.fragment .fade-up}
-- Code QA via reviews and automated checks
+- Straightforward code QA via reviews and automated checks
 :::
 ::: {.fragment .fade-up}
-- Continuity
+- Helpful for continuity
 :::
 ::: {.fragment .fade-up}
-- Can undo changes
+- Easy to undo changes
 :::
 ::: {.fragment .fade-up}
-- Can try different methodologies in a properly controlled way
+- Try different methodologies in a properly controlled way
 :::
 
-# What does interacting with git look like?
+# What does interacting with Git look like?
 
-You can use git from with R-Studio, Visual Studio and GitHub Desktop using nice graphical user interfaces. At their heart though, all of these run the git command line functions. The key ones that you'll call on a lot (however you choose to interact with git) are:
+You can use Git from with RStudio, Visual Studio and GitHub Desktop using nice graphical user interfaces. At their heart though, all of these run the Git command line functions. The key ones that you'll call on a lot (however you choose to interact with Git) are:
 
 :::: {.columns}
 
 ::: {.column width="50%"}
-- `git clone repository-url`
+- `git clone <repository-url>`
 - `git add .`
 - `git commit -m "This is a message describing my latest changes"`
 :::
@@ -171,38 +175,41 @@ You can use git from with R-Studio, Visual Studio and GitHub Desktop using nice 
 ::: {.column width="50%"}
 - `git push`
 - `git pull`
-- `git checkout -b branch-name`
-- `git merge branch-name`
+- `git checkout -b <branch-name>`
+- `git merge <branch-name>`
 :::
 ::::
 
-These 7 commands are the main things you need to start tracking your projects using git.
+These 7 commands are the main things you need to start tracking your projects using Git.
 
 # Getting set up
 
-This is a live coding session, so we need you set up with git and RStudio installed…
+This is a live coding session, so you will need to be set up with Git and RStudio installed…
 
 - Open up the pdf that we’ve shared for this session or go to the following link:
   - [Azure Dev Ops Workshop guide (pdf)](https://github.com/dfe-analytical-services/techskills_workshops/blob/main/workshop_DevOps.pdf)
-- Go to pre-workshop requirements section and check you’ve got everything from that list sorted (copied below). Get help from us if anything didn’t work!
-Create a DfE Dev Ops account via the Service Portal;
-  - Install git on your laptop: https://git-scm.com/downloads;
-  - Install R-Studio on your machine: Download R for Windows (x64) and RStudio from the    - Software Centre on your DfE laptop.
-  - Set up the path to the git.exe in RStudio global settings
+- Go to the pre-workshop requirements section and check you’ve got everything from that list sorted (copied below):
+  - Create a DfE DevOps account via the Service Portal
+  - Install Git on your laptop: https://git-scm.com/downloads
+  - Download R for Windows (x64) and RStudio from the Software Centre on your DfE laptop
+  - Ensure the path to your git.exe is set up in RStudio global settings (restart R if not)
+- Get help from us if anything didn’t work!
   
-# What is Azure Dev Ops?  {auto-animate=true}
+# A closer look at Azure DevOps  {auto-animate=true}
 
 :::: {.columns}
 
 ::: {.column width="60%"}
 - A place to manage projects involving code development, e.g.
   - Reproducible analytical pipelines
-  - R-Shiny dashboards
+  - RShiny dashboards
 - This includes:
-  - Team task/Kanban boards;
+  - Team task/Kanban boards
   - Remote repository storage and management
     – create branches, pull requests, change tracking, collaboration
   - Deployment pipelines (e.g. for deploying R-Shiny apps to rsconnect)
+  
+Azure DevOps has a lot of overlap with GitHub. The key benefit of DevOps over GitHub for analysts in the DfE is that it’s private.
 :::
 
 ::: {.column width="40%"}
@@ -210,17 +217,3 @@ Create a DfE Dev Ops account via the Service Portal;
 :::
 ::::
 
-# What is Azure Dev Ops?  {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="60%"}
-Azure DevOps has a lot of overlap with GitHub. The key benefit of Azure over GitHub for analysts in the DfE is that it’s private.
-
-The Statistics Development Team manages the Official Statistics Production project on Azure DevOps where many of the department’s publication oriented repositories (i.e. RAP and dashboards) are kept. We can help you get set up and manage your repo.
-:::
-
-::: {.column width="40%"}
-![](ado-example-repo.png)
-:::
-::::
