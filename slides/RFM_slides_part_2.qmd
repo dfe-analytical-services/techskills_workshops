@@ -1,0 +1,812 @@
+---
+title: "RAP and Technical Skills for Managers"
+subtitle: "Part 2: Using Git, DevOps and GitHub"
+institute: Department for Education
+format:
+  revealjs: 
+    theme: black
+    highlight-style: breezedark
+    code-overflow: wrap
+    include-in-header: fontawesome.html
+    width: 120%
+    height: 120%
+    logo: DfE_logo_landscape.png
+    scrollable: true
+    standalone: true
+---
+
+# Git, GitHub and Azure DevOps
+
+# Git: Introduction
+
+## What is Git?
+
+::: {.fragment .fade-up}
+Git is a piece of software designed for version control, i.e.
+:::
+
+::: {.fragment .fade-up}
+-   Tracking changes
+:::
+
+::: {.fragment .fade-up}
+-   Undoing changes
+:::
+
+::: {.fragment .fade-up}
+-   Maintaining parallel variants of code
+:::
+
+::: {.fragment .fade-up}
+Git works with **repositories**:
+
+-   A repository (repo) is just a folder that contains all of the version-controlled files of a project
+-   It can have multiple sub-folders that will also be tracked
+:::
+
+::: {.fragment .fade-up}
+Git records all the version control information within a hidden folder called *.git*
+:::
+
+## What are GitHub & Azure DevOps?
+
+::: {.fragment .fade-up}
+There are multiple different platforms that you can use to work with Git software and interact with your repositories. 
+
+In DfE, the main two are GitHub and Azure DevOps.
+
+They allow you to:
+:::
+
+::: {.fragment .fade-up}
+-   Store a central shared back-up of your repository and view the files in it;
+:::
+
+::: {.fragment .fade-up}
+-   View a complete history of any changes made to files in the repo and see who made them and when;
+:::
+
+::: {.fragment .fade-up}
+-   Create and view different *branches* (variants) of the code;
+:::
+
+::: {.fragment .fade-up}
+-   Use project management tools such as *Kanban boards*/task boards (on Azure DevOps) and *Issues logs* (on GitHub);
+:::
+
+::: {.fragment .fade-up}
+-   Complete QA by creating *pull requests* (requests to review changes before *merging* them), reviewing code, and getting feedback from collaborators;
+:::
+
+::: {.fragment .fade-up}
+-   Perform automated QA and deployment of code (e.g. sending a dashboard live).
+:::
+
+## What are GitHub & Azure DevOps?
+
+GitHub and Azure DevOps are generally not a place to:
+
+::: {.fragment .fade-up}
+-   Run your code;
+:::
+
+::: {.fragment .fade-up}
+-   Edit your code (although there is some basic text editing functionality you can use).
+:::
+
+## What's the difference between Git, GitHub and Azure DevOps?
+
+::: {.fragment .fade-up}
+-   **Git** is the underlying software that you, GitHub and Azure DevOps use, providing the commands to record changes, create branches, merge branches, undo changes, etc.
+:::
+
+::: {.fragment .fade-up}
+-   **Azure DevOps** provides a secure, private space to store a shared copy of your repository, with features to plan, manage and share your work internally within the DfE.
+:::
+
+::: {.fragment .fade-up}
+-   **GitHub** provides a public space to store a shared copy of your repository, with features to plan, manage and share your work publicly.
+:::
+
+
+## Benefits of Git
+
+::: {.fragment .fade-up}
+-   Easy collaboration: get support from your team and the wider community by easily sharing code (our team find it much easier to support you if we can can share a repo with us)
+:::
+
+::: {.fragment .fade-up}
+-   Easier, clearer, faster code QA via reviews and automated checks
+:::
+
+::: {.fragment .fade-up}
+-   Enables continuity by making processes transparent and easy-to-follow
+:::
+
+::: {.fragment .fade-up}
+-   Offers the options to undo changes and roll back to previous versions
+:::
+
+::: {.fragment .fade-up}
+-   Branching allows you to try different methodologies without overwriting your existing one
+:::
+
+## Advantages of Git over shared folders
+
+::: {.fragment .fade-up}
+-   **Version control:** Shared folders lack detailed version control which leads to;
+
+    -   Messy folders with multiple versions of files (file_v1, file_v2, file_final, File_final_FINAL etc.)
+    -   Potential to overwrite or lose work
+    -   No ability to view a file's history and see who made previous changes and why
+
+    Git and platforms like Azure DevOps and GitHub provide robust tracking of all changes, who made them, and their *commit message*, ensuring continuity and auditability.
+:::
+
+::: {.fragment .fade-up}
+-   **Collaboration** and simultaneous working in shared folders can be tricky and can require duplication of files. Branching with Git is a safe and sensible way to work collaboratively with parallel versions that can eventually be *merged* into one cohesive, final version.
+:::
+
+::: {.fragment .fade-up}
+-   **Documentation**: 'Run-notes' or README files in shared folders can be easily lost, outdated, or easy to avoid creating. Git projects often automatically generate README.md files for you to complete, and they render in Azure DevOps / GitHub automatically, instantly providing documentation for anyone who opens the repo. Using a *markdown* (.md) file instead of .txt or Word also gives additional abilities like linking to other pages or files and easily including code snippets.
+:::
+
+# Git basics
+
+## Getting set up
+
+-   **Azure DevOps:** Fill in the [DevOps IT service request form](https://dfe.service-now.com/serviceportal?id=sc_cat_item&sys_id=5447e6e91bdbbb802fe864606e4bcba4). See the [help page on how to fill in the DevOps IT request](https://dfe-analytical-services.github.io/azure-devops-for-analysis/devops---the-basics.html#getting-a-devops-account) if you need support filling it in!
+
+-   **GitHub:** Just [create your own GitHub account](https://github.com/), no IT support needed! You should use your work email address (or link it to an existing account if you have one) for GitHub accounts you will use at work.
+
+## Interacting with Git
+
+You can use Git from with RStudio, Visual Studio and GitHub Desktop using nice graphical user interfaces. At their heart though, all of these run the Git command line functions. The most-used commands (however you choose to interact with Git) include:
+
+::::: columns
+::: {.column width="50%"}
+-   `git clone repository-url`
+-   `git add .`
+-   `git commit -m "This is a message describing my latest changes"`
+:::
+
+::: {.column width="50%"}
+-   `git push`
+-   `git pull`
+-   `git checkout -b branch-name`
+-   `git merge branch-name`
+:::
+:::::
+
+These 7 commands are all the main ones you will need to start tracking your projects using Git.
+
+## Git commands: clone
+
+When you want to start working on a project that is already on GitHub or Azure DevOps, you need to *clone* the repository. This means creating a copy of the repository on your local machine. That means that you can work on the files on your device, and you choose when to update the online version with your changes (it does NOT update online automatically).
+
+## Git commands: pull, commit, push
+
+*Pull, commit, push* are the three main commands you will use in Git.
+
+-   `Pull:` Get the latest changes from the shared repository
+-   `Commit:` Record your changes in the repository
+-   `Push:` Send your changes to the shared repository
+
+A typical workflow would therefore be:
+
+1.  Open the project on your device and ensure you're in the correct branch,
+2.  `Pull` to ensure that any changes made to the online version by others are pulled down onto the version you are working on,
+3.  Make your own changes and save them,
+4.  Commit your saved changes, including a useful *commit message* to explain what you have done,
+5.  `Push` your changes to the shared repository when you're ready for others to see and work with them.
+
+## Git commands: branches
+
+Branches in Git are like parallel universes of code.
+
+Your `main` branch should be your most up-to-date, working version of your code. If you want to make updates or develop new features, you should **create a new branch**. This essentially creates a copy of the main branch in a different place.
+
+Working on your new branch means that you can try new things and edit your code **without affecting the main branch** (the working version of your code) - allowing others to continue using it if needed! It also means two people could both create their own branches and do development work simultaneously without interfering with each others work.
+
+## Git commands: pull requests
+
+Imagine you have finished all of the development work in your branch, and you are ready for your changes to be moved into the main branch. 
+
+To merge your changes into the main branch, you create a *pull request*. This is a request for someone else to review your changes and approve them before they are merged into the working version of your code.
+
+# Working in repos: good practice
+
+## Documentation: README file
+
+::: fragment
+-   You will see a README file on each repository. READMEs should be filled in by your team to help someone familiarise themselves with the repo, any access requirements, contributing guidelines, run instructions, and contact details in case the user runs into issues.
+:::
+
+::: fragment
+-   [The dfeR package](https://dfe-analytical-services.github.io/dfeR/reference/create_project.html) contains a README template, and we have information on how to populate it on the [Analysts Guide](https://dfe-analytical-services.github.io/analysts-guide/RAP/rap-statistics.html#writing-a-readme-file)
+:::
+
+::: fragment
+-   During RAP audits, we check the contents of the repo's README to ensure that it is detailed enough
+:::
+
+::: fragment
+-   If you're using a public GitHub repo, the contents of the README will also be public, so carefully consider what information you include there
+:::
+
+## README file expectations
+
+::: fragment
+Your README should contain the following information (but you can always add more!):
+:::
+
+::: fragment
+-   Introduction: explain the purpose of the code
+:::
+
+::: fragment
+-   Requirements: which databases do you need access to so that you can run the code? How do you get that access? Is the project being managed using `renv`? What skills do you need to run the code?
+:::
+
+::: fragment
+-   Getting started: describe the expected input data and where it can be found, as well as what output you expect from the code
+:::
+
+::: fragment
+-   How to run and update: do any lines of code need updating before the code is run? If so, list them here. Outline the process for contributing to the repo, updating the code, or raising issues
+:::
+
+::: fragment
+-   Contact details: list the names and contact information of the people who maintain the repo, as well as any support channels
+:::
+
+## Branch management 
+- A new branch should be created for any updates to your code
+- Branch names should be clear & descriptive - avoid basing on your own name
+- A branch should handle contained, well-defined and finite updates
+- It is possible to merge branches without using pull requests but this should be avoided
+- Branches should be deleted where they are no longer needed
+
+# Pull requests
+
+## What is a pull request?
+
+::: fragment
+-   As a manager, your main interaction with Azure DevOps or GitHub is likely to be through pull requests (PRs). They offer a way to do transparent code QA, easily referencing specific lines or chunks of code. Any comments added to a pull request are saved in the history of a repo, so you can always go back and confirm whether you asked for certain changes, and check when and how the changes were made.
+:::
+
+::: fragment
+-   When someone in your team is ready for their code to be checked, they should raise a pull request and add a reviewer (which often should be you). The reviewer will receive an email notification to let then know that their review has been requested.
+:::
+
+## What should I include in a pull request?
+
+::: fragment
+-   It is up to the person requesting review to include sufficient detail in their PR.
+:::
+
+::: fragment
+-   The ideal scenario is that you should be able to pick up a PR and know exactly what you need to check without asking the person who wrote the code for any more information!
+:::
+
+::: fragment
+-   You might wish to set a PR template on your repo to encourage people to add all the information that any potential reviewers might need:
+:::
+
+::: fragment
+![](images/github-pr-template.png){width="30%"}
+:::
+
+## Recommended work flow
+There should always be at least two team members available to work on a pipeline (and in general, any piece of analysis)
+
+- One team member member makes updates to the code in a new branch away from `main`
+- Once all changes have been committed and pushed to the shared repo this team member creates a pull request to merge their updates into the target branch (usually `main`)
+- An independent team member is added as a reviewer and they receive a notification
+- The reviewer completes any QA checks, adding comments on the PR to highlight issues and recommended changes
+- The team member who made the original updates makes any further updates required to resolve these issues and implement recommendations they agree with, committing and pushing them up to the shared repo
+- The reviewer then re-reviews the code and approves the PR if they are happy to
+- The team member who updated the code completes and closes the PR, deleting their branch as appropriate
+- The target branch now reflects the team member's approved updates
+
+## Using automated testing
+
+- Testing is a way to verify that your code works as intended - relevant to the verification pillar of the QA framework.
+- There is a whole range of different types of testing that can be applied. DfE's Good Code Practice guidance has more info on testing types. <span style="color:red;">[Link to this]</span>
+- Testing should be automated as much as possible and should be run wherever your code has been changed. Catching errors quickly makes them faster and easier to fix!
+- Pull requests can be set up to require automated tests to pass before they can be completed.
+
+<span style="color:red;">[I am not an expert on automated testing by any means so would appreciate any further detail I should add to this]</span>
+
+# Quality assurance: reviewing code
+
+## Why code reviews are important
+
+Code reviews are a fundamental part of applying the Department's Quality Assurance (QA) framework to RAPs.
+
+::: {.fragment .fade-up}
+-   **Ensure Quality**: Catch issues early, reduce bugs.
+:::
+
+::: {.fragment .fade-up}
+-   **Share Knowledge**: Improve team skills and understanding.
+:::
+
+::: {.fragment .fade-up}
+-   **Encourage Collaboration**: Foster teamwork and better practices.
+:::
+
+## How to approach a code review
+
+::: {.fragment .fade-up}
+1.  **Understand the Context**:
+    -   Read the PR description and associated documentation.
+    -   Run the code locally if necessary (check that it works!)
+:::
+
+::: {.fragment .fade-up}
+2.  **Be Constructive**:
+    -   Suggest alternatives instead of just pointing out problems.
+    -   Add comments or questions to specific lines.
+:::
+
+::: {.fragment .fade-up}
+3.  **Praise and Critique**:
+    -   Highlight good practices.
+    -   Explain why changes are needed.
+    -   Ask questions where you require clarity - chances are if you don't understand something, then others looking at it won't either! This is a sign that documentation or comments need improving!
+:::
+
+------------------------------------------------------------------------
+
+## How to see what has changed
+
+::: fragment
+-   When viewing a pull request, you'll be able to see where new lines or characters have been added to the pre-existing code (shown in green), or whether lines or characters have been deleted (shown in red). You'll only be shown files that have been changed as part of that PR, so don't worry if some files aren't visible.
+:::
+
+::: fragment
+![](images/pull-request-changed-lines.png)
+:::
+
+## Things to look for
+
+<!-- e.g. check the code for things that don't make sense, is the logic clear, do hardcoded things look correct, do you understand the intention of the code  -->
+
+::: {.fragment .fade-up}
+1.  **Correctness**: Does the code do what it's supposed to do? Are there any bugs or errors (e.g. an incorrect or missing filter)?
+:::
+
+::: {.fragment .fade-up}
+2.  **Readability**: Is the code easy to understand? Is the logic clear? Do you understand the intention of the code?
+:::
+
+::: {.fragment .fade-up}
+3.  **Maintainability**: Is the code easy to update in the future? Are there hard-coded values that will need changing in future spread throughout (bad practice), or are all variables that will change stored in one obvious place?
+:::
+
+::: {.fragment .fade-up}
+4.  **Performance**: Is the code efficient? Are there any unnecessary steps or loops? Can you see repetitive code that could be made into a function?
+:::
+
+::: {.fragment .fade-up}
+5.  **Documentation**: Are there comments and documentation where needed? Are they clear and helpful? If you don't understand a decision or piece of code, ask for clarification! The likelihood is that others will also be confused by it and it needs additional comments or documentation.
+:::
+
+
+## Adding comments to code scripts
+
+::: fragment
+-   On Azure DevOps, if you hover over a line of code, you'll see the comment icon appear next to the line number. Click on it to add a review comment to that specific line of code
+:::
+
+::: fragment
+![](images/adding-comments-to-pr.png){width="328" height="98"}
+:::
+
+::: fragment
+-   On GitHub, the process is the same, but the comment icon looks like a blue + symbol instead:
+:::
+
+::: fragment
+![](images/adding-comments-to-pr-github.png){width="328"}
+:::
+
+## Adding general comments
+
+::: fragment
+You can also add overall comments on a pull request, rather than leaving comments on specific lines of code.
+:::
+
+::: fragment
+-   On Azure DevOps, the comment box is at the bottom of the pull request page and looks like this:
+:::
+
+::: fragment
+![](images/devops-add-overall-comment.png)
+:::
+
+::: fragment
+-   On GitHub, the comment box is underneath the PR description box and looks like this:
+:::
+
+::: fragment
+![](images/github-overall-comment.png)
+:::
+
+## Requesting changes or approving
+
+::: fragment
+When you've finished your review, you have two options:
+:::
+
+::: fragment
+-   Approve the PR - this means that you're happy with everything and you agree for the current branch to be merged into the main branch. This will overwrite the files in the main branch that have been changed as part of this PR
+:::
+
+::: fragment
+-   Comment on the PR - this means that you've requested changes to the code, and it'll be sent back to the person who raised the PR so that they can make the requested fixes
+:::
+
+
+## Reviewing alongside other team members
+As a manager you are likely to be less in the technical detail of your team's code and analysis but should often still be involved in the review process.
+
+Managers need to be efficient with their own, and their team's time. It may not be optimal for you to worry about every technical detail.
+
+- You might delegate technical reviews of code to a team member while simultaneously reviewing from a higher-level, more general perspective.
+- You can sense check the general changes being made without understanding whether they have technically been applied correctly.
+- You could request brief, top-level summaries for your own QA, and more detailed & in-depth QA documentation for the technical reviewer. 
+- The team should be clear on the responsibilities of each reviewer to ensure everything is covered between you.
+
+## Example: requesting improved clarity & comments
+
+```{webr-r}
+#| context: setup
+
+# Create a dummy dataset
+student_data <- data.frame(
+  student_id = 1:10,
+  age = c(16, 17, 19, 18, 15, 20, 17, 16, 21, 18),
+  subject = c("Math", "Science", "Math", "English", "Math", "Science", "Math", "English", "Math", "Science"),
+  score = c(85, 90, 78, 88, 91, 84, 79, 92, 95, 89),
+  attendance = c(95, 85, 60, 98, 70, 50, 85, 99, 90, 80),
+  year = c(2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023)
+)
+
+```
+
+**Pull Request Code**:
+
+```{webr-r}
+# Original Code in the PR
+
+processed_data <- student_data %>%
+  mutate(passed_threshold = if_else(attendance >= 80, TRUE, FALSE)) %>%
+  filter(passed_threshold == TRUE)
+```
+
+:::: {style="font-size: 75%;"}
+::: {.fragment .fade-up}
+**Review Comment**:
+
+> *I’m unclear on why the threshold is hardcoded to 80 here. Can you explain why 80 was chosen, and whether this is a departmental or industry standard? This might need to be more flexible for future updates. It would be useful to add a comment explaining the significance of the 80 threshold here and whether it will change in future. This will help future maintainers understand the code.*
+:::
+::::
+
+::: {.fragment .fade-up}
+**Suggested Revision**:
+
+```{webr-r}
+# Define attendance threshold
+# 80 is the department's standard threshold for 'passing' attendance. This can be changed in future in line with policy changes.
+attendance_threshold <- 80
+
+# Adding a flag for students who passed the threshold
+processed_data <- student_data %>%
+  mutate(passed_threshold = if_else(attendance >= attendance_threshold, TRUE, FALSE)) %>%
+  filter(passed_threshold == TRUE)  # Only include students who passed the attendance threshold
+```
+:::
+
+## Example: identifying errors
+
+**Pull Request Code**:
+
+```{webr-r}
+# Original Code in the PR
+
+# Filter out students over 18
+cleaned_data <- student_data %>%
+  filter(age > 18) %>%
+# Calculate average score by subject for students under 18
+  group_by(subject) %>%
+  summarise(mean_score = mean(score), .groups = "drop")
+```
+
+:::: {style="font-size: 75%;"}
+::: {.fragment .fade-up}
+**Review Comment**:
+
+> *The comment on line 3 states that students over 18 should be filtered out, but the code `filter(age > 18)` keeps students over 18 instead of removing them. This error will be carried through the pipeline, making the outputs inaccurate. I think the filter condition should be `filter(age <= 18)`.*
+:::
+::::
+
+::: {.fragment .fade-up}
+**Suggested Revision**:
+
+```{webr-r}
+
+# Filter out students over 18
+cleaned_data <- student_data %>%
+  filter(age <= 18) %>%
+# Calculate average score by subject for students under 18
+  group_by(subject) %>%
+  summarise(mean_score = mean(score), .groups = "drop")
+```
+:::
+
+## Example: suggesting improvements
+
+**Pull Request Code**:
+
+```{webr-r}
+
+# Original Code in the PR
+
+# Calculate weighted average score by subject
+math_scores <- student_data %>%
+  filter(subject == "Math") %>%
+  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))
+
+science_scores <- student_data %>%
+  filter(subject == "Science") %>%
+  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))
+
+english_scores <- student_data %>%
+  filter(subject == "English") %>%
+  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))
+```
+
+:::: {style="font-size: 75%;"}
+::: {.fragment .fade-up}
+**Review Comment**:
+
+> *This code is repetitive and if we add more subjects, we'll need to duplicate the same logic for each one. This makes the code harder to maintain and more error-prone. Could you write a function to calculate the weighted average score to reduce the risk of errors and make the code easier to maintain?*
+:::
+::::
+
+::: {.fragment .fade-up}
+**Suggested Revision**:
+
+```{webr-r}
+
+# Define a function to calculate the weighted average score
+calculate_weighted_score <- function(data, subject_name) {
+  data %>%
+    filter(subject == subject_name) %>%
+    summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))
+}
+
+# Calculate weighted average score by subject
+math_scores <- calculate_weighted_score(student_data, "Math")
+science_scores <- calculate_weighted_score(student_data, "Science")
+english_scores <- calculate_weighted_score(student_data, "English")
+```
+:::
+
+## Example
+
+**Pull Request Code**:
+
+```{webr-r}
+
+# Original Code in the PR
+
+# Calculate average score by subject for 2023
+average_scores <- student_data %>%
+  filter(year == 2023) %>%
+  group_by(subject) %>%
+  summarise(mean_score = mean(score, na.rm = TRUE), .groups = "drop")
+
+# Create a summary message for 2023
+summary_message <- paste0("The average scores by subject for the year 2023 are as follows:")
+
+# Save the 2023 results to a CSV
+write.csv(average_scores, "average_scores_2023.csv", row.names = FALSE)
+
+# Add a flag for scores above 90 in 2023
+high_scores <- student_data %>%
+  filter(year == 2023) %>%
+  mutate(high_score_flag = score > 90)
+
+# Save the high scores dataset for 2023
+write.csv(high_scores, "high_scores_2023.csv", row.names = FALSE)
+
+```
+
+:::: {style="font-size: 75%;"}
+::: {.fragment .fade-up}
+**Review Comment**:
+
+> *The year `2023` is hardcoded in several places: filters, messages, and filenames. If we need to update this code for a different year, we’d have to make changes in every instance, which is error-prone. Consider defining the year as a variable at the top of the script or in a `variable_change` script. This will allow you to update the year in one place, making the code easier to maintain and reuse.*
+:::
+::::
+
+::: {.fragment .fade-up}
+**Suggested Revision**:
+
+```{webr-r}
+
+# Define the analysis year
+analysis_year <- 2023  # Update this each year
+
+# Calculate average score by subject for the analysis year
+average_scores <- student_data %>%
+  filter(year == analysis_year) %>%
+  group_by(subject) %>%
+  summarise(mean_score = mean(score, na.rm = TRUE), .groups = "drop")
+
+# Create a summary message for the analysis year
+summary_message <- paste0("The average scores by subject for the year ", analysis_year, " are as follows:")
+
+# Save the results to a CSV
+write.csv(average_scores, paste0("average_scores_", analysis_year, ".csv"), row.names = FALSE)
+
+# Add a flag for scores above 90 in the analysis year
+high_scores <- student_data %>%
+  filter(year == analysis_year) %>%
+  mutate(high_score_flag = score > 90)
+
+# Save the high scores dataset
+write.csv(high_scores, paste0("high_scores_", analysis_year, ".csv"), row.names = FALSE)
+
+```
+:::
+
+## Review an example pull request
+
+<span style="color:red;">[I need to create this example PR in DevOps. Participants will break into pairs and look over the PR, noting the comments they would add. Won't actually
+get them to add into the actual PR because that would get messy and difficult.]</span>
+
+
+# Azure DevOps Boards
+
+<span style="color:red;">[I wonder if we should take this section out to avoid overwhelming people? Thinking we probably have too much to cover in these slides anyway and assuming lots of participants won't be used to or comfortable with DevOps/Git I wouldn't see Boards as something for beginners to worry about.]</span>
+
+## What are Azure DevOps boards?
+
+Azure DevOps boards are a project management tool that allows you to plan, track, and discuss work across your teams.
+
+**Key points:**
+
+::: {.fragment .fade-up}
+-   Boards are associated with *teams* rather than repositories.
+:::
+
+::: {.fragment .fade-up}
+-   This means multiple repositories can be tracked on one team board.
+:::
+
+::: {.fragment .fade-up}
+-   They create a central place to monitor progress, assign tasks, and collaborate efficiently.
+:::
+
+## Features of Azure DevOps Boards
+
+Azure DevOps Boards offers powerful tools for project management:
+
+::: {.fragment .fade-up}
+-   **Work Items:** Track individual tasks, bugs, or features. Each work item has a title, description, and status, and can be assigned to a team member. You can also add tags, attachments, and comments to work items to provide additional context, and even link work items to branches, commits and pull requests.
+:::
+
+::: {.fragment .fade-up}
+-   **Backlogs:** Prioritised lists of work items that need to be completed as part of a project. You can add work items to the backlog, assign them to team members, and set priorities. The backlog helps you plan and track the progress of your project, and ensures that work is completed in the correct order.
+:::
+
+::: {.fragment .fade-up}
+-   **Sprints:** Use sprint planning for time-boxed projects. You can move work items into sprints, assign them to team members, and track progress. Sprints help you break down work into manageable chunks, and ensure that work is completed on time.
+:::
+
+::: {.fragment .fade-up}
+-   **Kanban Boards:** Visualize work in progress with a drag-and-drop interface (similar to trello).
+:::
+
+## Benefits for RAP
+
+Why use Azure DevOps Boards for Reproducible Analytical Pipelines?
+
+::: {.fragment .fade-up}
+-   **Visibility:** Track all projects in one place.
+:::
+
+::: {.fragment .fade-up}
+-   **Accountability:** Assign tasks with clear ownership.
+:::
+
+::: {.fragment .fade-up}
+-   **Collaboration:** Comment directly on tasks to resolve issues or clarify requirements.
+:::
+
+::: {.fragment .fade-up}
+-   **Documentation** Link to code, data, and other resources to provide context.
+:::
+
+::: {.fragment .fade-up}
+-   **Integration:** Link directly to R scripts, SQL code, or other artifacts in your repositories.
+:::
+
+::: {.fragment .fade-up}
+-   **Organisation** - Keep all your work in one place, and easily see what needs to be done next.
+:::
+
+## Task: Explore Azure DevOps Boards
+
+1.  Open the [RAP for managers Azure DevOps repo](https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers) and navigate to the **Boards** tab (In the sidebar, expand the boards section and select boards within that!).
+
+2.  Click on the **+ New Item** button and give it a title. Hit Enter to save it!
+
+3.  Now expand it by clicking on the title. Fill in the details for the task, including the description and assignee (you can assign it to yourself or the person you're sat next to!). Explore the different features like tags, attachments, and comments. Close the expanded view and click the three dots on the task to explore eve more features like creating a branch.
+
+4.  **Move a task:** Update the task’s progress by dragging it to a new column.
+
+5.  **Collaborate:** Comment on someone else’s task to provide additional context, ideas or instructions.
+
+**Goal:** By the end of this exercise, you’ll feel confident using Azure DevOps Boards to manage your projects and collaborate effectively.
+
+<span style="color:red;">[If we're doing this need to make sure it's set up and working]</span>
+
+# Task: Azure DevOps treasure hunt!
+
+::::: columns
+::: {.column width="60%"}
+Open the [RAP for managers Azure DevOps repo](https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers)!
+
+Your task is to explore the repo in order to find the **2 mistakes** and **6 hidden letters** which spell the mystery-word!
+
+Here are some hints to get your started:
+
+1.  The **README** file should be the first thing you look at in any repo (and should be of a high quality)
+2.  As a manager, you will often be asked to approve **pull requests**.
+:::
+
+::: {.column width="40%"}
+![](images/treasure_hunt.png)
+:::
+:::::
+
+<span style="color:red;">[Need to make sure this is set up and working]</span>
+
+# Summary
+
+## Where to get support
+
+- Statistics Development Team: for general support with technical advice, learning & development and RAP <span style="color:red;">[Link to mailbox]</span>
+- RAP champions: for RAP advice more tailored to your team's work area and context <span style="color:red;">[Link somewhere useful]</span>
+- Partnership Programme: for support with technical upskilling or additional resource to RAP your analysis or apply best practice <span style="color:red;">[Link to application form]</span>
+- Statistics Services Unit's Intro to R and Intro to Git technical workshops <span style="color:red;">[Link to AG section]</span>
+- [Analysts Guide](https://dfe-analytical-services.github.io/analysts-guide.html)
+- [Statistics Services Unit support offer](https://educationgovuk.sharepoint.com/sites/lveesfa00074/SSU%20%20Open%20sharing?newTargetListUrl=https%3A%2F%2Feducationgovuk%2Esharepoint%2Ecom%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing&id=%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing%2FSSU%20support%20%2D%20one%20pager%2FRoutes%20and%20support%20one%20pager%2Epdf&viewid=a3d9f08d%2D4fe8%2D4848%2D9157%2Dd7e09b43f701&parent=%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing%2FSSU%20support%20%2D%20one%20pager)
+
+## Making time for technical learning & development
+
+It may feel difficult to work on your technical skills when you have fewer opportunities to do hands-on work. Please make sure that you have taken time to watch the [HoP Office knowledge share on L&D](https://educationgovuk.sharepoint.com/:f:/r/sites/lveesfa00074/SSU%20%20Open%20sharing/HoP%20office/HoP%20Knowledge%20share%20series/Session%204%20-%20L%26D%20and%20Recruitment?csf=1&web=1&e=RCPRwp) - it contains great advice about how to work on your skills.
+
+Why not request a [DataCamp](https://www.datacamp.com/) license and spend an hour a month working on one of the courses? You could even put time in the calendar for your whole team and work through the courses together. You can request DataCamp licenses by emailing [Lisa Smyth](mailto:lisa.smyth@education.gov.uk)
+
+<span style="color:red;">[Add some more tips on making time for L&D]</span>
+
+## Useful learning resources
+
+- [Codecademy course on Strategies for Managing Technical Teams](https://www.codecademy.com/learn/ext-courses/strategies-for-managing-technical-teams)
+- [Analysts Guide: Learning support](https://dfe-analytical-services.github.io/analysts-guide/learning-development/learning-support.html)
+- [Analysis Function training courses](https://analysisfunction.civilservice.gov.uk/training-courses/)
+- [DfE Git Academy](https://dfe-analytical-services.github.io/git-academy/)
+- [NHS-R Youtube, including intro to R courses](https://www.youtube.com/c/nhsrcommunity)
+- [Analysis Function RAP learning pathway](https://analysisfunction.civilservice.gov.uk/learning-development/learning-pathways/reproducible-analytical-pipelines-rap-learning-pathway/)
+- [HoP office knowledge shares](https://educationgovuk.sharepoint.com/:f:/r/sites/lveesfa00074/SSU%20%20Open%20sharing/HoP%20office/HoP%20Knowledge%20share%20series?csf=1&web=1&e=uefwXH)
+
+
+## Final quiz
+
+<span style="color:red;">[Need to set this up]</span>
