@@ -15,99 +15,9 @@ format:
     standalone: true
 ---
 
-# Git, GitHub and Azure DevOps
+# Git, Azure DevOps and GitHub
 
 # Git: Introduction
-
-## What is Git?
-
-::: {.fragment .fade-up}
-Git is a piece of software designed for version control, i.e.
-:::
-
-::: {.fragment .fade-up}
--   Tracking changes
-:::
-
-::: {.fragment .fade-up}
--   Undoing changes
-:::
-
-::: {.fragment .fade-up}
--   Maintaining parallel variants of code
-:::
-
-::: {.fragment .fade-up}
-Git works with **repositories**:
-
--   A repository (repo) is just a folder that contains all of the version-controlled files of a project
--   It can have multiple sub-folders that will also be tracked
-:::
-
-::: {.fragment .fade-up}
-Git records all the version control information within a hidden folder called *.git*
-:::
-
-## What are GitHub & Azure DevOps?
-
-::: {.fragment .fade-up}
-There are multiple different platforms that you can use to work with Git software and interact with your repositories. 
-
-In DfE, the main two are GitHub and Azure DevOps.
-
-They allow you to:
-:::
-
-::: {.fragment .fade-up}
--   Store a central shared back-up of your repository and view the files in it;
-:::
-
-::: {.fragment .fade-up}
--   View a complete history of any changes made to files in the repo and see who made them and when;
-:::
-
-::: {.fragment .fade-up}
--   Create and view different *branches* (variants) of the code;
-:::
-
-::: {.fragment .fade-up}
--   Use project management tools such as *Kanban boards*/task boards (on Azure DevOps) and *Issues logs* (on GitHub);
-:::
-
-::: {.fragment .fade-up}
--   Complete QA by creating *pull requests* (requests to review changes before *merging* them), reviewing code, and getting feedback from collaborators;
-:::
-
-::: {.fragment .fade-up}
--   Perform automated QA and deployment of code (e.g. sending a dashboard live).
-:::
-
-## What are GitHub & Azure DevOps?
-
-GitHub and Azure DevOps are generally not a place to:
-
-::: {.fragment .fade-up}
--   Run your code;
-:::
-
-::: {.fragment .fade-up}
--   Edit your code (although there is some basic text editing functionality you can use).
-:::
-
-## What's the difference between Git, GitHub and Azure DevOps?
-
-::: {.fragment .fade-up}
--   **Git** is the underlying software that you, GitHub and Azure DevOps use, providing the commands to record changes, create branches, merge branches, undo changes, etc.
-:::
-
-::: {.fragment .fade-up}
--   **Azure DevOps** provides a secure, private space to store a shared copy of your repository, with features to plan, manage and share your work internally within the DfE.
-:::
-
-::: {.fragment .fade-up}
--   **GitHub** provides a public space to store a shared copy of your repository, with features to plan, manage and share your work publicly.
-:::
-
 
 ## Benefits of Git
 
@@ -151,34 +61,23 @@ GitHub and Azure DevOps are generally not a place to:
 -   **Documentation**: 'Run-notes' or README files in shared folders can be easily lost, outdated, or easy to avoid creating. Git projects often automatically generate README.md files for you to complete, and they render in Azure DevOps / GitHub automatically, instantly providing documentation for anyone who opens the repo. Using a *markdown* (.md) file instead of .txt or Word also gives additional abilities like linking to other pages or files and easily including code snippets.
 :::
 
+## Getting your team set up with Git
+
+Your team members will need to download Git (x64) from the Software Centre - this is the Git software.
+
+You'll need to decide whether to host your repository on DevOps or GitHub, and everyone in your team will need to create an account on that platform:
+
+-   **Azure DevOps:** Fill in the [DevOps IT service request form](https://dfe.service-now.com/serviceportal?id=sc_cat_item&sys_id=5447e6e91bdbbb802fe864606e4bcba4) - see the [help page on how to fill in the DevOps IT request](https://dfe-analytical-services.github.io/azure-devops-for-analysis/devops---the-basics.html#getting-a-devops-account) if you need support filling it in.
+
+-   **GitHub:** Just [create your own GitHub account](https://github.com/), no IT support needed! You should use your work email address for GitHub accounts you will use at work.
+
+You should then create a repository for your project:
+
+- **Azure DevOps:** It is likely your work area already has a DevOps project; if so, you should request access from the project owner. If not you can use the same IT service request form as for creating an account to create a new project. Within your area's DevOps project, you can then create a new repo for your specific work.
+
+- **GitHub:** Contact the [EES mailbox](mailto: explore.statistics@education.gov.uk) to request access to the [dfe-analytical-services](https://github.com/dfe-analytical-services) organisation, and to set up a new GitHub repo.
+
 # Git basics
-
-## Getting set up
-
--   **Azure DevOps:** Fill in the [DevOps IT service request form](https://dfe.service-now.com/serviceportal?id=sc_cat_item&sys_id=5447e6e91bdbbb802fe864606e4bcba4). See the [help page on how to fill in the DevOps IT request](https://dfe-analytical-services.github.io/azure-devops-for-analysis/devops---the-basics.html#getting-a-devops-account) if you need support filling it in!
-
--   **GitHub:** Just [create your own GitHub account](https://github.com/), no IT support needed! You should use your work email address (or link it to an existing account if you have one) for GitHub accounts you will use at work.
-
-## Interacting with Git
-
-You can use Git from with RStudio, Visual Studio and GitHub Desktop using nice graphical user interfaces. At their heart though, all of these run the Git command line functions. The most-used commands (however you choose to interact with Git) include:
-
-::::: columns
-::: {.column width="50%"}
--   `git clone repository-url`
--   `git add .`
--   `git commit -m "This is a message describing my latest changes"`
-:::
-
-::: {.column width="50%"}
--   `git push`
--   `git pull`
--   `git checkout -b branch-name`
--   `git merge branch-name`
-:::
-:::::
-
-These 7 commands are all the main ones you will need to start tracking your projects using Git.
 
 ## Git commands: clone
 
@@ -459,28 +358,19 @@ Managers need to be efficient with their own, and their team's time. It may not 
 - You could request brief, top-level summaries for your own QA, and more detailed & in-depth QA documentation for the technical reviewer. 
 - The team should be clear on the responsibilities of each reviewer to ensure everything is covered between you.
 
-## Example: requesting improved clarity & comments
+## Example: improving comments
 
-```{webr-r}
-#| context: setup
+```{r}
+#| echo: true
+#| eval: false
 
 # Create a dummy dataset
 student_data <- data.frame(
   student_id = 1:10,
-  age = c(16, 17, 19, 18, 15, 20, 17, 16, 21, 18),
-  subject = c("Math", "Science", "Math", "English", "Math", "Science", "Math", "English", "Math", "Science"),
-  score = c(85, 90, 78, 88, 91, 84, 79, 92, 95, 89),
-  attendance = c(95, 85, 60, 98, 70, 50, 85, 99, 90, 80),
-  year = c(2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023)
+  attendance = c(95, 85, 60, 98, 70, 50, 85, 99, 90, 80)
 )
 
-```
-
-**Pull Request Code**:
-
-```{webr-r}
-# Original Code in the PR
-
+# Create an attendance flag and filter to flagged students only
 processed_data <- student_data %>%
   mutate(passed_threshold = if_else(attendance >= 80, TRUE, FALSE)) %>%
   filter(passed_threshold == TRUE)
@@ -490,31 +380,38 @@ processed_data <- student_data %>%
 ::: {.fragment .fade-up}
 **Review Comment**:
 
-> *I’m unclear on why the threshold is hardcoded to 80 here. Can you explain why 80 was chosen, and whether this is a departmental or industry standard? This might need to be more flexible for future updates. It would be useful to add a comment explaining the significance of the 80 threshold here and whether it will change in future. This will help future maintainers understand the code.*
+> *I’m unclear on why the threshold is hard-coded to 80 here. Please could you add a comment explaining its significance and whether it will change in future, to help future maintainers understand the code?*
 :::
 ::::
 
 ::: {.fragment .fade-up}
 **Suggested Revision**:
 
-```{webr-r}
-# Define attendance threshold
-# 80 is the department's standard threshold for 'passing' attendance. This can be changed in future in line with policy changes.
+```{r}
+#| echo: true
+#| eval: false
+
+# Create a dummy dataset
+student_data <- data.frame(
+  student_id = 1:10,
+  attendance = c(95, 85, 60, 98, 70, 50, 85, 99, 90, 80)
+)
+
+# Define attendance threshold; 80 is the department's standard threshold for 'passing' attendance. This may vary in future with policy changes.
 attendance_threshold <- 80
 
-# Adding a flag for students who passed the threshold
+# Create an attendance flag and filter to flagged students only
 processed_data <- student_data %>%
   mutate(passed_threshold = if_else(attendance >= attendance_threshold, TRUE, FALSE)) %>%
-  filter(passed_threshold == TRUE)  # Only include students who passed the attendance threshold
+  filter(passed_threshold == TRUE)
 ```
 :::
 
-## Example: identifying errors
+## Example: correcting filter error
 
-**Pull Request Code**:
-
-```{webr-r}
-# Original Code in the PR
+```{r}
+#| echo: true
+#| eval: false
 
 # Filter out students over 18
 cleaned_data <- student_data %>%
@@ -528,14 +425,16 @@ cleaned_data <- student_data %>%
 ::: {.fragment .fade-up}
 **Review Comment**:
 
-> *The comment on line 3 states that students over 18 should be filtered out, but the code `filter(age > 18)` keeps students over 18 instead of removing them. This error will be carried through the pipeline, making the outputs inaccurate. I think the filter condition should be `filter(age <= 18)`.*
+> *The comment on line 1 suggests that students over 18 should be filtered out, but the code `filter(age > 18)` keeps students over 18 instead of removing them. I think the filter condition should be `filter(age <= 18)`.*
 :::
 ::::
 
 ::: {.fragment .fade-up}
 **Suggested Revision**:
 
-```{webr-r}
+```{r}
+#| echo: true
+#| eval: false
 
 # Filter out students over 18
 cleaned_data <- student_data %>%
@@ -546,17 +445,15 @@ cleaned_data <- student_data %>%
 ```
 :::
 
-## Example: suggesting improvements
+## Example: using functions in place of repetitive code
 
-**Pull Request Code**:
-
-```{webr-r}
-
-# Original Code in the PR
+```{r}
+#| echo: true
+#| eval: false
 
 # Calculate weighted average score by subject
-math_scores <- student_data %>%
-  filter(subject == "Math") %>%
+maths_scores <- student_data %>%
+  filter(subject == "Maths") %>%
   summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))
 
 science_scores <- student_data %>%
@@ -572,14 +469,16 @@ english_scores <- student_data %>%
 ::: {.fragment .fade-up}
 **Review Comment**:
 
-> *This code is repetitive and if we add more subjects, we'll need to duplicate the same logic for each one. This makes the code harder to maintain and more error-prone. Could you write a function to calculate the weighted average score to reduce the risk of errors and make the code easier to maintain?*
+> *This code is repetitive and if we add more subjects, we'll need to duplicate the code for each one. This makes the code harder to maintain and error-prone. Could you write and apply a function to calculate the weighted average score for a given subject?*
 :::
 ::::
 
 ::: {.fragment .fade-up}
 **Suggested Revision**:
 
-```{webr-r}
+```{r}
+#| echo: true
+#| eval: false
 
 # Define a function to calculate the weighted average score
 calculate_weighted_score <- function(data, subject_name) {
@@ -589,19 +488,17 @@ calculate_weighted_score <- function(data, subject_name) {
 }
 
 # Calculate weighted average score by subject
-math_scores <- calculate_weighted_score(student_data, "Math")
+maths_scores <- calculate_weighted_score(student_data, "Maths")
 science_scores <- calculate_weighted_score(student_data, "Science")
 english_scores <- calculate_weighted_score(student_data, "English")
 ```
 :::
 
-## Example
+## Example: removing hard-coding
 
-**Pull Request Code**:
-
-```{webr-r}
-
-# Original Code in the PR
+```{r}
+#| echo: true
+#| eval: false
 
 # Calculate average score by subject for 2023
 average_scores <- student_data %>%
@@ -609,19 +506,12 @@ average_scores <- student_data %>%
   group_by(subject) %>%
   summarise(mean_score = mean(score, na.rm = TRUE), .groups = "drop")
 
-# Create a summary message for 2023
-summary_message <- paste0("The average scores by subject for the year 2023 are as follows:")
+# Display a summary message for 2023
+paste0("The average scores by subject for the year 2023 are as follows:")
+average_scores
 
 # Save the 2023 results to a CSV
 write.csv(average_scores, "average_scores_2023.csv", row.names = FALSE)
-
-# Add a flag for scores above 90 in 2023
-high_scores <- student_data %>%
-  filter(year == 2023) %>%
-  mutate(high_score_flag = score > 90)
-
-# Save the high scores dataset for 2023
-write.csv(high_scores, "high_scores_2023.csv", row.names = FALSE)
 
 ```
 
@@ -629,14 +519,16 @@ write.csv(high_scores, "high_scores_2023.csv", row.names = FALSE)
 ::: {.fragment .fade-up}
 **Review Comment**:
 
-> *The year `2023` is hardcoded in several places: filters, messages, and filenames. If we need to update this code for a different year, we’d have to make changes in every instance, which is error-prone. Consider defining the year as a variable at the top of the script or in a `variable_change` script. This will allow you to update the year in one place, making the code easier to maintain and reuse.*
+> *The year `2023` is hard-coded in several places. Please can you define the year as a variable at the top of the script. This will allow you to update the year in one place, making the code easier to maintain and reuse for future years.*
 :::
 ::::
 
 ::: {.fragment .fade-up}
 **Suggested Revision**:
 
-```{webr-r}
+```{r}
+#| echo: true
+#| eval: false
 
 # Define the analysis year
 analysis_year <- 2023  # Update this each year
@@ -648,18 +540,11 @@ average_scores <- student_data %>%
   summarise(mean_score = mean(score, na.rm = TRUE), .groups = "drop")
 
 # Create a summary message for the analysis year
-summary_message <- paste0("The average scores by subject for the year ", analysis_year, " are as follows:")
+paste0("The average scores by subject for the year ", analysis_year, " are as follows:")
+average_scores
 
 # Save the results to a CSV
 write.csv(average_scores, paste0("average_scores_", analysis_year, ".csv"), row.names = FALSE)
-
-# Add a flag for scores above 90 in the analysis year
-high_scores <- student_data %>%
-  filter(year == analysis_year) %>%
-  mutate(high_score_flag = score > 90)
-
-# Save the high scores dataset
-write.csv(high_scores, paste0("high_scores_", analysis_year, ".csv"), row.names = FALSE)
 
 ```
 :::
@@ -668,114 +553,6 @@ write.csv(high_scores, paste0("high_scores_", analysis_year, ".csv"), row.names 
 
 <span style="color:red;">[I need to create this example PR in DevOps. Participants will break into pairs and look over the PR, noting the comments they would add. Won't actually
 get them to add into the actual PR because that would get messy and difficult.]</span>
-
-
-# Azure DevOps Boards
-
-<span style="color:red;">[I wonder if we should take this section out to avoid overwhelming people? Thinking we probably have too much to cover in these slides anyway and assuming lots of participants won't be used to or comfortable with DevOps/Git I wouldn't see Boards as something for beginners to worry about.]</span>
-
-## What are Azure DevOps boards?
-
-Azure DevOps boards are a project management tool that allows you to plan, track, and discuss work across your teams.
-
-**Key points:**
-
-::: {.fragment .fade-up}
--   Boards are associated with *teams* rather than repositories.
-:::
-
-::: {.fragment .fade-up}
--   This means multiple repositories can be tracked on one team board.
-:::
-
-::: {.fragment .fade-up}
--   They create a central place to monitor progress, assign tasks, and collaborate efficiently.
-:::
-
-## Features of Azure DevOps Boards
-
-Azure DevOps Boards offers powerful tools for project management:
-
-::: {.fragment .fade-up}
--   **Work Items:** Track individual tasks, bugs, or features. Each work item has a title, description, and status, and can be assigned to a team member. You can also add tags, attachments, and comments to work items to provide additional context, and even link work items to branches, commits and pull requests.
-:::
-
-::: {.fragment .fade-up}
--   **Backlogs:** Prioritised lists of work items that need to be completed as part of a project. You can add work items to the backlog, assign them to team members, and set priorities. The backlog helps you plan and track the progress of your project, and ensures that work is completed in the correct order.
-:::
-
-::: {.fragment .fade-up}
--   **Sprints:** Use sprint planning for time-boxed projects. You can move work items into sprints, assign them to team members, and track progress. Sprints help you break down work into manageable chunks, and ensure that work is completed on time.
-:::
-
-::: {.fragment .fade-up}
--   **Kanban Boards:** Visualize work in progress with a drag-and-drop interface (similar to trello).
-:::
-
-## Benefits for RAP
-
-Why use Azure DevOps Boards for Reproducible Analytical Pipelines?
-
-::: {.fragment .fade-up}
--   **Visibility:** Track all projects in one place.
-:::
-
-::: {.fragment .fade-up}
--   **Accountability:** Assign tasks with clear ownership.
-:::
-
-::: {.fragment .fade-up}
--   **Collaboration:** Comment directly on tasks to resolve issues or clarify requirements.
-:::
-
-::: {.fragment .fade-up}
--   **Documentation** Link to code, data, and other resources to provide context.
-:::
-
-::: {.fragment .fade-up}
--   **Integration:** Link directly to R scripts, SQL code, or other artifacts in your repositories.
-:::
-
-::: {.fragment .fade-up}
--   **Organisation** - Keep all your work in one place, and easily see what needs to be done next.
-:::
-
-## Task: Explore Azure DevOps Boards
-
-1.  Open the [RAP for managers Azure DevOps repo](https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers) and navigate to the **Boards** tab (In the sidebar, expand the boards section and select boards within that!).
-
-2.  Click on the **+ New Item** button and give it a title. Hit Enter to save it!
-
-3.  Now expand it by clicking on the title. Fill in the details for the task, including the description and assignee (you can assign it to yourself or the person you're sat next to!). Explore the different features like tags, attachments, and comments. Close the expanded view and click the three dots on the task to explore eve more features like creating a branch.
-
-4.  **Move a task:** Update the task’s progress by dragging it to a new column.
-
-5.  **Collaborate:** Comment on someone else’s task to provide additional context, ideas or instructions.
-
-**Goal:** By the end of this exercise, you’ll feel confident using Azure DevOps Boards to manage your projects and collaborate effectively.
-
-<span style="color:red;">[If we're doing this need to make sure it's set up and working]</span>
-
-# Task: Azure DevOps treasure hunt!
-
-::::: columns
-::: {.column width="60%"}
-Open the [RAP for managers Azure DevOps repo](https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers)!
-
-Your task is to explore the repo in order to find the **2 mistakes** and **6 hidden letters** which spell the mystery-word!
-
-Here are some hints to get your started:
-
-1.  The **README** file should be the first thing you look at in any repo (and should be of a high quality)
-2.  As a manager, you will often be asked to approve **pull requests**.
-:::
-
-::: {.column width="40%"}
-![](images/treasure_hunt.png)
-:::
-:::::
-
-<span style="color:red;">[Need to make sure this is set up and working]</span>
 
 # Summary
 

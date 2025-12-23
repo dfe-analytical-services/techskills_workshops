@@ -204,8 +204,8 @@
 </div>
 
 </section>
-<section id="git-github-and-azure-devops" class="title-slide slide level1 center">
-<h1>Git, GitHub and Azure DevOps</h1>
+<section id="git-azure-devops-and-github" class="title-slide slide level1 center">
+<h1>Git, Azure DevOps and GitHub</h1>
 
 </section>
 
@@ -213,107 +213,6 @@
 <section id="git-introduction" class="title-slide slide level1 center">
 <h1>Git: Introduction</h1>
 
-</section>
-<section id="what-is-git" class="slide level2">
-<h2>What is Git?</h2>
-<div class="fragment fade-up">
-<p>Git is a piece of software designed for version control, i.e.</p>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li>Tracking changes</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li>Undoing changes</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li>Maintaining parallel variants of code</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<p>Git works with <strong>repositories</strong>:</p>
-<ul>
-<li>A repository (repo) is just a folder that contains all of the version-controlled files of a project</li>
-<li>It can have multiple sub-folders that will also be tracked</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<p>Git records all the version control information within a hidden folder called <em>.git</em></p>
-</div>
-</section>
-<section id="what-are-github-azure-devops" class="slide level2">
-<h2>What are GitHub &amp; Azure DevOps?</h2>
-<div class="fragment fade-up">
-<p>There are multiple different platforms that you can use to work with Git software and interact with your repositories.</p>
-<p>In DfE, the main two are GitHub and Azure DevOps.</p>
-<p>They allow you to:</p>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li>Store a central shared back-up of your repository and view the files in it;</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li>View a complete history of any changes made to files in the repo and see who made them and when;</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li>Create and view different <em>branches</em> (variants) of the code;</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li>Use project management tools such as <em>Kanban boards</em>/task boards (on Azure DevOps) and <em>Issues logs</em> (on GitHub);</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li>Complete QA by creating <em>pull requests</em> (requests to review changes before <em>merging</em> them), reviewing code, and getting feedback from collaborators;</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li>Perform automated QA and deployment of code (e.g.&nbsp;sending a dashboard live).</li>
-</ul>
-</div>
-</section>
-<section id="what-are-github-azure-devops-1" class="slide level2">
-<h2>What are GitHub &amp; Azure DevOps?</h2>
-<p>GitHub and Azure DevOps are generally not a place to:</p>
-<div class="fragment fade-up">
-<ul>
-<li>Run your code;</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li>Edit your code (although there is some basic text editing functionality you can use).</li>
-</ul>
-</div>
-</section>
-<section id="whats-the-difference-between-git-github-and-azure-devops" class="slide level2">
-<h2>What’s the difference between Git, GitHub and Azure DevOps?</h2>
-<div class="fragment fade-up">
-<ul>
-<li><strong>Git</strong> is the underlying software that you, GitHub and Azure DevOps use, providing the commands to record changes, create branches, merge branches, undo changes, etc.</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li><strong>Azure DevOps</strong> provides a secure, private space to store a shared copy of your repository, with features to plan, manage and share your work internally within the DfE.</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li><strong>GitHub</strong> provides a public space to store a shared copy of your repository, with features to plan, manage and share your work publicly.</li>
-</ul>
-</div>
 </section>
 <section id="benefits-of-git" class="slide level2">
 <h2>Benefits of Git</h2>
@@ -366,38 +265,25 @@
 <li><strong>Documentation</strong>: ‘Run-notes’ or README files in shared folders can be easily lost, outdated, or easy to avoid creating. Git projects often automatically generate README.md files for you to complete, and they render in Azure DevOps / GitHub automatically, instantly providing documentation for anyone who opens the repo. Using a <em>markdown</em> (.md) file instead of .txt or Word also gives additional abilities like linking to other pages or files and easily including code snippets.</li>
 </ul>
 </div>
+</section>
+<section id="getting-your-team-set-up-with-git" class="slide level2">
+<h2>Getting your team set up with Git</h2>
+<p>Your team members will need to download Git (x64) from the Software Centre - this is the Git software.</p>
+<p>You’ll need to decide whether to host your repository on DevOps or GitHub, and everyone in your team will need to create an account on that platform:</p>
+<ul>
+<li><p><strong>Azure DevOps:</strong> Fill in the <a href="https://dfe.service-now.com/serviceportal?id=sc_cat_item&amp;sys_id=5447e6e91bdbbb802fe864606e4bcba4">DevOps IT service request form</a> - see the <a href="https://dfe-analytical-services.github.io/azure-devops-for-analysis/devops---the-basics.html#getting-a-devops-account">help page on how to fill in the DevOps IT request</a> if you need support filling it in.</p></li>
+<li><p><strong>GitHub:</strong> Just <a href="https://github.com/">create your own GitHub account</a>, no IT support needed! You should use your work email address for GitHub accounts you will use at work.</p></li>
+</ul>
+<p>You should then create a repository for your project:</p>
+<ul>
+<li><p><strong>Azure DevOps:</strong> It is likely your work area already has a DevOps project; if so, you should request access from the project owner. If not you can use the same IT service request form as for creating an account to create a new project. Within your area’s DevOps project, you can then create a new repo for your specific work.</p></li>
+<li><p><strong>GitHub:</strong> Contact the <a href="mailto:%20explore.statistics@education.gov.uk">EES mailbox</a> to request access to the <a href="https://github.com/dfe-analytical-services">dfe-analytical-services</a> organisation, and to set up a new GitHub repo.</p></li>
+</ul>
 </section></section>
 <section>
 <section id="git-basics" class="title-slide slide level1 center">
 <h1>Git basics</h1>
 
-</section>
-<section id="getting-set-up" class="slide level2">
-<h2>Getting set up</h2>
-<ul>
-<li><p><strong>Azure DevOps:</strong> Fill in the <a href="https://dfe.service-now.com/serviceportal?id=sc_cat_item&amp;sys_id=5447e6e91bdbbb802fe864606e4bcba4">DevOps IT service request form</a>. See the <a href="https://dfe-analytical-services.github.io/azure-devops-for-analysis/devops---the-basics.html#getting-a-devops-account">help page on how to fill in the DevOps IT request</a> if you need support filling it in!</p></li>
-<li><p><strong>GitHub:</strong> Just <a href="https://github.com/">create your own GitHub account</a>, no IT support needed! You should use your work email address (or link it to an existing account if you have one) for GitHub accounts you will use at work.</p></li>
-</ul>
-</section>
-<section id="interacting-with-git" class="slide level2">
-<h2>Interacting with Git</h2>
-<p>You can use Git from with RStudio, Visual Studio and GitHub Desktop using nice graphical user interfaces. At their heart though, all of these run the Git command line functions. The most-used commands (however you choose to interact with Git) include:</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><code>git clone repository-url</code></li>
-<li><code>git add .</code></li>
-<li><code>git commit -m "This is a message describing my latest changes"</code></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<ul>
-<li><code>git push</code></li>
-<li><code>git pull</code></li>
-<li><code>git checkout -b branch-name</code></li>
-<li><code>git merge branch-name</code></li>
-</ul>
-</div></div>
-<p>These 7 commands are all the main ones you will need to start tracking your projects using Git.</p>
 </section>
 <section id="git-commands-clone" class="slide level2">
 <h2>Git commands: clone</h2>
@@ -726,293 +612,167 @@
 <li>The team should be clear on the responsibilities of each reviewer to ensure everything is covered between you.</li>
 </ul>
 </section>
-<section id="example-requesting-improved-clarity-comments" class="slide level2">
-<h2>Example: requesting improved clarity &amp; comments</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource {webr-r} number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>#| context: setup</span>
-<span id="cb1-2"><a href=""></a></span>
-<span id="cb1-3"><a href=""></a># Create a dummy dataset</span>
-<span id="cb1-4"><a href=""></a>student_data &lt;- data.frame(</span>
-<span id="cb1-5"><a href=""></a>  student_id = 1:10,</span>
-<span id="cb1-6"><a href=""></a>  age = c(16, 17, 19, 18, 15, 20, 17, 16, 21, 18),</span>
-<span id="cb1-7"><a href=""></a>  subject = c("Math", "Science", "Math", "English", "Math", "Science", "Math", "English", "Math", "Science"),</span>
-<span id="cb1-8"><a href=""></a>  score = c(85, 90, 78, 88, 91, 84, 79, 92, 95, 89),</span>
-<span id="cb1-9"><a href=""></a>  attendance = c(95, 85, 60, 98, 70, 50, 85, 99, 90, 80),</span>
-<span id="cb1-10"><a href=""></a>  year = c(2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023)</span>
-<span id="cb1-11"><a href=""></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Pull Request Code</strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource {webr-r} number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a># Original Code in the PR</span>
-<span id="cb2-2"><a href=""></a></span>
-<span id="cb2-3"><a href=""></a>processed_data &lt;- student_data %&gt;%</span>
-<span id="cb2-4"><a href=""></a>  mutate(passed_threshold = if_else(attendance &gt;= 80, TRUE, FALSE)) %&gt;%</span>
-<span id="cb2-5"><a href=""></a>  filter(passed_threshold == TRUE)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="example-improving-comments" class="slide level2">
+<h2>Example: improving comments</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Create a dummy dataset</span></span>
+<span id="cb1-2"><a href=""></a>student_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-3"><a href=""></a>  <span class="at">student_id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb1-4"><a href=""></a>  <span class="at">attendance =</span> <span class="fu">c</span>(<span class="dv">95</span>, <span class="dv">85</span>, <span class="dv">60</span>, <span class="dv">98</span>, <span class="dv">70</span>, <span class="dv">50</span>, <span class="dv">85</span>, <span class="dv">99</span>, <span class="dv">90</span>, <span class="dv">80</span>)</span>
+<span id="cb1-5"><a href=""></a>)</span>
+<span id="cb1-6"><a href=""></a></span>
+<span id="cb1-7"><a href=""></a><span class="co"># Create an attendance flag and filter to flagged students only</span></span>
+<span id="cb1-8"><a href=""></a>processed_data <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb1-9"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">passed_threshold =</span> <span class="fu">if_else</span>(attendance <span class="sc">&gt;=</span> <span class="dv">80</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-10"><a href=""></a>  <span class="fu">filter</span>(passed_threshold <span class="sc">==</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div style="font-size: 75%;">
 <div class="fragment fade-up">
 <p><strong>Review Comment</strong>:</p>
 <blockquote>
-<p><em>I’m unclear on why the threshold is hardcoded to 80 here. Can you explain why 80 was chosen, and whether this is a departmental or industry standard? This might need to be more flexible for future updates. It would be useful to add a comment explaining the significance of the 80 threshold here and whether it will change in future. This will help future maintainers understand the code.</em></p>
+<p><em>I’m unclear on why the threshold is hard-coded to 80 here. Please could you add a comment explaining its significance and whether it will change in future, to help future maintainers understand the code?</em></p>
 </blockquote>
 </div>
 </div>
 <div class="fragment fade-up">
 <p><strong>Suggested Revision</strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {webr-r} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a># Define attendance threshold</span>
-<span id="cb3-2"><a href=""></a># 80 is the department's standard threshold for 'passing' attendance. This can be changed in future in line with policy changes.</span>
-<span id="cb3-3"><a href=""></a>attendance_threshold &lt;- 80</span>
-<span id="cb3-4"><a href=""></a></span>
-<span id="cb3-5"><a href=""></a># Adding a flag for students who passed the threshold</span>
-<span id="cb3-6"><a href=""></a>processed_data &lt;- student_data %&gt;%</span>
-<span id="cb3-7"><a href=""></a>  mutate(passed_threshold = if_else(attendance &gt;= attendance_threshold, TRUE, FALSE)) %&gt;%</span>
-<span id="cb3-8"><a href=""></a>  filter(passed_threshold == TRUE)  # Only include students who passed the attendance threshold</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="co"># Create a dummy dataset</span></span>
+<span id="cb2-2"><a href=""></a>student_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-3"><a href=""></a>  <span class="at">student_id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb2-4"><a href=""></a>  <span class="at">attendance =</span> <span class="fu">c</span>(<span class="dv">95</span>, <span class="dv">85</span>, <span class="dv">60</span>, <span class="dv">98</span>, <span class="dv">70</span>, <span class="dv">50</span>, <span class="dv">85</span>, <span class="dv">99</span>, <span class="dv">90</span>, <span class="dv">80</span>)</span>
+<span id="cb2-5"><a href=""></a>)</span>
+<span id="cb2-6"><a href=""></a></span>
+<span id="cb2-7"><a href=""></a><span class="co"># Define attendance threshold; 80 is the department's standard threshold for 'passing' attendance. This may vary in future with policy changes.</span></span>
+<span id="cb2-8"><a href=""></a>attendance_threshold <span class="ot">&lt;-</span> <span class="dv">80</span></span>
+<span id="cb2-9"><a href=""></a></span>
+<span id="cb2-10"><a href=""></a><span class="co"># Create an attendance flag and filter to flagged students only</span></span>
+<span id="cb2-11"><a href=""></a>processed_data <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb2-12"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">passed_threshold =</span> <span class="fu">if_else</span>(attendance <span class="sc">&gt;=</span> attendance_threshold, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-13"><a href=""></a>  <span class="fu">filter</span>(passed_threshold <span class="sc">==</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </div>
 </section>
-<section id="example-identifying-errors" class="slide level2">
-<h2>Example: identifying errors</h2>
-<p><strong>Pull Request Code</strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource {webr-r} number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a># Original Code in the PR</span>
-<span id="cb4-2"><a href=""></a></span>
-<span id="cb4-3"><a href=""></a># Filter out students over 18</span>
-<span id="cb4-4"><a href=""></a>cleaned_data &lt;- student_data %&gt;%</span>
-<span id="cb4-5"><a href=""></a>  filter(age &gt; 18) %&gt;%</span>
-<span id="cb4-6"><a href=""></a># Calculate average score by subject for students under 18</span>
-<span id="cb4-7"><a href=""></a>  group_by(subject) %&gt;%</span>
-<span id="cb4-8"><a href=""></a>  summarise(mean_score = mean(score), .groups = "drop")</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="example-correcting-filter-error" class="slide level2">
+<h2>Example: correcting filter error</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># Filter out students over 18</span></span>
+<span id="cb3-2"><a href=""></a>cleaned_data <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href=""></a>  <span class="fu">filter</span>(age <span class="sc">&gt;</span> <span class="dv">18</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-4"><a href=""></a><span class="co"># Calculate average score by subject for students under 18</span></span>
+<span id="cb3-5"><a href=""></a>  <span class="fu">group_by</span>(subject) <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_score =</span> <span class="fu">mean</span>(score), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div style="font-size: 75%;">
 <div class="fragment fade-up">
 <p><strong>Review Comment</strong>:</p>
 <blockquote>
-<p><em>The comment on line 3 states that students over 18 should be filtered out, but the code <code>filter(age &gt; 18)</code> keeps students over 18 instead of removing them. This error will be carried through the pipeline, making the outputs inaccurate. I think the filter condition should be <code>filter(age &lt;= 18)</code>.</em></p>
+<p><em>The comment on line 1 suggests that students over 18 should be filtered out, but the code <code>filter(age &gt; 18)</code> keeps students over 18 instead of removing them. I think the filter condition should be <code>filter(age &lt;= 18)</code>.</em></p>
 </blockquote>
 </div>
 </div>
 <div class="fragment fade-up">
 <p><strong>Suggested Revision</strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource {webr-r} number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a></span>
-<span id="cb5-2"><a href=""></a># Filter out students over 18</span>
-<span id="cb5-3"><a href=""></a>cleaned_data &lt;- student_data %&gt;%</span>
-<span id="cb5-4"><a href=""></a>  filter(age &lt;= 18) %&gt;%</span>
-<span id="cb5-5"><a href=""></a># Calculate average score by subject for students under 18</span>
-<span id="cb5-6"><a href=""></a>  group_by(subject) %&gt;%</span>
-<span id="cb5-7"><a href=""></a>  summarise(mean_score = mean(score), .groups = "drop")</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Filter out students over 18</span></span>
+<span id="cb4-2"><a href=""></a>cleaned_data <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href=""></a>  <span class="fu">filter</span>(age <span class="sc">&lt;=</span> <span class="dv">18</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href=""></a><span class="co"># Calculate average score by subject for students under 18</span></span>
+<span id="cb4-5"><a href=""></a>  <span class="fu">group_by</span>(subject) <span class="sc">%&gt;%</span></span>
+<span id="cb4-6"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_score =</span> <span class="fu">mean</span>(score), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </div>
 </section>
-<section id="example-suggesting-improvements" class="slide level2">
-<h2>Example: suggesting improvements</h2>
-<p><strong>Pull Request Code</strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource {webr-r} number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a></span>
-<span id="cb6-2"><a href=""></a># Original Code in the PR</span>
-<span id="cb6-3"><a href=""></a></span>
-<span id="cb6-4"><a href=""></a># Calculate weighted average score by subject</span>
-<span id="cb6-5"><a href=""></a>math_scores &lt;- student_data %&gt;%</span>
-<span id="cb6-6"><a href=""></a>  filter(subject == "Math") %&gt;%</span>
-<span id="cb6-7"><a href=""></a>  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))</span>
-<span id="cb6-8"><a href=""></a></span>
-<span id="cb6-9"><a href=""></a>science_scores &lt;- student_data %&gt;%</span>
-<span id="cb6-10"><a href=""></a>  filter(subject == "Science") %&gt;%</span>
-<span id="cb6-11"><a href=""></a>  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))</span>
-<span id="cb6-12"><a href=""></a></span>
-<span id="cb6-13"><a href=""></a>english_scores &lt;- student_data %&gt;%</span>
-<span id="cb6-14"><a href=""></a>  filter(subject == "English") %&gt;%</span>
-<span id="cb6-15"><a href=""></a>  summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="example-using-functions-in-place-of-repetitive-code" class="slide level2">
+<h2>Example: using functions in place of repetitive code</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># Calculate weighted average score by subject</span></span>
+<span id="cb5-2"><a href=""></a>maths_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href=""></a>  <span class="fu">filter</span>(subject <span class="sc">==</span> <span class="st">"Maths"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb5-5"><a href=""></a></span>
+<span id="cb5-6"><a href=""></a>science_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-7"><a href=""></a>  <span class="fu">filter</span>(subject <span class="sc">==</span> <span class="st">"Science"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-8"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb5-9"><a href=""></a></span>
+<span id="cb5-10"><a href=""></a>english_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-11"><a href=""></a>  <span class="fu">filter</span>(subject <span class="sc">==</span> <span class="st">"English"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-12"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div style="font-size: 75%;">
 <div class="fragment fade-up">
 <p><strong>Review Comment</strong>:</p>
 <blockquote>
-<p><em>This code is repetitive and if we add more subjects, we’ll need to duplicate the same logic for each one. This makes the code harder to maintain and more error-prone. Could you write a function to calculate the weighted average score to reduce the risk of errors and make the code easier to maintain?</em></p>
+<p><em>This code is repetitive and if we add more subjects, we’ll need to duplicate the code for each one. This makes the code harder to maintain and error-prone. Could you write and apply a function to calculate the weighted average score for a given subject?</em></p>
 </blockquote>
 </div>
 </div>
 <div class="fragment fade-up">
 <p><strong>Suggested Revision</strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource {webr-r} number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href=""></a></span>
-<span id="cb7-2"><a href=""></a># Define a function to calculate the weighted average score</span>
-<span id="cb7-3"><a href=""></a>calculate_weighted_score &lt;- function(data, subject_name) {</span>
-<span id="cb7-4"><a href=""></a>  data %&gt;%</span>
-<span id="cb7-5"><a href=""></a>    filter(subject == subject_name) %&gt;%</span>
-<span id="cb7-6"><a href=""></a>    summarise(weighted_score = sum(score * weight, na.rm = TRUE) / sum(weight, na.rm = TRUE))</span>
-<span id="cb7-7"><a href=""></a>}</span>
-<span id="cb7-8"><a href=""></a></span>
-<span id="cb7-9"><a href=""></a># Calculate weighted average score by subject</span>
-<span id="cb7-10"><a href=""></a>math_scores &lt;- calculate_weighted_score(student_data, "Math")</span>
-<span id="cb7-11"><a href=""></a>science_scores &lt;- calculate_weighted_score(student_data, "Science")</span>
-<span id="cb7-12"><a href=""></a>english_scores &lt;- calculate_weighted_score(student_data, "English")</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Define a function to calculate the weighted average score</span></span>
+<span id="cb6-2"><a href=""></a>calculate_weighted_score <span class="ot">&lt;-</span> <span class="cf">function</span>(data, subject_name) {</span>
+<span id="cb6-3"><a href=""></a>  data <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href=""></a>    <span class="fu">filter</span>(subject <span class="sc">==</span> subject_name) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href=""></a>    <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb6-6"><a href=""></a>}</span>
+<span id="cb6-7"><a href=""></a></span>
+<span id="cb6-8"><a href=""></a><span class="co"># Calculate weighted average score by subject</span></span>
+<span id="cb6-9"><a href=""></a>maths_scores <span class="ot">&lt;-</span> <span class="fu">calculate_weighted_score</span>(student_data, <span class="st">"Maths"</span>)</span>
+<span id="cb6-10"><a href=""></a>science_scores <span class="ot">&lt;-</span> <span class="fu">calculate_weighted_score</span>(student_data, <span class="st">"Science"</span>)</span>
+<span id="cb6-11"><a href=""></a>english_scores <span class="ot">&lt;-</span> <span class="fu">calculate_weighted_score</span>(student_data, <span class="st">"English"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </div>
 </section>
-<section id="example" class="slide level2">
-<h2>Example</h2>
-<p><strong>Pull Request Code</strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource {webr-r} number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href=""></a></span>
-<span id="cb8-2"><a href=""></a># Original Code in the PR</span>
+<section id="example-removing-hard-coding" class="slide level2">
+<h2>Example: removing hard-coding</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># Calculate average score by subject for 2023</span></span>
+<span id="cb7-2"><a href=""></a>average_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href=""></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2023</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href=""></a>  <span class="fu">group_by</span>(subject) <span class="sc">%&gt;%</span></span>
+<span id="cb7-5"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_score =</span> <span class="fu">mean</span>(score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb7-6"><a href=""></a></span>
+<span id="cb7-7"><a href=""></a><span class="co"># Display a summary message for 2023</span></span>
+<span id="cb7-8"><a href=""></a><span class="fu">paste0</span>(<span class="st">"The average scores by subject for the year 2023 are as follows:"</span>)</span>
+<span id="cb7-9"><a href=""></a>average_scores</span>
+<span id="cb7-10"><a href=""></a></span>
+<span id="cb7-11"><a href=""></a><span class="co"># Save the 2023 results to a CSV</span></span>
+<span id="cb7-12"><a href=""></a><span class="fu">write.csv</span>(average_scores, <span class="st">"average_scores_2023.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div style="font-size: 75%;">
+<div class="fragment fade-up">
+<p><strong>Review Comment</strong>:</p>
+<blockquote>
+<p><em>The year <code>2023</code> is hard-coded in several places. Please can you define the year as a variable at the top of the script. This will allow you to update the year in one place, making the code easier to maintain and reuse for future years.</em></p>
+</blockquote>
+</div>
+</div>
+<div class="fragment fade-up">
+<p><strong>Suggested Revision</strong>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># Define the analysis year</span></span>
+<span id="cb8-2"><a href=""></a>analysis_year <span class="ot">&lt;-</span> <span class="dv">2023</span>  <span class="co"># Update this each year</span></span>
 <span id="cb8-3"><a href=""></a></span>
-<span id="cb8-4"><a href=""></a># Calculate average score by subject for 2023</span>
-<span id="cb8-5"><a href=""></a>average_scores &lt;- student_data %&gt;%</span>
-<span id="cb8-6"><a href=""></a>  filter(year == 2023) %&gt;%</span>
-<span id="cb8-7"><a href=""></a>  group_by(subject) %&gt;%</span>
-<span id="cb8-8"><a href=""></a>  summarise(mean_score = mean(score, na.rm = TRUE), .groups = "drop")</span>
+<span id="cb8-4"><a href=""></a><span class="co"># Calculate average score by subject for the analysis year</span></span>
+<span id="cb8-5"><a href=""></a>average_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a href=""></a>  <span class="fu">filter</span>(year <span class="sc">==</span> analysis_year) <span class="sc">%&gt;%</span></span>
+<span id="cb8-7"><a href=""></a>  <span class="fu">group_by</span>(subject) <span class="sc">%&gt;%</span></span>
+<span id="cb8-8"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_score =</span> <span class="fu">mean</span>(score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
 <span id="cb8-9"><a href=""></a></span>
-<span id="cb8-10"><a href=""></a># Create a summary message for 2023</span>
-<span id="cb8-11"><a href=""></a>summary_message &lt;- paste0("The average scores by subject for the year 2023 are as follows:")</span>
-<span id="cb8-12"><a href=""></a></span>
-<span id="cb8-13"><a href=""></a># Save the 2023 results to a CSV</span>
-<span id="cb8-14"><a href=""></a>write.csv(average_scores, "average_scores_2023.csv", row.names = FALSE)</span>
-<span id="cb8-15"><a href=""></a></span>
-<span id="cb8-16"><a href=""></a># Add a flag for scores above 90 in 2023</span>
-<span id="cb8-17"><a href=""></a>high_scores &lt;- student_data %&gt;%</span>
-<span id="cb8-18"><a href=""></a>  filter(year == 2023) %&gt;%</span>
-<span id="cb8-19"><a href=""></a>  mutate(high_score_flag = score &gt; 90)</span>
-<span id="cb8-20"><a href=""></a></span>
-<span id="cb8-21"><a href=""></a># Save the high scores dataset for 2023</span>
-<span id="cb8-22"><a href=""></a>write.csv(high_scores, "high_scores_2023.csv", row.names = FALSE)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div style="font-size: 75%;">
-<div class="fragment fade-up">
-<p><strong>Review Comment</strong>:</p>
-<blockquote>
-<p><em>The year <code>2023</code> is hardcoded in several places: filters, messages, and filenames. If we need to update this code for a different year, we’d have to make changes in every instance, which is error-prone. Consider defining the year as a variable at the top of the script or in a <code>variable_change</code> script. This will allow you to update the year in one place, making the code easier to maintain and reuse.</em></p>
-</blockquote>
+<span id="cb8-10"><a href=""></a><span class="co"># Create a summary message for the analysis year</span></span>
+<span id="cb8-11"><a href=""></a><span class="fu">paste0</span>(<span class="st">"The average scores by subject for the year "</span>, analysis_year, <span class="st">" are as follows:"</span>)</span>
+<span id="cb8-12"><a href=""></a>average_scores</span>
+<span id="cb8-13"><a href=""></a></span>
+<span id="cb8-14"><a href=""></a><span class="co"># Save the results to a CSV</span></span>
+<span id="cb8-15"><a href=""></a><span class="fu">write.csv</span>(average_scores, <span class="fu">paste0</span>(<span class="st">"average_scores_"</span>, analysis_year, <span class="st">".csv"</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-<div class="fragment fade-up">
-<p><strong>Suggested Revision</strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource {webr-r} number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href=""></a></span>
-<span id="cb9-2"><a href=""></a># Define the analysis year</span>
-<span id="cb9-3"><a href=""></a>analysis_year &lt;- 2023  # Update this each year</span>
-<span id="cb9-4"><a href=""></a></span>
-<span id="cb9-5"><a href=""></a># Calculate average score by subject for the analysis year</span>
-<span id="cb9-6"><a href=""></a>average_scores &lt;- student_data %&gt;%</span>
-<span id="cb9-7"><a href=""></a>  filter(year == analysis_year) %&gt;%</span>
-<span id="cb9-8"><a href=""></a>  group_by(subject) %&gt;%</span>
-<span id="cb9-9"><a href=""></a>  summarise(mean_score = mean(score, na.rm = TRUE), .groups = "drop")</span>
-<span id="cb9-10"><a href=""></a></span>
-<span id="cb9-11"><a href=""></a># Create a summary message for the analysis year</span>
-<span id="cb9-12"><a href=""></a>summary_message &lt;- paste0("The average scores by subject for the year ", analysis_year, " are as follows:")</span>
-<span id="cb9-13"><a href=""></a></span>
-<span id="cb9-14"><a href=""></a># Save the results to a CSV</span>
-<span id="cb9-15"><a href=""></a>write.csv(average_scores, paste0("average_scores_", analysis_year, ".csv"), row.names = FALSE)</span>
-<span id="cb9-16"><a href=""></a></span>
-<span id="cb9-17"><a href=""></a># Add a flag for scores above 90 in the analysis year</span>
-<span id="cb9-18"><a href=""></a>high_scores &lt;- student_data %&gt;%</span>
-<span id="cb9-19"><a href=""></a>  filter(year == analysis_year) %&gt;%</span>
-<span id="cb9-20"><a href=""></a>  mutate(high_score_flag = score &gt; 90)</span>
-<span id="cb9-21"><a href=""></a></span>
-<span id="cb9-22"><a href=""></a># Save the high scores dataset</span>
-<span id="cb9-23"><a href=""></a>write.csv(high_scores, paste0("high_scores_", analysis_year, ".csv"), row.names = FALSE)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="review-an-example-pull-request" class="slide level2">
 <h2>Review an example pull request</h2>
 <p><span style="color:red;">[I need to create this example PR in DevOps. Participants will break into pairs and look over the PR, noting the comments they would add. Won’t actually get them to add into the actual PR because that would get messy and difficult.]</span></p>
 </section></section>
-<section>
-<section id="azure-devops-boards" class="title-slide slide level1 center">
-<h1>Azure DevOps Boards</h1>
-<p><span style="color:red;">[I wonder if we should take this section out to avoid overwhelming people? Thinking we probably have too much to cover in these slides anyway and assuming lots of participants won’t be used to or comfortable with DevOps/Git I wouldn’t see Boards as something for beginners to worry about.]</span></p>
-</section>
-<section id="what-are-azure-devops-boards" class="slide level2">
-<h2>What are Azure DevOps boards?</h2>
-<p>Azure DevOps boards are a project management tool that allows you to plan, track, and discuss work across your teams.</p>
-<p><strong>Key points:</strong></p>
-<div class="fragment fade-up">
-<ul>
-<li>Boards are associated with <em>teams</em> rather than repositories.</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li>This means multiple repositories can be tracked on one team board.</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li>They create a central place to monitor progress, assign tasks, and collaborate efficiently.</li>
-</ul>
-</div>
-</section>
-<section id="features-of-azure-devops-boards" class="slide level2">
-<h2>Features of Azure DevOps Boards</h2>
-<p>Azure DevOps Boards offers powerful tools for project management:</p>
-<div class="fragment fade-up">
-<ul>
-<li><strong>Work Items:</strong> Track individual tasks, bugs, or features. Each work item has a title, description, and status, and can be assigned to a team member. You can also add tags, attachments, and comments to work items to provide additional context, and even link work items to branches, commits and pull requests.</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li><strong>Backlogs:</strong> Prioritised lists of work items that need to be completed as part of a project. You can add work items to the backlog, assign them to team members, and set priorities. The backlog helps you plan and track the progress of your project, and ensures that work is completed in the correct order.</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li><strong>Sprints:</strong> Use sprint planning for time-boxed projects. You can move work items into sprints, assign them to team members, and track progress. Sprints help you break down work into manageable chunks, and ensure that work is completed on time.</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li><strong>Kanban Boards:</strong> Visualize work in progress with a drag-and-drop interface (similar to trello).</li>
-</ul>
-</div>
-</section>
-<section id="benefits-for-rap" class="slide level2">
-<h2>Benefits for RAP</h2>
-<p>Why use Azure DevOps Boards for Reproducible Analytical Pipelines?</p>
-<div class="fragment fade-up">
-<ul>
-<li><strong>Visibility:</strong> Track all projects in one place.</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li><strong>Accountability:</strong> Assign tasks with clear ownership.</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li><strong>Collaboration:</strong> Comment directly on tasks to resolve issues or clarify requirements.</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li><strong>Documentation</strong> Link to code, data, and other resources to provide context.</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li><strong>Integration:</strong> Link directly to R scripts, SQL code, or other artifacts in your repositories.</li>
-</ul>
-</div>
-<div class="fragment fade-up">
-<ul>
-<li><strong>Organisation</strong> - Keep all your work in one place, and easily see what needs to be done next.</li>
-</ul>
-</div>
-</section>
-<section id="task-explore-azure-devops-boards" class="slide level2 scrollable">
-<h2>Task: Explore Azure DevOps Boards</h2>
-<ol type="1">
-<li><p>Open the <a href="https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers">RAP for managers Azure DevOps repo</a> and navigate to the <strong>Boards</strong> tab (In the sidebar, expand the boards section and select boards within that!).</p></li>
-<li><p>Click on the <strong>+ New Item</strong> button and give it a title. Hit Enter to save it!</p></li>
-<li><p>Now expand it by clicking on the title. Fill in the details for the task, including the description and assignee (you can assign it to yourself or the person you’re sat next to!). Explore the different features like tags, attachments, and comments. Close the expanded view and click the three dots on the task to explore eve more features like creating a branch.</p></li>
-<li><p><strong>Move a task:</strong> Update the task’s progress by dragging it to a new column.</p></li>
-<li><p><strong>Collaborate:</strong> Comment on someone else’s task to provide additional context, ideas or instructions.</p></li>
-</ol>
-<p><strong>Goal:</strong> By the end of this exercise, you’ll feel confident using Azure DevOps Boards to manage your projects and collaborate effectively.</p>
-<p><span style="color:red;">[If we’re doing this need to make sure it’s set up and working]</span></p>
-</section></section>
-<section id="task-azure-devops-treasure-hunt" class="title-slide slide level1 center scrollable">
-<h1>Task: Azure DevOps treasure hunt!</h1>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>Open the <a href="https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers">RAP for managers Azure DevOps repo</a>!</p>
-<p>Your task is to explore the repo in order to find the <strong>2 mistakes</strong> and <strong>6 hidden letters</strong> which spell the mystery-word!</p>
-<p>Here are some hints to get your started:</p>
-<ol type="1">
-<li>The <strong>README</strong> file should be the first thing you look at in any repo (and should be of a high quality)</li>
-<li>As a manager, you will often be asked to approve <strong>pull requests</strong>.</li>
-</ol>
-</div><div class="column" style="width:40%;">
-<p><img data-src="images/treasure_hunt.png"></p>
-</div></div>
-<p><span style="color:red;">[Need to make sure this is set up and working]</span></p>
-</section>
-
 <section>
 <section id="summary" class="title-slide slide level1 center">
 <h1>Summary</h1>
@@ -1268,6 +1028,82 @@
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

@@ -79,54 +79,78 @@ Improving your team's skills and RAP principles will also build more flexible, e
 
 ## Expectations of analytical managers: technical skills
 
-- You should have sufficient confidence and technical ability to act as an effective technical leader. This allows you to build your team's capability and resilience, to challenge processes to ensure high quality & value, and to effectively advise and quality assure analysis.
-- You should be aware of, and engage with, the support available to your team. This includes HoP knowledge shares, Statistician's Guide to the Galaxy sessions, the Analysts' Guide, SSU's mailboxes, and centrally-produced Analysis Function guidance.
+Within DfE, analytical managers are expected to:
 
-Each standard is described in detail on the Analysts' Guide - if this guidance is not suitable for your needs, <b>tell us</b>.
-<span style="color:red;">[Link to this]</span>
+> - Have sufficient technical confidence and ability to act as an effective technical leader, building team capability & resilience, and challenging, advising on and quality assuring analysis to ensure quality & value.
+> - Are aware of, and engage with, available technical support, including central Analysis Function and internal DfE guidance. SSU provides several support routes: Partnership Programme, Statistician's Guide to the Galaxy sessions, the Analysts' Guide, mailboxes, HoP knowledge shares.
 
-<span style="color:#f67400;">**You should know how to advise your teams on each of these standards**</span>
-
-## Expectations of analytical managers: technical skills
-
-The [GSG competency framework](https://analysisfunction.civilservice.gov.uk/policy-store/competency-framework-for-the-government-statistician-group-gsg/) contains a Data Analysis strand, applicable to all grades, with the following requirements: 
+The Data Analysis strand of the [GSG competency framework](https://analysisfunction.civilservice.gov.uk/policy-store/competency-framework-for-the-government-statistician-group-gsg/) requires all grades to:
 
 > - Innovate and seek out new ways of analysing the data
 > - Ensure that analysis is reproducible, transparent and robust using coding and code management best practices.
 
-The [Analysis Function expectations](https://analysisfunction.civilservice.gov.uk/careers/career-framework) contain a core skill for:
+The [Analysis Function Career Framework](https://analysisfunction.civilservice.gov.uk/careers/career-framework) presents the following as one of four core skills for analysts:
 
-> - Software programming, tools, and techniques — the ability to use coding and programming skills for data analysis
+> - Software programming tools and techniques — the ability to use coding and programming skills for data analysis.
 
-## Expectations of analytical managers: reproducible analytical pipelines
+## Expectations of analytical managers: RAP
 
-On our [RAP expectations page](https://dfe-analytical-services.github.io/analysts-guide/RAP/rap-expectations.html#analyst-managers), we have pulled out the expectations for analyst managers from the [cross-government RAP strategy](https://analysisfunction.civilservice.gov.uk/policy-store/reproducible-analytical-pipelines-strategy/), which include:
+Our [RAP expectations page](https://dfe-analytical-services.github.io/analysts-guide/RAP/rap-expectations.html#analyst-managers) shows the expectations for analyst managers from the [cross-government RAP strategy](https://analysisfunction.civilservice.gov.uk/policy-store/reproducible-analytical-pipelines-strategy/), which include:
 
 > -   build extra time into projects to adopt new skills and practices where appropriate
 > -   learn the skills they need to manage software
 > -   evaluate RAP projects within organisations to understand and demonstrate the benefits of RAP
 > -   mandate their teams use RAP principles whenever possible
 
-## RAP self-assessment tool
+These are central expectations on all government analysts; we have seen several management-level job adverts requiring RAP & technical experience and skills!
 
-The [RAP self-assessment tool](https://rsconnect/rsc/publication-self-assessment/) allows statistics producers to assess themselves against the department's RAP standards.
+## Tools overview: R, RStudio & Positron
 
-::: {.fragment .fade-up}
-You should have entries for <span style="color:#f67400;">**every statistics publication**</span> you manage, and these should be updated;
+R is a coding language (like SQL, Python, JavaScript...):
+- Using R allows us to define reusable variables, functions, and write packages (sets of pre-defined functions)
+- It is open-source (free to use, available to everyone, anyone can contribute)
 
- -   **When you make updates to your processes** that change your responses, or
- -   **at least once a year** if you've made no changes.
-:::
+RStudio enables us to code using the R language while providing a visual, interactive interface:
+- It has various windows that display code scripts, data sets, tables, the console, variables, functions, plots, folders...
+- It is a user-friendly way to code in R that is intuitive to navigate and quick to learn
 
-::: {.fragment .fade-up}
-This is so we always have an accurate picture of RAP in the department to share with analytical leaders.
-:::
+Positron is a new program from the creators of RStudio!
+- Can also be used with Python coding language
+- Designed specifically for data science applications
 
-::: {.fragment .fade-up}
-You can monitor your team's progress towards achieving the RAP baseline by viewing 'RAP progress by area' and 'overview of latest responses'.
-:::
+All are available to download to your DfE laptop from the Software Centre.
 
-<span style="color:red;">[Wonder if it's worth adding that we (will) use the SA tool to prioritise partnership applications - maybe an incentive to keep entries up to date?]</span>
+## Tools overview: Git, Azure DevOps & GitHub
+
+Git is software designed for version control:
+
+- It works with repositories (repos), folders containing all version controlled files
+- It allows for efficient collaboration; users can simultaneously work on distinct versions of code
+
+Azure DevOps and GitHub are platforms you can use to work with Git and your repositories:
+
+- They allow you to: view repo files & their history, structure code QA via "pull requests", automate code pipelines and use project management tools
+- DevOps is suitable for working with sensitive data as it is private and secure
+- GitHub repos are public, which supports reproducibility and transparency
+
+## Tools overview: Databricks
+
+Databricks is a cloud-based platform that you can use for storing, managing and analysing large datasets:
+- Processing is done remotely by powerful remote computers
+- It supports R, SQL, Python and Scala languages
+- You can use Git version control with it
+- You can build pipelines and workflows that run automatically - excellent for RAP!
+
+Databricks has replaced SQL Server for our department's data storage and all analysts should have adjusted their processes in line with this transition.
+You can access support with this in the following places:
+- [ADA team](mailto: ADAPTTeam@education.gov.uk)
+- [ADA website](https://analytical-data-access.azurewebsites.net/)
+- [ADA user group on Teams](https://teams.microsoft.com/l/team/19%3AGQW24K3V6M873QzUwpBIuyf8KZCxYByRawVsKQvpe-81%40thread.tacv2/conversations?groupId=c70bb59d-c5df-4af5-849f-36196ed14ba3&tenantId=fad277c9-c60a-4da1-b5f3-b3b8b34a82f9)
+- [Statistics Development Team](mailto: statistics.development@education.gov.uk)
+
+Some further learning resources:
+- [Analysts' Guide Databricks pages](https://dfe-analytical-services.github.io/analysts-guide/ADA/databricks_fundamentals.html)
+- [Nick Treece's training materials](https://github.com/dfe-analytical-services/databricks_code_learn)
 
 ## Imposter syndrome
 
@@ -404,6 +428,10 @@ In practice, this roughly means:
 
 :::::::: {style="font-size: 75%;"}
 ::: {.fragment .fade-up}
+-   All source data is stored in and pulled in from a database, as opposed to saving copies in the project repository / folder, and any manipulation to raw data should be done using code.
+:::
+
+::: {.fragment .fade-up}
 -   You are using code to perform all calculations and data manipulation removing all manual steps - this can be a combination of SQL and R code, but one `run_all.R` script should source all code from both languages. Code should be efficient, well documented (good comments!) and easy to understand.
 :::
 
@@ -511,11 +539,11 @@ What would you change?
 
 How would you prioritise these changes?
 
-# Ideas of where to start with automation
+# Examples of quick RAP wins
 
-## Data ingestion from SQL database
+## Data ingestion from Databricks
 
-**SQL queries**: Use R to run SQL queries and ingest data directly into R. This can be done using the `DBI` R package.
+Use R to query data from Databricks catalog, rather than manually pasting in data to Excel. This can be done using the `odbc` and `DBI` R packages.
 
 Example:
 
@@ -523,121 +551,65 @@ Example:
 #| echo: true
 #| eval: false
 
+# Load packages
+library(odbc)
 library(DBI)
-# Step 1: Define SQL variables
+library(dplyr)
+library(dbplyr)
 
-sql_server <- "MY_SQL_SERVER_NAME" # replace with your SQL server name
-database <- "MY_DATABASE_NAME" # replace with your database name
+# Set up Databricks connection
+connection <- DBI::dbConnect(odbc::databricks(),
+                             httpPath = Sys.getenv("DATABRICKS_SQL_WAREHOUSE_ID"))
 
-
-# Step 2: Connect to SQL Server
-con <- dbConnect(odbc(),
-                 Driver = "ODBC Driver 17 for SQL Server",
-                 Server = sql_server,
-                 Database = database,
-                 Trusted_Connection = "yes"
-)
-
-# Step 3: Pull data from SQL Server
-my_table <- tbl(con, DBI::Id(schema = "dbo", table = "my_SQL_table")) %>% # replace with your SQL table name
-  # filter and tidy your data before using collect()
-  filter(my_column == "my_value", my_column_2 == "my_value_2") %>%
-  select(my_column_3, my_column_4) %>%
-  collect()
+# Pull in data from Databricks table
+data <- dplyr::tbl(connection, dbplyr::in_catalog(
+  "catalog_40_copper_statistics_services",
+  "dbo",
+  "publicationtracking")) %>%
+  dplyr::collect()
 
 ```
 
 ## Data ingestion using an API
 
-**API calls**: Use R to make API calls and ingest data directly into R. This can be done using the `httr` package. Some APIs, like the EES API and Nomis, have their own R packages ([`eesyapi`](https://dfe-analytical-services.github.io/eesyapi/) and [`nomisR`](https://docs.evanodell.com/nomisr/)) designed to pull data into R from their APIs.
+Use R to make API calls and ingest data directly into R. Some APIs have their own R packages; the EES API package is [`eesyapi`](https://dfe-analytical-services.github.io/eesyapi/).
 
 ::::: columns
-::: {.column width="50%"}
-EES Example:
+::: {.column width="100%"}
+EES example:
 
 ```{r}
 #| echo: true
 #| eval: false
 
+# Load packages
 library(eesyapi)
-# Query the publication list
+library(magrittr)
+
+# Get list of available publications
 eesyapi::get_publications()
 
-# For example from the test list, we can pick out “Attendance API data”,
-# which has an ID of 25d0e40b-643a-4f73-3ae5-08dcf1c4d57f.
-# Find all the data sets within that publication
-eesyapi::get_data_catalogue("25d0e40b-643a-4f73-3ae5-08dcf1c4d57f")
+# Pick out “Apprenticeships” (ID = 412d8090-ab45-455a-c176-08dbf5ab522b);
+# return all the data sets within that publication
+eesyapi::get_data_catalogue("412d8090-ab45-455a-c176-08dbf5ab522b")
 
-# For example, we can query the dataset with
-# ID 57b69201-033a-2c77-a19f-abcce2b11341
-eesyapi::query_dataset(
-  dataset_id = "57b69201-033a-2c77-a19f-abcce2b11341",
-  indicators = "tj0Em",
-  filter_items = list(
-    attendance_status = c("qGJjG"),
-    attendance_type = c("TuxPJ", "cZO31", "jgoAM"),
-    day_number = "AOhGK",
-    attendance_reason = "9Ru4v"
-  ),
-  geographies = c("NAT|id|mRj9K", "LA|ID|arLPb"),
-  time_periods = c("2024|W24")
-)
-#>    code period geographic_level la_name   la_code la_oldCode nat_name
-#> 1   W24   2024               LA    York E06000014        816  England
-#> 2   W24   2024               LA    York E06000014        816  England
-#> 3   W24   2024               LA    York E06000014        816  England
-#> 4   W24   2024               LA    York E06000014        816  England
-#> 5   W24   2024               LA    York E06000014        816  England
-#> 6   W24   2024               LA    York E06000014        816  England
-#> 7   W24   2024              NAT    <NA>      <NA>       <NA>  England
-#> 8   W24   2024              NAT    <NA>      <NA>       <NA>  England
-#> 9   W24   2024              NAT    <NA>      <NA>       <NA>  England
-#> 10  W24   2024              NAT    <NA>      <NA>       <NA>  England
-#> 11  W24   2024              NAT    <NA>      <NA>       <NA>  England
-#> 12  W24   2024              NAT    <NA>      <NA>       <NA>  England
-#> 13  W24   2024              NAT    <NA>      <NA>       <NA>  England
-#> 14  W24   2024              NAT    <NA>      <NA>       <NA>  England
+# Choose the data set with ID = 1d419801-a90e-f970-9335-a13623faccbe; 
+# return its indicator codes
+eesyapi::get_meta(dataset_id = "1d419801-a90e-f970-9335-a13623faccbe") %>%
+  magrittr::extract2("indicators")
 
-
-```
-:::
-
-::: {.column width="50%"}
-Nomis Example:
-
-```{r}
-#| echo: true
-#| eval: false
-
-library(nomisr)
-
-# Use nomis_search to search keywords in table names
-nomis_search(keyword = 'Population')
-
-# Use the table ID "NM_2006_1" and the nomis_get_date()
-# function to get the data and filter
-nomis_data_county <- nomis_get_data(
-  id = "NM_2006_1", # the ID for the dataset
-  time = "latest",
-  gender = 0, # 0 is Total, 1 is male, 2 is female
-  c_age = c(101, 102, 103, 104, 105), # ages 0, 1, 2, 3, 4
-  projected_year = this_year-1,
-  geography = "TYPE433", # this is 'local authorities: county / unitary'
-  measures = 20100, # value rather than percent which would be 20301
-  select = c("projected_year", "geography_code", "geography_name",
-             "gender_name", "c_age_sortorder", "obs_value")
-) %>%
-  clean_names() %>%
-  distinct() %>%
-  rename(age = c_age_sortorder)
-
+# Query the data set; we want "Starts" (col_id = EADqF) in AY 2024/25
+data <- eesyapi::query_dataset(
+  dataset_id = "1d419801-a90e-f970-9335-a13623faccbe",
+  indicators = "EADqF",
+  time_periods = c("2024|AY"))
 ```
 :::
 :::::
 
-## Data ingestion from downloaded files
+## Data ingestion by downloading files
 
-**File downloads**: Use R to download files from the internet and ingest data directly into R. This can be done using the `download.file` function.
+Use R to download files from the internet and ingest data directly into R, avoiding manual downloads. This can be done using the `download.file` function.
 
 Example:
 
@@ -645,52 +617,52 @@ Example:
 #| echo: true
 #| eval: false
 
-# Get ONS population data from here: https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales
+# Load packages
+library(readxl)
 
-# Insert the URL to the latest dataset below by right clicking the xlxs button
-# and selecting 'copy link'.
+# Define link to latest ONS population estimates dataset
+pop_est_url <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales/mid20242023localauthorityboundaries/mye24tablesew.xlsx"
 
-# REPLACE THIS EACH YEAR
-pop_est_url <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales/mid2011tomid2022detailedtimeseries/myebtablesenglandwales20112022v2.xlsx"
+# Download the file into the "ONS_input_data" folder
+download.file(pop_est_url, 
+              "ONS_input_data/ons_population_estimates.xlsx", 
+              mode = "wb")
 
-# ONS population estimates data 2011 - 2022  ------------------------------
-
-# Download the file to the repo - URL defined in variable_change.R
-download.file(pop_est_url, "ONS_input_data/ons_population_estimates.xlsx", mode = "wb")
-
-population_est_2011_2022 <- read_excel("ONS_input_data/ons_population_estimates.xlsx",
-                             sheet = "MYEB1 (2021 Geography)", skip = 1) %>%
-  # Only keep English LAs (remove Wales)
-  filter(country == 'E') %>%
-  pivot_longer(cols = starts_with('population_'),
-               names_to = 'year',
-               names_prefix = 'population_',
-               values_to = 'estimate')
+# Pull in data from the "MYE1" sheet in the downloaded file
+pop_est_data <- read_excel("ONS_input_data/ons_population_estimates.xlsx",
+                           sheet = "MYE1",
+                           skip = 6)
 
 ```
 
 ## Data cleaning and transformation
 
-**Data cleaning & transformation**: Use R to clean and transform data. This can be done using the `dplyr` package.
+**Data cleaning & transformation**: Use R to efficiently clean and transform data. This can be done using the `dplyr` and `tidyr` packages.
 
 Example:
 
-```{webr-r}
+```{r}
+#| echo: true
+#| eval: false
+
+# Load packages
+library(dplyr)
+library(tidyr)
 
 # Data cleaning and transformation
 student_data_cleaned <- student_data %>%
   # Remove any rows with missing data
-  drop_na() %>%
+  tidyr::drop_na() %>%
   # Filter to only include students 18 and under
-  filter(age <= 18) %>%
+  dplyr::filter(age <= 18) %>%
   # pivot wider on subject
-  pivot_wider(names_from = subject, values_from = grade) %>%
+  tidyr::pivot_wider(names_from = subject, values_from = grade)
 
 ```
 
 ## Updating variables
 
-**Variable changes**: Use R to define variables that are expected to change. This can be done using a `variable_change.R` script. You define these variables once here, and use the variable names in your code rather than their values.
+Use R to define variables that are expected to change and use the variable names in your code rather than hard-coded values.
 
 Example:
 
@@ -698,26 +670,29 @@ Example:
 #| echo: true
 #| eval: false
 
-# Define variables that are expected to change
-this_year <- 2024
-last_year <- this_year - 1
-comparison_year <- this_year - 10
+# Load packages
+library(dplyr)
 
+# Define variables that are expected to change each year
+current_year <- 2024
+last_year <- current_year - 1
+comparison_year <- current_year - 10
+
+# Define geography level
 geog_level <- "national"
 
 # Use the defined variables in code
-
 output_table <- data %>%
-  filter(year %in% c(this_year, last_year, comparison_year),
-         geography == geog_level) %>%
-  group_by(year) %>%
-  summarise(mean_value = mean(value))
+  dplyr::filter(year %in% c(current_year, last_year, comparison_year), 
+                geography == geog_level) %>%
+  dplyr::group_by(year) %>%
+  dplyr::summarise(mean_value = mean(value))
 
 ```
 
 ## Producing output data files
 
-**Tables**: Use R to produce output files. This can be done using the `write_csv` function from the `readr` package.
+Use R to produce output csv files. This can be done using the `write_csv` function from the `readr` package.
 
 Example:
 
@@ -725,25 +700,56 @@ Example:
 #| echo: true
 #| eval: false
 
+# Load packages
 library(readr)
 
-# Save student_data_cleaned as CSV in appropriate folder:
+# Save student_data_cleaned as csv file in "output_data" folder:
 write_csv(student_data_cleaned, "output_data/student_data_cleaned.csv")
-
 
 ```
 
-## Producing output charts and commentary
+## Producing QA reports or briefing packs
 
--   **Charts**: Use R to produce output charts. This can be done using the `ggplot2` package.
-
--   **Commentary**: Use R to produce a commentary/report. This can be done using `rmarkdown` or `quarto`. We have an example QA report that includes template code snippets for our minimum expectations in the [Automated data QA repo](https://github.com/dfe-analytical-services/automated-data-qa), which produces the following html output examples:
+Use R to produce an automated QA report, commentary or briefing pack. This can be done using `rmarkdown` or `quarto`. 
 
 ::::: columns
 ::: {.column width="50%"}
+
+The Statistics Development Team have created an example QA report available in the [automated-data-qa repo](https://github.com/dfe-analytical-services/automated-data-qa). This template includes code snippets, which cover the minimum QA checks statistics production teams should be applying. The code snippets can be adjusted to apply the QA checks to your analysis specifically, to help you meet good RAP practice.  
+
+Using this template could provide you with a report like that seen on the right.
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="40%"}
 ![](images/QA_report_1.png)
 :::
 :::::
+
+## RAP self-assessment tool
+
+The [RAP self-assessment tool](https://rsconnect/rsc/publication-self-assessment/) allows statistics producers to assess themselves against the department's RAP standards.
+
+::: {.fragment .fade-up}
+You should have entries for <span style="color:#f67400;">**every statistics publication**</span> you manage, and these should be updated;
+
+ -   **When you make updates to your processes** that change your responses, or
+ -   **at least once a year** if you've made no changes.
+:::
+
+::: {.fragment .fade-up}
+Your entries inform our picture of RAP progress across the department, which is shared with analytical leadership and the Statistics HoP.
+:::
+
+::: {.fragment .fade-up}
+You can monitor your team's progress by viewing 'RAP progress by area' and 'Overview of latest responses'.
+:::
+
+::: {.fragment .fade-up}
+The Statistics Development Team uses the self-assessment tool in prioritising Partnership Programme applications, so it's in your best interest to keep your entries up to date!
+:::
 
 # RAP: Conclusions
 
@@ -794,45 +800,3 @@ write_csv(student_data_cleaned, "output_data/student_data_cleaned.csv")
 :::
 
 <span style="color:red;">[Need to set this up]</span>
-
-# R & RStudio
-
-## What is R?
-
-- R is a coding language; there are thousands of coding languages including SQL, Python, JavaScript and each has its own advantages
-- R is open-source (it is free, anyone can use it and anyone can contribute)
-- As a coding language, R allows us to define variables that we can re-use quickly and easily, again and again
-- Using R also allows us to define functions. A function is a chunk of code that has been assigned a name and runs when that name is "called". Functions often have placeholder variables that you can change, meaning the code can be applied to different inputs 
-- An R package is a set of functions that someone has written and made publicly available. Installing the package means all these functions are available to you without having to write them yourself 
-
-
-## What is RStudio and how does it differ to R?
-
-<span style="color:red;">[Insert screenshot of RStudio to show windows and what it looks like]</span>
-
-- RStudio is a programme that enables us to code using the R language while providing a visual, interactive interface
-- RStudio has various windows that display: code scripts, datasets, tables, the console (where code is run), variables, functions, plots, folders, files...
-- It is a user-friendly way to code in R that is intuitive to navigate and quick to learn
-- Both R and RStudio can easily be downloaded from the Software Centre and are widely used across the analytical community in DfE
-
-## Uses of R
-
-- Coding in R is generally extremely helpful for automating analysis in a clearly reproducible way
-- There are more uses for R than can fit on this slide but to name a few:
-    * Defining variables that are used repeatedly
-    * Importing data from SQL, Databricks and other remote sources
-    * Cleaning, filtering, aggregating, grouping, reordering and joining complex datasets
-    * Conditional operations
-    * Plotting data
-    * Automated testing
-
-## Using R for RAP (instead of Excel)
-
-Excel is, in many ways, more intuitive and faster to learn than coding. However the benefits of coding often far outweigh the drawbacks. It is much easier to automate analysis using coding languages, like R.
-
-This in turn means:
-
-- Increased efficiency, meaning time savings (after the initial cost)
-- Improved accuracy, reduced opportunity for error
-- Clearer audit trail, better for reproducibility
-- Easier and clearer version control
