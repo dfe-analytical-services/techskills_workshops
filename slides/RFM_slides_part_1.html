@@ -198,7 +198,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">RAP and Technical Skills for Managers</h1>
-  <p class="subtitle">Part 1: RAP principles and using R</p>
+  <p class="subtitle">Part 1: RAP principles</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -227,34 +227,53 @@
 </section>
 <section id="introduction-to-the-team" class="slide level2">
 <h2>Introduction to the team</h2>
-<p><span style="color:red;">[Will have this slide to prompt us to introduce ourselves, give a summary of our unit and what we do (i.e.&nbsp;deliver workshops like this one). Should help to make us more approachable and encourage discussion.]</span></p>
-</section>
+<p>The Statistics Services Unit runs various technical workshops - this is our newest!</p>
+<div class="column" style="width:15%;">
+
+</div><div class="column" style="width:70%;">
+<p><img data-src="images/unit_intro.png"></p>
+</div><div class="column" style="width:15%;">
+
+</div></section>
 <section id="structure-of-the-workshop" class="slide level2">
 <h2>Structure of the workshop</h2>
-<p>This workshop will be delivered in two one-hour halves with a break in the middle.</p>
+<p>This workshop will be delivered in two halves with a short break in the middle.</p>
+<p><br></p>
+<div class="column" style="width:50%;">
 <p>In the first part we will cover:</p>
 <ul>
-<li>Introduction (aims, importance of technical skills, manager expectations)</li>
-<li>Knowledge check</li>
+<li>Workshop introduction</li>
 <li>RAP principles</li>
 <li>How RAP can help you</li>
 <li>How to structure a RAP project</li>
-<li>Common things to automate with RAP</li>
+<li>Quick wins with RAP</li>
 <li>RAP myth-busting</li>
-<li>R and RStudio</li>
-<li>The benefits of R over Excel</li>
 </ul>
+</div><div class="column" style="width:50%;">
 <p>The second part will cover:</p>
 <ul>
-<li>Git, GitHub and Azure DevOps</li>
 <li>Git basics</li>
 <li>Working in Git repositories</li>
 <li>Pull requests</li>
-<li>Reviewing code &amp; QA</li>
-<li>Summary (where to find support, learning resources)</li>
-<li>Final quiz</li>
+<li>Quality assuring code</li>
+<li>Speaker session with Q&amp;A</li>
+<li>Learning &amp; development, support, resources</li>
 </ul>
-</section>
+</div></section>
+<section id="initial-knowledge-check" class="slide level2">
+<h2>Initial knowledge check</h2>
+<p>Scan the QR code or follow <a href="https://app.sli.do/event/adW5shWehmKfor3CAVt57U">this link</a> to take our knowledge check quiz!</p>
+<div class="column" style="width:40%;">
+
+</div><div class="column" style="width:20%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/RFM-slido.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+
+</div></section>
 <section id="why-do-i-need-technical-skills" class="slide level2">
 <h2>Why do I need technical skills?</h2>
 <p><br></p>
@@ -310,9 +329,21 @@
 </section>
 <section id="tools-overview-r-rstudio-positron" class="slide level2">
 <h2>Tools overview: R, RStudio &amp; Positron</h2>
-<p>R is a coding language (like SQL, Python, JavaScript…): - Using R allows us to define reusable variables, functions, and write packages (sets of pre-defined functions) - It is open-source (free to use, available to everyone, anyone can contribute)</p>
-<p>RStudio enables us to code using the R language while providing a visual, interactive interface: - It has various windows that display code scripts, data sets, tables, the console, variables, functions, plots, folders… - It is a user-friendly way to code in R that is intuitive to navigate and quick to learn</p>
-<p>Positron is a new program from the creators of RStudio! - Can also be used with Python coding language - Designed specifically for data science applications</p>
+<p>R is a coding language (like SQL, Python, JavaScript…):</p>
+<ul>
+<li>Using R allows us to define reusable variables, functions, and write packages (sets of pre-defined functions)</li>
+<li>It is open-source (free to use, available to everyone, anyone can contribute)</li>
+</ul>
+<p>RStudio enables us to code using the R language while providing a visual, interactive interface:</p>
+<ul>
+<li>It has various windows that display code scripts, data sets, tables, the console, variables, functions, plots, folders…</li>
+<li>It is a user-friendly way to code in R that is intuitive to navigate and quick to learn</li>
+</ul>
+<p>Positron is a new program from the creators of RStudio!</p>
+<ul>
+<li>Can also be used with Python coding language</li>
+<li>Designed specifically for data science applications</li>
+</ul>
 <p>All are available to download to your DfE laptop from the Software Centre.</p>
 </section>
 <section id="tools-overview-git-azure-devops-github" class="slide level2">
@@ -322,50 +353,38 @@
 <li>It works with repositories (repos), folders containing all version controlled files</li>
 <li>It allows for efficient collaboration; users can simultaneously work on distinct versions of code</li>
 </ul>
-<p>Azure DevOps provides a space to store and interact with a Git repo:</p>
+<p>Azure DevOps and GitHub are platforms you can use to work with Git and your repositories:</p>
 <ul>
-<li>It also offers Pipelines to support automated code development, and Boards for project management</li>
-<li>It is suitable for working with sensitive data as it is private and secure</li>
-</ul>
-<p>GitHub is a free alternative to Azure DevOps:</p>
-<ul>
-<li>Repos are public, which supports reproducibility and transparency</li>
-<li>It is more community-centric and suited to small teams / organisations</li>
+<li>They allow you to: view repo files &amp; their history, structure code QA via “pull requests”, automate code pipelines and use project management tools</li>
+<li>DevOps is suitable for working with sensitive data as it is private and secure</li>
+<li>GitHub repos are public, which supports reproducibility and transparency</li>
 </ul>
 </section>
 <section id="tools-overview-databricks" class="slide level2">
 <h2>Tools overview: Databricks</h2>
-<p>Databricks is a cloud-based platform that you can use for storing, managing and analysing large datasets: - Processing is done remotely by powerful remote computers - It supports R, SQL, Python and Scala languages - You can use Git version control with it - You can build pipelines and workflows that run automatically - excellent for RAP!</p>
-<p>Databricks has replaced SQL Server for our department’s data storage and all analysts should have adjusted their processes in line with this transition. You can access support with this in the following places: - <a href="mailto:%20ADAPTTeam@education.gov.uk">ADA team</a> - <a href="https://analytical-data-access.azurewebsites.net/">ADA website</a> - <a href="https://teams.microsoft.com/l/team/19%3AGQW24K3V6M873QzUwpBIuyf8KZCxYByRawVsKQvpe-81%40thread.tacv2/conversations?groupId=c70bb59d-c5df-4af5-849f-36196ed14ba3&amp;tenantId=fad277c9-c60a-4da1-b5f3-b3b8b34a82f9">ADA user group on Teams</a> - <a href="mailto:%20statistics.development@education.gov.uk">Statistics Development Team</a></p>
-<p>Some further learning resources: - <a href="https://dfe-analytical-services.github.io/analysts-guide/ADA/databricks_fundamentals.html">Analysts’ Guide Databricks pages</a> - <a href="https://github.com/dfe-analytical-services/databricks_code_learn">Nick Treece’s training materials</a></p>
-</section>
-<section id="imposter-syndrome" class="slide level2">
-<h2>Imposter syndrome</h2>
-<p>“My team are more technical than I am! I don’t have the required skills to keep up with them…”</p>
+<p>Databricks is a cloud-based platform that you can use for storing, managing and analysing large datasets:</p>
 <ul>
-<li>Technical skills require time and practice to learn and up-keep</li>
-<li>Managers are often very short on time…</li>
-<li>You should have a base skill level but you don’t necessarily need technical skills on the same level as those you manage</li>
-<li>We recognise lots of managers would like to develop their technical skills further and we can help you with this!</li>
-<li>We will direct you to various support offers and resources at the end of this workshop</li>
+<li>Processing is done remotely by powerful remote computers</li>
+<li>It supports R, SQL, Python and Scala languages</li>
+<li>You can use Git version control with it</li>
+<li>You can build pipelines and workflows that run automatically - excellent for RAP!</li>
+</ul>
+<p>Databricks has replaced SQL Server for our department’s data storage and all analysts should have adjusted their processes in line with this transition. You can access support with this in the following places:</p>
+<ul>
+<li><a href="mailto:%20ADAPTTeam@education.gov.uk">ADA team</a></li>
+<li><a href="https://analytical-data-access.azurewebsites.net/">ADA website</a></li>
+<li><a href="https://teams.microsoft.com/l/team/19%3AGQW24K3V6M873QzUwpBIuyf8KZCxYByRawVsKQvpe-81%40thread.tacv2/conversations?groupId=c70bb59d-c5df-4af5-849f-36196ed14ba3&amp;tenantId=fad277c9-c60a-4da1-b5f3-b3b8b34a82f9">ADA user group on Teams</a></li>
+<li><a href="mailto:%20statistics.development@education.gov.uk">Statistics Development Team</a></li>
+</ul>
+<p>Some further learning resources:</p>
+<ul>
+<li><a href="https://dfe-analytical-services.github.io/analysts-guide/ADA/databricks_fundamentals.html">Analysts’ Guide Databricks pages</a></li>
+<li><a href="https://github.com/dfe-analytical-services/databricks_code_learn">Nick Treece’s training materials</a></li>
 </ul>
 </section>
-<section id="initial-knowledge-check" class="slide level2">
-<h2>Initial knowledge check</h2>
-<div class="column" style="width:40%;">
-
-</div><div class="column" style="width:20%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/mentimeter_qr_code.png" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-</div><div class="column" style="width:40%;">
-
-</div><p><span style="color:red;">[Need to set this up]</span></p>
-</section>
-<section id="use-our-live-qa-as-we-go-through" class="slide level2">
-<h2>Use our live Q&amp;A as we go through</h2>
+<section id="questions-answers" class="slide level2">
+<h2>Questions &amp; answers</h2>
+<p>We have set up a live Q&amp;A session - feel free to submit questions <a href="https://app.sli.do/event/adW5shWehmKfor3CAVt57U">here</a> as we go through the workshop</p>
 <div class="column" style="width:40%;">
 
 </div><div class="column" style="width:20%;">
@@ -376,8 +395,7 @@
 </div>
 </div><div class="column" style="width:40%;">
 
-</div><p><span style="color:red;">[Need to make sure this is set up]</span></p>
-</section></section>
+</div></section></section>
 <section id="reproducible-analytical-pipelines-raps" class="title-slide slide level1 center">
 <h1>Reproducible Analytical Pipelines (RAPs)</h1>
 
@@ -1158,21 +1176,11 @@ Peer review of code from outside the team
 <li><span style="color:#f67400;"><strong>Reality</strong></span>: RAP is just a framework that gives us a consistent way of doing analysis across government. It’s about making sure that your code is transparent, repeatable and efficient. Tedious and time-consuming parts of processes are automated, so that you can therefore spend more time on the creative and innovative parts of your work.</li>
 </ul>
 </section>
-<section id="knowledge-check" class="slide level2">
-<h2>Knowledge check</h2>
-<div class="column" style="width:100%;">
-<p><a href="https://wall.sli.do/event/adW5shWehmKfor3CAVt57U?section=eeeb3394-c49a-4530-98e4-ac140f1ed3e6" target="_blank" rel="noopener noreferrer">Go to slido</a></p>
-</div><div class="column" style="width:40%;">
-
-</div><div class="column" style="width:20%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/RFM-slido.png" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-</div><div class="column" style="width:40%;">
-
-</div><p><span style="color:red;">[Need to set this up]</span></p>
+<section id="exercise-assessing-your-publications" class="slide level2">
+<h2>Exercise: assessing your publications</h2>
+<p>Pick a publication that your team owns and consider how well it currently meets the RAP baseline expectations.</p>
+<p>What steps could you realistically take to move further towards them (or exceed them!)?</p>
+<p>Use the print-out template to structure your thoughts and plans.</p>
 
 </section></section>
     </div>

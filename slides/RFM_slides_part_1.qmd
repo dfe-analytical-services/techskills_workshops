@@ -1,6 +1,6 @@
 ---
 title: "RAP and Technical Skills for Managers"
-subtitle: "Part 1: RAP principles and using R"
+subtitle: "Part 1: RAP principles"
 institute: Department for Education
 format:
   revealjs: 
@@ -35,33 +35,60 @@ In this workshop, our main aims are to:
 
 ## Introduction to the team
 
-<span style="color:red;">[Will have this slide to prompt us to introduce ourselves, give a summary of our unit and what we do (i.e. deliver workshops like this one). Should help to make us more approachable and encourage discussion.]</span>
+The Statistics Services Unit runs various technical workshops - this is our newest!
+
+::: {.column width="15%"}
+:::
+
+::: {.column width="70%"}
+![](images/unit_intro.png)
+:::
+
+::: {.column width="15%"}
+:::
 
 ## Structure of the workshop
 
-This workshop will be delivered in two one-hour halves with a break in the middle.
+This workshop will be delivered in two halves with a short break in the middle.
 
+<br>
+
+::: {.column width="50%"}
 In the first part we will cover:
 
-- Introduction (aims, importance of technical skills, manager expectations)
-- Knowledge check
+- Workshop introduction
 - RAP principles
 - How RAP can help you
 - How to structure a RAP project
-- Common things to automate with RAP
+- Quick wins with RAP
 - RAP myth-busting
-- R and RStudio
-- The benefits of R over Excel
+:::
 
+::: {.column width="50%"}
 The second part will cover:
 
-- Git, GitHub and Azure DevOps
 - Git basics
 - Working in Git repositories
 - Pull requests
-- Reviewing code & QA
-- Summary (where to find support, learning resources)
-- Final quiz
+- Quality assuring code
+- Speaker session with Q&A
+- Learning & development, support, resources
+:::
+
+## Initial knowledge check
+
+Scan the QR code or follow [this link](https://app.sli.do/event/adW5shWehmKfor3CAVt57U) to take our knowledge check quiz!
+
+::: {.column width="40%"}
+:::
+
+::: {.column width="20%"}
+
+![](images/RFM-slido.png){fig-align="center"}
+:::
+
+::: {.column width="40%"}
+:::
 
 ## Why do I need technical skills?
 
@@ -107,14 +134,17 @@ These are central expectations on all government analysts; we have seen several 
 ## Tools overview: R, RStudio & Positron
 
 R is a coding language (like SQL, Python, JavaScript...):
+
 - Using R allows us to define reusable variables, functions, and write packages (sets of pre-defined functions)
 - It is open-source (free to use, available to everyone, anyone can contribute)
 
 RStudio enables us to code using the R language while providing a visual, interactive interface:
+
 - It has various windows that display code scripts, data sets, tables, the console, variables, functions, plots, folders...
 - It is a user-friendly way to code in R that is intuitive to navigate and quick to learn
 
 Positron is a new program from the creators of RStudio!
+
 - Can also be used with Python coding language
 - Designed specifically for data science applications
 
@@ -136,6 +166,7 @@ Azure DevOps and GitHub are platforms you can use to work with Git and your repo
 ## Tools overview: Databricks
 
 Databricks is a cloud-based platform that you can use for storing, managing and analysing large datasets:
+
 - Processing is done remotely by powerful remote computers
 - It supports R, SQL, Python and Scala languages
 - You can use Git version control with it
@@ -143,40 +174,20 @@ Databricks is a cloud-based platform that you can use for storing, managing and 
 
 Databricks has replaced SQL Server for our department's data storage and all analysts should have adjusted their processes in line with this transition.
 You can access support with this in the following places:
+
 - [ADA team](mailto: ADAPTTeam@education.gov.uk)
 - [ADA website](https://analytical-data-access.azurewebsites.net/)
 - [ADA user group on Teams](https://teams.microsoft.com/l/team/19%3AGQW24K3V6M873QzUwpBIuyf8KZCxYByRawVsKQvpe-81%40thread.tacv2/conversations?groupId=c70bb59d-c5df-4af5-849f-36196ed14ba3&tenantId=fad277c9-c60a-4da1-b5f3-b3b8b34a82f9)
 - [Statistics Development Team](mailto: statistics.development@education.gov.uk)
 
 Some further learning resources:
+
 - [Analysts' Guide Databricks pages](https://dfe-analytical-services.github.io/analysts-guide/ADA/databricks_fundamentals.html)
 - [Nick Treece's training materials](https://github.com/dfe-analytical-services/databricks_code_learn)
 
-## Imposter syndrome
+## Questions & answers
 
-"My team are more technical than I am! I don't have the required skills to keep up with them..."
-
-- Technical skills require time and practice to learn and up-keep
-- Managers are often very short on time...
-- You should have a base skill level but you don't necessarily need technical skills on the same level as those you manage
-- We recognise lots of managers would like to develop their technical skills further and we can help you with this!
-- We will direct you to various support offers and resources at the end of this workshop
-
-## Initial knowledge check
-::: {.column width="40%"}
-:::
-
-::: {.column width="20%"}
-
-![](images/mentimeter_qr_code.png){fig-align="center"}
-:::
-
-::: {.column width="40%"}
-:::
-
-<span style="color:red;">[Need to set this up]</span>
-
-## Use our live Q&A as we go through
+We have set up a live Q&A session - feel free to submit questions [here](https://app.sli.do/event/adW5shWehmKfor3CAVt57U) as we go through the workshop
 
 ::: {.column width="40%"}
 :::
@@ -188,7 +199,6 @@ Some further learning resources:
 
 ::: {.column width="40%"}
 :::
-<span style="color:red;">[Need to make sure this is set up]</span>
 
 # Reproducible Analytical Pipelines (RAPs)
 
@@ -779,24 +789,10 @@ The Statistics Development Team uses the self-assessment tool in prioritising Pa
 - <span style="color:#f67400;">**Myth**</span>: **RAP is a barrier to innovation and creativity**
 - <span style="color:#f67400;">**Reality**</span>: RAP is just a framework that gives us a consistent way of doing analysis across government. It's about making sure that your code is transparent, repeatable and efficient. Tedious and time-consuming parts of processes are automated, so that you can therefore spend more time on the creative and innovative parts of your work.
 
-## Knowledge check
+## Exercise: assessing your publications
 
-```{r}
-# Edit the slido here: https://admin.sli.do/event/adW5shWehmKfor3CAVt57U/polls
-```
+Pick a publication that your team owns and consider how well it currently meets the RAP baseline expectations.
 
-::: {.column width="100%"}
-[Go to slido](https://wall.sli.do/event/adW5shWehmKfor3CAVt57U?section=eeeb3394-c49a-4530-98e4-ac140f1ed3e6){target="_blank" rel="noopener noreferrer"}
-:::
+What steps could you realistically take to move further towards them (or exceed them!)?
 
-::: {.column width="40%"}
-:::
-
-::: {.column width="20%"}
-![](images/RFM-slido.png){fig-align="center"}
-:::
-
-::: {.column width="40%"}
-:::
-
-<span style="color:red;">[Need to set this up]</span>
+Use the print-out template to structure your thoughts and plans.

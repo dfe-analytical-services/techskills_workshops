@@ -15,50 +15,34 @@ format:
     standalone: true
 ---
 
-# Git, Azure DevOps and GitHub
-
 # Git: Introduction
-
-## Benefits of Git
-
-::: {.fragment .fade-up}
--   Easy collaboration: get support from your team and the wider community by easily sharing code (our team find it much easier to support you if we can can share a repo with us)
-:::
-
-::: {.fragment .fade-up}
--   Easier, clearer, faster code QA via reviews and automated checks
-:::
-
-::: {.fragment .fade-up}
--   Enables continuity by making processes transparent and easy-to-follow
-:::
-
-::: {.fragment .fade-up}
--   Offers the options to undo changes and roll back to previous versions
-:::
-
-::: {.fragment .fade-up}
--   Branching allows you to try different methodologies without overwriting your existing one
-:::
 
 ## Advantages of Git over shared folders
 
 ::: {.fragment .fade-up}
--   **Version control:** Shared folders lack detailed version control which leads to;
+-   **Version control:**
 
-    -   Messy folders with multiple versions of files (file_v1, file_v2, file_final, File_final_FINAL etc.)
-    -   Potential to overwrite or lose work
-    -   No ability to view a file's history and see who made previous changes and why
-
-    Git and platforms like Azure DevOps and GitHub provide robust tracking of all changes, who made them, and their *commit message*, ensuring continuity and auditability.
+    -   Avoid messy folders with multiple versions of files (file_v1, file_v2, file_final, file_final_FINAL...).
+    -   Prevents overwriting or losing work.
+    -   Ability to roll back to previous versions quickly.
+    -   Trial multiple methodologies without compromising the current version.
+    -   Robust change tracking (better continuity, transparency, auditability); view a file's history and see who made previous changes.
 :::
 
 ::: {.fragment .fade-up}
--   **Collaboration** and simultaneous working in shared folders can be tricky and can require duplication of files. Branching with Git is a safe and sensible way to work collaboratively with parallel versions that can eventually be *merged* into one cohesive, final version.
+-   **Collaboration:** 
+
+    - Branching with Git is a safe and sensible way to work with parallel versions, avoiding duplication, that can eventually be *merged* into one cohesive, final version.
+    - Code is easy to share using Azure DevOps or GitHub.
+    - Easier, clearer, faster code QA via reviews and automated checks,
 :::
 
 ::: {.fragment .fade-up}
--   **Documentation**: 'Run-notes' or README files in shared folders can be easily lost, outdated, or easy to avoid creating. Git projects often automatically generate README.md files for you to complete, and they render in Azure DevOps / GitHub automatically, instantly providing documentation for anyone who opens the repo. Using a *markdown* (.md) file instead of .txt or Word also gives additional abilities like linking to other pages or files and easily including code snippets.
+-   **Documentation**: 
+
+    - README files in shared folders can be easily lost, outdated, and are easy to avoid creating. 
+    - Git projects often automatically generate README.md files for you to complete, instantly providing documentation for anyone who opens the repo. 
+    - Using a *markdown* file instead of Word allows you to link to other pages or files and include code snippets.
 :::
 
 ## Getting your team set up with Git
@@ -77,41 +61,87 @@ You should then create a repository for your project:
 
 - **GitHub:** Contact the [EES mailbox](mailto: explore.statistics@education.gov.uk) to request access to the [dfe-analytical-services](https://github.com/dfe-analytical-services) organisation, and to set up a new GitHub repo.
 
-# Git basics
+# Git basics: an exercise
 
 ## Git commands: clone
 
-When you want to start working on a project that is already on GitHub or Azure DevOps, you need to *clone* the repository. This means creating a copy of the repository on your local machine. That means that you can work on the files on your device, and you choose when to update the online version with your changes (it does NOT update online automatically).
+When you want to start working on a project that is already on GitHub or Azure DevOps, you need to *clone* the repository. This means creating a copy on your local machine.
 
-## Git commands: pull, commit, push
+Open the link to the [RAP for managers repo](https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers), and clone it to your laptop following these instructions:
 
-*Pull, commit, push* are the three main commands you will use in Git.
-
--   `Pull:` Get the latest changes from the shared repository
--   `Commit:` Record your changes in the repository
--   `Push:` Send your changes to the shared repository
-
-A typical workflow would therefore be:
-
-1.  Open the project on your device and ensure you're in the correct branch,
-2.  `Pull` to ensure that any changes made to the online version by others are pulled down onto the version you are working on,
-3.  Make your own changes and save them,
-4.  Commit your saved changes, including a useful *commit message* to explain what you have done,
-5.  `Push` your changes to the shared repository when you're ready for others to see and work with them.
+    1. Click the "clone" button in the top right of the repo page
+    2. Copy the clone URL
+    3. Create a new folder called "repositories" outside your OneDrive folder
+    4. Open RStudio and click File -> New Project
+    5. Choose the Version Control option, then the Git option
+    6. Paste in the Repository URL, and the project directory name should self-populate
+    7. Click "Browse" and select your "repositories" folder to store the repo in
+    8. Click "Create project"
+    
+You should now have a copy of the repo on your laptop, and the project should be open in RStudio ready to use!
 
 ## Git commands: branches
 
 Branches in Git are like parallel universes of code.
 
-Your `main` branch should be your most up-to-date, working version of your code. If you want to make updates or develop new features, you should **create a new branch**. This essentially creates a copy of the main branch in a different place.
+Your `main` or `master` branch should be the most up-to-date working version. If you want to make updates or develop new features, you should **create a new branch**, which copies whichever parent branch you choose.
 
-Working on your new branch means that you can try new things and edit your code **without affecting the main branch** (the working version of your code) - allowing others to continue using it if needed! It also means two people could both create their own branches and do development work simultaneously without interfering with each others work.
+Let's create our own branches:
 
-## Git commands: pull requests
+1. In RStudio, find the Git panel in the top right window
+2. Find the icon with 2 purple boxes connected by a diamond - this is the "new branch" icon
+2. Ensure that the branch name to the right of this icon is "master"
+4. Click on the "new branch" icon, and enter your name as the new branch name in the format `<firstname>_<lastname>`
+5. Click "Create"
+6. In RStudio, click the green arrow in the Git panel to push up your new branch to the global repo
+    
+Your own new branch should be created, and your branch name should now show in the Git panel.
 
-Imagine you have finished all of the development work in your branch, and you are ready for your changes to be moved into the main branch. 
+## Git commands: pull, commit, push
 
-To merge your changes into the main branch, you create a *pull request*. This is a request for someone else to review your changes and approve them before they are merged into the working version of your code.
+Once you've cloned a repo, *pull, commit, push* are the three main commands you will use in Git:
+
+-   `Pull:` Get the latest changes from the global repo
+-   `Commit:` Record your changes to the local repo
+-   `Push:` Send your changes to the global repo
+
+A typical workflow would be:
+
+1.  Open the project on your laptop
+2.  Pull to ensure that any changes made to the global repo by others are mirrored in your local repo
+3.  Make your own changes and save them
+4.  Commit your saved changes, including a useful *commit message* to explain what you have done
+5.  Push your changes to the global repo when you're ready for others to see and work with them
+
+## Git commands: pull, commit, push
+
+Let's have a go at making some simple changes to the repo!
+
+<br>
+
+Partner up with someone else. One of you will make changes to the other's branch - decide who this will be.
+
+<br>
+
+If you are the partner making changes, switch to your partner's branch:
+
+1. Click the blue arrow in the Git panel to pull down everyone else's branches onto your laptop
+2. Click on your branch name in the Git panel, and select your partner's branch from the drop-down
+
+## Git commands: pull, commit, push
+
+Next, make and commit a change to the `01_load_data.R` file in the `R` folder:
+
+1. Open the file in RStudio
+2. Paste in `student_results <- read_csv("01_data/01_raw/some_student_results.csv")` under the last comment
+3. Save the `01_load_data.R` file
+4. In the Git panel, click the checkbox next to the file you've changed to "stage" it for your commit
+5. Click the "Commit" icon, write a commit message, e.g. "add code to read in csv file", and click "Commit"
+6. Finally, push up your changes to the global repo by clicking the green arrow in the Git panel
+
+<br>
+
+Now, if your partner pulls down the latest changes, and opens the `01_load_data.R` file, it should contain the new line of code.
 
 # Working in repos: good practice
 
@@ -160,8 +190,9 @@ Your README should contain the following information (but you can always add mor
 :::
 
 ## Branch management 
+
 - A new branch should be created for any updates to your code
-- Branch names should be clear & descriptive - avoid basing on your own name
+- Branch names should be clear & descriptive - avoid basing on your own name (even though we did today!)
 - A branch should handle contained, well-defined and finite updates
 - It is possible to merge branches without using pull requests but this should be avoided
 - Branches should be deleted where they are no longer needed
@@ -170,13 +201,29 @@ Your README should contain the following information (but you can always add mor
 
 ## What is a pull request?
 
+When someone has finished all of the development work in their branch, they will be ready to mirror their changes in the main branch. 
+
+To merge these changes, they should create a *pull request*. This is a request for someone else to review their changes and approve them before they are merged into the working version of the code, i.e. the code in the main branch.
+
 ::: fragment
--   As a manager, your main interaction with Azure DevOps or GitHub is likely to be through pull requests (PRs). They offer a way to do transparent code QA, easily referencing specific lines or chunks of code. Any comments added to a pull request are saved in the history of a repo, so you can always go back and confirm whether you asked for certain changes, and check when and how the changes were made.
+-   They offer a way to do transparent code QA, easily referencing specific lines or chunks of code. Any comments added to a pull request are saved in the history of a repo, so you can always go back and confirm whether you asked for certain changes, and check when and how the changes were made.
 :::
 
 ::: fragment
--   When someone in your team is ready for their code to be checked, they should raise a pull request and add a reviewer (which often should be you). The reviewer will receive an email notification to let then know that their review has been requested.
+-   When someone creates a pull request they should add a reviewer (this will often be you). The reviewer will receive an email notification to let then know that their review has been requested.
 :::
+
+## Creating your own pull request
+
+In this example, we will mirror the changes made to either your or your partner's branch, in the other's branch too. The partner who made the changes should do the following:
+
+1. Open the [repo link](https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers) to view the global repo in DevOps
+2. On the left navigation bar, under "Repos", click on "Pull requests"
+3. Click "New pull request", select your branch (the one with the changes made to it) as the source branch, and select your partner's branch to merge into
+4. Add your partner as a required reviewer
+5. Click "Create"
+
+The other partner, whose branch was changed, should receive an email notification requesting their review of the code. Once happy the code is correct, they can "approve" and "complete" the pull request, and the changes will then be reflected in the other partner's branch.
 
 ## What should I include in a pull request?
 
@@ -211,11 +258,9 @@ There should always be at least two team members available to work on a pipeline
 ## Using automated testing
 
 - Testing is a way to verify that your code works as intended - relevant to the verification pillar of the QA framework.
-- There is a whole range of different types of testing that can be applied. DfE's Good Code Practice guidance has more info on testing types. <span style="color:red;">[Link to this]</span>
+- There is a whole range of different types of testing that can be applied. [DfE's Good Code Practice guidance](https://dfe-analytical-services.github.io/good-code-practice/index.html) has more info on testing types.
 - Testing should be automated as much as possible and should be run wherever your code has been changed. Catching errors quickly makes them faster and easier to fix!
 - Pull requests can be set up to require automated tests to pass before they can be completed.
-
-<span style="color:red;">[I am not an expert on automated testing by any means so would appreciate any further detail I should add to this]</span>
 
 # Quality assurance: reviewing code
 
@@ -551,27 +596,69 @@ write.csv(average_scores, paste0("average_scores_", analysis_year, ".csv"), row.
 
 ## Review an example pull request
 
-<span style="color:red;">[I need to create this example PR in DevOps. Participants will break into pairs and look over the PR, noting the comments they would add. Won't actually
-get them to add into the actual PR because that would get messy and difficult.]</span>
+Lara has created a branch `feat/aggregate_data.R` in the RAP for managers repo, with the aim of adding all necessary code to aggregate the student input data and suppress any small values. 
 
-# Summary
+As she has finished developing this extra code she has created a [pull request](https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers/pullrequest/41414) and requested your review before she merges it into the `master` branch.
 
-## Where to get support
+Work in pairs to review her pull request - note down any issues, recommendations or improvements you would highlight to her.
 
-- Statistics Development Team: for general support with technical advice, learning & development and RAP <span style="color:red;">[Link to mailbox]</span>
-- RAP champions: for RAP advice more tailored to your team's work area and context <span style="color:red;">[Link somewhere useful]</span>
-- Partnership Programme: for support with technical upskilling or additional resource to RAP your analysis or apply best practice <span style="color:red;">[Link to application form]</span>
-- Statistics Services Unit's Intro to R and Intro to Git technical workshops <span style="color:red;">[Link to AG section]</span>
-- [Analysts Guide](https://dfe-analytical-services.github.io/analysts-guide.html)
-- [Statistics Services Unit support offer](https://educationgovuk.sharepoint.com/sites/lveesfa00074/SSU%20%20Open%20sharing?newTargetListUrl=https%3A%2F%2Feducationgovuk%2Esharepoint%2Ecom%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing&id=%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing%2FSSU%20support%20%2D%20one%20pager%2FRoutes%20and%20support%20one%20pager%2Epdf&viewid=a3d9f08d%2D4fe8%2D4848%2D9157%2Dd7e09b43f701&parent=%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing%2FSSU%20support%20%2D%20one%20pager)
+Hint: it is always a good idea to try to run the code yourself when reviewing a pull request!
+
+<br>
+
+*Bonus*: There are six letters scattered through the repository. Can you work out what they spell?
+
+## Review an example pull request: possible suggestions
+
+Here are some examples of issues we would highlight to her:
+
+- The pull request doesn't have any description of the changes
+- Lara has added herself as the only reviewer, rather than you!
+- The README hasn't been updated to reflect the proposed code changes
+- There is a missing ".R" in line 20 of the `run_all.R` script
+- The `run_all.R` script could do with some commentary at the beginning to explain its purpose
+- The `suppress_counts` function suppresses counts less than 10 rather than 5
+- The `03_format_data.R` script should have improved, clearer comments explaining what it does
+- The `03_format_data.R` script includes a line to save the outputs, but this is also included in the separate `04_save_outputs.R` script
+- The `04_save_outputs.R` script saves the non-suppressed outputs
+
+
+*Bonus*: The letters spell "review"! Did you get it?
+
+# Speaker session
+
+Isabel Ruckelshauss, Skills Policy Analysis
+
+- 10 minute talk: upskilling self and team in R, Git and Azure DevOps
+- 10 minute Q&A
+
+# Learning & development, support and resources
 
 ## Making time for technical learning & development
 
-It may feel difficult to work on your technical skills when you have fewer opportunities to do hands-on work. Please make sure that you have taken time to watch the [HoP Office knowledge share on L&D](https://educationgovuk.sharepoint.com/:f:/r/sites/lveesfa00074/SSU%20%20Open%20sharing/HoP%20office/HoP%20Knowledge%20share%20series/Session%204%20-%20L%26D%20and%20Recruitment?csf=1&web=1&e=RCPRwp) - it contains great advice about how to work on your skills.
+Finding time to upskill yourself and your team can be difficult. 
 
-Why not request a [DataCamp](https://www.datacamp.com/) license and spend an hour a month working on one of the courses? You could even put time in the calendar for your whole team and work through the courses together. You can request DataCamp licenses by emailing [Lisa Smyth](mailto:lisa.smyth@education.gov.uk)
+What challenges do you and your team face with this?
 
-<span style="color:red;">[Add some more tips on making time for L&D]</span>
+How could you overcome those challenges?
+
+Tips our own teams have found helpful:
+
+- Block out weekly / fortnightly / monthly time in team calendars dedicated to learning a specific skill
+- Block out a full / half day for yourself well in advance and be strict about being "out of office"
+- Sign up to instructor-led courses rather than relying solely on your commitment to yourself
+- Shape your day-to-day work around a new technical skill; e.g. how could you incorporate R coding into a simple process?
+
+## Where to get support
+
+- [Statistics Development Team](mailto: statistics.development@education.gov.uk): for general support with technical advice, learning & development and RAP
+- [RAP champions](https://educationgovuk.sharepoint.com/sites/lvewp00487): for RAP advice more tailored to your team's work area and context
+- [Partnership Programme](https://dfe-analytical-services.github.io/analysts-guide/learning-development/learning-support.html#partnership-programmes): for support with technical upskilling or additional resource to RAP your analysis or apply best practice
+- Statistics Services Unit's Intro to R and Intro to Git [technical workshops](https://dfe-analytical-services.github.io/analysts-guide/learning-development/learning-support.html#technical-workshops)
+- [Analysts Guide](https://dfe-analytical-services.github.io/analysts-guide.html)
+- [Statistics Services Unit support offer](https://educationgovuk.sharepoint.com/sites/lveesfa00074/SSU%20%20Open%20sharing?newTargetListUrl=https%3A%2F%2Feducationgovuk%2Esharepoint%2Ecom%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing&id=%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing%2FSSU%20support%20%2D%20one%20pager%2FRoutes%20and%20support%20one%20pager%2Epdf&viewid=a3d9f08d%2D4fe8%2D4848%2D9157%2Dd7e09b43f701&parent=%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing%2FSSU%20support%20%2D%20one%20pager)
+- [DataCamp](https://www.datacamp.com/): request a license by emailing [Lisa Smyth](mailto:lisa.smyth@education.gov.uk)
+- [HoP Office knowledge share on L&D](https://educationgovuk.sharepoint.com/:f:/r/sites/lveesfa00074/SSU%20%20Open%20sharing/HoP%20office/HoP%20Knowledge%20share%20series/Session%204%20-%20L%26D%20and%20Recruitment?csf=1&web=1&e=RCPRwp)
 
 ## Useful learning resources
 
@@ -582,8 +669,3 @@ Why not request a [DataCamp](https://www.datacamp.com/) license and spend an hou
 - [NHS-R Youtube, including intro to R courses](https://www.youtube.com/c/nhsrcommunity)
 - [Analysis Function RAP learning pathway](https://analysisfunction.civilservice.gov.uk/learning-development/learning-pathways/reproducible-analytical-pipelines-rap-learning-pathway/)
 - [HoP office knowledge shares](https://educationgovuk.sharepoint.com/:f:/r/sites/lveesfa00074/SSU%20%20Open%20sharing/HoP%20office/HoP%20Knowledge%20share%20series?csf=1&web=1&e=uefwXH)
-
-
-## Final quiz
-
-<span style="color:red;">[Need to set this up]</span>
