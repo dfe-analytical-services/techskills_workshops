@@ -463,7 +463,7 @@ Imagine you are working to produce a report on the number of pupils in each scho
 What would you change about this current process? Which changes would you do first?
 
 ::: {style="font-size: 75%;"}
-1.  Ingest the raw data from a SQL database owned by another team in the department. You run SQL code that aggregates to school level, then you copy and paste the aggregated data from the SQL table into Excel so you can get to work.
+1.  Ingest the raw data from a Databricks schema owned by another team in the department. You run SQL code within Databricks that aggregates to school level, then you copy and paste the aggregated data into Excel so you can get to work.
 
 2.  The data is cleaned and transformed in Excel. The aggregated data is copied into a new sheet to clean it, filters are applied to remove schools outside of England, and some duplicates are removed/combined where certain schools have had name changes etc.
 

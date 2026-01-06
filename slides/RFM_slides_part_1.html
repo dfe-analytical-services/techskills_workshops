@@ -866,7 +866,7 @@ Peer review of code from outside the team
 <p>What would you change about this current process? Which changes would you do first?</p>
 <div style="font-size: 75%;">
 <ol type="1">
-<li><p>Ingest the raw data from a SQL database owned by another team in the department. You run SQL code that aggregates to school level, then you copy and paste the aggregated data from the SQL table into Excel so you can get to work.</p></li>
+<li><p>Ingest the raw data from a Databricks schema owned by another team in the department. You run SQL code within Databricks that aggregates to school level, then you copy and paste the aggregated data into Excel so you can get to work.</p></li>
 <li><p>The data is cleaned and transformed in Excel. The aggregated data is copied into a new sheet to clean it, filters are applied to remove schools outside of England, and some duplicates are removed/combined where certain schools have had name changes etc.</p></li>
 <li><p>The data is validated by checking the number of schools in your clean data against the number of schools in the raw data, and also by comparing it to last years figures and judging whether the changes look sensible. This is all done in some additional QA Excel sheets in the same workbook.</p></li>
 <li><p>The output figures are produced in Excel in some extra sheets. You copy and paste values from the validated data into new tables, using no formulas so they can’t break. You also add some pivot tables to find totals for different school types and geographies etc.</p></li>
