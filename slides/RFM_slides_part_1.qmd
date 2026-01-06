@@ -17,22 +17,6 @@ format:
 
 # Introduction
 
-## Workshop purpose
-
-This session is designed to cover the basic principles of RAP from the perspective of a manager, to outline the level of technical skills that are expected from technical managers, and to give you a chance to ask any questions.
-
-Coding and technical skills form a core part of our work as analysts in DfE. To continue producing high quality statistics, teams need to maintain consistent levels of capability at all levels, and so should be looking to build and maintain these skills at every opportunity. If this doesn't happen, staff turnover or changes in technology may leave you at risk of being left with processes that your team are unable to run or make changes to. 
-
-## Workshop aims
-
-In this workshop, our main aims are to:
-
-- Avoid managers feeling "left behind" and lacking the confidence to effectively support their teams 
-- Reduce the risk of single points of failure in teams where only one person has specific coding knowledge or ability
-- Ensure that managers have skill levels at which they can effectively collaborate with and advise their peers and teams
-- Be confident that managers know where to go for RAP & technical advice and support if they cannot provide it directly themselves
-- Provide information on support and resources available to help you to build your skills 
-
 ## Introduction to the team
 
 The Statistics Services Unit runs various technical workshops - this is our newest!
@@ -47,6 +31,20 @@ The Statistics Services Unit runs various technical workshops - this is our newe
 ::: {.column width="15%"}
 :::
 
+## Workshop purpose & aims
+
+This session is designed to cover the basic principles of RAP from the perspective of a manager and to support managers to develop the technical skills they are expected to have.
+
+- For all analysts, coding and technical skills form a core part of our work in DfE.
+- To produce high quality statistics, teams need to maintain technical capability at all levels.
+- Building technical skills alleviates the risk of staff turnover or technology changes leaving your team with processes you are unable to run. 
+
+In this workshop, our main aims are to:
+
+- Support managers to feel up-to-date and have confidence with technology and relevant skills
+- Ensure that managers have appropriate technical skills to effectively collaborate with and advise their teams.
+- Direct managers (who can then direct their teams) towards RAP & technical advice and support.
+
 ## Structure of the workshop
 
 This workshop will be delivered in two halves with a short break in the middle.
@@ -58,10 +56,10 @@ In the first part we will cover:
 
 - Workshop introduction
 - RAP principles
-- How RAP can help you
+- How RAP can help managers
 - How to structure a RAP project
 - Quick wins with RAP
-- RAP myth-busting
+- Applying RAP to your publications
 :::
 
 ::: {.column width="50%"}
@@ -72,7 +70,7 @@ The second part will cover:
 - Pull requests
 - Quality assuring code
 - Speaker session with Q&A
-- Learning & development, support, resources
+- Learning & development, support & resources
 :::
 
 ## Initial knowledge check
@@ -106,37 +104,37 @@ Improving your team's skills and RAP principles will also build more flexible, e
 
 ## Expectations of analytical managers: technical skills
 
-Within DfE, analytical managers are expected to:
-
-> - Have sufficient technical confidence and ability to act as an effective technical leader, building team capability & resilience, and challenging, advising on and quality assuring analysis to ensure quality & value.
-> - Are aware of, and engage with, available technical support, including central Analysis Function and internal DfE guidance. SSU provides several support routes: Partnership Programme, Statistician's Guide to the Galaxy sessions, the Analysts' Guide, mailboxes, HoP knowledge shares.
-
 The Data Analysis strand of the [GSG competency framework](https://analysisfunction.civilservice.gov.uk/policy-store/competency-framework-for-the-government-statistician-group-gsg/) requires all grades to:
 
-> - Innovate and seek out new ways of analysing the data
-> - Ensure that analysis is reproducible, transparent and robust using coding and code management best practices.
+- Innovate and seek out new ways of analysing the data
+- Ensure that analysis is reproducible, transparent and robust using coding and code management best practices.
 
 The [Analysis Function Career Framework](https://analysisfunction.civilservice.gov.uk/careers/career-framework) presents the following as one of four core skills for analysts:
 
-> - Software programming tools and techniques — the ability to use coding and programming skills for data analysis.
+- Software programming tools and techniques — the ability to use coding and programming skills for data analysis.
 
-## Expectations of analytical managers: RAP
+The [cross-government RAP strategy](https://analysisfunction.civilservice.gov.uk/policy-store/reproducible-analytical-pipelines-strategy/) outlines expectations of analyst managers including:
 
-Our [RAP expectations page](https://dfe-analytical-services.github.io/analysts-guide/RAP/rap-expectations.html#analyst-managers) shows the expectations for analyst managers from the [cross-government RAP strategy](https://analysisfunction.civilservice.gov.uk/policy-store/reproducible-analytical-pipelines-strategy/), which include:
+-   build extra time into projects to adopt new skills and practices where appropriate
+-   learn the skills they need to manage software
+-   evaluate RAP projects within organisations to understand and demonstrate the benefits of RAP
+-   mandate their teams use RAP principles whenever possible
 
-> -   build extra time into projects to adopt new skills and practices where appropriate
-> -   learn the skills they need to manage software
-> -   evaluate RAP projects within organisations to understand and demonstrate the benefits of RAP
-> -   mandate their teams use RAP principles whenever possible
-
-These are central expectations on all government analysts; we have seen several management-level job adverts requiring RAP & technical experience and skills!
+These are all central expectations on all government analysts; we have seen several management-level job adverts requiring RAP & technical experience and skills!
 
 ## Tools overview: R, RStudio & Positron
 
-R is a coding language (like SQL, Python, JavaScript...):
+::: {.column width="80%"}
+R is a coding language:
 
-- Using R allows us to define reusable variables, functions, and write packages (sets of pre-defined functions)
-- It is open-source (free to use, available to everyone, anyone can contribute)
+- Using R allows us to define reusable variables, functions, and packages (sets of pre-defined functions)
+- It is open-source so free to use, available to everyone, and anyone can contribute
+:::
+
+::: {.column width="20%"}
+
+![](images/R.png){fig-align="center"}
+:::
 
 RStudio enables us to code using the R language while providing a visual, interactive interface:
 
@@ -152,18 +150,29 @@ All are available to download to your DfE laptop from the Software Centre.
 
 ## Tools overview: Git, Azure DevOps & GitHub
 
+::: {.column width="88%"}
 Git is software designed for version control:
 
 - It works with repositories (repos), folders containing all version controlled files
 - It allows for efficient collaboration; users can simultaneously work on distinct versions of code
+:::
+
+::: {.column width="12%"}
+
+![](images/git_logo.png){fig-align="center"}
+:::
 
 Azure DevOps and GitHub are platforms you can use to work with Git and your repositories:
 
-- They allow you to: view repo files & their history, structure code QA via "pull requests", automate code pipelines and use project management tools
+- They allow you to: view files & their history, structure code QA, automate code pipelines and use integrated project management tools
 - DevOps is suitable for working with sensitive data as it is private and secure
-- GitHub repos are public, which supports reproducibility and transparency
+- GitHub repos are public*, which supports reproducibility and transparency
+
+_* There is a paid version of GitHub allowing private repos but DfE doesn't currently have this_
 
 ## Tools overview: Databricks
+
+::: {.column width="80%"}
 
 Databricks is a cloud-based platform that you can use for storing, managing and analysing large datasets:
 
@@ -171,23 +180,37 @@ Databricks is a cloud-based platform that you can use for storing, managing and 
 - It supports R, SQL, Python and Scala languages
 - You can use Git version control with it
 - You can build pipelines and workflows that run automatically - excellent for RAP!
+:::
+
+::: {.column width="20%"}
+
+![](images/databricks_logo.png){fig-align="center"}
+:::
 
 Databricks has replaced SQL Server for our department's data storage and all analysts should have adjusted their processes in line with this transition.
+
+::: {.column width="50%"}
 You can access support with this in the following places:
 
 - [ADA team](mailto: ADAPTTeam@education.gov.uk)
 - [ADA website](https://analytical-data-access.azurewebsites.net/)
 - [ADA user group on Teams](https://teams.microsoft.com/l/team/19%3AGQW24K3V6M873QzUwpBIuyf8KZCxYByRawVsKQvpe-81%40thread.tacv2/conversations?groupId=c70bb59d-c5df-4af5-849f-36196ed14ba3&tenantId=fad277c9-c60a-4da1-b5f3-b3b8b34a82f9)
 - [Statistics Development Team](mailto: statistics.development@education.gov.uk)
+:::
 
+::: {.column width="50%"}
 Some further learning resources:
 
 - [Analysts' Guide Databricks pages](https://dfe-analytical-services.github.io/analysts-guide/ADA/databricks_fundamentals.html)
 - [Nick Treece's training materials](https://github.com/dfe-analytical-services/databricks_code_learn)
+:::
 
 ## Questions & answers
 
 We have set up a live Q&A session - feel free to submit questions [here](https://app.sli.do/event/adW5shWehmKfor3CAVt57U) as we go through the workshop
+
+<br>
+<br>
 
 ::: {.column width="40%"}
 :::
@@ -204,22 +227,24 @@ We have set up a live Q&A session - feel free to submit questions [here](https:/
 
 # RAP: Introduction
 
-## What is a reproducible analytical pipeline (RAP)?
+## What is a RAP?
 
 ::: {.fragment .fade-up}
-<span style="color:#f67400;">**R**</span>eproducible <span style="color:#f67400;">**A**</span>nalytical <span style="color:#f67400;">**P**</span>ipelines are simply about having well-documented, reusable processes when analysing data, and ensuring they are transparent!
+**R**eproducible **A**nalytical **P**ipelines are about having well-documented, reusable processes when analysing data, and ensuring they are transparent.
+:::
+
+<br>
+
+::: {.fragment .fade-up}
+We already have *analytical pipelines* but RAP specifically aims to:
 :::
 
 ::: {.fragment .fade-up}
-We already have *analytical pipelines* and have done for many years. RAP specifically aims to:
+-   Automate all of the parts that we can, e.g. rather than entering a hard-coded date repeatedly throughout your code, instead use one date variable that can be changed and reused throughout
 :::
 
 ::: {.fragment .fade-up}
--   Automate all of the parts that we can, e.g. rather than entering a hardcoded date repeatedly throughout your code, instead use one date variable that can be changed in one place and reused throughout
-:::
-
-::: {.fragment .fade-up}
--   Increase efficiency and accuracy by reducing the risk of human error, and making sure that calculations are done the same way each time wherever possible
+-   Increase efficiency and accuracy by reducing the risk of human error, and ensuring calculations are done identically each time where possible
 :::
 
 ::: {.fragment .fade-up}
@@ -228,48 +253,35 @@ We already have *analytical pipelines* and have done for many years. RAP specifi
 
 ## RAP principles
 
-::: {.column width="45%"}
 You should be familiar with our RAP standards as a framework for analytical work, and we expect managers to ensure that their teams are following these standards
-:::
 
-::: {.column width="5%"}
+<br>
+
+::: {.column width="25%"}
 :::
 
 ::: {.column width="50%"}
-
 <div class="mxgraph" style="max-width: 100%; border: 1px solid transparent; position: relative; touch-action: none; overflow: hidden; margin-top: 26px; width: 999px; height: 494px;" data-mxgraph="{&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;<mxfile host=\&quot;app.diagrams.net\&quot; agent=\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0\&quot; version=\&quot;25.0.3\&quot;>\n  <diagram id=\&quot;_ltWYIdbVKAG_Xyvna0Y\&quot; name=\&quot;Page-1\&quot;>\n    <mxGraphModel dx=\&quot;1786\&quot; dy=\&quot;749\&quot; grid=\&quot;0\&quot; gridSize=\&quot;10\&quot; guides=\&quot;1\&quot; tooltips=\&quot;1\&quot; connect=\&quot;1\&quot; arrows=\&quot;1\&quot; fold=\&quot;1\&quot; page=\&quot;0\&quot; pageScale=\&quot;1\&quot; pageWidth=\&quot;827\&quot; pageHeight=\&quot;1169\&quot; math=\&quot;0\&quot; shadow=\&quot;0\&quot;>\n      <root>\n        <mxCell id=\&quot;0\&quot; />\n        <mxCell id=\&quot;1\&quot; parent=\&quot;0\&quot; />\n        <UserObject label=\&quot;Sensible folder and file structure\&quot; link=\&quot;#sensible-folder-and-file-structure\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-5\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;69\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Use appropriate tools\&quot; link=\&quot;#appropriate-tools\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-6\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;fillColor=#4472C4;spacingLeft=7;spacingRight=7;rounded=0;shadow=0;sketch=0;backgroundOutline=0;gradientDirection=north;strokeColor=none;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;-55\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Processing is done with code\&quot; link=\&quot;#processing-is-done-with-code\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-7\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;7\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Basic automated QA\&quot; link=\&quot;#basic-automated-qa\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-8\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;132\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;All source data stored in a database\&quot; link=\&quot;#all-source-data-stored-in-a-database\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-9\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;-118\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Files meet data standards\&quot; link=\&quot;../creating-statistics/ud.html#how-to-check-against-these-standards\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-10\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;-55\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Documentation\&quot; link=\&quot;#documentation\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-11\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;69\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Version controlled final code scripts\&quot; link=\&quot;#version-controlled-final-code-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-12\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;320\&quot; y=\&quot;327\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Recyclable code for future use\&quot; link=\&quot;#recyclable-code-for-future-use\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-13\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;195\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Dataset production scripts\&quot; link=\&quot;#dataset-production-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-14\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;257\&quot; y=\&quot;421\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Publication specific automated QA\&quot; link=\&quot;#publication-specific-automated-qa\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-15\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;382\&quot; y=\&quot;421\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Automated summaries\&quot; link=\&quot;#automated-summaries\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-17\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;194\&quot; y=\&quot;515\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Peer review of code within team\&quot; link=\&quot;#review-of-code-within-team\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-18\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;319\&quot; y=\&quot;515\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Collaboratively develop code using git\&quot; link=\&quot;#collaboratively-develop-code-using-git\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-19\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;674\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;&amp;#39;Clean&amp;#39; final code\&quot; link=\&quot;#clean-final-code\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-20\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;550\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;&amp;lt;div style=&amp;quot;&amp;quot;&amp;gt;&amp;lt;font style=&amp;quot;font-size: 14px;&amp;quot;&amp;gt;Whole publication production scripts&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;\&quot; link=\&quot;#whole-publication-production-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-21\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;align=center;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;612\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Use open source repositories\&quot; link=\&quot;#use-open-source-repositories\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-22\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;737\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Publication specific automated summaries\&quot; link=\&quot;#publication-specific-automated-summaries\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-23\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;550\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Peer review of code from outside the team\&quot; link=\&quot;#review-of-code-from-outside-the-team\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-24\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;674\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-25\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#4472c4&amp;quot;&amp;gt;Good practice&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;-38\&quot; y=\&quot;652\&quot; width=\&quot;210\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-26\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#70ad47&amp;quot;&amp;gt;Great practice&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;206\&quot; y=\&quot;652\&quot; width=\&quot;220\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-27\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#ed7d31&amp;quot;&amp;gt;Best practice&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;572\&quot; y=\&quot;652\&quot; width=\&quot;200\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-1\&quot; value=\&quot;\&quot; style=\&quot;shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;fontSize=13;rotation=90;strokeWidth=2;strokeColor=#4472c4;gradientColor=none;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;168.5\&quot; y=\&quot;26\&quot; width=\&quot;47\&quot; height=\&quot;538\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-2\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#4472c4&amp;quot;&amp;gt;Baseline expectation&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;35.5\&quot; y=\&quot;216\&quot; width=\&quot;313\&quot; height=\&quot;50\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-4\&quot; value=\&quot;\&quot; style=\&quot;shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;fontSize=13;rotation=90;strokeWidth=2;strokeColor=#ed7d31;gradientColor=none;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;659\&quot; y=\&quot;145\&quot; width=\&quot;47\&quot; height=\&quot;292\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-5\&quot; value=\&quot;&amp;lt;font color=&amp;quot;#ed7d31&amp;quot; style=&amp;quot;font-size: 32px&amp;quot;&amp;gt;Ambition&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;612\&quot; y=\&quot;216\&quot; width=\&quot;143\&quot; height=\&quot;50\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n      </root>\n    </mxGraphModel>\n  </diagram>\n</mxfile>\n&quot;}"><svg style="left: 0px; top: 0px; width: 100%; height: 100%; display: block; min-width: 999px; min-height: 494px; background-image: none; background-color: transparent;"><defs><filter id="dropShadow"><feGaussianBlur in="SourceAlpha" stdDeviation="1.7" result="blur"></feGaussianBlur><feOffset in="blur" dx="3" dy="3" result="offsetBlur"></feOffset><feFlood flood-color="#3D4574" flood-opacity="0.4" result="offsetColor"></feFlood><feComposite in="offsetColor" in2="offsetBlur" operator="in" result="offsetBlur"></feComposite><feBlend in="SourceGraphic" in2="offsetBlur"></feBlend></filter></defs><g transformOrigin="0 0" transform="scale(1,1)translate(126,-208)"><g></g><g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 99 326 L 159 326 L 189 386 L 159 446 L 99 446 L 69 386 Z" fill="#4472c4" stroke="none" transform="rotate(90,129,386)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 386px; margin-left: 77px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Sensible folder and file structure</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M -25 326 L 35 326 L 65 386 L 35 446 L -25 446 L -55 386 Z" fill="#4472c4" stroke="none" transform="rotate(90,5,386)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 386px; margin-left: -47px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Use appropriate tools</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 37 420 L 97 420 L 127 480 L 97 540 L 37 540 L 7 480 Z" fill="#4472c4" stroke="none" transform="rotate(90,67,480)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 480px; margin-left: 15px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Processing is done with code</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 162 420 L 222 420 L 252 480 L 222 540 L 162 540 L 132 480 Z" fill="#4472c4" stroke="none" transform="rotate(90,192,480)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 480px; margin-left: 140px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Basic automated QA</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M -88 420 L -28 420 L 2 480 L -28 540 L -88 540 L -118 480 Z" fill="#4472c4" stroke="none" transform="rotate(90,-58,480)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 480px; margin-left: -110px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">All source data stored in a database</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M -25 514 L 35 514 L 65 574 L 35 634 L -25 634 L -55 574 Z" fill="#4472c4" stroke="none" transform="rotate(90,5,574)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 574px; margin-left: -47px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Files meet data standards</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 99 514 L 159 514 L 189 574 L 159 634 L 99 634 L 69 574 Z" fill="#4472c4" stroke="none" transform="rotate(90,129,574)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 574px; margin-left: 77px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Documentation</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 350 327 L 410 327 L 440 387 L 410 447 L 350 447 L 320 387 Z" fill="#70ad47" stroke="none" transform="rotate(90,380,387)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 387px; margin-left: 328px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Version controlled final code scripts</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 225 326 L 285 326 L 315 386 L 285 446 L 225 446 L 195 386 Z" fill="#70ad47" stroke="none" transform="rotate(90,255,386)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 386px; margin-left: 203px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Recyclable code for future use</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 287 421 L 347 421 L 377 481 L 347 541 L 287 541 L 257 481 Z" fill="#70ad47" stroke="none" transform="rotate(90,317,481)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 481px; margin-left: 265px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Dataset production scripts</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 412 421 L 472 421 L 502 481 L 472 541 L 412 541 L 382 481 Z" fill="#70ad47" stroke="none" transform="rotate(90,442,481)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 481px; margin-left: 390px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Publication specific automated QA</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 224 515 L 284 515 L 314 575 L 284 635 L 224 635 L 194 575 Z" fill="#70ad47" stroke="none" transform="rotate(90,254,575)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 575px; margin-left: 202px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Automated summaries</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 349 515 L 409 515 L 439 575 L 409 635 L 349 635 L 319 575 Z" fill="#70ad47" stroke="none" transform="rotate(90,379,575)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 575px; margin-left: 327px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Peer review of code within team</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 704 326 L 764 326 L 794 386 L 764 446 L 704 446 L 674 386 Z" fill="#ed7d31" stroke="none" transform="rotate(90,734,386)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 386px; margin-left: 682px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Collaboratively develop code using git</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 580 326 L 640 326 L 670 386 L 640 446 L 580 446 L 550 386 Z" fill="#ed7d31" stroke="none" transform="rotate(90,610,386)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 386px; margin-left: 558px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">'Clean' final code</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 642 420 L 702 420 L 732 480 L 702 540 L 642 540 L 612 480 Z" fill="#ed7d31" stroke="none" transform="rotate(90,672,480)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 480px; margin-left: 620px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;"><div style=""><font style="font-size: 14px;">Whole publication production scripts</font></div></div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 767 420 L 827 420 L 857 480 L 827 540 L 767 540 L 737 480 Z" fill="#ed7d31" stroke="none" transform="rotate(90,797,480)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 480px; margin-left: 745px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Use open source repositories</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 580 514 L 640 514 L 670 574 L 640 634 L 580 634 L 550 574 Z" fill="#ed7d31" stroke="none" transform="rotate(90,610,574)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 574px; margin-left: 558px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Publication specific automated summaries</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 704 514 L 764 514 L 794 574 L 764 634 L 704 634 L 674 574 Z" fill="#ed7d31" stroke="none" transform="rotate(90,734,574)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 574px; margin-left: 682px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Peer review of code from outside the team</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="-38" y="652" width="210" height="30" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="-38" y="652" width="210" height="30" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 667px; margin-left: 67px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: nowrap;"><font color="#4472c4" style="font-size: 32px">Good practice</font></div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="206" y="652" width="220" height="30" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="206" y="652" width="220" height="30" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 667px; margin-left: 316px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: nowrap;"><font color="#70ad47" style="font-size: 32px">Great practice</font></div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="572" y="652" width="200" height="30" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="572" y="652" width="200" height="30" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 667px; margin-left: 672px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: nowrap;"><font color="#ed7d31" style="font-size: 32px">Best practice</font></div></div></div></foreignObject></g></g><g style="visibility: visible;"><path d="M 215.5 26 L 202 26 Q 192 26 192 36 L 192 285 Q 192 295 182 295 L 175.25 295 Q 168.5 295 178.5 295 L 185.25 295 Q 192 295 192 305 L 192 554 Q 192 564 202 564 L 215.5 564" fill="none" stroke="white" stroke-width="20" stroke-miterlimit="10" transform="rotate(90,192,295)" pointer-events="stroke" visibility="hidden"></path><path d="M 215.5 26 L 202 26 Q 192 26 192 36 L 192 285 Q 192 295 182 295 L 175.25 295 Q 168.5 295 178.5 295 L 185.25 295 Q 192 295 192 305 L 192 554 Q 192 564 202 564 L 215.5 564" fill="none" stroke="#4472c4" stroke-width="2" stroke-miterlimit="10" transform="rotate(90,192,295)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="35.5" y="216" width="313" height="50" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="35.5" y="216" width="313" height="50" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 241px; margin-left: 192px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: nowrap;"><font color="#4472c4" style="font-size: 32px">Baseline expectation</font></div></div></div></foreignObject></g></g><g style="visibility: visible;"><path d="M 706 145 L 692.5 145 Q 682.5 145 682.5 155 L 682.5 281 Q 682.5 291 672.5 291 L 665.75 291 Q 659 291 669 291 L 675.75 291 Q 682.5 291 682.5 301 L 682.5 427 Q 682.5 437 692.5 437 L 706 437" fill="none" stroke="white" stroke-width="20" stroke-miterlimit="10" transform="rotate(90,682.5,291)" pointer-events="stroke" visibility="hidden"></path><path d="M 706 145 L 692.5 145 Q 682.5 145 682.5 155 L 682.5 281 Q 682.5 291 672.5 291 L 665.75 291 Q 659 291 669 291 L 675.75 291 Q 682.5 291 682.5 301 L 682.5 427 Q 682.5 437 692.5 437 L 706 437" fill="none" stroke="#ed7d31" stroke-width="2" stroke-miterlimit="10" transform="rotate(90,682.5,291)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="612" y="216" width="143" height="50" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="612" y="216" width="143" height="50" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 241px; margin-left: 684px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: nowrap;"><font style="font-size: 32px" color="#ed7d31">Ambition</font></div></div></div></foreignObject></g></g></g><g></g><g></g></g></svg></div>
 :::
 
 ## RAP improves efficiency: before RAP
 
-::: {.column width="10%"}
-:::
-
-::: {.column width="80%"}
-![](images/RAP-flowchart-white-before.png)
-:::
-
-::: {.column width="10%"}
+::: {.column width="100%"}
+![](images/RAP-flowchart-white-before.png){fig-align="center" width="70%"}
 :::
 
 ## RAP improves efficiency: after RAP
 
-::: {.column width="10%"}
-:::
-
-::: {.column width="80%"}
-![](images/RAP-flowchart-white-after.png)
-:::
-
-::: {.column width="10%"}
+::: {.column width="100%"}
+![](images/RAP-flowchart-white-after.png){fig-align="center" width="80%"}
 :::
 
 ## RAP case studies
 
-::: {.fragment .fade-up}
 Implementing RAP best practices can free up time for us to focus on the parts of our work where human input adds true value.
-:::
 
+ <br> 
+ 
 ::::::::: columns
 :::: {.column width="33%"}
 ::: {.fragment .fade-up}
@@ -297,22 +309,29 @@ Implementing RAP best practices can free up time for us to focus on the parts of
 
 ## A nightmare scenario...
 
--   You get a call from your team member, they're too ill to come to work this week. Your other "coder" left the team a month ago and you haven't been able to replace them or train anyone else up yet, so no one else is around
--   Your team member was the only one who knew how to run the code for your publication
--   You're already behind schedule
+::: {.column width="75%"}
+-   You get a call from your team member, they're too ill to come to work this week. Your other "coder" left the team a month ago and you haven't been able to replace them or train anyone else up yet, so no one else is around!
+-   Your team member was the only one who knew how to run the code for your publication.
+-   You're already behind schedule...
+
+<br>
 
 No problem! You can just run the code yourself, right?
+:::
+
+::: {.column width="25%"}
+![](images/illness.png)
+:::
 
 ## Ok, first I need to find the code...
 
-::: {.column width="100%"}
-:::
+<br>
 
-::: {.column width="40%"}
+::: {.column width="60%"}
 This should be easy, it's in our shared folder because we haven't had a chance to move it to Azure DevOps yet...
 :::
 
-::: {.column width="60%"}
+::: {.column width="40%"}
 ![](images/code_nightmare_1.png){fig-align="center" width="60%"}
 :::
 
@@ -324,110 +343,90 @@ This should be easy, it's in our shared folder because we haven't had a chance t
 
 ## Ok, I think I've found the right code...
 
-::: {.column width="100%"}
-:::
+<br>
 
-::: {.column width="40%"}
+::: {.column width="60%"}
 It's been a little while since I've run this code; I ought to check the documentation because I can't remember all the details of the process
 :::
 
-::: {.column width="60%"}
-![](images/code_nightmare_2.png){fig-align="center" width="75%"}
+::: {.column width="40%"}
+![](images/code_nightmare_2.png){fig-align="center" width="100%"}
 :::
 
 ## Well I'm sure there'll be comments in the code that tell me what to do...
 
-::: {.column width="100%"}
-:::
+<br>
 
 ::: {.column width="100%"}
-![](images/code_nightmare_3.png){fig-align="center" width="50%"}
+![](images/code_nightmare_3.png){fig-align="center" width="45%"}
 :::
 
 ## Now there's an unexpected error I don't recognise!
 
-::: {.column width="100%"}
+<br>
+
 Time to ask for help!
+
+<br>
+
+::: {.column width="30%"}
+![](images/worried_analyst.png){fig-align="center" width="70%"}
 :::
 
-::: {.column width="100%"}
+::: {.column width="70%"}
+![](images/code_nightmare_4.jpg){fig-align="left" width="40%"}
 :::
 
-::: {.column width="100%"}
-![](images/code_nightmare_4.jpg){fig-align="center" width="40%"}
-:::
+But my code isn't stored in Azure DevOps, so how can I easily share it...?
 
 ## How could RAP have avoided these issues?
 
--   This scenario is exaggerated, but it's not far from the truth of what we see in many teams
--   It's not just about the time it takes to find code in multiple folders and unpick and run undocumented processes and the stress it might cause, but the risk of errors and the lack of transparency
-- Let's have a look at how RAP could have helped us
+This scenario is exaggerated, but it's not far from what we see in many teams.
 
-## Finding the correct version of the code
+<br>
 
--   Sensible folder and file structure <span style="color:#4472c4;">(**Good practice**)</span>
--   Version controlled final code scripts <span style="color:#70ad47;">(**Great practice**)</span>
--   Collaboratively develop code using Git <span style="color:#f67400;">(**Best practice**)</span>
+This team's current approach means:
 
-Using Azure DevOps or GitHub to store and version control your code scripts allows you to:
+-   Finding code and running processes is time-consuming and stressful
+-   The risk of errors is high
+-   Their processes lack transparency
 
--   Immediately see the current version of any code your team has been using
--   View all historical versions of the code, along with when the changes were made, what they were, and who made them
--   Roll back to previous versions of the code if you encounter an issue with the current version
-- Run each others' versions of local code to collaborate and debug issues
-- Quickly share your code with the Statistics Development Team for help with resolving issues
+<br>
 
-## Understanding the code and how to run it
+Let's have a look at how RAP could have helped us.
 
--   Documentation <span style="color:#4472c4;">(**Good practice**)</span>
+## RAP principles that would have helped
 
-In your repository, you should have a README file that explains how to run the code, what it does, and any other important information about the code. This means that anyone in your team (including you!) can pick up the code and run it without needing to ask for help.
+Finding the correct version of the code:
 
-Your code should also be well-commented, so that anyone reading it can understand what each part of the code does. If sections of code need updating each time, these should be clearly indicated in the code comments.
+> - Sensible folder and file structure <span style="color:#4472c4;">(**Good practice**)</span>
+> - Version controlled final code scripts <span style="color:#70ad47;">(**Great practice**)</span>
+> - Collaboratively develop code using Git <span style="color:#f67400;">(**Best practice**)</span>
 
-## Running the code without errors
+Understanding the code and how to run it:
 
--   All source data stored in a database <span style="color:#4472c4;">(**Good practice**)</span>
--   Recyclable code for future use <span style="color:#70ad47;">(**Great practice**)</span>
+> - Documentation <span style="color:#4472c4;">(**Good practice**)</span>
 
-If your code is set up to read data from a database, you can be sure that the data you're using is up-to-date and accurate. This also means that you can easily update the data you're using without needing to change the code.
+Running the code without errors:
 
-Recyclable code is code that can be used in multiple projects. This means that you can write code once and use it in multiple projects, saving time and reducing the risk of errors. This is particularly useful for code that is used in multiple publications, or for code that is used in multiple parts of the same publication.
+> - All source data stored in a database <span style="color:#4472c4;">(**Good practice**)</span>
+> - Recyclable code for future use <span style="color:#70ad47;">(**Great practice**)</span>
 
 # Structuring a RAP project
 
 ## RAP minimum viable product
 
-The [Analytical Function guidance](https://github.com/best-practice-and-impact/rap_mvp_maturity_guidance/blob/master/Reproducible-Analytical-Pipelines-MVP.md#the-rap-minimum-viable-product) states that at a minimum a Reproducible Analytical Pipeline must:
+The [Analytical Function guidance](https://github.com/best-practice-and-impact/rap_mvp_maturity_guidance/blob/master/Reproducible-Analytical-Pipelines-MVP.md#the-rap-minimum-viable-product) states that at a minimum a RAP must:
 
 :::::::::: {style="font-size: 75%;"}
-::: {.fragment .fade-up}
--   **Minimise manual steps**, such as copy & paste, point & click, or drag & drop operations. Where it is absolutely necessary to include a manual step in the process this must be fully documented.
-:::
 
-::: {.fragment .fade-up}
--   Be built using **open source software** which is available to anyone, preferably [python](https://www.python.org/) or [R](https://www.r-project.org/)
-:::
-
-::: {.fragment .fade-up}
--   Deepen technical and quality assurance processes with [**peer review**](https://best-practice-and-impact.github.io/qa-of-code-guidance/peer_review.html) to ensure that the process is reproducible and that all requirements have been met
-:::
-
-::: {.fragment .fade-up}
--   Guarantee an audit trail using [**version control software**](https://best-practice-and-impact.github.io/qa-of-code-guidance/version_control.html#why-do-we-need-version-control), preferably [Git](https://git-scm.com/)
-:::
-
-::: {.fragment .fade-up}
--   Be [open to anyone](https://best-practice-and-impact.github.io/qa-of-code-guidance/project_documentation.html#open-source-your-code-span-role-image-aria-label-difficulty-rating-2-out-of-5-span), which can be done most easily by using file- and code-sharing platforms
-:::
-
-::: {.fragment .fade-up}
--   Follow existing good practice for **quality assurance** – guidance set by departments / organisations, and by the Analysis Function teams and Data Quality Hub for the Analysis Function and Government Statistical Service
-:::
-
-::: {.fragment .fade-up}
--   Contain [well-commented](https://best-practice-and-impact.github.io/qa-of-code-guidance/code_documentation.html#comments-span-role-image-aria-label-difficulty-rating-1-out-of-5-span) code and have [documentation embedded](https://best-practice-and-impact.github.io/qa-of-code-guidance/project_documentation.html) and version controlled within the product, rather than saved elsewhere
-:::
+> -   **Minimise manual steps**, such as copy & paste, point & click, or drag & drop operations.
+> -   Be built using **open source software** available to anyone.
+> -   Deepen technical and quality assurance processes with **peer review**.
+> -   Guarantee an audit trail using **version control software**, preferably Git.
+> -   Be **open to anyone** using file- and code-sharing platforms.
+> -   Follow existing good practice for **quality assurance**.
+> -   Contain well-commented code with embedded **documentation** version controlled within the product.
 ::::::::::
 
 In the DfE we have our own good, great and best practice standards for RAP. Our minimum requirement is that everyone publishing statistics meets the baseline expectation.
@@ -438,116 +437,79 @@ In practice, this roughly means:
 
 :::::::: {style="font-size: 75%;"}
 ::: {.fragment .fade-up}
--   All source data is stored in and pulled in from a database, as opposed to saving copies in the project repository / folder, and any manipulation to raw data should be done using code.
+-   All source data is stored in and pulled in from a database.
 :::
 
 ::: {.fragment .fade-up}
--   You are using code to perform all calculations and data manipulation removing all manual steps - this can be a combination of SQL and R code, but one `run_all.R` script should source all code from both languages. Code should be efficient, well documented (good comments!) and easy to understand.
+-   All calculations and data manipulation are automated with code (preferably using R) and all scripts should be sourced from one central script.
 :::
 
 ::: {.fragment .fade-up}
--   The code should not require lots of edits or changes on a typical run. Any variables that are expected to change (like year) should be defined in one obvious place (i.e. a `variable_change.R` script) and only require updating in that one place.
+-   Processes should be well documented (with good comments!) and easy to understand.
 :::
 
 ::: {.fragment .fade-up}
--   The code should be stored in a Git repository on Azure DevOps, with a sensible file structure and a completed readme document. You should be using branches and pull requests to make changes and reviewing each others code before merging.
+-   The code should require minimal edits to run, with variables defines in only one clear place.
 :::
 
 ::: {.fragment .fade-up}
--   Automated QA and summaries should be generated on each run (ideally in a quarto or markdown report that is easily readable and helps to visualise the data). This could include pass/fail tests and graphs of trends to help spot outliers.
+-   The code should be stored in a Git repository (public where appropriate), with a sensible file structure and a README document.
 :::
 
 ::: {.fragment .fade-up}
--   The final outputs for EES should pass all checks in the [data screener](https://rsconnect/rsc/dfe-published-data-qa/). If they fail, amendments should be made to the code rather than the files directly, that make the required changes.
+-   QA tests and output summaries should be automated and generated on each run.
+:::
+
+::: {.fragment .fade-up}
+-   For EES publications, final outputs produced by the code should pass all checks in the [data screener](https://rsconnect/rsc/dfe-published-data-qa/).
 :::
 ::::::::
 
 ## Structuring the RAP process
 
-:::::: columns
-::: {.column width="40%"}
+<br>
+
+::: {.column width="45%"}
 Typically, processes can be broken down into the following structure:
 
-1.  Ingest raw/input data
-2.  Clean and transform data
-3.  Validate/QA the data
-4.  Produce your output tables
-5.  Produce output charts/dashboards/other products
-6.  Write a commentary/report
+![From the [DfT Strategic Reproducible Analysis in Coding book](https://department-for-transport.github.io/strategic_reproducible_analysis/choosing-a-coding-approach.html#break-your-process-into-chunks)](images/process_chunks.svg){fig-align="left" width="80%"}
 :::
 
-::: {.column width="5%"}
+::: {.column width="7%"}
 :::
 
-::: {.column width="55%"}
-![- [DfT Strategic Reproducible Analysis in Coding book](https://department-for-transport.github.io/strategic_reproducible_analysis/choosing-a-coding-approach.html#break-your-process-into-chunks) example](images/process_chunks.svg)
+::: {.column width="48%"}
+Use the following to help you prioritise which to focus on first:
+
+> -   *Which sections offer the greatest benefits?*
+> -   *Which sections have most potential for time-saving?*
+> -   *Could improving RAP in any sections achieve a dual purpose?*
+> -   *Are the dependencies between sections?*
+> -   *Are any sections causing severe issues?*
+
 :::
-::::::
-
-## Prioritisation in implementing RAP principles
-
-[Chapter 3 in the DfT Strategic Reproducible Analysis in Coding book](https://department-for-transport.github.io/strategic_reproducible_analysis/choosing-a-coding-approach.html#prioritising-coding-tasks) provides some great prioritisation guidance:
-
-*While it’s tempting to work through these steps in chronological order, with well-structured code it’s not necessary to do this, and you can start coding on the section which is the highest priority. Prioritisation of these 'chunks' can be done taking into account:*
-
-::: {.fragment .fade-up}
--   *Which of the sections offer the biggest benefits?*
-:::
-
-::: {.fragment .fade-up}
--   *Which sections represent the biggest potential for time-saving (creating a snowball effect in terms of more development time)?*
-:::
-
-::: {.fragment .fade-up}
--   *Can some sections fulfill a dual development purpose (i.e. automate table creation while also making it accessible)?*
-:::
-
-::: {.fragment .fade-up}
--   *What other processes are dependent on this chunk (i.e. if you don’t have a clear idea of clean data structure prior to table creation, it would make sense to do these chunks in order)?*
-:::
-
-::: {.fragment .fade-up}
--   *Is the existing method causing problems, or is it relatively robust?*
-:::
-
-## Example from Department for Transport (DfT)
-
-:::::: columns
-::: {.column width="45%"}
-![- [DfT Strategic Reproducible Analysis in Coding book](https://department-for-transport.github.io/strategic_reproducible_analysis/choosing-a-coding-approach.html#break-your-process-into-chunks) example](images/process_chunks.svg)
-:::
-
-::: {.column width="10%"}
-:::
-
-::: {.column width="45%"}
-![- [DfT Strategic Reproducible Analysis in Coding book](https://department-for-transport.github.io/strategic_reproducible_analysis/choosing-a-coding-approach.html#break-your-process-into-chunks) example](images/prioritised_chunks.svg)
-:::
-::::::
 
 ## Discussion
 
-Imagine you are working on a project to produce a report on the number of pupils in each school in England. Within the report you also discuss differences between school types, geographic regions etc.
+Imagine you are working to produce a report on the number of pupils in each school in England, discussing differences between school types, geographic regions etc.
+
+What would you change about this current process? Which changes would you do first?
 
 ::: {style="font-size: 75%;"}
-1.  Currently your team ingest the raw data from a SQL database owned by another team in the department. You run SQL code that aggregates to school level, then you copy and paste the aggregated data from the SQL table into Excel so you can get to work.
+1.  Ingest the raw data from a SQL database owned by another team in the department. You run SQL code that aggregates to school level, then you copy and paste the aggregated data from the SQL table into Excel so you can get to work.
 
-2.  The data is then cleaned and transformed in Excel. The aggregated data is copied into a new sheet to clean it, filters are applied to remove schools outside of England, and some duplicates are removed/combined where certain schools have had name changes etc.
+2.  The data is cleaned and transformed in Excel. The aggregated data is copied into a new sheet to clean it, filters are applied to remove schools outside of England, and some duplicates are removed/combined where certain schools have had name changes etc.
 
-3.  The data is then validated by checking the number of schools in your clean data against the number of schools in the raw data, and also by comparing it to last years figures and judging whether the changes look sensible. This is all done in some additional QA Excel sheets in the same workbook.
+3.  The data is validated by checking the number of schools in your clean data against the number of schools in the raw data, and also by comparing it to last years figures and judging whether the changes look sensible. This is all done in some additional QA Excel sheets in the same workbook.
 
-4.  The output figures are then produced in Excel in some extra sheets. You copy and paste values from the validated data into new tables, using no formulas so they can't break. you also add some pivot tables to find totals for different school types and geographies etc.
+4.  The output figures are produced in Excel in some extra sheets. You copy and paste values from the validated data into new tables, using no formulas so they can't break. You also add some pivot tables to find totals for different school types and geographies etc.
 
 5.  The pivot tables are copied into new sheets and used to produce relevant charts in Excel.
 
-6.  A commentary is written in Word, with some of the charts and tables copied in from Excel.
+6.  A commentary is written in Word, with some of the charts and tables copied in as images in from Excel.
 
-7.  Once you have the report written up in word, you copy it across to EES.
+7.  Once you have the report written up in Word, you copy the text across to EES.
 :::
-
-What would you change? 
-
-How would you prioritise these changes?
 
 # Examples of quick RAP wins
 
@@ -738,12 +700,40 @@ Using this template could provide you with a report like that seen on the right.
 :::
 :::::
 
+# RAP: Conclusions
+
+## RAP myth-busting
+
+- <span style="color:#f67400;">**Myth**</span>: **Applying RAP principles will reduce output quality as computers can't perform as well as humans with experience**
+- <span style="color:#f67400;">**Reality**</span>: RAP is about using computers to do the things they're good at (repetitive processes), so humans can do the things they're good at (critical thinking and contextual quality assurance). It's about making the best use of both.
+
+<br>
+
+- <span style="color:#f67400;">**Myth**</span>: **Once our project has achieved the RAP standards, it'll be perfect**
+- <span style="color:#f67400;">**Reality**</span>: RAP is a set of best practice standards, but there are always ways to improve code efficiency. You should be looking to make continuous improvements to your processes where possible.
+
+
+## RAP myth-busting
+
+- <span style="color:#f67400;">**Myth**</span>: **If we move to RAP best practice, we'll have to rewrite all our SQL code into R**
+- <span style="color:#f67400;">**Reality**</span>: RAP is about using the best tool for the job. If you're using SQL code and it's working for you, that's great and there's no pressure to change it.
+
+<br>
+
+- <span style="color:#f67400;">**Myth**</span>: **RAP must be complicated and hugely time-consuming**
+- <span style="color:#f67400;">**Reality**</span>: Gradual, small changes towards best practice all add up - you don't have to change everything all at once! Consider how best to prioritise your effort.
+
+<br>
+
+- <span style="color:#f67400;">**Myth**</span>: **RAP is a barrier to innovation and creativity**
+- <span style="color:#f67400;">**Reality**</span>: RAP is just a framework that gives us a consistent way of doing analysis across government. Tedious and time-consuming processes are automated, so you can spend more time on the creative parts of your work.
+
 ## RAP self-assessment tool
 
 The [RAP self-assessment tool](https://rsconnect/rsc/publication-self-assessment/) allows statistics producers to assess themselves against the department's RAP standards.
 
 ::: {.fragment .fade-up}
-You should have entries for <span style="color:#f67400;">**every statistics publication**</span> you manage, and these should be updated;
+You should have entries for <span style="color:#f67400;">**every statistics publication**</span> you manage, and these should be updated:
 
  -   **When you make updates to your processes** that change your responses, or
  -   **at least once a year** if you've made no changes.
@@ -761,34 +751,6 @@ You can monitor your team's progress by viewing 'RAP progress by area' and 'Over
 The Statistics Development Team uses the self-assessment tool in prioritising Partnership Programme applications, so it's in your best interest to keep your entries up to date!
 :::
 
-# RAP: Conclusions
-
-## RAP myth-busting
-
-- <span style="color:#f67400;">**Myth**</span>: **Applying RAP principles will reduce output quality as computers can't perform as well as humans with experience**
-- <span style="color:#f67400;">**Reality**</span>: RAP is about using computers to do the things they're good at (speeding up repetitive processes), so humans can do the things they're good at (critical thinking and quality assurance based on knowledge and context). It's about making the best use of both.
-
-<br>
-
-- <span style="color:#f67400;">**Myth**</span>: **Once our project has achieved the RAP standards, it'll be perfect**
-- <span style="color:#f67400;">**Reality**</span>: RAP is a set of best practice standards, but there are always ways to improve code efficiency. You should be looking to make continuous improvements to your processes where possible.
-
-
-## RAP myth-busting
-
-- <span style="color:#f67400;">**Myth**</span>: **If we move to RAP best practice, we'll have to rewrite all our SQL code into R**
-- <span style="color:#f67400;">**Reality**</span>: RAP is about using the best tool for the job. If you're using SQL and it's working for you, that's great, and there's no pressure to rewrite code if it's not necessary. We especially recommend using SQL for any heavy processing work with large datasets.
-
-<br>
-
-- <span style="color:#f67400;">**Myth**</span>: **RAP must be complicated and hugely time-consuming**
-- <span style="color:#f67400;">**Reality**</span>: Gradual, small changes towards best practice all add up - you don't have to change everything all at once! You have probably already made much more progress towards best practice than you realise.
-
-<br>
-
-- <span style="color:#f67400;">**Myth**</span>: **RAP is a barrier to innovation and creativity**
-- <span style="color:#f67400;">**Reality**</span>: RAP is just a framework that gives us a consistent way of doing analysis across government. It's about making sure that your code is transparent, repeatable and efficient. Tedious and time-consuming parts of processes are automated, so that you can therefore spend more time on the creative and innovative parts of your work.
-
 ## Exercise: assessing your publications
 
 Pick a publication that your team owns and consider how well it currently meets the RAP baseline expectations.
@@ -796,3 +758,13 @@ Pick a publication that your team owns and consider how well it currently meets 
 What steps could you realistically take to move further towards them (or exceed them!)?
 
 Use the print-out template to structure your thoughts and plans.
+
+
+<br>
+
+::: {.column width="25%"}
+:::
+
+::: {.column width="50%"}
+<div class="mxgraph" style="max-width: 100%; border: 1px solid transparent; position: relative; touch-action: none; overflow: hidden; margin-top: 26px; width: 999px; height: 494px;" data-mxgraph="{&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;<mxfile host=\&quot;app.diagrams.net\&quot; agent=\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0\&quot; version=\&quot;25.0.3\&quot;>\n  <diagram id=\&quot;_ltWYIdbVKAG_Xyvna0Y\&quot; name=\&quot;Page-1\&quot;>\n    <mxGraphModel dx=\&quot;1786\&quot; dy=\&quot;749\&quot; grid=\&quot;0\&quot; gridSize=\&quot;10\&quot; guides=\&quot;1\&quot; tooltips=\&quot;1\&quot; connect=\&quot;1\&quot; arrows=\&quot;1\&quot; fold=\&quot;1\&quot; page=\&quot;0\&quot; pageScale=\&quot;1\&quot; pageWidth=\&quot;827\&quot; pageHeight=\&quot;1169\&quot; math=\&quot;0\&quot; shadow=\&quot;0\&quot;>\n      <root>\n        <mxCell id=\&quot;0\&quot; />\n        <mxCell id=\&quot;1\&quot; parent=\&quot;0\&quot; />\n        <UserObject label=\&quot;Sensible folder and file structure\&quot; link=\&quot;#sensible-folder-and-file-structure\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-5\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;connectable=0;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;69\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Use appropriate tools\&quot; link=\&quot;#appropriate-tools\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-6\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;fillColor=#4472C4;spacingLeft=7;spacingRight=7;rounded=0;shadow=0;sketch=0;backgroundOutline=0;gradientDirection=north;strokeColor=none;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;-55\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Processing is done with code\&quot; link=\&quot;#processing-is-done-with-code\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-7\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;7\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Basic automated QA\&quot; link=\&quot;#basic-automated-qa\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-8\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;132\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;All source data stored in a database\&quot; link=\&quot;#all-source-data-stored-in-a-database\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-9\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;-118\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Files meet data standards\&quot; link=\&quot;../creating-statistics/ud.html#how-to-check-against-these-standards\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-10\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;-55\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Documentation\&quot; link=\&quot;#documentation\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-11\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;69\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Version controlled final code scripts\&quot; link=\&quot;#version-controlled-final-code-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-12\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;320\&quot; y=\&quot;327\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Recyclable code for future use\&quot; link=\&quot;#recyclable-code-for-future-use\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-13\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;195\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Dataset production scripts\&quot; link=\&quot;#dataset-production-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-14\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;257\&quot; y=\&quot;421\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Publication specific automated QA\&quot; link=\&quot;#publication-specific-automated-qa\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-15\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;382\&quot; y=\&quot;421\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Automated summaries\&quot; link=\&quot;#automated-summaries\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-17\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;194\&quot; y=\&quot;515\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Peer review of code within team\&quot; link=\&quot;#review-of-code-within-team\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-18\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;319\&quot; y=\&quot;515\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Collaboratively develop code using git\&quot; link=\&quot;#collaboratively-develop-code-using-git\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-19\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;674\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;&amp;#39;Clean&amp;#39; final code\&quot; link=\&quot;#clean-final-code\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-20\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;550\&quot; y=\&quot;326\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;&amp;lt;div style=&amp;quot;&amp;quot;&amp;gt;&amp;lt;font style=&amp;quot;font-size: 14px;&amp;quot;&amp;gt;Whole publication production scripts&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;\&quot; link=\&quot;#whole-publication-production-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-21\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;align=center;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;612\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Use open source repositories\&quot; link=\&quot;#use-open-source-repositories\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-22\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;737\&quot; y=\&quot;420\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Publication specific automated summaries\&quot; link=\&quot;#publication-specific-automated-summaries\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-23\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;550\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <UserObject label=\&quot;Peer review of code from outside the team\&quot; link=\&quot;#review-of-code-from-outside-the-team\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-24\&quot;>\n          <mxCell style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n            <mxGeometry x=\&quot;674\&quot; y=\&quot;514\&quot; width=\&quot;120\&quot; height=\&quot;120\&quot; as=\&quot;geometry\&quot; />\n          </mxCell>\n        </UserObject>\n        <mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-25\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#4472c4&amp;quot;&amp;gt;Good practice&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;-38\&quot; y=\&quot;652\&quot; width=\&quot;210\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-26\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#70ad47&amp;quot;&amp;gt;Great practice&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;206\&quot; y=\&quot;652\&quot; width=\&quot;220\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-27\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#ed7d31&amp;quot;&amp;gt;Best practice&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;572\&quot; y=\&quot;652\&quot; width=\&quot;200\&quot; height=\&quot;30\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-1\&quot; value=\&quot;\&quot; style=\&quot;shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;fontSize=13;rotation=90;strokeWidth=2;strokeColor=#4472c4;gradientColor=none;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;168.5\&quot; y=\&quot;26\&quot; width=\&quot;47\&quot; height=\&quot;538\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-2\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#4472c4&amp;quot;&amp;gt;Baseline expectation&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;35.5\&quot; y=\&quot;216\&quot; width=\&quot;313\&quot; height=\&quot;50\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-4\&quot; value=\&quot;\&quot; style=\&quot;shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;fontSize=13;rotation=90;strokeWidth=2;strokeColor=#ed7d31;gradientColor=none;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;659\&quot; y=\&quot;145\&quot; width=\&quot;47\&quot; height=\&quot;292\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-5\&quot; value=\&quot;&amp;lt;font color=&amp;quot;#ed7d31&amp;quot; style=&amp;quot;font-size: 32px&amp;quot;&amp;gt;Ambition&amp;lt;/font&amp;gt;\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; parent=\&quot;1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;612\&quot; y=\&quot;216\&quot; width=\&quot;143\&quot; height=\&quot;50\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n      </root>\n    </mxGraphModel>\n  </diagram>\n</mxfile>\n&quot;}"><svg style="left: 0px; top: 0px; width: 100%; height: 100%; display: block; min-width: 999px; min-height: 494px; background-image: none; background-color: transparent;"><defs><filter id="dropShadow"><feGaussianBlur in="SourceAlpha" stdDeviation="1.7" result="blur"></feGaussianBlur><feOffset in="blur" dx="3" dy="3" result="offsetBlur"></feOffset><feFlood flood-color="#3D4574" flood-opacity="0.4" result="offsetColor"></feFlood><feComposite in="offsetColor" in2="offsetBlur" operator="in" result="offsetBlur"></feComposite><feBlend in="SourceGraphic" in2="offsetBlur"></feBlend></filter></defs><g transformOrigin="0 0" transform="scale(1,1)translate(126,-208)"><g></g><g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 99 326 L 159 326 L 189 386 L 159 446 L 99 446 L 69 386 Z" fill="#4472c4" stroke="none" transform="rotate(90,129,386)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 386px; margin-left: 77px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Sensible folder and file structure</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M -25 326 L 35 326 L 65 386 L 35 446 L -25 446 L -55 386 Z" fill="#4472c4" stroke="none" transform="rotate(90,5,386)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 386px; margin-left: -47px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Use appropriate tools</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 37 420 L 97 420 L 127 480 L 97 540 L 37 540 L 7 480 Z" fill="#4472c4" stroke="none" transform="rotate(90,67,480)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 480px; margin-left: 15px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Processing is done with code</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 162 420 L 222 420 L 252 480 L 222 540 L 162 540 L 132 480 Z" fill="#4472c4" stroke="none" transform="rotate(90,192,480)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 480px; margin-left: 140px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Basic automated QA</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M -88 420 L -28 420 L 2 480 L -28 540 L -88 540 L -118 480 Z" fill="#4472c4" stroke="none" transform="rotate(90,-58,480)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 480px; margin-left: -110px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">All source data stored in a database</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M -25 514 L 35 514 L 65 574 L 35 634 L -25 634 L -55 574 Z" fill="#4472c4" stroke="none" transform="rotate(90,5,574)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 574px; margin-left: -47px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Files meet data standards</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 99 514 L 159 514 L 189 574 L 159 634 L 99 634 L 69 574 Z" fill="#4472c4" stroke="none" transform="rotate(90,129,574)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 574px; margin-left: 77px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Documentation</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 350 327 L 410 327 L 440 387 L 410 447 L 350 447 L 320 387 Z" fill="#70ad47" stroke="none" transform="rotate(90,380,387)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 387px; margin-left: 328px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Version controlled final code scripts</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 225 326 L 285 326 L 315 386 L 285 446 L 225 446 L 195 386 Z" fill="#70ad47" stroke="none" transform="rotate(90,255,386)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 386px; margin-left: 203px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Recyclable code for future use</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 287 421 L 347 421 L 377 481 L 347 541 L 287 541 L 257 481 Z" fill="#70ad47" stroke="none" transform="rotate(90,317,481)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 481px; margin-left: 265px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Dataset production scripts</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 412 421 L 472 421 L 502 481 L 472 541 L 412 541 L 382 481 Z" fill="#70ad47" stroke="none" transform="rotate(90,442,481)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 481px; margin-left: 390px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Publication specific automated QA</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 224 515 L 284 515 L 314 575 L 284 635 L 224 635 L 194 575 Z" fill="#70ad47" stroke="none" transform="rotate(90,254,575)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 575px; margin-left: 202px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Automated summaries</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 349 515 L 409 515 L 439 575 L 409 635 L 349 635 L 319 575 Z" fill="#70ad47" stroke="none" transform="rotate(90,379,575)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 575px; margin-left: 327px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Peer review of code within team</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 704 326 L 764 326 L 794 386 L 764 446 L 704 446 L 674 386 Z" fill="#ed7d31" stroke="none" transform="rotate(90,734,386)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 386px; margin-left: 682px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Collaboratively develop code using git</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 580 326 L 640 326 L 670 386 L 640 446 L 580 446 L 550 386 Z" fill="#ed7d31" stroke="none" transform="rotate(90,610,386)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 386px; margin-left: 558px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">'Clean' final code</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 642 420 L 702 420 L 732 480 L 702 540 L 642 540 L 612 480 Z" fill="#ed7d31" stroke="none" transform="rotate(90,672,480)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 480px; margin-left: 620px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;"><div style=""><font style="font-size: 14px;">Whole publication production scripts</font></div></div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 767 420 L 827 420 L 857 480 L 827 540 L 767 540 L 737 480 Z" fill="#ed7d31" stroke="none" transform="rotate(90,797,480)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 480px; margin-left: 745px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Use open source repositories</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible; cursor: pointer;"><path d="M 580 514 L 640 514 L 670 574 L 640 634 L 580 634 L 550 574 Z" fill="#ed7d31" stroke="none" transform="rotate(90,610,574)" pointer-events="all"></path></g><g style="cursor: pointer;"><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 574px; margin-left: 558px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Publication specific automated summaries</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><path d="M 704 514 L 764 514 L 794 574 L 764 634 L 704 634 L 674 574 Z" fill="#ed7d31" stroke="none" transform="rotate(90,734,574)" pointer-events="all"></path></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 104px; height: 1px; padding-top: 574px; margin-left: 682px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Peer review of code from outside the team</div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="-38" y="652" width="210" height="30" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="-38" y="652" width="210" height="30" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 667px; margin-left: 67px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: nowrap;"><font color="#4472c4" style="font-size: 32px">Good practice</font></div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="206" y="652" width="220" height="30" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="206" y="652" width="220" height="30" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 667px; margin-left: 316px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: nowrap;"><font color="#70ad47" style="font-size: 32px">Great practice</font></div></div></div></foreignObject></g></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="572" y="652" width="200" height="30" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="572" y="652" width="200" height="30" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 667px; margin-left: 672px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: nowrap;"><font color="#ed7d31" style="font-size: 32px">Best practice</font></div></div></div></foreignObject></g></g><g style="visibility: visible;"><path d="M 215.5 26 L 202 26 Q 192 26 192 36 L 192 285 Q 192 295 182 295 L 175.25 295 Q 168.5 295 178.5 295 L 185.25 295 Q 192 295 192 305 L 192 554 Q 192 564 202 564 L 215.5 564" fill="none" stroke="white" stroke-width="20" stroke-miterlimit="10" transform="rotate(90,192,295)" pointer-events="stroke" visibility="hidden"></path><path d="M 215.5 26 L 202 26 Q 192 26 192 36 L 192 285 Q 192 295 182 295 L 175.25 295 Q 168.5 295 178.5 295 L 185.25 295 Q 192 295 192 305 L 192 554 Q 192 564 202 564 L 215.5 564" fill="none" stroke="#4472c4" stroke-width="2" stroke-miterlimit="10" transform="rotate(90,192,295)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="35.5" y="216" width="313" height="50" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="35.5" y="216" width="313" height="50" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 241px; margin-left: 192px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: nowrap;"><font color="#4472c4" style="font-size: 32px">Baseline expectation</font></div></div></div></foreignObject></g></g><g style="visibility: visible;"><path d="M 706 145 L 692.5 145 Q 682.5 145 682.5 155 L 682.5 281 Q 682.5 291 672.5 291 L 665.75 291 Q 659 291 669 291 L 675.75 291 Q 682.5 291 682.5 301 L 682.5 427 Q 682.5 437 692.5 437 L 706 437" fill="none" stroke="white" stroke-width="20" stroke-miterlimit="10" transform="rotate(90,682.5,291)" pointer-events="stroke" visibility="hidden"></path><path d="M 706 145 L 692.5 145 Q 682.5 145 682.5 155 L 682.5 281 Q 682.5 291 672.5 291 L 665.75 291 Q 659 291 669 291 L 675.75 291 Q 682.5 291 682.5 301 L 682.5 427 Q 682.5 437 692.5 437 L 706 437" fill="none" stroke="#ed7d31" stroke-width="2" stroke-miterlimit="10" transform="rotate(90,682.5,291)" pointer-events="all"></path></g><g transform="translate(0.5,0.5)" style="visibility: visible;"><rect x="612" y="216" width="143" height="50" fill="none" stroke="white" pointer-events="stroke" visibility="hidden" stroke-width="19"></rect><rect x="612" y="216" width="143" height="50" fill="none" stroke="none" pointer-events="all"></rect></g><g style=""><g><foreignObject pointer-events="none" width="100%" height="100%" style="overflow: visible; text-align: left;"><div style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 241px; margin-left: 684px;"><div data-drawio-colors="color: #FFFFFF; " style="box-sizing: border-box; font-size: 0px; text-align: center;"><div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(255, 255, 255); line-height: 1.2; pointer-events: all; white-space: nowrap;"><font style="font-size: 32px" color="#ed7d31">Ambition</font></div></div></div></foreignObject></g></g></g><g></g><g></g></g></svg></div>
+:::

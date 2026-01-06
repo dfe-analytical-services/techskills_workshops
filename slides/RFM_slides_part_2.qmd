@@ -1,6 +1,6 @@
 ---
 title: "RAP and Technical Skills for Managers"
-subtitle: "Part 2: Using Git, DevOps and GitHub"
+subtitle: "Part 2: Git skills, technical L&D and finding support"
 institute: Department for Education
 format:
   revealjs: 
@@ -20,29 +20,27 @@ format:
 ## Advantages of Git over shared folders
 
 ::: {.fragment .fade-up}
--   **Version control:**
+-   **Effective version control:**
 
-    -   Avoid messy folders with multiple versions of files (file_v1, file_v2, file_final, file_final_FINAL...).
-    -   Prevents overwriting or losing work.
-    -   Ability to roll back to previous versions quickly.
+    -   Avoids messy folders with unclear versioning (file_v2, file_final, file_final_FINAL...).
+    -   Prevents overwriting or losing work and allows quick rollback to previous versions.
     -   Trial multiple methodologies without compromising the current version.
-    -   Robust change tracking (better continuity, transparency, auditability); view a file's history and see who made previous changes.
+    -   Robust change tracking; view a file's history and see who made previous changes.
 :::
 
 ::: {.fragment .fade-up}
 -   **Collaboration:** 
 
-    - Branching with Git is a safe and sensible way to work with parallel versions, avoiding duplication, that can eventually be *merged* into one cohesive, final version.
-    - Code is easy to share using Azure DevOps or GitHub.
-    - Easier, clearer, faster code QA via reviews and automated checks,
+    - Branching with Git is a safe and sensible way to work with parallel versions.
+    - Code is easy to share.
+    - Easier, clearer, faster code QA via reviews and automated checks.
 :::
 
 ::: {.fragment .fade-up}
 -   **Documentation**: 
 
-    - README files in shared folders can be easily lost, outdated, and are easy to avoid creating. 
-    - Git projects often automatically generate README.md files for you to complete, instantly providing documentation for anyone who opens the repo. 
-    - Using a *markdown* file instead of Word allows you to link to other pages or files and include code snippets.
+    - Git projects often automatically generate README files for you to complete. 
+    - Easily link to files and code snippets.
 :::
 
 ## Getting your team set up with Git
@@ -69,14 +67,21 @@ When you want to start working on a project that is already on GitHub or Azure D
 
 Open the link to the [RAP for managers repo](https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers), and clone it to your laptop following these instructions:
 
-    1. Click the "clone" button in the top right of the repo page
-    2. Copy the clone URL
-    3. Create a new folder called "repositories" outside your OneDrive folder
-    4. Open RStudio and click File -> New Project
-    5. Choose the Version Control option, then the Git option
-    6. Paste in the Repository URL, and the project directory name should self-populate
-    7. Click "Browse" and select your "repositories" folder to store the repo in
-    8. Click "Create project"
+::: {.column width="70%"}
+
+1. Click the "clone" button in the top right of the repo page
+2. Copy the clone URL
+3. Create a new folder called "repositories" in your C: drive, _outside your OneDrive folder_
+4. Open RStudio and click File -> New Project
+5. Choose the Version Control option, then the Git option
+6. Paste in the Repository URL, and the project directory name should self-populate
+7. Click "Browse" and select your "repositories" folder to store the repo in
+8. Click "Create project"
+:::
+
+::: {.column width="30%"}
+![](images/git_clone.png){fig-align="right" width="100%"}
+:::
     
 You should now have a copy of the repo on your laptop, and the project should be open in RStudio ready to use!
 
@@ -88,6 +93,8 @@ Your `main` or `master` branch should be the most up-to-date working version. If
 
 Let's create our own branches:
 
+::: {.column width="80%"}
+
 1. In RStudio, find the Git panel in the top right window
 2. Find the icon with 2 purple boxes connected by a diamond - this is the "new branch" icon
 2. Ensure that the branch name to the right of this icon is "master"
@@ -95,6 +102,12 @@ Let's create our own branches:
 5. Click "Create"
 6. In RStudio, click the green arrow in the Git panel to push up your new branch to the global repo
     
+:::
+
+::: {.column width="20%"}
+![](images/git_branch.png){fig-align="right" width="100%"}
+:::
+
 Your own new branch should be created, and your branch name should now show in the Git panel.
 
 ## Git commands: pull, commit, push
@@ -128,6 +141,12 @@ If you are the partner making changes, switch to your partner's branch:
 1. Click the blue arrow in the Git panel to pull down everyone else's branches onto your laptop
 2. Click on your branch name in the Git panel, and select your partner's branch from the drop-down
 
+<br>
+
+::: {.column width="100%"}
+![](images/git_pull.png){fig-align="center" width="30%"}
+:::
+
 ## Git commands: pull, commit, push
 
 Next, make and commit a change to the `01_load_data.R` file in the `R` folder:
@@ -139,63 +158,10 @@ Next, make and commit a change to the `01_load_data.R` file in the `R` folder:
 5. Click the "Commit" icon, write a commit message, e.g. "add code to read in csv file", and click "Commit"
 6. Finally, push up your changes to the global repo by clicking the green arrow in the Git panel
 
-<br>
-
+::: {.column width="100%"}
+![](images/git_push.png){fig-align="center" width="30%"}
+:::
 Now, if your partner pulls down the latest changes, and opens the `01_load_data.R` file, it should contain the new line of code.
-
-# Working in repos: good practice
-
-## Documentation: README file
-
-::: fragment
--   You will see a README file on each repository. READMEs should be filled in by your team to help someone familiarise themselves with the repo, any access requirements, contributing guidelines, run instructions, and contact details in case the user runs into issues.
-:::
-
-::: fragment
--   [The dfeR package](https://dfe-analytical-services.github.io/dfeR/reference/create_project.html) contains a README template, and we have information on how to populate it on the [Analysts Guide](https://dfe-analytical-services.github.io/analysts-guide/RAP/rap-statistics.html#writing-a-readme-file)
-:::
-
-::: fragment
--   During RAP audits, we check the contents of the repo's README to ensure that it is detailed enough
-:::
-
-::: fragment
--   If you're using a public GitHub repo, the contents of the README will also be public, so carefully consider what information you include there
-:::
-
-## README file expectations
-
-::: fragment
-Your README should contain the following information (but you can always add more!):
-:::
-
-::: fragment
--   Introduction: explain the purpose of the code
-:::
-
-::: fragment
--   Requirements: which databases do you need access to so that you can run the code? How do you get that access? Is the project being managed using `renv`? What skills do you need to run the code?
-:::
-
-::: fragment
--   Getting started: describe the expected input data and where it can be found, as well as what output you expect from the code
-:::
-
-::: fragment
--   How to run and update: do any lines of code need updating before the code is run? If so, list them here. Outline the process for contributing to the repo, updating the code, or raising issues
-:::
-
-::: fragment
--   Contact details: list the names and contact information of the people who maintain the repo, as well as any support channels
-:::
-
-## Branch management 
-
-- A new branch should be created for any updates to your code
-- Branch names should be clear & descriptive - avoid basing on your own name (even though we did today!)
-- A branch should handle contained, well-defined and finite updates
-- It is possible to merge branches without using pull requests but this should be avoided
-- Branches should be deleted where they are no longer needed
 
 # Pull requests
 
@@ -205,201 +171,181 @@ When someone has finished all of the development work in their branch, they will
 
 To merge these changes, they should create a *pull request*. This is a request for someone else to review their changes and approve them before they are merged into the working version of the code, i.e. the code in the main branch.
 
-::: fragment
--   They offer a way to do transparent code QA, easily referencing specific lines or chunks of code. Any comments added to a pull request are saved in the history of a repo, so you can always go back and confirm whether you asked for certain changes, and check when and how the changes were made.
-:::
+-   Pull requests allow for transparent code QA and lines or chunks of code can be easily referenced. 
 
-::: fragment
--   When someone creates a pull request they should add a reviewer (this will often be you). The reviewer will receive an email notification to let then know that their review has been requested.
-:::
+-   Comments added to pull requests are saved in the history of a repo, so you can always go back and review them.
+
+When someone creates a pull request they should add a reviewer (this will often be you). The reviewer will receive an email notification to let then know that their review has been requested.
 
 ## Creating your own pull request
 
-In this example, we will mirror the changes made to either your or your partner's branch, in the other's branch too. The partner who made the changes should do the following:
+In this example, we will mirror the changes made to one partner's branch in the other's branch too. 
 
-1. Open the [repo link](https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers) to view the global repo in DevOps
+The partner who made the changes should do the following:
+
+::: {.column width="70%"}
+1. Open the [RAP for managers repo](https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers) in DevOps
 2. On the left navigation bar, under "Repos", click on "Pull requests"
 3. Click "New pull request", select your branch (the one with the changes made to it) as the source branch, and select your partner's branch to merge into
 4. Add your partner as a required reviewer
 5. Click "Create"
+:::
 
-The other partner, whose branch was changed, should receive an email notification requesting their review of the code. Once happy the code is correct, they can "approve" and "complete" the pull request, and the changes will then be reflected in the other partner's branch.
+::: {.column width="30%"}
+![](images/pull_requests.png){fig-align="center" width="60%"}
+:::
+
+The other partner, whose branch was changed, should receive an email notification requesting their review of the code. Once satisfied the code is correct, they can "approve" and "complete" the pull request, and the changes will then be reflected in the other partner's branch.
 
 ## What should I include in a pull request?
 
-::: fragment
--   It is up to the person requesting review to include sufficient detail in their PR.
+-   It is up to the person requesting review to include sufficient detail.
+-   Ideally you should be able to pick up a pull request and know exactly what to check without asking for any more information!
+-   You might wish to set a pull request template on your repo to encourage people to add all required information:
+
+::: {.column width="100%"}
+![](images/github-pr-template.png){fig-align="center" width="30%"}
 :::
 
-::: fragment
--   The ideal scenario is that you should be able to pick up a PR and know exactly what you need to check without asking the person who wrote the code for any more information!
-:::
-
-::: fragment
--   You might wish to set a PR template on your repo to encourage people to add all the information that any potential reviewers might need:
-:::
-
-::: fragment
-![](images/github-pr-template.png){width="30%"}
-:::
-
-## Recommended work flow
+## Recommended PR work flow
 There should always be at least two team members available to work on a pipeline (and in general, any piece of analysis)
 
-- One team member member makes updates to the code in a new branch away from `main`
-- Once all changes have been committed and pushed to the shared repo this team member creates a pull request to merge their updates into the target branch (usually `main`)
-- An independent team member is added as a reviewer and they receive a notification
-- The reviewer completes any QA checks, adding comments on the PR to highlight issues and recommended changes
-- The team member who made the original updates makes any further updates required to resolve these issues and implement recommendations they agree with, committing and pushing them up to the shared repo
-- The reviewer then re-reviews the code and approves the PR if they are happy to
-- The team member who updated the code completes and closes the PR, deleting their branch as appropriate
-- The target branch now reflects the team member's approved updates
+::: {.column width="100%"}
+![](images/Flowchart.png){fig-align="center" width="90%"}
+:::
 
-## Using automated testing
+# Git repos: good practice
 
-- Testing is a way to verify that your code works as intended - relevant to the verification pillar of the QA framework.
-- There is a whole range of different types of testing that can be applied. [DfE's Good Code Practice guidance](https://dfe-analytical-services.github.io/good-code-practice/index.html) has more info on testing types.
-- Testing should be automated as much as possible and should be run wherever your code has been changed. Catching errors quickly makes them faster and easier to fix!
+## README file
+
+Every repo has a README file with all necessary instructions someone new to the code would need to use it.
+
+Your README should contain at least the following information:
+
+-   Introduction: explain the purpose of the code
+-   Requirements: ouline database access and technical skills required
+-   Getting started: describe the input data and where it can be found, as well as the expected outputs
+-   How to run and update: outline contribution guidelines, code update processes and how to raise issues
+-   Contact details: contact information of anyone maintaining the repo, and any support channels
+
+[The dfeR package](https://dfe-analytical-services.github.io/dfeR/reference/create_project.html) contains a README template, and we have information on how to populate it on the [Analysts Guide](https://dfe-analytical-services.github.io/analysts-guide/RAP/rap-statistics.html#writing-a-readme-file)
+
+## Branch management 
+
+To ensure you are using best practice in Git branching:
+
+- A new branch should be created for any updates to your code
+- Branch names should be clear & descriptive - avoid basing on your own name (even though we did today!)
+- A branch should handle contained, well-defined and finite updates
+- Avoid merging branches without using pull requests
+- Branches should be deleted where they are no longer needed
+
+## Automated testing
+
+Testing is a way to verify that your code works as intended - relevant to the verification pillar of the QA framework.
+
+- There are a whole range of different types of testing; see [DfE's Good Code Practice guidance](https://dfe-analytical-services.github.io/good-code-practice/index.html) for more info on testing types.
+- Testing should be automated as much as possible and should be run wherever your code has been changed; catching errors quickly makes them faster and easier to fix!
 - Pull requests can be set up to require automated tests to pass before they can be completed.
 
 # Quality assurance: reviewing code
 
-## Why code reviews are important
-
-Code reviews are a fundamental part of applying the Department's Quality Assurance (QA) framework to RAPs.
-
-::: {.fragment .fade-up}
--   **Ensure Quality**: Catch issues early, reduce bugs.
-:::
-
-::: {.fragment .fade-up}
--   **Share Knowledge**: Improve team skills and understanding.
-:::
-
-::: {.fragment .fade-up}
--   **Encourage Collaboration**: Foster teamwork and better practices.
-:::
-
 ## How to approach a code review
 
-::: {.fragment .fade-up}
-1.  **Understand the Context**:
-    -   Read the PR description and associated documentation.
-    -   Run the code locally if necessary (check that it works!)
-:::
+Code reviews are a fundamental part of applying the QA framework to RAPs and encourage knowledge-sharing within teams.
 
-::: {.fragment .fade-up}
-2.  **Be Constructive**:
-    -   Suggest alternatives instead of just pointing out problems.
-    -   Add comments or questions to specific lines.
-:::
+<!-- ::: {.column width="49%"} -->
+<!-- 1.  **Understand the context**: -->
+<!--     -   Read the PR description and associated documentation. -->
+<!--     -   Ask questions if you are unclear. -->
+<!--     -   Run the code yourself to check that it works. -->
 
-::: {.fragment .fade-up}
-3.  **Praise and Critique**:
-    -   Highlight good practices.
-    -   Explain why changes are needed.
-    -   Ask questions where you require clarity - chances are if you don't understand something, then others looking at it won't either! This is a sign that documentation or comments need improving!
-:::
+<!-- 2.  **Try to be genuinely helpful**: -->
+<!--     -   Add clear, detailed comments. -->
+<!--     -   Explain why changes are needed. -->
+<!--     -   Reference specific lines of code. -->
+<!--     -   Suggest solutions as well as highlighting problems. -->
 
-------------------------------------------------------------------------
+<!-- ::: -->
 
-## How to see what has changed
+<!-- ::: {.column width="2%"} -->
+<!-- ::: -->
 
-::: fragment
--   When viewing a pull request, you'll be able to see where new lines or characters have been added to the pre-existing code (shown in green), or whether lines or characters have been deleted (shown in red). You'll only be shown files that have been changed as part of that PR, so don't worry if some files aren't visible.
-:::
+<!-- ::: {.column width="49%"} -->
+<!-- 3.  **Be constructive**: -->
+<!--     -   Highlight good practices. -->
+<!--     -   Don't be afraid to point out all issues. -->
+<!--     -   Suggest any optional improvements. -->
+<!--     -   Be polite, appreciative and kind. -->
 
-::: fragment
-![](images/pull-request-changed-lines.png)
+<!-- ::: -->
+
+::: {.column width="100%"}
+![](images/code_review.png){fig-align="center" width="80%"}
 :::
 
 ## Things to look for
 
-<!-- e.g. check the code for things that don't make sense, is the logic clear, do hardcoded things look correct, do you understand the intention of the code  -->
+1.  **Correctness**: Does the code do what it's supposed to do? Are there any bugs or errors?
 
-::: {.fragment .fade-up}
-1.  **Correctness**: Does the code do what it's supposed to do? Are there any bugs or errors (e.g. an incorrect or missing filter)?
-:::
+2.  **Clarity**: Is the code easy to understand? Do you understand its intention? Is the logic clear?
 
-::: {.fragment .fade-up}
-2.  **Readability**: Is the code easy to understand? Is the logic clear? Do you understand the intention of the code?
-:::
+3.  **Maintainability**: Is the code easy to update in the future? 
 
-::: {.fragment .fade-up}
-3.  **Maintainability**: Is the code easy to update in the future? Are there hard-coded values that will need changing in future spread throughout (bad practice), or are all variables that will change stored in one obvious place?
-:::
+4.  **Performance**: Is the code efficient and optimal? Are there any unnecessary steps?
 
-::: {.fragment .fade-up}
-4.  **Performance**: Is the code efficient? Are there any unnecessary steps or loops? Can you see repetitive code that could be made into a function?
-:::
+5.  **Documentation**: Are there comments and documentation where needed? Are they clear and helpful?
 
-::: {.fragment .fade-up}
-5.  **Documentation**: Are there comments and documentation where needed? Are they clear and helpful? If you don't understand a decision or piece of code, ask for clarification! The likelihood is that others will also be confused by it and it needs additional comments or documentation.
+You have two options when reviewing a pull request:
+
+-   Approve: this means that you're happy with all the above and you agree for the changes to be merged into the working version, overwriting the files that have been changed in this pull request.
+
+-   Comment: this means that you request changes to the code, and it'll be sent back to the person who raised the pull request so that they can make any fixes.
+
+## See what has changed
+
+<br>
+
+-   When viewing a pull request, you'll be able to see where lines of code have been added (shown in green) or deleted (shown in red). 
+-   Only files that have changed will be shown within the PR, so don't worry if some files aren't visible.
+
+<br>
+ 
+::: {.column width="100%"}
+![](images/pull-request-changed-lines.png){fig-align="center"}
 :::
 
 
 ## Adding comments to code scripts
 
-::: fragment
--   On Azure DevOps, if you hover over a line of code, you'll see the comment icon appear next to the line number. Click on it to add a review comment to that specific line of code
+It's easy to add comments onto specific lines of code by hovering over that line and clicking on the comment icon:
+
+::: {.column width="50%"}
+![Azure DevOps](images/adding-comments-to-pr.png){fig-align="left" width="450"}
 :::
 
-::: fragment
-![](images/adding-comments-to-pr.png){width="328" height="98"}
+::: {.column width="50%"}
+![GitHub](images/adding-comments-to-pr-github.png){fig-align="left" width="450"}
 :::
 
-::: fragment
--   On GitHub, the process is the same, but the comment icon looks like a blue + symbol instead:
+You can also add overall comments using the comment box on a pull request:
+
+::: {.column width="50%"}
+![Azure DevOps](images/devops-add-overall-comment.png){fig-align="left" width="800"}
 :::
 
-::: fragment
-![](images/adding-comments-to-pr-github.png){width="328"}
+::: {.column width="50%"}
+![GitHub](images/github-overall-comment.png){fig-align="left" width="800"}
 :::
 
-## Adding general comments
+## Reviewing as a manager
 
-::: fragment
-You can also add overall comments on a pull request, rather than leaving comments on specific lines of code.
-:::
-
-::: fragment
--   On Azure DevOps, the comment box is at the bottom of the pull request page and looks like this:
-:::
-
-::: fragment
-![](images/devops-add-overall-comment.png)
-:::
-
-::: fragment
--   On GitHub, the comment box is underneath the PR description box and looks like this:
-:::
-
-::: fragment
-![](images/github-overall-comment.png)
-:::
-
-## Requesting changes or approving
-
-::: fragment
-When you've finished your review, you have two options:
-:::
-
-::: fragment
--   Approve the PR - this means that you're happy with everything and you agree for the current branch to be merged into the main branch. This will overwrite the files in the main branch that have been changed as part of this PR
-:::
-
-::: fragment
--   Comment on the PR - this means that you've requested changes to the code, and it'll be sent back to the person who raised the PR so that they can make the requested fixes
-:::
-
-
-## Reviewing alongside other team members
-As a manager you are likely to be less in the technical detail of your team's code and analysis but should often still be involved in the review process.
+As a manager you are likely to be less in the technical detail of your team's code but should often still be involved in the review process.
 
 Managers need to be efficient with their own, and their team's time. It may not be optimal for you to worry about every technical detail.
 
-- You might delegate technical reviews of code to a team member while simultaneously reviewing from a higher-level, more general perspective.
-- You can sense check the general changes being made without understanding whether they have technically been applied correctly.
+- You might delegate technical code reviews while simultaneously reviewing from a higher-level, more general perspective.
+- You can sense check the general changes without understanding their technical correctness.
 - You could request brief, top-level summaries for your own QA, and more detailed & in-depth QA documentation for the technical reviewer. 
 - The team should be clear on the responsibilities of each reviewer to ensure everything is covered between you.
 
@@ -425,7 +371,7 @@ processed_data <- student_data %>%
 ::: {.fragment .fade-up}
 **Review Comment**:
 
-> *I’m unclear on why the threshold is hard-coded to 80 here. Please could you add a comment explaining its significance and whether it will change in future, to help future maintainers understand the code?*
+> *I’m unclear on why the threshold is hard-coded to 80 here. Please could you add a comment explaining its significance and whether it will change in future?*
 :::
 ::::
 
@@ -564,7 +510,7 @@ write.csv(average_scores, "average_scores_2023.csv", row.names = FALSE)
 ::: {.fragment .fade-up}
 **Review Comment**:
 
-> *The year `2023` is hard-coded in several places. Please can you define the year as a variable at the top of the script. This will allow you to update the year in one place, making the code easier to maintain and reuse for future years.*
+> *The year `2023` is hard-coded in several places. Please can you define the year as a variable at the top of the script so the code is easier to maintain in future years?*
 :::
 ::::
 
@@ -598,7 +544,11 @@ write.csv(average_scores, paste0("average_scores_", analysis_year, ".csv"), row.
 
 Lara has created a branch `feat/aggregate_data.R` in the RAP for managers repo, with the aim of adding all necessary code to aggregate the student input data and suppress any small values. 
 
-As she has finished developing this extra code she has created a [pull request](https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers/pullrequest/41414) and requested your review before she merges it into the `master` branch.
+As she has finished developing this extra code she has created a [pull request](https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers/pullrequest/41414) and requested your review before she merges it into the master branch.
+
+::: {.column width="100%"}
+![](images/lara_pr.png){fig-align="center" width="30%"}
+:::
 
 Work in pairs to review her pull request - note down any issues, recommendations or improvements you would highlight to her.
 
@@ -606,7 +556,9 @@ Hint: it is always a good idea to try to run the code yourself when reviewing a 
 
 <br>
 
-*Bonus*: There are six letters scattered through the repository. Can you work out what they spell?
+<br>
+
+*Bonus: There are six letters scattered through the repository. Can you work out what they spell?*
 
 ## Review an example pull request: possible suggestions
 
@@ -627,45 +579,55 @@ Here are some examples of issues we would highlight to her:
 
 # Speaker session
 
+::: {.column width="60%"}
 Isabel Ruckelshauss, Skills Policy Analysis
 
 - 10 minute talk: upskilling self and team in R, Git and Azure DevOps
 - 10 minute Q&A
+:::
 
-# Learning & development, support and resources
+::: {.column width="40%"}
+![](images/speaker_image.jpg){fig-align="left" width="30%"}
+:::
 
-## Making time for technical learning & development
+# L&D, support and resources
+
+## Making time for technical L&D
+
+<br>
 
 Finding time to upskill yourself and your team can be difficult. 
 
-What challenges do you and your team face with this?
+> -   What challenges do you and your team face with this?
+> -   How could you overcome those challenges?
 
-How could you overcome those challenges?
-
+::: {.fragment .fade-up}
 Tips our own teams have found helpful:
 
 - Block out weekly / fortnightly / monthly time in team calendars dedicated to learning a specific skill
-- Block out a full / half day for yourself well in advance and be strict about being "out of office"
-- Sign up to instructor-led courses rather than relying solely on your commitment to yourself
-- Shape your day-to-day work around a new technical skill; e.g. how could you incorporate R coding into a simple process?
+- Block out a full or half day for yourself well in advance and be strict about being "out of office"
+- Sign up to instructor-led courses rather than relying solely on commitment to yourself
+- Shape your day-to-day work around a new technical skill; e.g. how could you incorporate R coding into a simple process you use regularly?
+:::
 
 ## Where to get support
 
 - [Statistics Development Team](mailto: statistics.development@education.gov.uk): for general support with technical advice, learning & development and RAP
 - [RAP champions](https://educationgovuk.sharepoint.com/sites/lvewp00487): for RAP advice more tailored to your team's work area and context
 - [Partnership Programme](https://dfe-analytical-services.github.io/analysts-guide/learning-development/learning-support.html#partnership-programmes): for support with technical upskilling or additional resource to RAP your analysis or apply best practice
-- Statistics Services Unit's Intro to R and Intro to Git [technical workshops](https://dfe-analytical-services.github.io/analysts-guide/learning-development/learning-support.html#technical-workshops)
-- [Analysts Guide](https://dfe-analytical-services.github.io/analysts-guide.html)
+- [Technical workshops](https://dfe-analytical-services.github.io/analysts-guide/learning-development/learning-support.html#technical-workshops) run by the Statistics Services Unit: Intro to R and Intro to Git
+- [Analysts' Guide](https://dfe-analytical-services.github.io/analysts-guide.html)
 - [Statistics Services Unit support offer](https://educationgovuk.sharepoint.com/sites/lveesfa00074/SSU%20%20Open%20sharing?newTargetListUrl=https%3A%2F%2Feducationgovuk%2Esharepoint%2Ecom%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing&id=%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing%2FSSU%20support%20%2D%20one%20pager%2FRoutes%20and%20support%20one%20pager%2Epdf&viewid=a3d9f08d%2D4fe8%2D4848%2D9157%2Dd7e09b43f701&parent=%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing%2FSSU%20support%20%2D%20one%20pager)
-- [DataCamp](https://www.datacamp.com/): request a license by emailing [Lisa Smyth](mailto:lisa.smyth@education.gov.uk)
-- [HoP Office knowledge share on L&D](https://educationgovuk.sharepoint.com/:f:/r/sites/lveesfa00074/SSU%20%20Open%20sharing/HoP%20office/HoP%20Knowledge%20share%20series/Session%204%20-%20L%26D%20and%20Recruitment?csf=1&web=1&e=RCPRwp)
+- [QA team](https://educationgovuk.sharepoint.com/sites/sarpi/g/SitePages/The-QA-Team.aspx)
+- [QA network](https://educationgovuk.sharepoint.com/sites/sarpi/g/SitePages/QA-Officers.aspx)
 
 ## Useful learning resources
 
-- [Codecademy course on Strategies for Managing Technical Teams](https://www.codecademy.com/learn/ext-courses/strategies-for-managing-technical-teams)
 - [Analysts Guide: Learning support](https://dfe-analytical-services.github.io/analysts-guide/learning-development/learning-support.html)
 - [Analysis Function training courses](https://analysisfunction.civilservice.gov.uk/training-courses/)
+- [DataCamp](https://www.datacamp.com/): request a license by emailing [Lisa Smyth](mailto:lisa.smyth@education.gov.uk)
 - [DfE Git Academy](https://dfe-analytical-services.github.io/git-academy/)
+- [Codecademy course on Strategies for Managing Technical Teams](https://www.codecademy.com/learn/ext-courses/strategies-for-managing-technical-teams)
 - [NHS-R Youtube, including intro to R courses](https://www.youtube.com/c/nhsrcommunity)
 - [Analysis Function RAP learning pathway](https://analysisfunction.civilservice.gov.uk/learning-development/learning-pathways/reproducible-analytical-pipelines-rap-learning-pathway/)
 - [HoP office knowledge shares](https://educationgovuk.sharepoint.com/:f:/r/sites/lveesfa00074/SSU%20%20Open%20sharing/HoP%20office/HoP%20Knowledge%20share%20series?csf=1&web=1&e=uefwXH)
