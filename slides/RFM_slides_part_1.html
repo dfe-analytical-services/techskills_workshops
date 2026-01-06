@@ -801,37 +801,33 @@ Peer review of code from outside the team
 <section id="rap-minimum-viable-product" class="slide level2">
 <h2>RAP minimum viable product</h2>
 <p>The <a href="https://github.com/best-practice-and-impact/rap_mvp_maturity_guidance/blob/master/Reproducible-Analytical-Pipelines-MVP.md#the-rap-minimum-viable-product">Analytical Function guidance</a> states that at a minimum a RAP must:</p>
-<div style="font-size: 75%;">
 <blockquote>
 
 <ul>
-<li><strong>Minimise manual steps</strong>, such as copy &amp; paste, point &amp; click, or drag &amp; drop operations.</li>
-<li>Be built using <strong>open source software</strong> available to anyone.</li>
-<li>Deepen technical and quality assurance processes with <strong>peer review</strong>.</li>
-<li>Guarantee an audit trail using <strong>version control software</strong>, preferably Git.</li>
-<li>Be <strong>open to anyone</strong> using file- and code-sharing platforms.</li>
-<li>Follow existing good practice for <strong>quality assurance</strong>.</li>
-<li>Contain well-commented code with embedded <strong>documentation</strong> version controlled within the product.</li>
+<li>Minimise manual steps</li>
+<li>Use open source software available to anyone</li>
+<li>Use peer review in quality assurance</li>
+<li>Use version control software, preferably Git</li>
+<li>Use file- and code-sharing platforms</li>
+<li>Follow existing good practice for quality assurance</li>
+<li>Contain well-commented code with embedded documentation</li>
 </ul>
 
 </blockquote>
-</div>
 <p>In the DfE we have our own good, great and best practice standards for RAP. Our minimum requirement is that everyone publishing statistics meets the baseline expectation.</p>
 </section>
 <section id="in-practice" class="slide level2">
 <h2>In practice</h2>
-<p>In practice, this roughly means:</p>
-<div style="font-size: 75%;">
+<p>Applying these minimum RAP requirements in DfE roughly means:</p>
 <ul>
-<li>All source data is stored in and pulled in from a database.</li>
-<li>All calculations and data manipulation are automated with code (preferably using R) and all scripts should be sourced from one central script.</li>
-<li>Processes should be well documented (with good comments!) and easy to understand.</li>
-<li>The code should require minimal edits to run, with variables defines in only one clear place.</li>
-<li>The code should be stored in a Git repository (public where appropriate), with a sensible file structure and a README document.</li>
-<li>QA tests and output summaries should be automated and generated on each run.</li>
-<li>For EES publications, final outputs produced by the code should pass all checks in the <a href="https://rsconnect/rsc/dfe-published-data-qa/">data screener</a>.</li>
+<li>All source data is stored in and pulled in from a database</li>
+<li>All calculations and data manipulation are automated with code (preferably using R) and all scripts should be sourced from one central script</li>
+<li>Processes should be well documented and easy to understand</li>
+<li>The code should require minimal edits to run, with variables defines in only one clear place</li>
+<li>The code should be stored in a Git repository (public where appropriate), with a sensible file structure and a README document</li>
+<li>QA tests and output summaries should be automated and generated on each run</li>
+<li>For EES publications, final outputs produced by the code should pass all checks in the <a href="https://rsconnect/rsc/dfe-published-data-qa/">data screener</a></li>
 </ul>
-</div>
 </section>
 <section id="structuring-the-rap-process" class="slide level2">
 <h2>Structuring the RAP process</h2>
@@ -840,7 +836,7 @@ Peer review of code from outside the team
 <p>Typically, processes can be broken down into the following structure:</p>
 <div class="quarto-figure quarto-figure-left">
 <figure>
-<p><img data-src="images/process_chunks.svg" style="width:80.0%"></p>
+<p><img data-src="images/dft_process.png" style="width:80.0%"></p>
 <figcaption>From the <a href="https://department-for-transport.github.io/strategic_reproducible_analysis/choosing-a-coding-approach.html#break-your-process-into-chunks">DfT Strategic Reproducible Analysis in Coding book</a></figcaption>
 </figure>
 </div>
@@ -853,29 +849,24 @@ Peer review of code from outside the team
 <ul>
 <li><em>Which sections offer the greatest benefits?</em></li>
 <li><em>Which sections have most potential for time-saving?</em></li>
-<li><em>Could improving RAP in any sections achieve a dual purpose?</em></li>
-<li><em>Are the dependencies between sections?</em></li>
-<li><em>Are any sections causing severe issues?</em></li>
+<li><em>Could improving RAP in a certain section achieve a dual purpose?</em></li>
+<li><em>Are there any dependencies between sections?</em></li>
+<li><em>Are any sections causing issues that need fixing?</em></li>
 </ul>
 
 </blockquote>
 </div></section>
-<section id="discussion" class="slide level2 scrollable">
+<section id="discussion" class="slide level2">
 <h2>Discussion</h2>
 <p>Imagine you are working to produce a report on the number of pupils in each school in England, discussing differences between school types, geographic regions etc.</p>
-<p>What would you change about this current process? Which changes would you do first?</p>
-<div style="font-size: 75%;">
-<ol type="1">
-<li><p>Ingest the raw data from a Databricks schema owned by another team in the department. You run SQL code within Databricks that aggregates to school level, then you copy and paste the aggregated data into Excel so you can get to work.</p></li>
-<li><p>The data is cleaned and transformed in Excel. The aggregated data is copied into a new sheet to clean it, filters are applied to remove schools outside of England, and some duplicates are removed/combined where certain schools have had name changes etc.</p></li>
-<li><p>The data is validated by checking the number of schools in your clean data against the number of schools in the raw data, and also by comparing it to last years figures and judging whether the changes look sensible. This is all done in some additional QA Excel sheets in the same workbook.</p></li>
-<li><p>The output figures are produced in Excel in some extra sheets. You copy and paste values from the validated data into new tables, using no formulas so they can’t break. You also add some pivot tables to find totals for different school types and geographies etc.</p></li>
-<li><p>The pivot tables are copied into new sheets and used to produce relevant charts in Excel.</p></li>
-<li><p>A commentary is written in Word, with some of the charts and tables copied in as images in from Excel.</p></li>
-<li><p>Once you have the report written up in Word, you copy the text across to EES.</p></li>
-</ol>
+<p>What would you change about this current process? Which changes would you make first?</p>
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/rap_discussion.png" class="quarto-figure quarto-figure-center" style="width:90.0%"></p>
+</figure>
 </div>
-</section></section>
+</div></section></section>
 <section>
 <section id="examples-of-quick-rap-wins" class="title-slide slide level1 center">
 <h1>Examples of quick RAP wins</h1>

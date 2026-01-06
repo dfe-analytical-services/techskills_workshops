@@ -405,32 +405,27 @@ Running the code without errors:
 
 The [Analytical Function guidance](https://github.com/best-practice-and-impact/rap_mvp_maturity_guidance/blob/master/Reproducible-Analytical-Pipelines-MVP.md#the-rap-minimum-viable-product) states that at a minimum a RAP must:
 
-:::::::::: {style="font-size: 75%;"}
-
-> -   **Minimise manual steps**, such as copy & paste, point & click, or drag & drop operations.
-> -   Be built using **open source software** available to anyone.
-> -   Deepen technical and quality assurance processes with **peer review**.
-> -   Guarantee an audit trail using **version control software**, preferably Git.
-> -   Be **open to anyone** using file- and code-sharing platforms.
-> -   Follow existing good practice for **quality assurance**.
-> -   Contain well-commented code with embedded **documentation** version controlled within the product.
-::::::::::
+> -   Minimise manual steps
+> -   Use open source software available to anyone
+> -   Use peer review in quality assurance
+> -   Use version control software, preferably Git
+> -   Use file- and code-sharing platforms
+> -   Follow existing good practice for quality assurance
+> -   Contain well-commented code with embedded documentation
 
 In the DfE we have our own good, great and best practice standards for RAP. Our minimum requirement is that everyone publishing statistics meets the baseline expectation.
 
 ## In practice
 
-In practice, this roughly means:
+Applying these minimum RAP requirements in DfE roughly means:
 
-:::::::: {style="font-size: 75%;"}
--   All source data is stored in and pulled in from a database.
--   All calculations and data manipulation are automated with code (preferably using R) and all scripts should be sourced from one central script.
--   Processes should be well documented (with good comments!) and easy to understand.
--   The code should require minimal edits to run, with variables defines in only one clear place.
--   The code should be stored in a Git repository (public where appropriate), with a sensible file structure and a README document.
--   QA tests and output summaries should be automated and generated on each run.
--   For EES publications, final outputs produced by the code should pass all checks in the [data screener](https://rsconnect/rsc/dfe-published-data-qa/).
-::::::::
+-   All source data is stored in and pulled in from a database
+-   All calculations and data manipulation are automated with code (preferably using R) and all scripts should be sourced from one central script
+-   Processes should be well documented and easy to understand
+-   The code should require minimal edits to run, with variables defines in only one clear place
+-   The code should be stored in a Git repository (public where appropriate), with a sensible file structure and a README document
+-   QA tests and output summaries should be automated and generated on each run
+-   For EES publications, final outputs produced by the code should pass all checks in the [data screener](https://rsconnect/rsc/dfe-published-data-qa/)
 
 ## Structuring the RAP process
 
@@ -439,7 +434,7 @@ In practice, this roughly means:
 ::: {.column width="45%"}
 Typically, processes can be broken down into the following structure:
 
-![From the [DfT Strategic Reproducible Analysis in Coding book](https://department-for-transport.github.io/strategic_reproducible_analysis/choosing-a-coding-approach.html#break-your-process-into-chunks)](images/process_chunks.svg){fig-align="left" width="80%"}
+![From the [DfT Strategic Reproducible Analysis in Coding book](https://department-for-transport.github.io/strategic_reproducible_analysis/choosing-a-coding-approach.html#break-your-process-into-chunks)](images/dft_process.png){fig-align="left" width="80%"}
 :::
 
 ::: {.column width="7%"}
@@ -450,9 +445,9 @@ Use the following to help you prioritise which to focus on first:
 
 > -   *Which sections offer the greatest benefits?*
 > -   *Which sections have most potential for time-saving?*
-> -   *Could improving RAP in any sections achieve a dual purpose?*
-> -   *Are the dependencies between sections?*
-> -   *Are any sections causing severe issues?*
+> -   *Could improving RAP in a certain section achieve a dual purpose?*
+> -   *Are there any dependencies between sections?*
+> -   *Are any sections causing issues that need fixing?*
 
 :::
 
@@ -460,22 +455,10 @@ Use the following to help you prioritise which to focus on first:
 
 Imagine you are working to produce a report on the number of pupils in each school in England, discussing differences between school types, geographic regions etc.
 
-What would you change about this current process? Which changes would you do first?
+What would you change about this current process? Which changes would you make first?
 
-::: {style="font-size: 75%;"}
-1.  Ingest the raw data from a Databricks schema owned by another team in the department. You run SQL code within Databricks that aggregates to school level, then you copy and paste the aggregated data into Excel so you can get to work.
-
-2.  The data is cleaned and transformed in Excel. The aggregated data is copied into a new sheet to clean it, filters are applied to remove schools outside of England, and some duplicates are removed/combined where certain schools have had name changes etc.
-
-3.  The data is validated by checking the number of schools in your clean data against the number of schools in the raw data, and also by comparing it to last years figures and judging whether the changes look sensible. This is all done in some additional QA Excel sheets in the same workbook.
-
-4.  The output figures are produced in Excel in some extra sheets. You copy and paste values from the validated data into new tables, using no formulas so they can't break. You also add some pivot tables to find totals for different school types and geographies etc.
-
-5.  The pivot tables are copied into new sheets and used to produce relevant charts in Excel.
-
-6.  A commentary is written in Word, with some of the charts and tables copied in as images in from Excel.
-
-7.  Once you have the report written up in Word, you copy the text across to EES.
+::: {.column width="100%"}
+![](images/rap_discussion.png){fig-align="center" width="90%"}
 :::
 
 # Examples of quick RAP wins
