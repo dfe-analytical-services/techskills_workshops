@@ -65,12 +65,11 @@ In the first part we will cover:
 ::: {.column width="50%"}
 The second part will cover:
 
-- Git basics
-- Working in Git repositories
+- Git basics & good practice
 - Pull requests
 - Quality assuring code
-- Speaker session with Q&A
-- Learning & development, support & resources
+- Speaker session on technical upskilling
+- Technical L&D, support & resources
 :::
 
 ## Initial knowledge check
@@ -229,27 +228,15 @@ We have set up a live Q&A session - feel free to submit questions [here](https:/
 
 ## What is a RAP?
 
-::: {.fragment .fade-up}
 **R**eproducible **A**nalytical **P**ipelines are about having well-documented, reusable processes when analysing data, and ensuring they are transparent.
-:::
 
 <br>
 
-::: {.fragment .fade-up}
 We already have *analytical pipelines* but RAP specifically aims to:
-:::
 
-::: {.fragment .fade-up}
--   Automate all of the parts that we can, e.g. rather than entering a hard-coded date repeatedly throughout your code, instead use one date variable that can be changed and reused throughout
-:::
-
-::: {.fragment .fade-up}
--   Increase efficiency and accuracy by reducing the risk of human error, and ensuring calculations are done identically each time where possible
-:::
-
-::: {.fragment .fade-up}
--   Create a clear audit trail using code and documentation to allow analysis to be easily reused where needed, e.g. for routine publications or frequent PQ and FOI requests
-:::
+-   <span style="color:#f67400;">Automate all of the parts that we can</span>, e.g. rather than entering a hard-coded date repeatedly throughout your code, instead use one date variable that can be changed and reused throughout
+-   <span style="color:#f67400;">Increase efficiency and accuracy</span> by reducing the risk of human error, and ensuring calculations are done identically each time where possible
+-   <span style="color:#f67400;">Create a clear audit trail</span> using code and documentation to allow analysis to be easily reused where needed, e.g. for routine publications or frequent PQ and FOI requests
 
 ## RAP principles
 
@@ -436,33 +423,13 @@ In the DfE we have our own good, great and best practice standards for RAP. Our 
 In practice, this roughly means:
 
 :::::::: {style="font-size: 75%;"}
-::: {.fragment .fade-up}
 -   All source data is stored in and pulled in from a database.
-:::
-
-::: {.fragment .fade-up}
 -   All calculations and data manipulation are automated with code (preferably using R) and all scripts should be sourced from one central script.
-:::
-
-::: {.fragment .fade-up}
 -   Processes should be well documented (with good comments!) and easy to understand.
-:::
-
-::: {.fragment .fade-up}
 -   The code should require minimal edits to run, with variables defines in only one clear place.
-:::
-
-::: {.fragment .fade-up}
 -   The code should be stored in a Git repository (public where appropriate), with a sensible file structure and a README document.
-:::
-
-::: {.fragment .fade-up}
 -   QA tests and output summaries should be automated and generated on each run.
-:::
-
-::: {.fragment .fade-up}
 -   For EES publications, final outputs produced by the code should pass all checks in the [data screener](https://rsconnect/rsc/dfe-published-data-qa/).
-:::
 ::::::::
 
 ## Structuring the RAP process
@@ -732,24 +699,16 @@ Using this template could provide you with a report like that seen on the right.
 
 The [RAP self-assessment tool](https://rsconnect/rsc/publication-self-assessment/) allows statistics producers to assess themselves against the department's RAP standards.
 
-::: {.fragment .fade-up}
 You should have entries for <span style="color:#f67400;">**every statistics publication**</span> you manage, and these should be updated:
 
  -   **When you make updates to your processes** that change your responses, or
  -   **at least once a year** if you've made no changes.
-:::
 
-::: {.fragment .fade-up}
 Your entries inform our picture of RAP progress across the department, which is shared with analytical leadership and the Statistics HoP.
-:::
 
-::: {.fragment .fade-up}
 You can monitor your team's progress by viewing 'RAP progress by area' and 'Overview of latest responses'.
-:::
 
-::: {.fragment .fade-up}
 The Statistics Development Team uses the self-assessment tool in prioritising Partnership Programme applications, so it's in your best interest to keep your entries up to date!
-:::
 
 ## Exercise: assessing your publications
 
