@@ -205,8 +205,8 @@
 
 </section>
 <section>
-<section id="git-introduction" class="title-slide slide level1 center">
-<h1>Git: Introduction</h1>
+<section id="git-the-basics" class="title-slide slide level1 center">
+<h1>Git: The basics</h1>
 
 </section>
 <section id="advantages-of-git-over-shared-folders" class="slide level2">
@@ -242,25 +242,6 @@
 </ul>
 </div>
 </section>
-<section id="getting-your-team-set-up-with-git" class="slide level2">
-<h2>Getting your team set up with Git</h2>
-<p>Your team members will need to download Git (x64) from the Software Centre - this is the Git software.</p>
-<p>You’ll need to decide whether to host your repository on DevOps or GitHub, and everyone in your team will need to create an account on that platform:</p>
-<ul>
-<li><p><strong>Azure DevOps:</strong> Fill in the <a href="https://dfe.service-now.com/serviceportal?id=sc_cat_item&amp;sys_id=5447e6e91bdbbb802fe864606e4bcba4">DevOps IT service request form</a> - see the <a href="https://dfe-analytical-services.github.io/azure-devops-for-analysis/devops---the-basics.html#getting-a-devops-account">help page on how to fill in the DevOps IT request</a> if you need support filling it in.</p></li>
-<li><p><strong>GitHub:</strong> Just <a href="https://github.com/">create your own GitHub account</a>, no IT support needed! You should use your work email address for GitHub accounts you will use at work.</p></li>
-</ul>
-<p>You should then create a repository for your project:</p>
-<ul>
-<li><p><strong>Azure DevOps:</strong> It is likely your work area already has a DevOps project; if so, you should request access from the project owner. If not you can use the same IT service request form as for creating an account to create a new project. Within your area’s DevOps project, you can then create a new repo for your specific work.</p></li>
-<li><p><strong>GitHub:</strong> Contact the <a href="mailto:%20explore.statistics@education.gov.uk">EES mailbox</a> to request access to the <a href="https://github.com/dfe-analytical-services">dfe-analytical-services</a> organisation, and to set up a new GitHub repo.</p></li>
-</ul>
-</section></section>
-<section>
-<section id="git-basics-an-exercise" class="title-slide slide level1 center">
-<h1>Git basics: an exercise</h1>
-
-</section>
 <section id="git-commands-clone" class="slide level2 scrollable">
 <h2>Git commands: clone</h2>
 <p>When you want to start working on a project that is already on GitHub or Azure DevOps, you need to <em>clone</em> the repository. This means creating a copy on your local machine.</p>
@@ -284,8 +265,8 @@
 </div>
 </div><p>You should now have a copy of the repo on your laptop, and the project should be open in RStudio ready to use!</p>
 </section>
-<section id="git-commands-branches" class="slide level2 scrollable">
-<h2>Git commands: branches</h2>
+<section id="git-commands-branch" class="slide level2 scrollable">
+<h2>Git commands: branch</h2>
 <p>Branches in Git are like parallel universes of code.</p>
 <p>Your <code>main</code> or <code>master</code> branch should be the most up-to-date working version. If you want to make updates or develop new features, you should <strong>create a new branch</strong>, which copies whichever parent branch you choose.</p>
 <p>Let’s create our own branches:</p>
@@ -309,12 +290,25 @@
 <section id="git-commands-pull-commit-push" class="slide level2 scrollable">
 <h2>Git commands: pull, commit, push</h2>
 <p>Once you’ve cloned a repo, <em>pull, commit, push</em> are the three main commands you will use in Git:</p>
+<div class="column" style="width:100%;">
 <ul>
 <li><code>Pull:</code> Get the latest changes from the global repo</li>
 <li><code>Commit:</code> Record your changes to the local repo</li>
 <li><code>Push:</code> Send your changes to the global repo</li>
 </ul>
-<p>A typical workflow would be:</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/git_pull.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="images/git_push.png" class="quarto-figure quarto-figure-left" style="width:60.0%"></p>
+</figure>
+</div>
+</div><p>A typical workflow would be:</p>
 <ol type="1">
 <li>Open the project on your laptop</li>
 <li>Pull to ensure that any changes made to the global repo by others are mirrored in your local repo</li>
@@ -322,44 +316,6 @@
 <li>Commit your saved changes, including a useful <em>commit message</em> to explain what you have done</li>
 <li>Push your changes to the global repo when you’re ready for others to see and work with them</li>
 </ol>
-</section>
-<section id="git-commands-pull-commit-push-1" class="slide level2 scrollable">
-<h2>Git commands: pull, commit, push</h2>
-<p>Let’s have a go at making some simple changes to the repo!</p>
-<p><br></p>
-<p>Partner up with someone else. One of you will make changes to the other’s branch - decide who this will be.</p>
-<p><br></p>
-<p>If you are the partner making changes, switch to your partner’s branch:</p>
-<ol type="1">
-<li>Click the blue arrow in the Git panel to pull down everyone else’s branches onto your laptop</li>
-<li>Click on your branch name in the Git panel, and select your partner’s branch from the drop-down</li>
-</ol>
-<p><br></p>
-<div class="column" style="width:100%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/git_pull.png" class="quarto-figure quarto-figure-center" style="width:30.0%"></p>
-</figure>
-</div>
-</div></section>
-<section id="git-commands-pull-commit-push-2" class="slide level2 scrollable">
-<h2>Git commands: pull, commit, push</h2>
-<p>Next, make and commit a change to the <code>01_load_data.R</code> file in the <code>R</code> folder:</p>
-<ol type="1">
-<li>Open the file in RStudio</li>
-<li>Paste in <code>student_results &lt;- read_csv("01_data/01_raw/some_student_results.csv")</code> under the last comment</li>
-<li>Save the <code>01_load_data.R</code> file</li>
-<li>In the Git panel, click the checkbox next to the file you’ve changed to “stage” it for your commit</li>
-<li>Click the “Commit” icon, write a commit message, e.g.&nbsp;“add code to read in csv file”, and click “Commit”</li>
-<li>Finally, push up your changes to the global repo by clicking the green arrow in the Git panel</li>
-</ol>
-<div class="column" style="width:100%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/git_push.png" class="quarto-figure quarto-figure-center" style="width:30.0%"></p>
-</figure>
-</div>
-</div><p>Now, if your partner pulls down the latest changes, and opens the <code>01_load_data.R</code> file, it should contain the new line of code.</p>
 </section></section>
 <section>
 <section id="pull-requests" class="title-slide slide level1 center">
@@ -375,26 +331,6 @@
 <li><p>Comments added to pull requests are saved in the history of a repo, so you can always go back and review them.</p></li>
 </ul>
 <p>When someone creates a pull request they should add a reviewer (this will often be you). The reviewer will receive an email notification to let then know that their review has been requested.</p>
-</section>
-<section id="creating-your-own-pull-request" class="slide level2 scrollable">
-<h2>Creating your own pull request</h2>
-<p>In this example, we will mirror the changes made to one partner’s branch in the other’s branch too.</p>
-<p>The partner who made the changes should do the following:</p>
-<div class="column" style="width:70%;">
-<ol type="1">
-<li>Open the <a href="https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers">RAP for managers repo</a> in DevOps</li>
-<li>On the left navigation bar, under “Repos”, click on “Pull requests”</li>
-<li>Click “New pull request”, select your branch (the one with the changes made to it) as the source branch, and select your partner’s branch to merge into</li>
-<li>Add your partner as a required reviewer</li>
-<li>Click “Create”</li>
-</ol>
-</div><div class="column" style="width:30%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/pull_requests.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
-</figure>
-</div>
-</div><p>The other partner, whose branch was changed, should receive an email notification requesting their review of the code. Once satisfied the code is correct, they can “approve” and “complete” the pull request, and the changes will then be reflected in the other partner’s branch.</p>
 </section>
 <section id="what-should-i-include-in-a-pull-request" class="slide level2">
 <h2>What should I include in a pull request?</h2>
@@ -466,26 +402,6 @@
 <section id="how-to-approach-a-code-review" class="slide level2">
 <h2>How to approach a code review</h2>
 <p>Code reviews are a fundamental part of applying the QA framework to RAPs and encourage knowledge-sharing within teams.</p>
-<!-- ::: {.column width="49%"} -->
-<!-- 1.  **Understand the context**: -->
-<!--     -   Read the PR description and associated documentation. -->
-<!--     -   Ask questions if you are unclear. -->
-<!--     -   Run the code yourself to check that it works. -->
-<!-- 2.  **Try to be genuinely helpful**: -->
-<!--     -   Add clear, detailed comments. -->
-<!--     -   Explain why changes are needed. -->
-<!--     -   Reference specific lines of code. -->
-<!--     -   Suggest solutions as well as highlighting problems. -->
-<!-- ::: -->
-<!-- ::: {.column width="2%"} -->
-<!-- ::: -->
-<!-- ::: {.column width="49%"} -->
-<!-- 3.  **Be constructive**: -->
-<!--     -   Highlight good practices. -->
-<!--     -   Don't be afraid to point out all issues. -->
-<!--     -   Suggest any optional improvements. -->
-<!--     -   Be polite, appreciative and kind. -->
-<!-- ::: -->
 <div class="column" style="width:100%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -504,58 +420,10 @@
 </ol>
 <p>You have two options when reviewing a pull request:</p>
 <ul>
-<li><p>Approve: this means that you’re happy with all the above and you agree for the changes to be merged into the working version, overwriting the files that have been changed in this pull request.</p></li>
-<li><p>Comment: this means that you request changes to the code, and it’ll be sent back to the person who raised the pull request so that they can make any fixes.</p></li>
+<li><p><span style="color:#70ad47;">Approve</span>: this means that you’re happy with all the above and you agree for the changes to be merged into the working version, overwriting the files that have been changed in this pull request.</p></li>
+<li><p><span style="color:#f67400;">Comment</span>: this means that you request changes to the code, and it’ll be sent back to the person who raised the pull request so that they can make any fixes.</p></li>
 </ul>
 </section>
-<section id="see-what-has-changed" class="slide level2">
-<h2>See what has changed</h2>
-<p><br></p>
-<ul>
-<li>When viewing a pull request, you’ll be able to see where lines of code have been added (shown in green) or deleted (shown in red).</li>
-<li>Only files that have changed will be shown within the PR, so don’t worry if some files aren’t visible.</li>
-</ul>
-<p><br></p>
-<div class="column" style="width:100%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/pull-request-changed-lines.png" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-</div></section>
-<section id="adding-comments-to-code-scripts" class="slide level2">
-<h2>Adding comments to code scripts</h2>
-<p>It’s easy to add comments onto specific lines of code by hovering over that line and clicking on the comment icon:</p>
-<div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="images/adding-comments-to-pr.png" width="450"></p>
-<figcaption>Azure DevOps</figcaption>
-</figure>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="images/adding-comments-to-pr-github.png" width="450"></p>
-<figcaption>GitHub</figcaption>
-</figure>
-</div>
-</div><p>You can also add overall comments using the comment box on a pull request:</p>
-<div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="images/devops-add-overall-comment.png" width="800"></p>
-<figcaption>Azure DevOps</figcaption>
-</figure>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="images/github-overall-comment.png" width="800"></p>
-<figcaption>GitHub</figcaption>
-</figure>
-</div>
-</div></section>
 <section id="reviewing-as-a-manager" class="slide level2">
 <h2>Reviewing as a manager</h2>
 <p>As a manager you are likely to be less in the technical detail of your team’s code but should often still be involved in the review process.</p>
@@ -608,51 +476,21 @@
 </div>
 </div>
 </section>
-<section id="example-correcting-filter-error" class="slide level2">
-<h2>Example: correcting filter error</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># Filter out students over 18</span></span>
-<span id="cb3-2"><a href=""></a>cleaned_data <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a href=""></a>  <span class="fu">filter</span>(age <span class="sc">&gt;</span> <span class="dv">18</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-4"><a href=""></a><span class="co"># Calculate average score by subject for students under 18</span></span>
-<span id="cb3-5"><a href=""></a>  <span class="fu">group_by</span>(subject) <span class="sc">%&gt;%</span></span>
-<span id="cb3-6"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_score =</span> <span class="fu">mean</span>(score), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div style="font-size: 75%;">
-<div class="fragment fade-up">
-<p><strong>Review Comment</strong>:</p>
-<blockquote>
-<p><em>The comment on line 1 suggests that students over 18 should be filtered out, but the code <code>filter(age &gt; 18)</code> keeps students over 18 instead of removing them. I think the filter condition should be <code>filter(age &lt;= 18)</code>.</em></p>
-</blockquote>
-</div>
-</div>
-<div class="fragment fade-up">
-<p><strong>Suggested Revision</strong>:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Filter out students over 18</span></span>
-<span id="cb4-2"><a href=""></a>cleaned_data <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
-<span id="cb4-3"><a href=""></a>  <span class="fu">filter</span>(age <span class="sc">&lt;=</span> <span class="dv">18</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb4-4"><a href=""></a><span class="co"># Calculate average score by subject for students under 18</span></span>
-<span id="cb4-5"><a href=""></a>  <span class="fu">group_by</span>(subject) <span class="sc">%&gt;%</span></span>
-<span id="cb4-6"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_score =</span> <span class="fu">mean</span>(score), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</section>
 <section id="example-using-functions-in-place-of-repetitive-code" class="slide level2">
 <h2>Example: using functions in place of repetitive code</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># Calculate weighted average score by subject</span></span>
-<span id="cb5-2"><a href=""></a>maths_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
-<span id="cb5-3"><a href=""></a>  <span class="fu">filter</span>(subject <span class="sc">==</span> <span class="st">"Maths"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb5-4"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb5-5"><a href=""></a></span>
-<span id="cb5-6"><a href=""></a>science_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
-<span id="cb5-7"><a href=""></a>  <span class="fu">filter</span>(subject <span class="sc">==</span> <span class="st">"Science"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb5-8"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb5-9"><a href=""></a></span>
-<span id="cb5-10"><a href=""></a>english_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
-<span id="cb5-11"><a href=""></a>  <span class="fu">filter</span>(subject <span class="sc">==</span> <span class="st">"English"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb5-12"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># Calculate weighted average score by subject</span></span>
+<span id="cb3-2"><a href=""></a>maths_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href=""></a>  <span class="fu">filter</span>(subject <span class="sc">==</span> <span class="st">"Maths"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-4"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb3-5"><a href=""></a></span>
+<span id="cb3-6"><a href=""></a>science_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb3-7"><a href=""></a>  <span class="fu">filter</span>(subject <span class="sc">==</span> <span class="st">"Science"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-8"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb3-9"><a href=""></a></span>
+<span id="cb3-10"><a href=""></a>english_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb3-11"><a href=""></a>  <span class="fu">filter</span>(subject <span class="sc">==</span> <span class="st">"English"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-12"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div style="font-size: 75%;">
 <div class="fragment fade-up">
@@ -665,68 +503,23 @@
 <div class="fragment fade-up">
 <p><strong>Suggested Revision</strong>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Define a function to calculate the weighted average score</span></span>
-<span id="cb6-2"><a href=""></a>calculate_weighted_score <span class="ot">&lt;-</span> <span class="cf">function</span>(data, subject_name) {</span>
-<span id="cb6-3"><a href=""></a>  data <span class="sc">%&gt;%</span></span>
-<span id="cb6-4"><a href=""></a>    <span class="fu">filter</span>(subject <span class="sc">==</span> subject_name) <span class="sc">%&gt;%</span></span>
-<span id="cb6-5"><a href=""></a>    <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb6-6"><a href=""></a>}</span>
-<span id="cb6-7"><a href=""></a></span>
-<span id="cb6-8"><a href=""></a><span class="co"># Calculate weighted average score by subject</span></span>
-<span id="cb6-9"><a href=""></a>maths_scores <span class="ot">&lt;-</span> <span class="fu">calculate_weighted_score</span>(student_data, <span class="st">"Maths"</span>)</span>
-<span id="cb6-10"><a href=""></a>science_scores <span class="ot">&lt;-</span> <span class="fu">calculate_weighted_score</span>(student_data, <span class="st">"Science"</span>)</span>
-<span id="cb6-11"><a href=""></a>english_scores <span class="ot">&lt;-</span> <span class="fu">calculate_weighted_score</span>(student_data, <span class="st">"English"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</section>
-<section id="example-removing-hard-coding" class="slide level2">
-<h2>Example: removing hard-coding</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># Calculate average score by subject for 2023</span></span>
-<span id="cb7-2"><a href=""></a>average_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
-<span id="cb7-3"><a href=""></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2023</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb7-4"><a href=""></a>  <span class="fu">group_by</span>(subject) <span class="sc">%&gt;%</span></span>
-<span id="cb7-5"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_score =</span> <span class="fu">mean</span>(score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
-<span id="cb7-6"><a href=""></a></span>
-<span id="cb7-7"><a href=""></a><span class="co"># Display a summary message for 2023</span></span>
-<span id="cb7-8"><a href=""></a><span class="fu">paste0</span>(<span class="st">"The average scores by subject for the year 2023 are as follows:"</span>)</span>
-<span id="cb7-9"><a href=""></a>average_scores</span>
-<span id="cb7-10"><a href=""></a></span>
-<span id="cb7-11"><a href=""></a><span class="co"># Save the 2023 results to a CSV</span></span>
-<span id="cb7-12"><a href=""></a><span class="fu">write.csv</span>(average_scores, <span class="st">"average_scores_2023.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div style="font-size: 75%;">
-<div class="fragment fade-up">
-<p><strong>Review Comment</strong>:</p>
-<blockquote>
-<p><em>The year <code>2023</code> is hard-coded in several places. Please can you define the year as a variable at the top of the script so the code is easier to maintain in future years?</em></p>
-</blockquote>
-</div>
-</div>
-<div class="fragment fade-up">
-<p><strong>Suggested Revision</strong>:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># Define the analysis year</span></span>
-<span id="cb8-2"><a href=""></a>analysis_year <span class="ot">&lt;-</span> <span class="dv">2023</span>  <span class="co"># Update this each year</span></span>
-<span id="cb8-3"><a href=""></a></span>
-<span id="cb8-4"><a href=""></a><span class="co"># Calculate average score by subject for the analysis year</span></span>
-<span id="cb8-5"><a href=""></a>average_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
-<span id="cb8-6"><a href=""></a>  <span class="fu">filter</span>(year <span class="sc">==</span> analysis_year) <span class="sc">%&gt;%</span></span>
-<span id="cb8-7"><a href=""></a>  <span class="fu">group_by</span>(subject) <span class="sc">%&gt;%</span></span>
-<span id="cb8-8"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_score =</span> <span class="fu">mean</span>(score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
-<span id="cb8-9"><a href=""></a></span>
-<span id="cb8-10"><a href=""></a><span class="co"># Create a summary message for the analysis year</span></span>
-<span id="cb8-11"><a href=""></a><span class="fu">paste0</span>(<span class="st">"The average scores by subject for the year "</span>, analysis_year, <span class="st">" are as follows:"</span>)</span>
-<span id="cb8-12"><a href=""></a>average_scores</span>
-<span id="cb8-13"><a href=""></a></span>
-<span id="cb8-14"><a href=""></a><span class="co"># Save the results to a CSV</span></span>
-<span id="cb8-15"><a href=""></a><span class="fu">write.csv</span>(average_scores, <span class="fu">paste0</span>(<span class="st">"average_scores_"</span>, analysis_year, <span class="st">".csv"</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Define a function to calculate the weighted average score</span></span>
+<span id="cb4-2"><a href=""></a>calculate_weighted_score <span class="ot">&lt;-</span> <span class="cf">function</span>(data, subject_name) {</span>
+<span id="cb4-3"><a href=""></a>  data <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="fu">filter</span>(subject <span class="sc">==</span> subject_name) <span class="sc">%&gt;%</span></span>
+<span id="cb4-5"><a href=""></a>    <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-6"><a href=""></a>}</span>
+<span id="cb4-7"><a href=""></a></span>
+<span id="cb4-8"><a href=""></a><span class="co"># Calculate weighted average score by subject</span></span>
+<span id="cb4-9"><a href=""></a>maths_scores <span class="ot">&lt;-</span> <span class="fu">calculate_weighted_score</span>(student_data, <span class="st">"Maths"</span>)</span>
+<span id="cb4-10"><a href=""></a>science_scores <span class="ot">&lt;-</span> <span class="fu">calculate_weighted_score</span>(student_data, <span class="st">"Science"</span>)</span>
+<span id="cb4-11"><a href=""></a>english_scores <span class="ot">&lt;-</span> <span class="fu">calculate_weighted_score</span>(student_data, <span class="st">"English"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
 <section id="review-an-example-pull-request" class="slide level2">
 <h2>Review an example pull request</h2>
-<p>Lara has created a branch <code>feat/aggregate_data.R</code> in the RAP for managers repo, with the aim of adding all necessary code to aggregate the student input data and suppress any small values.</p>
+<p>Lara has created a branch <code>feat/aggregate_data.R</code> in the RAP for managers repo, with the aim of adding all necessary code to load student input data, aggregate it and suppress any small values.</p>
 <p>As she has finished developing this extra code she has created a <a href="https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers/pullrequest/41414">pull request</a> and requested your review before she merges it into the master branch.</p>
 <div class="column" style="width:100%;">
 <div class="quarto-figure quarto-figure-center">
@@ -759,11 +552,10 @@
 <section id="speaker-session" class="title-slide slide level1 center">
 <h1>Speaker session</h1>
 <div class="column" style="width:60%;">
-<p>Isabel Ruckelshauss, Skills Policy Analysis</p>
-<ul>
-<li>10 minute talk: upskilling self and team in R, Git and Azure DevOps</li>
-<li>10 minute Q&amp;A</li>
-</ul>
+<p>Upskilling in R and Git, from a manager’s perspective</p>
+<p><em>Isabel Ruckelshauss, Skills Policy Analysis</em></p>
+<p><br> <br></p>
+<p>Please ask Isabel any questions!</p>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-left">
 <figure>
@@ -799,8 +591,8 @@
 </ul>
 </div>
 </section>
-<section id="where-to-get-support" class="slide level2">
-<h2>Where to get support</h2>
+<section id="where-to-get-support-for-you-and-your-team" class="slide level2">
+<h2>Where to get support for you and your team</h2>
 <ul>
 <li><a href="mailto:%20statistics.development@education.gov.uk">Statistics Development Team</a>: for general support with technical advice, learning &amp; development and RAP</li>
 <li><a href="https://educationgovuk.sharepoint.com/sites/lvewp00487">RAP champions</a>: for RAP advice more tailored to your team’s work area and context</li>
