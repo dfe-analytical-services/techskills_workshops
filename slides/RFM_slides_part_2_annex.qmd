@@ -112,6 +112,8 @@ The other partner, whose branch was changed, should receive an email notificatio
 
 ## Branch management 
 
+## Naming branches and commit messages
+
 ## Automated testing
 
 # Quality assurance: reviewing code

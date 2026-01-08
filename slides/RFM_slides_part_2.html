@@ -348,11 +348,11 @@
 </div></section>
 <section id="recommended-pr-work-flow" class="slide level2">
 <h2>Recommended PR work flow</h2>
-<p>There should always be at least two team members available to work on a pipeline (and in general, any piece of analysis)</p>
+<p>There should usually be at least two team members available to work on a pipeline (and in general, any piece of analysis). For low-risk analysis, as QA should be proportionate, this may be unnecessary - but pull requests should still be created for an audit trail regardless!</p>
 <div class="column" style="width:100%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/Flowchart.png" class="quarto-figure quarto-figure-center" style="width:90.0%"></p>
+<p><img data-src="images/Flowchart.png" class="quarto-figure quarto-figure-center" style="width:78.0%"></p>
 </figure>
 </div>
 </div></section></section>
@@ -372,17 +372,36 @@
 <li>How to run and update: outline contribution guidelines, code update processes and how to raise issues</li>
 <li>Contact details: contact information of anyone maintaining the repo, and any support channels</li>
 </ul>
-<p><a href="https://dfe-analytical-services.github.io/dfeR/reference/create_project.html">The dfeR package</a> contains a README template, and we have information on how to populate it on the <a href="https://dfe-analytical-services.github.io/analysts-guide/RAP/rap-statistics.html#writing-a-readme-file">Analysts Guide</a></p>
+<p><a href="https://dfe-analytical-services.github.io/dfeR/reference/create_project.html">The dfeR package</a> contains a README template, and we have information on how to populate it on the <a href="https://dfe-analytical-services.github.io/analysts-guide/RAP/rap-statistics.html#writing-a-readme-file">Analysts’ Guide</a></p>
 </section>
 <section id="branch-management" class="slide level2">
 <h2>Branch management</h2>
 <p>To ensure you are using best practice in Git branching:</p>
 <ul>
 <li>A new branch should be created for any updates to your code</li>
-<li>Branch names should be clear &amp; descriptive - avoid basing on your own name (even though we did today!)</li>
+<li>Branch names should follow consistent, best practice naming conventions (more detail on the next slide!)</li>
 <li>A branch should handle contained, well-defined and finite updates</li>
 <li>Avoid merging branches without using pull requests</li>
 <li>Branches should be deleted where they are no longer needed</li>
+</ul>
+</section>
+<section id="naming-branches-and-commit-messages" class="slide level2">
+<h2>Naming branches and commit messages</h2>
+<p>You should follow consistent conventions when naming repo branches:</p>
+<ul>
+<li>Use prefixes to group similar branches, e.g.: <code>feature/</code>, <code>fix/</code></li>
+<li>Be descriptive, summarising branch purpose, e.g.: <code>feature/add_school_filter</code>, <code>fix/ethnicity_inconsistencies</code></li>
+<li>Lower case and use hyphens or underscores, e.g.: <code>fix/rounding_error</code> rather than <code>fix/RoundingError</code></li>
+<li>Include issue or ticket numbers, e.g.: <code>fix/issue_123</code></li>
+<li>Be concise, e.g.: NOT <code>feature/add_new_table_to_summarise_average_grade_by_pupil_ethnicity</code></li>
+<li>Avoid using your name (even though we did today!)</li>
+</ul>
+<p>Use these guidelines to ensure your commit messages are helpful:</p>
+<ul>
+<li>Use the imperative tone, e.g.: <code>Add feature</code> rather than <code>Adding/Added feature</code></li>
+<li>Keep it short, limiting to 150 characters if possible</li>
+<li>Explain the change and its reasoning, e.g.: <code>Define function to calculate subject mean to improve code efficiency</code></li>
+<li>Capitalise the first letter and don’t end with punctuation</li>
 </ul>
 </section>
 <section id="automated-testing" class="slide level2">

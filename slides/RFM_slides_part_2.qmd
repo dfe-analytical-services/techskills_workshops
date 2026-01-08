@@ -143,10 +143,10 @@ When someone creates a pull request they should add a reviewer (this will often 
 :::
 
 ## Recommended PR work flow
-There should always be at least two team members available to work on a pipeline (and in general, any piece of analysis)
+There should usually be at least two team members available to work on a pipeline (and in general, any piece of analysis). For low-risk analysis, as QA should be proportionate, this may be unnecessary - but pull requests should still be created for an audit trail regardless!
 
 ::: {.column width="100%"}
-![](images/Flowchart.png){fig-align="center" width="90%"}
+![](images/Flowchart.png){fig-align="center" width="78%"}
 :::
 
 # Git repos: good practice
@@ -163,17 +163,35 @@ Your README should contain at least the following information:
 -   How to run and update: outline contribution guidelines, code update processes and how to raise issues
 -   Contact details: contact information of anyone maintaining the repo, and any support channels
 
-[The dfeR package](https://dfe-analytical-services.github.io/dfeR/reference/create_project.html) contains a README template, and we have information on how to populate it on the [Analysts Guide](https://dfe-analytical-services.github.io/analysts-guide/RAP/rap-statistics.html#writing-a-readme-file)
+[The dfeR package](https://dfe-analytical-services.github.io/dfeR/reference/create_project.html) contains a README template, and we have information on how to populate it on the [Analysts' Guide](https://dfe-analytical-services.github.io/analysts-guide/RAP/rap-statistics.html#writing-a-readme-file)
 
-## Branch management 
+## Branch management
 
 To ensure you are using best practice in Git branching:
 
 - A new branch should be created for any updates to your code
-- Branch names should be clear & descriptive - avoid basing on your own name (even though we did today!)
+- Branch names should follow consistent, best practice naming conventions (more detail on the next slide!)
 - A branch should handle contained, well-defined and finite updates
 - Avoid merging branches without using pull requests
 - Branches should be deleted where they are no longer needed
+
+## Naming branches and commit messages
+
+You should follow consistent conventions when naming repo branches:
+
+- Use prefixes to group similar branches, e.g.: `feature/`, `fix/`
+- Be descriptive, summarising branch purpose, e.g.: `feature/add_school_filter`, `fix/ethnicity_inconsistencies`
+- Lower case and use hyphens or underscores, e.g.: `fix/rounding_error` rather than `fix/RoundingError`
+- Include issue or ticket numbers, e.g.: `fix/issue_123`
+- Be concise, e.g.: NOT `feature/add_new_table_to_summarise_average_grade_by_pupil_ethnicity`
+- Avoid using your name (even though we did today!)
+
+Use these guidelines to ensure your commit messages are helpful:
+
+- Use the imperative tone, e.g.: `Add feature` rather than `Adding/Added feature`
+- Keep it short, limiting to 150 characters if possible
+- Explain the change and its reasoning, e.g.: `Define function to calculate subject mean to improve code efficiency`
+- Capitalise the first letter and don't end with punctuation
 
 ## Automated testing
 
