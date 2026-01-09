@@ -4,6 +4,7 @@ subtitle: "Part 1: RAP principles"
 institute: Department for Education
 format:
   revealjs: 
+    embed-resources: true 
     theme: black
     highlight-style: breezedark
     code-overflow: wrap

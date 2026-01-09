@@ -4,6 +4,7 @@ subtitle: "Part 2: Git skills, technical L&D and finding support"
 institute: Department for Education
 format:
   revealjs: 
+    embed-resources: true 
     theme: black
     highlight-style: breezedark
     code-overflow: wrap
