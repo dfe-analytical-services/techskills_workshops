@@ -393,7 +393,7 @@ But my code isn't stored in Azure DevOps, so how can I easily share it...?
 
 ## How could RAP have avoided these issues?
 
-This scenario is exaggerated, but it's not far from what we see in many teams.
+This scenario is exaggerated, but it's not far from what we have seen on several occasions.
 
 <br>
 
@@ -470,7 +470,7 @@ Use the following to help you prioritise which to focus on first:
 
 > -   *Which sections offer the greatest benefits?*
 > -   *Which sections have most potential for time-saving?*
-> -   *Could improving RAP in a certain section achieve a dual purpose?*
+> -   *Could improving RAP in a certain section achieve a dual purpose, e.g. accessibility improvements?*
 > -   *Are there any dependencies between sections?*
 > -   *Are any sections causing issues that need fixing?*
 
@@ -478,12 +478,12 @@ Use the following to help you prioritise which to focus on first:
 
 ## Discussion
 
-Imagine you are working to produce a report on the number of pupils in each school in England, discussing differences between school types, geographic regions etc.
+Imagine your team produced a report last year on the number of pupils in each school in England, discussing differences between school types, geographic regions etc. This report needs to be reproduced with the latest year of data.
 
-What would you change about this current process? Which changes would you make first?
+What changes could you make to introduce RAP principles to the current process? Use the prioritisation prompts on the previous slide to consider which changes would you make first.
 
 ::: {.column width="100%"}
-![](images/rap_discussion.png){fig-align="center" width="90%"}
+![](images/rap_discussion.png){fig-align="center" width="84%"}
 :::
 
 # Examples of quick RAP wins
@@ -662,7 +662,14 @@ Use R to produce an automated QA report, commentary or briefing pack. This can b
 ::::: columns
 ::: {.column width="50%"}
 
-The Statistics Development Team have created an example QA report available in the [automated-data-qa repo](https://github.com/dfe-analytical-services/automated-data-qa). This template includes code snippets, which cover the minimum QA checks statistics production teams should be applying. The code snippets can be adjusted to apply the QA checks to your analysis specifically, to help you meet good RAP practice.  
+The Statistics Development Team have created an example QA report available in the [automated-data-qa repo](https://github.com/dfe-analytical-services/automated-data-qa). This template includes code snippets, covering the minimum QA checks statistics production teams should be applying. 
+
+It should _always_ be tailored to your specific analysis:
+
+- Is the QA proportionate and appropriate to the level of risk?
+- Is the report easily digestible by everyone reading it?
+- Are the checks the right ones for your policy context?
+- Would 2-layer QA be helpful, i.e., a detailed report for team members and a high-level report for you?
 
 Using this template could provide you with a report like that seen on the right.
 :::

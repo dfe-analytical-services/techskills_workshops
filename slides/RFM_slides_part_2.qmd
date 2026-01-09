@@ -134,13 +134,25 @@ When someone creates a pull request they should add a reviewer (this will often 
 
 ## What should I include in a pull request?
 
--   It is up to the person requesting review to include sufficient detail.
--   Ideally you should be able to pick up a pull request and know exactly what to check without asking for any more information!
--   You might wish to set a pull request template on your repo to encourage people to add all required information:
+It is up to the person requesting review to include sufficient detail. Ideally you should be able to pick up a pull request and know exactly what to check without asking for any more information!
 
-::: {.column width="100%"}
-![](images/github-pr-template.png){fig-align="center" width="30%"}
+<br>
+
+::: {.column width="40%"}
+A pull request should include:
+
+- A detailed description of the changes
+- Why the changes are required
+- How you have tested the changes
+- How the reviewer should test the changes
+- Links to any relevant issue tickets
 :::
+
+::: {.column width="60%"}
+![](images/github-pr-template.png){fig-align="center" width="60%"}
+:::
+
+You might wish to set a pull request template on your repo to encourage people to add all required information.
 
 ## Recommended PR work flow
 There should usually be at least two team members available to work on a pipeline (and in general, any piece of analysis). For low-risk analysis, as QA should be proportionate, this may be unnecessary - but pull requests should still be created for an audit trail regardless!
