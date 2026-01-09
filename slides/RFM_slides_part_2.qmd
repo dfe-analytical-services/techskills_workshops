@@ -197,9 +197,32 @@ Use these guidelines to ensure your commit messages are helpful:
 
 Testing is a way to verify that your code works as intended - relevant to the verification pillar of the QA framework.
 
-- There are a whole range of different types of testing; see [DfE's Good Code Practice guidance](https://dfe-analytical-services.github.io/good-code-practice/index.html) for more info on testing types.
+- There is a whole range of different types of testing; see [DfE's Good Code Practice guidance](https://dfe-analytical-services.github.io/good-code-practice/index.html) for more info on testing types.
 - Testing should be automated as much as possible and should be run wherever your code has been changed; catching errors quickly makes them faster and easier to fix!
 - Pull requests can be set up to require automated tests to pass before they can be completed.
+
+Example: Automated tests on the `pretty_num()` function in the dfeR package
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Test that function produces expected outputs
+test_that("pretties time", {
+  expect_equal(pretty_time(8), "8 seconds")
+  expect_equal(pretty_time(121), "2 minutes 1 second")
+  expect_equal(pretty_time(8008), "2 hours 13 minutes 28 seconds")
+})
+
+# Test that function produces error message for non-numeric input
+test_that("fails if not numeric", {
+  expect_error(
+    pretty_time("a"),
+    "Seconds must be a numeric value or vector of numeric values."
+  )
+})
+
+```
 
 # Quality assurance: reviewing code
 

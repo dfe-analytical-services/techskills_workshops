@@ -408,10 +408,27 @@
 <h2>Automated testing</h2>
 <p>Testing is a way to verify that your code works as intended - relevant to the verification pillar of the QA framework.</p>
 <ul>
-<li>There are a whole range of different types of testing; see <a href="https://dfe-analytical-services.github.io/good-code-practice/index.html">DfE’s Good Code Practice guidance</a> for more info on testing types.</li>
+<li>There is a whole range of different types of testing; see <a href="https://dfe-analytical-services.github.io/good-code-practice/index.html">DfE’s Good Code Practice guidance</a> for more info on testing types.</li>
 <li>Testing should be automated as much as possible and should be run wherever your code has been changed; catching errors quickly makes them faster and easier to fix!</li>
 <li>Pull requests can be set up to require automated tests to pass before they can be completed.</li>
 </ul>
+<p>Example: Automated tests on the <code>pretty_num()</code> function in the dfeR package</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Test that function produces expected outputs</span></span>
+<span id="cb1-2"><a href=""></a><span class="fu">test_that</span>(<span class="st">"pretties time"</span>, {</span>
+<span id="cb1-3"><a href=""></a>  <span class="fu">expect_equal</span>(<span class="fu">pretty_time</span>(<span class="dv">8</span>), <span class="st">"8 seconds"</span>)</span>
+<span id="cb1-4"><a href=""></a>  <span class="fu">expect_equal</span>(<span class="fu">pretty_time</span>(<span class="dv">121</span>), <span class="st">"2 minutes 1 second"</span>)</span>
+<span id="cb1-5"><a href=""></a>  <span class="fu">expect_equal</span>(<span class="fu">pretty_time</span>(<span class="dv">8008</span>), <span class="st">"2 hours 13 minutes 28 seconds"</span>)</span>
+<span id="cb1-6"><a href=""></a>})</span>
+<span id="cb1-7"><a href=""></a></span>
+<span id="cb1-8"><a href=""></a><span class="co"># Test that function produces error message for non-numeric input</span></span>
+<span id="cb1-9"><a href=""></a><span class="fu">test_that</span>(<span class="st">"fails if not numeric"</span>, {</span>
+<span id="cb1-10"><a href=""></a>  <span class="fu">expect_error</span>(</span>
+<span id="cb1-11"><a href=""></a>    <span class="fu">pretty_time</span>(<span class="st">"a"</span>),</span>
+<span id="cb1-12"><a href=""></a>    <span class="st">"Seconds must be a numeric value or vector of numeric values."</span></span>
+<span id="cb1-13"><a href=""></a>  )</span>
+<span id="cb1-14"><a href=""></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section></section>
 <section>
 <section id="quality-assurance-reviewing-code" class="title-slide slide level1 center">
@@ -457,16 +474,16 @@
 <section id="example-improving-comments" class="slide level2">
 <h2>Example: improving comments</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Create a dummy dataset</span></span>
-<span id="cb1-2"><a href=""></a>student_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-3"><a href=""></a>  <span class="at">student_id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
-<span id="cb1-4"><a href=""></a>  <span class="at">attendance =</span> <span class="fu">c</span>(<span class="dv">95</span>, <span class="dv">85</span>, <span class="dv">60</span>, <span class="dv">98</span>, <span class="dv">70</span>, <span class="dv">50</span>, <span class="dv">85</span>, <span class="dv">99</span>, <span class="dv">90</span>, <span class="dv">80</span>)</span>
-<span id="cb1-5"><a href=""></a>)</span>
-<span id="cb1-6"><a href=""></a></span>
-<span id="cb1-7"><a href=""></a><span class="co"># Create an attendance flag and filter to flagged students only</span></span>
-<span id="cb1-8"><a href=""></a>processed_data <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
-<span id="cb1-9"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">passed_threshold =</span> <span class="fu">if_else</span>(attendance <span class="sc">&gt;=</span> <span class="dv">80</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb1-10"><a href=""></a>  <span class="fu">filter</span>(passed_threshold <span class="sc">==</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="co"># Create a dummy dataset</span></span>
+<span id="cb2-2"><a href=""></a>student_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-3"><a href=""></a>  <span class="at">student_id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb2-4"><a href=""></a>  <span class="at">attendance =</span> <span class="fu">c</span>(<span class="dv">95</span>, <span class="dv">85</span>, <span class="dv">60</span>, <span class="dv">98</span>, <span class="dv">70</span>, <span class="dv">50</span>, <span class="dv">85</span>, <span class="dv">99</span>, <span class="dv">90</span>, <span class="dv">80</span>)</span>
+<span id="cb2-5"><a href=""></a>)</span>
+<span id="cb2-6"><a href=""></a></span>
+<span id="cb2-7"><a href=""></a><span class="co"># Create an attendance flag and filter to flagged students only</span></span>
+<span id="cb2-8"><a href=""></a>processed_data <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">passed_threshold =</span> <span class="fu">if_else</span>(attendance <span class="sc">&gt;=</span> <span class="dv">80</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-10"><a href=""></a>  <span class="fu">filter</span>(passed_threshold <span class="sc">==</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div style="font-size: 75%;">
 <div class="fragment fade-up">
@@ -479,37 +496,37 @@
 <div class="fragment fade-up">
 <p><strong>Suggested Revision</strong>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="co"># Create a dummy dataset</span></span>
-<span id="cb2-2"><a href=""></a>student_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb2-3"><a href=""></a>  <span class="at">student_id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
-<span id="cb2-4"><a href=""></a>  <span class="at">attendance =</span> <span class="fu">c</span>(<span class="dv">95</span>, <span class="dv">85</span>, <span class="dv">60</span>, <span class="dv">98</span>, <span class="dv">70</span>, <span class="dv">50</span>, <span class="dv">85</span>, <span class="dv">99</span>, <span class="dv">90</span>, <span class="dv">80</span>)</span>
-<span id="cb2-5"><a href=""></a>)</span>
-<span id="cb2-6"><a href=""></a></span>
-<span id="cb2-7"><a href=""></a><span class="co"># Define attendance threshold; 80 is the department's standard threshold for 'passing' attendance. This may vary in future with policy changes.</span></span>
-<span id="cb2-8"><a href=""></a>attendance_threshold <span class="ot">&lt;-</span> <span class="dv">80</span></span>
-<span id="cb2-9"><a href=""></a></span>
-<span id="cb2-10"><a href=""></a><span class="co"># Create an attendance flag and filter to flagged students only</span></span>
-<span id="cb2-11"><a href=""></a>processed_data <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
-<span id="cb2-12"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">passed_threshold =</span> <span class="fu">if_else</span>(attendance <span class="sc">&gt;=</span> attendance_threshold, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb2-13"><a href=""></a>  <span class="fu">filter</span>(passed_threshold <span class="sc">==</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># Create a dummy dataset</span></span>
+<span id="cb3-2"><a href=""></a>student_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-3"><a href=""></a>  <span class="at">student_id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb3-4"><a href=""></a>  <span class="at">attendance =</span> <span class="fu">c</span>(<span class="dv">95</span>, <span class="dv">85</span>, <span class="dv">60</span>, <span class="dv">98</span>, <span class="dv">70</span>, <span class="dv">50</span>, <span class="dv">85</span>, <span class="dv">99</span>, <span class="dv">90</span>, <span class="dv">80</span>)</span>
+<span id="cb3-5"><a href=""></a>)</span>
+<span id="cb3-6"><a href=""></a></span>
+<span id="cb3-7"><a href=""></a><span class="co"># Define attendance threshold; 80 is the department's standard threshold for 'passing' attendance. This may vary in future with policy changes.</span></span>
+<span id="cb3-8"><a href=""></a>attendance_threshold <span class="ot">&lt;-</span> <span class="dv">80</span></span>
+<span id="cb3-9"><a href=""></a></span>
+<span id="cb3-10"><a href=""></a><span class="co"># Create an attendance flag and filter to flagged students only</span></span>
+<span id="cb3-11"><a href=""></a>processed_data <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb3-12"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">passed_threshold =</span> <span class="fu">if_else</span>(attendance <span class="sc">&gt;=</span> attendance_threshold, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-13"><a href=""></a>  <span class="fu">filter</span>(passed_threshold <span class="sc">==</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
 <section id="example-using-functions-in-place-of-repetitive-code" class="slide level2">
 <h2>Example: using functions in place of repetitive code</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># Calculate weighted average score by subject</span></span>
-<span id="cb3-2"><a href=""></a>maths_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a href=""></a>  <span class="fu">filter</span>(subject <span class="sc">==</span> <span class="st">"Maths"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-4"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb3-5"><a href=""></a></span>
-<span id="cb3-6"><a href=""></a>science_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
-<span id="cb3-7"><a href=""></a>  <span class="fu">filter</span>(subject <span class="sc">==</span> <span class="st">"Science"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-8"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb3-9"><a href=""></a></span>
-<span id="cb3-10"><a href=""></a>english_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
-<span id="cb3-11"><a href=""></a>  <span class="fu">filter</span>(subject <span class="sc">==</span> <span class="st">"English"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-12"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Calculate weighted average score by subject</span></span>
+<span id="cb4-2"><a href=""></a>maths_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href=""></a>  <span class="fu">filter</span>(subject <span class="sc">==</span> <span class="st">"Maths"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-5"><a href=""></a></span>
+<span id="cb4-6"><a href=""></a>science_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb4-7"><a href=""></a>  <span class="fu">filter</span>(subject <span class="sc">==</span> <span class="st">"Science"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-8"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-9"><a href=""></a></span>
+<span id="cb4-10"><a href=""></a>english_scores <span class="ot">&lt;-</span> student_data <span class="sc">%&gt;%</span></span>
+<span id="cb4-11"><a href=""></a>  <span class="fu">filter</span>(subject <span class="sc">==</span> <span class="st">"English"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-12"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div style="font-size: 75%;">
 <div class="fragment fade-up">
@@ -522,17 +539,17 @@
 <div class="fragment fade-up">
 <p><strong>Suggested Revision</strong>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Define a function to calculate the weighted average score</span></span>
-<span id="cb4-2"><a href=""></a>calculate_weighted_score <span class="ot">&lt;-</span> <span class="cf">function</span>(data, subject_name) {</span>
-<span id="cb4-3"><a href=""></a>  data <span class="sc">%&gt;%</span></span>
-<span id="cb4-4"><a href=""></a>    <span class="fu">filter</span>(subject <span class="sc">==</span> subject_name) <span class="sc">%&gt;%</span></span>
-<span id="cb4-5"><a href=""></a>    <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb4-6"><a href=""></a>}</span>
-<span id="cb4-7"><a href=""></a></span>
-<span id="cb4-8"><a href=""></a><span class="co"># Calculate weighted average score by subject</span></span>
-<span id="cb4-9"><a href=""></a>maths_scores <span class="ot">&lt;-</span> <span class="fu">calculate_weighted_score</span>(student_data, <span class="st">"Maths"</span>)</span>
-<span id="cb4-10"><a href=""></a>science_scores <span class="ot">&lt;-</span> <span class="fu">calculate_weighted_score</span>(student_data, <span class="st">"Science"</span>)</span>
-<span id="cb4-11"><a href=""></a>english_scores <span class="ot">&lt;-</span> <span class="fu">calculate_weighted_score</span>(student_data, <span class="st">"English"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># Define a function to calculate the weighted average score</span></span>
+<span id="cb5-2"><a href=""></a>calculate_weighted_score <span class="ot">&lt;-</span> <span class="cf">function</span>(data, subject_name) {</span>
+<span id="cb5-3"><a href=""></a>  data <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href=""></a>    <span class="fu">filter</span>(subject <span class="sc">==</span> subject_name) <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href=""></a>    <span class="fu">summarise</span>(<span class="at">weighted_score =</span> <span class="fu">sum</span>(score <span class="sc">*</span> weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sum</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb5-6"><a href=""></a>}</span>
+<span id="cb5-7"><a href=""></a></span>
+<span id="cb5-8"><a href=""></a><span class="co"># Calculate weighted average score by subject</span></span>
+<span id="cb5-9"><a href=""></a>maths_scores <span class="ot">&lt;-</span> <span class="fu">calculate_weighted_score</span>(student_data, <span class="st">"Maths"</span>)</span>
+<span id="cb5-10"><a href=""></a>science_scores <span class="ot">&lt;-</span> <span class="fu">calculate_weighted_score</span>(student_data, <span class="st">"Science"</span>)</span>
+<span id="cb5-11"><a href=""></a>english_scores <span class="ot">&lt;-</span> <span class="fu">calculate_weighted_score</span>(student_data, <span class="st">"English"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>

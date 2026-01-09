@@ -89,17 +89,23 @@ Scan the QR code or follow [this link](https://app.sli.do/event/adW5shWehmKfor3C
 
 ## Why do I need technical skills?
 
-<br>
-
 We understand that many managers won't be doing as much of the hands-on coding or technical work, but it's important to have strong enough skills to successfully support your teams to achieve their potential. 
-
-<br>
 
 Building your own skills will allow you to demonstrate effective technical leadership, provide advice to team members on how to develop their skills, and to cover during absence or busy periods. 
 
+Improving your team's skills and RAP principles will also build more flexible, efficient and resilient teams. 
+
 <br>
 
-Improving your team's skills and RAP principles will also build more flexible, efficient and resilient teams. 
+Coding and Git skills are used widely across DfE's analytical community:
+
+::: {.column width="50%"}
+![[2024 Coding in Analysis and Research Survey: DfE participants (self-selective)](https://best-practice-and-impact.github.io/CARS/departments/department-for-education-excl-agencies-.html)](images/cars_chart_1.png){fig-align="center" width="60%"}
+:::
+
+::: {.column width="50%"}
+![](images/cars_chart_2.png){fig-align="center" width="60%"}
+:::
 
 ## Expectations of analytical managers: technical skills
 
