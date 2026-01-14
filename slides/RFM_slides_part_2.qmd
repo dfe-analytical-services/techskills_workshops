@@ -18,6 +18,8 @@ format:
 
 # Git: The basics
 
+Note: the Git basics covered in this section are applicable to both DevOps and GitHub repositories
+
 ## Advantages of Git over shared folders
 
 ::: {.fragment .fade-up}
@@ -52,9 +54,9 @@ Open the link to the [RAP for managers repo](https://dfe-gov-uk.visualstudio.com
 
 ::: {.column width="70%"}
 
-1. Click the "clone" button in the top right of the repo page
+1. Click the "clone" button in the top right of the repo page*
 2. Copy the clone URL
-3. Create a new folder called "repositories" in your C: drive, _outside your OneDrive folder_
+3. Create a new folder called "repositories" in your C: drive, _outside OneDrive_
 4. Open RStudio and click File -> New Project
 5. Choose the Version Control option, then the Git option
 6. Paste in the Repository URL, and the project directory name should self-populate
@@ -63,10 +65,12 @@ Open the link to the [RAP for managers repo](https://dfe-gov-uk.visualstudio.com
 :::
 
 ::: {.column width="30%"}
-![](images/git_clone.png){fig-align="right" width="100%"}
+![](images/git_clone.png){fig-align="right" width="90%"}
 :::
     
 You should now have a copy of the repo on your laptop, and the project should be open in RStudio ready to use!
+
+_* When cloning a GitHub repo, you'll need to click on the green "code" button in the top right of the repo page_
 
 ## Git commands: branch
 
@@ -119,6 +123,28 @@ A typical workflow would be:
 4.  Commit your saved changes, including a useful *commit message* to explain what you have done
 5.  Push your changes to the global repo when you're ready for others to see and work with them
 
+## <span style="color:#f67400;">Expert level:</span> Create a merge conflict
+
+If you've cloned the repo, created your branch and are already confident with basic Git commands, try this exercise!
+
+<br>
+
+::: {.column width="70%"}
+- Partner up with someone of a similar Git skill level
+- Push changes to your respective branches with the aim  of producing a conflict if your branches were to be merged.
+- The more complicated the conflict, the better! How messy can you make it?
+- Merge one branch into the other; were you "successful" in producing a conflict?
+- Decide how to resolve this conflict to complete the merge.
+:::
+
+::: {.column width="30%"}
+<br>
+<br>
+<br>
+
+![](images/merge_conflict.png){fig-align="right" width="100%"}
+:::
+
 # Pull requests
 
 ## What is a pull request?
@@ -131,7 +157,13 @@ To merge these changes, they should create a *pull request*. This is a request f
 
 -   Comments added to pull requests are saved in the history of a repo, so you can always go back and review them.
 
-When someone creates a pull request they should add a reviewer (this will often be you). The reviewer will receive an email notification to let then know that their review has been requested.
+When someone creates a pull request they should add a required reviewer (this will often be you). The reviewer will receive an email notification to let then know that their review has been requested. They will need to review before the pull request can be completed.
+
+<br>
+
+<span style="color:#f67400;">Expert level:</span> Did you know you can add optional reviewers? This is useful when their review is not needed to merge in your changes, but they might like sight of the changes anyway.
+
+
 
 ## What should I include in a pull request?
 
@@ -162,81 +194,6 @@ There should usually be at least two team members available to work on a pipelin
 ![](images/Flowchart.png){fig-align="center" width="78%"}
 :::
 
-# Git repos: good practice
-
-## README file
-
-Every repo has a README file with all necessary instructions someone new to the code would need to use it.
-
-Your README should contain at least the following information:
-
--   Introduction: explain the purpose of the code
--   Requirements: ouline database access and technical skills required
--   Getting started: describe the input data and where it can be found, as well as the expected outputs
--   How to run and update: outline contribution guidelines, code update processes and how to raise issues
--   Contact details: contact information of anyone maintaining the repo, and any support channels
-
-[The dfeR package](https://dfe-analytical-services.github.io/dfeR/reference/create_project.html) contains a README template, and we have information on how to populate it on the [Analysts' Guide](https://dfe-analytical-services.github.io/analysts-guide/RAP/rap-statistics.html#writing-a-readme-file)
-
-## Branch management
-
-To ensure you are using best practice in Git branching:
-
-- A new branch should be created for any updates to your code
-- Branch names should follow consistent, best practice naming conventions (more detail on the next slide!)
-- A branch should handle contained, well-defined and finite updates
-- Avoid merging branches without using pull requests
-- Branches should be deleted where they are no longer needed
-
-## Naming branches and commit messages
-
-You should follow consistent conventions when naming repo branches:
-
-- Use prefixes to group similar branches, e.g.: `feature/`, `fix/`
-- Be descriptive, summarising branch purpose, e.g.: `feature/add_school_filter`, `fix/ethnicity_inconsistencies`
-- Lower case and use hyphens or underscores, e.g.: `fix/rounding_error` rather than `fix/RoundingError`
-- Include issue or ticket numbers, e.g.: `fix/issue_123`
-- Be concise, e.g.: NOT `feature/add_new_table_to_summarise_average_grade_by_pupil_ethnicity`
-- Avoid using your name (even though we did today!)
-
-Use these guidelines to ensure your commit messages are helpful:
-
-- Use the imperative tone, e.g.: `Add feature` rather than `Adding/Added feature`
-- Keep it short, limiting to 150 characters if possible
-- Explain the change and its reasoning, e.g.: `Define function to calculate subject mean to improve code efficiency`
-- Capitalise the first letter and don't end with punctuation
-
-## Automated testing
-
-Testing is a way to verify that your code works as intended - relevant to the verification pillar of the QA framework.
-
-- There is a whole range of different types of testing; see [DfE's Good Code Practice guidance](https://dfe-analytical-services.github.io/good-code-practice/index.html) for more info on testing types.
-- Testing should be automated as much as possible and should be run wherever your code has been changed; catching errors quickly makes them faster and easier to fix!
-- Pull requests can be set up to require automated tests to pass before they can be completed.
-
-Example: Automated tests on the `pretty_num()` function in the dfeR package
-
-```{r}
-#| echo: true
-#| eval: false
-
-# Test that function produces expected outputs
-test_that("pretties time", {
-  expect_equal(pretty_time(8), "8 seconds")
-  expect_equal(pretty_time(121), "2 minutes 1 second")
-  expect_equal(pretty_time(8008), "2 hours 13 minutes 28 seconds")
-})
-
-# Test that function produces error message for non-numeric input
-test_that("fails if not numeric", {
-  expect_error(
-    pretty_time("a"),
-    "Seconds must be a numeric value or vector of numeric values."
-  )
-})
-
-```
-
 # Quality assurance: reviewing code
 
 ## How to approach a code review
@@ -246,6 +203,20 @@ Code reviews are a fundamental part of applying the QA framework to RAPs and enc
 ::: {.column width="100%"}
 ![](images/code_review.png){fig-align="center" width="80%"}
 :::
+
+## README file
+
+Every repo has a README file which should contain all necessary instructions for someone knew to use the code.
+
+The README should contain at least the following information:
+
+-   Introduction: explain the purpose of the code
+-   Requirements: outline database access and technical skills required
+-   Getting started: describe the input data and where it can be found, as well as the expected outputs
+-   How to run and update: outline contribution guidelines, code update processes and how to raise issues
+-   Contact details: contact information of anyone maintaining the repo, and any support channels
+
+[The dfeR package](https://dfe-analytical-services.github.io/dfeR/reference/create_project.html) contains a README template, and we have information on how to populate it on the [Analysts' Guide](https://dfe-analytical-services.github.io/analysts-guide/RAP/rap-statistics.html#writing-a-readme-file)
 
 ## Things to look for
 
@@ -275,6 +246,8 @@ Managers need to be efficient with their own, and their team's time. It may not 
 - You can sense check the general changes without understanding their technical correctness.
 - You could request brief, top-level summaries for your own QA, and more detailed & in-depth QA documentation for the technical reviewer. 
 - The team should be clear on the responsibilities of each reviewer to ensure everything is covered between you.
+
+<span style="color:#f67400;">Tip:</span> Copilot can be an excellent tool for understanding code quickly! Try writing a prompt to get a plain English version of a section of code from the next slides.
 
 ## Example: improving comments
 
@@ -378,7 +351,7 @@ english_scores <- calculate_weighted_score(student_data, "English")
 
 Lara has created a branch `feat/aggregate_data.R` in the RAP for managers repo, with the aim of adding all necessary code to load student input data, aggregate it and suppress any small values. 
 
-As she has finished developing this extra code she has created a [pull request](https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers/pullrequest/41414) and requested your review before she merges it into the master branch.
+As she has finished developing this extra code she has created a [pull request](https://dfe-gov-uk.visualstudio.com/official-statistics-production/_git/RAP_for_managers/pullrequest/41414) and asked you to review before she merges it into the master branch.
 
 ::: {.column width="100%"}
 ![](images/lara_pr.png){fig-align="center" width="30%"}
@@ -392,7 +365,7 @@ Hint: it is always a good idea to try to run the code yourself when reviewing a 
 
 <br>
 
-*Bonus: There are six letters scattered through the repository. Can you work out what they spell?*
+<span style="color:#f67400;">*Bonus:</span> There are six letters scattered through the repository. Can you work out what they spell?*
 
 ## Review an example pull request: possible suggestions
 
@@ -409,7 +382,7 @@ Here are some examples of issues we would highlight to her:
 - The `04_save_outputs.R` script saves the non-suppressed outputs
 
 
-*Bonus*: The letters spell "review"! Did you get it?
+<span style="color:#f67400;">*Bonus*:</span> The letters spell "review"! Did you get it?
 
 # Speaker session
 
@@ -436,8 +409,12 @@ Please ask Isabel any questions!
 
 Finding time to upskill yourself and your team can be difficult. 
 
+::: {.fragment .fade-up}
 > -   What challenges do you and your team face with this?
+:::
+::: {.fragment .fade-up}
 > -   How could you overcome those challenges?
+:::
 
 ::: {.fragment .fade-up}
 Tips our own teams have found helpful:
@@ -448,16 +425,30 @@ Tips our own teams have found helpful:
 - Shape your day-to-day work around a new technical skill; e.g. how could you incorporate R coding into a simple process you use regularly?
 :::
 
+## Where to get support: partnership programme
+
+The Statistics Development Team runs a partnership programme, open to analytical teams across the department.
+
+Aims to support teams to make improvements to analytical outputs, through offering help with technical upskilling or RAP implementation, additional resource and/or guidance on best practice.
+
+- <span style="color:#f67400;">Tier 3:</span> Embedded flexible resource working with your team to implement development work. For teams requiring significant upskilling or additional resource to reach RAP baseline expectations.
+- <span style="color:#f67400;">Tier 2:</span> Regular coaching & feedback, occasional hands-on support, best practice reviews and regular check-ins. For teams requiring minor technical upskilling with enough resource to implement improvements themselves, who would like coaching through the process.
+- <span style="color:#f67400;">Tier 1:</span> Direction towards appropriate learning materials & resources, advice on best practice and occasional check-ins. For teams who feel confident to self-direct but would like guidance on applying best practice.
+
+You can always access ad hoc technical support via our [mailbox](mailto:statistics.development@education.gov.uk).
+
+Take a look at the [partnerships section](https://dfe-analytical-services.github.io/analysts-guide/learning-development/learning-support.html#partnership-programmes) of the Analysts' Guide for details on how to apply.
+
 ## Where to get support for you and your team
 
 - [Statistics Development Team](mailto: statistics.development@education.gov.uk): for general support with technical advice, learning & development and RAP
 - [RAP champions](https://educationgovuk.sharepoint.com/sites/lvewp00487): for RAP advice more tailored to your team's work area and context
 - [Partnership Programme](https://dfe-analytical-services.github.io/analysts-guide/learning-development/learning-support.html#partnership-programmes): for support with technical upskilling or additional resource to RAP your analysis or apply best practice
 - [Technical workshops](https://dfe-analytical-services.github.io/analysts-guide/learning-development/learning-support.html#technical-workshops) run by the Statistics Services Unit: Intro to R and Intro to Git
-- [Analysts' Guide](https://dfe-analytical-services.github.io/analysts-guide.html)
-- [Statistics Services Unit support offer](https://educationgovuk.sharepoint.com/sites/lveesfa00074/SSU%20%20Open%20sharing?newTargetListUrl=https%3A%2F%2Feducationgovuk%2Esharepoint%2Ecom%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing&id=%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing%2FSSU%20support%20%2D%20one%20pager%2FRoutes%20and%20support%20one%20pager%2Epdf&viewid=a3d9f08d%2D4fe8%2D4848%2D9157%2Dd7e09b43f701&parent=%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing%2FSSU%20support%20%2D%20one%20pager)
-- [QA team](https://educationgovuk.sharepoint.com/sites/sarpi/g/SitePages/The-QA-Team.aspx)
-- [QA network](https://educationgovuk.sharepoint.com/sites/sarpi/g/SitePages/QA-Officers.aspx)
+- [Analysts' Guide](https://dfe-analytical-services.github.io/analysts-guide.html): our own guidance covering a range of technical skills & tools
+- [Statistics Services Unit support offer](https://educationgovuk.sharepoint.com/sites/lveesfa00074/SSU%20%20Open%20sharing?newTargetListUrl=https%3A%2F%2Feducationgovuk%2Esharepoint%2Ecom%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing&id=%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing%2FSSU%20support%20%2D%20one%20pager%2FRoutes%20and%20support%20one%20pager%2Epdf&viewid=a3d9f08d%2D4fe8%2D4848%2D9157%2Dd7e09b43f701&parent=%2Fsites%2Flveesfa00074%2FSSU%20%20Open%20sharing%2FSSU%20support%20%2D%20one%20pager): a page showing all of the ways our unit can support you
+- [QA team](https://educationgovuk.sharepoint.com/sites/sarpi/g/SitePages/The-QA-Team.aspx): a summary of who they are and what they do
+- [QA network](https://educationgovuk.sharepoint.com/sites/sarpi/g/SitePages/QA-Officers.aspx): find a QA officer
 
 ## Useful learning resources
 
@@ -469,3 +460,19 @@ Tips our own teams have found helpful:
 - [NHS-R Youtube, including intro to R courses](https://www.youtube.com/c/nhsrcommunity)
 - [Analysis Function RAP learning pathway](https://analysisfunction.civilservice.gov.uk/learning-development/learning-pathways/reproducible-analytical-pipelines-rap-learning-pathway/)
 - [HoP office knowledge shares](https://educationgovuk.sharepoint.com/:f:/r/sites/lveesfa00074/SSU%20%20Open%20sharing/HoP%20office/HoP%20Knowledge%20share%20series?csf=1&web=1&e=uefwXH)
+
+## Summary
+
+In this workshop, we covered:
+
+- RAP principles: how they can help you and your teams, how to structure a RAP project, small steps you can take towards the RAP baseline expectation
+- Git basics: advantages for version control & collaboration, basic Git commands, how to use Git for QA of code
+- Support & resources: making time for L&D in your team, accessing technical support, learning resources
+
+Key takeaways:
+
+- All analysts, including managers, should be using coding and technical skills wherever possible
+- Managers of statistics production teams should be ensuring their publication processes meet all good & great practice RAP principles as a minimum
+- Analytical managers should be aware of technical support & resources available to them and their teams
+
+The Statistics Services Unit is here to help you with achieving best practice in statistics production! You can always contact our mailboxes to be directed to the best avenue of support.

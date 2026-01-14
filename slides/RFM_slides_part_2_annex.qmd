@@ -78,6 +78,8 @@ Next, make and commit a change to the `01_load_data.R` file in the `R` folder:
 :::
 Now, if your partner pulls down the latest changes, and opens the `01_load_data.R` file, it should contain the new line of code.
 
+## <span style="color:#f67400;">Expert level:</span> Create a merge conflict
+
 # Pull requests
 
 ## What is a pull request?
@@ -110,11 +112,64 @@ The other partner, whose branch was changed, should receive an email notificatio
 
 ## README file
 
-## Branch management 
+## <span style="color:#f67400;">Expert level:</span> Automated testing
 
-## Naming branches and commit messages
+Testing is a way to verify that your code works as intended - relevant to the verification pillar of the QA framework.
 
-## Automated testing
+- There is a whole range of different types of testing; see [DfE's Good Code Practice guidance](https://dfe-analytical-services.github.io/good-code-practice/index.html) for more info on testing types.
+- Testing should be automated as much as possible and should be run wherever your code has been changed; catching errors quickly makes them faster and easier to fix!
+- <span style="color:#f67400;">Expert level: </span> Pull requests can be set up to require automated tests to pass before they can be completed.
+
+<span style="color:#f67400;"> Expert level example:</span> Automated tests on the dfeR `pretty_time()` function, using the testthat package
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Test that function produces expected outputs
+test_that("pretties time", {
+  expect_equal(pretty_time(8), "8 seconds")
+  expect_equal(pretty_time(121), "2 minutes 1 second")
+  expect_equal(pretty_time(8008), "2 hours 13 minutes 28 seconds")
+})
+
+# Test that function produces error message for non-numeric input
+test_that("fails if not numeric", {
+  expect_error(
+    pretty_time("a"),
+    "Seconds must be a numeric value or vector of numeric values."
+  )
+})
+
+```
+
+## <span style="color:#f67400;">Expert level:</span> Branch management
+
+To ensure you are using best practice in Git branching:
+
+- A new branch should be created for any updates to your code
+- Branch names should follow consistent, best practice naming conventions (more detail on the next slide!)
+- A branch should handle contained, well-defined and finite updates
+- Avoid merging branches without using pull requests
+- Branches should be deleted where they are no longer needed
+
+## <span style="color:#f67400;">Expert level:</span> Naming branches and commit messages
+
+You should follow consistent conventions when naming repo branches:
+
+- Use prefixes to group similar branches, e.g.: `feature/`, `fix/`
+- Be descriptive, summarising branch purpose, e.g.: `feature/add_school_filter`, `fix/ethnicity_inconsistencies`
+- Lower case and use hyphens or underscores, e.g.: `fix/rounding_error` rather than `fix/RoundingError`
+- Include issue or ticket numbers, e.g.: `fix/issue_123`
+- Be concise, e.g.: NOT `feature/add_new_table_to_summarise_average_grade_by_pupil_ethnicity`
+- Avoid using your name (even though we did today!)
+
+Use these guidelines to ensure your commit messages are helpful:
+
+- Use the imperative tone, e.g.: `Add feature` rather than `Adding/Added feature`
+- Keep it short, limiting to 150 characters if possible
+- Explain the change and its reasoning, e.g.: `Define function to calculate subject mean to improve code efficiency`
+- Capitalise the first letter and don't end with punctuation
 
 # Quality assurance: reviewing code
 
