@@ -322,6 +322,10 @@ write.csv(average_scores, paste0("average_scores_", analysis_year, ".csv"), row.
 
 ## Making time for technical L&D
 
+## Where to get support: partnership programme
+
 ## Where to get support for you and your team
 
 ## Useful learning resources
+
+## Summary

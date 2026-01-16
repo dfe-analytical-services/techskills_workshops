@@ -461,7 +461,7 @@ Take a look at the [partnerships section](https://dfe-analytical-services.github
 - [Analysis Function RAP learning pathway](https://analysisfunction.civilservice.gov.uk/learning-development/learning-pathways/reproducible-analytical-pipelines-rap-learning-pathway/)
 - [HoP office knowledge shares](https://educationgovuk.sharepoint.com/:f:/r/sites/lveesfa00074/SSU%20%20Open%20sharing/HoP%20office/HoP%20Knowledge%20share%20series?csf=1&web=1&e=uefwXH)
 
-## Summary
+# Summary
 
 In this workshop, we covered:
 
@@ -472,7 +472,8 @@ In this workshop, we covered:
 Key takeaways:
 
 - All analysts, including managers, should be using coding and technical skills wherever possible
+- Managers should be actively identifying opportunities to improve their team's technical processes
 - Managers of statistics production teams should be ensuring their publication processes meet all good & great practice RAP principles as a minimum
-- Analytical managers should be aware of technical support & resources available to them and their teams
+- Analytical managers should be aware of, and use, the technical support & resources available to them and their teams
 
-The Statistics Services Unit is here to help you with achieving best practice in statistics production! You can always contact our mailboxes to be directed to the best avenue of support.
+The Statistics Services Unit is here to help you with achieving best practice in statistical processes! You can always contact our mailboxes to be directed to the best avenue of support.
