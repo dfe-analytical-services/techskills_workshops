@@ -127,6 +127,8 @@ A typical workflow would be:
 
 If you've cloned the repo, created your branch and are already confident with basic Git commands, try this exercise!
 
+A merge conflict occurs when two people separately make different changes to the same section of code, and then try to merge their individual branches. Git doesn't know which version of the changes to keep!
+
 <br>
 
 ::: {.column width="70%"}
