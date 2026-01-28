@@ -1,0 +1,758 @@
+---
+title: "RAP and Technical Skills for Managers"
+subtitle: "Part 1: RAP principles"
+institute: Department for Education
+format:
+  revealjs: 
+    embed-resources: true 
+    theme: black
+    highlight-style: breezedark
+    code-overflow: wrap
+    include-in-header: fontawesome.html
+    width: 120%
+    height: 120%
+    logo: DfE_logo_landscape.png
+    scrollable: true
+    standalone: true
+---
+
+# Introduction
+
+## Introduction to the team
+
+The Statistics Services Unit runs various technical workshops - this is our newest!
+
+::: {.column width="15%"}
+:::
+
+::: {.column width="70%"}
+![](images/unit_intro.png)
+:::
+
+::: {.column width="15%"}
+:::
+
+## Workshop purpose & aims
+
+This session is designed to cover the basic principles of RAP from the perspective of a manager and to support managers to develop the technical skills they are expected to have.
+
+- For all analysts, coding and technical skills form a core part of our work in DfE.
+- To produce high quality statistics, teams need to maintain technical capability at all levels.
+- Building technical skills alleviates the risk of staff turnover or technology changes leaving your team with processes you are unable to run. 
+
+In this workshop, our main aims are to:
+
+- Support managers to feel up-to-date and have confidence with technology and relevant skills
+- Ensure that managers have appropriate technical skills to effectively collaborate with and advise their teams.
+- Direct managers (who can then direct their teams) towards RAP & technical advice and support.
+
+## Structure of the workshop
+
+This workshop is structured in two halves.
+
+<br>
+
+::: {.column width="50%"}
+In the first part we will cover:
+
+- Workshop introduction
+- RAP principles
+- How RAP can help managers
+- How to structure a RAP project
+- Quick wins with RAP
+- Applying RAP to your publications
+:::
+
+::: {.column width="50%"}
+The second part will cover:
+
+- Advantages of Git & basic commands
+- Pull requests
+- Quality assuring code
+- Speaker session on technical upskilling
+- Technical L&D, support & resources
+:::
+
+## What challenges have you faced with RAP?
+
+Scan the QR code or follow [this link](https://app.sli.do/event/adW5shWehmKfor3CAVt57U) to add to the word cloud!
+
+::: {.column width="40%"}
+:::
+
+::: {.column width="20%"}
+
+![](images/RFM-slido.png){fig-align="center"}
+:::
+
+::: {.column width="40%"}
+:::
+
+## Why do I need technical skills?
+
+We understand that many managers won't be doing as much of the hands-on coding or technical work, but it's important to have strong enough skills to successfully support your teams to achieve their potential. 
+
+Building your own skills will allow you to demonstrate effective technical leadership, provide advice to team members on how to develop their skills, and to cover during absence or busy periods. 
+
+Improving your team's skills and RAP principles will also build more flexible, efficient and resilient teams. 
+
+<br>
+
+Coding and Git skills are used widely across DfE's analytical community:
+
+::: {.column width="50%"}
+![[2024 Coding in Analysis and Research Survey: DfE participants (self-selective)](https://best-practice-and-impact.github.io/CARS/departments/department-for-education-excl-agencies-.html)](images/cars_chart_1.png){fig-align="center" width="60%"}
+:::
+
+::: {.column width="50%"}
+![](images/cars_chart_2.png){fig-align="center" width="60%"}
+:::
+
+## Expectations of analytical managers: technical skills
+
+The Data Analysis strand of the [GSG competency framework](https://analysisfunction.civilservice.gov.uk/policy-store/competency-framework-for-the-government-statistician-group-gsg/) requires all grades to:
+
+- Innovate and seek out new ways of analysing the data
+- Ensure that analysis is reproducible, transparent and robust using coding and code management best practices.
+
+The [Analysis Function Career Framework](https://analysisfunction.civilservice.gov.uk/careers/career-framework) presents the following as one of four core skills for analysts:
+
+- Software programming tools and techniques — the ability to use coding and programming skills for data analysis.
+
+The [cross-government RAP strategy](https://analysisfunction.civilservice.gov.uk/policy-store/reproducible-analytical-pipelines-strategy/) outlines expectations of analyst managers including:
+
+-   build extra time into projects to adopt new skills and practices where appropriate
+-   learn the skills they need to manage software
+-   evaluate RAP projects within organisations to understand and demonstrate the benefits of RAP
+-   mandate their teams use RAP principles whenever possible
+
+These are all central expectations on all government analysts; we have seen several management-level job adverts requiring RAP & technical experience and skills!
+
+## Tools overview: R, RStudio & Positron
+
+::: {.column width="80%"}
+R is a coding language:
+
+- Using R allows us to define reusable variables, functions, and packages (sets of pre-defined functions)
+- It is open-source so free to use, available to everyone, and anyone can contribute
+:::
+
+::: {.column width="20%"}
+
+![](images/R.png){fig-align="center"}
+:::
+
+::: {.column width="60%"}
+RStudio provides a visual, interactive interface for coding in R:
+
+- Windows display scripts, data sets, variables, functions, plots, folders...
+- User-friendly, intuitive and quick to learn
+
+<span style="color:#f67400;">Expert level:</span> Already familiar with RStudio? Try Positron!
+
+- A new program designed specifically for data science applications
+- Allows you to code in Python as well as R
+
+All are available to download to your DfE laptop from the Software Centre.
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="37%"}
+![](images/rstudio_screenshot.png){fig-align="center"}
+:::
+
+## Tools overview: Git, Azure DevOps & GitHub
+
+::: {.column width="88%"}
+Git is software designed for version control:
+
+- It works with repositories (repos), folders containing all version controlled files
+- It allows for efficient collaboration; users can simultaneously work on distinct versions of code
+:::
+
+::: {.column width="12%"}
+
+![](images/git_logo.png){fig-align="center" width="60%"}
+:::
+
+::: {.column width="60%"}
+Azure DevOps and GitHub are platforms you can use to work with Git and your repositories:
+
+- They allow you to: view files & their history, structure code QA, automate code pipelines and use integrated project management tools
+- DevOps is private & secure so suitable for working with sensitive data
+- GitHub repos are public*, which supports reproducibility and transparency
+:::
+
+::: {.column width="2%"}
+
+:::
+
+::: {.column width="33%"}
+![](images/devops_screenshot.png){fig-align="center"}
+:::
+
+_* There is a paid version of GitHub allowing private repos but DfE doesn't currently have this_
+
+<span style="color:#f67400;">Expert level:</span> If you've worked with DevOps but not GitHub, explore the [dfeR repo](https://github.com/dfe-analytical-services/dfeR) to familiarise yourself with the platform.
+
+## Tools overview: Databricks
+
+::: {.column width="80%"}
+
+Databricks is a cloud-based platform for storing, managing and analysing large datasets:
+
+- Processing is done remotely by powerful remote computers
+- It supports R, SQL, Python and Scala languages
+- You can use Git version control with it
+- You can build pipelines and workflows that run automatically - excellent for RAP!
+:::
+
+::: {.column width="20%"}
+
+![](images/databricks_logo.png){fig-align="right"}
+:::
+
+Databricks has replaced SQL Server for data storage and analysts should have adjusted their processes in line with this.
+
+::: {.column width="60%"}
+You can access support in the following places:
+
+- [ADA team](mailto: ADAPTTeam@education.gov.uk), [ADA website](https://analytical-data-access.azurewebsites.net/), [ADA user group](https://teams.microsoft.com/l/team/19%3AGQW24K3V6M873QzUwpBIuyf8KZCxYByRawVsKQvpe-81%40thread.tacv2/conversations?groupId=c70bb59d-c5df-4af5-849f-36196ed14ba3&tenantId=fad277c9-c60a-4da1-b5f3-b3b8b34a82f9)
+- [Statistics Development Team](mailto: statistics.development@education.gov.uk)
+- [Analysts' Guide Databricks pages](https://dfe-analytical-services.github.io/analysts-guide/ADA/databricks_fundamentals.html)
+- [Nick Treece's training materials](https://github.com/dfe-analytical-services/databricks_code_learn)
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="36%"}
+![](images/databricks_screenshot.png){fig-align="center"}
+:::
+
+## Questions & answers
+
+We have set up a live Q&A session - feel free to submit questions [here](https://app.sli.do/event/adW5shWehmKfor3CAVt57U) as we go through the workshop
+
+<br>
+<br>
+
+::: {.column width="40%"}
+:::
+
+::: {.column width="20%"}
+
+![](images/RFM-slido.png){fig-align="center"}
+:::
+
+::: {.column width="40%"}
+:::
+
+# Reproducible Analytical Pipelines (RAPs)
+
+# RAP: Introduction
+
+## What is a RAP?
+
+**R**eproducible **A**nalytical **P**ipelines are about having well-documented, reusable processes when analysing data, and ensuring they are transparent.
+
+<br>
+
+We already have *analytical pipelines* but RAP specifically aims to:
+
+-   <span style="color:#f67400;">Automate all of the parts that we can</span>, e.g. rather than entering a hard-coded date repeatedly throughout your code, instead use one date variable that can be changed and reused throughout
+-   <span style="color:#f67400;">Increase efficiency and accuracy</span> by reducing the risk of human error, and ensuring calculations are done identically each time where possible
+-   <span style="color:#f67400;">Create a clear audit trail</span> using code and documentation to allow analysis to be easily reused where needed, e.g. for routine publications or frequent PQ and FOI requests
+
+## RAP principles
+
+You should be familiar with our RAP standards as a framework for analytical work, and we expect managers to ensure that their teams are following these standards
+
+<br>
+
+::: {.column width="25%"}
+:::
+
+::: {.column width="50%"}
+<!-- draw.io diagram -->
+<div class="mxgraph" style="" data-mxgraph="{&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;dark-mode&quot;:&quot;auto&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;app.diagrams.net\&quot; agent=\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0\&quot; version=\&quot;29.3.4\&quot;&gt;\n  &lt;diagram id=\&quot;_ltWYIdbVKAG_Xyvna0Y\&quot; name=\&quot;Page-1\&quot;&gt;\n    &lt;mxGraphModel dx=\&quot;1778\&quot; dy=\&quot;756\&quot; grid=\&quot;0\&quot; gridSize=\&quot;10\&quot; guides=\&quot;1\&quot; tooltips=\&quot;1\&quot; connect=\&quot;1\&quot; arrows=\&quot;0\&quot; fold=\&quot;1\&quot; page=\&quot;0\&quot; pageScale=\&quot;1\&quot; pageWidth=\&quot;827\&quot; pageHeight=\&quot;1169\&quot; background=\&quot;none\&quot; math=\&quot;0\&quot; shadow=\&quot;0\&quot;&gt;\n      &lt;root&gt;\n        &lt;mxCell id=\&quot;0\&quot; /&gt;\n        &lt;mxCell id=\&quot;1\&quot; parent=\&quot;0\&quot; /&gt;\n        &lt;UserObject label=\&quot;Sensible folder and file structure\&quot; link=\&quot;../rap-statistics/rap-statistics-preparing-data.html#sensible-folder-and-file-structure\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-5\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;connectable=1;fontSize=14;locked=0;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;69\&quot; y=\&quot;326\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Use appropriate tools\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#use-appropriate-tools\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-6\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;fillColor=#4472C4;spacingLeft=7;spacingRight=7;rounded=0;shadow=0;sketch=0;backgroundOutline=0;gradientDirection=north;strokeColor=none;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;-55\&quot; y=\&quot;326\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Processing is done with code\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#processing-is-done-with-code\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-7\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;7\&quot; y=\&quot;420\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Automated high- level checks\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#automated-high-level-checks\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-8\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;132\&quot; y=\&quot;420\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Source data is acquired and stored sensibly\&quot; link=\&quot;../rap-statistics/rap-statistics-preparing-data.html#source-data-is-acquired-and-stored-sensibly\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-9\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;-55\&quot; y=\&quot;514\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Files meet data standards\&quot; link=\&quot;../rap-statistics/rap-statistics-preparing-data.html#files-meet-data-standards\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-10\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;-117\&quot; y=\&quot;420\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Documentation\&quot; link=\&quot;../rap-statistics/rap-statistics-version-control.html#documentation\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-11\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;69\&quot; y=\&quot;514\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Version controlled final code scripts\&quot; link=\&quot;../rap-statistics/rap-statistics-version-control.html#version-controlled-final-code-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-12\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;320\&quot; y=\&quot;327\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Recyclable code for future use\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#recyclable-code-for-future-use\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-13\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;195\&quot; y=\&quot;326\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Dataset production scripts\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#dataset-production-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-14\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;379\&quot; y=\&quot;420\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Publication specific automated sense checks\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#publicationproject-specific-automated-sense-checks\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-15\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;256\&quot; y=\&quot;420\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Automated reproducible reports\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#automated-reproducible-reports\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-17\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;194\&quot; y=\&quot;515\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Peer review of code\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#peer-review-of-code\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-18\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;319\&quot; y=\&quot;515\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Collaboratively develop code using Git\&quot; link=\&quot;../rap-statistics/rap-statistics-version-control.html#collaboratively-develop-code-using-git\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-19\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;674\&quot; y=\&quot;326\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Clean final code\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#clean-final-code\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-20\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;550\&quot; y=\&quot;326\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;&amp;lt;div style=&amp;quot;&amp;quot;&amp;gt;&amp;lt;font style=&amp;quot;font-size: 14px;&amp;quot;&amp;gt;Whole pipeline can be run from a single script or workflow&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#whole-pipeline-can-be-run-from-a-single-script-or-workflow\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-21\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;align=center;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;612\&quot; y=\&quot;420\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Use open source repositories\&quot; link=\&quot;../rap-statistics/rap-statistics-version-control.html#use-open-source-repositories\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-22\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;676\&quot; y=\&quot;514\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Publication specific automated summaries\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#publication-specific-automated-summaries\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-23\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;550\&quot; y=\&quot;514\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Peer review of code from outside the team\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#peer-review-of-code-from-outside-the-team\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-24\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;736\&quot; y=\&quot;420\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-25\&quot; parent=\&quot;1\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#4472c4&amp;quot;&amp;gt;Good practice&amp;lt;/font&amp;gt;\&quot; vertex=\&quot;1\&quot;&gt;\n          &lt;mxGeometry height=\&quot;30\&quot; width=\&quot;210\&quot; x=\&quot;-38\&quot; y=\&quot;652\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-26\&quot; parent=\&quot;1\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#70ad47&amp;quot;&amp;gt;Great practice&amp;lt;/font&amp;gt;\&quot; vertex=\&quot;1\&quot;&gt;\n          &lt;mxGeometry height=\&quot;30\&quot; width=\&quot;220\&quot; x=\&quot;206\&quot; y=\&quot;652\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-27\&quot; parent=\&quot;1\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#ed7d31&amp;quot;&amp;gt;Best practice&amp;lt;/font&amp;gt;\&quot; vertex=\&quot;1\&quot;&gt;\n          &lt;mxGeometry height=\&quot;30\&quot; width=\&quot;200\&quot; x=\&quot;572\&quot; y=\&quot;652\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-1\&quot; parent=\&quot;1\&quot; style=\&quot;shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;fontSize=13;rotation=90;strokeWidth=2;strokeColor=#4472c4;gradientColor=none;\&quot; value=\&quot;\&quot; vertex=\&quot;1\&quot;&gt;\n          &lt;mxGeometry height=\&quot;538\&quot; width=\&quot;47\&quot; x=\&quot;168.5\&quot; y=\&quot;26\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-2\&quot; parent=\&quot;1\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#4472c4&amp;quot;&amp;gt;Baseline expectation&amp;lt;/font&amp;gt;\&quot; vertex=\&quot;1\&quot;&gt;\n          &lt;mxGeometry height=\&quot;50\&quot; width=\&quot;313\&quot; x=\&quot;35.5\&quot; y=\&quot;216\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-4\&quot; parent=\&quot;1\&quot; style=\&quot;shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;fontSize=13;rotation=90;strokeWidth=2;strokeColor=#ed7d31;gradientColor=none;\&quot; value=\&quot;\&quot; vertex=\&quot;1\&quot;&gt;\n          &lt;mxGeometry height=\&quot;292\&quot; width=\&quot;47\&quot; x=\&quot;659\&quot; y=\&quot;145\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-5\&quot; parent=\&quot;1\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; value=\&quot;&amp;lt;font color=&amp;quot;#ed7d31&amp;quot; style=&amp;quot;font-size: 32px&amp;quot;&amp;gt;Ambition&amp;lt;/font&amp;gt;\&quot; vertex=\&quot;1\&quot;&gt;\n          &lt;mxGeometry height=\&quot;50\&quot; width=\&quot;143\&quot; x=\&quot;612\&quot; y=\&quot;216\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n      &lt;/root&gt;\n    &lt;/mxGraphModel&gt;\n  &lt;/diagram&gt;\n&lt;/mxfile&gt;\n&quot;}"></div>
+<script type="text/javascript" src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+
+:::
+
+## RAP improves efficiency: before RAP
+
+::: {.column width="100%"}
+![](images/RAP-flowchart-white-before.png){fig-align="center" width="70%"}
+:::
+
+## RAP improves efficiency: after RAP
+
+::: {.column width="100%"}
+![](images/RAP-flowchart-white-after.png){fig-align="center" width="80%"}
+:::
+
+## RAP case studies
+
+:::::::::: {style="font-size: 75%;"}
+::::::::: columns
+:::: {.column width="33%"}
+> *"The previous process with the two Excel workbooks would take a couple of months to run, whereas now it can be run in a matter of hours."*\
+> **- Matt Jago, Ops & infrastructure**
+::::
+
+:::: {.column width="33%"}
+> *"\[The improvements have\] reduced the human errors and also mean analysts and LA colleagues’ time can be spent on more valuable tasks."*\
+> **- Family hubs research and analysis team**
+::::
+
+:::: {.column width="33%"}
+> *"The script itself is not complicated, but it removes the risk of human error and reduces the production time to minutes. The time saved can then be dedicated to further quality assurance."*\
+> **- RAAC response analyst**
+::::
+:::::::::
+::::::::::
+
+National Pupil Projections partnership:
+
+- Existing process in Excel was time-consuming, manual and error-prone
+- Model owner had independently managed this model for years and was retiring (single point of failure)
+- Existing documentation of knowledge & update process was minimal
+- Not all files were accessible to other staff members
+- Unclear if model owner would be replaced so potentially limited resource going forwards
+
+Had this process not been RAPped before the owner retired, the department would not be able to update a business critical model (in turn an input to several other business critical models) and knowledge would be lost with major errors & delays likely.
+
+# How RAP could help you as a manager
+
+## A nightmare scenario...
+
+::: {.column width="75%"}
+-   You get a call from your team member, they're too ill to come to work this week. Your other "coder" left the team a month ago and you haven't been able to replace them or train anyone else up yet, so no one else is around!
+-   Your team member was the only one who knew how to run the code for your publication.
+-   You're already behind schedule...
+
+<br>
+
+No problem! You can just run the code yourself, right?
+:::
+
+::: {.column width="25%"}
+![](images/illness.png)
+:::
+
+## Ok, first I need to find the code...
+
+<br>
+
+::: {.column width="60%"}
+This should be easy, it's in our shared folder because we haven't had a chance to move it to Azure DevOps yet...
+:::
+
+::: {.column width="40%"}
+![](images/code_nightmare_1.png){fig-align="center" width="60%"}
+:::
+
+## ...
+
+::: {.column width="100%"}
+![](images/one-hour-later.jpg){fig-align="center" width="60%"}
+:::
+
+## Ok, I think I've found the right code...
+
+<br>
+
+::: {.column width="60%"}
+It's been a little while since I've run this code; I ought to check the documentation because I can't remember all the details of the process
+:::
+
+::: {.column width="40%"}
+![](images/code_nightmare_2.png){fig-align="center" width="100%"}
+:::
+
+## Well I'm sure there'll be comments in the code that tell me what to do...
+
+<br>
+
+::: {.column width="100%"}
+![](images/code_nightmare_3.png){fig-align="center" width="45%"}
+:::
+
+## Now there's an unexpected error I don't recognise!
+
+<br>
+
+Time to ask for help!
+
+<br>
+
+::: {.column width="30%"}
+![](images/worried_analyst.png){fig-align="center" width="70%"}
+:::
+
+::: {.column width="70%"}
+![](images/code_nightmare_4.jpg){fig-align="left" width="40%"}
+:::
+
+But my code isn't stored in Azure DevOps, so how can I easily share it...?
+
+## How could RAP have avoided these issues?
+
+This scenario is exaggerated, but it's not far from what we have seen on several occasions.
+
+<br>
+
+This team's current approach means:
+
+-   Finding code and running processes is time-consuming and stressful
+-   The risk of errors is high
+-   Their processes lack transparency
+
+<br>
+
+Let's have a look at how RAP could have helped us.
+
+## RAP principles that would have helped
+
+Finding the correct version of the code:
+
+::: {.fragment .fade-up}
+> - Sensible folder and file structure <span style="color:#4472c4;">(**Good practice**)</span>
+> - Version controlled final code scripts <span style="color:#70ad47;">(**Great practice**)</span>
+> - Collaboratively develop code using Git <span style="color:#f67400;">(**Best practice**)</span>
+:::
+
+::: {.fragment .fade-up}
+Understanding the code and how to run it:
+:::
+::: {.fragment .fade-up}
+> - Documentation <span style="color:#4472c4;">(**Good practice**)</span>
+:::
+::: {.fragment .fade-up}
+Running the code without errors:
+:::
+::: {.fragment .fade-up}
+> - Source data is acquired and stored sensibly <span style="color:#4472c4;">(**Good practice**)</span>
+> - Recyclable code for future use <span style="color:#70ad47;">(**Great practice**)</span>
+:::
+
+# Structuring a RAP project
+
+## RAP minimum viable product
+
+The [Analytical Function guidance](https://github.com/best-practice-and-impact/rap_mvp_maturity_guidance/blob/master/Reproducible-Analytical-Pipelines-MVP.md#the-rap-minimum-viable-product) states that at a minimum a RAP must:
+
+> -   Minimise manual steps
+> -   Use open source software available to anyone
+> -   Use peer review in quality assurance
+> -   Use version control software, preferably Git
+> -   Use file- and code-sharing platforms
+> -   Follow existing good practice for quality assurance
+> -   Contain well-commented code with embedded documentation
+
+In the DfE we have our own good, great and best practice standards for RAP. Our minimum requirement is that everyone publishing statistics meets the baseline expectation.
+
+## In practice
+
+Applying these minimum RAP requirements in DfE roughly means:
+
+-   All source data is stored in and pulled in from a database
+-   All calculations and data manipulation are automated with code (preferably using R) and all scripts should be sourced from one central script
+-   Processes should be well documented and easy to understand
+-   The code should require minimal edits to run, with variables defines in only one clear place
+-   The code should be stored in a Git repository (public where appropriate), with a sensible file structure and a README document
+-   QA tests and output summaries should be automated and generated on each run
+-   For EES publications, final outputs produced by the code should pass all checks in the [data screener](https://rsconnect/rsc/dfe-published-data-qa/)
+
+## Structuring the RAP process
+
+<br>
+
+::: {.column width="45%"}
+Typically, processes can be broken down into the following structure:
+
+![From the [DfT Strategic Reproducible Analysis in Coding book](https://department-for-transport.github.io/strategic_reproducible_analysis/choosing-a-coding-approach.html#break-your-process-into-chunks)](images/dft_process.png){fig-align="left" width="80%"}
+:::
+
+::: {.column width="7%"}
+:::
+
+::: {.column width="48%"}
+Use the following to help you prioritise which to focus on first:
+
+> -   *Which sections offer the greatest benefits?*
+> -   *Which sections have most potential for time-saving?*
+> -   *Could improving RAP in a certain section achieve a dual purpose, e.g. accessibility improvements?*
+> -   *Are there any dependencies between sections?*
+> -   *Are any sections causing issues that need fixing?*
+
+:::
+
+## Discussion
+
+Imagine your team produced a report last year on the number of pupils in each school in England, discussing differences between school types, geographic regions etc. This report needs to be reproduced with the latest year of data.
+
+What changes could you make to introduce RAP principles to the current process? Use the prioritisation prompts on the previous slide to consider which changes would you make first.
+
+::: {.column width="100%"}
+![](images/rap_discussion.png){fig-align="center" width="84%"}
+:::
+
+# Examples of quick RAP wins
+
+## Data ingestion from Databricks
+
+Use R to query data from Databricks catalog, rather than manually pasting in data to Excel. This can be done using the `odbc` and `DBI` R packages.
+
+Example:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Load packages
+library(odbc)
+library(DBI)
+library(dplyr)
+library(dbplyr)
+
+# Set up Databricks connection
+connection <- DBI::dbConnect(odbc::databricks(),
+                             httpPath = Sys.getenv("DATABRICKS_SQL_WAREHOUSE_ID"))
+
+# Pull in data from Databricks table
+data <- dplyr::tbl(connection, dbplyr::in_catalog(
+  "catalog_40_copper_statistics_services",
+  "dbo",
+  "publicationtracking")) %>%
+  dplyr::collect()
+
+```
+
+## Data ingestion using an API
+
+Use R to make API calls and ingest data directly into R. Some APIs have their own R packages; the EES API package is [`eesyapi`](https://dfe-analytical-services.github.io/eesyapi/).
+
+::::: columns
+::: {.column width="100%"}
+EES example:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Load packages
+library(eesyapi)
+library(magrittr)
+
+# Get list of available publications
+eesyapi::get_publications()
+
+# Pick out “Apprenticeships” (ID = 412d8090-ab45-455a-c176-08dbf5ab522b);
+# return all the data sets within that publication
+eesyapi::get_data_catalogue("412d8090-ab45-455a-c176-08dbf5ab522b")
+
+# Choose the data set with ID = 1d419801-a90e-f970-9335-a13623faccbe; 
+# return its indicator codes
+eesyapi::get_meta(dataset_id = "1d419801-a90e-f970-9335-a13623faccbe") %>%
+  magrittr::extract2("indicators")
+
+# Query the data set; we want "Starts" (col_id = EADqF) in AY 2024/25
+data <- eesyapi::query_dataset(
+  dataset_id = "1d419801-a90e-f970-9335-a13623faccbe",
+  indicators = "EADqF",
+  time_periods = c("2024|AY"))
+```
+:::
+:::::
+
+## Data ingestion by downloading files
+
+Use R to download files from the internet and ingest data directly into R, avoiding manual downloads. This can be done using the `download.file` function.
+
+Example:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Load packages
+library(readxl)
+
+# Define link to latest ONS population estimates dataset
+pop_est_url <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales/mid20242023localauthorityboundaries/mye24tablesew.xlsx"
+
+# Download the file into the "ONS_input_data" folder
+download.file(pop_est_url, 
+              "ONS_input_data/ons_population_estimates.xlsx", 
+              mode = "wb")
+
+# Pull in data from the "MYE1" sheet in the downloaded file
+pop_est_data <- read_excel("ONS_input_data/ons_population_estimates.xlsx",
+                           sheet = "MYE1",
+                           skip = 6)
+
+```
+
+## Data cleaning and transformation
+
+**Data cleaning & transformation**: Use R to efficiently clean and transform data. This can be done using the `dplyr` and `tidyr` packages.
+
+Example:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Load packages
+library(dplyr)
+library(tidyr)
+
+# Data cleaning and transformation
+student_data_cleaned <- student_data %>%
+  # Remove any rows with missing data
+  tidyr::drop_na() %>%
+  # Filter to only include students 18 and under
+  dplyr::filter(age <= 18) %>%
+  # pivot wider on subject
+  tidyr::pivot_wider(names_from = subject, values_from = grade)
+
+```
+
+## Updating variables
+
+Use R to define variables that are expected to change and use the variable names in your code rather than hard-coded values.
+
+Example:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Load packages
+library(dplyr)
+
+# Define variables that are expected to change each year
+current_year <- 2024
+last_year <- current_year - 1
+comparison_year <- current_year - 10
+
+# Define geography level
+geog_level <- "national"
+
+# Use the defined variables in code
+output_table <- data %>%
+  dplyr::filter(year %in% c(current_year, last_year, comparison_year), 
+                geography == geog_level) %>%
+  dplyr::group_by(year) %>%
+  dplyr::summarise(mean_value = mean(value))
+
+```
+
+## Producing output data files
+
+Use R to produce output csv files. This can be done using the `write_csv` function from the `readr` package.
+
+Example:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Load packages
+library(readr)
+
+# Save student_data_cleaned as csv file in "output_data" folder:
+write_csv(student_data_cleaned, "output_data/student_data_cleaned.csv")
+
+```
+
+## Producing QA reports or briefing packs
+
+Use R to produce an automated QA report, commentary or briefing pack. This can be done using `rmarkdown` or `quarto`. 
+
+::::: columns
+::: {.column width="50%"}
+
+The Statistics Development Team have created an example QA report available in the [automated-data-qa repo](https://github.com/dfe-analytical-services/automated-data-qa). This template includes code snippets, covering the minimum QA checks statistics production teams should be applying. 
+
+It should _always_ be tailored to your specific analysis:
+
+- Is the QA proportionate and appropriate to the level of risk?
+- Is the report easily digestible by everyone reading it?
+- Are the checks the right ones for your policy context?
+- Would 2-layer QA be helpful, i.e., a detailed report for team members and a high-level report for you?
+
+Using this template could provide you with a report like that seen on the right.
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="40%"}
+![](images/QA_report_1.png)
+:::
+:::::
+
+# RAP: Conclusions
+
+## RAP myth-busting
+
+- <span style="color:#f67400;">**Myth**</span>: **Applying RAP principles will reduce output quality as computers can't perform as well as humans with experience**
+- <span style="color:#f67400;">**Reality**</span>: RAP is about using computers to do the things they're good at (repetitive processes), so humans can do the things they're good at (critical thinking and contextual quality assurance). It's about making the best use of both.
+
+<br>
+
+- <span style="color:#f67400;">**Myth**</span>: **RAP must be complicated and hugely time-consuming**
+- <span style="color:#f67400;">**Reality**</span>: Gradual, small changes towards best practice all add up - you don't have to change everything all at once! Consider how best to prioritise your effort.
+
+<br>
+
+- <span style="color:#f67400;">**Myth**</span>: **RAP is a barrier to innovation and creativity**
+- <span style="color:#f67400;">**Reality**</span>: RAP is just a framework that gives us a consistent way of doing analysis across government. Tedious and time-consuming processes are automated, so you can spend more time on the creative parts of your work.
+
+## RAP red flags from your team members
+
+- <span style="color:#FFCCCB;">**We had to reproduce the work because the latest version got overwritten**</span> - _this suggests current version control methods aren't working and this issue would be avoided using Git_
+- <span style="color:#FFCCCB;">**Our code takes hours to run**</span> - _in some cases this may be necessary but it's highly likely the code could be made more efficient_
+- <span style="color:#FFCCCB;">**It'll take a while to produce those outputs as we'll have to update all the dates and column names**</span> - _if automated this should be a quick process_
+- <span style="color:#FFCCCB;">**Our processes already apply all the RAP principles so they're perfect**</span> - _there are nearly always potential improvements to make to any RAP process_
+- <span style="color:#FFCCCB;">**It's not worth me learning to use R; I can already use SQL**</span> - _while it's not necessary to replace SQL code with R to implement RAP, R is widely used across the department and is a valuable skill for any analyst_
+- <span style="color:#FFCCCB;">**I'd like to automate this, but I can't do that with coding**</span> - _technical upskilling will address this barrier_
+
+## RAP self-assessment tool
+
+The [RAP self-assessment tool](https://rsconnect/rsc/publication-self-assessment/) allows statistics producers to assess themselves against the department's RAP standards.
+
+You should have entries for <span style="color:#f67400;">**every statistics publication**</span> you manage, and these should be updated:
+
+ -   **When you make updates to your processes** that change your responses, or
+ -   **at least once a year** if you've made no changes.
+
+Your entries inform our picture of RAP progress across the department, which is shared with analytical leadership and the Statistics Head of Profession.
+
+You can monitor your team's progress by viewing 'RAP progress by area' and 'Overview of latest responses'.
+
+The Statistics Development Team uses the self-assessment tool in prioritising Partnership Programme applications, so it's in your best interest to keep your entries up to date!
+
+## Exercise: assessing your publications
+
+Open the [RAP self-assessment tool](https://rsconnect/rsc/publication-self-assessment/) and consider how well your publication(s) are meeting the RAP baseline expectations compared to others in your area. 
+
+Pick the publication owned by your team with the lowest proportion of good & great RAP principles. What steps could you realistically take to move further towards them?
+
+Download a copy of the [prepared template](https://educationgovuk.sharepoint.com/:w:/r/sites/lveesfa00074/SSU%20%20Open%20sharing/Tech%20skills%20workshop%20materials/RAP_for_managers-publication_template_good_great_practice.docx?d=w92becf587ce34f21b09b05b6a438913e&csf=1&web=1&e=296DnM) to structure your thoughts and plans.
+
+::: {.column width="25%"}
+:::
+
+::: {.column width="50%"}
+<!-- draw.io diagram -->
+<div class="mxgraph" style="" data-mxgraph="{&quot;lightbox&quot;:false,&quot;nav&quot;:true,&quot;dark-mode&quot;:&quot;auto&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;app.diagrams.net\&quot; agent=\&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0\&quot; version=\&quot;29.3.4\&quot;&gt;\n  &lt;diagram id=\&quot;_ltWYIdbVKAG_Xyvna0Y\&quot; name=\&quot;Page-1\&quot;&gt;\n    &lt;mxGraphModel dx=\&quot;1778\&quot; dy=\&quot;756\&quot; grid=\&quot;0\&quot; gridSize=\&quot;10\&quot; guides=\&quot;1\&quot; tooltips=\&quot;1\&quot; connect=\&quot;1\&quot; arrows=\&quot;0\&quot; fold=\&quot;1\&quot; page=\&quot;0\&quot; pageScale=\&quot;1\&quot; pageWidth=\&quot;827\&quot; pageHeight=\&quot;1169\&quot; background=\&quot;none\&quot; math=\&quot;0\&quot; shadow=\&quot;0\&quot;&gt;\n      &lt;root&gt;\n        &lt;mxCell id=\&quot;0\&quot; /&gt;\n        &lt;mxCell id=\&quot;1\&quot; parent=\&quot;0\&quot; /&gt;\n        &lt;UserObject label=\&quot;Sensible folder and file structure\&quot; link=\&quot;../rap-statistics/rap-statistics-preparing-data.html#sensible-folder-and-file-structure\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-5\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;connectable=1;fontSize=14;locked=0;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;69\&quot; y=\&quot;326\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Use appropriate tools\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#use-appropriate-tools\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-6\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;fillColor=#4472C4;spacingLeft=7;spacingRight=7;rounded=0;shadow=0;sketch=0;backgroundOutline=0;gradientDirection=north;strokeColor=none;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;-55\&quot; y=\&quot;326\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Processing is done with code\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#processing-is-done-with-code\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-7\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;7\&quot; y=\&quot;420\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Automated high- level checks\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#automated-high-level-checks\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-8\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;132\&quot; y=\&quot;420\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Source data is acquired and stored sensibly\&quot; link=\&quot;../rap-statistics/rap-statistics-preparing-data.html#source-data-is-acquired-and-stored-sensibly\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-9\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;-55\&quot; y=\&quot;514\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Files meet data standards\&quot; link=\&quot;../rap-statistics/rap-statistics-preparing-data.html#files-meet-data-standards\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-10\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;-117\&quot; y=\&quot;420\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Documentation\&quot; link=\&quot;../rap-statistics/rap-statistics-version-control.html#documentation\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-11\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fontColor=#FFFFFF;strokeColor=none;fillColor=#4472C4;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;69\&quot; y=\&quot;514\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Version controlled final code scripts\&quot; link=\&quot;../rap-statistics/rap-statistics-version-control.html#version-controlled-final-code-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-12\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;320\&quot; y=\&quot;327\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Recyclable code for future use\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#recyclable-code-for-future-use\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-13\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;195\&quot; y=\&quot;326\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Dataset production scripts\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#dataset-production-scripts\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-14\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;379\&quot; y=\&quot;420\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Publication specific automated sense checks\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#publicationproject-specific-automated-sense-checks\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-15\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;256\&quot; y=\&quot;420\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Automated reproducible reports\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#automated-reproducible-reports\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-17\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;194\&quot; y=\&quot;515\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Peer review of code\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#peer-review-of-code\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-18\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#70AD47;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;319\&quot; y=\&quot;515\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Collaboratively develop code using Git\&quot; link=\&quot;../rap-statistics/rap-statistics-version-control.html#collaboratively-develop-code-using-git\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-19\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;674\&quot; y=\&quot;326\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Clean final code\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#clean-final-code\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-20\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;550\&quot; y=\&quot;326\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;&amp;lt;div style=&amp;quot;&amp;quot;&amp;gt;&amp;lt;font style=&amp;quot;font-size: 14px;&amp;quot;&amp;gt;Whole pipeline can be run from a single script or workflow&amp;lt;/font&amp;gt;&amp;lt;/div&amp;gt;\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#whole-pipeline-can-be-run-from-a-single-script-or-workflow\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-21\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;align=center;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;612\&quot; y=\&quot;420\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Use open source repositories\&quot; link=\&quot;../rap-statistics/rap-statistics-version-control.html#use-open-source-repositories\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-22\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;676\&quot; y=\&quot;514\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Publication specific automated summaries\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#publication-specific-automated-summaries\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-23\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;550\&quot; y=\&quot;514\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;UserObject label=\&quot;Peer review of code from outside the team\&quot; link=\&quot;../rap-statistics/rap-statistics-writing-code.html#peer-review-of-code-from-outside-the-team\&quot; id=\&quot;t2OgNqa9NwPCjF_SyjkI-24\&quot;&gt;\n          &lt;mxCell parent=\&quot;1\&quot; style=\&quot;shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;size=30;direction=east;horizontal=0;fillColor=#ED7D31;strokeColor=none;fontColor=#FFFFFF;spacingLeft=7;spacingRight=7;fontSize=14;\&quot; vertex=\&quot;1\&quot;&gt;\n            &lt;mxGeometry height=\&quot;120\&quot; width=\&quot;120\&quot; x=\&quot;736\&quot; y=\&quot;420\&quot; as=\&quot;geometry\&quot; /&gt;\n          &lt;/mxCell&gt;\n        &lt;/UserObject&gt;\n        &lt;mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-25\&quot; parent=\&quot;1\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#4472c4&amp;quot;&amp;gt;Good practice&amp;lt;/font&amp;gt;\&quot; vertex=\&quot;1\&quot;&gt;\n          &lt;mxGeometry height=\&quot;30\&quot; width=\&quot;210\&quot; x=\&quot;-38\&quot; y=\&quot;652\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-26\&quot; parent=\&quot;1\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#70ad47&amp;quot;&amp;gt;Great practice&amp;lt;/font&amp;gt;\&quot; vertex=\&quot;1\&quot;&gt;\n          &lt;mxGeometry height=\&quot;30\&quot; width=\&quot;220\&quot; x=\&quot;206\&quot; y=\&quot;652\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;t2OgNqa9NwPCjF_SyjkI-27\&quot; parent=\&quot;1\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#ed7d31&amp;quot;&amp;gt;Best practice&amp;lt;/font&amp;gt;\&quot; vertex=\&quot;1\&quot;&gt;\n          &lt;mxGeometry height=\&quot;30\&quot; width=\&quot;200\&quot; x=\&quot;572\&quot; y=\&quot;652\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-1\&quot; parent=\&quot;1\&quot; style=\&quot;shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;fontSize=13;rotation=90;strokeWidth=2;strokeColor=#4472c4;gradientColor=none;\&quot; value=\&quot;\&quot; vertex=\&quot;1\&quot;&gt;\n          &lt;mxGeometry height=\&quot;538\&quot; width=\&quot;47\&quot; x=\&quot;168.5\&quot; y=\&quot;26\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-2\&quot; parent=\&quot;1\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; value=\&quot;&amp;lt;font style=&amp;quot;font-size: 32px&amp;quot; color=&amp;quot;#4472c4&amp;quot;&amp;gt;Baseline expectation&amp;lt;/font&amp;gt;\&quot; vertex=\&quot;1\&quot;&gt;\n          &lt;mxGeometry height=\&quot;50\&quot; width=\&quot;313\&quot; x=\&quot;35.5\&quot; y=\&quot;216\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-4\&quot; parent=\&quot;1\&quot; style=\&quot;shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;fontSize=13;rotation=90;strokeWidth=2;strokeColor=#ed7d31;gradientColor=none;\&quot; value=\&quot;\&quot; vertex=\&quot;1\&quot;&gt;\n          &lt;mxGeometry height=\&quot;292\&quot; width=\&quot;47\&quot; x=\&quot;659\&quot; y=\&quot;145\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n        &lt;mxCell id=\&quot;S840XJ58BQc_PQPuIZfj-5\&quot; parent=\&quot;1\&quot; style=\&quot;text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#FFFFFF;\&quot; value=\&quot;&amp;lt;font color=&amp;quot;#ed7d31&amp;quot; style=&amp;quot;font-size: 32px&amp;quot;&amp;gt;Ambition&amp;lt;/font&amp;gt;\&quot; vertex=\&quot;1\&quot;&gt;\n          &lt;mxGeometry height=\&quot;50\&quot; width=\&quot;143\&quot; x=\&quot;612\&quot; y=\&quot;216\&quot; as=\&quot;geometry\&quot; /&gt;\n        &lt;/mxCell&gt;\n      &lt;/root&gt;\n    &lt;/mxGraphModel&gt;\n  &lt;/diagram&gt;\n&lt;/mxfile&gt;\n&quot;}"></div>
+<script type="text/javascript" src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+:::
+
+<span style="color:#f67400;">Expert level: </span>Already meeting RAP baseline expectations? Use the [best practice template](https://educationgovuk.sharepoint.com/:w:/r/sites/lveesfa00074/SSU%20%20Open%20sharing/Tech%20skills%20workshop%20materials/RAP_for_managers-publication_template_best_practice.docx?d=w778dd8908052469d906f442aa7a402b1&csf=1&web=1&e=4aYFmK) instead!
