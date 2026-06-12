@@ -1,0 +1,49 @@
+/*-- scss:defaults --*/
+$body-bg: #12436D;
+$body-color: #efefef;
+$link-color: #FCE46E;
+
+#title-slide .subtitle {
+  font-size: 2rem;
+}
+
+.reveal section h1 {
+  color: $body-color !important;
+}
+
+.reveal section h3 {
+  margin-top: 0.6em !important;
+  color: $body-color !important;
+}
+
+.reveal a {
+  color: $link-color;
+  text-decoration: underline !important;
+}
+
+.reveal a:hover {
+  color: $body-color !important;
+}
+
+.reveal .slides p {
+  font-size: 1.75rem;
+}
+
+.reveal .slides li {
+    font-size: 1.75rem;
+}
+
+.reveal .panel-tabset [role=tab] {
+  font-size: 1.25rem;
+}
+
+/* Styling for final slide */
+.center-content {
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
