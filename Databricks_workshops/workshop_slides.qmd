@@ -1,12 +1,11 @@
 ---
-title: Quarto Template
-subtitle: DfE Analytical Services
+title: Databricks Workshops
+subtitle: Statistics Services Unit
 title-slide-attributes:
   data-background-position: top
   data-background-image: images/sanctuary-buildings.jpg
   data-background-size: cover
   data-background-opacity: "0.1"
-author: "A. Analyst"
 institute: Department for Education
 format:
   revealjs:
