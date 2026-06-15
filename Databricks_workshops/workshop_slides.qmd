@@ -9,7 +9,7 @@ title-slide-attributes:
 institute: Department for Education
 format:
   revealjs:
-    theme: [dark, dfe-quarto-slides.scss]
+    css: styles.scss
     width: 120%
     height: 120%
     logo: images/DfE_logo_landscape.svg

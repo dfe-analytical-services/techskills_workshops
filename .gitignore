@@ -4,3 +4,9 @@
 .Ruserdata
 workshop_R.aux
 workshop_R.log
+
+/.quarto/
+**/*.quarto_ipynb
+*_files/
+_site/
+*.html
