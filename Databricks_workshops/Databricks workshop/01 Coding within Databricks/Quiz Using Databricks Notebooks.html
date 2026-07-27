@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz: Using Databricks Notebooks</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f4f6f9;
+            padding: 2rem;
+            color: #1b1f23;
+        }
+        .quiz-container {
+            max-width: 720px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            padding: 2.5rem;
+        }
+        h1 {
+            font-size: 1.6rem;
+            margin-bottom: 0.4rem;
+            color: #1b3a5c;
+        }
+        .subtitle {
+            color: #5a6a7a;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        .question-block {
+            margin-bottom: 1.8rem;
+            padding: 1.2rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            transition: border-color 0.2s;
+        }
+        .question-block.correct {
+            border-color: #38a169;
+            background: #f0fff4;
+        }
+        .question-block.incorrect {
+            border-color: #e53e3e;
+            background: #fff5f5;
+        }
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+        .question-number {
+            color: #3182ce;
+            font-weight: 700;
+        }
+        .options label {
+            display: block;
+            padding: 0.5rem 0.8rem;
+            margin: 0.3rem 0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .options label:hover {
+            background: #edf2f7;
+        }
+        .options input[type="radio"] {
+            margin-right: 0.6rem;
+        }
+        .feedback {
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: none;
+        }
+        .feedback.show {
+            display: block;
+        }
+        .feedback.correct-feedback {
+            color: #2f855a;
+        }
+        .feedback.incorrect-feedback {
+            color: #c53030;
+        }
+        .btn-row {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        button {
+            padding: 0.7rem 1.6rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
+        button:active {
+            transform: scale(0.97);
+        }
+        #submit-btn {
+            background: #3182ce;
+            color: #fff;
+        }
+        #submit-btn:hover {
+            background: #2b6cb0;
+        }
+        #reset-btn {
+            background: #e2e8f0;
+            color: #2d3748;
+        }
+        #reset-btn:hover {
+            background: #cbd5e0;
+        }
+        .results {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1rem 1.4rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .results.show {
+            display: block;
+        }
+        .results.pass {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+        .results.fail {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Quiz: Using Standard Code Scripts</h1>
+        <p class="subtitle">Knowledge check: Multiple choice quiz to test your knowledge on using notebooks.</p>
+
+        <div id="quiz-area"></div>
+
+        <div class="btn-row">
+            <button id="submit-btn" onclick="markQuiz()">Submit Answers</button>
+            <button id="reset-btn" onclick="resetQuiz()">New Questions</button>
+        </div>
+
+        <div id="results" class="results"></div>
+    </div>
+
+    <script>
+        const allQuestions = [
+            {
+                question: "In Databricks, do you have to use a Notebook to write and run code?",
+                options: [
+                    "Yes — Notebooks are the only way to run code",
+                    "No — you can also use standard single script files",
+                    "No — but R can only be run in Notebooks"
+                ],
+                correct: 1,
+                explanation: "Databricks supports standard single script files as an alternative to Notebooks."
+            },
+            {
+                question: "Where in the Databricks UI do you navigate to create a new file?",
+                options: [
+                    "The Compute tab in the sidebar",
+                    "The Workspace tab in the sidebar",
+                    "The Jobs & Pipelines tab in the sidebar"
+                ],
+                correct: 1,
+                explanation: "You navigate to the Workspace section in the Databricks sidebar to create files."
+            },
+            {
+                question: "What is the default language when you create a new file in Databricks?",
+                options: [
+                    "SQL",
+                    "R",
+                    "Python"
+                ],
+                correct: 2,
+                explanation: "Databricks defaults to a Python script when you create a new file."
+            },
+            {
+                question: "Which of the following is a valid way to create a new file in Databricks?",
+                options: [
+                    "Click the 3 dots next to a folder, then Create > File",
+                    "Right-click workspace and select New File",
+                    "Use the Jobs tab to generate a file"
+                ],
+                correct: 0,
+                explanation: "You can create a file by clicking the 3 dots next to a folder, followed by Create and File."
+            },
+            {
+                question: "How can you change the language to R of a script file? (Select the BEST answer)",
+                options: [
+                    "Rename the file extension",
+                    "Use the dropdown",
+                    "Either rename the file extension or use the language dropdown"
+                ],
+                correct: 2,
+                explanation: "For R you can only rename the file extension."
+            },
+            {
+                question: "When renaming a file extension to change the language, which extensions are supported?",
+                options: [
+                    "Only .py and .sql",
+                    "Only .py, .sql, and .r",
+                    "Any file type extension"
+                ],
+                correct: 2,
+                explanation: "File extensions can be changed to any file type."
+            },
+            {
+                question: "The language dropdown in the file editor lets you switch between which languages?",
+                options: [
+                    "Python, SQL, R, and Scala",
+                    "Python and SQL",
+                    "Python, SQL, and R"
+                ],
+                correct: 1,
+                explanation: "The dropdown allows switching between Python and SQL specifically."
+            },
+            {
+                question: "What do you need to attach to a script file before you can run it?",
+                options: [
+                    "A Git repository",
+                    "A compute instance",
+                    "A job"
+                ],
+                correct: 1,
+                explanation: "As with Notebooks, you need to attach a compute instance to run a file."
+            },
+            {
+                question: "Which compute type is required to run R scripts in Databricks?",
+                options: [
+                    "Any compute instance",
+                    "A serverless SQL warehouse",
+                    "A dedicated personal compute configured for R"
+                ],
+                correct: 2,
+                explanation: "R requires a dedicated personal compute set up to run R."
+            },
+            {
+                question: "Python and SQL scripts can run on which type of compute?",
+                options: [
+                    "Only personal compute",
+                    "Any compute instance",
+                    "Only serverless compute"
+                ],
+                correct: 1,
+                explanation: "Any compute instance should be able to run Python and SQL."
+            },
+            {
+                question: "What happens when you click the play symbol at the top of a script file?",
+                options: [
+                    "It saves the file to a Git repository",
+                    "The file runs and a window with output, terminal, and debugger appears",
+                    "It opens the file in a databricks editor"
+                ],
+                correct: 1,
+                explanation: "Clicking play runs the file and opens a window with output, terminal, and debugger."
+            },
+            {
+                question: "Can Scala code be run from a standard script file on Databricks?",
+                options: [
+                    "No — Scala only works in Notebooks",
+                    "Yes — Scala can be added to a personal compute and run from a file",
+                    "Yes — Scala runs on any shared compute"
+                ],
+                correct: 1,
+                explanation: "Scala can be added to a personal compute and run from script files."
+            },
+            {
+                question: "Can bash scripts be run from a file on Databricks personal compute?",
+                options: [
+                    "No — bash is not supported",
+                    "Yes — bash scripts will run on personal compute",
+                    "Only if the file is inside a Git repo"
+                ],
+                correct: 1,
+                explanation: "Bash scripts will also run on personal compute."
+            },
+            {
+                question: "What is the main advantage of using script files over Notebooks?",
+                options: [
+                    "Script files run faster than Notebooks",
+                    "Script files are the standard single-file format developers are used to",
+                    "Script files support more languages than Notebooks"
+                ],
+                correct: 1,
+                explanation: "Script files let you use the more standard single-file approach you may have previously been used to."
+            }
+        ];
+
+        const QUESTIONS_PER_QUIZ = 6;
+        let selectedQuestions = [];
+
+        function shuffle(array) {
+            const arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function loadQuiz() {
+            selectedQuestions = shuffle(allQuestions).slice(0, QUESTIONS_PER_QUIZ);
+            const quizArea = document.getElementById('quiz-area');
+            quizArea.innerHTML = '';
+
+            selectedQuestions.forEach((q, idx) => {
+                const block = document.createElement('div');
+                block.className = 'question-block';
+                block.id = `q-block-${idx}`;
+
+                let optionsHtml = '';
+                q.options.forEach((opt, optIdx) => {
+                    optionsHtml += `
+                        <label>
+                            <input type="radio" name="q${idx}" value="${optIdx}">
+                            ${opt}
+                        </label>`;
+                });
+
+                block.innerHTML = `
+                    <p class="question-text"><span class="question-number">Q${idx + 1}.</span> ${q.question}</p>
+                    <div class="options">${optionsHtml}</div>
+                    <p class="feedback" id="feedback-${idx}"></p>
+                `;
+                quizArea.appendChild(block);
+            });
+
+            document.getElementById('results').className = 'results';
+            document.getElementById('results').textContent = '';
+        }
+
+        function markQuiz() {
+            let score = 0;
+
+            selectedQuestions.forEach((q, idx) => {
+                const block = document.getElementById(`q-block-${idx}`);
+                const feedback = document.getElementById(`feedback-${idx}`);
+                const selected = document.querySelector(`input[name="q${idx}"]:checked`);
+
+                block.classList.remove('correct', 'incorrect');
+                feedback.classList.remove('correct-feedback', 'incorrect-feedback');
+
+                if (selected && parseInt(selected.value) === q.correct) {
+                    score++;
+                    block.classList.add('correct');
+                    feedback.textContent = '✓ Correct!';
+                    feedback.classList.add('correct-feedback', 'show');
+                } else {
+                    block.classList.add('incorrect');
+                    const correctAnswer = q.options[q.correct];
+                    feedback.textContent = `✗ Incorrect. ${q.explanation}`;
+                    feedback.classList.add('incorrect-feedback', 'show');
+                }
+            });
+
+            const resultsDiv = document.getElementById('results');
+            const total = selectedQuestions.length;
+            const pct = Math.round((score / total) * 100);
+            resultsDiv.textContent = `You scored ${score} / ${total} (${pct}%)`;
+            resultsDiv.className = `results show ${pct >= 60 ? 'pass' : 'fail'}`;
+        }
+
+        function resetQuiz() {
+            loadQuiz();
+        }
+
+        // Initialise on load
+        loadQuiz();
+    </script>
+</body>
+</html>
