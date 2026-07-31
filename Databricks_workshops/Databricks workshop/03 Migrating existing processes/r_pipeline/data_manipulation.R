@@ -1,1 +1,0 @@
-# This script applies required manipulations to raw input data
