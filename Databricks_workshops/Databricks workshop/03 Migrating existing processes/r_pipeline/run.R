@@ -9,9 +9,13 @@
 # (Session -> Set Working Directory -> To Source File Location)
 ################################################################################
 
+## Install required packages if not already installed
+if (!require(dplyr)) install.packages("dplyr")
+if (!require(magrittr)) install.packages("magrittr")
+if (!require(tidyr)) install.packages("tidyr")
+if (!require(stringr)) install.packages("stringr")
+
 ## Load required packages
-## Note: you'll need to install these if you haven't already got them installed
-##    run: install.packages("<package_name>")
 library(dplyr)
 library(magrittr)
 library(tidyr)
