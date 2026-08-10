@@ -22,13 +22,13 @@ library(tidyr)
 library(stringr)
 
 ## Define any required functions
-source("code/functions.R")
+source("Databricks_workshops/Databricks workshop/03 Migrating existing processes/r_pipeline/code/functions.R")
 
 ## Read in the data files
-source("code/data_ingestion.R")
+source("Databricks_workshops/Databricks workshop/03 Migrating existing processes/r_pipeline/code/data_ingestion.R")
 
 ## Carry out required manipulation of input data
-source("code/data_manipulation.R")
+source("Databricks_workshops/Databricks workshop/03 Migrating existing processes/r_pipeline/code/data_manipulation.R")
 
 ## Save output files
-source("code/outputs.R")
+source("Databricks_workshops/Databricks workshop/03 Migrating existing processes/r_pipeline/code/outputs.R")
