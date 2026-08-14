@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz: Using Databricks Notebooks</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f4f6f9;
+            padding: 2rem;
+            color: #1b1f23;
+        }
+        .quiz-container {
+            max-width: 720px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            padding: 2.5rem;
+        }
+        h1 {
+            font-size: 1.6rem;
+            margin-bottom: 0.4rem;
+            color: #1b3a5c;
+        }
+        .subtitle {
+            color: #5a6a7a;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        .question-block {
+            margin-bottom: 1.8rem;
+            padding: 1.2rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            transition: border-color 0.2s;
+        }
+        .question-block.correct {
+            border-color: #38a169;
+            background: #f0fff4;
+        }
+        .question-block.incorrect {
+            border-color: #e53e3e;
+            background: #fff5f5;
+        }
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+        .question-number {
+            color: #3182ce;
+            font-weight: 700;
+        }
+        .options label {
+            display: block;
+            padding: 0.5rem 0.8rem;
+            margin: 0.3rem 0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .options label:hover {
+            background: #edf2f7;
+        }
+        .options input[type="radio"] {
+            margin-right: 0.6rem;
+        }
+        .feedback {
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: none;
+        }
+        .feedback.show {
+            display: block;
+        }
+        .feedback.correct-feedback {
+            color: #2f855a;
+        }
+        .feedback.incorrect-feedback {
+            color: #c53030;
+        }
+        .btn-row {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        button {
+            padding: 0.7rem 1.6rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
+        button:active {
+            transform: scale(0.97);
+        }
+        #submit-btn {
+            background: #3182ce;
+            color: #fff;
+        }
+        #submit-btn:hover {
+            background: #2b6cb0;
+        }
+        #reset-btn {
+            background: #e2e8f0;
+            color: #2d3748;
+        }
+        #reset-btn:hover {
+            background: #cbd5e0;
+        }
+        .results {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1rem 1.4rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .results.show {
+            display: block;
+        }
+        .results.pass {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+        .results.fail {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Quiz: Using Databricks Notebooks</h1>
+        <p class="subtitle">Knowledge check: Multiple choice quiz to test your knowledge on using Databricks Notebooks.</p>
+
+        <div id="quiz-area"></div>
+
+        <div class="btn-row">
+            <button id="submit-btn" onclick="markQuiz()">Submit Answers</button>
+            <button id="reset-btn" onclick="resetQuiz()">New Questions</button>
+        </div>
+
+        <div id="results" class="results"></div>
+    </div>
+
+    <script>
+        const allQuestions = [
+            {
+                question: "What is a Notebook in Databricks?",
+                options: [
+                    "A single script file that runs top to bottom",
+                    "A collection of scripts arranged in order contained in the same code file",
+                    "A folder containing multiple separate code files"
+                ],
+                correct: 1,
+                explanation: "A notebook is a collection of scripts arranged in order contained in the same code file."
+            },
+            {
+                question: "What file format are Databricks notebooks structured as?",
+                options: [
+                    ".py files",
+                    ".ipynb files",
+                    ".sql files"
+                ],
+                correct: 1,
+                explanation: "In Databricks, notebooks are structured as ipynb files."
+            },
+            {
+                question: "What is the intention of a notebook?",
+                options: [
+                    "To only write code without documentation",
+                    "To capture the whole code process: development, documentation, execution, and output",
+                    "To replace all other forms of coding"
+                ],
+                correct: 1,
+                explanation: "A notebook's intention is to capture the whole code process: development, documentation, execution, and output."
+            },
+            {
+                question: "Which languages are supported in Databricks notebook cells?",
+                options: [
+                    "Only Python and SQL",
+                    "Python, Markdown, SQL, R, Scala, and Bash",
+                    "Python, R, and Markdown only"
+                ],
+                correct: 1,
+                explanation: "Databricks notebooks support Python, Markdown, SQL, R, Scala, and Bash."
+            },
+            {
+                question: "Which languages require a personal compute to run in a notebook?",
+                options: [
+                    "Python and SQL",
+                    "R, Scala, and Bash",
+                    "All languages require personal compute"
+                ],
+                correct: 1,
+                explanation: "R, Scala, and Bash require a personal compute to run."
+            },
+            {
+                question: "How do you change the language of a cell in a Databricks notebook?",
+                options: [
+                    "You cannot change cell languages",
+                    "By altering the extension on the top line after the % symbol",
+                    "By renaming the notebook file"
+                ],
+                correct: 1,
+                explanation: "You change the language by altering the extension on the top line after the % symbol."
+            },
+            {
+                question: "What must be attached to a notebook and started before code can run?",
+                options: [
+                    "A Git repository",
+                    "A compute instance",
+                    "A dashboard"
+                ],
+                correct: 1,
+                explanation: "A notebook needs a compute instance attached and started for anything to run."
+            },
+            {
+                question: "Which of the following is NOT one of the four sidebar icons to the left of a notebook?",
+                options: [
+                    "Table of contents",
+                    "Data Catalog browser",
+                    "Compute manager"
+                ],
+                correct: 2,
+                explanation: "The four sidebar icons are: Table of contents, Workspace browser, Data Catalog browser, and AI assistant."
+            },
+            {
+                question: "What benefit do headers in markdown cells provide for navigation?",
+                options: [
+                    "They make the code run faster",
+                    "They appear in the Table of Contents pane for easy navigation",
+                    "They automatically create new notebooks"
+                ],
+                correct: 1,
+                explanation: "Headers appear in the Table of Contents pane, allowing you to navigate to any section by clicking on the header."
+            },
+            {
+                question: "How can you run a code chunk in a Databricks notebook?",
+                options: [
+                    "Only by clicking the play button",
+                    "By pressing the play button or pressing Ctrl + Return/Enter",
+                    "Only by using the Run All button"
+                ],
+                correct: 1,
+                explanation: "You can run a chunk by pressing the play button in the top left corner, or by pressing Ctrl + Return/Enter."
+            },
+            {
+                question: "What are 'widgets' used for in Databricks notebooks?",
+                options: [
+                    "To add visual charts to the notebook",
+                    "To parameterise notebooks so they can be re-used with different inputs",
+                    "To connect multiple notebooks together"
+                ],
+                correct: 1,
+                explanation: "Widgets parameterise notebooks, meaning a single notebook can be re-used with different inputs, similar to a function or stored procedure."
+            },
+            {
+                question: "In SQL, what syntax do you use to reference a widget parameter from Databricks Runtime 15+?",
+                options: [
+                    "${parameter_name}",
+                    ":parameter_name",
+                    "@parameter_name"
+                ],
+                correct: 1,
+                explanation: "From Databricks Runtime 15+ you use :parameter_name syntax. The older ${parameter_name} syntax was used in previous versions."
+            },
+            {
+                question: "In R, how do you retrieve the value of a widget?",
+                options: [
+                    "dbutils.widgets.get('widget_name')",
+                    "getWidget('widget_name')",
+                    "widgets.value('widget_name')"
+                ],
+                correct: 0,
+                explanation: "In R you use dbutils.widgets.get('widget_name') to retrieve the value of a widget."
+            },
+            {
+                question: "How do you remove a widget in SQL?",
+                options: [
+                    "DELETE WIDGET widget_name",
+                    "REMOVE WIDGET widget_name",
+                    "DROP WIDGET widget_name"
+                ],
+                correct: 1,
+                explanation: "In SQL you use REMOVE WIDGET widget_name to remove a widget."
+            },
+            {
+                question: "Can notebooks share a session with another notebook?",
+                options: [
+                    "Yes — all notebooks share the same session",
+                    "No — notebooks cannot share a session with another notebook",
+                    "Only if they are in the same folder"
+                ],
+                correct: 1,
+                explanation: "Notebooks cannot share a session with another notebook. To pass data between notebooks you need to write to a table in Unity Catalog."
+            },
+            {
+                question: "What risk arises from sharing a notebook with edit permissions?",
+                options: [
+                    "The notebook will be deleted",
+                    "Another user could accidentally cancel your code run or overwrite your code",
+                    "The compute instance will shut down"
+                ],
+                correct: 1,
+                explanation: "If you share a notebook with edit permissions, another user may accidentally cancel your run or overwrite your code, and it can be difficult to recover previous versions."
+            },
+            {
+                question: "When did notebooks first appear in computing?",
+                options: [
+                    "The early 2000s with Jupyter",
+                    "The late 1980s with MathCAD and Wolfram Mathematica",
+                    "The 2010s with Databricks"
+                ],
+                correct: 1,
+                explanation: "Notebooks have been around since the late 1980s, famously MathCAD and Wolfram Mathematica."
+            },
+            {
+                question: "Which of the following is NOT a reason to use a notebook?",
+                options: [
+                    "It helps sustain good coding practices like documentation and modularised code",
+                    "It enables multiple types of code to be run in a single file",
+                    "It allows you to easily import variables and functions between notebooks"
+                ],
+                correct: 2,
+                explanation: "Variables and functions set in one notebook do not persist in another — this is actually a reason NOT to use notebooks."
+            },
+            {
+                question: "What does the notebook material recommend for regular analysis pipelines adopting RAP principles?",
+                options: [
+                    "Always use notebooks for everything",
+                    "Use a Git controlled repository of code scripts rather than notebooks",
+                    "Avoid using Databricks entirely"
+                ],
+                correct: 1,
+                explanation: "For regular analysis pipelines and models adopting RAP principles, the recommendation is to use a Git controlled repository of code scripts."
+            },
+            {
+                question: "What is a key risk of running notebook cells out of order?",
+                options: [
+                    "The notebook will be deleted",
+                    "Output could be inconsistent, resulting in errors and making QA more difficult",
+                    "The compute instance will crash"
+                ],
+                correct: 1,
+                explanation: "Running cells out of order can produce inconsistent output and errors, making QA more difficult and increasing the risk of human error."
+            },
+            {
+                question: "In R, what function should you use instead of View() to display a data frame in Databricks?",
+                options: [
+                    "show()",
+                    "display()",
+                    "print()"
+                ],
+                correct: 1,
+                explanation: "In Databricks, R users should use display() instead of View() to view their data."
+            },
+            {
+                question: "How can notebooks be exported for sharing outside of Databricks?",
+                options: [
+                    "They can only be shared within Databricks",
+                    "They can be exported as HTML files",
+                    "They must be converted to PDF manually"
+                ],
+                correct: 1,
+                explanation: "Notebooks can be exported as HTML files to enable easier sharing outside of the Databricks interface."
+            },
+            {
+                question: "What does the 'Run All' button at the top of a notebook do?",
+                options: [
+                    "Runs only the currently selected cell",
+                    "Runs all chunks in order from the beginning of the notebook",
+                    "Runs all cells simultaneously in parallel"
+                ],
+                correct: 1,
+                explanation: "The Run All button runs all chunks in order from the beginning of the Notebook, avoiding the risk of running code out of order."
+            }
+        ];
+
+        const QUESTIONS_PER_QUIZ = 6;
+        let selectedQuestions = [];
+
+        function shuffle(array) {
+            const arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function loadQuiz() {
+            selectedQuestions = shuffle(allQuestions).slice(0, QUESTIONS_PER_QUIZ);
+            const quizArea = document.getElementById('quiz-area');
+            quizArea.innerHTML = '';
+
+            selectedQuestions.forEach((q, idx) => {
+                const block = document.createElement('div');
+                block.className = 'question-block';
+                block.id = `q-block-${idx}`;
+
+                let optionsHtml = '';
+                q.options.forEach((opt, optIdx) => {
+                    optionsHtml += `
+                        <label>
+                            <input type="radio" name="q${idx}" value="${optIdx}">
+                            ${opt}
+                        </label>`;
+                });
+
+                block.innerHTML = `
+                    <p class="question-text"><span class="question-number">Q${idx + 1}.</span> ${q.question}</p>
+                    <div class="options">${optionsHtml}</div>
+                    <p class="feedback" id="feedback-${idx}"></p>
+                `;
+                quizArea.appendChild(block);
+            });
+
+            document.getElementById('results').className = 'results';
+            document.getElementById('results').textContent = '';
+        }
+
+        function markQuiz() {
+            let score = 0;
+
+            selectedQuestions.forEach((q, idx) => {
+                const block = document.getElementById(`q-block-${idx}`);
+                const feedback = document.getElementById(`feedback-${idx}`);
+                const selected = document.querySelector(`input[name="q${idx}"]:checked`);
+
+                block.classList.remove('correct', 'incorrect');
+                feedback.classList.remove('correct-feedback', 'incorrect-feedback');
+
+                if (selected && parseInt(selected.value) === q.correct) {
+                    score++;
+                    block.classList.add('correct');
+                    feedback.textContent = '✓ Correct!';
+                    feedback.classList.add('correct-feedback', 'show');
+                } else {
+                    block.classList.add('incorrect');
+                    const correctAnswer = q.options[q.correct];
+                    feedback.textContent = `✗ Incorrect. ${q.explanation}`;
+                    feedback.classList.add('incorrect-feedback', 'show');
+                }
+            });
+
+            const resultsDiv = document.getElementById('results');
+            const total = selectedQuestions.length;
+            const pct = Math.round((score / total) * 100);
+            resultsDiv.textContent = `You scored ${score} / ${total} (${pct}%)`;
+            resultsDiv.className = `results show ${pct >= 60 ? 'pass' : 'fail'}`;
+        }
+
+        function resetQuiz() {
+            loadQuiz();
+        }
+
+        // Initialise on load
+        loadQuiz();
+    </script>
+</body>
+</html>
