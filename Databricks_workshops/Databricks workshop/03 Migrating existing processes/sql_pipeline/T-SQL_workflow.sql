@@ -19,7 +19,7 @@ Key differences from Databricks SQL:
 ===============================================================================
 */
 
-USE [MDR_Modelling_DSAG_PRI_PERF]
+USE [catalog_40_copper_analyst_training]
 
 --------------------------------------------------------------------------------
 -- 1. Look at data structure
@@ -27,11 +27,11 @@ USE [MDR_Modelling_DSAG_PRI_PERF]
 
 -- Preview pupils data
 SELECT TOP 1000 *
-FROM [dbo].[analyst_training_pupils_autumn_2025]
+FROM [bronze].[pupils_autumn_2025]
 
 -- Preview schools data
 SELECT TOP 1000 *
-FROM [dbo].[analyst_training_schools_autumn_2025]
+FROM [bronze].[schools_autumn_2025]
 
 
 --------------------------------------------------------------------------------
