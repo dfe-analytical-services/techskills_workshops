@@ -1,121 +1,115 @@
-/* 
-This .sql file query the SQL table catalog_40_copper_analyst_training.steam
-
-This attempts to recreate some common SQL code that would need to be converted from MSSQL to Spark SQL when migrating to databricks 
-
-
-Common SQL to databricks migration issues to cover:
-temporary tables
-joins
-investigating data 
-
-alternatives:
-using notebooks and temporary views lol
-using SQL scripts referenced within a notebook
-just making the query functional to produce an output
-
-
-
-
-*/
-
-SELECT * FROM catalog_40_copper_analyst_training.steam.steam_game_reviews LIMIT 1000
-
-
-
 /*
-select 
-2024 as [Year], --- this is the first year for which individual level data is usable - data for 2023 was subject to a high degree of amendments post publication 
-[LEA],
-[StartDate],
-[PersonTableID],
-[NamedPlanTableID],
-case ---- recodes ethnic groups to the ones used in the publication 
-when [ethnicity_minor] = 'African' then 'Black - Black African'
-when [ethnicity_minor] = 'AOEG' then 'Any other ethnic group'
-when [ethnicity_minor] = 'Bangladeshi' then 'Asian - Bangladeshi'
-when [ethnicity_minor] = 'Caribbean' then 'Black - Black Caribbean'
-when [ethnicity_minor] = 'Chinese' then 'Asian - Chinese'
-when [ethnicity_minor] = 'GypsyRoma' then 'White - Gypsy/Roma'
-when [ethnicity_minor] = 'Indian' then 'Asian - Indian'
-when [ethnicity_minor] = 'Irish' then 'White - Irish'
-when [ethnicity_minor] = 'Irish_Traveller' then 'White - Traveller of Irish heritage'
-when [ethnicity_minor] = 'Other_Asian' then 'Asian - Any other Asian background'
-when [ethnicity_minor] = 'Other_Black' then 'Black - Any other Black background'
-when [ethnicity_minor] = 'Other_Mixed' then 'Mixed - Any other Mixed background'
-when [ethnicity_minor] = 'Other_White' then 'White - Any other White background'
-when [ethnicity_minor] = 'Pakistani' then 'Asian - Pakistani'
-when [ethnicity_minor] = 'UNCL' then 'Unclassified'
-when [ethnicity_minor] = 'White_British' then 'White - White British'
-when [ethnicity_minor] = 'WhiteAsian' then 'Mixed - White and Asian'
-when [ethnicity_minor] = 'WhiteBlackAfrican' then 'Mixed - White and Black African'
-when [ethnicity_minor] = 'WhiteBlackCaribbean' then 'Mixed - White and Black Caribbean'
-end as [ethnicity_minor],
-case --- recodes sex 
-when [Sex] in ('Not known') then 'Unknown'
-else [Sex]
-end as [Sex],
-case -- recodes individual age variable - grops those at younger and older sections
-when [age_integer] in (0,1,2) then 'under 3'
-when [age_integer] in (3) then 'age 3'
-when [age_integer] in (4) then 'age 4'
-when [age_integer] in (5) then 'age 5'
-when [age_integer] in (6) then 'age 6'
-when [age_integer] in (7) then 'age 7'
-when [age_integer] in (8) then 'age 8'
-when [age_integer] in (9) then 'age 9'
-when [age_integer] in (10) then 'age 10'
-when [age_integer] in (11) then 'age 11'
-when [age_integer] in (12) then 'age 12'
-when [age_integer] in (13) then 'age 13'
-when [age_integer] in (14) then 'age 14'
-when [age_integer] in (15) then 'age 15'
-when [age_integer] in (16) then 'age 16'
-when [age_integer] in (17) then 'age 17'
-when [age_integer] in (18) then 'age 18'
-when [age_integer] in (19) then 'age 19'
-when [age_integer] in (20) then 'age 20'
-when [age_integer] in (21) then 'age 21'
-when [age_integer] in (22) then 'age 22'
-when [age_integer] in (23) then 'age 23'
-when [age_integer] in (24) then 'age 24'
-when [age_integer] > 24 then 'age 25'
-else 'unknown'
-end as [age],
-(CONVERT(int, CONVERT(varchar, [StartDate], 112)) - CONVERT(int, CONVERT(varchar, [PersonBirthDate], 112)))/10000 AS AgePlanStarted, --- calculates how old the CYP was when the plan started 
-case 
-when [StartDate] is not null then (CONVERT(int, CONVERT(varchar, '20241801', 112)) - CONVERT(int, CONVERT(varchar, [StartDate], 112)))/10000 
-else 99 
-end AS years_plan, -- calcuates length the plan has been in place as at census date 
-[sen_establishment] as [PlacementGroup],
-[sen_establishment_detail] as [Placement],
-1 as EHCPlans
+===============================================================================
+T-SQL Pipeline: Pupils & Schools Autumn 2025
+===============================================================================
+This script is the T-SQL (SQL Server) equivalent of the Databricks notebook
+T-SQL_workflow, which itself mirrors the R pipeline (r_pipeline/).
 
-into
-#matched
+Pipeline stages:
+  1. Data Ingestion  - Read pupils and schools autumn 2025 from bronze tables
+  2. Data Manipulation - Parse JSON metadata, select columns, join
+  3. Outputs - Produce avg pupil premium by Ofsted rating summary
 
-from 
-[SEN2_2024].[caseload]
-
-
--- Investigate the data
-SELECT TOP 100 *
-FROM [SEN2_2024].[caseload]
-
--- Check distinct genres within the table
-SELECT DISTINCT genre
-FROM [SEN2_2024].[caseload]
-
+Key differences from Databricks SQL:
+  - TEMP VIEWS -> #temp tables (SELECT INTO)
+  - metadata_json:key -> JSON_VALUE(metadata_json, '$.key')
+  - INITCAP() -> UPPER(LEFT()) + LOWER(SUBSTRING())
+  - PERCENTILE() -> PERCENTILE_CONT() WITHIN GROUP
+  - LIMIT n -> TOP n
+===============================================================================
 */
 
+USE [MDR_Modelling_DSAG_PRI_PERF]
 
--- SELECT DISTINCT(username) FROM catalog_40_copper_analyst_training.steam.steam_game_reviews LIMIT 1000
+--------------------------------------------------------------------------------
+-- 1. Look at data structure
+--------------------------------------------------------------------------------
+
+-- Preview pupils data
+SELECT TOP 1000 *
+FROM [dbo].[analyst_training_pupils_autumn_2025]
+
+-- Preview schools data
+SELECT TOP 1000 *
+FROM [dbo].[analyst_training_schools_autumn_2025]
 
 
+--------------------------------------------------------------------------------
+-- 2. DATA MANIPULATION
+-- Parse JSON metadata, select required columns, join pupils to schools
+--------------------------------------------------------------------------------
 
-/*
-SELECT *
---INTO #action
-FROM catalog_40_copper_analyst_training.steam.games_ranking
-WHERE genre IN ('Action', '')
-*/
+-- Pupils: select columns and parse JSON metadata
+IF OBJECT_ID('tempdb..#pupils_aut') IS NOT NULL DROP TABLE #pupils_aut
+SELECT
+    [pupil_id],
+    [gender],
+    [school_urn],
+    JSON_VALUE(metadata_json, '$.address.postcode') AS postcode,
+    LOWER(JSON_VALUE([metadata_json], '$.sen_status')) AS [sen_status],
+    JSON_VALUE([metadata_json], '$.fsm_eligible') AS [fsm_status]
+INTO #pupils_aut
+FROM [dbo].[analyst_training_pupils_autumn_2025]
+
+-- Schools: select columns, parse JSON, title-case city, deduplicate
+IF OBJECT_ID('tempdb..#schools_aut') IS NOT NULL DROP TABLE #schools_aut
+SELECT DISTINCT
+    [school_urn],
+    UPPER(LEFT([city], 1)) + LOWER(SUBSTRING([city], 2, LEN([city]))) AS [city],
+    [school_type],
+    JSON_VALUE([metadata_json], '$.ofsted_rating') AS [ofsted_rating],
+    CAST(JSON_VALUE([metadata_json], '$.pupil_premium_pct') AS FLOAT) AS [pupil_premium_pct]
+INTO #schools_aut
+FROM [dbo].[analyst_training_schools_autumn_2025]
+
+-- Join pupils and schools
+IF OBJECT_ID('tempdb..#pupils_schools_aut') IS NOT NULL DROP TABLE #pupils_schools_aut
+SELECT
+    p.[pupil_id],
+    p.[gender],
+    p.[school_urn],
+    p.[sen_status],
+    p.[fsm_status],
+    s.[city],
+    s.[school_type],
+    s.[ofsted_rating],
+    s.[pupil_premium_pct]
+INTO #pupils_schools_aut
+FROM #pupils_aut p
+LEFT JOIN #schools_aut s
+    ON p.[school_urn] = s.[school_urn]
+
+
+-- Investigate relationships in joined data
+SELECT
+    [gender],
+    [ofsted_rating],
+    COUNT(*) AS [n]
+FROM #pupils_schools_aut
+GROUP BY [gender], [ofsted_rating]
+ORDER BY [n] DESC
+
+
+--------------------------------------------------------------------------------
+-- 3. OUTPUTS
+-- Produce avg pupil premium by Ofsted rating
+--------------------------------------------------------------------------------
+
+-- CTE to calculate median pupil premium 
+WITH median_pp_prep AS (
+    SELECT
+        [ofsted_rating],
+        [pupil_premium_pct],
+        PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY [pupil_premium_pct])
+            OVER (PARTITION BY [ofsted_rating]) AS median_pupil_premium_pct
+    FROM #pupils_schools_aut
+)
+-- Create final output table
+SELECT
+    [ofsted_rating],
+    COUNT(*) AS [pupils],
+    ROUND(AVG([pupil_premium_pct]), 4) AS [avg_pupil_premium_pct],
+    ROUND(MAX(median_pupil_premium_pct), 4) AS [median_pupil_premium_pct]
+FROM median_pp_prep
+GROUP BY [ofsted_rating]
+ORDER BY [pupils] DESC;
