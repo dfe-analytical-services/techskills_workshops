@@ -1,5 +1,5 @@
 /* 
-This .sql file query the SQL table catalog_40_copper_analyst_training.steam
+This .sql file queries the SQL table catalog_40_copper_analyst_training.steam
 
 This attempts to recreate some common SQL code that would need to be converted from MSSQL to Spark SQL when migrating to databricks 
 

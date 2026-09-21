@@ -1,45 +1,47 @@
 /*
 ===============================================================================
-T-SQL Pipeline: Pupils & Schools Autumn 2025
+SQL Server Data Processing Code
 ===============================================================================
-This script is the T-SQL (SQL Server) equivalent of the Databricks notebook
-T-SQL_workflow, which itself mirrors the R pipeline (r_pipeline/).
+This code demonstrates an example of data processing using T-SQL (used in SQL 
+Server), including setup, a brief look at data structure, data manipulation, 
+joins, and calculations. This demonstrates some of the common functions and 
+processes that may be found in T-SQL code that is being translated to work with 
+Databricks following legacy servers being decomissioned. Your task is to 
+adapt this code to run in Databricks. 
+ 
+This code mirrors the data processing steps in the r_pipeline folder.
+
 
 Pipeline stages:
-  1. Data Ingestion  - Read pupils and schools autumn 2025 from bronze tables
-  2. Data Manipulation - Parse JSON metadata, select columns, join
-  3. Outputs - Produce avg pupil premium by Ofsted rating summary
-
-Key differences from Databricks SQL:
-  - TEMP VIEWS -> #temp tables (SELECT INTO)
-  - metadata_json:key -> JSON_VALUE(metadata_json, '$.key')
-  - INITCAP() -> UPPER(LEFT()) + LOWER(SUBSTRING())
-  - PERCENTILE() -> PERCENTILE_CONT() WITHIN GROUP
-  - LIMIT n -> TOP n
+  1. Check data - Look at data structure of Autumn 2025 pupils and schools data
+  2. Data Manipulation - Select columns and parse metadata, join pupils to 
+     schools
+  3. Outputs - Produce average pupil premium by Ofsted rating summary
 ===============================================================================
 */
 
+-- Define catalog being used
 USE [catalog_40_copper_analyst_training]
 
 --------------------------------------------------------------------------------
 -- 1. Look at data structure
 --------------------------------------------------------------------------------
 
--- Preview pupils data
+-- Check structure of pupils_autumn_2025 table
 SELECT TOP 1000 *
 FROM [bronze].[pupils_autumn_2025]
 
--- Preview schools data
+-- Check structure of schools_autumn_2025 table
 SELECT TOP 1000 *
 FROM [bronze].[schools_autumn_2025]
 
 
 --------------------------------------------------------------------------------
 -- 2. DATA MANIPULATION
--- Parse JSON metadata, select required columns, join pupils to schools
+-- Select required columns and parse JSON metadata, join pupils to schools
 --------------------------------------------------------------------------------
 
--- Pupils: select columns and parse JSON metadata
+-- Pupils table: select columns and parse JSON metadata
 IF OBJECT_ID('tempdb..#pupils_aut') IS NOT NULL DROP TABLE #pupils_aut
 SELECT
     [pupil_id],
@@ -51,7 +53,7 @@ SELECT
 INTO #pupils_aut
 FROM [dbo].[analyst_training_pupils_autumn_2025]
 
--- Schools: select columns, parse JSON, title-case city, deduplicate
+-- Schools table: select columns, parse JSON, reformat data in city column, deduplicate
 IF OBJECT_ID('tempdb..#schools_aut') IS NOT NULL DROP TABLE #schools_aut
 SELECT DISTINCT
     [school_urn],
@@ -62,7 +64,7 @@ SELECT DISTINCT
 INTO #schools_aut
 FROM [dbo].[analyst_training_schools_autumn_2025]
 
--- Join pupils and schools
+-- Join pupils and schools tables ahead of performing calculations
 IF OBJECT_ID('tempdb..#pupils_schools_aut') IS NOT NULL DROP TABLE #pupils_schools_aut
 SELECT
     p.[pupil_id],
@@ -92,10 +94,10 @@ ORDER BY [n] DESC
 
 --------------------------------------------------------------------------------
 -- 3. OUTPUTS
--- Produce avg pupil premium by Ofsted rating
+-- Produce summary output: calculate average pupil premium percentage by Ofsted rating
 --------------------------------------------------------------------------------
 
--- CTE to calculate median pupil premium 
+-- Common Table Expression to calculate median pupil premium 
 WITH median_pp_prep AS (
     SELECT
         [ofsted_rating],
