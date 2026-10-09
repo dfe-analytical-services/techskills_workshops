@@ -1,6 +1,6 @@
 /*
 ===============================================================================
-SQL Server Data Processing Code
+SQL Server Data Pineline Code
 ===============================================================================
 This code demonstrates an example of data processing using T-SQL (used in SQL 
 Server), including setup, a brief look at data structure, data manipulation, 
@@ -21,7 +21,7 @@ Pipeline stages:
 */
 
 -- Define catalog being used
-USE [catalog_40_copper_analyst_training]
+USE [MDR_Modelling_DSAG_analyst_training]
 
 --------------------------------------------------------------------------------
 -- 1. Look at data structure
@@ -29,11 +29,11 @@ USE [catalog_40_copper_analyst_training]
 
 -- Check structure of pupils_autumn_2025 table
 SELECT TOP 1000 *
-FROM [bronze].[pupils_autumn_2025]
+FROM [dbo].[analyst_training_pupils_autumn_2025]
 
 -- Check structure of schools_autumn_2025 table
 SELECT TOP 1000 *
-FROM [bronze].[schools_autumn_2025]
+FROM [dbo].[analyst_training_schools_autumn_2025]
 
 
 --------------------------------------------------------------------------------
@@ -112,6 +112,11 @@ SELECT
     COUNT(*) AS [pupils],
     ROUND(AVG([pupil_premium_pct]), 4) AS [avg_pupil_premium_pct],
     ROUND(MAX(median_pupil_premium_pct), 4) AS [median_pupil_premium_pct]
+INTO [dbo].[avg_pupil_premium_by_ofsted]
 FROM median_pp_prep
 GROUP BY [ofsted_rating]
-ORDER BY [pupils] DESC;
+ORDER BY [pupils] DESC
+
+-- View final table
+SELECT *
+FROM [dbo].[avg_pupil_premium_by_ofsted];
