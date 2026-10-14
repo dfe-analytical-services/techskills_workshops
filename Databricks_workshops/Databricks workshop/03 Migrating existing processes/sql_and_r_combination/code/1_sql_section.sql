@@ -8,48 +8,67 @@
 -- this 1_sql_section.sql file, and later analysis in the 2_r_section.R file.
 
 -- Define catalog being used
-USE CATALOG catalog_40_copper_analyst_training;
+USE [MDR_Modelling_DSAG_analyst_training]
+
+--------------------------------------------------------------------------------
+-- 1. Look at data structure
+--------------------------------------------------------------------------------
 
 -- Check structure of pupils_autumn_2025 table
-SELECT * FROM catalog_40_copper_analyst_training.bronze.pupils_autumn_2025 LIMIT 1000;
+SELECT TOP 1000 *
+FROM [dbo].[analyst_training_pupils_autumn_2025]
 
 -- Check structure of schools_autumn_2025 table
-SELECT * FROM catalog_40_copper_analyst_training.bronze.schools_autumn_2025 LIMIT 1000;
+SELECT TOP 1000 *
+FROM [dbo].[analyst_training_schools_autumn_2025]
+
+
+--------------------------------------------------------------------------------
+-- 2. DATA MANIPULATION
+-- Select required columns and parse JSON metadata, join pupils to schools
+--------------------------------------------------------------------------------
 
 -- Pupils table: select columns and parse JSON metadata
-CREATE OR REPLACE TEMPORARY TABLE pupils_aut AS
-SELECT 
-  pupil_id,
-  gender,
-  school_urn,
-  metadata_json:address:postcode AS postcode,
-  LOWER(metadata_json:sen_status) AS sen_status,
-  metadata_json:fsm_eligible AS fsm_status
-FROM catalog_40_copper_analyst_training.bronze.pupils_autumn_2025;
+IF OBJECT_ID('tempdb..#pupils_aut') IS NOT NULL DROP TABLE #pupils_aut
+SELECT
+    [pupil_id],
+    [gender],
+    [school_urn],
+    JSON_VALUE(metadata_json, '$.address.postcode') AS postcode,
+    LOWER(JSON_VALUE([metadata_json], '$.sen_status')) AS [sen_status],
+    JSON_VALUE([metadata_json], '$.fsm_eligible') AS [fsm_status]
+INTO #pupils_aut
+FROM [dbo].[analyst_training_pupils_autumn_2025]
 
 -- Schools table: select columns, parse JSON, reformat data in city column, deduplicate
-CREATE OR REPLACE TEMPORARY TABLE schools_aut AS -- We use TEMP here instead of TEMPORARY in the above example - these can be used interchangeably
+IF OBJECT_ID('tempdb..#schools_aut') IS NOT NULL DROP TABLE #schools_aut
 SELECT DISTINCT
-  school_urn,
-  INITCAP(city) AS city,
-  school_type,
-  REPLACE(metadata_json:ofsted_rating, '"', '') AS ofsted_rating,
-  CAST(metadata_json:pupil_premium_pct AS DOUBLE) AS pupil_premium_pct
-FROM catalog_40_copper_analyst_training.bronze.schools_autumn_2025;
+    [school_urn],
+    UPPER(LEFT([city], 1)) + LOWER(SUBSTRING([city], 2, LEN([city]))) AS [city],
+    [school_type],
+    JSON_VALUE([metadata_json], '$.ofsted_rating') AS [ofsted_rating],
+    CAST(JSON_VALUE([metadata_json], '$.pupil_premium_pct') AS FLOAT) AS [pupil_premium_pct]
+INTO #schools_aut
+FROM [dbo].[analyst_training_schools_autumn_2025]
 
 -- Join pupils and schools tables ahead of performing calculations
-CREATE OR REPLACE TEMPORARY TABLE pupils_schools_aut AS -- and here we create a temporary table rather than a view
-SELECT 
-  p.*,
-  s.city,
-  s.school_type,
-  s.ofsted_rating,
-  s.pupil_premium_pct
-FROM pupils_aut p
-LEFT JOIN schools_aut s
-  ON p.school_urn = s.school_urn;
+IF OBJECT_ID('tempdb..#pupils_schools_aut') IS NOT NULL DROP TABLE #pupils_schools_aut
+SELECT
+    p.[pupil_id],
+    p.[gender],
+    p.[school_urn],
+    p.[sen_status],
+    p.[fsm_status],
+    s.[city],
+    s.[school_type],
+    s.[ofsted_rating],
+    s.[pupil_premium_pct]
+INTO #pupils_schools_aut
+FROM #pupils_aut p
+LEFT JOIN #schools_aut s
+    ON p.[school_urn] = s.[school_urn]
 
 -- Note that since we cannot write to the analyst training catalog, we will just visualise the output 
 -- here, and use a CSV with the same data at the beginning of our R process
 SELECT *
-FROM pupils_schools_aut;
+FROM #pupils_schools_aut;
