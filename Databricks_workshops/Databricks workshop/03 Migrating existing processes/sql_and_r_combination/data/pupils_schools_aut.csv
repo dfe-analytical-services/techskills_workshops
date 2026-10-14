@@ -1,0 +1,35 @@
+pupil_id,gender,school_urn,postcode,sen_status,fsm_status,city,school_type,ofsted_rating,pupil_premium_pct
+P001,F,100001,E1 6AN,none,false,London,Academy,Good,0.3
+P002,M,100001,N1 3PQ,sen support,true,London,Academy,Good,0.3
+P003,F,100002,M4 1HJ,none,false,Manchester,Maintained,Outstanding,0.16
+P004,M,100005,BS1 5AH,ehcp,true,Bristol,Academy,Outstanding,0.19
+P005,F,100004,LS1 4DY,none,false,Leeds,Maintained,Good,0.27
+P006,M,100005,BS2 8NJ,sen support,false,Bristol,Academy,Outstanding,0.19
+P007,F,100006,S1 2FP,none,true,Sheffield,Maintained,Good,0.38
+P008,M,100007,L3 9DA,ehcp,true,Liverpool,Academy,Good,0.29
+P009,F,100008,SE1 7RG,none,false,London,Academy,Good,0.15
+P010,M,100009,NG1 5LL,sen support,true,Nottingham,Free School,Good,0.22
+P011,F,100010,CT1 2XB,none,false,Canterbury,Academy,Good,0.09
+P012,M,100012,NE1 4RT,none,false,Newcastle,academy,Good,0.31
+P013,F,100013,OX1 3SG,none,true,Oxford,Maintained,Outstanding,0.12
+P014,M,100014,CB1 2HU,sen support,false,Cambridge,Academy,Good,0.2
+P015,F,100015,BA1 3NE,none,false,Bath,Academy,Good,0.39
+P016,M,100016,YO1 6BW,none,true,York,Maintained,Good,0.35
+P017,F,100017,PL1 4DX,ehcp,true,Plymouth,Academy,Good,0.24
+P018,M,100018,CV1 5FG,none,false,Coventry,Maintained,Good,0.44
+P019,F,999999,SW1 8QR,none,false,null,null,null,null
+P020,M,100001,E2 0PL,sen support,true,London,Academy,Good,0.3
+P021,F,100002,M3 4JK,none,false,Manchester,Maintained,Outstanding,0.16
+P022,M,100005,BS3 1RT,none,false,Bristol,Academy,Outstanding,0.19
+P023,F,100019,RG1 2MN,none,false,Reading,Academy,Good,0.17
+P025,F,100020,BN1 4KJ,none,false,Brighton,Free School,Requires Improvement,0.28
+P026,M,100021,EX1 3LP,sen support,true,Exeter,Academy,Good,0.22
+P027,F,100002,M5 2DA,none,false,Manchester,Maintained,Outstanding,0.16
+P028,M,100006,S3 7HN,sen support,true,Sheffield,Maintained,Good,0.38
+P029,F,100014,CB2 1TP,none,false,Cambridge,Academy,Good,0.2
+P030,M,100020,BN2 3SW,none,true,Brighton,Free School,Requires Improvement,0.28
+P001,F,100001,E1 6AN,none,false,London,Academy,Good,0.3
+P006,M,100005,BS2 8NJ,sen support,true,Bristol,Academy,Outstanding,0.19
+P010,M,100009,NG1 5LL,none,true,Nottingham,Free School,Good,0.22
+P016,M,100016,YO1 6BW,none,true,York,Maintained,Good,0.35
+P022,M,100005,BS3 1RT,sen support,false,Bristol,Academy,Outstanding,0.19
