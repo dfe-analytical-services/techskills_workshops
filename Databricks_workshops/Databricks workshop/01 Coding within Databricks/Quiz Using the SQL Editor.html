@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz: Using the SQL Editor in Databricks</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f4f6f9; padding: 2rem; color: #1b1f23; }
+        .quiz-container { max-width: 720px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 2.5rem; }
+        h1 { font-size: 1.6rem; margin-bottom: 0.4rem; color: #1b3a5c; }
+        .subtitle { color: #5a6a7a; margin-bottom: 2rem; font-size: 0.95rem; }
+        .question-block { margin-bottom: 1.8rem; padding: 1.2rem; border: 1px solid #e2e8f0; border-radius: 8px; transition: border-color 0.2s; }
+        .question-block.correct { border-color: #38a169; background: #f0fff4; }
+        .question-block.incorrect { border-color: #e53e3e; background: #fff5f5; }
+        .question-text { font-weight: 600; margin-bottom: 0.8rem; font-size: 1rem; }
+        .question-number { color: #3182ce; font-weight: 700; }
+        .options label { display: block; padding: 0.5rem 0.8rem; margin: 0.3rem 0; border-radius: 6px; cursor: pointer; transition: background 0.15s; }
+        .options label:hover { background: #edf2f7; }
+        .options input[type="radio"] { margin-right: 0.6rem; }
+        .feedback { margin-top: 0.6rem; font-size: 0.9rem; font-weight: 500; display: none; }
+        .feedback.show { display: block; }
+        .feedback.correct-feedback { color: #2f855a; }
+        .feedback.incorrect-feedback { color: #c53030; }
+        .btn-row { display: flex; gap: 1rem; margin-top: 2rem; }
+        button { padding: 0.7rem 1.6rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.2s, transform 0.1s; }
+        button:active { transform: scale(0.97); }
+        #submit-btn { background: #3182ce; color: #fff; }
+        #submit-btn:hover { background: #2b6cb0; }
+        #reset-btn { background: #e2e8f0; color: #2d3748; }
+        #reset-btn:hover { background: #cbd5e0; }
+        .results { display: none; margin-top: 1.5rem; padding: 1rem 1.4rem; border-radius: 8px; font-size: 1.1rem; font-weight: 600; }
+        .results.show { display: block; }
+        .results.pass { background: #c6f6d5; color: #22543d; }
+        .results.fail { background: #fed7d7; color: #742a2a; }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Quiz: Using the SQL Editor</h1>
+        <p class="subtitle">Knowledge check: Multiple choice quiz to test your knowledge on using the Databricks SQL Editor.</p>
+
+        <div id="quiz-area"></div>
+
+        <div class="btn-row">
+            <button id="submit-btn" onclick="markQuiz()">Submit Answers</button>
+            <button id="reset-btn" onclick="resetQuiz()">New Questions</button>
+        </div>
+
+        <div id="results" class="results"></div>
+    </div>
+
+    <script>
+        const allQuestions = [
+            {
+                question: "What is the Databricks SQL Editor?",
+                options: [
+                    "A tool for editing Python packages",
+                    "A dedicated workspace for writing, running and saving SQL queries",
+                    "A place to configure compute clusters"
+                ],
+                correct: 1,
+                explanation: "The SQL Editor is a dedicated interface for writing, running, saving and sharing SQL queries."
+            },
+            {
+                question: "Where do you find the SQL Editor in the Databricks UI?",
+                options: [
+                    "Under SQL > SQL Editor in the left sidebar",
+                    "Under Compute > SQL Editor",
+                    "Inside the Catalog Explorer only"
+                ],
+                correct: 0,
+                explanation: "The SQL Editor is found in the SQL section of the left sidebar."
+            },
+            {
+                question: "Which languages can you write in a SQL Editor query?",
+                options: [
+                    "SQL, Python and R",
+                    "SQL and Python",
+                    "SQL only"
+                ],
+                correct: 2,
+                explanation: "The SQL Editor only supports SQL. Use a notebook or script if you need Python or R."
+            },
+            {
+                question: "What type of compute does the SQL Editor run queries on?",
+                options: [
+                    "A SQL warehouse",
+                    "A personal R cluster only",
+                    "It does not need any compute"
+                ],
+                correct: 0,
+                explanation: "Queries in the SQL Editor run on a SQL warehouse (often serverless)."
+            },
+            {
+                question: "What is the keyboard shortcut to run the query (or highlighted selection) in the SQL Editor?",
+                options: [
+                    "Ctrl + S",
+                    "Ctrl + Enter (Cmd + Enter on Mac)",
+                    "Alt + R"
+                ],
+                correct: 1,
+                explanation: "Ctrl + Enter (Cmd + Enter on Mac) runs the query, or only the highlighted text if something is selected."
+            },
+            {
+                question: "If your query tab contains several statements and you highlight one of them before running, what happens?",
+                options: [
+                    "All statements in the tab run",
+                    "Only the highlighted statement runs",
+                    "An error is raised"
+                ],
+                correct: 1,
+                explanation: "Running with text highlighted executes only the selected statement."
+            },
+            {
+                question: "How do you add a parameter to a query in the SQL Editor?",
+                options: [
+                    "Use the :parameter_name syntax in your query",
+                    "Use dbutils.widgets.get()",
+                    "Parameters are not supported in the SQL Editor"
+                ],
+                correct: 0,
+                explanation: "Typing :parameter_name in the query creates a parameter input box above the results."
+            },
+            {
+                question: "Which side panel in the SQL Editor lets you browse catalogs, schemas and tables?",
+                options: [
+                    "The Schema browser",
+                    "The Job runs panel",
+                    "The Git panel"
+                ],
+                correct: 0,
+                explanation: "The schema browser on the left lets you explore catalogs, schemas, tables and columns, and insert names into your query."
+            },
+            {
+                question: "What is a good reason to use the SQL Editor instead of a notebook?",
+                options: [
+                    "You need to mix Python and R code",
+                    "You want to quickly explore data, or build a reusable query to power a dashboard or alert",
+                    "You want to train a machine learning model"
+                ],
+                correct: 1,
+                explanation: "The SQL Editor is ideal for ad-hoc SQL exploration and saved queries that feed dashboards and alerts."
+            },
+            {
+                question: "What happens to a query when you save it in the SQL Editor?",
+                options: [
+                    "It is stored as a query object in your workspace and can be shared with others",
+                    "It is automatically committed to Git",
+                    "It is deleted when the SQL warehouse stops"
+                ],
+                correct: 0,
+                explanation: "Saved queries are workspace objects that can be reopened, shared and given permissions."
+            },
+            {
+                question: "Which of the following can you create directly from a query's results in the SQL Editor?",
+                options: [
+                    "A Python package",
+                    "A visualisation (e.g. bar or line chart)",
+                    "A new compute cluster"
+                ],
+                correct: 1,
+                explanation: "Click the + next to the Results tab to add a visualisation from your query output."
+            },
+            {
+                question: "What is the correct three-level naming convention for referencing a table in Unity Catalog?",
+                options: [
+                    "schema.table.column",
+                    "catalog.schema.table",
+                    "workspace.catalog.table"
+                ],
+                correct: 1,
+                explanation: "Unity Catalog tables are referenced as catalog.schema.table."
+            },
+            {
+                question: "Where can you see previously run queries, their duration and status?",
+                options: [
+                    "Query History",
+                    "The Compute tab",
+                    "The Catalog Explorer lineage tab"
+                ],
+                correct: 0,
+                explanation: "Query History shows past queries with status, duration, user and warehouse used."
+            },
+            {
+                question: "Can a saved SQL Editor query be scheduled to refresh automatically?",
+                options: [
+                    "No - queries can only be run manually",
+                    "Yes - saved queries can be scheduled",
+                    "Only if they are converted to R first"
+                ],
+                correct: 1,
+                explanation: "Saved queries can be scheduled to run on a regular basis, and can also be used in Jobs, dashboards and alerts."
+            },
+            {
+                question: "By default, how many rows will the SQL Editor display in its results pane for a large table?",
+                options: [
+                    "All rows, however many there are",
+                    "A limited number of rows (e.g. the first 1,000) unless you change the limit",
+                    "Only 10 rows"
+                ],
+                correct: 1,
+                explanation: "The results pane applies a row limit by default (1,000 rows), which can be changed using the limit option next to the Run button."
+            }
+        ];
+
+        const QUESTIONS_PER_QUIZ = 6;
+        let selectedQuestions = [];
+
+        function shuffle(array) {
+            const arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function loadQuiz() {
+            selectedQuestions = shuffle(allQuestions).slice(0, QUESTIONS_PER_QUIZ);
+            const quizArea = document.getElementById('quiz-area');
+            quizArea.innerHTML = '';
+
+            selectedQuestions.forEach((q, idx) => {
+                const block = document.createElement('div');
+                block.className = 'question-block';
+                block.id = `q-block-${idx}`;
+
+                let optionsHtml = '';
+                q.options.forEach((opt, optIdx) => {
+                    optionsHtml += `
+                        <label>
+                            <input type="radio" name="q${idx}" value="${optIdx}">
+                            ${opt}
+                        </label>`;
+                });
+
+                block.innerHTML = `
+                    <p class="question-text"><span class="question-number">Q${idx + 1}.</span> ${q.question}</p>
+                    <div class="options">${optionsHtml}</div>
+                    <p class="feedback" id="feedback-${idx}"></p>
+                `;
+                quizArea.appendChild(block);
+            });
+
+            document.getElementById('results').className = 'results';
+            document.getElementById('results').textContent = '';
+        }
+
+        function markQuiz() {
+            let score = 0;
+
+            selectedQuestions.forEach((q, idx) => {
+                const block = document.getElementById(`q-block-${idx}`);
+                const feedback = document.getElementById(`feedback-${idx}`);
+                const selected = document.querySelector(`input[name="q${idx}"]:checked`);
+
+                block.classList.remove('correct', 'incorrect');
+                feedback.classList.remove('correct-feedback', 'incorrect-feedback');
+
+                if (selected && parseInt(selected.value) === q.correct) {
+                    score++;
+                    block.classList.add('correct');
+                    feedback.textContent = '\u2713 Correct!';
+                    feedback.classList.add('correct-feedback', 'show');
+                } else {
+                    block.classList.add('incorrect');
+                    feedback.textContent = `\u2717 Incorrect. ${q.explanation}`;
+                    feedback.classList.add('incorrect-feedback', 'show');
+                }
+            });
+
+            const resultsDiv = document.getElementById('results');
+            const total = selectedQuestions.length;
+            const pct = Math.round((score / total) * 100);
+            resultsDiv.textContent = `You scored ${score} / ${total} (${pct}%)`;
+            resultsDiv.className = `results show ${pct >= 60 ? 'pass' : 'fail'}`;
+        }
+
+        function resetQuiz() {
+            loadQuiz();
+        }
+
+        loadQuiz();
+    </script>
+</body>
+</html>
