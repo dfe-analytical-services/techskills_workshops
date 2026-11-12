@@ -22,7 +22,7 @@ if (!require(tidyr)) {
 if (!require(stringr)) {
   install.packages("stringr")
 }
-if (!require(dbi)) {
+if (!require(DBI)) {
   install.packages("DBI")
 }
 if (!require(dfeR)) {
