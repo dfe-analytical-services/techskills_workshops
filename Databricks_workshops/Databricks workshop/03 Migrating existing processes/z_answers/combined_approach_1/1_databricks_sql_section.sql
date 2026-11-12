@@ -2,7 +2,7 @@
 
 ----------------------------------------
 -- You might recognise this SQL code from the previous 'sql_pipeline' migration process.
--- It is often the case that a teams data processing pipeline will use SQL initially for 
+-- It is often the case that a data processing pipeline will use SQL initially for 
 -- querying and manipulating tables, before turning to R for more complex analysis.
 -- We have replicated this combined approach here, with initial processing performed in 
 -- this 1_sql_section.sql file, and later analysis in the 2_r_section.R file.
