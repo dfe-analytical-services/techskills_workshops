@@ -49,30 +49,15 @@ FROM pupils_aut p
 LEFT JOIN schools_aut s
   ON p.school_urn = s.school_urn;
 
--- Note that since we cannot write permanent tables to the analyst training catalog (as demonstrated by the error below)
--- we will just visualise the output here, and use a CSV with the same data at the beginning of our R process.
-CREATE OR REPLACE TABLE pupils_schools_aut AS
-SELECT *
-FROM pupils_schools_aut;
 
--- View table
-SELECT *
-FROM pupils_schools_aut;
+-- Since we don't have write access to the analyst training catalog, you will have to your team's Databricks 
+-- catalog in a schema called <your_name> ----
 
--- Or, actually, we'll write it to our own area?
--- give this one a go 
--- Save to your team's Databricks catalog in a schema called <your_name> ----
+-- Specifying your team's catalog explicitly, create a schema called <your_name> if it doesn't already exist
+-- NOTE: You will need to change the catalog name to your own team's catalog name, and "rtarrant" to your own name!
+CREATE SCHEMA IF NOT EXISTS catalog_40_copper_statistics_services.rtarrant;
 
--- Specify your team's catalog
--- NOTE: You will need to change this to your own team's catalog name!
-USE CATALOG catalog_40_copper_statistics_services;
-
--- Create a schema called <your_name> if it doesn't already exist in that schema and specify as the schema to use
--- NOTE: Change "rtarrant" to your own name!
-CREATE SCHEMA IF NOT EXISTS rtarrant;
-
-USE rtarrant;
-
-CREATE OR REPLACE TABLE pupils_schools_aut AS
+-- Create the table, specifying the full three-level namespace (as we are using a different catalog and schema to what is specified initially)
+CREATE OR REPLACE TABLE catalog_40_copper_statistics_services.rtarrant.pupils_schools_aut AS
 SELECT *
 FROM pupils_schools_aut;
