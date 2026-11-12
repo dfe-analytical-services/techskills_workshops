@@ -14,6 +14,6 @@ avg_pupil_premium_by_ofsted <- pupils_schools_aut %>%
 
 write.csv(
   avg_pupil_premium_by_ofsted,
-  file = "Databricks_workshops/Databricks workshop/03 Migrating existing processes/r_pipeline/outputs/avg_pupil_premium_by_ofsted.csv",
+  file = "Databricks_workshops/Databricks workshop/03 Migrating existing processes/sql_and_r_combination/outputs/avg_pupil_premium_by_ofsted.csv",
   row.names = FALSE
 )
