@@ -1,2 +1,0 @@
-## This one might be pretty functionally similar to approach 1, give this a bit of thought
-
