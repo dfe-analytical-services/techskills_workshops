@@ -22,29 +22,28 @@ if (!require(tidyr)) {
 if (!require(stringr)) {
   install.packages("stringr")
 }
+if (!require(odbc)) {
+  install.packages("odbc")
+}
 
 ## Load required packages
 library(dplyr)
 library(magrittr)
 library(tidyr)
 library(stringr)
-
-## Define any required functions
-source(
-  "Databricks_workshops/Databricks workshop/03 Migrating existing processes/sql_and_r_combination/R/code/functions.R"
-)
+library(odbc)
 
 ## Read in the data files
 source(
-  "Databricks_workshops/Databricks workshop/03 Migrating existing processes/sql_and_r_combination/R/code/data_ingestion.R"
+  "Databricks_workshops/Databricks workshop/03 Migrating existing processes/z_answers/combined_approach_1/R/code/data_ingestion.R"
 )
 
 ## Carry out required manipulation of input data
 source(
-  "Databricks_workshops/Databricks workshop/03 Migrating existing processes/sql_and_r_combination/R/code/data_manipulation.R"
+  "Databricks_workshops/Databricks workshop/03 Migrating existing processes/z_answers/combined_approach_1/R/code/data_manipulation.R"
 )
 
 ## Save output files
 source(
-  "Databricks_workshops/Databricks workshop/03 Migrating existing processes/sql_and_r_combination/R/code/outputs.R"
+  "Databricks_workshops/Databricks workshop/03 Migrating existing processes/z_answers/combined_approach_1/R/code/outputs.R"
 )

@@ -2,35 +2,68 @@
 # This script reads in all required input data
 ################################################################################
 
-## Connect to databricks
-db_con <- open_db_connection(
-  catalog = "catalog_40_copper_statistics_services",
-  schema = "rtarrant"
+## Set up connection to Databricks catalog
+con <- DBI::dbConnect(
+  odbc::databricks(),
+  driver = "Databricks ODBC Driver",
+  httpPath = Sys.getenv("DATABRICKS_SQL_PATH"),
+  useNativeQuery = FALSE #required for dbWriteTable to work
 )
 
-# Instead of running SQL code within databricks, we can use XYZ functions to read in the SQL code and
-# run directly from your R IDE.
-# by sending a query to the database (expect an error here, explained below...)
+## Tell odbc which catalog to use
+dbExecute(con, "USE CATALOG catalog_40_copper_analyst_training;")
 
-## get SQL string
-## in this example, we will us the 'dfeR' package
-sql_string <- dfeR::get_clean_sql(
-  filepath = "Databricks_workshops/Databricks workshop/03 Migrating existing processes/z_answers/combined_approach_4/SQL/1_databricks_sql_section_test.sql"
+## Tell odbc which schema to use
+dbExecute(con, "USE bronze;")
+
+## Pupils table: Select columns and parse JSON metadata
+pupils_aut <- dbGetQuery(
+  con,
+  statement = "SELECT 
+                pupil_id,
+                gender,
+                school_urn,
+                metadata_json:address:postcode AS postcode,
+                LOWER(metadata_json:sen_status) AS sen_status,
+                metadata_json:fsm_eligible AS fsm_status
+              FROM catalog_40_copper_analyst_training.bronze.pupils_autumn_2025"
 )
 
+## Schools table: select columns, parse JSON, reformat data in city column, deduplicate
+schools_aut <- dbGetQuery(
+  con,
+  statement = "SELECT DISTINCT
+                school_urn,
+                INITCAP(city) AS city,
+                school_type,
+                REPLACE(metadata_json:ofsted_rating, '\"', '') AS ofsted_rating,
+                CAST(metadata_json:pupil_premium_pct AS DOUBLE) AS pupil_premium_pct
+              FROM catalog_40_copper_analyst_training.bronze.schools_autumn_2025"
+)
 
+## Join pupils and schools tables ahead of performing calculations
 pupils_schools_aut <- dbGetQuery(
-  db_con,
-  sql_string
+  con,
+  statement = "SELECT 
+                p.*,
+                s.city,
+                s.school_type,
+                s.ofsted_rating,
+                s.pupil_premium_pct
+              FROM pupils_aut p
+              LEFT JOIN schools_aut s
+                ON p.school_urn = s.school_urn"
 )
 
-# # Unfortunately, since we do not have write access to the analyst training catalog, the above code will
-# # not run (although the code would work when trying to read in an existing table, such as pupils_autumn_2025).
-# # As such, we will instead read a CSV to continue the deomnstration.
-# pupils_schools_aut <- read.csv(
-#   "Databricks_workshops/Databricks workshop/03 Migrating existing processes/sql_and_r_combination/data/pupils_schools_aut.csv"
-# ) |>
-#   mutate(
-#     across(everything(), ~ if_else(.x == "null", NA, .x)),
-#     pupil_premium_pct = as.double(pupil_premium_pct)
-#   )
+# ## Alternative: Read in SQL file
+# ## in this example, we will us the 'dfeR' package
+# ## get SQL string
+# sql_string <- dfeR::get_clean_sql(
+#   filepath = "Databricks_workshops/Databricks workshop/03 Migrating existing processes/z_answers/combined_approach_4/SQL/1_databricks_sql_section_test.sql"
+# )
+
+# # execute
+# pupils_schools_aut <- dbGetQuery(
+#   con,
+#   sql_string
+# )

@@ -22,8 +22,8 @@ if (!require(tidyr)) {
 if (!require(stringr)) {
   install.packages("stringr")
 }
-if (!require(DBI)) {
-  install.packages("DBI")
+if (!require(odbc)) {
+  install.packages("odbc")
 }
 if (!require(dfeR)) {
   install.packages("dfeR")
@@ -34,13 +34,8 @@ library(dplyr)
 library(magrittr)
 library(tidyr)
 library(stringr)
-library(DBI)
+library(odbc)
 library(dfeR)
-
-## Define any required functions
-source(
-  "Databricks_workshops/Databricks workshop/03 Migrating existing processes/z_answers/combined_approach_4/R/code/functions.R"
-)
 
 ## Read in the data files
 source(
