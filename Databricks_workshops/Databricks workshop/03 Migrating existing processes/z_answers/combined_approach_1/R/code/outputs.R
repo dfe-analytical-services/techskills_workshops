@@ -29,7 +29,7 @@ DBI::dbExecute(con, "USE rtarrant;")
 ## Write the output to your schema in the Databricks catalog
 DBI::dbWriteTable(
   conn = con,
-  name = "pupil_premium_ofsted",
+  name = "pupil_premium_ofsted_output",
   value = avg_pupil_premium_by_ofsted,
   overwrite = TRUE,
   append = FALSE,

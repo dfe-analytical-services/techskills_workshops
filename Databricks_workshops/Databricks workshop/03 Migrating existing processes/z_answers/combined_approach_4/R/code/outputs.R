@@ -29,9 +29,20 @@ DBI::dbExecute(con, "USE rtarrant;")
 ## Write the output to your schema in the Databricks catalog
 DBI::dbWriteTable(
   conn = con,
-  name = "pupil_premium_ofsted",
+  name = "pupil_premium_ofsted_output",
   value = avg_pupil_premium_by_ofsted,
   overwrite = TRUE,
   append = FALSE,
   row.names = FALSE
 )
+
+# Check migrated output matches that from original pipeline ----
+avg_pupil_premium_by_ofsted_orig <- read.csv(
+  "Databricks_workshops/Databricks workshop/03 Migrating existing processes/sql_and_r_combination/outputs/avg_pupil_premium_by_ofsted.csv"
+)
+
+if (identical(avg_pupil_premium_by_ofsted_orig, avg_pupil_premium_by_ofsted)) {
+  paste("SUCCESS! Migrated output matches that from original pipeline")
+} else {
+  stop("Migrated output does not match that from original pipeline")
+}

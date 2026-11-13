@@ -17,9 +17,10 @@ dbExecute(con, "USE CATALOG catalog_40_copper_analyst_training;")
 dbExecute(con, "USE bronze;")
 
 ## Pupils table: Select columns and parse JSON metadata
-pupils_aut <- dbGetQuery(
+dbExecute(
   con,
-  statement = "SELECT 
+  statement = "CREATE OR REPLACE TEMPORARY VIEW pupils_aut AS 
+              SELECT 
                 pupil_id,
                 gender,
                 school_urn,
@@ -30,9 +31,10 @@ pupils_aut <- dbGetQuery(
 )
 
 ## Schools table: select columns, parse JSON, reformat data in city column, deduplicate
-schools_aut <- dbGetQuery(
+dbExecute(
   con,
-  statement = "SELECT DISTINCT
+  statement = "CREATE OR REPLACE TEMPORARY VIEW schools_aut AS 
+              SELECT DISTINCT
                 school_urn,
                 INITCAP(city) AS city,
                 school_type,
@@ -59,7 +61,7 @@ pupils_schools_aut <- dbGetQuery(
 # ## in this example, we will us the 'dfeR' package
 # ## get SQL string
 # sql_string <- dfeR::get_clean_sql(
-#   filepath = "Databricks_workshops/Databricks workshop/03 Migrating existing processes/z_answers/combined_approach_4/SQL/1_databricks_sql_section_test.sql"
+#   filepath = "Databricks_workshops/Databricks workshop/03 Migrating existing processes/z_answers/combined_approach_4/SQL/1_databricks_sql_section.sql"
 # )
 
 # # execute

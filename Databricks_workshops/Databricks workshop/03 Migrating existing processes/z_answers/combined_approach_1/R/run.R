@@ -25,6 +25,9 @@ if (!require(stringr)) {
 if (!require(odbc)) {
   install.packages("odbc")
 }
+if (!require(DBI)) {
+  install.packages("DBI")
+}
 
 ## Load required packages
 library(dplyr)
@@ -32,6 +35,7 @@ library(magrittr)
 library(tidyr)
 library(stringr)
 library(odbc)
+library(DBI)
 
 ## Read in the data files
 source(
