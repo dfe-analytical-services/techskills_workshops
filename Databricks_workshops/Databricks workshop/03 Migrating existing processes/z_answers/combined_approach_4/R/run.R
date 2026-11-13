@@ -39,20 +39,20 @@ library(dfeR)
 
 ## Define any required functions
 source(
-  "Databricks_workshops/Databricks workshop/03 Migrating existing processes/sql_and_r_combination/R/code/functions.R"
+  "Databricks_workshops/Databricks workshop/03 Migrating existing processes/z_answers/combined_approach_4/R/code/functions.R"
 )
 
 ## Read in the data files
 source(
-  "Databricks_workshops/Databricks workshop/03 Migrating existing processes/sql_and_r_combination/R/code/data_ingestion.R"
+  "Databricks_workshops/Databricks workshop/03 Migrating existing processes/z_answers/combined_approach_4/R/code/data_ingestion.R"
 )
 
 ## Carry out required manipulation of input data
 source(
-  "Databricks_workshops/Databricks workshop/03 Migrating existing processes/sql_and_r_combination/R/code/data_manipulation.R"
+  "Databricks_workshops/Databricks workshop/03 Migrating existing processes/z_answers/combined_approach_4/R/code/data_manipulation.R"
 )
 
 ## Save output files
 source(
-  "Databricks_workshops/Databricks workshop/03 Migrating existing processes/sql_and_r_combination/R/code/outputs.R"
+  "Databricks_workshops/Databricks workshop/03 Migrating existing processes/z_answers/combined_approach_4/R/code/outputs.R"
 )

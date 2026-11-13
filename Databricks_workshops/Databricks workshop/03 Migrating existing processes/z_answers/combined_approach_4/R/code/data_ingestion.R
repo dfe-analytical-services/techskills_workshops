@@ -15,7 +15,7 @@ db_con <- open_db_connection(
 ## get SQL string
 ## in this example, we will us the 'dfeR' package
 sql_string <- dfeR::get_clean_sql(
-  filepath = "Databricks_workshops/Databricks workshop/03 Migrating existing processes/z_answers/combined_approach_4/SQL/1_databricks_sql_section.sql"
+  filepath = "Databricks_workshops/Databricks workshop/03 Migrating existing processes/z_answers/combined_approach_4/SQL/1_databricks_sql_section_test.sql"
 )
 
 

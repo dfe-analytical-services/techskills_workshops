@@ -68,7 +68,7 @@ FROM #pupils_aut p
 LEFT JOIN #schools_aut s
     ON p.[school_urn] = s.[school_urn]
 
--- Note that since we cannot write to the analyst training catalog, we will just visualise the output 
--- here, and use a CSV with the same data at the beginning of our R process
+-- Save output table
 SELECT *
+INTO [dbo].[pupils_schools_aut]
 FROM #pupils_schools_aut;
