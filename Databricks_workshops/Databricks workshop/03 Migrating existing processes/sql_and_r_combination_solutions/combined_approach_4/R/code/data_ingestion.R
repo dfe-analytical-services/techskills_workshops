@@ -96,7 +96,7 @@ assessments_schools_aut <- dbGetQuery(
 # ## in this example, we will us the 'dfeR' package
 # ## get SQL string
 # sql_string <- dfeR::get_clean_sql(
-#   filepath = "Databricks_workshops/Databricks workshop/03 Migrating existing processes/z_answers/combined_approach_4/SQL/1_databricks_sql_section.sql"
+#   filepath = "Databricks_workshops/Databricks workshop/03 Migrating existing processes/sql_and_r_combination_solutions/combined_approach_4/SQL/1_databricks_sql_section.sql"
 # )
 
 # # execute

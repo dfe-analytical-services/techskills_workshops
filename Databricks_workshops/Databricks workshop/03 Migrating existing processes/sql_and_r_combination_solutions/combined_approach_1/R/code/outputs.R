@@ -22,14 +22,14 @@ avg_pupil_premium_by_ofsted <- assessments_schools_aut %>%
 DBI::dbExecute(con, "USE CATALOG catalog_40_copper_statistics_services;")
 
 ## Create a schema called <your_name> if it doesn't already exist in that schema and specify as the schema to use
-## NOTE: Change "lgarbett" to your own name!
+## NOTE: Change "rtarrant" to your own name!
 DBI::dbExecute(con, "CREATE SCHEMA IF NOT EXISTS rtarrant;")
 DBI::dbExecute(con, "USE rtarrant;")
 
 ## Write the output to your schema in the Databricks catalog
 DBI::dbWriteTable(
   conn = con,
-  name = "pupil_premium_ofsted_output",
+  name = "pupil_premium_ofsted_output_v2",
   value = avg_pupil_premium_by_ofsted,
   overwrite = TRUE,
   append = FALSE,
