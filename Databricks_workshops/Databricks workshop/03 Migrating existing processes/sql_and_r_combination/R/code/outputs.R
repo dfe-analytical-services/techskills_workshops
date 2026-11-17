@@ -2,7 +2,7 @@
 # This script saves pipeline outputs into the outputs folder
 ################################################################################
 
-avg_pupil_premium_by_ofsted <- pupils_schools_aut %>%
+avg_pupil_premium_by_ofsted <- assessments_schools_aut %>%
   group_by(ofsted_rating) %>%
   summarise(
     pupils = n(),
