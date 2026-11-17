@@ -18,7 +18,7 @@ dbExecute(con, "USE rtarrant;")
 
 # Picking up where we left off in databricks, read in the table containing the intermediate output
 # by sending a query to the database
-assessments_schools_aut <- dbGetQuery(
+pupils_schools_aut <- dbGetQuery(
   con,
-  "SELECT * FROM assessments_schools_aut;"
+  "SELECT * FROM pupils_schools_aut;"
 )

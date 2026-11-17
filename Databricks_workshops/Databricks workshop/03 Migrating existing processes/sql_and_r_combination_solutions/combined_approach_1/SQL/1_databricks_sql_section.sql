@@ -10,14 +10,11 @@
 -- Define catalog being used
 USE CATALOG catalog_40_copper_analyst_training;
 
--- Check structure of pupils_autumn_2024 table
+-- Check structure of pupils_autumn_2025 table
 SELECT * FROM catalog_40_copper_analyst_training.bronze.pupils_autumn_2024 LIMIT 1000;
 
--- Check structure of schools_autumn_2024 table
+-- Check structure of schools_autumn_2025 table
 SELECT * FROM catalog_40_copper_analyst_training.bronze.schools_autumn_2024 LIMIT 1000;
-
--- Check structure of assessments table
-SELECT * FROM catalog_40_copper_analyst_training.bronze.assessments LIMIT 1000;
 
 -- Pupils table: select columns and parse JSON metadata
 CREATE OR REPLACE TEMPORARY TABLE pupils_aut AS
@@ -40,17 +37,13 @@ SELECT DISTINCT
   CAST(metadata_json:pupil_premium_pct AS DOUBLE) AS pupil_premium_pct
 FROM catalog_40_copper_analyst_training.bronze.schools_autumn_2024;
 
--- Assessments table: select columns, standardise subject, deduplicate
+-- Assessments table: select columns, parse JSON, reformat data in city column, deduplicate
 CREATE OR REPLACE TEMPORARY TABLE assessments_aut AS -- We use TEMP here instead of TEMPORARY in the above example - these can be used interchangeably
 SELECT DISTINCT
   assessment_id,
   pupil_id,
   school_urn,
-  CASE 
-    WHEN LOWER(subject) LIKE '%e' THEN 'English'
-    WHEN LOWER(subject) LIKE '%m' THEN 'Maths'
-    WHEN LOWER(subject) LIKE '%s' THEN 'Science' 
-  ELSE 'Unknown' END AS subject,
+  subject,
   score,
   grade
 FROM catalog_40_copper_analyst_training.bronze.assessments
@@ -83,6 +76,6 @@ LEFT JOIN schools_aut s
 CREATE SCHEMA IF NOT EXISTS catalog_40_copper_statistics_services.rtarrant;
 
 -- Create the table, specifying the full three-level namespace (as we are using a different catalog and schema to what is specified initially)
-CREATE OR REPLACE TABLE catalog_40_copper_statistics_services.rtarrant.assessments_schools_aut AS
+CREATE OR REPLACE TABLE catalog_40_copper_statistics_services.rtarrant.assessments_schools_aut_24 AS
 SELECT *
 FROM assessments_schools_aut;
