@@ -34,9 +34,8 @@ schools_aut_raw_csv <- read.csv("Databricks_workshops/Databricks workshop/03 Mig
 
 ## Check data files from Databricks catalog are the same as those in the data folder
 if (identical(pupils_aut_raw, pupils_aut_raw_csv) & identical(schools_aut_raw, schools_aut_raw_csv)) {
-  paste("SUCCESS! Data from Databricks catalog matches that in the data folder")
-} 
-else if (
+  message("SUCCESS! Data from Databricks catalog matches that in the data folder")
+} else if (
   identical(
     pupils_aut_raw %>%
       mutate(across(where(is.numeric), ~ round(.x, 5))),
