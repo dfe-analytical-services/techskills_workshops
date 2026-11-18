@@ -14,17 +14,13 @@ USE [MDR_Modelling_DSAG_analyst_training]
 -- 1. Look at data structure
 --------------------------------------------------------------------------------
 
--- Check structure of pupils_autumn_2024 table
+-- Check structure of pupils_autumn_2025 table
 SELECT TOP 1000 *
-FROM [dbo].[analyst_training_pupils_autumn_2024]
+FROM [dbo].[analyst_training_pupils_autumn_2025]
 
--- Check structure of schools_autumn_2024 table
+-- Check structure of schools_autumn_2025 table
 SELECT TOP 1000 *
-FROM [dbo].[analyst_training_schools_autumn_2024]
-
--- Check structure of assessments table
-SELECT TOP 1000 *
-FROM [dbo].[analyst_training_assessments]
+FROM [dbo].[analyst_training_schools_autumn_2025]
 
 
 --------------------------------------------------------------------------------
@@ -42,7 +38,7 @@ SELECT
     LOWER(JSON_VALUE([metadata_json], '$.sen_status')) AS [sen_status],
     JSON_VALUE([metadata_json], '$.fsm_eligible') AS [fsm_status]
 INTO #pupils_aut
-FROM [dbo].[analyst_training_pupils_autumn_2024]
+FROM [dbo].[analyst_training_pupils_autumn_2025]
 
 -- Schools table: select columns, parse JSON, reformat data in city column, deduplicate
 IF OBJECT_ID('tempdb..#schools_aut') IS NOT NULL DROP TABLE #schools_aut
@@ -53,27 +49,10 @@ SELECT DISTINCT
     JSON_VALUE([metadata_json], '$.ofsted_rating') AS [ofsted_rating],
     CAST(JSON_VALUE([metadata_json], '$.pupil_premium_pct') AS FLOAT) AS [pupil_premium_pct]
 INTO #schools_aut
-FROM [dbo].[analyst_training_schools_autumn_2024]
-
--- Assessments table: select columns, standardise subject, deduplicate
-IF OBJECT_ID('tempdb..#assessments_aut') IS NOT NULL DROP TABLE #assessments_aut
-SELECT DISTINCT
-    [assessment_id],
-    [pupil_id],
-    [school_urn],
-    CASE 
-        WHEN LOWER([subject]) LIKE '%e' THEN 'English'
-        WHEN LOWER([subject]) LIKE '%m' THEN 'Maths'
-        WHEN LOWER([subject]) LIKE '%s' THEN 'Science' 
-    ELSE 'Unknown' END AS [subject],
-    [score],
-    [grade]
-INTO #assessments_aut
-FROM [dbo].[analyst_training_assessments]
-WHERE [term] = 'Autumn 2024'
+FROM [dbo].[analyst_training_schools_autumn_2025]
 
 -- Join pupils and schools tables ahead of performing calculations
-IF OBJECT_ID('tempdb..#assessments_schools_aut') IS NOT NULL DROP TABLE #assessments_schools_aut
+IF OBJECT_ID('tempdb..#pupils_schools_aut') IS NOT NULL DROP TABLE #pupils_schools_aut
 SELECT
     p.[pupil_id],
     p.[gender],
@@ -84,14 +63,12 @@ SELECT
     s.[school_type],
     s.[ofsted_rating],
     s.[pupil_premium_pct]
-INTO #assessments_schools_aut
+INTO #pupils_schools_aut
 FROM #pupils_aut p
-LEFT JOIN assessments_aut a
-  ON p.[pupil_id] = a.[pupil_id]
 LEFT JOIN #schools_aut s
     ON p.[school_urn] = s.[school_urn]
 
 -- Save output table
 SELECT *
-INTO [dbo].[assessments_schools_aut]
+INTO [dbo].[pupils_schools_aut]
 FROM #pupils_schools_aut;

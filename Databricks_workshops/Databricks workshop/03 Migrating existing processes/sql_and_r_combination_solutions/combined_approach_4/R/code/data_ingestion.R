@@ -16,8 +16,6 @@ dbExecute(con, "USE CATALOG catalog_40_copper_analyst_training;")
 ## Tell odbc which schema to use
 dbExecute(con, "USE bronze;")
 
-## View table structure
-
 ## Pupils table: Select columns and parse JSON metadata
 dbExecute(
   con,
@@ -29,7 +27,7 @@ dbExecute(
                 metadata_json:address:postcode AS postcode,
                 LOWER(metadata_json:sen_status) AS sen_status,
                 metadata_json:fsm_eligible AS fsm_status
-              FROM catalog_40_copper_analyst_training.bronze.pupils_autumn_2024"
+              FROM catalog_40_copper_analyst_training.bronze.pupils_autumn_2025"
 )
 
 ## Schools table: select columns, parse JSON, reformat data in city column, deduplicate
@@ -42,54 +40,21 @@ dbExecute(
                 school_type,
                 REPLACE(metadata_json:ofsted_rating, '\"', '') AS ofsted_rating,
                 CAST(metadata_json:pupil_premium_pct AS DOUBLE) AS pupil_premium_pct
-              FROM catalog_40_copper_analyst_training.bronze.schools_autumn_2024"
+              FROM catalog_40_copper_analyst_training.bronze.schools_autumn_2025"
 )
 
-## Assessments table: select columns, standardise subject, deduplicate
-dbExecute(
+## Join pupils and schools tables ahead of performing calculations
+pupils_schools_aut <- dbGetQuery(
   con,
-  statement = "CREATE OR REPLACE TEMPORARY TABLE assessments_aut AS
-              SELECT DISTINCT
-                assessment_id,
-                pupil_id,
-                school_urn,
-                CASE 
-                  WHEN LOWER(subject) LIKE '%e' THEN 'English'
-                  WHEN LOWER(subject) LIKE '%m' THEN 'Maths'
-                  WHEN LOWER(subject) LIKE '%s' THEN 'Science' 
-                ELSE 'Unknown' END AS subject,
-                score,
-                grade
-              FROM catalog_40_copper_analyst_training.bronze.assessments
-              WHERE term = 'Autumn 2024';"
-)
-
-## Join pupils, assessments, and schools tables ahead of performing calculations
-dbExecute(
-  con,
-  statement = "CREATE OR REPLACE TEMPORARY TABLE assessments_schools_aut AS
-              SELECT 
+  statement = "SELECT 
                 p.*,
                 s.city,
                 s.school_type,
                 s.ofsted_rating,
-                s.pupil_premium_pct,
-                a.assessment_id,
-                a.subject,
-                a.score,
-                a.grade
+                s.pupil_premium_pct
               FROM pupils_aut p
-              LEFT JOIN assessments_aut a
-                ON p.pupil_id = a.pupil_id
               LEFT JOIN schools_aut s
-                ON p.school_urn = s.school_urn;"
-)
-
-## Read in the output from join above to perform remaining analysis in R
-assessments_schools_aut <- dbGetQuery(
-  con,
-  statement = "SELECT *
-              FROM assessments_schools_aut"
+                ON p.school_urn = s.school_urn"
 )
 
 # ## Alternative: Read in SQL file
