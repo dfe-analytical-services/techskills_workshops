@@ -38,7 +38,7 @@ DBI::dbWriteTable(
 
 # Check migrated output matches that from original pipeline ----
 avg_pupil_premium_by_ofsted_orig <- read.csv(
-  "Databricks_workshops/Databricks workshop/03 Migrating existing processes/sql_and_r_combination/outputs/avg_pupil_premium_by_ofsted.csv"
+  "Databricks_workshops/Databricks workshop/03 Migrating existing processes/hybrid_pipeline/outputs/avg_pupil_premium_by_ofsted.csv"
 )
 
 if (identical(avg_pupil_premium_by_ofsted_orig, avg_pupil_premium_by_ofsted)) {

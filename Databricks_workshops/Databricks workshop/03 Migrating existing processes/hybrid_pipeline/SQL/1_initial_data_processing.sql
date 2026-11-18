@@ -5,7 +5,7 @@
 -- It is often the case that a teams data processing pipeline will use SQL initially for 
 -- querying and manipulating tables, before turning to R for more complex analysis.
 -- We have replicated this combined approach here, with initial processing performed in 
--- this 1_sql_section.sql file, and later analysis in the 2_r_section.R file.
+-- this 1_initial_data_processing.sql file, and later analysis in the R folder.
 
 -- Define catalog being used
 USE [MDR_Modelling_DSAG_analyst_training]
