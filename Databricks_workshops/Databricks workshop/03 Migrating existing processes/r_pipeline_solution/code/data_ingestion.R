@@ -36,3 +36,22 @@ schools_aut_raw_csv <- read.csv("Databricks_workshops/Databricks workshop/03 Mig
 if (identical(pupils_aut_raw, pupils_aut_raw_csv) & identical(schools_aut_raw, schools_aut_raw_csv)) {
   paste("SUCCESS! Data from Databricks catalog matches that in the data folder")
 } 
+else if (
+  identical(
+    pupils_aut_raw %>%
+      mutate(across(where(is.numeric), ~ round(.x, 5))),
+    pupils_aut_raw_csv %>%
+      as.data.frame() %>%
+      mutate(across(where(is.numeric), ~ round(.x, 5)))
+  ) & identical(
+    schools_aut_raw %>%
+      mutate(across(where(is.numeric), ~ round(.x, 5))),
+    schools_aut_raw_csv %>%
+      as.data.frame() %>%
+      mutate(across(where(is.numeric), ~ round(.x, 5)))
+  )
+) {
+  warning("Migrated output requires rounding to match original")
+} else {
+  stop("Migrated output does not match that from original pipeline")
+}

@@ -2,6 +2,8 @@
 # This script saves pipeline outputs into the outputs folder
 ################################################################################
 
+# Create summary of average pupil premium percentage by Ofsted rating ----
+
 avg_pupil_premium_by_ofsted <- pupils_schools_aut %>%
   group_by(ofsted_rating) %>%
   summarise(
@@ -10,7 +12,8 @@ avg_pupil_premium_by_ofsted <- pupils_schools_aut %>%
     median_pupil_premium_pct = median(pupil_premium_pct, na.rm = TRUE),
     .groups = "drop"
   ) %>%
-  arrange(desc(pupils))
+  arrange(desc(pupils)) %>%
+  filter(!is.na(ofsted_rating))
 
 write.csv(
   avg_pupil_premium_by_ofsted,
