@@ -50,7 +50,7 @@ if (identical(pupils_aut_raw, pupils_aut_raw_csv) & identical(schools_aut_raw, s
       mutate(across(where(is.numeric), ~ round(.x, 5)))
   )
 ) {
-  warning("Migrated output requires rounding to match original")
+  warning("Catalog data requires rounding to match original")
 } else {
-  stop("Migrated output does not match that from original pipeline")
+  stop("Catalog data does not match that from original pipeline")
 }

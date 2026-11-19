@@ -38,7 +38,17 @@ DBI::dbWriteTable(conn = con,
 avg_pupil_premium_by_ofsted_orig <- read.csv("Databricks_workshops/Databricks workshop/03 Migrating existing processes/r_pipeline/outputs/avg_pupil_premium_by_ofsted.csv")
 
 if (identical(avg_pupil_premium_by_ofsted_orig, avg_pupil_premium_by_ofsted)) {
-  paste("SUCCESS! Migrated output matches that from original pipeline")
+  message("SUCCESS! Data from Databricks catalog matches that in the data folder")
+} else if (
+  identical(
+    avg_pupil_premium_by_ofsted_orig %>%
+      mutate(across(where(is.numeric), ~ round(.x, 5))),
+    avg_pupil_premium_by_ofsted %>%
+      as.data.frame() %>%
+      mutate(across(where(is.numeric), ~ round(.x, 5)))
+  )
+) {
+  warning("Migrated output requires rounding to match original")
 } else {
   stop("Migrated output does not match that from original pipeline")
 }
