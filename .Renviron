@@ -1,0 +1,3 @@
+DATABRICKS_HOST="adb-5037484389568426.6.azuredatabricks.net"
+DATABRICKS_SQL_PATH="/sql/1.0/warehouses/1663925bb4d12598"
+DATABRICKS_TOKEN="<your_token_here>"
