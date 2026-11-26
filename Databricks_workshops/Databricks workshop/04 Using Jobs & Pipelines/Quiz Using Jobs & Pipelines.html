@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz: Using Jobs & Pipelines</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f4f6f9;
+            padding: 2rem;
+            color: #1b1f23;
+        }
+        .quiz-container {
+            max-width: 720px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            padding: 2.5rem;
+        }
+        h1 {
+            font-size: 1.6rem;
+            margin-bottom: 0.4rem;
+            color: #1b3a5c;
+        }
+        .subtitle {
+            color: #5a6a7a;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        .question-block {
+            margin-bottom: 1.8rem;
+            padding: 1.2rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            transition: border-color 0.2s;
+        }
+        .question-block.correct {
+            border-color: #38a169;
+            background: #f0fff4;
+        }
+        .question-block.incorrect {
+            border-color: #e53e3e;
+            background: #fff5f5;
+        }
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+        .question-number {
+            color: #3182ce;
+            font-weight: 700;
+        }
+        .options label {
+            display: block;
+            padding: 0.5rem 0.8rem;
+            margin: 0.3rem 0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .options label:hover {
+            background: #edf2f7;
+        }
+        .options input[type="radio"] {
+            margin-right: 0.6rem;
+        }
+        .feedback {
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: none;
+        }
+        .feedback.show {
+            display: block;
+        }
+        .feedback.correct-feedback {
+            color: #2f855a;
+        }
+        .feedback.incorrect-feedback {
+            color: #c53030;
+        }
+        .btn-row {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        button {
+            padding: 0.7rem 1.6rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
+        button:active {
+            transform: scale(0.97);
+        }
+        #submit-btn {
+            background: #3182ce;
+            color: #fff;
+        }
+        #submit-btn:hover {
+            background: #2b6cb0;
+        }
+        #reset-btn {
+            background: #e2e8f0;
+            color: #2d3748;
+        }
+        #reset-btn:hover {
+            background: #cbd5e0;
+        }
+        .results {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1rem 1.4rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .results.show {
+            display: block;
+        }
+        .results.pass {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+        .results.fail {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Quiz: Using Jobs & Pipelines</h1>
+        <p class="subtitle">Knowledge check: Multiple choice quiz to test your knowledge on using Databricks Jobs & Pipelines.</p>
+
+        <div id="quiz-area"></div>
+
+        <div class="btn-row">
+            <button id="submit-btn" onclick="markQuiz()">Submit Answers</button>
+            <button id="reset-btn" onclick="resetQuiz()">New Questions</button>
+        </div>
+
+        <div id="results" class="results"></div>
+    </div>
+
+    <script>
+        const allQuestions = [
+            {
+                question: "What does the Jobs & Pipelines tab allow you to do?",
+                options: [
+                    "Write SQL queries directly against tables",
+                    "Build complex data pipelines by chaining together multiple scripts, queries, notebooks and logic",
+                    "Create visualisations and dashboards"
+                ],
+                correct: 1,
+                explanation: "The Jobs & Pipelines tab allows you to build complex data pipelines by chaining together multiple scripts, queries, notebooks and logic."
+            },
+            {
+                question: "What is each step in a Job or Pipeline referred to as?",
+                options: [
+                    "A stage",
+                    "A task",
+                    "A module"
+                ],
+                correct: 1,
+                explanation: "Each step in a Job or Pipeline is referred to as a task, and each task can have dependencies on other tasks."
+            },
+            {
+                question: "Which of the following is NOT a benefit of using Jobs?",
+                options: [
+                    "They can be scheduled to run automatically",
+                    "They are processes as code, meaning they can be stored in Git",
+                    "Code can be edited inline while a job is running"
+                ],
+                correct: 2,
+                explanation: "Code cannot be edited inline as a job runs — this is actually listed as a con of Jobs."
+            },
+            {
+                question: "What does Databricks audit each time a Job or Pipeline is run?",
+                options: [
+                    "Success / Failure and all the job details",
+                    "Only whether it succeeded or failed",
+                    "Only the outputs and the user who ran it"
+                ],
+                correct: 0,
+                explanation: "Databricks audits input parameters, all outputs, the success and failure of each task, when it was run and who by."
+            },
+            {
+                question: "What can you do when a Job or Pipeline fails partway through?",
+                options: [
+                    "You must re-run the entire pipeline from scratch",
+                    "You must delete the job and create a new one",
+                    "You can repair the job to pick up from the point where it failed"
+                ],
+                correct: 2,
+                explanation: "Jobs and Pipelines that fail allow you to repair the job once you have found and fixed the issue, preventing you from having to re-run the whole pipeline from scratch."
+            },
+            {
+                question: "What can be configured in the 'Job Details' pane?",
+                options: [
+                    "Only the job name and description",
+                    "Schedules, triggers, parameters, email notifications, and permissions",
+                    "Task details"
+                ],
+                correct: 1,
+                explanation: "The Job Details pane allows you to configure schedules and triggers, parameters accessible to all tasks, email notifications, and permissions."
+            },
+            {
+                question: "What is a con of Jobs mentioned in the material?",
+                options: [
+                    "Jobs cannot be scheduled",
+                    "Jobs can run needlessly",
+                    "Jobs cannot use Git repositories"
+                ],
+                correct: 1,
+                explanation: "Once set-up with a schedule a job will run until a user specifies it to stop, meaning energy and money might be wasted."
+            },
+            {
+                question: "What does the 'depends_on' setting in a task definition control?",
+                options: [
+                    "Which other tasks must have completed before this task will run",
+                    "Which compute cluster the task uses",
+                    "Which parameters the task can access"
+                ],
+                correct: 0,
+                explanation: "The depends_on setting specifies which other tasks must have run before the current task, controlling the order of execution."
+            },
+            {
+                question: "What does setting 'run_if' to 'ALL_SUCCESS' mean for a task?",
+                options: [
+                    "The task will always run regardless of other tasks",
+                    "The task will only run if all of its dependencies have completed successfully",
+                    "The task will run if at least one triggering dependency succeeded"
+                ],
+                correct: 1,
+                explanation: "Setting run_if to ALL_SUCCESS means the task won't begin processing unless all of the tasks it depends_on have completed successfully."
+            },
+            {
+                question: "How can Jobs be created apart from using the Databricks UI?",
+                options: [
+                    "They can only be created through the UI",
+                    "Through the Databricks Jobs API or using code",
+                    "Only by importing YAML files"
+                ],
+                correct: 1,
+                explanation: "Jobs can be constructed through the UI, through the Databricks Jobs API, or using code such as the Databricks SDK for R package."
+            },
+            {
+                question: "What are the three ways to create a Job mentioned in the notebook?",
+                options: [
+                    "UI, API, and YAML",
+                    "UI, Python, and SQL",
+                    "API, CLI, and Terraform"
+                ],
+                correct: 0,
+                explanation: "The notebook mentions creating jobs via the Databricks interface (UI), the Databricks API (code), and YAML (accessible via 'Edit as YAML')."
+            },
+            {
+                question: "What restriction applies to task names in a Job?",
+                options: [
+                    "They must be less than 10 characters",
+                    "They cannot contain spaces",
+                    "They must start with a number"
+                ],
+                correct: 1,
+                explanation: "Task names can't have spaces, so underscores are used instead."
+            },
+            {
+                question: "What R function is used to create a connection to the Databricks API?",
+                options: [
+                    "databricks::connect()",
+                    "databricks::createConnection()",
+                    "databricks::DatabricksClient()"
+                ],
+                correct: 2,
+                explanation: "The databricks::DatabricksClient() function is used to connect to the API, requiring the host URL and a personal access token."
+            },
+            {
+                question: "What R function is used to create a job programmatically?",
+                options: [
+                    "jobsCreate()",
+                    "createJob()",
+                    "newJob()"
+                ],
+                correct: 0,
+                explanation: "The jobsCreate() function from the databricks package is used to create a job, passing the client, job name, tasks, and other settings."
+            },
+            {
+                question: "What is the relationship between 'workflow' and 'job' in Databricks terminology?",
+                options: [
+                    "They are completely different things",
+                    "They mean the same thing",
+                    "A workflow contains multiple jobs"
+                ],
+                correct: 1,
+                explanation: "The terms 'workflow' and 'job' are used interchangeably but 'workflow' is archaic. In code they are referred to as 'jobs'."
+            },
+            {
+                question: "Why is it recommended to use a Git repository as the source for job tasks?",
+                options: [
+                    "It's the only way to run notebooks in a job",
+                    "Git repositories run faster than workspace notebooks",
+                    "It supports change management, version control, and easy migration"
+                ],
+                correct: 2,
+                explanation: "Jobs are processes as code, meaning they can be stored in Git accounts, change managed, and migrated easily."
+            },
+            {
+                question: "What are recommended uses of Jobs and Pipelines?",
+                options: [
+                    "Only for simple one-off queries",
+                    "RAP pipelines, data modelling tasks such as cleaning source data and collating it into analytically friendly formats",
+                    "Only for creating dashboards"
+                ],
+                correct: 1,
+                explanation: "Recommended uses include building RAP pipelines and data modelling tasks such as cleaning source data and collating it into a more analytically friendly format."
+            },
+            {
+                question: "What happens when you set job-level parameters?",
+                options: [
+                    "They are only available to the first task",
+                    "They are accessible to all tasks in the job",
+                    "They override any task-level parameters"
+                ],
+                correct: 1,
+                explanation: "Job-level parameters are accessible to all tasks in the job, which is useful when multiple tasks need the same values."
+            },
+            {
+                question: "What does the 'git_source' setting specify when creating a job in code?",
+                options: [
+                    "Only the repository URL",
+                    "The commit hash to run from",
+                    "The repository URL, Git provider, and branch to use"
+                ],
+                correct: 2,
+                explanation: "The git_source setting specifies the URL of the repository, the Git provider (e.g. GitHub), and the branch to build the job from."
+            },
+            {
+                question: "What does the jobsRunNow() function return that you need for tracking?",
+                options: [
+                    "A run ID for the specific execution of the job",
+                    "The job status",
+                    "The output of all tasks"
+                ],
+                correct: 0,
+                explanation: "A job may be run many times and each run is given an ID. The jobsRunNow() function returns a run_id needed to target a specific run."
+            },
+            {
+                question: "Why might a green tick mark on a job not always mean it succeeded?",
+                options: [
+                    "Because the UI has bugs",
+                    "Because jobs can give a false sense of security — a completed run doesn't always mean the logic produced correct results",
+                    "Because the tick mark is for a different job"
+                ],
+                correct: 1,
+                explanation: "Jobs can give a false sense of security — they can fail just like scripts, and a green tick mark doesn't always mean it succeeded."
+            },
+            {
+                question: "What notifications can be configured for a Job?",
+                options: [
+                    "Only failure notifications",
+                    "Only Slack notifications",
+                    "Email notifications for both success and failure"
+                ],
+                correct: 2,
+                explanation: "Jobs can be set up to send email notifications when they succeed or fail, configured under the Notifications section."
+            },
+            {
+                question: "What must be running before a job's tasks can execute?",
+                options: [
+                    "A compute cluster",
+                    "A dashboard",
+                    "A Git sync process"
+                ],
+                correct: 0,
+                explanation: "To run a job your cluster must be running. If it isn't running when you click 'Run now', the cluster will begin to start up automatically but this may take a few minutes."
+            }
+        ];
+
+        const QUESTIONS_PER_QUIZ = 6;
+        let selectedQuestions = [];
+
+        function shuffle(array) {
+            const arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function loadQuiz() {
+            selectedQuestions = shuffle(allQuestions).slice(0, QUESTIONS_PER_QUIZ);
+            const quizArea = document.getElementById('quiz-area');
+            quizArea.innerHTML = '';
+
+            selectedQuestions.forEach((q, idx) => {
+                const block = document.createElement('div');
+                block.className = 'question-block';
+                block.id = `q-block-${idx}`;
+
+                let optionsHtml = '';
+                q.options.forEach((opt, optIdx) => {
+                    optionsHtml += `
+                        <label>
+                            <input type="radio" name="q${idx}" value="${optIdx}">
+                            ${opt}
+                        </label>`;
+                });
+
+                block.innerHTML = `
+                    <p class="question-text"><span class="question-number">Q${idx + 1}.</span> ${q.question}</p>
+                    <div class="options">${optionsHtml}</div>
+                    <p class="feedback" id="feedback-${idx}"></p>
+                `;
+                quizArea.appendChild(block);
+            });
+
+            document.getElementById('results').className = 'results';
+            document.getElementById('results').textContent = '';
+        }
+
+        function markQuiz() {
+            let score = 0;
+
+            selectedQuestions.forEach((q, idx) => {
+                const block = document.getElementById(`q-block-${idx}`);
+                const feedback = document.getElementById(`feedback-${idx}`);
+                const selected = document.querySelector(`input[name="q${idx}"]:checked`);
+
+                block.classList.remove('correct', 'incorrect');
+                feedback.classList.remove('correct-feedback', 'incorrect-feedback');
+
+                if (selected && parseInt(selected.value) === q.correct) {
+                    score++;
+                    block.classList.add('correct');
+                    feedback.textContent = '✓ Correct!';
+                    feedback.classList.add('correct-feedback', 'show');
+                } else {
+                    block.classList.add('incorrect');
+                    const correctAnswer = q.options[q.correct];
+                    feedback.textContent = `✗ Incorrect. ${q.explanation}`;
+                    feedback.classList.add('incorrect-feedback', 'show');
+                }
+            });
+
+            const resultsDiv = document.getElementById('results');
+            const total = selectedQuestions.length;
+            const pct = Math.round((score / total) * 100);
+            resultsDiv.textContent = `You scored ${score} / ${total} (${pct}%)`;
+            resultsDiv.className = `results show ${pct >= 60 ? 'pass' : 'fail'}`;
+        }
+
+        function resetQuiz() {
+            loadQuiz();
+        }
+
+        // Initialise on load
+        loadQuiz();
+    </script>
+</body>
+</html>

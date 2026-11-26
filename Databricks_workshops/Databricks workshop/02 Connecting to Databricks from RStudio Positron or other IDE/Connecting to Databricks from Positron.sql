@@ -1,0 +1,141 @@
+-- Databricks notebook source
+-- DBTITLE 1,Introduction
+-- MAGIC %md
+-- MAGIC # Connecting to Databricks from Positron
+-- MAGIC
+-- MAGIC You can connect to Databricks from Positron in a similar way to how we currently use SQL Server from RStudio.
+-- MAGIC
+
+-- COMMAND ----------
+
+-- DBTITLE 1,Before you start
+-- MAGIC %md
+-- MAGIC # Before you start
+-- MAGIC
+-- MAGIC Before you do this you will need,
+-- MAGIC - Access to the Databricks platform
+-- MAGIC - Access to a SQL warehouse **or** a Personal Cluster on Databricks
+-- MAGIC - R and Positron downloaded and installed (with the `odbc`, `DBI`, and `usethis` packages installed)
+-- MAGIC
+-- MAGIC If you have not got access to Databricks or an SQL warehouse / Personal Cluster, review the Databricks fundementals course materials.
+-- MAGIC
+-- MAGIC ## SQL warehouse or Personal Cluster
+-- MAGIC
+-- MAGIC When connecting to Databricks, you can use either an SQL warehouse or Personal Cluser. Each connection method offers some differences in functionality.
+-- MAGIC
+-- MAGIC **We recommend you use an SQL Warehouse.** This is because they are faster to start and optimised for SQL. This makes them ideal if you already have existing RAP pipelines set up using SQL scripts in a Git repo.
+-- MAGIC
+-- MAGIC However, Personal Clusters are more flexible, supporting multiple programming languages (R, Python, and Scala,) and being able to access volumes within the Unity Catalog.
+-- MAGIC
+-- MAGIC If you only need to access tables in the Unity Catalog and only need to use SQL, use a SQL Warehouse, otherwise, use a Personal Cluster.
+
+-- COMMAND ----------
+
+-- DBTITLE 1,The Process
+-- MAGIC %md
+-- MAGIC # The Process
+-- MAGIC
+-- MAGIC To establish the connection, you will need to do three things,
+-- MAGIC 1) Install an ODBC driver onto your laptop
+-- MAGIC 2) Modify your .Renviron file
+-- MAGIC 3) Write code to connect to Databricks from Positron
+-- MAGIC
+-- MAGIC Lets go through each step in more detail
+-- MAGIC
+-- MAGIC ## Install the Simba Spark ODBC driver
+-- MAGIC
+-- MAGIC This is needed to enable the connection between your laptop and Databricks.
+-- MAGIC
+-- MAGIC You can install this from the Software Centre on your laptop (which you can find by clicking the window icon on the bottom left of your screen and seaching for it)
+-- MAGIC
+-- MAGIC On the **Applications** tab on the left hand menu, search for `databricks` and you should be able to see `Databricks ODBS Driver (MSI -x64)` click install.
+-- MAGIC
+-- MAGIC ![locating_ODBC_driver.png](./../../../images/DatabricksWorkshop/Databricks ODBC Driver2.png "Databricks ODBC Driver2.png")
+-- MAGIC
+-- MAGIC
+-- MAGIC ## Modify your .Renviron file
+-- MAGIC
+-- MAGIC This is needed to establish a connection between Positron and Databricks, by creating and modifying environment variablies in your .Renviron file.
+-- MAGIC
+-- MAGIC To open this file you will need to run `usethis::edit_r_environ()` in the console.
+-- MAGIC
+-- MAGIC **How to open the console**
+-- MAGIC
+-- MAGIC In Positron, the console is the **Console** tab in the panel at the bottom of the screen. If the bottom panel is hidden, press `Ctrl + J` to show it, or press `Ctrl + Shift + P`, type `Focus on Console View` and press Enter.
+-- MAGIC
+-- MAGIC Make sure the console is running an **R** session (shown at the top of the Console, and in the interpreter selector in the top right of Positron). If it shows Python, use the interpreter selector to start an R session instead.
+-- MAGIC
+-- MAGIC Click in the console next to the `>` prompt, type `usethis::edit_r_environ()` and press **Enter**. Your `.Renviron` file will open in a new tab in the editor, ready for you to add the variables below. Once you have finished, save the file and restart R (using the restart button at the top of the Console) so the changes take effect.
+-- MAGIC
+-- MAGIC You will need to find the following information to add to this file;
+-- MAGIC
+-- MAGIC 1) **DATABRICKS_HOST**
+-- MAGIC
+-- MAGIC     This is the instance of Databricks you want to connect to. When in Databricks, copy the "https://" path up to and including "azuredatabricks.net". Ignore anything after that.
+-- MAGIC
+-- MAGIC 2) **DATABRICKS_SQL_PATH / DATABRICKS_CLUSTER_PATH**
+-- MAGIC     
+-- MAGIC     You should pick the one you have access to from the rerequisities for this session (a SQL warehouse or Personal Cluster on Databricks).
+-- MAGIC
+-- MAGIC     For the SQL warehouse, the path can be found by clicking on **SQL Warehouses** under the "SQL" section of the left hand menu on Databricks. On this page, click on the warehouse name that you would like to get the path for. On the **Connection details** tab the SQL warehouse path is named "HTTP path", and should start with something similar to “/sql/1.0/warehouses/".
+-- MAGIC
+-- MAGIC     For the Personal Cluster, the path can be found by clicking on **Compute** in the left hand menu on Databricks. On this page, click on the cluster name that you would like to get the path for. On the **Configuration** tab, under Advanced options, select JDBC / ODBC. This will reveal the path under ""HTTP path", and should start with someting similar to "sql/protocolv1/o/".
+-- MAGIC
+-- MAGIC 3) **DATABRICKS_TOKEN**
+-- MAGIC
+-- MAGIC     This is your personal access token, a security measure that acts as an identifier to let Databricks know who you are when accessing information.
+-- MAGIC
+-- MAGIC     **They are only usable for a limited number of days so will need periodically renewing**
+-- MAGIC
+-- MAGIC     You can find this by clicking on your icon in the top right corner of databricks. In **Settings** go to the **Developer** section in the left hand menu. Here there will be a section for Access tokens, click "Manage".
+-- MAGIC
+-- MAGIC     ![locating_personal_access_tokens.png](./../../../images/ConnectingToDatabricks/locating_personal_access_tokens.png "locating_personal_access_tokens.png")
+-- MAGIC
+-- MAGIC     Here, click to "Generate new token".
+-- MAGIC     
+-- MAGIC     You will need to; name the token someting sensible so you can itentify it, set the lifetime (to a reasonable period of time 90 days is industry standard), and set the scope to Other APIs, with **all-apis** selected from the drop down menu below.
+-- MAGIC
+-- MAGIC     ![specifying_token_requirements.png](./../../../images/ConnectingToDatabricks/specifying_token_requirements.png "specifying_token_requirements.png")
+-- MAGIC     
+-- MAGIC     Then generate it!
+-- MAGIC     
+-- MAGIC     Take note of the Lifetime you have set, this will tell you how long you will have this token before you make another.
+-- MAGIC     
+-- MAGIC     **Copy the Databricks access token it generates before you leave this page, you will not be able to come back to see this again through Databricks**
+-- MAGIC
+-- MAGIC Your .Renviron file should now look like this, with the information you found above copied into the quotation marks,
+-- MAGIC
+-- MAGIC DATABRICKS_HOST="databricks-host-url"
+-- MAGIC
+-- MAGIC DATABRICKS_SQL_PATH="sql-warehouse-path" **OR** DATABRICKS_CLUSTER_PATH="personal-cluster-path"
+-- MAGIC
+-- MAGIC DATABRICKS_TOKEN="personal-access-token"
+-- MAGIC
+-- MAGIC ## Write code to pull data from Databricks into Positron
+-- MAGIC
+-- MAGIC Now you have your ODBC driver installed, and .Renviron variables set, you can start writing codes to explore data on Databricks.
+-- MAGIC
+-- MAGIC You will use the `odbc` and `DBI` package for this.
+-- MAGIC
+-- MAGIC To set up the connection, you will need to add the following code to the start of your script,
+-- MAGIC
+-- MAGIC ```
+-- MAGIC library(odbc)
+-- MAGIC library(DBI)
+-- MAGIC
+-- MAGIC con <- DBI::dbConnect(
+-- MAGIC   odbc::databricks(),
+-- MAGIC   driver = "Databricks ODBC Driver",
+-- MAGIC   httpPath = Sys.getenv("DATABRICKS_SQL_PATH")
+-- MAGIC )
+-- MAGIC ```
+-- MAGIC **NOTE**: If you are using a Personal Cluster, you will need to replace DATABRICKS_SQL_PATH with DATABRICKS_CLUSTER_PATH.
+-- MAGIC
+
+-- COMMAND ----------
+
+-- DBTITLE 1,Knowledge check quiz
+-- MAGIC %py
+-- MAGIC with open("Quiz Connecting to Databricks from Positron.html", "r", encoding="utf-8") as f:
+-- MAGIC     html_content = f.read()
+-- MAGIC displayHTML(html_content)

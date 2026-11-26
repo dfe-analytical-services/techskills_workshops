@@ -2,6 +2,8 @@
 # This script saves pipeline outputs into the outputs folder
 ################################################################################
 
+# Create summary of average pupil premium percentage by Ofsted rating ----
+
 avg_pupil_premium_by_ofsted <- pupils_schools_aut %>%
   group_by(ofsted_rating) %>%
   summarise(
