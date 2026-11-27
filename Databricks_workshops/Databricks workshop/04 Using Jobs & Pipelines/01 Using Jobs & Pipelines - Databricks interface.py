@@ -281,15 +281,3 @@
 with open("Quiz 01 Using Jobs & Pipelines - Databricks interface.html", "r", encoding="utf-8") as f:
     html_content = f.read()
     displayHTML(html_content)
-
-# COMMAND ----------
-
-# MAGIC %md
-# MAGIC ✅ Task: Create a set of notebooks
-# MAGIC 1. Create 2 or more notebooks.
-# MAGIC 2. Check that they run.
-# MAGIC
-# MAGIC ✅ Task: Create a pipeline
-# MAGIC 1. Create a new pipeline, using the above notebooks.
-# MAGIC 2. Have them dependent on each other.
-# MAGIC 3. Add a parameter and schedule them to run at a specific time.
